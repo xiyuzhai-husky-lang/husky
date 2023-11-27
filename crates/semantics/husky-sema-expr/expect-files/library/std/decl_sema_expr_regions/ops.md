@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 167,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
-                    TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`std::ops::Add`),
-                            disambiguator: 0,
+                    TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`std::ops::Add`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Trait(
-                            TraitSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(`std::ops::Add`),
-                                    disambiguator: 0,
+                            TraitSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`std::ops::Add`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -104,9 +119,11 @@
                 MajorItem(
                     Trait(
                         TraitSynNodePath(
-                            Id {
-                                value: 27,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 224,
+                                },
+                            ),
                         ),
                     ),
                 ),

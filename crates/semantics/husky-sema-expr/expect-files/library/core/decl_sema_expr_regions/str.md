@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 151,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::str::str`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::str::str`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::str::str`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::str::str`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -75,9 +90,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 37,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 81,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -140,9 +157,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 37,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 70,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -150,16 +169,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 152,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::str::StringLiteral`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::str::StringLiteral`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -169,12 +195,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::str::StringLiteral`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::str::StringLiteral`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -225,9 +259,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 38,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 82,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -290,9 +326,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 38,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 71,
+                                },
+                            ),
                         ),
                     ),
                 ),

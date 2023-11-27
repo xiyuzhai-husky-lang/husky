@@ -79,12 +79,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 14,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

@@ -2,11 +2,13 @@ use vec_like::VecMapGetEntry;
 
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id(jar = EntitySynTreeJar)]
 #[salsa::deref_id]
 pub struct AttrSynNodePath(ItemSynNodePathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct AttrSynNodePathData {
     pub parent_syn_node_path: ItemSynNodePath,
@@ -94,6 +96,7 @@ impl HasSynNodePath for AttrItemPath {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct AttrSynNode {
     syn_node_path: AttrSynNodePath,

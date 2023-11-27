@@ -6,12 +6,20 @@ EntitySynTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 75,
@@ -29,12 +37,20 @@ EntitySynTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
-                        TypeSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                disambiguator: 0,
+                        TypeSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
                             },
-                        },
+                        ),
                     ),
                 ),
                 ident: `ConcaveComponent`,
@@ -44,12 +60,20 @@ EntitySynTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 78,
@@ -73,12 +97,20 @@ EntitySynTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
-                                disambiguator: 0,
+                        FugitiveSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Fugitive(
+                                        FugitiveSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
                             },
-                        },
+                        ),
                     ),
                 ),
                 ident: `find_concave_components`,
@@ -2774,33 +2806,49 @@ EntitySynTreeSheet {
     impl_block_syn_node_table: [
         (
             ImplBlockSynNodePath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockSynNodePath {
-                    path: TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                TraitForTypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
-                        },
+                        ),
                     },
-                },
+                ),
             ),
             ImplBlockSynNode::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNode {
-                    syn_node_path: TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlock {
-                            data: TraitForTypeImplBlockPathData {
-                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                    syn_node_path: TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
-                            },
+                            ),
                         },
-                    },
+                    ),
                     ast_idx: 76,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
@@ -2828,27 +2876,43 @@ EntitySynTreeSheet {
         ),
         (
             ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 264,
-                            },
-                        ),
-                    ),
-                },
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 264,
+                TypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 264,
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                         ),
                     },
+                ),
+            ),
+            ImplBlockSynNode::TypeImplBlock(
+                TypeImplBlockSynNode {
+                    syn_node_path: TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 264,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ast_idx: 77,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(

@@ -3,9 +3,11 @@
         MajorItem(
             Type(
                 TypePath(
-                    Id {
-                        value: 33,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 64,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -23,9 +25,11 @@
         ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
-                    Id {
-                        value: 17,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 105,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -43,9 +47,11 @@
         AssociatedItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
-                    Id {
-                        value: 16,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 193,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -63,9 +69,11 @@
         AssociatedItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
-                    Id {
-                        value: 17,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 194,
+                        },
+                    ),
                 ),
             ),
         ),

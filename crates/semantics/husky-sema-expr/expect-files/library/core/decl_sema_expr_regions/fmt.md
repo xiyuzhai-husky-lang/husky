@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 15,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
-                    TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`core::fmt::Debug`),
-                            disambiguator: 0,
+                    TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::fmt::Debug`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Trait(
-                            TraitSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(`core::fmt::Debug`),
-                                    disambiguator: 0,
+                            TraitSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::fmt::Debug`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -75,9 +90,11 @@
                 MajorItem(
                     Trait(
                         TraitSynNodePath(
-                            Id {
-                                value: 6,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
                         ),
                     ),
                 ),

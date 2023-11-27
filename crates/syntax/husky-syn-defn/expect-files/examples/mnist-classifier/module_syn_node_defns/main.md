@@ -2,98 +2,140 @@
     ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
-                syn_node_path: SubmoduleSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: SubmodulePath(
-                            `mnist_classifier::connected_component`,
+                syn_node_path: SubmoduleSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmodulePath(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                         ),
-                        disambiguator: 0,
                     },
-                },
+                ),
             },
         },
     ),
     ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
-                syn_node_path: SubmoduleSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: SubmodulePath(
-                            `mnist_classifier::raw_contour`,
+                syn_node_path: SubmoduleSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmodulePath(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                         ),
-                        disambiguator: 0,
                     },
-                },
+                ),
             },
         },
     ),
     ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
-                syn_node_path: SubmoduleSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: SubmodulePath(
-                            `mnist_classifier::geom2d`,
+                syn_node_path: SubmoduleSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmodulePath(
+                                        `mnist_classifier::geom2d`,
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                         ),
-                        disambiguator: 0,
                     },
-                },
+                ),
             },
         },
     ),
     ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
-                syn_node_path: SubmoduleSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: SubmodulePath(
-                            `mnist_classifier::line_segment_sketch`,
+                syn_node_path: SubmoduleSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmodulePath(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                         ),
-                        disambiguator: 0,
                     },
-                },
+                ),
             },
         },
     ),
     ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
-                syn_node_path: SubmoduleSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: SubmodulePath(
-                            `mnist_classifier::fermi`,
+                syn_node_path: SubmoduleSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmodulePath(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                         ),
-                        disambiguator: 0,
                     },
-                },
+                ),
             },
         },
     ),
     ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
-                syn_node_path: SubmoduleSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: SubmodulePath(
-                            `mnist_classifier::digits`,
+                syn_node_path: SubmoduleSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmodulePath(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                         ),
-                        disambiguator: 0,
                     },
-                },
+                ),
             },
         },
     ),
     ItemSynNodeDefn::Submodule(
         SubmoduleSynNodeDefn {
             syn_node_decl: SubmoduleSynNodeDecl {
-                syn_node_path: SubmoduleSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: SubmodulePath(
-                            `mnist_classifier::major`,
+                syn_node_path: SubmoduleSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::Submodule(
+                            SubmoduleSynNodePathData {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: SubmodulePath(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    disambiguator: 0,
+                                },
+                            },
                         ),
-                        disambiguator: 0,
                     },
-                },
+                ),
             },
         },
     ),
@@ -101,19 +143,35 @@
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::Val(
                 ValSynNodeDefn {
-                    syn_node_path: FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::main`, `Val`),
-                            disambiguator: 0,
+                    syn_node_path: FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                     syn_node_decl: ValFugitiveSynNodeDecl {
-                        syn_node_path: FugitiveSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                disambiguator: 0,
+                        syn_node_path: FugitiveSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Fugitive(
+                                        FugitiveSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
                             },
-                        },
+                        ),
                         colon_token: Ok(
                             Some(
                                 ColonRegionalToken(
@@ -144,12 +202,20 @@
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Fugitive(
-                                            FugitiveSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                    disambiguator: 0,
+                                            FugitiveSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Fugitive(
+                                                            FugitiveSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -269,12 +335,20 @@
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::MajorItem(
                                                         MajorItemSynNodePath::Fugitive(
-                                                            FugitiveSynNodePath {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                                    disambiguator: 0,
+                                                            FugitiveSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::MajorItem(
+                                                                        MajorItemSynNodePathData::Fugitive(
+                                                                            FugitiveSynNodePathData {
+                                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                    path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -385,12 +459,20 @@
                                     path: SynNodeRegionPath::Defn(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -553,10 +635,13 @@
                                                 path_expr_idx: 11,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath {
-                                                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                            ident: `Unknown`,
-                                                        },
+                                                        TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 301,
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -736,10 +821,13 @@
                                                 ),
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath {
-                                                            parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                            ident: `Unknown`,
-                                                        },
+                                                        TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 301,
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
                                             },

@@ -186,15 +186,11 @@ fn collect_package_relative_dirs_works() {
         [
             (
                 "./core",
-                Name(
-                    "core",
-                ),
+                `core`,
             ),
             (
                 "./std",
-                Name(
-                    "std",
-                ),
+                `std`,
             ),
         ]
     "#]]
@@ -208,21 +204,15 @@ fn collect_package_relative_dirs_works() {
         [
             (
                 "./algorithms/quick-sort",
-                Name(
-                    "quick-sort",
-                ),
+                `quick-sort`,
             ),
             (
                 "./mnist-classifier",
-                Name(
-                    "mnist-classifier",
-                ),
+                `mnist-classifier`,
             ),
             (
                 "./natural-number-game",
-                Name(
-                    "natural-number-game",
-                ),
+                `natural-number-game`,
             ),
         ]
     "#]]

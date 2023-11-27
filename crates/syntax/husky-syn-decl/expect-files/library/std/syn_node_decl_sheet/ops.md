@@ -1,26 +1,41 @@
 SynNodeDeclSheet {
-    [salsa id]: 22,
     decls: [
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
-                    TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`std::ops::Add`),
-                            disambiguator: 0,
+                    TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`std::ops::Add`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Trait(
                     TraitSynNodeDecl {
-                        syn_node_path: TraitSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitPath(`std::ops::Add`),
-                                disambiguator: 0,
+                        syn_node_path: TraitSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Trait(
+                                        TraitSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitPath(`std::ops::Add`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
                             },
-                        },
+                        ),
                         template_parameter_decl_list: Ok(
                             Some(
                                 SynTemplateParameterSyndicateList {
@@ -62,12 +77,20 @@ SynNodeDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
-                                            TraitSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitPath(`std::ops::Add`),
-                                                    disambiguator: 0,
+                                            TraitSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Trait(
+                                                            TraitSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TraitPath(`std::ops::Add`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),

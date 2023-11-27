@@ -32,12 +32,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::slice::Slice`, `Extern`),
-                                        disambiguator: 0,
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::slice::Slice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -149,20 +157,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `len`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 211,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -204,20 +218,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `swap`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 212,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -355,12 +375,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                        disambiguator: 0,
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -523,23 +551,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                TraitForTypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `Output`,
-                                            item_kind: AssociatedType,
-                                        },
-                                        disambiguator: 0,
+                                TraitForTypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitForTypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 213,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -644,20 +675,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `ilen`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 214,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -699,20 +736,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `start`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 215,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -754,20 +797,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `end`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 216,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -809,20 +858,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `first`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 217,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -883,20 +938,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::slice`,
-                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `last`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 218,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {

@@ -1,27 +1,42 @@
 SynNodeDeclSheet {
-    [salsa id]: 38,
     decls: [
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
                     TypeSynNodeDecl::PropsStruct(
                         PropsStructTypeSynNodeDecl {
-                            syn_node_path: TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
+                            syn_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -116,12 +131,20 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -369,24 +392,40 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Fugitive(
                     FugitiveSynNodeDecl::FunctionFn(
                         FnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                                    disambiguator: 0,
+                            syn_node_path: FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -474,12 +513,20 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -848,25 +895,45 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::fermi`,
-                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 332,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
             ItemSynNodeDecl::ImplBlock(
                 ImplBlockSynNodeDecl::Type(
                     TypeImplBlockSynNodeDecl {
-                        syn_node_path: TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath {
-                                module_path: `mnist_classifier::fermi`,
-                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                disambiguator: 0,
+                        syn_node_path: TypeImplBlockSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 332,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
                             },
-                        },
+                        ),
                         impl_regional_token: ImplRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
                                 1,
@@ -893,13 +960,23 @@ SynNodeDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::fermi`,
-                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 332,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -984,40 +1061,52 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `norm`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 344,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
             ItemSynNodeDecl::AssociatedItem(
                 AssociatedItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
-                            syn_node_path: TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::fermi`,
-                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `norm`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            syn_node_path: TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 344,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                             colon_token: Ok(
                                 Some(
                                     ColonRegionalToken(
@@ -1051,13 +1140,23 @@ SynNodeDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::fermi`,
-                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 332,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1139,20 +1238,26 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::fermi`,
-                                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `norm`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 344,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1238,40 +1343,52 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `rel_norm`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 345,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
             ItemSynNodeDecl::AssociatedItem(
                 AssociatedItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
-                            syn_node_path: TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::fermi`,
-                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `rel_norm`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            syn_node_path: TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 345,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                             colon_token: Ok(
                                 Some(
                                     ColonRegionalToken(
@@ -1305,13 +1422,23 @@ SynNodeDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::fermi`,
-                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 332,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1393,20 +1520,26 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::fermi`,
-                                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `rel_norm`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 345,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1492,40 +1625,52 @@ SynNodeDeclSheet {
         (
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `angle_change_norm`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 346,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
             ItemSynNodeDecl::AssociatedItem(
                 AssociatedItemSynNodeDecl::TypeItem(
                     TypeItemSynNodeDecl::MemoizedField(
                         TypeMemoizedFieldSynNodeDecl {
-                            syn_node_path: TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::fermi`,
-                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `angle_change_norm`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            syn_node_path: TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 346,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                             colon_token: Ok(
                                 Some(
                                     ColonRegionalToken(
@@ -1559,13 +1704,23 @@ SynNodeDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::fermi`,
-                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 332,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1647,20 +1802,26 @@ SynNodeDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::fermi`,
-                                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `angle_change_norm`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 346,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),

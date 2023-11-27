@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 11,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
-                    TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`core::cmp::PartialEq`),
-                            disambiguator: 0,
+                    TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::PartialEq`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Trait(
-                            TraitSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(`core::cmp::PartialEq`),
-                                    disambiguator: 0,
+                            TraitSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::cmp::PartialEq`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -75,9 +90,11 @@
                 MajorItem(
                     Trait(
                         TraitSynNodePath(
-                            Id {
-                                value: 2,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 29,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -148,16 +165,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 12,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
-                    TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`core::cmp::Eq`),
-                            disambiguator: 0,
+                    TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::Eq`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -167,12 +191,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Trait(
-                            TraitSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(`core::cmp::Eq`),
-                                    disambiguator: 0,
+                            TraitSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::cmp::Eq`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -223,9 +255,11 @@
                 MajorItem(
                     Trait(
                         TraitSynNodePath(
-                            Id {
-                                value: 3,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 30,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -296,16 +330,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 13,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
-                    TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`core::cmp::PartialOrd`),
-                            disambiguator: 0,
+                    TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::PartialOrd`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -315,12 +356,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Trait(
-                            TraitSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(`core::cmp::PartialOrd`),
-                                    disambiguator: 0,
+                            TraitSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::cmp::PartialOrd`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -371,9 +420,11 @@
                 MajorItem(
                     Trait(
                         TraitSynNodePath(
-                            Id {
-                                value: 4,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -444,16 +495,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 14,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Trait(
-                    TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`core::cmp::Ord`),
-                            disambiguator: 0,
+                    TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::Ord`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -463,12 +521,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Trait(
-                            TraitSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitPath(`core::cmp::Ord`),
-                                    disambiguator: 0,
+                            TraitSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitPath(`core::cmp::Ord`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -519,9 +585,11 @@
                 MajorItem(
                     Trait(
                         TraitSynNodePath(
-                            Id {
-                                value: 5,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
                         ),
                     ),
                 ),

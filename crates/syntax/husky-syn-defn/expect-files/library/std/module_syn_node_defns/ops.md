@@ -2,19 +2,35 @@
     ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Trait(
             TraitSynNodeDefn {
-                syn_node_path: TraitSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: TraitPath(`std::ops::Add`),
-                        disambiguator: 0,
+                syn_node_path: TraitSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Trait(
+                                TraitSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`std::ops::Add`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
                     },
-                },
+                ),
                 syn_node_decl: TraitSynNodeDecl {
-                    syn_node_path: TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`std::ops::Add`),
-                            disambiguator: 0,
+                    syn_node_path: TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`std::ops::Add`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                     template_parameter_decl_list: Ok(
                         Some(
                             SynTemplateParameterSyndicateList {
@@ -56,12 +72,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Trait(
-                                        TraitSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`std::ops::Add`),
-                                                disambiguator: 0,
+                                        TraitSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Trait(
+                                                        TraitSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TraitPath(`std::ops::Add`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),

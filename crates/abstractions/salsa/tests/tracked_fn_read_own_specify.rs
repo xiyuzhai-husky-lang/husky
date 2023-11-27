@@ -39,7 +39,7 @@ fn execute() {
     assert_eq!(tracked_fn(&db, input), 2222);
     db.assert_logs(expect![[r#"
         [
-            "tracked_fn(MyInput { [salsa id]: 0, field: 22 })",
+            "tracked_fn(MyInput { field: 22 })",
         ]"#]]);
 
     // A "synthetic write" causes the system to act *as though* some

@@ -5,14 +5,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `mnist_classifier::digits::zero`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `mnist_classifier::digits::zero`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
@@ -26,14 +32,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `mnist_classifier::digits::zero`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits::zero`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `zero`,
                 visibility: Scope::PubUnder(
@@ -43,14 +56,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `mnist_classifier::digits::one`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `mnist_classifier::digits::one`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
@@ -64,14 +83,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `mnist_classifier::digits::one`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits::one`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `one`,
                 visibility: Scope::PubUnder(
@@ -81,14 +107,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `mnist_classifier::digits::six`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `mnist_classifier::digits::six`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
@@ -102,14 +134,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `mnist_classifier::digits::six`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits::six`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `six`,
                 visibility: Scope::PubUnder(
@@ -119,14 +158,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `mnist_classifier::digits::three`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `mnist_classifier::digits::three`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
@@ -140,14 +185,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `mnist_classifier::digits::three`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits::three`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `three`,
                 visibility: Scope::PubUnder(
@@ -157,14 +209,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `mnist_classifier::digits::four`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `mnist_classifier::digits::four`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
@@ -178,14 +236,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `mnist_classifier::digits::four`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits::four`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `four`,
                 visibility: Scope::PubUnder(
@@ -195,14 +260,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `mnist_classifier::digits::five`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `mnist_classifier::digits::five`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
@@ -216,14 +287,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `mnist_classifier::digits::five`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits::five`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `five`,
                 visibility: Scope::PubUnder(
@@ -233,14 +311,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `mnist_classifier::digits::seven`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `mnist_classifier::digits::seven`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
@@ -254,14 +338,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `mnist_classifier::digits::seven`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits::seven`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `seven`,
                 visibility: Scope::PubUnder(
@@ -271,14 +362,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `mnist_classifier::digits::eight`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `mnist_classifier::digits::eight`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
@@ -292,14 +389,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `mnist_classifier::digits::eight`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits::eight`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `eight`,
                 visibility: Scope::PubUnder(
@@ -309,14 +413,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `mnist_classifier::digits::nine`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `mnist_classifier::digits::nine`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
@@ -330,14 +440,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `mnist_classifier::digits::nine`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits::nine`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `nine`,
                 visibility: Scope::PubUnder(
@@ -347,14 +464,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `mnist_classifier::digits::two`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `mnist_classifier::digits::two`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
@@ -368,14 +491,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `mnist_classifier::digits::two`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits::two`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `two`,
                 visibility: Scope::PubUnder(

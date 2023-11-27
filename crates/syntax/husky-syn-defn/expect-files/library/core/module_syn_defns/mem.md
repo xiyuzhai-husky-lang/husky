@@ -56,12 +56,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::mem::Ref`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::mem::Ref`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -240,12 +248,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::mem::RefMut`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::mem::RefMut`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -404,12 +420,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::mem::Leash`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::mem::Leash`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -537,12 +561,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::mem::At`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::mem::At`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -652,13 +684,15 @@ Ok(
         SynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `core::mem`,
-                        trai_path: TraitPath(`core::marker::Copy`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::mem::Leash`, `Extern`),
-                        ),
-                        disambiguator: 0,
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `core::mem`,
+                            trai_path: TraitPath(`core::marker::Copy`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`core::mem::Leash`, `Extern`),
+                            ),
+                            disambiguator: 0,
+                        },
                     },
                     template_parameters: [
                         TemplateSynParameterData {
@@ -689,16 +723,26 @@ Ok(
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::mem`,
-                                                trai_path: TraitPath(`core::marker::Copy`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::mem::Leash`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::mem`,
+                                                                    trai_path: TraitPath(`core::marker::Copy`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::mem::Leash`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),

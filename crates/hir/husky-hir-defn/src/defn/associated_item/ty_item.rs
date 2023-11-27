@@ -97,7 +97,7 @@ impl HasHirDefn for TypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn ty_item_hir_defn(db: &::salsa::Db, path: TypeItemPath) -> Option<TypeItemHirDefn> {
     match path.hir_decl(db)? {
         TypeItemHirDecl::AssociatedFn(hir_decl) => {

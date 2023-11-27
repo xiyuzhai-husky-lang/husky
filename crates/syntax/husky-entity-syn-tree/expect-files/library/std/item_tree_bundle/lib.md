@@ -7,14 +7,20 @@ EntitySynTreeCrateBundle {
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `std::prelude`,
+                                syn_node_path: SubmoduleSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmodulePath(
+                                                        `std::prelude`,
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                         ),
-                                        disambiguator: 0,
                                     },
-                                },
+                                ),
                                 visibility: Scope::PubUnder(
                                     `std`,
                                 ),
@@ -28,14 +34,21 @@ EntitySynTreeCrateBundle {
                             },
                         ),
                         syn_node_path: ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `std::prelude`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `std::prelude`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         ident: `prelude`,
                         visibility: Scope::PubUnder(
@@ -45,14 +58,20 @@ EntitySynTreeCrateBundle {
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `std::logic`,
+                                syn_node_path: SubmoduleSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmodulePath(
+                                                        `std::logic`,
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                         ),
-                                        disambiguator: 0,
                                     },
-                                },
+                                ),
                                 visibility: Scope::PubUnder(
                                     `std`,
                                 ),
@@ -66,14 +85,21 @@ EntitySynTreeCrateBundle {
                             },
                         ),
                         syn_node_path: ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `std::logic`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `std::logic`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         ident: `logic`,
                         visibility: Scope::PubUnder(
@@ -83,14 +109,20 @@ EntitySynTreeCrateBundle {
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
                             SubmoduleSynNode {
-                                syn_node_path: SubmoduleSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `std::ops`,
+                                syn_node_path: SubmoduleSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::Submodule(
+                                            SubmoduleSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: SubmodulePath(
+                                                        `std::ops`,
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
                                         ),
-                                        disambiguator: 0,
                                     },
-                                },
+                                ),
                                 visibility: Scope::PubUnder(
                                     `std`,
                                 ),
@@ -104,14 +136,21 @@ EntitySynTreeCrateBundle {
                             },
                         ),
                         syn_node_path: ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `std::ops`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `std::ops`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         ident: `ops`,
                         visibility: Scope::PubUnder(
@@ -344,12 +383,20 @@ EntitySynTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Trait(
-                                    TraitSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`std::ops::Add`),
-                                            disambiguator: 0,
+                                    TraitSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Trait(
+                                                    TraitSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: TraitPath(`std::ops::Add`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
-                                    },
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `std::ops`,
@@ -375,12 +422,20 @@ EntitySynTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
-                                TraitSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitPath(`std::ops::Add`),
-                                        disambiguator: 0,
+                                TraitSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitPath(`std::ops::Add`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         ident: `Add`,

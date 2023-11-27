@@ -3,19 +3,35 @@
         MajorItemSynNodeDefn::Fugitive(
             FugitiveSynNodeDefn::FunctionFn(
                 FnSynNodeDefn {
-                    syn_node_path: FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                            disambiguator: 0,
+                    syn_node_path: FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                     syn_node_decl: FnSynNodeDecl {
-                        syn_node_path: FugitiveSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                                disambiguator: 0,
+                        syn_node_path: FugitiveSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Fugitive(
+                                        FugitiveSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
                             },
-                        },
+                        ),
                         template_parameter_obelisk_list: Ok(
                             None,
                         ),
@@ -103,12 +119,20 @@
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Fugitive(
-                                            FugitiveSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                                                    disambiguator: 0,
+                                            FugitiveSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Fugitive(
+                                                            FugitiveSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -366,12 +390,20 @@
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::MajorItem(
                                                         MajorItemSynNodePath::Fugitive(
-                                                            FugitiveSynNodePath {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                                                                    disambiguator: 0,
+                                                            FugitiveSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::MajorItem(
+                                                                        MajorItemSynNodePathData::Fugitive(
+                                                                            FugitiveSynNodePathData {
+                                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -620,12 +652,20 @@
                                     path: SynNodeRegionPath::Defn(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),

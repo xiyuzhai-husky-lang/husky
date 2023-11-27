@@ -262,12 +262,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                        disambiguator: 0,
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -448,23 +456,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                TraitForTypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TraitForTypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitForTypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 450,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -560,20 +571,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `norm`,
-                                            item_kind: MemoizedField,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 403,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -633,20 +650,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `rel_norm`,
-                                            item_kind: MemoizedField,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 404,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -743,20 +766,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `hausdorff_norm`,
-                                            item_kind: MemoizedField,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 405,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -1272,20 +1301,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `angle_change`,
-                                            item_kind: MemoizedField,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 406,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -1699,20 +1734,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `bounding_box`,
-                                            item_kind: MemoizedField,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 407,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -2621,20 +2662,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `relative_bounding_box`,
-                                            item_kind: MemoizedField,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 408,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -2739,20 +2786,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `line_segment`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 409,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -2951,20 +3004,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `start`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 410,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -3064,20 +3123,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `end`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 411,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -3177,20 +3242,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `displacement`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 412,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -3267,20 +3338,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `start_tangent`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 413,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -3369,20 +3446,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `end_tangent`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 414,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -3472,12 +3555,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {

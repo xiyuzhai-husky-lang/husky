@@ -46,13 +46,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::mem`,
-                    trai_path: TraitPath(`core::marker::Copy`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::mem::Leash`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::mem`,
+                        trai_path: TraitPath(`core::marker::Copy`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::mem::Leash`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [
@@ -101,13 +103,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::mem`,
-                                    trai_path: TraitPath(`core::marker::Copy`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::mem::Leash`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::mem`,
+                                        trai_path: TraitPath(`core::marker::Copy`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::mem::Leash`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),

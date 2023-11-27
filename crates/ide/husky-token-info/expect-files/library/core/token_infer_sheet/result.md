@@ -65,12 +65,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::result::Result`, `Enum`),
-                                        disambiguator: 0,
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::result::Result`, `Enum`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -417,23 +425,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                TraitForTypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `core::result`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::result::Result`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `Continue`,
-                                            item_kind: AssociatedType,
-                                        },
-                                        disambiguator: 0,
+                                TraitForTypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitForTypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 208,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -470,23 +481,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                TraitForTypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `core::result`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::result::Result`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `branch`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TraitForTypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitForTypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 209,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {

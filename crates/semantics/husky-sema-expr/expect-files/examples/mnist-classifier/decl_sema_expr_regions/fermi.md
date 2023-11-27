@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 238,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -269,9 +284,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 57,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 279,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -312,9 +329,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 59,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 255,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -449,9 +468,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 59,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 255,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -598,9 +619,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 34,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 67,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -619,9 +642,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 255,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -697,9 +722,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 34,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 67,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -718,9 +745,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 255,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1264,9 +1293,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 62,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 260,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1274,16 +1305,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 239,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1293,12 +1331,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1664,9 +1710,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 25,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 280,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1734,9 +1782,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 59,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 255,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1817,9 +1867,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 59,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 255,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1875,9 +1927,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2013,9 +2067,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 62,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 260,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2098,9 +2154,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 34,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 67,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2138,9 +2196,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 255,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2178,9 +2238,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 34,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 67,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2199,9 +2261,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 255,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2239,9 +2303,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2317,9 +2383,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 62,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 260,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2959,17 +3027,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 240,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::fermi`,
-                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 364,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2979,13 +3056,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 364,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3067,13 +3154,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 32,
+                                    value: 376,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -3087,9 +3174,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 62,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 260,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3148,9 +3237,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 62,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 260,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3237,9 +3328,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 62,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 260,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3247,24 +3340,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 241,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `norm`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 376,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -3277,13 +3375,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::fermi`,
-                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 364,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3365,20 +3473,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::fermi`,
-                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `norm`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 376,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3461,9 +3575,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 57,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 398,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3478,9 +3594,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3539,9 +3657,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3628,9 +3748,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 62,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 260,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3638,24 +3760,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 242,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `rel_norm`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 377,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -3668,13 +3795,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::fermi`,
-                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 364,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3756,20 +3893,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::fermi`,
-                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `rel_norm`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 377,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3852,9 +3995,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 58,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 399,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3869,9 +4014,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3930,9 +4077,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4019,9 +4168,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 62,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 260,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4029,24 +4180,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 243,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `angle_change_norm`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 378,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -4059,13 +4215,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::fermi`,
-                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 364,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4147,20 +4313,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::fermi`,
-                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `angle_change_norm`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 378,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -4243,9 +4415,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 400,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4260,9 +4434,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4321,9 +4497,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4410,9 +4588,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 62,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 260,
+                                },
+                            ),
                         ),
                     ),
                 ),

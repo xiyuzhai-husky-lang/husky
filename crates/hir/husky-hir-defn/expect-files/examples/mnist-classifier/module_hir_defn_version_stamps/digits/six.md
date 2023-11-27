@@ -3,9 +3,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 34,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 270,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -23,9 +25,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 35,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 271,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -43,9 +47,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 36,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 272,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -63,9 +69,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 37,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 273,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -83,9 +91,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 38,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 274,
+                        },
+                    ),
                 ),
             ),
         ),

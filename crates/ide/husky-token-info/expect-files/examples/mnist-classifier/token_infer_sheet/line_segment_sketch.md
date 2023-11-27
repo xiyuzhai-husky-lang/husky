@@ -7,14 +7,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -26,14 +33,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::line_segment_sketch::convex_component`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -45,14 +59,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convexity`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::line_segment_sketch::convexity`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -64,14 +85,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::line_segment_sketch::line_segment`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -301,12 +329,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                        disambiguator: 0,
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -615,23 +651,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                TraitForTypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TraitForTypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitForTypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 454,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -774,20 +813,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `new`,
-                                            item_kind: AssociatedFunctionFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 423,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -1090,20 +1135,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `displacement`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 424,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -1200,12 +1251,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                        disambiguator: 0,
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -1377,23 +1436,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                TraitForTypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TraitForTypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TraitForTypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 455,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -1489,20 +1551,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `concave_components`,
-                                            item_kind: MemoizedField,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 433,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -1610,20 +1678,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `bounding_box`,
-                                            item_kind: MemoizedField,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 434,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -2487,20 +2561,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `new`,
-                                            item_kind: AssociatedFunctionFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 435,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -2748,12 +2828,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -3455,12 +3543,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -4162,12 +4258,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -5804,12 +5908,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -7588,12 +7700,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {

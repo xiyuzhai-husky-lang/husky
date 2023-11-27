@@ -32,12 +32,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -198,12 +206,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -279,18 +295,25 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `One`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 346,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `One`,
-                            },
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 346,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -666,18 +689,25 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         11,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 335,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 335,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -1126,18 +1156,25 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         24,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 335,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 335,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -3036,18 +3073,25 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         44,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 335,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 335,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -3059,12 +3103,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -3262,12 +3314,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -3479,12 +3539,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {

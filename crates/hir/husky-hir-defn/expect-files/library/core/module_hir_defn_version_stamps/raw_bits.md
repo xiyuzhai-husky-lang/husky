@@ -3,9 +3,11 @@
         MajorItem(
             Type(
                 TypePath(
-                    Id {
-                        value: 32,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 63,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -23,9 +25,11 @@
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(
-                    Id {
-                        value: 15,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 104,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -43,9 +47,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 27,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 188,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -63,9 +69,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 28,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 189,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -83,9 +91,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 29,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 190,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -103,9 +113,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 30,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 191,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -123,9 +135,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 31,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 192,
+                        },
+                    ),
                 ),
             ),
         ),

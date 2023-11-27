@@ -279,12 +279,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 15,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -327,12 +323,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 16,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -375,12 +367,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 17,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -423,12 +411,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 18,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -471,12 +455,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 19,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -519,12 +499,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 20,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -567,12 +543,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 21,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

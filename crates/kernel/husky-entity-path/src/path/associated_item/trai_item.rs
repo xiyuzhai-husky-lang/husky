@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::as_id]
 #[salsa::deref_id]
 pub struct TraitItemPath(ItemPathId);
 

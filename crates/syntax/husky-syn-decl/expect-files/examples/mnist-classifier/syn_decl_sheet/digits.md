@@ -1,8 +1,8 @@
 SynDeclSheet {
-    [salsa id]: 37,
     decls: [
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits::zero`,
                 ),
@@ -17,6 +17,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits::one`,
                 ),
@@ -31,6 +32,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits::six`,
                 ),
@@ -45,6 +47,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits::three`,
                 ),
@@ -59,6 +62,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits::four`,
                 ),
@@ -73,6 +77,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits::five`,
                 ),
@@ -87,6 +92,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits::seven`,
                 ),
@@ -101,6 +107,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits::eight`,
                 ),
@@ -115,6 +122,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits::nine`,
                 ),
@@ -129,6 +137,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits::two`,
                 ),

@@ -3,7 +3,7 @@ use vec_like::VecPairMap;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-// #[salsa::as_id(jar =  EntityPathJar)]
+#[salsa::as_id]
 #[salsa::deref_id]
 pub struct AttrItemPath(ItemPathId);
 

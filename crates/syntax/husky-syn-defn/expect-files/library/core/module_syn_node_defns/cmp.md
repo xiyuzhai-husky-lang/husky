@@ -2,19 +2,35 @@
     ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Trait(
             TraitSynNodeDefn {
-                syn_node_path: TraitSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: TraitPath(`core::cmp::PartialEq`),
-                        disambiguator: 0,
+                syn_node_path: TraitSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Trait(
+                                TraitSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::cmp::PartialEq`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
                     },
-                },
+                ),
                 syn_node_decl: TraitSynNodeDecl {
-                    syn_node_path: TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`core::cmp::PartialEq`),
-                            disambiguator: 0,
+                    syn_node_path: TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::PartialEq`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                     template_parameter_decl_list: Ok(
                         None,
                     ),
@@ -24,12 +40,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Trait(
-                                        TraitSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::cmp::PartialEq`),
-                                                disambiguator: 0,
+                                        TraitSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Trait(
+                                                        TraitSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TraitPath(`core::cmp::PartialEq`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -82,19 +106,35 @@
     ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Trait(
             TraitSynNodeDefn {
-                syn_node_path: TraitSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: TraitPath(`core::cmp::Eq`),
-                        disambiguator: 0,
+                syn_node_path: TraitSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Trait(
+                                TraitSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::cmp::Eq`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
                     },
-                },
+                ),
                 syn_node_decl: TraitSynNodeDecl {
-                    syn_node_path: TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`core::cmp::Eq`),
-                            disambiguator: 0,
+                    syn_node_path: TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::Eq`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                     template_parameter_decl_list: Ok(
                         None,
                     ),
@@ -104,12 +144,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Trait(
-                                        TraitSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::cmp::Eq`),
-                                                disambiguator: 0,
+                                        TraitSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Trait(
+                                                        TraitSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TraitPath(`core::cmp::Eq`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -162,19 +210,35 @@
     ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Trait(
             TraitSynNodeDefn {
-                syn_node_path: TraitSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: TraitPath(`core::cmp::PartialOrd`),
-                        disambiguator: 0,
+                syn_node_path: TraitSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Trait(
+                                TraitSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::cmp::PartialOrd`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
                     },
-                },
+                ),
                 syn_node_decl: TraitSynNodeDecl {
-                    syn_node_path: TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`core::cmp::PartialOrd`),
-                            disambiguator: 0,
+                    syn_node_path: TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::PartialOrd`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                     template_parameter_decl_list: Ok(
                         None,
                     ),
@@ -184,12 +248,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Trait(
-                                        TraitSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::cmp::PartialOrd`),
-                                                disambiguator: 0,
+                                        TraitSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Trait(
+                                                        TraitSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TraitPath(`core::cmp::PartialOrd`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -242,19 +314,35 @@
     ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Trait(
             TraitSynNodeDefn {
-                syn_node_path: TraitSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: TraitPath(`core::cmp::Ord`),
-                        disambiguator: 0,
+                syn_node_path: TraitSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Trait(
+                                TraitSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::cmp::Ord`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
                     },
-                },
+                ),
                 syn_node_decl: TraitSynNodeDecl {
-                    syn_node_path: TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`core::cmp::Ord`),
-                            disambiguator: 0,
+                    syn_node_path: TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::cmp::Ord`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                     template_parameter_decl_list: Ok(
                         None,
                     ),
@@ -264,12 +352,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Trait(
-                                        TraitSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::cmp::Ord`),
-                                                disambiguator: 0,
+                                        TraitSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Trait(
+                                                        TraitSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TraitPath(`core::cmp::Ord`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),

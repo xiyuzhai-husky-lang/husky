@@ -66,13 +66,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -88,9 +90,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 59,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 223,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -103,18 +107,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `visualize`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 372,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -143,11 +142,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 329,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -166,15 +167,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `norm`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 373,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -182,15 +181,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `norm`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 373,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -207,15 +204,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `rel_norm`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 374,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -223,15 +218,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `rel_norm`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 374,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -248,15 +241,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `hausdorff_norm`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 375,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -264,15 +255,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `hausdorff_norm`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 375,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -289,15 +278,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `angle_change`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 376,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -305,15 +292,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `angle_change`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 376,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -330,15 +315,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `bounding_box`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 377,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -346,15 +329,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `bounding_box`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 377,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -371,15 +352,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `relative_bounding_box`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 378,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -387,15 +366,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `relative_bounding_box`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 378,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -412,15 +389,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `line_segment`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 379,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -428,15 +403,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `line_segment`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 379,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -464,15 +437,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `start`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 380,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -480,15 +451,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `start`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 380,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -516,15 +485,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `end`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 381,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -532,15 +499,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `end`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 381,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -568,15 +533,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `displacement`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 382,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -584,15 +547,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `displacement`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 382,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -620,15 +581,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `start_tangent`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 383,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -636,15 +595,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `start_tangent`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 383,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -672,15 +629,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `end_tangent`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 384,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -688,15 +643,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `end_tangent`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 384,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],

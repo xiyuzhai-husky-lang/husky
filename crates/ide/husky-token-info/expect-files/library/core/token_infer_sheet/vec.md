@@ -95,12 +95,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
-                                TypeSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::vec::Vec`, `Extern`),
-                                        disambiguator: 0,
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -212,20 +220,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `ilen`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 220,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -267,20 +281,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `push`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 221,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -339,20 +359,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `first`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 222,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -415,20 +441,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `last`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 223,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -491,20 +523,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `pop`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 224,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -567,20 +605,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `collect_leashes`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 225,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -653,20 +697,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `cyclic_slice_leashed`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 226,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {
@@ -808,20 +858,26 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssociatedItem(
                             AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `pop_with_largest_opt_f32`,
-                                            item_kind: MethodFn,
-                                        },
-                                        disambiguator: 0,
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 227,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         AssociatedItem {

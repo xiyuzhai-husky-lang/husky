@@ -88,7 +88,7 @@ impl HasHirDefn for FugitivePath {
     }
 }
 
-// #[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn fugitive_hir_defn(db: &::salsa::Db, path: FugitivePath) -> Option<FugitiveHirDefn> {
     match path.hir_decl(db)? {
         FugitiveHirDecl::FunctionFn(hir_decl) => {

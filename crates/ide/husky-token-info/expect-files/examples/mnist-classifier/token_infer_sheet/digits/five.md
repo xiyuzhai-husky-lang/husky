@@ -36,12 +36,20 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         MajorItem {
@@ -117,18 +125,25 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Five`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 350,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                ident: `Five`,
-                            },
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 350,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },
@@ -159,18 +174,25 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 335,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            Room32,
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 335,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 },

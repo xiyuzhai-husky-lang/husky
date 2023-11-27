@@ -1,5 +1,4 @@
 SynDeclSheet {
-    [salsa id]: 8,
     decls: [
         (
             ItemPath::MajorItem(
@@ -18,12 +17,20 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
-                                            TraitSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitPath(`core::marker::Copy`),
-                                                    disambiguator: 0,
+                                            TraitSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Trait(
+                                                            TraitSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TraitPath(`core::marker::Copy`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -90,12 +97,20 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Trait(
-                                            TraitSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitPath(`core::marker::Sized`),
-                                                    disambiguator: 0,
+                                            TraitSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Trait(
+                                                            TraitSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TraitPath(`core::marker::Sized`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),

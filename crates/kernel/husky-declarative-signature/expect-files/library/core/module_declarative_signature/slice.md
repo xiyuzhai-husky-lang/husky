@@ -66,11 +66,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 107,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -99,15 +101,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `len`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 165,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -115,15 +115,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `len`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 165,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
@@ -161,15 +159,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `swap`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 166,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -177,15 +173,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `swap`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 166,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
@@ -246,13 +240,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::slice`,
-                    trai_path: TraitPath(`core::ops::IntIndex`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::slice::CyclicSlice`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::slice`,
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -291,18 +287,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::slice`,
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `Output`,
-                    item_kind: AssociatedType,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 167,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -323,11 +314,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 109,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -356,15 +349,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `ilen`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 168,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -372,15 +363,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `ilen`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 168,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
@@ -418,15 +407,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `start`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 169,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -434,15 +421,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `start`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 169,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
@@ -480,15 +465,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `end`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 170,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -496,15 +479,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `end`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 170,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
@@ -542,15 +523,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `first`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 171,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -558,15 +537,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `first`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 171,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
@@ -604,15 +581,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `last`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 172,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -620,15 +595,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `last`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 172,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [

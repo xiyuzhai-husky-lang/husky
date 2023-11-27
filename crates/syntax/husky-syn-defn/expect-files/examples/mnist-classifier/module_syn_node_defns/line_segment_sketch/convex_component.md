@@ -3,19 +3,35 @@
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::PropsStruct(
                 PropsStructTypeSynNodeDefn {
-                    syn_node_path: TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                            disambiguator: 0,
+                    syn_node_path: TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                     syn_node_decl: PropsStructTypeSynNodeDecl {
-                        syn_node_path: TypeSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                disambiguator: 0,
+                        syn_node_path: TypeSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
                             },
-                        },
+                        ),
                         template_parameter_decl_list: Ok(
                             None,
                         ),
@@ -110,12 +126,20 @@
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Type(
-                                            TypeSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                    disambiguator: 0,
+                                            TypeSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Type(
+                                                            TypeSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -359,16 +383,26 @@
     ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
-                syn_node_path: TraitForTypeImplBlockSynNodePath {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                syn_node_path: TraitForTypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
                         ),
-                        disambiguator: 0,
                     },
-                },
+                ),
                 impl_regional_token: ImplRegionalToken {
                     regional_token_idx: RegionalTokenIdx(
                         1,
@@ -405,16 +439,26 @@
                         path: SynNodeRegionPath::Decl(
                             ItemSynNodePath::ImplBlock(
                                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockSynNodePath {
-                                        path: TraitForTypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                    TraitForTypeImplBlockSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::ImplBlock(
+                                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlockSynNodePathData {
+                                                        path: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                                ty_sketch: TypeSketch::Path(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    },
+                                                ),
                                             ),
-                                            disambiguator: 0,
                                         },
-                                    },
+                                    ),
                                 ),
                             ),
                         ),
@@ -528,41 +572,47 @@
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
-                    syn_node_path: TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `visualize`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
-                        },
-                    },
-                    syn_node_decl: TraitForTypeMethodFnSynNodeDecl {
-                        syn_node_path: TraitForTypeItemSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                        ),
-                                        disambiguator: 0,
+                    syn_node_path: TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 404,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
                                     },
-                                    ident: `visualize`,
-                                    item_kind: MethodFn,
-                                },
-                                disambiguator: 0,
-                            },
+                                ),
+                            ),
                         },
+                    ),
+                    syn_node_decl: TraitForTypeMethodFnSynNodeDecl {
+                        syn_node_path: TraitForTypeItemSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::AssociatedItem(
+                                    AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        TraitForTypeItemSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 404,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                         template_parameter_decl_list: Ok(
                             None,
                         ),
@@ -618,16 +668,26 @@
                                             path: SynNodeRegionPath::Decl(
                                                 ItemSynNodePath::ImplBlock(
                                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                        TraitForTypeImplBlockSynNodePath {
-                                                            path: TraitForTypeImplBlockPath {
-                                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                        TraitForTypeImplBlockSynNodePath(
+                                                            ItemSynNodePathId {
+                                                                data: ItemSynNodePathData::ImplBlock(
+                                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                        TraitForTypeImplBlockSynNodePathData {
+                                                                            path: TraitForTypeImplBlock {
+                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                                                    ),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            },
+                                                                        },
+                                                                    ),
                                                                 ),
-                                                                disambiguator: 0,
                                                             },
-                                                        },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -738,23 +798,26 @@
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::AssociatedItem(
                                         AssociatedItemSynNodePath::TraitForTypeItem(
-                                            TraitForTypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath {
-                                                        impl_block: TraitForTypeImplBlockPath {
-                                                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                            ),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `visualize`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
+                                            TraitForTypeItemSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::AssociatedItem(
+                                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                            TraitForTypeItemSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TraitForTypeItemPath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 404,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -848,16 +911,26 @@
                                                             path: SynNodeRegionPath::Decl(
                                                                 ItemSynNodePath::ImplBlock(
                                                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                                        TraitForTypeImplBlockSynNodePath {
-                                                                            path: TraitForTypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                                                ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                                        TraitForTypeImplBlockSynNodePath(
+                                                                            ItemSynNodePathId {
+                                                                                data: ItemSynNodePathData::ImplBlock(
+                                                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                                        TraitForTypeImplBlockSynNodePathData {
+                                                                                            path: TraitForTypeImplBlock {
+                                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                                                                    ),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            },
+                                                                                        },
+                                                                                    ),
                                                                                 ),
-                                                                                disambiguator: 0,
                                                                             },
-                                                                        },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -968,23 +1041,26 @@
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::AssociatedItem(
                                                         AssociatedItemSynNodePath::TraitForTypeItem(
-                                                            TraitForTypeItemSynNodePath {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitForTypeItemPath {
-                                                                        impl_block: TraitForTypeImplBlockPath {
-                                                                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                                                            ty_sketch: TypeSketch::Path(
-                                                                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                                            ),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                        ident: `visualize`,
-                                                                        item_kind: MethodFn,
-                                                                    },
-                                                                    disambiguator: 0,
+                                                            TraitForTypeItemSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::AssociatedItem(
+                                                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                            TraitForTypeItemSynNodePathData {
+                                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                    path: TraitForTypeItemPath(
+                                                                                        ItemPathId(
+                                                                                            Id {
+                                                                                                value: 404,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1066,23 +1142,26 @@
                                     path: SynNodeRegionPath::Defn(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `visualize`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 404,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),

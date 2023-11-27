@@ -321,13 +321,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `mnist_classifier::connected_component`,
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `mnist_classifier::connected_component`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -346,13 +348,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `mnist_classifier::connected_component`,
+                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -395,11 +399,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::connected_component`,
-                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 348,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -413,11 +419,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 348,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),

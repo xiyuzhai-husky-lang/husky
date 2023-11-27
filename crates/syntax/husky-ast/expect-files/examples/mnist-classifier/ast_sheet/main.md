@@ -89,13 +89,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 27,
-                            },
-                        ),
+                        `mnist_classifier::connected_component`,
                     ),
                 },
             },
@@ -127,13 +123,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 47,
-                            },
-                        ),
+                        `mnist_classifier::raw_contour`,
                     ),
                 },
             },
@@ -165,13 +157,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 40,
-                            },
-                        ),
+                        `mnist_classifier::geom2d`,
                     ),
                 },
             },
@@ -203,13 +191,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 41,
-                            },
-                        ),
+                        `mnist_classifier::line_segment_sketch`,
                     ),
                 },
             },
@@ -241,13 +225,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 39,
-                            },
-                        ),
+                        `mnist_classifier::fermi`,
                     ),
                 },
             },
@@ -279,13 +259,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 28,
-                            },
-                        ),
+                        `mnist_classifier::digits`,
                     ),
                 },
             },
@@ -317,13 +293,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 46,
-                            },
-                        ),
+                        `mnist_classifier::major`,
                     ),
                 },
             },
@@ -488,12 +460,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 7,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::main`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

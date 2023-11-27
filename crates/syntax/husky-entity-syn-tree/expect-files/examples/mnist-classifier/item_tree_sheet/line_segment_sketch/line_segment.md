@@ -6,12 +6,20 @@ EntitySynTreeSheet {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 17,
@@ -29,12 +37,20 @@ EntitySynTreeSheet {
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(
-                        TypeSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                disambiguator: 0,
+                        TypeSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
                             },
-                        },
+                        ),
                     ),
                 ),
                 ident: `LineSegment`,
@@ -208,27 +224,43 @@ EntitySynTreeSheet {
     impl_block_syn_node_table: [
         (
             ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 266,
-                            },
-                        ),
-                    ),
-                },
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 266,
+                TypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 266,
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                         ),
                     },
+                ),
+            ),
+            ImplBlockSynNode::TypeImplBlock(
+                TypeImplBlockSynNode {
+                    syn_node_path: TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 266,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
                     ast_idx: 18,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(

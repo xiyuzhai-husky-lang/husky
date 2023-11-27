@@ -38,7 +38,7 @@ update-expect:
 
 update-expect-local:
 	cargo check --tests
-	UPDATE_EXPECT=1 cargo test module_defn_rust_transpilation_works --features "allow-print" -- --test-threads 1 --nocapture\
+	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture\
 		|| scripts/play_update_expect_failure_music.sh
 	scripts/play_update_expect_success_music.sh
 

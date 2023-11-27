@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 280,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -265,9 +280,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 54,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 274,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -282,9 +299,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 58,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 249,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -340,9 +359,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 36,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 69,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -398,9 +419,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 57,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 248,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -520,9 +543,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 58,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 249,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -560,9 +585,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 36,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 69,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -600,9 +627,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 57,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 248,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -970,9 +999,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -980,16 +1011,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 281,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -999,12 +1037,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1208,9 +1254,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 23,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 275,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1225,9 +1273,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 58,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 249,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1309,9 +1359,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 59,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 255,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1409,9 +1461,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 58,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 249,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1449,9 +1503,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 34,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 67,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1470,9 +1526,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 255,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1785,20 +1843,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 282,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1808,16 +1875,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1928,13 +2005,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 30,
+                                    value: 372,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -1948,9 +2025,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 72,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1964,9 +2043,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -1981,9 +2062,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 59,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 255,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2051,9 +2134,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 26,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 72,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2072,9 +2157,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 255,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2130,9 +2217,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2188,9 +2277,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2198,27 +2289,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 283,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `visualize`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 404,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2231,16 +2324,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2351,23 +2454,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 404,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2450,9 +2556,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 21,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 426,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2467,9 +2575,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 39,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 73,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2528,9 +2638,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 73,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2617,9 +2729,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2627,17 +2741,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 284,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 361,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2647,13 +2770,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 361,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2735,13 +2868,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 30,
+                                    value: 373,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -2755,9 +2888,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 59,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 255,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2816,9 +2951,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 255,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2905,9 +3042,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2915,24 +3054,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 285,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `norm`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 405,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2945,13 +3089,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3033,20 +3187,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `norm`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 405,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3129,9 +3289,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 85,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 427,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3146,9 +3308,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3207,9 +3371,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3296,9 +3462,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3306,24 +3474,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 286,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `rel_norm`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 406,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -3336,13 +3509,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3424,20 +3607,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `rel_norm`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 406,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3520,9 +3709,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 86,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 428,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3537,9 +3728,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3598,9 +3791,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3687,9 +3882,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3697,24 +3894,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 287,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `hausdorff_norm`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 407,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -3727,13 +3929,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3815,20 +4027,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `hausdorff_norm`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 407,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3911,9 +4129,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 87,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 429,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3928,9 +4148,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3989,9 +4211,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4078,9 +4302,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4088,24 +4314,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 288,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `angle_change`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 408,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -4118,13 +4349,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4206,20 +4447,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `angle_change`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 408,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -4302,9 +4549,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 88,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 430,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4319,9 +4568,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4380,9 +4631,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4469,9 +4722,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4479,24 +4734,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 289,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `bounding_box`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 409,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -4509,13 +4769,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4597,20 +4867,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `bounding_box`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 409,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -4693,9 +4969,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 89,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 431,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4710,9 +4988,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 55,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 246,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4771,9 +5051,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 55,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 246,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4860,9 +5142,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4870,24 +5154,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 290,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `relative_bounding_box`,
-                                item_kind: MemoizedField,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 410,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -4900,13 +5189,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4988,20 +5287,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `relative_bounding_box`,
-                                        item_kind: MemoizedField,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 410,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -5084,9 +5389,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 90,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 432,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5101,9 +5408,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 56,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 247,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5162,9 +5471,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 56,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 247,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5251,9 +5562,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5261,24 +5574,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 291,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `line_segment`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 411,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -5291,13 +5609,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5379,20 +5707,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `line_segment`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 411,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -5475,9 +5809,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 91,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 433,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5492,9 +5828,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 61,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 259,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5553,9 +5891,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 61,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 259,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5642,9 +5982,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5652,24 +5994,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 292,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `start`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 412,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -5682,13 +6029,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5770,20 +6127,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `start`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 412,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -5866,9 +6229,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 92,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 434,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5883,9 +6248,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 51,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 242,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5944,9 +6311,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 51,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 242,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6033,9 +6402,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -6043,24 +6414,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 293,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `end`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 413,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -6073,13 +6449,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -6161,20 +6547,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `end`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 413,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -6257,9 +6649,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 93,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 435,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -6274,9 +6668,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 51,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 242,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -6335,9 +6731,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 51,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 242,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6424,9 +6822,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -6434,24 +6834,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 294,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `displacement`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 414,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -6464,13 +6869,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -6552,20 +6967,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `displacement`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 414,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -6648,9 +7069,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 94,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 436,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -6665,9 +7088,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 53,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 244,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -6726,9 +7151,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 53,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 244,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6815,9 +7242,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -6825,24 +7254,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 295,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `start_tangent`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 415,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -6855,13 +7289,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -6943,20 +7387,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `start_tangent`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 415,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -7039,9 +7489,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 95,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 437,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -7056,9 +7508,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 53,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 244,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7117,9 +7571,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 53,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 244,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7206,9 +7662,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -7216,24 +7674,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 296,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `end_tangent`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 416,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -7246,13 +7709,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 361,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -7334,20 +7807,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `end_tangent`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 416,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -7430,9 +7909,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 96,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 438,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -7447,9 +7928,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 53,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 244,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7508,9 +7991,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 53,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 244,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7597,9 +8082,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 59,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 255,
+                                },
+                            ),
                         ),
                     ),
                 ),

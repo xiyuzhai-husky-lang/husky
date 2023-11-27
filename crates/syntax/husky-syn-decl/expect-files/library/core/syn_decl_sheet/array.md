@@ -1,5 +1,4 @@
 SynDeclSheet {
-    [salsa id]: 1,
     decls: [
         (
             ItemPath::MajorItem(
@@ -64,12 +63,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::array::Array`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::array::Array`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),

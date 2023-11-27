@@ -1,11 +1,13 @@
 use super::*;
 use smallvec::SmallVec;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
 pub struct TraitItemSynNodePath(ItemSynNodePathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TraitItemSynNodePathData {
     pub parent_trai_syn_node_path: TraitSynNodePath,
@@ -108,6 +110,7 @@ impl HasSynNodePath for TraitItemPath {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TraitItemSynNode {
     syn_node_path: TraitItemSynNodePath,

@@ -127,7 +127,7 @@ impl HasSynDefn for FugitivePath {
     }
 }
 
-// #[salsa::tracked(jar= SynDefnJar)]
+#[salsa::tracked(jar= SynDefnJar)]
 pub(crate) fn fugitive_syn_defn(
     db: &::salsa::Db,
     path: FugitivePath,

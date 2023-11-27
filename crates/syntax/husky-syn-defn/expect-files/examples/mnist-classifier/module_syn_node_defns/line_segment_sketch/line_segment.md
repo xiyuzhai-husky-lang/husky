@@ -3,19 +3,35 @@
         MajorItemSynNodeDefn::Type(
             TypeSynNodeDefn::PropsStruct(
                 PropsStructTypeSynNodeDefn {
-                    syn_node_path: TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                            disambiguator: 0,
+                    syn_node_path: TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                     syn_node_decl: PropsStructTypeSynNodeDecl {
-                        syn_node_path: TypeSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                disambiguator: 0,
+                        syn_node_path: TypeSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Type(
+                                        TypeSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
                             },
-                        },
+                        ),
                         template_parameter_decl_list: Ok(
                             None,
                         ),
@@ -110,12 +126,20 @@
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::MajorItem(
                                         MajorItemSynNodePath::Type(
-                                            TypeSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                    disambiguator: 0,
+                                            TypeSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Type(
+                                                            TypeSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -316,13 +340,23 @@
     ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::Type(
             TypeImplBlockSynNodeDecl {
-                syn_node_path: TypeImplBlockSynNodePath {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                        disambiguator: 0,
+                syn_node_path: TypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 348,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
                     },
-                },
+                ),
                 impl_regional_token: ImplRegionalToken {
                     regional_token_idx: RegionalTokenIdx(
                         1,
@@ -349,13 +383,23 @@
                         path: SynNodeRegionPath::Decl(
                             ItemSynNodePath::ImplBlock(
                                 ImplBlockSynNodePath::TypeImplBlock(
-                                    TypeImplBlockSynNodePath {
-                                        path: TypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                            disambiguator: 0,
+                                    TypeImplBlockSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::ImplBlock(
+                                                ImplBlockSynNodePathData::TypeImplBlock(
+                                                    TypeImplBlockSynNodePathData {
+                                                        path: TypeImplBlockPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 348,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                         },
-                                    },
+                                    ),
                                 ),
                             ),
                         ),
@@ -440,35 +484,47 @@
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
-                    syn_node_path: TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `displacement`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
-                        },
-                    },
-                    syn_node_decl: TypeMethodFnSynNodeDecl {
-                        syn_node_path: TypeItemSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                        disambiguator: 0,
+                    syn_node_path: TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 405,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
                                     },
-                                    ident: `displacement`,
-                                    item_kind: MethodFn,
-                                },
-                                disambiguator: 0,
-                            },
+                                ),
+                            ),
                         },
+                    ),
+                    syn_node_decl: TypeMethodFnSynNodeDecl {
+                        syn_node_path: TypeItemSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::AssociatedItem(
+                                    AssociatedItemSynNodePathData::TypeItem(
+                                        TypeItemSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 405,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                         template_parameters: Ok(
                             None,
                         ),
@@ -524,13 +580,23 @@
                                             path: SynNodeRegionPath::Decl(
                                                 ItemSynNodePath::ImplBlock(
                                                     ImplBlockSynNodePath::TypeImplBlock(
-                                                        TypeImplBlockSynNodePath {
-                                                            path: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                disambiguator: 0,
+                                                        TypeImplBlockSynNodePath(
+                                                            ItemSynNodePathId {
+                                                                data: ItemSynNodePathData::ImplBlock(
+                                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                                        TypeImplBlockSynNodePathData {
+                                                                            path: TypeImplBlockPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 348,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                ),
                                                             },
-                                                        },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -612,20 +678,26 @@
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::AssociatedItem(
                                         AssociatedItemSynNodePath::TypeItem(
-                                            TypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath {
-                                                        impl_block: TypeImplBlockPath {
-                                                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `displacement`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
+                                            TypeItemSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::AssociatedItem(
+                                                        AssociatedItemSynNodePathData::TypeItem(
+                                                            TypeItemSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TypeItemPath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 405,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -719,13 +791,23 @@
                                                             path: SynNodeRegionPath::Decl(
                                                                 ItemSynNodePath::ImplBlock(
                                                                     ImplBlockSynNodePath::TypeImplBlock(
-                                                                        TypeImplBlockSynNodePath {
-                                                                            path: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                                disambiguator: 0,
+                                                                        TypeImplBlockSynNodePath(
+                                                                            ItemSynNodePathId {
+                                                                                data: ItemSynNodePathData::ImplBlock(
+                                                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                        TypeImplBlockSynNodePathData {
+                                                                                            path: TypeImplBlockPath(
+                                                                                                ItemPathId(
+                                                                                                    Id {
+                                                                                                        value: 348,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                ),
                                                                             },
-                                                                        },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -807,20 +889,26 @@
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::AssociatedItem(
                                                         AssociatedItemSynNodePath::TypeItem(
-                                                            TypeItemSynNodePath {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TypeItemPath {
-                                                                        impl_block: TypeImplBlockPath {
-                                                                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                        ident: `displacement`,
-                                                                        item_kind: MethodFn,
-                                                                    },
-                                                                    disambiguator: 0,
+                                                            TypeItemSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::AssociatedItem(
+                                                                        AssociatedItemSynNodePathData::TypeItem(
+                                                                            TypeItemSynNodePathData {
+                                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                    path: TypeItemPath(
+                                                                                        ItemPathId(
+                                                                                            Id {
+                                                                                                value: 405,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -902,20 +990,26 @@
                                     path: SynNodeRegionPath::Defn(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `displacement`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 405,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1052,35 +1146,47 @@
         AssociatedItemSynNodeDefn::TypeItem(
             TypeItemSynNodeDefn::MethodFn(
                 TypeMethodFnSynNodeDefn {
-                    syn_node_path: TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `dist_to_point`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
-                        },
-                    },
-                    syn_node_decl: TypeMethodFnSynNodeDecl {
-                        syn_node_path: TypeItemSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypeItemPath {
-                                    impl_block: TypeImplBlockPath {
-                                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                        disambiguator: 0,
+                    syn_node_path: TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 406,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
                                     },
-                                    ident: `dist_to_point`,
-                                    item_kind: MethodFn,
-                                },
-                                disambiguator: 0,
-                            },
+                                ),
+                            ),
                         },
+                    ),
+                    syn_node_decl: TypeMethodFnSynNodeDecl {
+                        syn_node_path: TypeItemSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::AssociatedItem(
+                                    AssociatedItemSynNodePathData::TypeItem(
+                                        TypeItemSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 406,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                         template_parameters: Ok(
                             None,
                         ),
@@ -1151,13 +1257,23 @@
                                             path: SynNodeRegionPath::Decl(
                                                 ItemSynNodePath::ImplBlock(
                                                     ImplBlockSynNodePath::TypeImplBlock(
-                                                        TypeImplBlockSynNodePath {
-                                                            path: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                disambiguator: 0,
+                                                        TypeImplBlockSynNodePath(
+                                                            ItemSynNodePathId {
+                                                                data: ItemSynNodePathData::ImplBlock(
+                                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                                        TypeImplBlockSynNodePathData {
+                                                                            path: TypeImplBlockPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 348,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                ),
                                                             },
-                                                        },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1239,20 +1355,26 @@
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::AssociatedItem(
                                         AssociatedItemSynNodePath::TypeItem(
-                                            TypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath {
-                                                        impl_block: TypeImplBlockPath {
-                                                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `dist_to_point`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
+                                            TypeItemSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::AssociatedItem(
+                                                        AssociatedItemSynNodePathData::TypeItem(
+                                                            TypeItemSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TypeItemPath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 406,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1434,13 +1556,23 @@
                                                             path: SynNodeRegionPath::Decl(
                                                                 ItemSynNodePath::ImplBlock(
                                                                     ImplBlockSynNodePath::TypeImplBlock(
-                                                                        TypeImplBlockSynNodePath {
-                                                                            path: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                                disambiguator: 0,
+                                                                        TypeImplBlockSynNodePath(
+                                                                            ItemSynNodePathId {
+                                                                                data: ItemSynNodePathData::ImplBlock(
+                                                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                        TypeImplBlockSynNodePathData {
+                                                                                            path: TypeImplBlockPath(
+                                                                                                ItemPathId(
+                                                                                                    Id {
+                                                                                                        value: 348,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                ),
                                                                             },
-                                                                        },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -1522,20 +1654,26 @@
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::AssociatedItem(
                                                         AssociatedItemSynNodePath::TypeItem(
-                                                            TypeItemSynNodePath {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TypeItemPath {
-                                                                        impl_block: TypeImplBlockPath {
-                                                                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                            disambiguator: 0,
-                                                                        },
-                                                                        ident: `dist_to_point`,
-                                                                        item_kind: MethodFn,
-                                                                    },
-                                                                    disambiguator: 0,
+                                                            TypeItemSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::AssociatedItem(
+                                                                        AssociatedItemSynNodePathData::TypeItem(
+                                                                            TypeItemSynNodePathData {
+                                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                    path: TypeItemPath(
+                                                                                        ItemPathId(
+                                                                                            Id {
+                                                                                                value: 406,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1705,20 +1843,26 @@
                                     path: SynNodeRegionPath::Defn(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `dist_to_point`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 406,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),

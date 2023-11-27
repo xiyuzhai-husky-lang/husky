@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 214,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -107,9 +122,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 52,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 317,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -124,9 +141,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 62,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 260,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -185,9 +204,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 62,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 260,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -274,16 +295,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 215,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -293,12 +321,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -483,9 +519,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 53,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 318,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -500,9 +538,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 59,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 255,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -558,9 +598,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -659,9 +701,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 255,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -699,9 +743,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -945,16 +991,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 216,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -964,12 +1017,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1052,9 +1113,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 54,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 319,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1069,9 +1132,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 62,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 260,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1130,9 +1195,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 62,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 260,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1219,16 +1286,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 217,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1238,12 +1312,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1428,9 +1510,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 55,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 320,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1445,9 +1529,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 59,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 255,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1503,9 +1589,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1604,9 +1692,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 255,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1644,9 +1734,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1890,16 +1982,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 218,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1909,12 +2008,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2099,9 +2206,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 56,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 321,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2116,9 +2225,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 59,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 255,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2174,9 +2285,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2275,9 +2388,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 255,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2315,9 +2430,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2561,16 +2678,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 219,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2580,12 +2704,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2619,10 +2751,13 @@
                             path_expr_idx: 4,
                             opt_path: Some(
                                 PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                        ident: `Seven`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 335,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         },
@@ -2696,10 +2831,13 @@
                             ),
                             path: Ok(
                                 PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                        ident: `Seven`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 335,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         },
@@ -2751,9 +2889,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 57,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 322,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2768,9 +2908,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 64,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 317,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2799,9 +2941,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 66,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 327,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2855,9 +2999,11 @@
                                     path_expr_idx: 4,
                                     path: TypeVariant(
                                         TypeVariantPath(
-                                            Id {
-                                                value: 27,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 335,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -2870,9 +3016,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 66,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 327,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -2943,9 +3091,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 66,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 327,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2964,9 +3114,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 64,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 317,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3004,9 +3156,11 @@
                                 EntityPath(
                                     TypeVariant(
                                         TypeVariantPath(
-                                            Id {
-                                                value: 27,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 335,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3241,9 +3395,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 66,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 327,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -3277,9 +3433,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 66,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 327,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -3299,9 +3457,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 66,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 327,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),

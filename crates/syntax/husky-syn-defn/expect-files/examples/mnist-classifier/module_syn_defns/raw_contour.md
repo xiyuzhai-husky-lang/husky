@@ -52,12 +52,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -289,12 +297,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -394,12 +410,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -657,12 +681,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -911,12 +943,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -1146,12 +1186,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1409,12 +1457,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -1663,12 +1719,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -1869,12 +1933,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2132,12 +2204,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -2386,12 +2466,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -2635,12 +2723,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2977,12 +3073,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -3310,12 +3414,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3453,10 +3565,13 @@ Ok(
                                                     path_expr_idx: 4,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3464,10 +3579,13 @@ Ok(
                                                     path_expr_idx: 6,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3480,10 +3598,13 @@ Ok(
                                                     path_expr_idx: 8,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3501,10 +3622,13 @@ Ok(
                                                     path_expr_idx: 10,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3512,10 +3636,13 @@ Ok(
                                                     path_expr_idx: 12,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3523,10 +3650,13 @@ Ok(
                                                     path_expr_idx: 14,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3549,10 +3679,13 @@ Ok(
                                                     path_expr_idx: 16,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3560,10 +3693,13 @@ Ok(
                                                     path_expr_idx: 18,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3648,10 +3784,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3687,10 +3826,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3726,10 +3868,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3765,10 +3910,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3804,10 +3952,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3843,10 +3994,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3882,10 +4036,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -3921,10 +4078,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -5308,12 +5468,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5571,12 +5739,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -5825,12 +6001,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6619,12 +6803,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7040,12 +7232,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -7452,12 +7652,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7595,10 +7803,13 @@ Ok(
                                                     path_expr_idx: 4,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7606,10 +7817,13 @@ Ok(
                                                     path_expr_idx: 6,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7632,10 +7846,13 @@ Ok(
                                                     path_expr_idx: 8,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7643,10 +7860,13 @@ Ok(
                                                     path_expr_idx: 10,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7664,10 +7884,13 @@ Ok(
                                                     path_expr_idx: 14,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7675,10 +7898,13 @@ Ok(
                                                     path_expr_idx: 18,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7691,10 +7917,13 @@ Ok(
                                                     path_expr_idx: 20,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7717,10 +7946,13 @@ Ok(
                                                     path_expr_idx: 22,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7738,10 +7970,13 @@ Ok(
                                                     path_expr_idx: 26,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7749,10 +7984,13 @@ Ok(
                                                     path_expr_idx: 30,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7780,10 +8018,13 @@ Ok(
                                                     path_expr_idx: 32,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7791,10 +8032,13 @@ Ok(
                                                     path_expr_idx: 34,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7879,10 +8123,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7918,10 +8165,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7957,10 +8207,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -7996,10 +8249,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8035,10 +8291,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8074,10 +8333,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8113,10 +8375,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8152,10 +8417,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8191,10 +8459,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8230,10 +8501,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8269,10 +8543,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8308,10 +8585,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8347,10 +8627,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8386,10 +8669,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8425,10 +8711,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -8464,10 +8753,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -9639,17 +9931,23 @@ Ok(
                                                     },
                                                     SynPatternExpr::TypeVariantUnit {
                                                         path_expr_idx: 12,
-                                                        path: TypeVariantPath {
-                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                            ident: `Down`,
-                                                        },
+                                                        path: TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 199,
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
                                                     SynPatternExpr::TypeVariantUnit {
                                                         path_expr_idx: 16,
-                                                        path: TypeVariantPath {
-                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                            ident: `Up`,
-                                                        },
+                                                        path: TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 197,
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
                                                     SynPatternExpr::Ident {
                                                         symbol_modifier_tokens: None,
@@ -9759,17 +10057,23 @@ Ok(
                                                     },
                                                     SynPatternExpr::TypeVariantUnit {
                                                         path_expr_idx: 24,
-                                                        path: TypeVariantPath {
-                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                            ident: `Left`,
-                                                        },
+                                                        path: TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 198,
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
                                                     SynPatternExpr::TypeVariantUnit {
                                                         path_expr_idx: 28,
-                                                        path: TypeVariantPath {
-                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                            ident: `Right`,
-                                                        },
+                                                        path: TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 200,
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
                                                     SynPatternExpr::Ident {
                                                         symbol_modifier_tokens: None,
@@ -10535,12 +10839,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -10773,12 +11085,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -10970,12 +11290,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -11158,12 +11486,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11892,12 +12228,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -12096,12 +12440,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -12291,12 +12643,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15963,10 +16323,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Up`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 197,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -16002,10 +16365,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Down`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 199,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -16041,10 +16407,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Left`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 198,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -16080,10 +16449,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                                ident: `Right`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 200,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -17740,31 +18112,43 @@ Ok(
                                                     },
                                                     SynPatternExpr::TypeVariantUnit {
                                                         path_expr_idx: 13,
-                                                        path: TypeVariantPath {
-                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                            ident: `Up`,
-                                                        },
+                                                        path: TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 197,
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
                                                     SynPatternExpr::TypeVariantUnit {
                                                         path_expr_idx: 15,
-                                                        path: TypeVariantPath {
-                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                            ident: `Down`,
-                                                        },
+                                                        path: TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 199,
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
                                                     SynPatternExpr::TypeVariantUnit {
                                                         path_expr_idx: 17,
-                                                        path: TypeVariantPath {
-                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                            ident: `Left`,
-                                                        },
+                                                        path: TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 198,
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
                                                     SynPatternExpr::TypeVariantUnit {
                                                         path_expr_idx: 19,
-                                                        path: TypeVariantPath {
-                                                            parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                                            ident: `Right`,
-                                                        },
+                                                        path: TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 200,
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
                                                 ],
                                             },
@@ -18973,13 +19357,15 @@ Ok(
         SynDefn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockSynDecl {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
-                        disambiguator: 0,
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `mnist_classifier::raw_contour`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                            ),
+                            disambiguator: 0,
+                        },
                     },
                     template_parameters: [],
                     trai_expr: TraitSyndicate {
@@ -18996,16 +19382,26 @@ Ok(
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `mnist_classifier::raw_contour`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::raw_contour`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -19119,31 +19515,21 @@ Ok(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
                     TraitForTypeMethodFnSynDefn {
-                        path: TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `mnist_classifier::raw_contour`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                ),
-                                disambiguator: 0,
-                            },
-                            ident: `visualize`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    ),
-                                    disambiguator: 0,
+                        path: TraitForTypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 396,
                                 },
-                                ident: `visualize`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TraitForTypeMethodFnSynDecl {
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 396,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -19161,16 +19547,26 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::raw_contour`,
+                                                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -19281,23 +19677,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `visualize`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 396,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -19391,16 +19790,26 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                                            TraitForTypeImplBlockSynNodePath {
-                                                                                path: TraitForTypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                                    ty_sketch: TypeSketch::Path(
-                                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                            TraitForTypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                                path: TraitForTypeImplBlock {
+                                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::raw_contour`,
+                                                                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                                        ),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                },
+                                                                                            },
+                                                                                        ),
                                                                                     ),
-                                                                                    disambiguator: 0,
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -19511,23 +19920,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                                TraitForTypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath {
-                                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                                                ty_sketch: TypeSketch::Path(
-                                                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                ),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `visualize`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TraitForTypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                                TraitForTypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TraitForTypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 396,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -19609,23 +20021,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath {
-                                                                impl_block: TraitForTypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    ),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `visualize`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TraitForTypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                    TraitForTypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TraitForTypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 396,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -19771,11 +20186,13 @@ Ok(
         SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 318,
+                            },
+                        ),
+                    ),
                     template_parameters: [],
                     self_ty_expr: SelfTypeSyndicate {
                         expr: 1,
@@ -19786,13 +20203,23 @@ Ok(
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::raw_contour`,
-                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 318,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -19877,25 +20304,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
                     TypeMemoizedFieldSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::raw_contour`,
-                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `line_segment_sketch`,
-                            item_kind: MemoizedField,
-                        },
-                        decl: TypeMemoizedFieldSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 397,
                                 },
-                                ident: `line_segment_sketch`,
-                                item_kind: MemoizedField,
-                            },
+                            ),
+                        ),
+                        decl: TypeMemoizedFieldSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 397,
+                                    },
+                                ),
+                            ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
@@ -19911,13 +20334,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 318,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -19999,20 +20432,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `line_segment_sketch`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 397,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -20106,13 +20545,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 318,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -20194,20 +20643,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `line_segment_sketch`,
-                                                                            item_kind: MemoizedField,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 397,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -20289,20 +20744,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `line_segment_sketch`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 397,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -20456,25 +20917,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
                     TypeMemoizedFieldSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::raw_contour`,
-                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `bounding_box`,
-                            item_kind: MemoizedField,
-                        },
-                        decl: TypeMemoizedFieldSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 398,
                                 },
-                                ident: `bounding_box`,
-                                item_kind: MemoizedField,
-                            },
+                            ),
+                        ),
+                        decl: TypeMemoizedFieldSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 398,
+                                    },
+                                ),
+                            ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
@@ -20490,13 +20947,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 318,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -20578,20 +21045,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `bounding_box`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 398,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -20685,13 +21158,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 318,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -20773,20 +21256,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `bounding_box`,
-                                                                            item_kind: MemoizedField,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 398,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -20868,20 +21357,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `bounding_box`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 398,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -22298,25 +22793,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
                     TypeMemoizedFieldSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::raw_contour`,
-                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `relative_bounding_box`,
-                            item_kind: MemoizedField,
-                        },
-                        decl: TypeMemoizedFieldSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 399,
                                 },
-                                ident: `relative_bounding_box`,
-                                item_kind: MemoizedField,
-                            },
+                            ),
+                        ),
+                        decl: TypeMemoizedFieldSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 399,
+                                    },
+                                ),
+                            ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
@@ -22332,13 +22823,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 318,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -22420,20 +22921,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `relative_bounding_box`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 399,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -22527,13 +23034,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 318,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -22615,20 +23132,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `relative_bounding_box`,
-                                                                            item_kind: MemoizedField,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 399,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -22710,20 +23233,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `relative_bounding_box`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 399,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -22909,25 +23438,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
                     TypeMemoizedFieldSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::raw_contour`,
-                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `contour_len`,
-                            item_kind: MemoizedField,
-                        },
-                        decl: TypeMemoizedFieldSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 400,
                                 },
-                                ident: `contour_len`,
-                                item_kind: MemoizedField,
-                            },
+                            ),
+                        ),
+                        decl: TypeMemoizedFieldSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 400,
+                                    },
+                                ),
+                            ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
                                     expr: 1,
@@ -22943,13 +23468,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 318,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -23031,20 +23566,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `contour_len`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 400,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -23138,13 +23679,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 318,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -23226,20 +23777,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `contour_len`,
-                                                                            item_kind: MemoizedField,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 400,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -23321,20 +23878,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `contour_len`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 400,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -24638,25 +25201,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::raw_contour`,
-                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `displacement`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 401,
                                 },
-                                ident: `displacement`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 401,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -24703,13 +25262,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 318,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -24791,20 +25360,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `displacement`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 401,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -25065,13 +25640,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 318,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -25153,20 +25738,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `displacement`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 401,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -25415,20 +26006,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `displacement`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 401,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),

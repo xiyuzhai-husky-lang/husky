@@ -36,12 +36,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -132,11 +140,13 @@ Ok(
         SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
-                    path: TypeImplBlockPath {
-                        module_path: `core::vec`,
-                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 106,
+                            },
+                        ),
+                    ),
                     template_parameters: [
                         TemplateSynParameterData {
                             annotated_variance_token: None,
@@ -161,13 +171,23 @@ Ok(
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 106,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -302,25 +322,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
-                            },
-                            ident: `ilen`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 167,
                                 },
-                                ident: `ilen`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 167,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -338,13 +354,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::vec`,
-                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 106,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -476,20 +502,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::vec`,
-                                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `ilen`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 167,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -589,25 +621,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
-                            },
-                            ident: `push`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 168,
                                 },
-                                ident: `push`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 168,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
@@ -659,13 +687,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::vec`,
-                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 106,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -797,20 +835,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::vec`,
-                                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `push`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 168,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -955,25 +999,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
-                            },
-                            ident: `first`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 169,
                                 },
-                                ident: `first`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 169,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
@@ -1009,13 +1049,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::vec`,
-                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 106,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1147,20 +1197,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::vec`,
-                                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `first`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 169,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1286,25 +1342,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
-                            },
-                            ident: `last`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 170,
                                 },
-                                ident: `last`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 170,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
@@ -1340,13 +1392,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::vec`,
-                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 106,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1478,20 +1540,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::vec`,
-                                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `last`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 170,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1617,25 +1685,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
-                            },
-                            ident: `pop`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 171,
                                 },
-                                ident: `pop`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 171,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
@@ -1676,13 +1740,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::vec`,
-                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 106,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1814,20 +1888,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::vec`,
-                                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `pop`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 171,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1943,25 +2023,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
-                            },
-                            ident: `collect_leashes`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 172,
                                 },
-                                ident: `collect_leashes`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 172,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
@@ -1996,13 +2072,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::vec`,
-                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 106,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2134,20 +2220,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::vec`,
-                                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `collect_leashes`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 172,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2253,25 +2345,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
-                            },
-                            ident: `cyclic_slice_leashed`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 173,
                                 },
-                                ident: `cyclic_slice_leashed`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 173,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
@@ -2335,13 +2423,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::vec`,
-                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 106,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2473,20 +2571,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::vec`,
-                                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `cyclic_slice_leashed`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 173,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2776,25 +2880,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
-                            },
-                            ident: `pop_with_largest_opt_f32`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 174,
                                 },
-                                ident: `pop_with_largest_opt_f32`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 174,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
@@ -2850,13 +2950,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::vec`,
-                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 106,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2988,20 +3098,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::vec`,
-                                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `pop_with_largest_opt_f32`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 174,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),

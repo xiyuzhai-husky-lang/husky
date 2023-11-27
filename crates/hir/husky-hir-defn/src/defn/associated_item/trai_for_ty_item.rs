@@ -86,7 +86,7 @@ impl HasHirDefn for TraitForTypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn trai_for_ty_item_hir_defn(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,

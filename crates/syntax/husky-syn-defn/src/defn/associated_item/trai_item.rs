@@ -131,7 +131,7 @@ impl HasSynDefn for TraitItemPath {
     }
 }
 
-// #[salsa::tracked(jar = SynDefnJar)]
+#[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn trai_item_syn_defn(
     db: &::salsa::Db,
     path: TraitItemPath,

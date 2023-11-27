@@ -212,12 +212,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 43,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -283,12 +279,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 44,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -331,12 +323,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 45,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -379,12 +367,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 46,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -427,12 +411,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 47,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

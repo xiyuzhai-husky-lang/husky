@@ -1,8 +1,8 @@
 SynDeclSheet {
-    [salsa id]: 20,
     decls: [
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `std::prelude`,
                 ),
@@ -17,6 +17,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `std::logic`,
                 ),
@@ -31,6 +32,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `std::ops`,
                 ),

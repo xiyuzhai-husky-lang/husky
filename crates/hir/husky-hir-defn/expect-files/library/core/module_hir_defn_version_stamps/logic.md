@@ -3,9 +3,11 @@
         MajorItem(
             Type(
                 TypePath(
-                    Id {
-                        value: 9,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 15,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -23,9 +25,11 @@
         MajorItem(
             Type(
                 TypePath(
-                    Id {
-                        value: 10,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 16,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -35,9 +39,11 @@
         MajorItem(
             Type(
                 TypePath(
-                    Id {
-                        value: 11,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 17,
+                        },
+                    ),
                 ),
             ),
         ),

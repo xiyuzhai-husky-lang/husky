@@ -1,5 +1,4 @@
 SynDeclSheet {
-    [salsa id]: 10,
     decls: [
         (
             ItemPath::MajorItem(
@@ -19,12 +18,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::i8`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::i8`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -93,12 +100,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::i16`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::i16`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -167,12 +182,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::i32`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::i32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -241,12 +264,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::i64`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::i64`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -315,12 +346,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::i128`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::i128`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -389,12 +428,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::isize`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::isize`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -463,12 +510,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::u8`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::u8`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -537,12 +592,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::u16`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::u16`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -611,12 +674,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::u32`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::u32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -685,12 +756,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::u64`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::u64`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -759,12 +838,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::u128`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::u128`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -833,12 +920,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::usize`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::usize`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -907,12 +1002,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::f32`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::f32`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -981,12 +1084,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::num::f64`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::num::f64`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1040,21 +1151,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i8`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 76,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i8`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 76,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -1065,13 +1180,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 76,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1156,30 +1281,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i8`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 112,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 112,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -1197,13 +1318,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 76,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1285,20 +1416,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 112,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1384,30 +1521,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i8`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `max`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 113,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 113,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -1440,13 +1573,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 76,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1528,20 +1671,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `max`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 113,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1715,26 +1864,30 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::i8`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`core::num::i8`, `Extern`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::i8`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
@@ -1751,16 +1904,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::i8`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::i8`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1903,36 +2066,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i8`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 114,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i8`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 114,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -1965,16 +2118,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::i8`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::i8`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2114,23 +2277,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::i8`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 114,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2304,21 +2470,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i16`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 78,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i16`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 78,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -2329,13 +2499,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 78,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2420,30 +2600,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i16`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 115,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 115,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -2461,13 +2637,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 78,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2549,20 +2735,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 115,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2648,30 +2840,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i16`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `max`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 116,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 116,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -2704,13 +2892,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 78,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2792,20 +2990,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `max`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 116,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2979,26 +3183,30 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::i16`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`core::num::i16`, `Extern`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::i16`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
@@ -3015,16 +3223,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::i16`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::i16`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3167,36 +3385,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i16`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 117,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i16`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 117,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -3229,16 +3437,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::i16`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::i16`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -3378,23 +3596,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::i16`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 117,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3568,21 +3789,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i32`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 80,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 80,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -3593,13 +3818,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 80,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3684,30 +3919,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 118,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 118,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -3725,13 +3956,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 80,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -3813,20 +4054,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 118,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3912,30 +4159,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `max`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 119,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 119,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -3968,13 +4211,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 80,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -4056,20 +4309,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `max`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 119,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4243,30 +4502,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `min`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 120,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `min`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 120,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -4299,13 +4554,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 80,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -4387,20 +4652,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `min`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 120,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4574,26 +4845,30 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`core::num::i32`, `Extern`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::i32`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
@@ -4610,16 +4885,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::i32`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::i32`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4762,36 +5047,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 121,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i32`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 121,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -4824,16 +5099,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::i32`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::i32`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -4973,23 +5258,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::i32`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 121,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5163,21 +5451,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i64`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 82,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i64`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 82,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -5188,13 +5480,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 82,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5279,30 +5581,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i64`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 122,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 122,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -5320,13 +5618,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 82,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -5408,20 +5716,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 122,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5507,20 +5821,8 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::i64`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
@@ -5528,6 +5830,22 @@ SynDeclSheet {
                             ),
                             disambiguator: 0,
                         },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::i64`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             expr: 3,
@@ -5543,16 +5861,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::i64`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::i64`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5695,36 +6023,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 123,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i64`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 123,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -5757,16 +6075,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::i64`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::i64`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -5906,23 +6234,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::i64`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 123,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -6096,21 +6427,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i128`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 84,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i128`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 84,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -6121,13 +6456,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 84,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6212,30 +6557,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i128`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 124,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 124,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -6253,13 +6594,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 84,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -6341,20 +6692,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i128`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 124,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -6440,20 +6797,8 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::i128`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
@@ -6461,6 +6806,22 @@ SynDeclSheet {
                             ),
                             disambiguator: 0,
                         },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::i128`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             expr: 3,
@@ -6476,16 +6837,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::i128`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::i128`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6628,36 +6999,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i128`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 125,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i128`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 125,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -6690,16 +7051,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::i128`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::i128`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -6839,23 +7210,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::i128`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 125,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7029,21 +7403,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::isize`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 86,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::isize`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 86,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -7054,13 +7432,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 86,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7145,30 +7533,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::isize`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 126,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 126,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -7186,13 +7570,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 86,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -7274,20 +7668,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::isize`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 126,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7373,20 +7773,8 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::isize`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
@@ -7394,6 +7782,22 @@ SynDeclSheet {
                             ),
                             disambiguator: 0,
                         },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::isize`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             expr: 3,
@@ -7409,16 +7813,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::isize`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::isize`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7561,36 +7975,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 127,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::isize`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 127,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -7623,16 +8027,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::isize`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::isize`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -7772,23 +8186,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::isize`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 127,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7962,21 +8379,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::u8`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 88,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u8`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 88,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -7987,13 +8408,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 88,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -8078,30 +8509,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u8`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 128,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 128,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -8119,13 +8546,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 88,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -8207,20 +8644,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::u8`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 128,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -8306,20 +8749,8 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::u8`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
@@ -8327,6 +8758,22 @@ SynDeclSheet {
                             ),
                             disambiguator: 0,
                         },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::u8`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             expr: 3,
@@ -8342,16 +8789,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::u8`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::u8`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -8494,36 +8951,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u8`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 129,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u8`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 129,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -8556,16 +9003,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::u8`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::u8`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -8705,23 +9162,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::u8`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 129,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -8895,21 +9355,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::u16`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 90,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u16`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 90,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -8920,13 +9384,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 90,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -9011,30 +9485,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u16`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 130,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 130,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -9052,13 +9522,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 90,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -9140,20 +9620,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::u16`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 130,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -9239,20 +9725,8 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::u16`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
@@ -9260,6 +9734,22 @@ SynDeclSheet {
                             ),
                             disambiguator: 0,
                         },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::u16`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             expr: 3,
@@ -9275,16 +9765,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::u16`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::u16`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -9427,36 +9927,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u16`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 131,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u16`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 131,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -9489,16 +9979,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::u16`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::u16`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -9638,23 +10138,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::u16`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 131,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -9828,21 +10331,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::u32`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 92,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u32`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 92,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -9853,13 +10360,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 92,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -9944,30 +10461,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 132,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 132,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -9985,13 +10498,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 92,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -10073,20 +10596,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::u32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 132,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -10172,20 +10701,8 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::u32`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
@@ -10193,6 +10710,22 @@ SynDeclSheet {
                             ),
                             disambiguator: 0,
                         },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::u32`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             expr: 3,
@@ -10208,16 +10741,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::u32`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::u32`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -10360,36 +10903,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 133,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u32`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 133,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -10422,16 +10955,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::u32`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::u32`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -10571,23 +11114,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::u32`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 133,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -10761,21 +11307,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::u64`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 94,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u64`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 94,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -10786,13 +11336,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 94,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -10877,30 +11437,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u64`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 134,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 134,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -10918,13 +11474,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 94,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -11006,20 +11572,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::u64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 134,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -11105,20 +11677,8 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::u64`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
@@ -11126,6 +11686,22 @@ SynDeclSheet {
                             ),
                             disambiguator: 0,
                         },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::u64`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
                             expr: 3,
@@ -11141,16 +11717,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::u64`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::u64`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -11293,36 +11879,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 135,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u64`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 135,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -11355,16 +11931,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::u64`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::u64`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -11504,23 +12090,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::u64`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 135,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -11694,21 +12283,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::u128`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 96,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u128`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 96,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -11719,13 +12312,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 96,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -11810,30 +12413,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u128`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 136,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 136,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -11851,13 +12450,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 96,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -11939,20 +12548,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::u128`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 136,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -12038,26 +12653,30 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::u128`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`core::num::u128`, `Extern`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::u128`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
@@ -12074,16 +12693,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::u128`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::u128`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -12226,36 +12855,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u128`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 137,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u128`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 137,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -12288,16 +12907,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::u128`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::u128`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -12437,23 +13066,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::u128`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 137,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -12627,21 +13259,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::usize`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 98,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::usize`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 98,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -12652,13 +13288,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 98,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -12743,30 +13389,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::usize`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 138,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 138,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -12784,13 +13426,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 98,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -12872,20 +13524,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::usize`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 138,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -12971,26 +13629,30 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::usize`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`core::num::usize`, `Extern`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
@@ -13007,16 +13669,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::usize`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::usize`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -13159,36 +13831,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::usize`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 139,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::usize`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 139,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -13221,16 +13883,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::usize`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::usize`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -13370,23 +14042,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::usize`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 139,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -13560,21 +14235,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 100,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 100,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -13585,13 +14264,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 100,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -13676,30 +14365,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 140,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 140,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -13717,13 +14402,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 100,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -13805,20 +14500,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 140,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -13904,30 +14605,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `sqrt`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 141,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `sqrt`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 141,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -13945,13 +14642,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 100,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -14033,20 +14740,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `sqrt`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 141,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -14132,30 +14845,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `max`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 142,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 142,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -14188,13 +14897,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 100,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -14276,20 +14995,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `max`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 142,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -14463,30 +15188,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `min`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 143,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `min`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 143,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -14519,13 +15240,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 100,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -14607,20 +15338,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `min`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 143,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -14794,30 +15531,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `sgnx`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 144,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `sgnx`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 144,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -14835,13 +15568,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 100,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -14923,20 +15666,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `sgnx`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 144,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -15022,30 +15771,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `cos`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 145,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `cos`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 145,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -15063,13 +15808,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 100,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -15151,20 +15906,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `cos`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 145,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -15250,30 +16011,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `sin`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 146,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `sin`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 146,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -15291,13 +16048,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 100,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -15379,20 +16146,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `sin`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 146,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -15478,30 +16251,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `acos`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 147,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `acos`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 147,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -15519,13 +16288,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 100,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -15607,20 +16386,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `acos`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 147,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -15706,26 +16491,30 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`core::num::f32`, `Extern`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::f32`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
@@ -15742,16 +16531,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::f32`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -15894,36 +16693,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 148,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::f32`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 148,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -15956,16 +16745,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::f32`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -16105,23 +16904,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::f32`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 148,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -16295,21 +17097,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f64`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 102,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f64`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 102,
+                                },
+                            ),
+                        ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 1,
@@ -16320,13 +17126,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 102,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -16411,30 +17227,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f64`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `abs`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 149,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 149,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -16452,13 +17264,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 102,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -16540,20 +17362,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 149,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -16639,30 +17467,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f64`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `acos`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 150,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `acos`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 150,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -16680,13 +17504,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 102,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -16768,20 +17602,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `acos`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 150,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -16867,26 +17707,30 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::f64`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`core::num::f64`, `Extern`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::num`,
+                                trai_path: TraitPath(`core::ops::Add`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::num::f64`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
@@ -16903,16 +17747,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::num`,
-                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::num::f64`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::num`,
+                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::num::f64`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -17055,36 +17909,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::f64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `add`,
-                        item_kind: MethodFn,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 151,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::f64`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 151,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -17117,16 +17961,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::num`,
-                                                                    trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::num::f64`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::num`,
+                                                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::num::f64`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -17266,23 +18120,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::num`,
-                                                                trai_path: TraitPath(`core::ops::Add`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::num::f64`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `add`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 151,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),

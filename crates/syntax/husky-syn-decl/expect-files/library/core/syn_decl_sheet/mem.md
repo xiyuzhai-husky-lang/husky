@@ -1,5 +1,4 @@
 SynDeclSheet {
-    [salsa id]: 9,
     decls: [
         (
             ItemPath::MajorItem(
@@ -61,12 +60,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::mem::Ref`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::mem::Ref`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -249,12 +256,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::mem::RefMut`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::mem::RefMut`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -417,12 +432,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::mem::Leash`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::mem::Leash`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -554,12 +577,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::mem::At`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::mem::At`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -669,26 +700,30 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::mem`,
-                        trai_path: TraitPath(`core::marker::Copy`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::mem::Leash`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::mem`,
                             trai_path: TraitPath(`core::marker::Copy`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`core::mem::Leash`, `Extern`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::mem`,
+                                trai_path: TraitPath(`core::marker::Copy`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::mem::Leash`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                         template_parameters: [
                             TemplateSynParameterData {
@@ -719,16 +754,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::mem`,
-                                                    trai_path: TraitPath(`core::marker::Copy`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::mem::Leash`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::mem`,
+                                                                        trai_path: TraitPath(`core::marker::Copy`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::mem::Leash`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),

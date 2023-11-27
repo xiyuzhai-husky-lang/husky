@@ -2,11 +2,13 @@ use husky_entity_kind::FugitiveKind;
 
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
 pub struct FugitiveSynNodePath(ItemSynNodePathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct FugitiveSynNodePathData {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<FugitivePath>,

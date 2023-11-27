@@ -190,7 +190,7 @@ impl HasSynDecl for TraitForTypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = SynDeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_item_syn_decl(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,

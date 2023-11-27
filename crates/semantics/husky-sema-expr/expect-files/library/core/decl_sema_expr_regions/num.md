@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 26,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::i8`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::i8`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::i8`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -75,9 +90,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 16,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 43,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -140,9 +157,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 16,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -150,16 +169,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 27,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::i16`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::i16`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -169,12 +195,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::i16`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -225,9 +259,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 17,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 44,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -290,9 +326,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 17,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -300,16 +338,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 28,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::i32`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::i32`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -319,12 +364,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::i32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -375,9 +428,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 18,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 45,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -440,9 +495,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 18,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -450,16 +507,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 29,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::i64`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::i64`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -469,12 +533,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::i64`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::i64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -525,9 +597,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 19,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 46,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -590,9 +664,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 19,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 29,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -600,16 +676,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 30,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::i128`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::i128`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -619,12 +702,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::i128`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::i128`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -675,9 +766,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 20,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 47,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -740,9 +833,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 20,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 30,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -750,16 +845,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 31,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::isize`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::isize`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -769,12 +871,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::isize`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::isize`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -825,9 +935,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 21,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 48,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -890,9 +1002,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 21,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -900,16 +1014,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 32,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::u8`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::u8`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -919,12 +1040,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::u8`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::u8`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -975,9 +1104,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 22,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 49,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1040,9 +1171,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 22,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1050,16 +1183,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 33,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::u16`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::u16`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1069,12 +1209,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::u16`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::u16`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1125,9 +1273,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 23,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 50,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1190,9 +1340,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 23,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1200,16 +1352,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 34,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::u32`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::u32`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1219,12 +1378,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::u32`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::u32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1275,9 +1442,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 24,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 51,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1340,9 +1509,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 24,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1350,16 +1521,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 35,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::u64`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::u64`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1369,12 +1547,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::u64`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::u64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1425,9 +1611,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 25,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 52,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1490,9 +1678,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 25,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1500,16 +1690,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 36,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::u128`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::u128`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1519,12 +1716,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::u128`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::u128`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1575,9 +1780,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 26,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 53,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1640,9 +1847,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 26,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 36,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1650,16 +1859,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 37,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::usize`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::usize`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1669,12 +1885,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::usize`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::usize`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1725,9 +1949,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 27,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 54,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1790,9 +2016,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 27,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 37,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1800,16 +2028,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 38,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::f32`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1819,12 +2054,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::f32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1875,9 +2118,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 55,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1940,9 +2185,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1950,16 +2197,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 39,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::num::f64`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::num::f64`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1969,12 +2223,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::num::f64`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2025,9 +2287,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 29,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 56,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2090,9 +2354,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 29,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2100,17 +2366,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 40,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i8`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 76,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2120,13 +2395,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 76,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2208,13 +2493,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 1,
+                                    value: 91,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -2228,9 +2513,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 26,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2289,9 +2576,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2378,9 +2667,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 16,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2388,24 +2679,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 41,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 120,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2418,13 +2714,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 76,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2506,20 +2812,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::i8`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 120,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2602,9 +2914,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 1,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 129,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2619,9 +2933,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 26,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2680,9 +2996,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2769,9 +3087,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 16,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2779,24 +3099,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 42,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 121,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2809,13 +3134,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 76,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2897,20 +3232,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::i8`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 121,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3081,9 +3422,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 2,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 130,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3098,9 +3441,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 26,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3129,9 +3474,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 26,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3203,9 +3550,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3224,9 +3573,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3249,9 +3600,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 16,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3371,9 +3724,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 16,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3381,20 +3736,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 43,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i8`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i8`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -3404,16 +3768,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i8`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i8`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3553,13 +3927,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 3,
+                                    value: 92,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -3573,9 +3947,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3604,9 +3980,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 26,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3646,9 +4024,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3663,9 +4043,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 26,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3733,9 +4115,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3754,9 +4138,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3794,9 +4180,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3871,9 +4259,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -3900,9 +4290,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -3969,9 +4361,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -4027,9 +4421,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 16,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4037,27 +4433,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 44,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i8`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 122,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -4070,16 +4468,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i8`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::i8`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4219,23 +4627,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i8`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 122,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -4406,9 +4817,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 2,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 131,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4423,9 +4836,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 26,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4454,9 +4869,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 16,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 26,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4528,9 +4945,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4549,9 +4968,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4574,9 +4995,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 16,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 26,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4696,9 +5119,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 16,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4706,17 +5131,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 45,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i16`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 78,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -4726,13 +5160,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 78,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -4814,13 +5258,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 2,
+                                    value: 93,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -4834,9 +5278,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 17,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 27,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4895,9 +5341,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 17,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 27,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4984,9 +5432,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 17,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4994,24 +5444,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 46,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 123,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -5024,13 +5479,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 78,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5112,20 +5577,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::i16`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 123,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -5208,9 +5679,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 3,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 132,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5225,9 +5698,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 17,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 27,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5286,9 +5761,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 17,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 27,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5375,9 +5852,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 17,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5385,24 +5864,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 47,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 124,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -5415,13 +5899,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 78,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5503,20 +5997,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::i16`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 124,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -5687,9 +6187,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 4,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 133,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5704,9 +6206,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 17,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 27,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5735,9 +6239,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 17,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 27,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5809,9 +6315,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 17,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 27,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5830,9 +6338,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 17,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 27,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5855,9 +6365,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 17,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 27,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5977,9 +6489,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 17,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5987,20 +6501,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 48,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i16`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i16`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -6010,16 +6533,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i16`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i16`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -6159,13 +6692,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 4,
+                                    value: 94,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -6179,9 +6712,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -6210,9 +6745,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -6252,9 +6789,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6269,9 +6808,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 17,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 27,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -6339,9 +6880,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6360,9 +6903,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6400,9 +6945,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 17,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 27,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6477,9 +7024,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -6506,9 +7055,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -6575,9 +7126,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -6633,9 +7186,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 17,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -6643,27 +7198,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 49,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i16`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 125,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -6676,16 +7233,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i16`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::i16`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -6825,23 +7392,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i16`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 125,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -7012,9 +7582,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 3,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 134,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -7029,9 +7601,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7060,9 +7634,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 17,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 27,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7134,9 +7710,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7155,9 +7733,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 17,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 27,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7180,9 +7760,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 18,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 28,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7302,9 +7884,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 17,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -7312,17 +7896,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 50,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 80,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -7332,13 +7925,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 80,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -7420,13 +8023,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 3,
+                                    value: 95,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -7440,9 +8043,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7501,9 +8106,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7590,9 +8197,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 18,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -7600,24 +8209,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 51,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 126,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -7630,13 +8244,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 80,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -7718,20 +8342,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 126,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -7814,9 +8444,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 5,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 135,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -7831,9 +8463,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7892,9 +8526,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -7981,9 +8617,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 18,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -7991,24 +8629,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 52,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 127,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -8021,13 +8664,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 80,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -8109,20 +8762,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 127,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -8293,9 +8952,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 6,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 136,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -8310,9 +8971,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -8341,9 +9004,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -8415,9 +9080,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -8436,9 +9103,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -8461,9 +9130,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 18,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 28,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -8583,9 +9254,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 18,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -8593,24 +9266,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 53,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `min`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 128,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -8623,13 +9301,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 80,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -8711,20 +9399,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `min`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 128,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -8895,9 +9589,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 7,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 137,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -8912,9 +9608,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -8943,9 +9641,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -9017,9 +9717,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -9038,9 +9740,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -9063,9 +9767,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 18,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 28,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -9185,9 +9891,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 18,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -9195,20 +9903,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 54,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i32`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -9218,16 +9935,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i32`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -9367,13 +10094,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 5,
+                                    value: 96,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -9387,9 +10114,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -9418,9 +10147,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -9460,9 +10191,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -9477,9 +10210,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -9547,9 +10282,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -9568,9 +10305,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -9608,9 +10347,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -9685,9 +10426,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -9714,9 +10457,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -9783,9 +10528,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9841,9 +10588,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 18,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -9851,27 +10600,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 55,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i32`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 129,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -9884,16 +10635,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i32`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::i32`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -10033,23 +10794,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i32`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 129,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -10220,9 +10984,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 4,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 138,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -10237,9 +11003,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -10268,9 +11036,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -10342,9 +11112,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -10363,9 +11135,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -10388,9 +11162,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 18,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 28,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -10510,9 +11286,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 18,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -10520,17 +11298,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 56,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i64`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 82,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -10540,13 +11327,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 82,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -10628,13 +11425,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 4,
+                                    value: 97,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -10648,9 +11445,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 29,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -10709,9 +11508,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 19,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 29,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -10798,9 +11599,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 19,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 29,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -10808,24 +11611,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 57,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 130,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -10838,13 +11646,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::i64`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 82,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -10926,20 +11744,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::i64`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 130,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -11022,9 +11846,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 8,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 139,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -11039,9 +11865,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 29,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -11100,9 +11928,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 19,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 29,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -11189,9 +12019,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 19,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 29,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -11199,20 +12031,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 58,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i64`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -11222,16 +12063,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i64`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i64`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -11371,13 +12222,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 6,
+                                    value: 98,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -11391,9 +12242,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -11422,9 +12275,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 29,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -11464,9 +12319,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11481,9 +12338,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 29,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -11551,9 +12410,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -11572,9 +12433,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 19,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 29,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -11612,9 +12475,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 19,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 29,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -11689,9 +12554,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -11718,9 +12585,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -11787,9 +12656,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -11845,9 +12716,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 19,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 29,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -11855,27 +12728,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 59,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i64`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 131,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -11888,16 +12763,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i64`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::i64`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -12037,23 +12922,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i64`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 131,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -12224,9 +13112,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 5,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 140,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -12241,9 +13131,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 29,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -12272,9 +13164,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 19,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 29,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -12346,9 +13240,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 19,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 29,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -12367,9 +13263,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 19,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 29,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -12392,9 +13290,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 19,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 29,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -12514,9 +13414,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 19,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 29,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -12524,17 +13426,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 60,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::i128`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 84,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -12544,13 +13455,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 84,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -12632,13 +13553,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 5,
+                                    value: 99,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -12652,9 +13573,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 20,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 30,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -12713,9 +13636,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 20,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 30,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -12802,9 +13727,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 20,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 30,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -12812,24 +13739,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 61,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 132,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -12842,13 +13774,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::i128`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 84,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -12930,20 +13872,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::i128`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 132,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -13026,9 +13974,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 9,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 141,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -13043,9 +13993,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 20,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 30,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -13104,9 +14056,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 20,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 30,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -13193,9 +14147,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 20,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 30,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -13203,20 +14159,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 62,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i128`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i128`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -13226,16 +14191,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i128`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::i128`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -13375,13 +14350,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 7,
+                                    value: 100,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -13395,9 +14370,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -13426,9 +14403,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 20,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 30,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -13468,9 +14447,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13485,9 +14466,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 20,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 30,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -13555,9 +14538,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -13576,9 +14561,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 20,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 30,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -13616,9 +14603,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 20,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 30,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -13693,9 +14682,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -13722,9 +14713,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -13791,9 +14784,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -13849,9 +14844,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 20,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 30,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -13859,27 +14856,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 63,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i128`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 133,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -13892,16 +14891,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::i128`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::i128`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -14041,23 +15050,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::i128`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 133,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -14228,9 +15240,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 6,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 142,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -14245,9 +15259,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 20,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 30,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -14276,9 +15292,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 20,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 30,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -14350,9 +15368,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 20,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 30,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -14371,9 +15391,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 20,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 30,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -14396,9 +15418,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 20,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 30,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -14518,9 +15542,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 20,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 30,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -14528,17 +15554,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 64,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::isize`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 86,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -14548,13 +15583,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 86,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -14636,13 +15681,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 6,
+                                    value: 101,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -14656,9 +15701,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 21,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -14717,9 +15764,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 21,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -14806,9 +15855,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 21,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -14816,24 +15867,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 65,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 134,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -14846,13 +15902,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::isize`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 86,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -14934,20 +16000,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::isize`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 134,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -15030,9 +16102,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 10,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 143,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -15047,9 +16121,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 21,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -15108,9 +16184,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 21,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -15197,9 +16275,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 21,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -15207,20 +16287,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 66,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::isize`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::isize`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -15230,16 +16319,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::isize`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::isize`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -15379,13 +16478,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 8,
+                                    value: 102,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -15399,9 +16498,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -15430,9 +16531,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 21,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -15472,9 +16575,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15489,9 +16594,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 21,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -15559,9 +16666,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -15580,9 +16689,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 21,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -15620,9 +16731,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 21,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -15697,9 +16810,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -15726,9 +16841,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -15795,9 +16912,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -15853,9 +16972,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 21,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -15863,27 +16984,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 67,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::isize`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 135,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -15896,16 +17019,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::isize`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::isize`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -16045,23 +17178,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::isize`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 135,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -16232,9 +17368,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 7,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 144,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -16249,9 +17387,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 21,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -16280,9 +17420,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 21,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -16354,9 +17496,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 21,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -16375,9 +17519,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 21,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -16400,9 +17546,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 21,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 31,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -16522,9 +17670,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 21,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -16532,17 +17682,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 68,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u8`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 88,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -16552,13 +17711,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 88,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -16640,13 +17809,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 7,
+                                    value: 103,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -16660,9 +17829,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 32,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -16721,9 +17892,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 22,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -16810,9 +17983,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 22,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -16820,24 +17995,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 69,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 136,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -16850,13 +18030,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::u8`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 88,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -16938,20 +18128,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::u8`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 136,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -17034,9 +18230,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 11,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 145,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -17051,9 +18249,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 32,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -17112,9 +18312,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 22,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -17201,9 +18403,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 22,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -17211,20 +18415,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 70,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u8`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u8`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -17234,16 +18447,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u8`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u8`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -17383,13 +18606,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 9,
+                                    value: 104,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -17403,9 +18626,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -17434,9 +18659,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 32,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -17476,9 +18703,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -17493,9 +18722,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 32,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -17563,9 +18794,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -17584,9 +18817,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 22,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -17624,9 +18859,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 22,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -17701,9 +18938,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -17730,9 +18969,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -17799,9 +19040,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -17857,9 +19100,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 22,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -17867,27 +19112,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 71,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u8`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 137,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -17900,16 +19147,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u8`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::u8`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -18049,23 +19306,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u8`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 137,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -18236,9 +19496,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 8,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 146,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -18253,9 +19515,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 32,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -18284,9 +19548,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 22,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 32,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -18358,9 +19624,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 22,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -18379,9 +19647,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 22,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -18404,9 +19674,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 22,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 32,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -18526,9 +19798,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 22,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 32,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -18536,17 +19810,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 72,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u16`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 90,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -18556,13 +19839,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 90,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -18644,13 +19937,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 8,
+                                    value: 105,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -18664,9 +19957,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 33,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -18725,9 +20020,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 33,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -18814,9 +20111,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 23,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -18824,24 +20123,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 73,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 138,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -18854,13 +20158,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::u16`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 90,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -18942,20 +20256,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::u16`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 138,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -19038,9 +20358,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 12,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 147,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -19055,9 +20377,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 33,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -19116,9 +20440,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 33,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -19205,9 +20531,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 23,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -19215,20 +20543,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 74,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u16`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u16`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19238,16 +20575,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u16`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u16`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -19387,13 +20734,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 10,
+                                    value: 106,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -19407,9 +20754,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -19438,9 +20787,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 33,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -19480,9 +20831,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -19497,9 +20850,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 33,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -19567,9 +20922,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -19588,9 +20945,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 33,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -19628,9 +20987,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 33,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -19705,9 +21066,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -19734,9 +21097,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -19803,9 +21168,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -19861,9 +21228,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 23,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -19871,27 +21240,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 75,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u16`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 139,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19904,16 +21275,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u16`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::u16`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -20053,23 +21434,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u16`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 139,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -20240,9 +21624,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 9,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 148,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -20257,9 +21643,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 33,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -20288,9 +21676,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 23,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 33,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -20362,9 +21752,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 33,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -20383,9 +21775,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 23,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 33,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -20408,9 +21802,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 23,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 33,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -20530,9 +21926,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 23,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 33,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -20540,17 +21938,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 76,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u32`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 92,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -20560,13 +21967,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 92,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -20648,13 +22065,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 9,
+                                    value: 107,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -20668,9 +22085,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 24,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 34,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -20729,9 +22148,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 24,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 34,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -20818,9 +22239,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 24,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -20828,24 +22251,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 77,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 140,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -20858,13 +22286,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::u32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 92,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -20946,20 +22384,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::u32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 140,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -21042,9 +22486,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 13,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 149,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -21059,9 +22505,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 24,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 34,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -21120,9 +22568,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 24,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 34,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -21209,9 +22659,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 24,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -21219,20 +22671,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 78,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u32`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -21242,16 +22703,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u32`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u32`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -21391,13 +22862,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 11,
+                                    value: 108,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -21411,9 +22882,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -21442,9 +22915,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 24,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 34,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -21484,9 +22959,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -21501,9 +22978,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 24,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 34,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -21571,9 +23050,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -21592,9 +23073,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 24,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 34,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -21632,9 +23115,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 24,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 34,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -21709,9 +23194,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -21738,9 +23225,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -21807,9 +23296,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -21865,9 +23356,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 24,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -21875,27 +23368,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 79,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u32`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 141,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -21908,16 +23403,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u32`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::u32`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -22057,23 +23562,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u32`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 141,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -22244,9 +23752,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 10,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 150,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -22261,9 +23771,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 24,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 34,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -22292,9 +23804,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 24,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 34,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -22366,9 +23880,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 24,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 34,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -22387,9 +23903,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 24,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 34,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -22412,9 +23930,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 24,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 34,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -22534,9 +24054,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 24,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 34,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -22544,17 +24066,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 80,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u64`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 94,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -22564,13 +24095,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 94,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -22652,13 +24193,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 10,
+                                    value: 109,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -22672,9 +24213,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -22733,9 +24276,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 25,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 35,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -22822,9 +24367,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 25,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -22832,24 +24379,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 81,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 142,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -22862,13 +24414,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::u64`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 94,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -22950,20 +24512,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::u64`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 142,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -23046,9 +24614,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 14,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 151,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -23063,9 +24633,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -23124,9 +24696,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 25,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 35,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -23213,9 +24787,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 25,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -23223,20 +24799,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 82,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u64`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -23246,16 +24831,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u64`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u64`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -23395,13 +24990,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 12,
+                                    value: 110,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -23415,9 +25010,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -23446,9 +25043,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -23488,9 +25087,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -23505,9 +25106,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -23575,9 +25178,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -23596,9 +25201,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 25,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 35,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -23636,9 +25243,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 25,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 35,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -23713,9 +25322,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -23742,9 +25353,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -23811,9 +25424,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -23869,9 +25484,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 25,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -23879,27 +25496,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 83,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u64`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 143,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -23912,16 +25531,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u64`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::u64`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -24061,23 +25690,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u64`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 143,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -24248,9 +25880,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 11,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 152,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -24265,9 +25899,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -24296,9 +25932,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -24370,9 +26008,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 25,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 35,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -24391,9 +26031,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 25,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 35,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -24416,9 +26058,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 25,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 35,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -24538,9 +26182,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 25,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 35,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -24548,17 +26194,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 84,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::u128`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 96,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -24568,13 +26223,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 96,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -24656,13 +26321,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 11,
+                                    value: 111,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -24676,9 +26341,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 36,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -24737,9 +26404,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 26,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 36,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -24826,9 +26495,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 26,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 36,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -24836,24 +26507,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 85,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 144,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -24866,13 +26542,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::u128`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 96,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -24954,20 +26640,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::u128`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 144,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -25050,9 +26742,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 15,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 153,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -25067,9 +26761,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 36,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -25128,9 +26824,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 26,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 36,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -25217,9 +26915,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 26,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 36,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -25227,20 +26927,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 86,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u128`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u128`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -25250,16 +26959,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u128`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::u128`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -25399,13 +27118,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 13,
+                                    value: 112,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -25419,9 +27138,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -25450,9 +27171,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 36,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -25492,9 +27215,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -25509,9 +27234,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 36,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -25579,9 +27306,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -25600,9 +27329,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 26,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 36,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -25640,9 +27371,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 26,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 36,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -25717,9 +27450,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -25746,9 +27481,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -25815,9 +27552,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -25873,9 +27612,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 26,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 36,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -25883,27 +27624,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 87,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u128`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 145,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -25916,16 +27659,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::u128`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::u128`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -26065,23 +27818,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::u128`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 145,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -26252,9 +28008,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 12,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 154,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -26269,9 +28027,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 36,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -26300,9 +28060,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 36,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -26374,9 +28136,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 26,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 36,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -26395,9 +28159,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 26,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 36,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -26420,9 +28186,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 26,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 36,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -26542,9 +28310,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 26,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 36,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -26552,17 +28322,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 88,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::usize`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 98,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -26572,13 +28351,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 98,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -26660,13 +28449,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 12,
+                                    value: 113,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -26680,9 +28469,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 27,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -26741,9 +28532,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 27,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -26830,9 +28623,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 27,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 37,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -26840,24 +28635,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 89,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 146,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -26870,13 +28670,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::usize`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 98,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -26958,20 +28768,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::usize`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 146,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -27054,9 +28870,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 16,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 155,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -27071,9 +28889,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 27,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -27132,9 +28952,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 27,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -27221,9 +29043,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 27,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 37,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -27231,20 +29055,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 90,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::usize`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::usize`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -27254,16 +29087,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::usize`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::usize`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -27403,13 +29246,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 14,
+                                    value: 114,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -27423,9 +29266,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -27454,9 +29299,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 27,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -27496,9 +29343,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -27513,9 +29362,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 27,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -27583,9 +29434,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -27604,9 +29457,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 27,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -27644,9 +29499,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 27,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -27721,9 +29578,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -27750,9 +29609,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -27819,9 +29680,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -27877,9 +29740,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 27,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 37,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -27887,27 +29752,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 91,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::usize`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 147,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -27920,16 +29787,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::usize`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::usize`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -28069,23 +29946,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::usize`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 147,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -28256,9 +30136,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 13,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 156,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -28273,9 +30155,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 27,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -28304,9 +30188,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 27,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -28378,9 +30264,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 27,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -28399,9 +30287,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 27,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -28424,9 +30314,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 27,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 37,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -28546,9 +30438,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 27,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 37,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -28556,17 +30450,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 92,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 100,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -28576,13 +30479,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 100,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -28664,13 +30577,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 13,
+                                    value: 115,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -28684,9 +30597,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -28745,9 +30660,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -28834,9 +30751,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -28844,24 +30763,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 93,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 148,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -28874,13 +30798,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 100,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -28962,20 +30896,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 148,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -29058,9 +30998,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 17,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 157,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -29075,9 +31017,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -29136,9 +31080,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -29225,9 +31171,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -29235,24 +31183,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 94,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `sqrt`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 149,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -29265,13 +31218,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 100,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -29353,20 +31316,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `sqrt`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 149,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -29449,9 +31418,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 18,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 158,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -29466,9 +31437,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -29527,9 +31500,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -29616,9 +31591,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -29626,24 +31603,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 95,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 150,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -29656,13 +31638,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 100,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -29744,20 +31736,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 150,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -29928,9 +31926,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 19,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 159,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -29945,9 +31945,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -29976,9 +31978,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -30050,9 +32054,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -30071,9 +32077,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -30096,9 +32104,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -30218,9 +32228,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -30228,24 +32240,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 96,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `min`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 151,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -30258,13 +32275,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 100,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -30346,20 +32373,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `min`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 151,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -30530,9 +32563,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 20,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 160,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -30547,9 +32582,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -30578,9 +32615,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -30652,9 +32691,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -30673,9 +32714,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -30698,9 +32741,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -30820,9 +32865,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -30830,24 +32877,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 97,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `sgnx`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 152,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -30860,13 +32912,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 100,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -30948,20 +33010,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `sgnx`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 152,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -31044,9 +33112,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 21,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 161,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -31061,9 +33131,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -31122,9 +33194,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -31211,9 +33285,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -31221,24 +33297,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 98,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `cos`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 153,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -31251,13 +33332,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 100,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -31339,20 +33430,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `cos`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 153,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -31435,9 +33532,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 22,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 162,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -31452,9 +33551,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -31513,9 +33614,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -31602,9 +33705,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -31612,24 +33717,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 99,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `sin`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 154,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -31642,13 +33752,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 100,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -31730,20 +33850,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `sin`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 154,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -31826,9 +33952,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 23,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 163,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -31843,9 +33971,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -31904,9 +34034,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -31993,9 +34125,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -32003,24 +34137,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 100,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `acos`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 155,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -32033,13 +34172,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 100,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -32121,20 +34270,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `acos`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 155,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -32217,9 +34372,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 24,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 164,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -32234,9 +34391,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -32295,9 +34454,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -32384,9 +34545,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -32394,20 +34557,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 101,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::f32`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::f32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -32417,16 +34589,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::f32`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -32566,13 +34748,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 15,
+                                    value: 116,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -32586,9 +34768,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -32617,9 +34801,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -32659,9 +34845,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -32676,9 +34864,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -32746,9 +34936,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -32767,9 +34959,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -32807,9 +35001,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -32884,9 +35080,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -32913,9 +35111,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -32982,9 +35182,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -33040,9 +35242,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -33050,27 +35254,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 102,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::f32`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 156,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -33083,16 +35289,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::f32`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::f32`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -33232,23 +35448,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::f32`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 156,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -33419,9 +35638,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 14,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 165,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -33436,9 +35657,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -33467,9 +35690,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -33541,9 +35766,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -33562,9 +35789,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -33587,9 +35816,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -33709,9 +35940,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 38,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -33719,17 +35952,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 103,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::num`,
-                            ty_path: TypePath(`core::num::f64`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 102,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -33739,13 +35981,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 102,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -33827,13 +36079,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 14,
+                                    value: 117,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -33847,9 +36099,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 29,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -33908,9 +36162,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 29,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 39,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -33997,9 +36253,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 29,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -34007,24 +36265,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 104,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 157,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -34037,13 +36300,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 102,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -34125,20 +36398,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::f64`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 157,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -34221,9 +36500,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 25,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 166,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -34238,9 +36519,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 29,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -34299,9 +36582,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 29,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 39,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -34388,9 +36673,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 29,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -34398,24 +36685,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 105,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `acos`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 158,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -34428,13 +36720,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 102,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -34516,20 +36818,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            ty_path: TypePath(`core::num::f64`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `acos`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 158,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -34612,9 +36920,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 26,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 167,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -34629,9 +36939,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 29,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -34690,9 +37002,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 29,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 39,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -34779,9 +37093,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 29,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -34789,20 +37105,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 106,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::f64`, `Extern`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::f64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -34812,16 +37137,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::f64`, `Extern`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        trai_path: TraitPath(`core::ops::Add`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`core::num::f64`, `Extern`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -34961,13 +37296,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 16,
+                                    value: 118,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -34981,9 +37316,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 9,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 40,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -35012,9 +37349,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 29,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -35054,9 +37393,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -35071,9 +37412,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 29,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -35141,9 +37484,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 9,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 40,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -35162,9 +37507,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 29,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 39,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -35202,9 +37549,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 29,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 39,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -35279,9 +37628,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 5,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 5,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -35308,9 +37659,11 @@
                                                                 EntityPath(
                                                                     TypeOntology(
                                                                         TypePath(
-                                                                            Id {
-                                                                                value: 5,
-                                                                            },
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 5,
+                                                                                },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -35377,9 +37730,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -35435,9 +37790,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 29,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -35445,27 +37802,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 107,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::f64`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `add`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 159,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -35478,16 +37837,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `core::num`,
-                                                trai_path: TraitPath(`core::ops::Add`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`core::num::f64`, `Extern`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `core::num`,
+                                                                    trai_path: TraitPath(`core::ops::Add`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`core::num::f64`, `Extern`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -35627,23 +37996,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::num`,
-                                            trai_path: TraitPath(`core::ops::Add`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::num::f64`, `Extern`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `add`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 159,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -35814,9 +38186,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 15,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 168,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -35831,9 +38205,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 29,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -35862,9 +38238,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 29,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -35936,9 +38314,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 29,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 39,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -35957,9 +38337,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 29,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 39,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -35982,9 +38364,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 29,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 39,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -36104,9 +38488,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 29,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
                         ),
                     ),
                 ),

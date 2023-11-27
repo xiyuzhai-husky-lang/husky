@@ -1,6 +1,5 @@
 [
     SemaExprRangeRegion {
-        [salsa id]: 300,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 6..7,

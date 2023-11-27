@@ -29,13 +29,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 51,
-                            },
-                        ),
+                        `math::algebra`,
                     ),
                 },
             },
@@ -67,13 +63,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 52,
-                            },
-                        ),
+                        `math::algebraic_geometry`,
                     ),
                 },
             },
@@ -105,13 +97,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 53,
-                            },
-                        ),
+                        `math::algebraic_topology`,
                     ),
                 },
             },
@@ -143,13 +131,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 54,
-                            },
-                        ),
+                        `math::category_theory`,
                     ),
                 },
             },
@@ -181,13 +165,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 55,
-                            },
-                        ),
+                        `math::probability`,
                     ),
                 },
             },

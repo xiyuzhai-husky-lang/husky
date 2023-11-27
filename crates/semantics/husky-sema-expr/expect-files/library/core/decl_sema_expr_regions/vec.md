@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 153,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`core::vec::Vec`, `Extern`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::vec::Vec`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`core::vec::Vec`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -112,9 +127,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 34,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 78,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -217,17 +234,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 154,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `core::vec`,
-                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 106,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -237,13 +263,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 106,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -375,13 +411,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 16,
+                                    value: 121,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -395,9 +431,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 34,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 67,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -529,9 +567,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 34,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 67,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -809,24 +849,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 155,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `ilen`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 203,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -839,13 +884,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 106,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -977,20 +1032,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::vec`,
-                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `ilen`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 203,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1085,9 +1146,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 39,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 212,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1102,9 +1165,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1163,9 +1228,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1292,24 +1359,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 156,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `push`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 204,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1322,13 +1394,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 106,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1460,20 +1542,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::vec`,
-                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `push`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 204,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1613,9 +1701,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 40,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 213,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1852,24 +1942,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 157,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `first`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 205,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1882,13 +1977,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 106,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2020,20 +2125,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::vec`,
-                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `first`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 205,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2154,9 +2265,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 41,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 214,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2171,9 +2284,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 31,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 60,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2350,9 +2465,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 31,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 60,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2781,24 +2898,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 158,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `last`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 206,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2811,13 +2933,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 106,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2949,20 +3081,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::vec`,
-                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `last`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 206,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3083,9 +3221,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 42,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 215,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3100,9 +3240,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 31,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 60,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3279,9 +3421,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 31,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 60,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3710,24 +3854,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 159,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `pop`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 207,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -3740,13 +3889,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 106,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3878,20 +4037,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::vec`,
-                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `pop`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 207,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -4002,9 +4167,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 43,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 216,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4019,9 +4186,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 31,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 60,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4148,9 +4317,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 31,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 60,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4428,24 +4599,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 160,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `collect_leashes`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 208,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -4458,13 +4634,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 106,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4596,20 +4782,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::vec`,
-                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `collect_leashes`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 208,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -4710,9 +4902,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 44,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 217,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4878,9 +5072,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 34,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 67,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5215,24 +5411,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 161,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `cyclic_slice_leashed`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 209,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -5245,13 +5446,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 106,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5383,20 +5594,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::vec`,
-                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `cyclic_slice_leashed`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 209,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -5681,9 +5898,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 45,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 218,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5698,9 +5917,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5729,9 +5950,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 18,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 28,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5760,9 +5983,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 36,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 69,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5940,9 +6165,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5961,9 +6188,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 18,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 28,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5982,9 +6211,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 36,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 69,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6081,9 +6312,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 18,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 28,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6099,9 +6332,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 18,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 28,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6433,24 +6668,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 162,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `pop_with_largest_opt_f32`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 210,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -6463,13 +6703,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 106,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -6601,20 +6851,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `core::vec`,
-                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `pop_with_largest_opt_f32`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 210,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -6842,9 +7098,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 46,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 219,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -6901,9 +7159,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7144,9 +7404,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 28,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 38,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),

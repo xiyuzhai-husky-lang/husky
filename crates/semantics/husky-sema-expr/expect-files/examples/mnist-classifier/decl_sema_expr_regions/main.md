@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 173,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::main`, `Val`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -136,9 +151,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 6,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 239,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -153,9 +170,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 63,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 314,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -184,9 +203,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 66,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 327,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -271,9 +292,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 63,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 314,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -292,9 +315,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 66,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 327,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),

@@ -3,11 +3,13 @@ use husky_entity_kind::TypeKind;
 use husky_print_utils::p;
 use smallvec::SmallVec;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id(jar = EntitySynTreeJar)]
 #[salsa::deref_id]
 pub struct TypeSynNodePath(ItemSynNodePathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TypeSynNodePathData {
     maybe_ambiguous_path: MaybeAmbiguousPath<TypePath>,

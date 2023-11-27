@@ -2,6 +2,7 @@ use original_error::OriginalError;
 
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
@@ -42,6 +43,7 @@ impl From<IllFormedImplBlockSynNodePath> for ItemSynNodePath {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct IllFormedImplBlockSynNode {
     pub(crate) syn_node_path: IllFormedImplBlockSynNodePath,

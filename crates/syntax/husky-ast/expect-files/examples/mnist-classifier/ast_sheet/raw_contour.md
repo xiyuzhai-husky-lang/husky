@@ -39,7 +39,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -255,7 +255,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -297,7 +297,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -339,7 +339,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -381,7 +381,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -423,7 +423,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -437,10 +437,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     42,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                    ident: `Up`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 162,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         403,
@@ -463,10 +466,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     43,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                    ident: `Left`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 163,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         405,
@@ -489,10 +495,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     44,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                    ident: `Down`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 164,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         407,
@@ -515,10 +524,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     45,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                    ident: `Right`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 165,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         409,
@@ -1723,12 +1735,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 55,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     variants: None,
                 },
             },
@@ -1793,12 +1801,8 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 56,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
@@ -1841,12 +1845,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 71,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -1889,12 +1889,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 72,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -1937,12 +1933,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 73,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -1985,12 +1977,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 74,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -2033,12 +2021,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 75,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -2081,12 +2065,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 76,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -2129,12 +2109,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 57,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                     variants: None,
                 },
             },
@@ -2171,12 +2147,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 77,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -2219,12 +2191,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 78,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

@@ -5,10 +5,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     4,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                    ident: `Left`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 18,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         43,
@@ -31,10 +34,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     5,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                    ident: `Right`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 19,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         48,
@@ -102,12 +108,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 9,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::logic::Prop`, `Extern`),
                     variants: None,
                 },
             },
@@ -144,12 +146,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 10,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::logic::LogicAnd`, `Structure`),
                     variants: None,
                 },
             },
@@ -186,12 +184,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 11,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::logic::LogicOr`, `Inductive`),
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(

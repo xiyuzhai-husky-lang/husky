@@ -47,11 +47,13 @@
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
-                    path: TypeImplBlockPath {
-                        module_path: `core::raw_bits`,
-                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 104,
+                            },
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -65,11 +67,13 @@
                         path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath {
-                                        module_path: `core::raw_bits`,
-                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                        disambiguator: 0,
-                                    },
+                                    TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 104,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -102,25 +106,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::raw_bits`,
-                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `last_bits`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::raw_bits`,
-                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 188,
                             },
-                            ident: `last_bits`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 188,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -148,15 +148,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::raw_bits`,
-                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `last_bits`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 188,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -215,25 +213,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::raw_bits`,
-                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `ctz`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::raw_bits`,
-                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 189,
                             },
-                            ident: `ctz`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 189,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -251,15 +245,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::raw_bits`,
-                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `ctz`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 189,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -301,25 +293,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::raw_bits`,
-                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `co`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::raw_bits`,
-                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 190,
                             },
-                            ident: `co`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 190,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -337,15 +325,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::raw_bits`,
-                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `co`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 190,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -387,25 +373,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::raw_bits`,
-                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `span`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::raw_bits`,
-                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 191,
                             },
-                            ident: `span`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 191,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -423,15 +405,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::raw_bits`,
-                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `span`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 191,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -473,25 +453,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::raw_bits`,
-                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `right_mass`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::raw_bits`,
-                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 192,
                             },
-                            ident: `right_mass`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 192,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -509,15 +485,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::raw_bits`,
-                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `right_mass`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 192,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),

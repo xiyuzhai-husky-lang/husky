@@ -29,13 +29,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 24,
-                            },
-                        ),
+                        `std::prelude`,
                     ),
                 },
             },
@@ -67,13 +63,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 22,
-                            },
-                        ),
+                        `std::logic`,
                     ),
                 },
             },
@@ -105,13 +97,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 23,
-                            },
-                        ),
+                        `std::ops`,
                     ),
                 },
             },

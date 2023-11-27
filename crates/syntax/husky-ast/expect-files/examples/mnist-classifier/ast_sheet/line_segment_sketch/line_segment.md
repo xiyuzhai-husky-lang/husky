@@ -141,7 +141,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -183,7 +183,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -242,12 +242,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 52,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                     variants: None,
                 },
             },

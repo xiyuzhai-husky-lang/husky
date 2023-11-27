@@ -13,11 +13,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::vec`,
-                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 106,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
@@ -61,11 +63,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::vec`,
-                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 106,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),

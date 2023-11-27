@@ -177,12 +177,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 64,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -225,12 +221,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 65,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -273,12 +265,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 66,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -321,12 +309,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 67,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -369,12 +353,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 68,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -417,12 +397,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 69,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -465,12 +441,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 70,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

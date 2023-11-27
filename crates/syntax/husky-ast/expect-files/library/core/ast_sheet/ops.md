@@ -33,7 +33,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -69,7 +69,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -105,7 +105,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -141,7 +141,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -177,7 +177,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -213,7 +213,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -249,7 +249,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -285,7 +285,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -321,7 +321,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -357,7 +357,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -393,7 +393,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -429,7 +429,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -465,7 +465,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -501,7 +501,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -537,7 +537,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -573,7 +573,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -609,7 +609,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -645,7 +645,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -681,7 +681,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -717,7 +717,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -753,7 +753,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -789,7 +789,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -825,7 +825,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -861,7 +861,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -897,7 +897,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -933,7 +933,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -969,7 +969,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -1005,7 +1005,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -1013,10 +1013,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     62,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                    ident: `Return`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 58,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         454,
@@ -1039,10 +1042,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     63,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                    ident: `Continue`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 59,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         459,
@@ -1113,12 +1119,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 9,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::Add`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1164,12 +1166,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 10,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::AddAssign`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1215,12 +1213,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 11,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::BitAnd`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1266,12 +1260,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 12,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::BitAndAssign`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1317,12 +1307,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 13,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::BitOr`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1368,12 +1354,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 14,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::BitOrAssign`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1419,12 +1401,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 15,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::BitXor`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1470,12 +1448,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 16,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::BitXorAssign`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1521,12 +1495,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 17,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::Div`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1572,12 +1542,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 18,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::DivAssign`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1618,12 +1584,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 19,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::IntIndex`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1669,12 +1631,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 20,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::Mul`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1720,12 +1678,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 21,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::MulAssign`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1771,12 +1725,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 22,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::Neg`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1822,12 +1772,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 23,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::Not`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1873,12 +1819,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 24,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::Sub`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1919,12 +1861,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 25,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::ops::Unveil`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(
@@ -1967,12 +1905,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 30,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::ops::ControlFlow`, `Enum`),
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(

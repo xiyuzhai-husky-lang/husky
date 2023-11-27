@@ -22,11 +22,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::raw_bits`,
-                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 104,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -45,15 +47,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::raw_bits`,
-                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `last_bits`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 158,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -61,15 +61,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::raw_bits`,
-                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `last_bits`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 158,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -104,15 +102,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::raw_bits`,
-                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `ctz`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 159,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -120,15 +116,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::raw_bits`,
-                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `ctz`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 159,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -156,15 +150,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::raw_bits`,
-                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `co`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 160,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -172,15 +164,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::raw_bits`,
-                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `co`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 160,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -208,15 +198,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::raw_bits`,
-                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `span`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 161,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -224,15 +212,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::raw_bits`,
-                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `span`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 161,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -260,15 +246,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::raw_bits`,
-                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `right_mass`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 162,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -276,15 +260,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::raw_bits`,
-                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `right_mass`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 162,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],

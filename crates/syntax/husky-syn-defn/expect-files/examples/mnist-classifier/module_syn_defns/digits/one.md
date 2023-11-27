@@ -19,12 +19,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -115,12 +123,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -202,12 +218,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -480,12 +504,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -519,10 +551,13 @@ Ok(
                                                 path_expr_idx: 4,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath {
-                                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                            ident: `One`,
-                                                        },
+                                                        TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 297,
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -596,10 +631,13 @@ Ok(
                                                 ),
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
-                                                        TypeVariantPath {
-                                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                            ident: `One`,
-                                                        },
+                                                        TypeVariantPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 297,
+                                                                },
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
                                             },
@@ -659,12 +697,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -698,10 +744,13 @@ Ok(
                                                                 path_expr_idx: 4,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::TypeVariant(
-                                                                        TypeVariantPath {
-                                                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                            ident: `One`,
-                                                                        },
+                                                                        TypeVariantPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 297,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             },
@@ -775,10 +824,13 @@ Ok(
                                                                 ),
                                                                 path: Ok(
                                                                     PrincipalEntityPath::TypeVariant(
-                                                                        TypeVariantPath {
-                                                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                                            ident: `One`,
-                                                                        },
+                                                                        TypeVariantPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 297,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             },
@@ -829,12 +881,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -1237,10 +1297,13 @@ Ok(
                                                     path_expr_idx: 11,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ident: `Yes`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 286,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -1754,10 +1817,13 @@ Ok(
                                                     path_expr_idx: 24,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ident: `Yes`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 286,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -4019,10 +4085,13 @@ Ok(
                                                     path_expr_idx: 44,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ident: `Yes`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 286,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -4202,10 +4271,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ident: `Yes`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 286,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -4406,10 +4478,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ident: `Yes`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 286,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -4715,10 +4790,13 @@ Ok(
                                                     ),
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath {
-                                                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                                ident: `Yes`,
-                                                            },
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 286,
+                                                                    },
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                 },
@@ -6524,12 +6602,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -6722,12 +6808,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -6911,12 +7005,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7231,12 +7333,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7429,12 +7539,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -7618,12 +7736,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7965,12 +8091,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -8163,12 +8297,20 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::MajorItem(
                                                             MajorItemSynNodePath::Fugitive(
-                                                                FugitiveSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
-                                                                        disambiguator: 0,
+                                                                FugitiveSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::MajorItem(
+                                                                            MajorItemSynNodePathData::Fugitive(
+                                                                                FugitiveSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -8352,12 +8494,20 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::MajorItem(
                                                 MajorItemSynNodePath::Fugitive(
-                                                    FugitiveSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
-                                                            disambiguator: 0,
+                                                    FugitiveSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Fugitive(
+                                                                    FugitiveSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),

@@ -1,8 +1,8 @@
 SynDeclSheet {
-    [salsa id]: 25,
     decls: [
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::connected_component`,
                 ),
@@ -17,6 +17,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::raw_contour`,
                 ),
@@ -31,6 +32,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::geom2d`,
                 ),
@@ -45,6 +47,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::line_segment_sketch`,
                 ),
@@ -59,6 +62,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::fermi`,
                 ),
@@ -73,6 +77,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::digits`,
                 ),
@@ -87,6 +92,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `mnist_classifier::major`,
                 ),
@@ -122,12 +128,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: FugitivePath(`mnist_classifier::main`, `Val`),
-                                                        disambiguator: 0,
+                                                FugitiveSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Fugitive(
+                                                                FugitiveSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::main`, `Val`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),

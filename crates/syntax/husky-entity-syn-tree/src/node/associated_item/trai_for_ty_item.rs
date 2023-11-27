@@ -1,10 +1,12 @@
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
 pub struct TraitForTypeItemSynNodePath(ItemSynNodePathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TraitForTypeItemSynNodePathData {
     maybe_ambiguous_path: MaybeAmbiguousPath<TraitForTypeItemPath>,
@@ -101,6 +103,7 @@ impl HasSynNodePath for TraitForTypeItemPath {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TraitForTypeItemSynNode {
     syn_node_path: TraitForTypeItemSynNodePath,

@@ -33,7 +33,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -69,7 +69,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -105,7 +105,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -141,7 +141,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -177,7 +177,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -241,12 +241,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 32,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::raw_bits::r32`, `Extern`),
                     variants: None,
                 },
             },

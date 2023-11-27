@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 357,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`mnist::MnistLabel`, `Enum`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -19,12 +26,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -75,9 +90,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 67,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 469,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -140,9 +157,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 72,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 449,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -150,16 +169,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 358,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -169,12 +195,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -285,9 +319,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 68,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 470,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -315,9 +351,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 27,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 37,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -366,9 +404,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 32,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 63,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -493,9 +533,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 32,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 63,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -564,9 +606,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 27,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -586,9 +630,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 27,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -765,9 +811,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 73,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 460,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -775,16 +823,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 359,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Type(
-                    TypeSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                            disambiguator: 0,
+                    TypeSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Type(
+                                    TypeSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -794,12 +849,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Type(
-                            TypeSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                    disambiguator: 0,
+                            TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -910,9 +973,11 @@
                 MajorItem(
                     Type(
                         TypeSynNodePath(
-                            Id {
-                                value: 69,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 471,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -940,9 +1005,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 27,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 37,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -991,9 +1058,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 32,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 63,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1118,9 +1187,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 32,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 63,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1189,9 +1260,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 27,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1211,9 +1284,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 27,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1390,9 +1465,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 74,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 461,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1400,16 +1477,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 360,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist::input`, `Val`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist::input`, `Val`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1419,12 +1503,20 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist::input`, `Val`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist::input`, `Val`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1507,9 +1599,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 81,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 472,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1524,9 +1618,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 73,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 460,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1585,9 +1681,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 73,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 460,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1674,20 +1772,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 361,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `mnist`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1697,16 +1804,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -1817,13 +1934,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 34,
+                                    value: 473,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -1837,9 +1954,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 72,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1853,9 +1972,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -1870,9 +1991,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 73,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 460,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1940,9 +2063,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 26,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 72,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1961,9 +2086,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 73,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 460,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2019,9 +2146,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -2077,9 +2206,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 73,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 460,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2087,27 +2218,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 362,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `visualize`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 469,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2120,16 +2253,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `mnist`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2240,23 +2383,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `mnist`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 469,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2339,9 +2485,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 28,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 479,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2356,9 +2504,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 39,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 73,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2417,9 +2567,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 73,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2506,9 +2658,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 73,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 460,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2516,17 +2670,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 363,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist`,
-                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 464,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2536,13 +2699,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 464,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2624,13 +2797,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 33,
+                                    value: 474,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -2644,9 +2817,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 73,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 460,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2705,9 +2880,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 73,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 460,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2794,9 +2971,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 73,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 460,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -2804,24 +2983,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 364,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `new_zeros`,
-                                item_kind: AssociatedFunctionFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 470,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -2834,13 +3018,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist`,
-                                                ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 464,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2922,20 +3116,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist`,
-                                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `new_zeros`,
-                                        item_kind: AssociatedFunctionFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 470,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2997,9 +3197,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 109,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 480,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3067,9 +3269,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 73,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 460,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3156,9 +3360,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 73,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 460,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3166,20 +3372,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 365,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `mnist`,
-                            trai_path: TraitPath(`core::ops::IntIndex`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -3189,16 +3404,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3351,13 +3576,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 35,
+                                    value: 475,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -3371,9 +3596,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 19,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 50,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3387,9 +3614,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3404,9 +3633,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 73,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 460,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3474,9 +3705,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 19,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 50,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3495,9 +3728,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 73,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 460,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3553,9 +3788,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -3611,9 +3848,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 73,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 460,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3621,27 +3860,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 366,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist::BinaryImage28`, `Struct`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `Output`,
-                                item_kind: AssociatedType,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 471,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -3654,16 +3895,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `mnist`,
-                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    trai_path: TraitPath(`core::ops::IntIndex`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3816,23 +4067,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `mnist`,
-                                            trai_path: TraitPath(`core::ops::IntIndex`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryImage28`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `Output`,
-                                        item_kind: AssociatedType,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 471,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -3915,9 +4169,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 29,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 481,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3932,9 +4188,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 32,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 63,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3993,9 +4251,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 32,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 63,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4082,9 +4342,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 73,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 460,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4092,20 +4354,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 367,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `mnist`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -4115,16 +4386,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -4235,13 +4516,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 36,
+                                    value: 476,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -4255,9 +4536,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 26,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 72,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4271,9 +4554,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4288,9 +4573,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 74,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 461,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4358,9 +4645,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 26,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 72,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4379,9 +4668,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 74,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 461,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4437,9 +4728,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -4495,9 +4788,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 74,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 461,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4505,27 +4800,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 368,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `visualize`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 472,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -4538,16 +4835,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `mnist`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4658,23 +4965,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `mnist`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 472,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -4757,9 +5067,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 30,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 482,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4774,9 +5086,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 39,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 73,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4835,9 +5149,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 73,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4924,9 +5240,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 74,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 461,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -4934,17 +5252,26 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 369,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TypeImplBlock(
-                    TypeImplBlockSynNodePath {
-                        path: TypeImplBlockPath {
-                            module_path: `mnist`,
-                            ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                            disambiguator: 0,
+                    TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 467,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -4954,13 +5281,23 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TypeImplBlock(
-                            TypeImplBlockSynNodePath {
-                                path: TypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                    disambiguator: 0,
+                            TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 467,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -5042,13 +5379,13 @@
             path: Decl(
                 ImplBlock(
                     TypeImplBlock(
-                        TypeImplBlockSynNodePath {
-                            path: TypeImplBlockPath(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 34,
+                                    value: 477,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -5062,9 +5399,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 74,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 461,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5123,9 +5462,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 74,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 461,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5212,9 +5553,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 74,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 461,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5222,24 +5565,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 370,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TypeItem(
-                    TypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `new_zeros`,
-                                item_kind: AssociatedFunctionFn,
-                            },
-                            disambiguator: 0,
+                    TypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TypeItem(
+                                    TypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 473,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -5252,13 +5600,23 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist`,
-                                                ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 467,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5340,20 +5698,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TypeItem(
-                            TypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TypeItemPath {
-                                        impl_block: TypeImplBlockPath {
-                                            module_path: `mnist`,
-                                            ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `new_zeros`,
-                                        item_kind: AssociatedFunctionFn,
-                                    },
-                                    disambiguator: 0,
+                            TypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TypeItem(
+                                            TypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 473,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -5415,9 +5779,11 @@
                 AssociatedItem(
                     TypeItem(
                         TypeItemSynNodePath(
-                            Id {
-                                value: 110,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 483,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5485,9 +5851,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 74,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 461,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5574,9 +5942,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 74,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 461,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -5584,20 +5954,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 371,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::ImplBlock(
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockSynNodePath {
-                        path: TraitForTypeImplBlockPath {
-                            module_path: `mnist`,
-                            trai_path: TraitPath(`core::ops::IntIndex`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                    TraitForTypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                    TraitForTypeImplBlockSynNodePathData {
+                                        path: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    },
+                                ),
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -5607,16 +5986,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::ImplBlock(
                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockSynNodePath {
-                                path: TraitForTypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            TraitForTypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                            TraitForTypeImplBlockSynNodePathData {
+                                                path: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            },
+                                        ),
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -5769,13 +6158,13 @@
             path: Decl(
                 ImplBlock(
                     TraitForTypeImplBlock(
-                        TraitForTypeImplBlockSynNodePath {
-                            path: TraitForTypeImplBlockPath(
+                        TraitForTypeImplBlockSynNodePath(
+                            ItemSynNodePathId(
                                 Id {
-                                    value: 37,
+                                    value: 478,
                                 },
                             ),
-                        },
+                        ),
                     ),
                 ),
             ),
@@ -5789,9 +6178,11 @@
                                     path: MajorItem(
                                         Trait(
                                             TraitPath(
-                                                Id {
-                                                    value: 19,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 50,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5805,9 +6196,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 5,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 5,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5822,9 +6215,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 74,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 461,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5892,9 +6287,11 @@
                                 EntityPath(
                                     Trait(
                                         TraitPath(
-                                            Id {
-                                                value: 19,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 50,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5913,9 +6310,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 74,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 461,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5971,9 +6370,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 5,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 5,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -6029,9 +6430,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 74,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 461,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -6039,27 +6442,29 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 372,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `Output`,
-                                item_kind: AssociatedType,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 474,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -6072,16 +6477,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockSynNodePath {
-                                            path: TraitForTypeImplBlockPath {
-                                                module_path: `mnist`,
-                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        TraitForTypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                        TraitForTypeImplBlockSynNodePathData {
+                                                            path: TraitForTypeImplBlock {
+                                                                data: TraitForTypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    trai_path: TraitPath(`core::ops::IntIndex`),
+                                                                    ty_sketch: TypeSketch::Path(
+                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        },
+                                                    ),
                                                 ),
-                                                disambiguator: 0,
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -6234,23 +6649,26 @@
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `mnist`,
-                                            trai_path: TraitPath(`core::ops::IntIndex`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `Output`,
-                                        item_kind: AssociatedType,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 474,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -6333,9 +6751,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 31,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 484,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -6350,9 +6770,11 @@
                                     path: MajorItem(
                                         Type(
                                             TypePath(
-                                                Id {
-                                                    value: 32,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 63,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -6411,9 +6833,11 @@
                                 EntityPath(
                                     TypeOntology(
                                         TypePath(
-                                            Id {
-                                                value: 32,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 63,
+                                                },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -6500,9 +6924,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 74,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 461,
+                                },
+                            ),
                         ),
                     ),
                 ),

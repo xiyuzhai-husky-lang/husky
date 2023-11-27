@@ -1,5 +1,4 @@
 SynDeclSheet {
-    [salsa id]: 16,
     decls: [
         (
             ItemPath::MajorItem(
@@ -41,12 +40,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::slice::Slice`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::slice::Slice`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -174,12 +181,20 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -270,21 +285,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 107,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 107,
+                                },
+                            ),
+                        ),
                         template_parameters: [
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
@@ -309,13 +328,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::slice`,
-                                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 107,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -450,30 +479,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `len`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 159,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `len`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 159,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -491,13 +516,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::slice`,
-                                                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 107,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -629,20 +664,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::slice`,
-                                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `len`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 159,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -740,30 +781,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `swap`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 160,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `swap`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 160,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
@@ -829,13 +866,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::slice`,
-                                                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 107,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -967,20 +1014,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::slice`,
-                                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `swap`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 160,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1216,26 +1269,30 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath {
-                        module_path: `core::slice`,
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::slice::CyclicSlice`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                ),
-            ),
-            SynDecl::ImplBlock(
-                ImplBlockSynDecl::TraitForType(
-                    TraitForTypeImplBlockSynDecl {
-                        path: TraitForTypeImplBlockPath {
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
                             module_path: `core::slice`,
                             trai_path: TraitPath(`core::ops::IntIndex`),
                             ty_sketch: TypeSketch::Path(
                                 TypePath(`core::slice::CyclicSlice`, `Extern`),
                             ),
                             disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+            SynDecl::ImplBlock(
+                ImplBlockSynDecl::TraitForType(
+                    TraitForTypeImplBlockSynDecl {
+                        path: TraitForTypeImplBlock {
+                            data: TraitForTypeImplBlockPathData {
+                                module_path: `core::slice`,
+                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                ty_sketch: TypeSketch::Path(
+                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                ),
+                                disambiguator: 0,
+                            },
                         },
                         template_parameters: [
                             TemplateSynParameterData {
@@ -1266,16 +1323,26 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                            TraitForTypeImplBlockSynNodePath {
-                                                path: TraitForTypeImplBlockPath {
-                                                    module_path: `core::slice`,
-                                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            TraitForTypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                path: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `core::slice`,
+                                                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            },
+                                                        ),
                                                     ),
-                                                    disambiguator: 0,
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1480,36 +1547,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
-                    TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::slice`,
-                            trai_path: TraitPath(`core::ops::IntIndex`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::slice::CyclicSlice`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `Output`,
-                        item_kind: AssociatedType,
-                    },
+                    TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 161,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssociatedType(
                         TraitForTypeAssociatedTypeSynDecl {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `Output`,
-                                item_kind: AssociatedType,
-                            },
+                            path: TraitForTypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 161,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
                             syn_expr_region: SynExprRegion {
@@ -1521,16 +1578,26 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockSynNodePath {
-                                                                path: TraitForTypeImplBlockPath {
-                                                                    module_path: `core::slice`,
-                                                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                    ty_sketch: TypeSketch::Path(
-                                                                        TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            TraitForTypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                            TraitForTypeImplBlockSynNodePathData {
+                                                                                path: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::slice`,
+                                                                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            },
+                                                                        ),
                                                                     ),
-                                                                    disambiguator: 0,
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1732,23 +1799,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TraitForTypeItem(
-                                                TraitForTypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath {
-                                                            impl_block: TraitForTypeImplBlockPath {
-                                                                module_path: `core::slice`,
-                                                                trai_path: TraitPath(`core::ops::IntIndex`),
-                                                                ty_sketch: TypeSketch::Path(
-                                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                ),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `Output`,
-                                                            item_kind: AssociatedType,
-                                                        },
-                                                        disambiguator: 0,
+                                                TraitForTypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                                TraitForTypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TraitForTypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 161,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1832,21 +1902,25 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath {
-                        module_path: `core::slice`,
-                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 109,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath {
-                            module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                            disambiguator: 0,
-                        },
+                        path: TypeImplBlockPath(
+                            ItemPathId(
+                                Id {
+                                    value: 109,
+                                },
+                            ),
+                        ),
                         template_parameters: [
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
@@ -1871,13 +1945,23 @@ SynDeclSheet {
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::ImplBlock(
                                         ImplBlockSynNodePath::TypeImplBlock(
-                                            TypeImplBlockSynNodePath {
-                                                path: TypeImplBlockPath {
-                                                    module_path: `core::slice`,
-                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                    disambiguator: 0,
+                                            TypeImplBlockSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::ImplBlock(
+                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                            TypeImplBlockSynNodePathData {
+                                                                path: TypeImplBlockPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 109,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2012,30 +2096,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `ilen`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 162,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `ilen`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 162,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -2053,13 +2133,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::slice`,
-                                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 109,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2191,20 +2281,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::slice`,
-                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `ilen`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 162,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2302,30 +2398,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `start`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 163,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `start`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 163,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -2343,13 +2435,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::slice`,
-                                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 109,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2481,20 +2583,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::slice`,
-                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `start`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 163,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2592,30 +2700,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `end`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 164,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `end`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 164,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -2633,13 +2737,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::slice`,
-                                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 109,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2771,20 +2885,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::slice`,
-                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `end`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 164,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2882,30 +3002,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `first`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 165,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `first`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 165,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -2923,13 +3039,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::slice`,
-                                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 109,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -3061,20 +3187,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::slice`,
-                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `first`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 165,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3172,30 +3304,26 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::slice`,
-                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `last`,
-                        item_kind: MethodFn,
-                    },
+                    TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 166,
+                            },
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `last`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 166,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -3213,13 +3341,23 @@ SynDeclSheet {
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `core::slice`,
-                                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 109,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -3351,20 +3489,26 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `core::slice`,
-                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `last`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 166,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),

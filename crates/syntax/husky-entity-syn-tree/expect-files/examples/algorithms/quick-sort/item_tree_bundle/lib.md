@@ -8,12 +8,20 @@ EntitySynTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
-                                            disambiguator: 0,
+                                    FugitiveSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Fugitive(
+                                                    FugitiveSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
-                                    },
+                                    ),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 27,
@@ -37,12 +45,20 @@ EntitySynTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         ident: `quick_sort`,
@@ -52,12 +68,20 @@ EntitySynTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
-                                            disambiguator: 0,
+                                    FugitiveSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Fugitive(
+                                                    FugitiveSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
-                                    },
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `quick_sort`,
@@ -83,12 +107,20 @@ EntitySynTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         ident: `quick_sort_aux`,
@@ -100,12 +132,20 @@ EntitySynTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
-                                            disambiguator: 0,
+                                    FugitiveSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Fugitive(
+                                                    FugitiveSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
-                                    },
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `quick_sort`,
@@ -131,12 +171,20 @@ EntitySynTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         ident: `partition`,
@@ -148,12 +196,20 @@ EntitySynTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
-                                            disambiguator: 0,
+                                    FugitiveSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Fugitive(
+                                                    FugitiveSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
-                                    },
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `quick_sort`,
@@ -179,12 +235,20 @@ EntitySynTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         ident: `quick_sort_works_for_integers`,
@@ -196,12 +260,20 @@ EntitySynTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
-                                            disambiguator: 0,
+                                    FugitiveSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Fugitive(
+                                                    FugitiveSynNodePathData {
+                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
-                                    },
+                                    ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `quick_sort`,
@@ -227,12 +299,20 @@ EntitySynTreeCrateBundle {
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
-                                        disambiguator: 0,
+                                FugitiveSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Fugitive(
+                                                FugitiveSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
                                     },
-                                },
+                                ),
                             ),
                         ),
                         ident: `quick_sort_works_for_strs`,

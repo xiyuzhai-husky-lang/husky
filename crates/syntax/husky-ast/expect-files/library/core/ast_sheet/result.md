@@ -5,10 +5,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     3,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`core::result::Result`, `Enum`),
-                    ident: `Ok`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 65,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         18,
@@ -31,10 +34,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     4,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`core::result::Result`, `Enum`),
-                    ident: `Err`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 66,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         23,
@@ -91,7 +97,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -127,7 +133,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -209,12 +215,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 33,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::result::Result`, `Enum`),
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(

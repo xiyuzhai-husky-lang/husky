@@ -50,12 +50,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 2,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::basic::bool`, `Extern`),
                     variants: None,
                 },
             },
@@ -92,12 +88,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 3,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::basic::never`, `Extern`),
                     variants: None,
                 },
             },
@@ -134,12 +126,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 4,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::basic::unit`, `Extern`),
                     variants: None,
                 },
             },
@@ -176,12 +164,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 5,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::basic::Trait`, `Extern`),
                     variants: None,
                 },
             },
@@ -218,12 +202,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 6,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::basic::Module`, `Extern`),
                     variants: None,
                 },
             },
@@ -260,12 +240,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 7,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::basic::Lifetime`, `Extern`),
                     variants: None,
                 },
             },
@@ -302,12 +278,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 8,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::basic::Place`, `Extern`),
                     variants: None,
                 },
             },

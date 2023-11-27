@@ -2,11 +2,13 @@ use smallvec::SmallVec;
 
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
 pub struct TypeItemSynNodePath(ItemSynNodePathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TypeItemSynNodePathData {
     // no need for intro
@@ -106,6 +108,7 @@ impl HasSynNodePath for TypeItemPath {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TypeItemSynNode {
     pub(crate) syn_node_path: TypeItemSynNodePath,

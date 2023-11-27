@@ -45,11 +45,13 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `core::clone`,
-                        trai_path: TraitPath(`core::clone::Clone`),
-                        ty_sketch: TypeSketch::DeriveAny,
-                        disambiguator: 0,
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `core::clone`,
+                            trai_path: TraitPath(`core::clone::Clone`),
+                            ty_sketch: TypeSketch::DeriveAny,
+                            disambiguator: 0,
+                        },
                     },
                     template_parameters: HirTemplateParameters(
                         [],
@@ -65,11 +67,13 @@
                         path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockPath {
-                                        module_path: `core::clone`,
-                                        trai_path: TraitPath(`core::clone::Clone`),
-                                        ty_sketch: TypeSketch::DeriveAny,
-                                        disambiguator: 0,
+                                    TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::clone`,
+                                            trai_path: TraitPath(`core::clone::Clone`),
+                                            ty_sketch: TypeSketch::DeriveAny,
+                                            disambiguator: 0,
+                                        },
                                     },
                                 ),
                             ),
@@ -103,27 +107,21 @@
         AssociatedItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `core::clone`,
-                            trai_path: TraitPath(`core::clone::Clone`),
-                            ty_sketch: TypeSketch::DeriveAny,
-                            disambiguator: 0,
-                        },
-                        ident: `clone`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `core::clone`,
-                                trai_path: TraitPath(`core::clone::Clone`),
-                                ty_sketch: TypeSketch::DeriveAny,
-                                disambiguator: 0,
+                    path: TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 119,
                             },
-                            ident: `clone`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TraitForTypeMethodFnHirDecl {
+                        path: TraitForTypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 119,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -138,16 +136,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `core::clone`,
-                                                trai_path: TraitPath(`core::clone::Clone`),
-                                                ty_sketch: TypeSketch::DeriveAny,
-                                                disambiguator: 0,
-                                            },
-                                            ident: `clone`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 119,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),

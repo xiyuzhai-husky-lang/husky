@@ -142,15 +142,13 @@
                                             self_argument: 1,
                                             ident: `len`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::slice`,
-                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `len`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 195,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -1184,15 +1182,13 @@
                                             self_argument: 46,
                                             ident: `swap`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::slice`,
-                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `swap`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 196,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [
@@ -1241,15 +1237,13 @@
                                             self_argument: 54,
                                             ident: `swap`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::slice`,
-                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `swap`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 196,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [

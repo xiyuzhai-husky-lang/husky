@@ -1,6 +1,7 @@
 [
     (
         ItemPath::Submodule(
+            Room32,
             SubmodulePath(
                 `mnist_classifier::line_segment_sketch::concave_component`,
             ),
@@ -11,6 +12,7 @@
     ),
     (
         ItemPath::Submodule(
+            Room32,
             SubmodulePath(
                 `mnist_classifier::line_segment_sketch::convex_component`,
             ),
@@ -21,6 +23,7 @@
     ),
     (
         ItemPath::Submodule(
+            Room32,
             SubmodulePath(
                 `mnist_classifier::line_segment_sketch::convexity`,
             ),
@@ -31,6 +34,7 @@
     ),
     (
         ItemPath::Submodule(
+            Room32,
             SubmodulePath(
                 `mnist_classifier::line_segment_sketch::line_segment`,
             ),

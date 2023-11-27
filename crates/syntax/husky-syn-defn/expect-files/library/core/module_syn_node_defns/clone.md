@@ -2,19 +2,35 @@
     ItemSynNodeDefn::MajorItem(
         MajorItemSynNodeDefn::Trait(
             TraitSynNodeDefn {
-                syn_node_path: TraitSynNodePath {
-                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                        path: TraitPath(`core::clone::Clone`),
-                        disambiguator: 0,
+                syn_node_path: TraitSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::MajorItem(
+                            MajorItemSynNodePathData::Trait(
+                                TraitSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TraitPath(`core::clone::Clone`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        ),
                     },
-                },
+                ),
                 syn_node_decl: TraitSynNodeDecl {
-                    syn_node_path: TraitSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitPath(`core::clone::Clone`),
-                            disambiguator: 0,
+                    syn_node_path: TraitSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Trait(
+                                    TraitSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitPath(`core::clone::Clone`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                     template_parameter_decl_list: Ok(
                         None,
                     ),
@@ -24,12 +40,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Trait(
-                                        TraitSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::clone::Clone`),
-                                                disambiguator: 0,
+                                        TraitSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Trait(
+                                                        TraitSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TraitPath(`core::clone::Clone`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -82,14 +106,24 @@
     ItemSynNodeDefn::ImplBlock(
         ImplBlockSynNodeDecl::TraitForType(
             TraitForTypeImplBlockSynNodeDecl {
-                syn_node_path: TraitForTypeImplBlockSynNodePath {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `core::clone`,
-                        trai_path: TraitPath(`core::clone::Clone`),
-                        ty_sketch: TypeSketch::DeriveAny,
-                        disambiguator: 0,
+                syn_node_path: TraitForTypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                TraitForTypeImplBlockSynNodePathData {
+                                    path: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::clone`,
+                                            trai_path: TraitPath(`core::clone::Clone`),
+                                            ty_sketch: TypeSketch::DeriveAny,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                },
+                            ),
+                        ),
                     },
-                },
+                ),
                 impl_regional_token: ImplRegionalToken {
                     regional_token_idx: RegionalTokenIdx(
                         1,
@@ -138,14 +172,24 @@
                         path: SynNodeRegionPath::Decl(
                             ItemSynNodePath::ImplBlock(
                                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockSynNodePath {
-                                        path: TraitForTypeImplBlockPath {
-                                            module_path: `core::clone`,
-                                            trai_path: TraitPath(`core::clone::Clone`),
-                                            ty_sketch: TypeSketch::DeriveAny,
-                                            disambiguator: 0,
+                                    TraitForTypeImplBlockSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::ImplBlock(
+                                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                    TraitForTypeImplBlockSynNodePathData {
+                                                        path: TraitForTypeImplBlock {
+                                                            data: TraitForTypeImplBlockPathData {
+                                                                module_path: `core::clone`,
+                                                                trai_path: TraitPath(`core::clone::Clone`),
+                                                                ty_sketch: TypeSketch::DeriveAny,
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    },
+                                                ),
+                                            ),
                                         },
-                                    },
+                                    ),
                                 ),
                             ),
                         ),
@@ -230,37 +274,47 @@
         AssociatedItemSynNodeDefn::TraitForTypeItem(
             TraitForTypeItemSynNodeDefn::MethodFn(
                 TraitForTypeMethodFnSynNodeDefn {
-                    syn_node_path: TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::clone`,
-                                    trai_path: TraitPath(`core::clone::Clone`),
-                                    ty_sketch: TypeSketch::DeriveAny,
-                                    disambiguator: 0,
-                                },
-                                ident: `clone`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
-                        },
-                    },
-                    syn_node_decl: TraitForTypeMethodFnSynNodeDecl {
-                        syn_node_path: TraitForTypeItemSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TraitForTypeItemPath {
-                                    impl_block: TraitForTypeImplBlockPath {
-                                        module_path: `core::clone`,
-                                        trai_path: TraitPath(`core::clone::Clone`),
-                                        ty_sketch: TypeSketch::DeriveAny,
-                                        disambiguator: 0,
+                    syn_node_path: TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 111,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
                                     },
-                                    ident: `clone`,
-                                    item_kind: MethodFn,
-                                },
-                                disambiguator: 0,
-                            },
+                                ),
+                            ),
                         },
+                    ),
+                    syn_node_decl: TraitForTypeMethodFnSynNodeDecl {
+                        syn_node_path: TraitForTypeItemSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::AssociatedItem(
+                                    AssociatedItemSynNodePathData::TraitForTypeItem(
+                                        TraitForTypeItemSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TraitForTypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 111,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
                         template_parameter_decl_list: Ok(
                             None,
                         ),
@@ -316,14 +370,24 @@
                                             path: SynNodeRegionPath::Decl(
                                                 ItemSynNodePath::ImplBlock(
                                                     ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                        TraitForTypeImplBlockSynNodePath {
-                                                            path: TraitForTypeImplBlockPath {
-                                                                module_path: `core::clone`,
-                                                                trai_path: TraitPath(`core::clone::Clone`),
-                                                                ty_sketch: TypeSketch::DeriveAny,
-                                                                disambiguator: 0,
+                                                        TraitForTypeImplBlockSynNodePath(
+                                                            ItemSynNodePathId {
+                                                                data: ItemSynNodePathData::ImplBlock(
+                                                                    ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                        TraitForTypeImplBlockSynNodePathData {
+                                                                            path: TraitForTypeImplBlock {
+                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                    module_path: `core::clone`,
+                                                                                    trai_path: TraitPath(`core::clone::Clone`),
+                                                                                    ty_sketch: TypeSketch::DeriveAny,
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            },
+                                                                        },
+                                                                    ),
+                                                                ),
                                                             },
-                                                        },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -405,21 +469,26 @@
                                 path: SynNodeRegionPath::Decl(
                                     ItemSynNodePath::AssociatedItem(
                                         AssociatedItemSynNodePath::TraitForTypeItem(
-                                            TraitForTypeItemSynNodePath {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath {
-                                                        impl_block: TraitForTypeImplBlockPath {
-                                                            module_path: `core::clone`,
-                                                            trai_path: TraitPath(`core::clone::Clone`),
-                                                            ty_sketch: TypeSketch::DeriveAny,
-                                                            disambiguator: 0,
-                                                        },
-                                                        ident: `clone`,
-                                                        item_kind: MethodFn,
-                                                    },
-                                                    disambiguator: 0,
+                                            TraitForTypeItemSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::AssociatedItem(
+                                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                            TraitForTypeItemSynNodePathData {
+                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                    path: TraitForTypeItemPath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 111,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
                                                 },
-                                            },
+                                            ),
                                         ),
                                     ),
                                 ),

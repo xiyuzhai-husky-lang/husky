@@ -200,13 +200,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `mnist_classifier::connected_component`,
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `mnist_classifier::connected_component`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -222,9 +224,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 47,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 192,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -237,18 +241,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `visualize`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 333,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -277,11 +276,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `mnist_classifier::connected_component`,
-                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 316,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -300,15 +301,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `raw_contours`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 334,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -316,15 +315,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `raw_contours`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 334,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -341,15 +338,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `eff_holes`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 335,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -357,15 +352,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `eff_holes`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 335,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -382,15 +375,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `max_hole_ilen`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 336,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -398,15 +389,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max_hole_ilen`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 336,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -423,15 +412,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `max_row_span`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 337,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -439,15 +426,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max_row_span`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 337,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -464,15 +449,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `row_span_sum`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 338,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -480,15 +463,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `row_span_sum`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 338,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -505,15 +486,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `distribution`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 339,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -521,15 +500,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `distribution`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 339,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -546,15 +523,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `upper_mass`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 340,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -562,15 +537,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `upper_mass`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 340,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -587,15 +560,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `lower_mass`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 341,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -603,15 +574,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `lower_mass`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 341,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -628,15 +597,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `top_k_row_span_sum`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 342,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -644,15 +611,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `top_k_row_span_sum`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 342,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -687,15 +652,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `top_k_row_right_mass_sum`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 343,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -703,15 +666,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::connected_component`,
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `top_k_row_right_mass_sum`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 343,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],

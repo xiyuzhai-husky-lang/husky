@@ -2,6 +2,7 @@ use super::*;
 
 use vec_like::SmallVecPairMap;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id(jar = EntitySynTreeJar)]
 #[salsa::deref_id]
@@ -88,8 +89,8 @@ impl HasSynNodePath for TypeImplBlockPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TypeImplBlockSynNode {
     pub(crate) syn_node_path: TypeImplBlockSynNodePath,
     pub(crate) ast_idx: AstIdx,

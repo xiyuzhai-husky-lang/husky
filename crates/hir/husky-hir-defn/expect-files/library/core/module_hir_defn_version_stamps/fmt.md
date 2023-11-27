@@ -3,9 +3,11 @@
         MajorItem(
             Trait(
                 TraitPath(
-                    Id {
-                        value: 6,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 14,
+                        },
+                    ),
                 ),
             ),
         ),
