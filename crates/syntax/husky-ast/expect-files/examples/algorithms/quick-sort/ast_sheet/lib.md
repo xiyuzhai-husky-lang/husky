@@ -230,12 +230,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 1,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`quick_sort::quick_sort`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -278,12 +274,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 2,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -326,12 +318,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 3,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -380,12 +368,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 4,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(
@@ -434,12 +418,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 5,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                     body: Some(
                         FugitiveBody {
                             ast_idx_range: ArenaIdxRange(

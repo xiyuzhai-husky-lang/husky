@@ -52,12 +52,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -307,12 +315,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -562,12 +578,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -817,12 +841,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1088,12 +1120,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1343,12 +1383,20 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Type(
-                                                TypeSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                        disambiguator: 0,
+                                                TypeSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::MajorItem(
+                                                            MajorItemSynNodePathData::Type(
+                                                                TypeSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1549,11 +1597,13 @@ Ok(
         SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 319,
+                            },
+                        ),
+                    ),
                     template_parameters: [],
                     self_ty_expr: SelfTypeSyndicate {
                         expr: 1,
@@ -1564,13 +1614,23 @@ Ok(
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::geom2d`,
-                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 319,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1655,25 +1715,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::AssociatedFn(
                     TypeAssociatedFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `from_i_shift28`,
-                            item_kind: AssociatedFunctionFn,
-                        },
-                        decl: TypeAssociatedFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 348,
                                 },
-                                ident: `from_i_shift28`,
-                                item_kind: AssociatedFunctionFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeAssociatedFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 348,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateSynParameterData::Ordinary {
@@ -1719,13 +1775,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 319,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1807,20 +1873,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `from_i_shift28`,
-                                                            item_kind: AssociatedFunctionFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 348,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2081,13 +2153,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 319,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -2169,20 +2251,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `from_i_shift28`,
-                                                                            item_kind: AssociatedFunctionFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 348,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -2431,20 +2519,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `from_i_shift28`,
-                                                                item_kind: AssociatedFunctionFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 348,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -2735,25 +2829,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `vector`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 349,
                                 },
-                                ident: `vector`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 349,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -2771,13 +2861,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 319,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -2859,20 +2959,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `vector`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 349,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2966,13 +3072,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 319,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -3054,20 +3170,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `vector`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 349,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -3149,20 +3271,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `vector`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 349,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3324,25 +3452,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `to`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 350,
                                 },
-                                ident: `to`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 350,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -3375,13 +3499,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 319,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -3463,20 +3597,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `to`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 350,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3658,13 +3798,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 319,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -3746,20 +3896,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `to`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 350,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -3929,20 +4085,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `to`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 350,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4178,25 +4340,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `norm`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 351,
                                 },
-                                ident: `norm`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 351,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -4214,13 +4372,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 319,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -4302,20 +4470,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `norm`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 351,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4409,13 +4583,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 319,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -4497,20 +4681,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `norm`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 351,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -4592,20 +4782,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `norm`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 351,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4810,25 +5006,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `dist`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 352,
                                 },
-                                ident: `dist`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 352,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -4861,13 +5053,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 319,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -4949,20 +5151,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `dist`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 352,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5144,13 +5352,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 319,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -5232,20 +5450,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `dist`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 352,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -5415,20 +5639,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `dist`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 352,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5575,11 +5805,13 @@ Ok(
         SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 320,
+                            },
+                        ),
+                    ),
                     template_parameters: [],
                     self_ty_expr: SelfTypeSyndicate {
                         expr: 1,
@@ -5590,13 +5822,23 @@ Ok(
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::geom2d`,
-                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 320,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5681,25 +5923,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `point`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 353,
                                 },
-                                ident: `point`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 353,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -5717,13 +5955,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 320,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -5805,20 +6053,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `point`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 353,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5912,13 +6166,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 320,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -6000,20 +6264,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `point`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 353,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -6095,20 +6365,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `point`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 353,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6270,25 +6546,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `to`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 354,
                                 },
-                                ident: `to`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 354,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -6321,13 +6593,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 320,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -6409,20 +6691,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `to`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 354,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -6604,13 +6892,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 320,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -6692,20 +6990,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `to`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 354,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -6875,20 +7179,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `to`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 354,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7124,25 +7434,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `norm`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 355,
                                 },
-                                ident: `norm`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 355,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -7160,13 +7466,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 320,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -7248,20 +7564,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `norm`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 355,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7355,13 +7677,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 320,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -7443,20 +7775,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `norm`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 355,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -7538,20 +7876,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `norm`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 355,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7756,25 +8100,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `dot`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 356,
                                 },
-                                ident: `dot`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 356,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -7807,13 +8147,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 320,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -7895,20 +8245,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `dot`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 356,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -8090,13 +8446,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 320,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -8178,20 +8544,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `dot`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 356,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -8361,20 +8733,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `dot`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 356,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -8570,25 +8948,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `cross`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 357,
                                 },
-                                ident: `cross`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 357,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -8621,13 +8995,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 320,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -8709,20 +9093,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `cross`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 357,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -8904,13 +9294,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 320,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -8992,20 +9392,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `cross`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 357,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -9175,20 +9581,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `cross`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 357,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -9384,25 +9796,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `angle`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 358,
                                 },
-                                ident: `angle`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 358,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -9435,13 +9843,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 320,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -9523,20 +9941,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `angle`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 358,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -9718,13 +10142,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 320,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -9806,20 +10240,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `angle`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 358,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -9989,20 +10429,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `angle`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 358,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -10651,25 +11097,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `rotation_direction_to`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 359,
                                 },
-                                ident: `rotation_direction_to`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 359,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -10702,13 +11144,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 320,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -10790,20 +11242,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `rotation_direction_to`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 359,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -10985,13 +11443,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 320,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -11073,20 +11541,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `rotation_direction_to`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 359,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -11256,20 +11730,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `rotation_direction_to`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 359,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11417,25 +11897,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `angle_to`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 360,
                                 },
-                                ident: `angle_to`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 360,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -11482,13 +11958,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 320,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -11570,20 +12056,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `angle_to`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 360,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -11844,13 +12336,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 320,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -11932,20 +12434,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `angle_to`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 360,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -12194,20 +12702,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `angle_to`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 360,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13295,11 +13809,13 @@ Ok(
         SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 321,
+                            },
+                        ),
+                    ),
                     template_parameters: [],
                     self_ty_expr: SelfTypeSyndicate {
                         expr: 1,
@@ -13310,13 +13826,23 @@ Ok(
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::geom2d`,
-                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 321,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -13401,25 +13927,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `relative_range`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 361,
                                 },
-                                ident: `relative_range`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 361,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -13452,13 +13974,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 321,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -13540,20 +14072,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `relative_range`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 361,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -13735,13 +14273,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 321,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -13823,20 +14371,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `relative_range`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 361,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -14006,20 +14560,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `relative_range`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 361,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -14679,25 +15239,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `relative_point`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 362,
                                 },
-                                ident: `relative_point`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 362,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -14730,13 +15286,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 321,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -14818,20 +15384,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `relative_point`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 362,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -15013,13 +15585,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 321,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -15101,20 +15683,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `relative_point`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 362,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -15284,20 +15872,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `relative_point`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 362,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15580,11 +16174,13 @@ Ok(
         SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 322,
+                            },
+                        ),
+                    ),
                     template_parameters: [],
                     self_ty_expr: SelfTypeSyndicate {
                         expr: 1,
@@ -15595,13 +16191,23 @@ Ok(
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::geom2d`,
-                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 322,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -15686,25 +16292,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `relative_bounding_box`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 363,
                                 },
-                                ident: `relative_bounding_box`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 363,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -15737,13 +16339,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 322,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -15825,20 +16437,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `relative_bounding_box`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 363,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -16020,13 +16638,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 322,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -16108,20 +16736,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `relative_bounding_box`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 363,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -16291,20 +16925,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `relative_bounding_box`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 363,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -16574,25 +17214,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `relative_point`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 364,
                                 },
-                                ident: `relative_point`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 364,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -16625,13 +17261,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 322,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -16713,20 +17359,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `relative_point`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 364,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -16908,13 +17560,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 322,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -16996,20 +17658,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `relative_point`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 364,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -17179,20 +17847,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `relative_point`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 364,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -17462,25 +18136,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `xmin`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 365,
                                 },
-                                ident: `xmin`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 365,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -17498,13 +18168,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 322,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -17586,20 +18266,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `xmin`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 365,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -17693,13 +18379,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 322,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -17781,20 +18477,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `xmin`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 365,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -17876,20 +18578,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `xmin`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 365,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -17996,25 +18704,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `xmax`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 366,
                                 },
-                                ident: `xmax`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 366,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -18032,13 +18736,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 322,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -18120,20 +18834,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `xmax`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 366,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -18227,13 +18947,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 322,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -18315,20 +19045,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `xmax`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 366,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -18410,20 +19146,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `xmax`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 366,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -18530,25 +19272,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `ymin`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 367,
                                 },
-                                ident: `ymin`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 367,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -18566,13 +19304,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 322,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -18654,20 +19402,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `ymin`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 367,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -18761,13 +19515,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 322,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -18849,20 +19613,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `ymin`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 367,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -18944,20 +19714,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `ymin`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 367,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -19064,25 +19840,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `ymax`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 368,
                                 },
-                                ident: `ymax`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 368,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -19100,13 +19872,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 322,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -19188,20 +19970,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `ymax`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 368,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -19295,13 +20083,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 322,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -19383,20 +20181,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `ymax`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 368,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -19478,20 +20282,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `ymax`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 368,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -19597,11 +20407,13 @@ Ok(
         SynDefn::ImplBlock(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::geom2d`,
-                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 323,
+                            },
+                        ),
+                    ),
                     template_parameters: [],
                     self_ty_expr: SelfTypeSyndicate {
                         expr: 1,
@@ -19612,13 +20424,23 @@ Ok(
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::ImplBlock(
                                     ImplBlockSynNodePath::TypeImplBlock(
-                                        TypeImplBlockSynNodePath {
-                                            path: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::geom2d`,
-                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                disambiguator: 0,
+                                        TypeImplBlockSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::ImplBlock(
+                                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                                        TypeImplBlockSynNodePathData {
+                                                            path: TypeImplBlockPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 323,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -19703,25 +20525,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `xmin`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 369,
                                 },
-                                ident: `xmin`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 369,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -19739,13 +20557,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 323,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -19827,20 +20655,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `xmin`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 369,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -19934,13 +20768,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 323,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -20022,20 +20866,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `xmin`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 369,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -20117,20 +20967,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `xmin`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 369,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -20237,25 +21093,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `xmax`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 370,
                                 },
-                                ident: `xmax`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 370,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -20273,13 +21125,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 323,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -20361,20 +21223,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `xmax`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 370,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -20468,13 +21336,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 323,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -20556,20 +21434,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `xmax`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 370,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -20651,20 +21535,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `xmax`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 370,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -20771,25 +21661,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `ymin`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 371,
                                 },
-                                ident: `ymin`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 371,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -20807,13 +21693,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 323,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -20895,20 +21791,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `ymin`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 371,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -21002,13 +21904,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 323,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -21090,20 +22002,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `ymin`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 371,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -21185,20 +22103,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `ymin`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 371,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -21305,25 +22229,21 @@ Ok(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
                     TypeMethodFnSynDefn {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::geom2d`,
-                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                disambiguator: 0,
-                            },
-                            ident: `ymax`,
-                            item_kind: MethodFn,
-                        },
-                        decl: TypeMethodFnSynDecl {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                    disambiguator: 0,
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 372,
                                 },
-                                ident: `ymax`,
-                                item_kind: MethodFn,
-                            },
+                            ),
+                        ),
+                        decl: TypeMethodFnSynDecl {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 372,
+                                    },
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -21341,13 +22261,23 @@ Ok(
                                                 path: SynNodeRegionPath::Decl(
                                                     ItemSynNodePath::ImplBlock(
                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                            TypeImplBlockSynNodePath {
-                                                                path: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
+                                                            TypeImplBlockSynNodePath(
+                                                                ItemSynNodePathId {
+                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                            TypeImplBlockSynNodePathData {
+                                                                                path: TypeImplBlockPath(
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 323,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                 },
-                                                            },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -21429,20 +22359,26 @@ Ok(
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
                                             AssociatedItemSynNodePath::TypeItem(
-                                                TypeItemSynNodePath {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath {
-                                                            impl_block: TypeImplBlockPath {
-                                                                module_path: `mnist_classifier::geom2d`,
-                                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                            ident: `ymax`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                        disambiguator: 0,
+                                                TypeItemSynNodePath(
+                                                    ItemSynNodePathId {
+                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                TypeItemSynNodePathData {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypeItemPath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 372,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                        ),
                                                     },
-                                                },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -21536,13 +22472,23 @@ Ok(
                                                                 path: SynNodeRegionPath::Decl(
                                                                     ItemSynNodePath::ImplBlock(
                                                                         ImplBlockSynNodePath::TypeImplBlock(
-                                                                            TypeImplBlockSynNodePath {
-                                                                                path: TypeImplBlockPath {
-                                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                                    disambiguator: 0,
+                                                                            TypeImplBlockSynNodePath(
+                                                                                ItemSynNodePathId {
+                                                                                    data: ItemSynNodePathData::ImplBlock(
+                                                                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                                                                            TypeImplBlockSynNodePathData {
+                                                                                                path: TypeImplBlockPath(
+                                                                                                    ItemPathId(
+                                                                                                        Id {
+                                                                                                            value: 323,
+                                                                                                        },
+                                                                                                    ),
+                                                                                                ),
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
                                                                                 },
-                                                                            },
+                                                                            ),
                                                                         ),
                                                                     ),
                                                                 ),
@@ -21624,20 +22570,26 @@ Ok(
                                                     path: SynNodeRegionPath::Decl(
                                                         ItemSynNodePath::AssociatedItem(
                                                             AssociatedItemSynNodePath::TypeItem(
-                                                                TypeItemSynNodePath {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath {
-                                                                            impl_block: TypeImplBlockPath {
-                                                                                module_path: `mnist_classifier::geom2d`,
-                                                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                            ident: `ymax`,
-                                                                            item_kind: MethodFn,
-                                                                        },
-                                                                        disambiguator: 0,
+                                                                TypeItemSynNodePath(
+                                                                    ItemSynNodePathId {
+                                                                        data: ItemSynNodePathData::AssociatedItem(
+                                                                            AssociatedItemSynNodePathData::TypeItem(
+                                                                                TypeItemSynNodePathData {
+                                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                                        path: TypeItemPath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 372,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                     },
-                                                                },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -21719,20 +22671,26 @@ Ok(
                                         path: SynNodeRegionPath::Defn(
                                             ItemSynNodePath::AssociatedItem(
                                                 AssociatedItemSynNodePath::TypeItem(
-                                                    TypeItemSynNodePath {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath {
-                                                                impl_block: TypeImplBlockPath {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                                ident: `ymax`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                            disambiguator: 0,
+                                                    TypeItemSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::AssociatedItem(
+                                                                AssociatedItemSynNodePathData::TypeItem(
+                                                                    TypeItemSynNodePathData {
+                                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                            path: TypeItemPath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 372,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),

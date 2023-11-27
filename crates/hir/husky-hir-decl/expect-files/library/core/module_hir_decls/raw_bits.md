@@ -13,11 +13,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::raw_bits`,
-                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 104,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -31,11 +33,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::raw_bits`,
-                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 104,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),

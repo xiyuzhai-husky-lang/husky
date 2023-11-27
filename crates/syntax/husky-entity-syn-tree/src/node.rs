@@ -56,6 +56,7 @@ pub struct ItemSynNodePathId {
     data: ItemSynNodePathData,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ItemSynNodePathData {
     Submodule(SubmoduleSynNodePathData),

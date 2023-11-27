@@ -1,6 +1,5 @@
 [
     SemaExprRangeRegion {
-        [salsa id]: 153,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [],
@@ -13,7 +12,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 154,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 4..5,
@@ -32,7 +30,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 155,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 6..7,
@@ -49,7 +46,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 156,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [
@@ -66,7 +62,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 157,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 8..9,
@@ -87,7 +82,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 158,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 8..9,
@@ -108,7 +102,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 159,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 9..10,
@@ -127,7 +120,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 160,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [],
@@ -145,7 +137,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 161,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 9..10,
@@ -172,7 +163,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 162,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 16..17,

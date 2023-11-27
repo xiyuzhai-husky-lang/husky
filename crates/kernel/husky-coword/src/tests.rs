@@ -23,9 +23,7 @@ fn ident_debug_works() {
     let db = &*db;
     let haha = Ident::from_ref(db, "haha").unwrap();
     expect_test::expect![[r#"
-        Ident(
-            "haha",
-        )
+        `haha`
     "#]]
     .assert_debug_eq(&haha.debug(db));
 }

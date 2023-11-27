@@ -391,13 +391,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `mnist_classifier::raw_contour`,
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `mnist_classifier::raw_contour`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -413,9 +415,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 48,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 195,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -428,18 +432,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `visualize`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 395,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -468,11 +467,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `mnist_classifier::raw_contour`,
-                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 318,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -491,15 +492,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `line_segment_sketch`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 396,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -507,15 +506,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `line_segment_sketch`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 396,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -532,15 +529,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `bounding_box`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 397,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -548,15 +543,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `bounding_box`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 397,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -573,15 +566,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `relative_bounding_box`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 398,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -589,15 +580,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `relative_bounding_box`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 398,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -614,15 +603,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `contour_len`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 399,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -630,15 +617,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `contour_len`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 399,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -655,15 +640,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::raw_contour`,
-                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `displacement`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 400,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -671,15 +654,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::raw_contour`,
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `displacement`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 400,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],

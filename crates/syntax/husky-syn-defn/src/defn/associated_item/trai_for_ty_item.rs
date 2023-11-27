@@ -151,7 +151,7 @@ impl HasSynDefn for TraitForTypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = SynDefnJar)]
+#[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn trai_for_ty_item_syn_defn(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,

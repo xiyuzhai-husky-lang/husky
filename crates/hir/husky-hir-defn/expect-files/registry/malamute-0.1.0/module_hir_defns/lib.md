@@ -360,13 +360,15 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `malamute`,
-                        trai_path: TraitPath(`core::ops::Unveil`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`malamute::Class`, `Enum`),
-                        ),
-                        disambiguator: 0,
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `malamute`,
+                            trai_path: TraitPath(`core::ops::Unveil`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`malamute::Class`, `Enum`),
+                            ),
+                            disambiguator: 0,
+                        },
                     },
                     template_parameters: HirTemplateParameters(
                         [
@@ -434,13 +436,15 @@
                         path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockPath {
-                                        module_path: `malamute`,
-                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`malamute::Class`, `Enum`),
-                                        ),
-                                        disambiguator: 0,
+                                    TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `malamute`,
+                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`malamute::Class`, `Enum`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
                                     },
                                 ),
                             ),
@@ -488,31 +492,21 @@
         AssociatedItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssociatedType(
                 TraitForTypeAssociatedTypeHirDefn {
-                    path: TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `malamute`,
-                            trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`malamute::Class`, `Enum`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `Output`,
-                        item_kind: AssociatedType,
-                    },
-                    hir_decl: TraitForTypeAssociatedTypeHirDecl {
-                        path: TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `malamute`,
-                                trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`malamute::Class`, `Enum`),
-                                ),
-                                disambiguator: 0,
+                    path: TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 457,
                             },
-                            ident: `Output`,
-                            item_kind: AssociatedType,
-                        },
+                        ),
+                    ),
+                    hir_decl: TraitForTypeAssociatedTypeHirDecl {
+                        path: TraitForTypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 457,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -526,18 +520,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `malamute`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`malamute::Class`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `Output`,
-                                            item_kind: AssociatedType,
-                                        },
+                                        TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 457,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -585,13 +574,15 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `malamute`,
-                        trai_path: TraitPath(`core::ops::Unveil`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`malamute::OneVsAll`, `Enum`),
-                        ),
-                        disambiguator: 0,
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `malamute`,
+                            trai_path: TraitPath(`core::ops::Unveil`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`malamute::OneVsAll`, `Enum`),
+                            ),
+                            disambiguator: 0,
+                        },
                     },
                     template_parameters: HirTemplateParameters(
                         [
@@ -659,13 +650,15 @@
                         path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockPath {
-                                        module_path: `malamute`,
-                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`malamute::OneVsAll`, `Enum`),
-                                        ),
-                                        disambiguator: 0,
+                                    TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `malamute`,
+                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
                                     },
                                 ),
                             ),
@@ -713,31 +706,21 @@
         AssociatedItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssociatedType(
                 TraitForTypeAssociatedTypeHirDefn {
-                    path: TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `malamute`,
-                            trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`malamute::OneVsAll`, `Enum`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `Output`,
-                        item_kind: AssociatedType,
-                    },
-                    hir_decl: TraitForTypeAssociatedTypeHirDecl {
-                        path: TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `malamute`,
-                                trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                ),
-                                disambiguator: 0,
+                    path: TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 458,
                             },
-                            ident: `Output`,
-                            item_kind: AssociatedType,
-                        },
+                        ),
+                    ),
+                    hir_decl: TraitForTypeAssociatedTypeHirDecl {
+                        path: TraitForTypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 458,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -751,18 +734,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `malamute`,
-                                                trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`malamute::OneVsAll`, `Enum`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `Output`,
-                                            item_kind: AssociatedType,
-                                        },
+                                        TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 458,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),

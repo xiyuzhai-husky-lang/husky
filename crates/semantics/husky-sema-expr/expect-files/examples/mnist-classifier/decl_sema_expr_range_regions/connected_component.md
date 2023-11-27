@@ -1,6 +1,5 @@
 [
     SemaExprRangeRegion {
-        [salsa id]: 174,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 6..7,
@@ -23,7 +22,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 175,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 10..11,
@@ -44,7 +42,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 176,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 6..7,
@@ -67,7 +64,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 177,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 6..7,
@@ -84,7 +80,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 178,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 5..6,
@@ -108,7 +103,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 179,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 6..7,
@@ -131,7 +125,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 180,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 1..2,
@@ -150,7 +143,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 181,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 5..6,
@@ -167,7 +159,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 182,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 1..2,
@@ -184,7 +175,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 183,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 5..6,
@@ -203,7 +193,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 184,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 3..4,
@@ -220,7 +209,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 185,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 3..4,
@@ -237,7 +225,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 186,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 3..4,
@@ -254,7 +241,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 187,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 3..4,
@@ -271,7 +257,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 188,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 3..4,
@@ -288,7 +273,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 189,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 3..4,
@@ -305,7 +289,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 190,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 3..4,
@@ -322,7 +305,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 191,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 5..6,
@@ -343,7 +325,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 192,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 5..6,

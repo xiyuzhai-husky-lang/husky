@@ -3,9 +3,11 @@
         MajorItem(
             Type(
                 TypePath(
-                    Id {
-                        value: 62,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 260,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -23,9 +25,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 25,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 261,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -43,9 +47,11 @@
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(
-                    Id {
-                        value: 32,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 364,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -63,9 +69,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 57,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 377,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -83,9 +91,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 58,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 378,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -103,9 +113,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 59,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 379,
+                        },
+                    ),
                 ),
             ),
         ),

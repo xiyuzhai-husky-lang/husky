@@ -310,15 +310,13 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `contour_len`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `mnist_classifier::raw_contour`,
-                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `contour_len`,
-                                                    item_kind: MemoizedField,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 380,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         HirEagerExprData::Variable(
@@ -1034,16 +1032,13 @@
                                             self_argument: 2,
                                             ident: `clone`,
                                             path: AssociatedItemPath::TraitForTypeItem(
-                                                TraitForTypeItemPath {
-                                                    impl_block: TraitForTypeImplBlockPath {
-                                                        module_path: `core::clone`,
-                                                        trai_path: TraitPath(`core::clone::Clone`),
-                                                        ty_sketch: TypeSketch::DeriveAny,
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `clone`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TraitForTypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 119,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -1084,43 +1079,37 @@
                                             self_argument: 11,
                                             ident: `ctz`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::raw_bits`,
-                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `ctz`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 189,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
                                         },
                                         HirEagerExprData::AssociatedFn {
                                             associated_item_path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `mnist`,
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `new_zeros`,
-                                                    item_kind: AssociatedFunctionFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 382,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `mnist`,
-                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `new_zeros`,
-                                                    item_kind: AssociatedFunctionFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 382,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             function_hir_eager_expr_idx: 13,
                                             parent_template_arguments: None,
@@ -1579,15 +1568,13 @@
                                             self_argument: 104,
                                             ident: `push`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::vec`,
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `push`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 204,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [
@@ -2106,13 +2093,15 @@
         ImplBlockHirDefn::TraitForType(
             TraitForTypeImplBlockHirDefn {
                 hir_decl: TraitForTypeImplBlockHirDecl {
-                    path: TraitForTypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        ),
-                        disambiguator: 0,
+                    path: TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `mnist_classifier::connected_component`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            ),
+                            disambiguator: 0,
+                        },
                     },
                     template_parameters: HirTemplateParameters(
                         [],
@@ -2131,13 +2120,15 @@
                         path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TraitForTypeImplBlock(
-                                    TraitForTypeImplBlockPath {
-                                        module_path: `mnist_classifier::connected_component`,
-                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                        ty_sketch: TypeSketch::Path(
-                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                        ),
-                                        disambiguator: 0,
+                                    TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `mnist_classifier::connected_component`,
+                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
                                     },
                                 ),
                             ),
@@ -2171,31 +2162,21 @@
         AssociatedItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
                 TraitForTypeMethodFnHirDefn {
-                    path: TraitForTypeItemPath {
-                        impl_block: TraitForTypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            ),
-                            disambiguator: 0,
-                        },
-                        ident: `visualize`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TraitForTypeMethodFnHirDecl {
-                        path: TraitForTypeItemPath {
-                            impl_block: TraitForTypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_sketch: TypeSketch::Path(
-                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                ),
-                                disambiguator: 0,
+                    path: TraitForTypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 366,
                             },
-                            ident: `visualize`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TraitForTypeMethodFnHirDecl {
+                        path: TraitForTypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 366,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -2213,18 +2194,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TraitForTypeItem(
-                                        TraitForTypeItemPath {
-                                            impl_block: TraitForTypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_sketch: TypeSketch::Path(
-                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                ),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `visualize`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TraitForTypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 366,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2264,18 +2240,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TraitForTypeItem(
-                                            TraitForTypeItemPath {
-                                                impl_block: TraitForTypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_sketch: TypeSketch::Path(
-                                                        TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    ),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `visualize`,
-                                                item_kind: MethodFn,
-                                            },
+                                            TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 366,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2292,18 +2263,13 @@
                                             self_argument: 2,
                                             ident: `visualize`,
                                             path: AssociatedItemPath::TraitForTypeItem(
-                                                TraitForTypeItemPath {
-                                                    impl_block: TraitForTypeImplBlockPath {
-                                                        module_path: `mnist`,
-                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `visualize`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TraitForTypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 385,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -2355,11 +2321,13 @@
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
-                    path: TypeImplBlockPath {
-                        module_path: `mnist_classifier::connected_component`,
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 348,
+                            },
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -2373,11 +2341,13 @@
                         path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath {
-                                        module_path: `mnist_classifier::connected_component`,
-                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                        disambiguator: 0,
-                                    },
+                                    TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 348,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -2410,25 +2380,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                        ident: `raw_contours`,
-                        item_kind: MemoizedField,
-                    },
-                    hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 367,
                             },
-                            ident: `raw_contours`,
-                            item_kind: MemoizedField,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMemoizedFieldHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 367,
+                                },
+                            ),
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::vec::Vec`, `Extern`),
@@ -2448,15 +2414,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `raw_contours`,
-                                            item_kind: MemoizedField,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 367,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2496,15 +2460,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `raw_contours`,
-                                                item_kind: MemoizedField,
-                                            },
+                                            TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 367,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2577,25 +2539,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                        ident: `eff_holes`,
-                        item_kind: MemoizedField,
-                    },
-                    hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 368,
                             },
-                            ident: `eff_holes`,
-                            item_kind: MemoizedField,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMemoizedFieldHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 368,
+                                },
+                            ),
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -2606,15 +2564,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `eff_holes`,
-                                            item_kind: MemoizedField,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 368,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2654,15 +2610,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `eff_holes`,
-                                                item_kind: MemoizedField,
-                                            },
+                                            TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 368,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2675,30 +2629,26 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `raw_contours`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `mnist_classifier::connected_component`,
-                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `raw_contours`,
-                                                    item_kind: MemoizedField,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 367,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 2,
                                             ident: `collect_leashes`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::vec`,
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `collect_leashes`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 208,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -2720,15 +2670,13 @@
                                             self_argument: 5,
                                             ident: `pop_with_largest_opt_f32`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::vec`,
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `pop_with_largest_opt_f32`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 210,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [
@@ -2754,15 +2702,13 @@
                                             self_argument: 9,
                                             ident: `pop_with_largest_opt_f32`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::vec`,
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `pop_with_largest_opt_f32`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 210,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [
@@ -2775,15 +2721,13 @@
                                             self_argument: 8,
                                             ident: `push`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::vec`,
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `push`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 204,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [
@@ -2809,15 +2753,13 @@
                                             self_argument: 14,
                                             ident: `pop_with_largest_opt_f32`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::vec`,
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `pop_with_largest_opt_f32`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 210,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [
@@ -2830,15 +2772,13 @@
                                             self_argument: 13,
                                             ident: `push`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::vec`,
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `push`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 204,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [
@@ -2984,25 +2924,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                        ident: `max_hole_ilen`,
-                        item_kind: MemoizedField,
-                    },
-                    hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 369,
                             },
-                            ident: `max_hole_ilen`,
-                            item_kind: MemoizedField,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMemoizedFieldHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 369,
+                                },
+                            ),
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -3013,15 +2949,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `max_hole_ilen`,
-                                            item_kind: MemoizedField,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 369,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3061,15 +2995,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `max_hole_ilen`,
-                                                item_kind: MemoizedField,
-                                            },
+                                            TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 369,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3087,15 +3019,13 @@
                                             owner_hir_expr_idx: 2,
                                             ident: `raw_contours`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `mnist_classifier::connected_component`,
-                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `raw_contours`,
-                                                    item_kind: MemoizedField,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 367,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         HirEagerExprData::Literal(
@@ -3110,15 +3040,13 @@
                                             self_argument: 5,
                                             ident: `ilen`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::vec`,
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `ilen`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 203,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -3143,15 +3071,13 @@
                                             self_argument: 10,
                                             ident: `ilen`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::vec`,
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `ilen`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 203,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -3366,25 +3292,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                        ident: `max_row_span`,
-                        item_kind: MemoizedField,
-                    },
-                    hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 370,
                             },
-                            ident: `max_row_span`,
-                            item_kind: MemoizedField,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMemoizedFieldHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 370,
+                                },
+                            ),
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -3395,15 +3317,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `max_row_span`,
-                                            item_kind: MemoizedField,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 370,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3443,15 +3363,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `max_row_span`,
-                                                item_kind: MemoizedField,
-                                            },
+                                            TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 370,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3498,15 +3416,13 @@
                                             self_argument: 9,
                                             ident: `span`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::raw_bits`,
-                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `span`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 191,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -3515,15 +3431,13 @@
                                             self_argument: 5,
                                             ident: `max`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::num`,
-                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `max`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 127,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [
@@ -3673,25 +3587,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                        ident: `row_span_sum`,
-                        item_kind: MemoizedField,
-                    },
-                    hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 371,
                             },
-                            ident: `row_span_sum`,
-                            item_kind: MemoizedField,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMemoizedFieldHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 371,
+                                },
+                            ),
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -3702,15 +3612,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `row_span_sum`,
-                                            item_kind: MemoizedField,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 371,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3750,15 +3658,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `row_span_sum`,
-                                                item_kind: MemoizedField,
-                                            },
+                                            TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 371,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3802,15 +3708,13 @@
                                             self_argument: 8,
                                             ident: `span`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::raw_bits`,
-                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `span`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 191,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -3950,25 +3854,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                        ident: `distribution`,
-                        item_kind: MemoizedField,
-                    },
-                    hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 372,
                             },
-                            ident: `distribution`,
-                            item_kind: MemoizedField,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMemoizedFieldHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 372,
+                                },
+                            ),
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -3979,15 +3879,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `distribution`,
-                                            item_kind: MemoizedField,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 372,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4027,15 +3925,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `distribution`,
-                                                item_kind: MemoizedField,
-                                            },
+                                            TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 372,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4179,15 +4075,13 @@
                                             self_argument: 31,
                                             ident: `co`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::raw_bits`,
-                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `co`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 190,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -4243,15 +4137,13 @@
                                             self_argument: 43,
                                             ident: `co`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::raw_bits`,
-                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `co`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 190,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -4634,25 +4526,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                        ident: `upper_mass`,
-                        item_kind: MemoizedField,
-                    },
-                    hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 373,
                             },
-                            ident: `upper_mass`,
-                            item_kind: MemoizedField,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMemoizedFieldHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 373,
+                                },
+                            ),
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -4663,15 +4551,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `upper_mass`,
-                                            item_kind: MemoizedField,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 373,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4711,15 +4597,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `upper_mass`,
-                                                item_kind: MemoizedField,
-                                            },
+                                            TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 373,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4732,15 +4616,13 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `distribution`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `mnist_classifier::connected_component`,
-                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `distribution`,
-                                                    item_kind: MemoizedField,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 372,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         HirEagerExprData::PropsStructField {
@@ -4806,25 +4688,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                        ident: `lower_mass`,
-                        item_kind: MemoizedField,
-                    },
-                    hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 374,
                             },
-                            ident: `lower_mass`,
-                            item_kind: MemoizedField,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMemoizedFieldHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 374,
+                                },
+                            ),
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -4835,15 +4713,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `lower_mass`,
-                                            item_kind: MemoizedField,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 374,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -4883,15 +4759,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `lower_mass`,
-                                                item_kind: MemoizedField,
-                                            },
+                                            TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 374,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4904,15 +4778,13 @@
                                             owner_hir_expr_idx: 1,
                                             ident: `distribution`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `mnist_classifier::connected_component`,
-                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `distribution`,
-                                                    item_kind: MemoizedField,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 372,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         },
                                         HirEagerExprData::PropsStructField {
@@ -4978,25 +4850,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                        ident: `top_k_row_span_sum`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 375,
                             },
-                            ident: `top_k_row_span_sum`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 375,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -5024,15 +4892,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `top_k_row_span_sum`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 375,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5089,15 +4955,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `top_k_row_span_sum`,
-                                                item_kind: MethodFn,
-                                            },
+                                            TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 375,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5188,15 +5052,13 @@
                                             self_argument: 19,
                                             ident: `span`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::raw_bits`,
-                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `span`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 191,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],
@@ -5401,25 +5263,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `mnist_classifier::connected_component`,
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            disambiguator: 0,
-                        },
-                        ident: `top_k_row_right_mass_sum`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `mnist_classifier::connected_component`,
-                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 376,
                             },
-                            ident: `top_k_row_right_mass_sum`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 376,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -5447,15 +5305,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `mnist_classifier::connected_component`,
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `top_k_row_right_mass_sum`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 376,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5512,15 +5368,13 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath {
-                                                impl_block: TypeImplBlockPath {
-                                                    module_path: `mnist_classifier::connected_component`,
-                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                                ident: `top_k_row_right_mass_sum`,
-                                                item_kind: MethodFn,
-                                            },
+                                            TypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 376,
+                                                    },
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5611,15 +5465,13 @@
                                             self_argument: 19,
                                             ident: `right_mass`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath {
-                                                    impl_block: TypeImplBlockPath {
-                                                        module_path: `core::raw_bits`,
-                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `right_mass`,
-                                                    item_kind: MethodFn,
-                                                },
+                                                TypeItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 192,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                             template_arguments: None,
                                             item_groups: [],

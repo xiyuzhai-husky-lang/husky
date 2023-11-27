@@ -1,6 +1,7 @@
 [
     (
         Submodule(
+            Room32,
             SubmodulePath(
                 ModulePath(
                     Id {
@@ -15,6 +16,7 @@
     ),
     (
         Submodule(
+            Room32,
             SubmodulePath(
                 ModulePath(
                     Id {
@@ -29,6 +31,7 @@
     ),
     (
         Submodule(
+            Room32,
             SubmodulePath(
                 ModulePath(
                     Id {
@@ -43,6 +46,7 @@
     ),
     (
         Submodule(
+            Room32,
             SubmodulePath(
                 ModulePath(
                     Id {
@@ -57,6 +61,7 @@
     ),
     (
         Submodule(
+            Room32,
             SubmodulePath(
                 ModulePath(
                     Id {
@@ -71,6 +76,7 @@
     ),
     (
         Submodule(
+            Room32,
             SubmodulePath(
                 ModulePath(
                     Id {
@@ -85,6 +91,7 @@
     ),
     (
         Submodule(
+            Room32,
             SubmodulePath(
                 ModulePath(
                     Id {
@@ -101,9 +108,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 6,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 220,
+                        },
+                    ),
                 ),
             ),
         ),

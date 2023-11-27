@@ -156,11 +156,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 76,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -174,11 +176,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 76,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -231,13 +235,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i8`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::i8`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -265,13 +271,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i8`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i8`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -314,11 +322,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 78,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -332,11 +342,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 78,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -389,13 +401,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i16`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::i16`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -423,13 +437,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i16`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i16`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -472,11 +488,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 80,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -490,11 +508,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 80,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -558,13 +578,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i32`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::i32`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -592,13 +614,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i32`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i32`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -641,11 +665,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 82,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -659,11 +685,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 82,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -705,13 +733,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i64`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::i64`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -739,13 +769,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i64`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i64`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -788,11 +820,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 84,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -806,11 +840,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 84,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -852,13 +888,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i128`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::i128`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -886,13 +924,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::i128`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::i128`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -935,11 +975,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 86,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -953,11 +995,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 86,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -999,13 +1043,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::isize`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::isize`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -1033,13 +1079,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::isize`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::isize`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -1082,11 +1130,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 88,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1100,11 +1150,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 88,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -1146,13 +1198,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u8`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::u8`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -1180,13 +1234,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u8`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u8`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -1229,11 +1285,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 90,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1247,11 +1305,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 90,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -1293,13 +1353,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u16`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::u16`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -1327,13 +1389,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u16`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u16`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -1376,11 +1440,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 92,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1394,11 +1460,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 92,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -1440,13 +1508,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u32`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::u32`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -1474,13 +1544,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u32`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u32`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -1523,11 +1595,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 94,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1541,11 +1615,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 94,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -1587,13 +1663,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u64`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::u64`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -1621,13 +1699,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u64`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u64`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -1670,11 +1750,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 96,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1688,11 +1770,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 96,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -1734,13 +1818,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u128`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::u128`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -1768,13 +1854,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::u128`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::u128`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -1817,11 +1905,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 98,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1835,11 +1925,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 98,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -1881,13 +1973,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::usize`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::usize`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -1915,13 +2009,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::usize`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::usize`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -1964,11 +2060,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 100,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1982,11 +2080,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 100,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -2105,13 +2205,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::f32`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -2139,13 +2241,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::f32`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::f32`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -2188,11 +2292,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 102,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -2206,11 +2312,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 102,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -2263,13 +2371,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::f64`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::f64`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [],
@@ -2297,13 +2407,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    trai_path: TraitPath(`core::ops::Add`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::num::f64`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        trai_path: TraitPath(`core::ops::Add`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::num::f64`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),

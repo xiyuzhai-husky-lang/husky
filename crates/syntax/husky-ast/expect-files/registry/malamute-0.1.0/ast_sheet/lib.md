@@ -5,10 +5,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     2,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                    ident: `Known`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 176,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         16,
@@ -31,10 +34,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     3,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`malamute::Class`, `Enum`),
-                    ident: `Unknown`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 177,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         21,
@@ -57,10 +63,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     6,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    ident: `Yes`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 179,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         45,
@@ -83,10 +92,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     7,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    ident: `No`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 180,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         47,
@@ -137,7 +149,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -145,10 +157,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     12,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    ident: `ConfidentYes`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 182,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         99,
@@ -171,10 +186,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     13,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    ident: `ConfidentNo`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 183,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         101,
@@ -197,10 +215,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     14,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    ident: `Unconfident`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 184,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         103,
@@ -251,7 +272,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -294,12 +315,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 58,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`malamute::Class`, `Enum`),
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
@@ -348,12 +365,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 59,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`malamute::OneVsAll`, `Enum`),
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
@@ -416,12 +429,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 60,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
@@ -478,12 +487,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 79,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                     body: None,
                 },
             },

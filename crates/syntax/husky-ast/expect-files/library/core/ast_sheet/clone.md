@@ -33,7 +33,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -69,7 +69,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -120,12 +120,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Trait {
-                    path: TraitPath(
-                        Id {
-                            value: 1,
-                        },
-                    ),
+                block: DefnBlock::Trait {
+                    path: TraitPath(`core::clone::Clone`),
                     items: Some(
                         TraitItems {
                             ast_idx_range: ArenaIdxRange(

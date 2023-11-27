@@ -7,14 +7,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::digits::zero`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -26,14 +33,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::digits::one`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -45,14 +59,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::digits::six`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -64,14 +85,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::digits::three`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -83,14 +111,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::digits::four`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -102,14 +137,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::digits::five`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -121,14 +163,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::digits::seven`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -140,14 +189,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::digits::eight`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -159,14 +215,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::digits::nine`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),
@@ -178,14 +241,21 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
-                            SubmoduleSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: SubmodulePath(
+                                                    `mnist_classifier::digits::two`,
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
                                     ),
-                                    disambiguator: 0,
                                 },
-                            },
+                            ),
                         ),
                         Module,
                     ),

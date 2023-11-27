@@ -24,7 +24,7 @@ pub struct HirDefnJar(
     crate::defn::union_hir_defn_dependencies,
     crate::defn::union_hir_defn_version_stamp,
     // - fugitive
-    // fugitive_hir_defn,
+    fugitive_hir_defn,
     ValHirDefn,
     crate::defn::val_hir_defn_dependencies,
     crate::defn::val_hir_defn_version_stamp,
@@ -55,7 +55,7 @@ pub struct HirDefnJar(
     crate::defn::enum_props_variant_hir_defn_dependencies,
     crate::defn::enum_props_variant_hir_defn_version_stamp,
     // - type item
-    // ty_item_hir_defn,
+    ty_item_hir_defn,
     TypeAssociatedFnHirDefn,
     crate::defn::ty_associated_fn_hir_defn_dependencies,
     crate::defn::ty_associated_fn_hir_defn_version_stamp,
@@ -72,7 +72,7 @@ pub struct HirDefnJar(
     crate::defn::ty_memoized_field_hir_defn_dependencies,
     crate::defn::ty_memoized_field_hir_defn_version_stamp,
     // - trait item
-    // trai_item_hir_defn,
+    trai_item_hir_defn,
     TraitAssociatedFnHirDefn,
     crate::defn::trai_associated_fn_hir_defn_dependencies,
     crate::defn::trai_associated_fn_hir_defn_version_stamp,
@@ -86,7 +86,7 @@ pub struct HirDefnJar(
     crate::defn::trai_associated_val_hir_defn_dependencies,
     crate::defn::trai_associated_val_hir_defn_version_stamp,
     // - trait for type item
-    // trai_for_ty_item_hir_defn,
+    trai_for_ty_item_hir_defn,
     TraitForTypeAssociatedFnHirDefn,
     crate::defn::trai_for_ty_associated_fn_hir_defn_dependencies,
     crate::defn::trai_for_ty_associated_fn_hir_defn_version_stamp,

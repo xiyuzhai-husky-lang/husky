@@ -1,6 +1,5 @@
 [
     SemaExprRangeRegion {
-        [salsa id]: 301,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 6..7,
@@ -19,7 +18,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 302,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 1..2,
@@ -36,7 +34,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 303,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 5..6,
@@ -53,7 +50,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 304,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 5..6,

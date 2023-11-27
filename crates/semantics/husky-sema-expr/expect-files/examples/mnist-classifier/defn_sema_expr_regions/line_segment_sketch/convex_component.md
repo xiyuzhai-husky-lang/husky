@@ -1,26 +1,28 @@
 [
     SemaExprRegion {
-        [salsa id]: 231,
         path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                    trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `visualize`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 407,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -36,16 +38,26 @@
                                         path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockSynNodePath {
-                                                        path: TraitForTypeImplBlockPath {
-                                                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                    TraitForTypeImplBlockSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::ImplBlock(
+                                                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                    TraitForTypeImplBlockSynNodePathData {
+                                                                        path: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                ty_sketch: TypeSketch::Path(
+                                                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                                                ),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                    },
+                                                                ),
                                                             ),
-                                                            disambiguator: 0,
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -156,23 +168,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TraitForTypeItem(
-                                        TraitForTypeItemSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitForTypeItemPath {
-                                                    impl_block: TraitForTypeImplBlockPath {
-                                                        module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                                        trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `visualize`,
-                                                    item_kind: MethodFn,
-                                                },
-                                                disambiguator: 0,
+                                        TraitForTypeItemSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::AssociatedItem(
+                                                    AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                        TraitForTypeItemSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TraitForTypeItemPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 407,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -254,23 +269,26 @@
                 path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                                            trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `visualize`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 407,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -380,9 +398,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 26,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 433,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -405,9 +425,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 60,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 227,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -443,9 +465,11 @@
                                             final_place: Transient,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 60,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 227,
+                                                },
+                                            ),
                                         ),
                                         signature: PropsStruct {
                                             ty: FluffyTerm {
@@ -512,9 +536,11 @@
                                             MethodFnFluffySignature {
                                                 path: TraitForTypeItem(
                                                     TraitForTypeItemPath(
-                                                        Id {
-                                                            value: 19,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 183,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -524,9 +550,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 39,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 73,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -583,9 +611,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 73,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -610,9 +640,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 73,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -644,9 +676,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 73,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -722,9 +756,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 60,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 227,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -768,9 +804,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 73,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -790,9 +828,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 39,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 73,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -819,9 +859,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 73,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -841,9 +883,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 39,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 73,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -869,9 +913,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 39,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 73,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -880,9 +926,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 60,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 227,
+                                },
+                            ),
                         ),
                     ),
                 ),

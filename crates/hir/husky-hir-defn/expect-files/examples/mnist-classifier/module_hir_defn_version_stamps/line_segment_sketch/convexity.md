@@ -3,9 +3,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 24,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 258,
+                        },
+                    ),
                 ),
             ),
         ),

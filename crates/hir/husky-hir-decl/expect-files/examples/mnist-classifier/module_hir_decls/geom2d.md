@@ -68,11 +68,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::geom2d`,
-                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 351,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -86,11 +88,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 351,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -176,11 +180,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::geom2d`,
-                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 352,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -194,11 +200,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 352,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -317,11 +325,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::geom2d`,
-                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 353,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -335,11 +345,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 353,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -392,11 +404,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::geom2d`,
-                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 354,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -410,11 +424,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 354,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -511,11 +527,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `mnist_classifier::geom2d`,
-                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 355,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -529,11 +547,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `mnist_classifier::geom2d`,
-                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 355,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),

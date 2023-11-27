@@ -93,13 +93,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `mnist`,
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`mnist::BinaryImage28`, `Struct`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -115,9 +117,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 73,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 427,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -130,18 +134,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `visualize`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 436,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -170,11 +169,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `mnist`,
-                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 431,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -193,15 +194,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist`,
-                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `new_zeros`,
-                    item_kind: AssociatedFunctionFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 437,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -209,15 +208,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `new_zeros`,
-                                item_kind: AssociatedFunctionFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 437,
+                                    },
+                                ),
+                            ),
                             self_ty: DeclarativeTerm(`mnist::BinaryImage28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -235,13 +232,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `mnist`,
-                    trai_path: TraitPath(`core::ops::IntIndex`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`mnist::BinaryImage28`, `Struct`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -257,9 +256,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 73,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 427,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -272,18 +273,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryImage28`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `Output`,
-                    item_kind: AssociatedType,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 438,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -304,13 +300,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `mnist`,
-                    trai_path: TraitPath(`core::visual::Visualize`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`mnist::BinaryGrid28`, `Struct`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -326,9 +324,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 74,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 428,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -341,18 +341,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryGrid28`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `visualize`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 439,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -381,11 +376,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `mnist`,
-                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 434,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -404,15 +401,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist`,
-                        ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `new_zeros`,
-                    item_kind: AssociatedFunctionFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 440,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -420,15 +415,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist`,
-                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `new_zeros`,
-                                item_kind: AssociatedFunctionFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 440,
+                                    },
+                                ),
+                            ),
                             self_ty: DeclarativeTerm(`mnist::BinaryGrid28`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -446,13 +439,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `mnist`,
-                    trai_path: TraitPath(`core::ops::IntIndex`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`mnist::BinaryGrid28`, `Struct`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `mnist`,
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -468,9 +463,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 74,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 428,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -483,18 +480,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `mnist`,
-                        trai_path: TraitPath(`core::ops::IntIndex`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`mnist::BinaryGrid28`, `Struct`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `Output`,
-                    item_kind: AssociatedType,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 441,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(

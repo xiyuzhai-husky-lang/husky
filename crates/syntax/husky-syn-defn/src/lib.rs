@@ -42,17 +42,15 @@ pub struct SynDefnJar(
     UnionTypeSynDefn,
     // fugitive
     fugitive_syn_node_defn,
-    // fugitive_syn_defn,
+    fugitive_syn_defn,
     ValSynNodeDefn,
     ValSynDefn,
     FnSynNodeDefn,
     FnSynDefn,
     GnSynNodeDefn,
     GnSynDefn,
-    // morphism_defn,
     TypeAliasSynNodeDefn,
     TypeAliasSynDefn,
-    // type_alias_defn,
     // trait
     TraitSynNodeDefn,
     trai_syn_node_defn,
@@ -67,7 +65,7 @@ pub struct SynDefnJar(
     PropsVariantSynDefn,
     // type item
     ty_item_syn_node_defn,
-    // ty_item_syn_defn,
+    ty_item_syn_defn,
     TypeAssociatedFnSynNodeDefn,
     TypeAssociatedFnSynDefn,
     TypeMethodFnSynNodeDefn,
@@ -80,7 +78,7 @@ pub struct SynDefnJar(
     TypeMemoizedFieldSynDefn,
     // trait item
     trai_item_syn_node_defn,
-    // trai_item_syn_defn,
+    trai_item_syn_defn,
     TraitAssociatedFnSynNodeDefn,
     TraitAssociatedFnSynDefn,
     TraitMethodFnSynNodeDefn,
@@ -91,7 +89,7 @@ pub struct SynDefnJar(
     TraitAssociatedValSynDefn,
     // trait for type item
     trai_for_ty_item_syn_node_defn,
-    // trai_for_ty_item_syn_defn,
+    trai_for_ty_item_syn_defn,
     TraitForTypeAssociatedFnSynNodeDefn,
     TraitForTypeAssociatedFnSynDefn,
     TraitForTypeMethodFnSynNodeDefn,

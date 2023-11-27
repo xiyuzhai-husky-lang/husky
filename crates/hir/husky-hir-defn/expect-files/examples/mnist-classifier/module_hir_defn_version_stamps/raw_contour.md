@@ -3,9 +3,11 @@
         MajorItem(
             Type(
                 TypePath(
-                    Id {
-                        value: 48,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 227,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -23,9 +25,11 @@
         MajorItem(
             Type(
                 TypePath(
-                    Id {
-                        value: 49,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 228,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -43,9 +47,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 10,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 233,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -63,9 +69,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 11,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 234,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -83,9 +91,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 12,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 235,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -103,9 +113,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 13,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 236,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -123,9 +135,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 14,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 237,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -143,9 +157,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 15,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 238,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -163,9 +179,11 @@
         MajorItem(
             Type(
                 TypePath(
-                    Id {
-                        value: 50,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 239,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -183,9 +201,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 16,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 240,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -203,9 +223,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 17,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 241,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -223,9 +245,11 @@
         ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
-                    Id {
-                        value: 27,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 349,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -243,9 +267,11 @@
         AssociatedItem(
             TraitForTypeItem(
                 TraitForTypeItemPath(
-                    Id {
-                        value: 30,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 443,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -263,9 +289,11 @@
         ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(
-                    Id {
-                        value: 22,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 350,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -283,9 +311,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 91,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 411,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -303,9 +333,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 92,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 412,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -323,9 +355,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 93,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 413,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -343,9 +377,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 94,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 414,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -363,9 +399,11 @@
         AssociatedItem(
             TypeItem(
                 TypeItemPath(
-                    Id {
-                        value: 95,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 415,
+                        },
+                    ),
                 ),
             ),
         ),

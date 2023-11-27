@@ -13,13 +13,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::result`,
-                    trai_path: TraitPath(`core::ops::Unveil`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::result::Result`, `Enum`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::result`,
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::result::Result`, `Enum`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [
@@ -162,13 +164,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::result`,
-                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::result::Result`, `Enum`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::result`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::result::Result`, `Enum`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),

@@ -194,7 +194,7 @@ impl HasSynDecl for TypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = SynDeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_item_syn_decl(
     db: &::salsa::Db,
     path: TypeItemPath,

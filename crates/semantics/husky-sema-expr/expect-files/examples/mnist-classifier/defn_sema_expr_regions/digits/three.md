@@ -1,15 +1,22 @@
 [
     SemaExprRegion {
-        [salsa id]: 110,
         path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -22,12 +29,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                                                disambiguator: 0,
+                                        FugitiveSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Fugitive(
+                                                        FugitiveSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -109,12 +124,20 @@
                 path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -367,9 +390,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 39,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 274,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -384,9 +409,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 231,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -415,9 +442,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 77,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 283,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -446,9 +475,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 42,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 248,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -477,9 +508,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 41,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 247,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -508,9 +541,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 43,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 249,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -660,9 +695,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 62,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 230,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -687,9 +724,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 62,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 230,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -721,9 +760,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 62,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 230,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -818,9 +859,11 @@
                                                             EntityPath(
                                                                 TypeOntology(
                                                                     TypePath(
-                                                                        Id {
-                                                                            value: 62,
-                                                                        },
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 230,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
                                                             ),
@@ -1118,9 +1161,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 62,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 230,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1140,9 +1185,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 62,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 230,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1169,9 +1216,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 62,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 230,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -1191,9 +1240,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 62,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 230,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1219,9 +1270,11 @@
                 EntityPath(
                     TypeOntology(
                         TypePath(
-                            Id {
-                                value: 62,
-                            },
+                            ItemPathId(
+                                Id {
+                                    value: 230,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -1230,16 +1283,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 112,
         path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -1252,12 +1312,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                                disambiguator: 0,
+                                        FugitiveSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Fugitive(
+                                                        FugitiveSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1291,10 +1359,13 @@
                                         path_expr_idx: 4,
                                         opt_path: Some(
                                             PrincipalEntityPath::TypeVariant(
-                                                TypeVariantPath {
-                                                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                    ident: `Three`,
-                                                },
+                                                TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 301,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     },
@@ -1368,10 +1439,13 @@
                                         ),
                                         path: Ok(
                                             PrincipalEntityPath::TypeVariant(
-                                                TypeVariantPath {
-                                                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                    ident: `Three`,
-                                                },
+                                                TypeVariantPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 301,
+                                                        },
+                                                    ),
+                                                ),
                                             ),
                                         ),
                                     },
@@ -1422,12 +1496,20 @@
                 path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -2197,10 +2279,13 @@
                             path_expr_idx: 11,
                             opt_path: Some(
                                 PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                        ident: `Yes`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 288,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         },
@@ -2380,10 +2465,13 @@
                             ),
                             path: Ok(
                                 PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                        ident: `Yes`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 288,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         },
@@ -3198,9 +3286,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 40,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 275,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -3215,9 +3305,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 77,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 283,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3272,9 +3364,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 39,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 175,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -3284,9 +3378,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 18,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 28,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -3310,9 +3406,11 @@
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
-                                                                                    Id {
-                                                                                        value: 59,
-                                                                                    },
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 225,
+                                                                                        },
+                                                                                    ),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -3345,9 +3443,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 18,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 28,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3375,9 +3475,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 18,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 28,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3417,9 +3519,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3434,9 +3538,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 77,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 283,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3491,9 +3597,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 39,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 175,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -3503,9 +3611,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 18,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 28,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -3529,9 +3639,11 @@
                                                                         EntityPath(
                                                                             TypeOntology(
                                                                                 TypePath(
-                                                                                    Id {
-                                                                                        value: 59,
-                                                                                    },
+                                                                                    ItemPathId(
+                                                                                        Id {
+                                                                                            value: 225,
+                                                                                        },
+                                                                                    ),
                                                                                 ),
                                                                             ),
                                                                         ),
@@ -3564,9 +3676,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 18,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 28,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3594,9 +3708,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 18,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 28,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3636,9 +3752,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -3653,9 +3771,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 39,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 245,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3707,9 +3827,11 @@
                                             final_place: Leashed,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 62,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 230,
+                                                },
+                                            ),
                                         ),
                                         signature: PropsStruct {
                                             ty: FluffyTerm {
@@ -3832,9 +3954,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 39,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 245,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3886,9 +4010,11 @@
                                             final_place: Leashed,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 62,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 230,
+                                                },
+                                            ),
                                         ),
                                         signature: PropsStruct {
                                             ty: FluffyTerm {
@@ -4011,9 +4137,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 39,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 245,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4065,9 +4193,11 @@
                                             final_place: Leashed,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 62,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 230,
+                                                },
+                                            ),
                                         ),
                                         signature: PropsStruct {
                                             ty: FluffyTerm {
@@ -4243,9 +4373,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4344,9 +4476,11 @@
                                             final_place: Leashed,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 225,
+                                                },
+                                            ),
                                         ),
                                         signature: Memoized {
                                             ty: FluffyTerm {
@@ -4355,9 +4489,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -4365,9 +4501,11 @@
                                             },
                                             path: TypeItem(
                                                 TypeItemPath(
-                                                    Id {
-                                                        value: 63,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 356,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             instantiation: FluffyInstantiation {
@@ -4386,9 +4524,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4420,9 +4560,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4462,9 +4604,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4532,9 +4676,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4636,9 +4782,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 74,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 367,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -4648,9 +4796,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 214,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -4685,9 +4835,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4713,9 +4865,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4754,9 +4908,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 89,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 383,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [
@@ -4769,9 +4925,11 @@
                                                                     EntityPath(
                                                                         TypeOntology(
                                                                             TypePath(
-                                                                                Id {
-                                                                                    value: 2,
-                                                                                },
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 2,
+                                                                                    },
+                                                                                ),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -4786,9 +4944,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 28,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 38,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -4820,9 +4980,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 2,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 2,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -4849,9 +5011,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4885,9 +5049,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4919,9 +5085,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4961,9 +5129,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -4997,9 +5167,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5090,9 +5262,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5132,9 +5306,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5236,9 +5412,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 71,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 364,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -5248,9 +5426,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 51,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 212,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -5285,9 +5465,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 212,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5389,9 +5571,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 70,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 363,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -5401,9 +5585,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 51,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 212,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -5438,9 +5624,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 212,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5474,9 +5662,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 212,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5510,9 +5700,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 212,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5551,9 +5743,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 105,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 399,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [
@@ -5566,9 +5760,11 @@
                                                                     EntityPath(
                                                                         TypeOntology(
                                                                             TypePath(
-                                                                                Id {
-                                                                                    value: 51,
-                                                                                },
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 212,
+                                                                                    },
+                                                                                ),
                                                                             ),
                                                                         ),
                                                                     ),
@@ -5583,9 +5779,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 28,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 38,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -5617,9 +5815,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 51,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 212,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -5646,9 +5846,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5682,9 +5884,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5716,9 +5920,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5758,9 +5964,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5775,9 +5983,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 39,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 245,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5829,9 +6039,11 @@
                                             final_place: Leashed,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 62,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 230,
+                                                },
+                                            ),
                                         ),
                                         signature: Memoized {
                                             ty: FluffyTerm {
@@ -5840,9 +6052,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -5850,9 +6064,11 @@
                                             },
                                             path: TypeItem(
                                                 TypeItemPath(
-                                                    Id {
-                                                        value: 79,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 372,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             instantiation: FluffyInstantiation {
@@ -5871,9 +6087,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5905,9 +6123,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -5947,9 +6167,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6048,9 +6270,11 @@
                                             final_place: Leashed,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 225,
+                                                },
+                                            ),
                                         ),
                                         signature: Memoized {
                                             ty: FluffyTerm {
@@ -6059,9 +6283,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -6069,9 +6295,11 @@
                                             },
                                             path: TypeItem(
                                                 TypeItemPath(
-                                                    Id {
-                                                        value: 66,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 359,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             instantiation: FluffyInstantiation {
@@ -6090,9 +6318,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6183,9 +6413,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6199,9 +6431,11 @@
                                     path_expr_idx: 11,
                                     path: TypeVariant(
                                         TypeVariantPath(
-                                            Id {
-                                                value: 15,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 288,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -6273,9 +6507,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6303,9 +6539,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6348,9 +6586,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6393,9 +6633,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6438,9 +6680,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6468,9 +6712,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6498,9 +6744,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6528,9 +6776,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6573,9 +6823,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6603,9 +6855,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6648,9 +6902,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6693,9 +6949,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6738,9 +6996,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6768,9 +7028,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6798,9 +7060,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6828,9 +7092,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6979,9 +7245,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -6999,9 +7267,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 212,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7019,9 +7289,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 212,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7039,9 +7311,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7153,9 +7427,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7173,9 +7449,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 212,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7193,9 +7471,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 212,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7213,9 +7493,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7550,9 +7832,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7568,9 +7852,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 212,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7586,9 +7872,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 212,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7604,9 +7892,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -7657,9 +7947,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 27,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -7674,9 +7966,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 27,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 37,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -7689,9 +7983,11 @@
                                     EntityPath(
                                         TypeOntology(
                                             TypePath(
-                                                Id {
-                                                    value: 27,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7710,9 +8006,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 27,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -7727,9 +8025,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 27,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 37,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -7742,9 +8042,11 @@
                                     EntityPath(
                                         TypeOntology(
                                             TypePath(
-                                                Id {
-                                                    value: 27,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7763,9 +8065,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 27,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -7780,9 +8084,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 27,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 37,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -7795,9 +8101,11 @@
                                     EntityPath(
                                         TypeOntology(
                                             TypePath(
-                                                Id {
-                                                    value: 27,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 37,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7816,9 +8124,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -7833,9 +8143,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -7848,9 +8160,11 @@
                                     EntityPath(
                                         TypeOntology(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7869,9 +8183,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -7886,9 +8202,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -7901,9 +8219,11 @@
                                     EntityPath(
                                         TypeOntology(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -7957,9 +8277,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 18,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 28,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -7978,9 +8300,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 18,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 28,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -8000,9 +8324,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 18,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 28,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8035,9 +8361,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8093,9 +8421,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 18,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 28,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8114,9 +8444,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 18,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 28,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -8136,9 +8468,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 18,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 28,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8171,9 +8505,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8269,9 +8605,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 27,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -8410,9 +8748,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 27,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -8551,9 +8891,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 27,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -8652,9 +8994,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8735,9 +9079,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8756,9 +9102,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -8778,9 +9126,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8813,9 +9163,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8871,9 +9223,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8954,9 +9308,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 53,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 214,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -8975,9 +9331,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 2,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -8997,9 +9355,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9032,9 +9392,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9059,9 +9421,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9080,9 +9444,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -9102,9 +9468,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9131,9 +9499,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 2,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -9153,9 +9523,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9188,9 +9560,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9230,9 +9604,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -9275,9 +9651,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 2,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -9297,9 +9675,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9332,9 +9712,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9415,9 +9797,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 51,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 212,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9492,9 +9876,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 51,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 212,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9519,9 +9905,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 51,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 212,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9540,9 +9928,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 51,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 212,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -9562,9 +9952,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 51,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 212,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9597,9 +9989,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9624,9 +10018,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9645,9 +10041,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -9667,9 +10065,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9702,9 +10102,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9760,9 +10162,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9781,9 +10185,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -9803,9 +10209,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9838,9 +10246,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9921,9 +10331,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -9963,9 +10375,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -10014,9 +10428,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -10143,16 +10559,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 114,
         path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -10165,12 +10588,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
-                                                disambiguator: 0,
+                                        FugitiveSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Fugitive(
+                                                        FugitiveSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -10354,12 +10785,20 @@
                 path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -10445,10 +10884,13 @@
                             path_expr_idx: 1,
                             opt_path: Some(
                                 PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         },
@@ -10536,10 +10978,13 @@
                                 },
                             ),
                             principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                TypeVariantPath {
-                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                    ident: `Some`,
-                                },
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 61,
+                                        },
+                                    ),
+                                ),
                             ),
                         },
                     ],
@@ -10709,9 +11154,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 41,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 276,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -10792,9 +11239,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 72,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 365,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -10804,9 +11253,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 214,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -10841,9 +11292,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -10877,9 +11330,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -10915,9 +11370,11 @@
                                             final_place: Transient,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 53,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 214,
+                                                },
+                                            ),
                                         ),
                                         signature: PropsStruct {
                                             ty: FluffyTerm {
@@ -10926,9 +11383,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -10945,9 +11404,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -10979,9 +11440,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11021,9 +11484,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11037,9 +11502,11 @@
                                     path_expr_idx: 1,
                                     path: TypeVariant(
                                         TypeVariantPath(
-                                            Id {
-                                                value: 5,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 61,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -11130,9 +11597,11 @@
                                             final_place: Leashed,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 225,
+                                                },
+                                            ),
                                         ),
                                         signature: Memoized {
                                             ty: FluffyTerm {
@@ -11141,9 +11610,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 55,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 216,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -11151,9 +11622,11 @@
                                             },
                                             path: TypeItem(
                                                 TypeItemPath(
-                                                    Id {
-                                                        value: 67,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 360,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             instantiation: FluffyInstantiation {
@@ -11172,9 +11645,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 55,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 216,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11213,9 +11688,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 99,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 393,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -11225,9 +11702,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 28,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 38,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -11262,9 +11741,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11291,9 +11772,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11410,9 +11893,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11440,9 +11925,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11497,9 +11984,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11521,9 +12010,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11586,9 +12077,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -11633,9 +12126,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -11650,9 +12145,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -11665,9 +12162,11 @@
                                     EntityPath(
                                         TypeOntology(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -11676,9 +12175,11 @@
                             HollowTermEntry {
                                 data: TypeOntology {
                                     path: TypePath(
-                                        Id {
-                                            value: 31,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                     refined_path: Left(
                                         Option,
@@ -11791,9 +12292,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 53,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 214,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -11818,9 +12321,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 53,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 214,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -11845,9 +12350,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -11866,9 +12373,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -11888,9 +12397,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -11923,9 +12434,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -12067,9 +12580,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 55,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 216,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -12094,9 +12609,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -12131,9 +12648,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -12254,16 +12773,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 116,
         path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -12276,12 +12802,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
-                                                disambiguator: 0,
+                                        FugitiveSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Fugitive(
+                                                        FugitiveSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -12465,12 +12999,20 @@
                 path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -12556,10 +13098,13 @@
                             path_expr_idx: 1,
                             opt_path: Some(
                                 PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         },
@@ -12647,10 +13192,13 @@
                                 },
                             ),
                             principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                TypeVariantPath {
-                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                    ident: `Some`,
-                                },
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 61,
+                                        },
+                                    ),
+                                ),
                             ),
                         },
                     ],
@@ -12820,9 +13368,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 42,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 277,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -12903,9 +13453,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 72,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 365,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -12915,9 +13467,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 214,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -12952,9 +13506,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -12988,9 +13544,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13026,9 +13584,11 @@
                                             final_place: Transient,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 53,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 214,
+                                                },
+                                            ),
                                         ),
                                         signature: PropsStruct {
                                             ty: FluffyTerm {
@@ -13037,9 +13597,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -13056,9 +13618,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13090,9 +13654,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13132,9 +13698,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13148,9 +13716,11 @@
                                     path_expr_idx: 1,
                                     path: TypeVariant(
                                         TypeVariantPath(
-                                            Id {
-                                                value: 5,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 61,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -13241,9 +13811,11 @@
                                             final_place: Leashed,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 225,
+                                                },
+                                            ),
                                         ),
                                         signature: Memoized {
                                             ty: FluffyTerm {
@@ -13252,9 +13824,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 55,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 216,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -13262,9 +13836,11 @@
                                             },
                                             path: TypeItem(
                                                 TypeItemPath(
-                                                    Id {
-                                                        value: 67,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 360,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             instantiation: FluffyInstantiation {
@@ -13283,9 +13859,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 55,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 216,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13324,9 +13902,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 99,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 393,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -13336,9 +13916,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 28,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 38,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -13373,9 +13955,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13402,9 +13986,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13521,9 +14107,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13551,9 +14139,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13608,9 +14198,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13632,9 +14224,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13697,9 +14291,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -13744,9 +14340,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -13761,9 +14359,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -13776,9 +14376,11 @@
                                     EntityPath(
                                         TypeOntology(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -13787,9 +14389,11 @@
                             HollowTermEntry {
                                 data: TypeOntology {
                                     path: TypePath(
-                                        Id {
-                                            value: 31,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                     refined_path: Left(
                                         Option,
@@ -13902,9 +14506,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 53,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 214,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -13929,9 +14535,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 53,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 214,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -13956,9 +14564,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -13977,9 +14587,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -13999,9 +14611,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -14034,9 +14648,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -14178,9 +14794,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 55,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 216,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -14205,9 +14823,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -14242,9 +14862,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -14365,16 +14987,23 @@
         },
     },
     SemaExprRegion {
-        [salsa id]: 118,
         path: SynNodeRegionPath::Defn(
             ItemSynNodePath::MajorItem(
                 MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
-                            disambiguator: 0,
+                    FugitiveSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::MajorItem(
+                                MajorItemSynNodePathData::Fugitive(
+                                    FugitiveSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -14387,12 +15016,20 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::MajorItem(
                                     MajorItemSynNodePath::Fugitive(
-                                        FugitiveSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
-                                                disambiguator: 0,
+                                        FugitiveSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::MajorItem(
+                                                    MajorItemSynNodePathData::Fugitive(
+                                                        FugitiveSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -14576,12 +15213,20 @@
                 path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::MajorItem(
                         MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
-                                    disambiguator: 0,
+                            FugitiveSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Fugitive(
+                                            FugitiveSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -14667,10 +15312,13 @@
                             path_expr_idx: 1,
                             opt_path: Some(
                                 PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath {
-                                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                        ident: `Some`,
-                                    },
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 61,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         },
@@ -14758,10 +15406,13 @@
                                 },
                             ),
                             principal_entity_path: PrincipalEntityPath::TypeVariant(
-                                TypeVariantPath {
-                                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                                    ident: `Some`,
-                                },
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 61,
+                                        },
+                                    ),
+                                ),
                             ),
                         },
                     ],
@@ -14931,9 +15582,11 @@
                 MajorItem(
                     Fugitive(
                         FugitiveSynNodePath(
-                            Id {
-                                value: 43,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 278,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -15014,9 +15667,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 72,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 365,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -15026,9 +15681,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 53,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 214,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -15063,9 +15720,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15099,9 +15758,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15137,9 +15798,11 @@
                                             final_place: Transient,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 53,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 214,
+                                                },
+                                            ),
                                         ),
                                         signature: PropsStruct {
                                             ty: FluffyTerm {
@@ -15148,9 +15811,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -15167,9 +15832,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15201,9 +15868,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15243,9 +15912,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 2,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 2,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15259,9 +15930,11 @@
                                     path_expr_idx: 1,
                                     path: TypeVariant(
                                         TypeVariantPath(
-                                            Id {
-                                                value: 5,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 61,
+                                                },
+                                            ),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
@@ -15352,9 +16025,11 @@
                                             final_place: Leashed,
                                         },
                                         ty_path: TypePath(
-                                            Id {
-                                                value: 59,
-                                            },
+                                            ItemPathId(
+                                                Id {
+                                                    value: 225,
+                                                },
+                                            ),
                                         ),
                                         signature: Memoized {
                                             ty: FluffyTerm {
@@ -15363,9 +16038,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 55,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 216,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -15373,9 +16050,11 @@
                                             },
                                             path: TypeItem(
                                                 TypeItemPath(
-                                                    Id {
-                                                        value: 67,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 360,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                             instantiation: FluffyInstantiation {
@@ -15394,9 +16073,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 55,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 216,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15435,9 +16116,11 @@
                                             MethodFnFluffySignature {
                                                 path: TypeItem(
                                                     TypeItemPath(
-                                                        Id {
-                                                            value: 99,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 393,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                                 parenate_parameters: [],
@@ -15447,9 +16130,11 @@
                                                         EntityPath(
                                                             TypeOntology(
                                                                 TypePath(
-                                                                    Id {
-                                                                        value: 28,
-                                                                    },
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 38,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ),
                                                         ),
@@ -15484,9 +16169,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15513,9 +16200,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 28,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 38,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15632,9 +16321,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15662,9 +16353,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 4,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 4,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15719,9 +16412,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15743,9 +16438,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15808,9 +16505,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 53,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 214,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -15855,9 +16554,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -15872,9 +16573,11 @@
                                                     EntityPath(
                                                         TypeOntology(
                                                             TypePath(
-                                                                Id {
-                                                                    value: 28,
-                                                                },
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 38,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
@@ -15887,9 +16590,11 @@
                                     EntityPath(
                                         TypeOntology(
                                             TypePath(
-                                                Id {
-                                                    value: 28,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 38,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -15898,9 +16603,11 @@
                             HollowTermEntry {
                                 data: TypeOntology {
                                     path: TypePath(
-                                        Id {
-                                            value: 31,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
                                     ),
                                     refined_path: Left(
                                         Option,
@@ -16013,9 +16720,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 53,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 214,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -16040,9 +16749,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 53,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 214,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -16067,9 +16778,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -16088,9 +16801,11 @@
                                                 EntityPath(
                                                     TypeOntology(
                                                         TypePath(
-                                                            Id {
-                                                                value: 28,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 38,
+                                                                },
+                                                            ),
                                                         ),
                                                     ),
                                                 ),
@@ -16110,9 +16825,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -16145,9 +16862,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 2,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 2,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -16289,9 +17008,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 55,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 216,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -16316,9 +17037,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -16353,9 +17076,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 28,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 38,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),

@@ -1,26 +1,28 @@
 [
     SemaExprRegion {
-        [salsa id]: 2,
         path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
                 AssociatedItemSynNodePath::TraitForTypeItem(
-                    TraitForTypeItemSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: TraitForTypeItemPath {
-                                impl_block: TraitForTypeImplBlockPath {
-                                    module_path: `core::result`,
-                                    trai_path: TraitPath(`core::ops::Unveil`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::result::Result`, `Enum`),
-                                    ),
-                                    disambiguator: 0,
-                                },
-                                ident: `branch`,
-                                item_kind: MethodFn,
-                            },
-                            disambiguator: 0,
+                    TraitForTypeItemSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::AssociatedItem(
+                                AssociatedItemSynNodePathData::TraitForTypeItem(
+                                    TraitForTypeItemSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TraitForTypeItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 158,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
                         },
-                    },
+                    ),
                 ),
             ),
         ),
@@ -36,16 +38,26 @@
                                         path: SynNodeRegionPath::Decl(
                                             ItemSynNodePath::ImplBlock(
                                                 ImplBlockSynNodePath::TraitForTypeImplBlock(
-                                                    TraitForTypeImplBlockSynNodePath {
-                                                        path: TraitForTypeImplBlockPath {
-                                                            module_path: `core::result`,
-                                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_sketch: TypeSketch::Path(
-                                                                TypePath(`core::result::Result`, `Enum`),
+                                                    TraitForTypeImplBlockSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::ImplBlock(
+                                                                ImplBlockSynNodePathData::TraitForTypeImplBlock(
+                                                                    TraitForTypeImplBlockSynNodePathData {
+                                                                        path: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `core::result`,
+                                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                ty_sketch: TypeSketch::Path(
+                                                                                    TypePath(`core::result::Result`, `Enum`),
+                                                                                ),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                    },
+                                                                ),
                                                             ),
-                                                            disambiguator: 0,
                                                         },
-                                                    },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -420,23 +432,26 @@
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
                                     AssociatedItemSynNodePath::TraitForTypeItem(
-                                        TraitForTypeItemSynNodePath {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitForTypeItemPath {
-                                                    impl_block: TraitForTypeImplBlockPath {
-                                                        module_path: `core::result`,
-                                                        trai_path: TraitPath(`core::ops::Unveil`),
-                                                        ty_sketch: TypeSketch::Path(
-                                                            TypePath(`core::result::Result`, `Enum`),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                    ident: `branch`,
-                                                    item_kind: MethodFn,
-                                                },
-                                                disambiguator: 0,
+                                        TraitForTypeItemSynNodePath(
+                                            ItemSynNodePathId {
+                                                data: ItemSynNodePathData::AssociatedItem(
+                                                    AssociatedItemSynNodePathData::TraitForTypeItem(
+                                                        TraitForTypeItemSynNodePathData {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TraitForTypeItemPath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 158,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
                                             },
-                                        },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -728,23 +743,26 @@
                 path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
                         AssociatedItemSynNodePath::TraitForTypeItem(
-                            TraitForTypeItemSynNodePath {
-                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: TraitForTypeItemPath {
-                                        impl_block: TraitForTypeImplBlockPath {
-                                            module_path: `core::result`,
-                                            trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_sketch: TypeSketch::Path(
-                                                TypePath(`core::result::Result`, `Enum`),
-                                            ),
-                                            disambiguator: 0,
-                                        },
-                                        ident: `branch`,
-                                        item_kind: MethodFn,
-                                    },
-                                    disambiguator: 0,
+                            TraitForTypeItemSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::AssociatedItem(
+                                        AssociatedItemSynNodePathData::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePathData {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: TraitForTypeItemPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 158,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
                                 },
-                            },
+                            ),
                         ),
                     ),
                 ),
@@ -876,9 +894,11 @@
                 AssociatedItem(
                     TraitForTypeItem(
                         TraitForTypeItemSynNodePath(
-                            Id {
-                                value: 17,
-                            },
+                            ItemSynNodePathId(
+                                Id {
+                                    value: 173,
+                                },
+                            ),
                         ),
                     ),
                 ),
@@ -901,9 +921,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 3,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -928,9 +950,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 3,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -962,9 +986,11 @@
                                         EntityPath(
                                             TypeOntology(
                                                 TypePath(
-                                                    Id {
-                                                        value: 3,
-                                                    },
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 3,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
                                         ),
@@ -1193,9 +1219,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 3,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),
@@ -1240,9 +1268,11 @@
                                             EntityPath(
                                                 TypeOntology(
                                                     TypePath(
-                                                        Id {
-                                                            value: 3,
-                                                        },
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 3,
+                                                            },
+                                                        ),
                                                     ),
                                                 ),
                                             ),

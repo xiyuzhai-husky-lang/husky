@@ -29,13 +29,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 2,
-                            },
-                        ),
+                        `core::array`,
                     ),
                 },
             },
@@ -67,13 +63,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 3,
-                            },
-                        ),
+                        `core::basic`,
                     ),
                 },
             },
@@ -105,13 +97,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 4,
-                            },
-                        ),
+                        `core::clone`,
                     ),
                 },
             },
@@ -143,13 +131,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 5,
-                            },
-                        ),
+                        `core::cmp`,
                     ),
                 },
             },
@@ -181,13 +165,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 6,
-                            },
-                        ),
+                        `core::default`,
                     ),
                 },
             },
@@ -219,13 +199,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 7,
-                            },
-                        ),
+                        `core::fmt`,
                     ),
                 },
             },
@@ -257,13 +233,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 8,
-                            },
-                        ),
+                        `core::logic`,
                     ),
                 },
             },
@@ -295,13 +267,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 9,
-                            },
-                        ),
+                        `core::marker`,
                     ),
                 },
             },
@@ -333,13 +301,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 10,
-                            },
-                        ),
+                        `core::mem`,
                     ),
                 },
             },
@@ -371,13 +335,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 11,
-                            },
-                        ),
+                        `core::num`,
                     ),
                 },
             },
@@ -409,13 +369,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 12,
-                            },
-                        ),
+                        `core::ops`,
                     ),
                 },
             },
@@ -447,13 +403,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 13,
-                            },
-                        ),
+                        `core::option`,
                     ),
                 },
             },
@@ -485,13 +437,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 14,
-                            },
-                        ),
+                        `core::prelude`,
                     ),
                 },
             },
@@ -523,13 +471,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 15,
-                            },
-                        ),
+                        `core::raw_bits`,
                     ),
                 },
             },
@@ -561,13 +505,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 16,
-                            },
-                        ),
+                        `core::result`,
                     ),
                 },
             },
@@ -599,13 +539,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 19,
-                            },
-                        ),
+                        `core::vec`,
                     ),
                 },
             },
@@ -637,13 +573,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 17,
-                            },
-                        ),
+                        `core::slice`,
                     ),
                 },
             },
@@ -675,13 +607,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 18,
-                            },
-                        ),
+                        `core::str`,
                     ),
                 },
             },
@@ -713,13 +641,9 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Submodule {
+                block: DefnBlock::Submodule {
                     path: SubmodulePath(
-                        ModulePath(
-                            Id {
-                                value: 20,
-                            },
-                        ),
+                        `core::visual`,
                     ),
                 },
             },

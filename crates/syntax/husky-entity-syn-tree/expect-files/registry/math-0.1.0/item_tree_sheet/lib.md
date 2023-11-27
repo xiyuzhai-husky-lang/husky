@@ -5,14 +5,20 @@ EntitySynTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `math::algebra`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `math::algebra`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `math`,
                         ),
@@ -26,14 +32,21 @@ EntitySynTreeSheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `math::algebra`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `math::algebra`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `algebra`,
                 visibility: Scope::PubUnder(
@@ -43,14 +56,20 @@ EntitySynTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `math::algebraic_geometry`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `math::algebraic_geometry`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `math`,
                         ),
@@ -64,14 +83,21 @@ EntitySynTreeSheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `math::algebraic_geometry`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `math::algebraic_geometry`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `algebraic_geometry`,
                 visibility: Scope::PubUnder(
@@ -81,14 +107,20 @@ EntitySynTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `math::algebraic_topology`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `math::algebraic_topology`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `math`,
                         ),
@@ -102,14 +134,21 @@ EntitySynTreeSheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `math::algebraic_topology`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `math::algebraic_topology`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `algebraic_topology`,
                 visibility: Scope::PubUnder(
@@ -119,14 +158,20 @@ EntitySynTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `math::category_theory`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `math::category_theory`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `math`,
                         ),
@@ -140,14 +185,21 @@ EntitySynTreeSheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `math::category_theory`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `math::category_theory`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `category_theory`,
                 visibility: Scope::PubUnder(
@@ -157,14 +209,20 @@ EntitySynTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `math::probability`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `math::probability`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::PubUnder(
                             `math`,
                         ),
@@ -178,14 +236,21 @@ EntitySynTreeSheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `math::probability`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `math::probability`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `probability`,
                 visibility: Scope::PubUnder(

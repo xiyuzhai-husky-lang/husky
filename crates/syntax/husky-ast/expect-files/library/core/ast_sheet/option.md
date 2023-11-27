@@ -5,10 +5,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     3,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                    ident: `Some`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 61,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         16,
@@ -31,10 +34,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     4,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                    ident: `None`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 62,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         21,
@@ -125,12 +131,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 31,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::option::Option`, `Enum`),
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(

@@ -18,7 +18,7 @@ pub struct HirDeclJar(
     TraitAssociatedValHirDecl,
     TraitMethodFnHirDecl,
     // - trait for type
-    // trai_for_ty_item_hir_decl,
+    trai_for_ty_item_hir_decl,
     TraitForTypeAssociatedFnHirDecl,
     TraitForTypeAssociatedTypeHirDecl,
     TraitForTypeAssociatedValHirDecl,
@@ -36,7 +36,7 @@ pub struct HirDeclJar(
     trai_hir_decl,
     TraitHirDecl,
     // fugitive
-    // fugitive_hir_decl,
+    fugitive_hir_decl,
     FunctionFnFugitiveHirDecl,
     FunctionGnFugitiveHirDecl,
     TypeAliasHirDecl,

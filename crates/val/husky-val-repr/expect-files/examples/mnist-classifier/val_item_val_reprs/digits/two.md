@@ -2,7 +2,6 @@
     (
         FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
         ValRepr {
-            [salsa id]: 21,
             val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
@@ -14,7 +13,6 @@
     (
         FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
         ValRepr {
-            [salsa id]: 22,
             val_domain_repr: Omni,
             opn: ValOpn::ValItem(
                 FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),

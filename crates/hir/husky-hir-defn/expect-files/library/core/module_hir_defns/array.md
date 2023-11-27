@@ -93,9 +93,11 @@
                                                         attrs: HirSymbolAttrs,
                                                         disambiguator: 0,
                                                         ty_path: TypePath(
-                                                            Id {
-                                                                value: 27,
-                                                            },
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 37,
+                                                                },
+                                                            ),
                                                         ),
                                                     },
                                                 },

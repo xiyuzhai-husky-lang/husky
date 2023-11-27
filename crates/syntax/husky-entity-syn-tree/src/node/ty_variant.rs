@@ -2,10 +2,12 @@ use super::*;
 
 use husky_entity_kind::TypeKind;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db]
 #[salsa::as_id]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TypeVariantSynNodePath(ItemSynNodePathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TypeVariantSynNodePathData {
     pub parent_ty_node_path: TypeSynNodePath,
@@ -89,6 +91,7 @@ impl HasSynNodePath for TypeVariantPath {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct TypeVariantSynNode {
     pub(crate) syn_node_path: TypeVariantSynNodePath,

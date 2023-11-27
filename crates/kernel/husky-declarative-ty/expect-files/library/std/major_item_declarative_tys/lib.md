@@ -1,6 +1,7 @@
 [
     (
         ItemPath::Submodule(
+            Room32,
             SubmodulePath(
                 `std::prelude`,
             ),
@@ -11,6 +12,7 @@
     ),
     (
         ItemPath::Submodule(
+            Room32,
             SubmodulePath(
                 `std::logic`,
             ),
@@ -21,6 +23,7 @@
     ),
     (
         ItemPath::Submodule(
+            Room32,
             SubmodulePath(
                 `std::ops`,
             ),

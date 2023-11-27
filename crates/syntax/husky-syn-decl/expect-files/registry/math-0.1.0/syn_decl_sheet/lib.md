@@ -1,8 +1,8 @@
 SynDeclSheet {
-    [salsa id]: 49,
     decls: [
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `math::algebra`,
                 ),
@@ -17,6 +17,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `math::algebraic_geometry`,
                 ),
@@ -31,6 +32,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `math::algebraic_topology`,
                 ),
@@ -45,6 +47,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `math::category_theory`,
                 ),
@@ -59,6 +62,7 @@ SynDeclSheet {
         ),
         (
             ItemPath::Submodule(
+                Room32,
                 SubmodulePath(
                     `math::probability`,
                 ),

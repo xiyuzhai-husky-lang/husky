@@ -85,11 +85,13 @@
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
-                    path: TypeImplBlockPath {
-                        module_path: `core::vec`,
-                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                        disambiguator: 0,
-                    },
+                    path: TypeImplBlockPath(
+                        ItemPathId(
+                            Id {
+                                value: 106,
+                            },
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
@@ -133,11 +135,13 @@
                         path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath {
-                                        module_path: `core::vec`,
-                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                        disambiguator: 0,
-                                    },
+                                    TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 106,
+                                            },
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -184,25 +188,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::vec`,
-                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `ilen`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 203,
                             },
-                            ident: `ilen`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 203,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -220,15 +220,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `ilen`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 203,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -284,25 +282,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::vec`,
-                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `push`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 204,
                             },
-                            ident: `push`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 204,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -331,15 +325,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `push`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 204,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -412,25 +404,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::vec`,
-                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `first`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 205,
                             },
-                            ident: `first`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 205,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -472,15 +460,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `first`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 205,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -536,25 +522,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::vec`,
-                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `last`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 206,
                             },
-                            ident: `last`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 206,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -596,15 +578,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `last`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 206,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -660,25 +640,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::vec`,
-                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `pop`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 207,
                             },
-                            ident: `pop`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 207,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -706,15 +682,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `pop`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 207,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -770,25 +744,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::vec`,
-                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `collect_leashes`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 208,
                             },
-                            ident: `collect_leashes`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 208,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -825,15 +795,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `collect_leashes`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 208,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -889,25 +857,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::vec`,
-                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `cyclic_slice_leashed`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 209,
                             },
-                            ident: `cyclic_slice_leashed`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 209,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -963,15 +927,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `cyclic_slice_leashed`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 209,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1060,25 +1022,21 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath {
-                        impl_block: TypeImplBlockPath {
-                            module_path: `core::vec`,
-                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                            disambiguator: 0,
-                        },
-                        ident: `pop_with_largest_opt_f32`,
-                        item_kind: MethodFn,
-                    },
-                    hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath {
-                            impl_block: TypeImplBlockPath {
-                                module_path: `core::vec`,
-                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                disambiguator: 0,
+                    path: TypeItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 210,
                             },
-                            ident: `pop_with_largest_opt_f32`,
-                            item_kind: MethodFn,
-                        },
+                        ),
+                    ),
+                    hir_decl: TypeMethodFnHirDecl {
+                        path: TypeItemPath(
+                            ItemPathId(
+                                Id {
+                                    value: 210,
+                                },
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1146,15 +1104,13 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath {
-                                            impl_block: TypeImplBlockPath {
-                                                module_path: `core::vec`,
-                                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                disambiguator: 0,
-                                            },
-                                            ident: `pop_with_largest_opt_f32`,
-                                            item_kind: MethodFn,
-                                        },
+                                        TypeItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 210,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),

@@ -343,8 +343,9 @@ impl<A: AllowedOptions> SalsaStruct<A> {
                 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;
+                    #[allow(warnings)]
                     let mut debug_struct = &mut f.debug_struct(#ident_string);
-                    debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
+                    // debug_struct = debug_struct.field("[salsa id]", &self.0.as_u32());
                     #fields
                     debug_struct.finish()
                 }

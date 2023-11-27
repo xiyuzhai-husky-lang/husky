@@ -24,11 +24,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 107,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
@@ -72,11 +74,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 107,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -143,13 +147,15 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::TraitForType(
             TraitForTypeImplBlockHirDecl {
-                path: TraitForTypeImplBlockPath {
-                    module_path: `core::slice`,
-                    trai_path: TraitPath(`core::ops::IntIndex`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::slice::CyclicSlice`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                path: TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::slice`,
+                        trai_path: TraitPath(`core::ops::IntIndex`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
                 template_parameters: HirTemplateParameters(
                     [
@@ -198,13 +204,15 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TraitForTypeImplBlock(
-                                TraitForTypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    trai_path: TraitPath(`core::ops::IntIndex`),
-                                    ty_sketch: TypeSketch::Path(
-                                        TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    ),
-                                    disambiguator: 0,
+                                TraitForTypeImplBlock {
+                                    data: TraitForTypeImplBlockPathData {
+                                        module_path: `core::slice`,
+                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                        ty_sketch: TypeSketch::Path(
+                                            TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        ),
+                                        disambiguator: 0,
+                                    },
                                 },
                             ),
                         ),
@@ -261,11 +269,13 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath {
-                    module_path: `core::slice`,
-                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                    disambiguator: 0,
-                },
+                path: TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 109,
+                        },
+                    ),
+                ),
                 template_parameters: HirTemplateParameters(
                     [
                         HirTemplateParameter {
@@ -309,11 +319,13 @@
                     path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath {
-                                    module_path: `core::slice`,
-                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                    disambiguator: 0,
-                                },
+                                TypeImplBlockPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 109,
+                                        },
+                                    ),
+                                ),
                             ),
                         ),
                     ),

@@ -72,11 +72,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `mnist_classifier::fermi`,
-                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 332,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -95,15 +97,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::fermi`,
-                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `norm`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 344,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -111,15 +111,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `norm`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 344,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -136,15 +134,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::fermi`,
-                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `rel_norm`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 345,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -152,15 +148,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `rel_norm`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 345,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -177,15 +171,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `mnist_classifier::fermi`,
-                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        disambiguator: 0,
-                    },
-                    ident: `angle_change_norm`,
-                    item_kind: MemoizedField,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 346,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -193,15 +185,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `mnist_classifier::fermi`,
-                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                    disambiguator: 0,
-                                },
-                                ident: `angle_change_norm`,
-                                item_kind: MemoizedField,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 346,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],

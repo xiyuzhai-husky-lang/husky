@@ -2,11 +2,13 @@ use super::*;
 
 use vec_like::SmallVecPairMap;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db]
 #[salsa::as_id(jar = EntitySynTreeJar)]
 #[salsa::deref_id]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TraitSynNodePath(ItemSynNodePathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TraitSynNodePathData {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TraitPath>,

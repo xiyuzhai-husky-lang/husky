@@ -282,11 +282,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 76,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -305,15 +307,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i8`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 118,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -321,15 +321,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 118,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -357,15 +355,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i8`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `max`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 119,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -373,15 +369,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 119,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -416,13 +410,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i8`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::i8`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -438,9 +434,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 16,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 26,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -453,18 +451,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::i8`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 120,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -500,11 +493,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 78,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -523,15 +518,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i16`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 121,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -539,15 +532,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 121,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -575,15 +566,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i16`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `max`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 122,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -591,15 +580,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 122,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -634,13 +621,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i16`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::i16`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -656,9 +645,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 17,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 27,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -671,18 +662,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::i16`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 123,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -718,11 +704,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 80,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -741,15 +729,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 124,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -757,15 +743,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 124,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -793,15 +777,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `max`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 125,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -809,15 +791,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 125,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -852,15 +832,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `min`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 126,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -868,15 +846,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `min`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 126,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -911,13 +887,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i32`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::i32`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -933,9 +911,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 18,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 28,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -948,18 +928,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::i32`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 127,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -995,11 +970,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 82,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1018,15 +995,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i64`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 128,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1034,15 +1009,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 128,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1070,13 +1043,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i64`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::i64`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -1092,9 +1067,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 19,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 29,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1107,18 +1084,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::i64`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 129,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1154,11 +1126,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 84,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1177,15 +1151,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::i128`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 130,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1193,15 +1165,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::i128`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 130,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1229,13 +1199,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::i128`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::i128`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -1251,9 +1223,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 20,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 30,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1266,18 +1240,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::i128`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 131,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1313,11 +1282,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 86,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1336,15 +1307,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::isize`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 132,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1352,15 +1321,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::isize`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 132,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1388,13 +1355,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::isize`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::isize`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -1410,9 +1379,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 21,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 31,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1425,18 +1396,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::isize`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 133,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1472,11 +1438,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 88,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1495,15 +1463,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::u8`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 134,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1511,15 +1477,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u8`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 134,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1547,13 +1511,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u8`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::u8`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -1569,9 +1535,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 22,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1584,18 +1552,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::u8`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 135,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1631,11 +1594,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 90,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1654,15 +1619,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::u16`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 136,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1670,15 +1633,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u16`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 136,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1706,13 +1667,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u16`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::u16`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -1728,9 +1691,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 23,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 33,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1743,18 +1708,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::u16`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 137,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1790,11 +1750,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 92,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1813,15 +1775,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::u32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 138,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1829,15 +1789,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 138,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1865,13 +1823,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u32`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::u32`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -1887,9 +1847,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 24,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 34,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1902,18 +1864,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::u32`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 139,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1949,11 +1906,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 94,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1972,15 +1931,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::u64`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 140,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1988,15 +1945,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 140,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2024,13 +1979,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u64`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::u64`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -2046,9 +2003,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 25,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 35,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2061,18 +2020,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::u64`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 141,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2108,11 +2062,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 96,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2131,15 +2087,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::u128`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 142,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2147,15 +2101,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::u128`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 142,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2183,13 +2135,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::u128`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::u128`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -2205,9 +2159,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 26,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 36,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2220,18 +2176,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::u128`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 143,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2267,11 +2218,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 98,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2290,15 +2243,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::usize`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 144,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2306,15 +2257,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::usize`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 144,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2342,13 +2291,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::usize`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::usize`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -2364,9 +2315,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 27,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2379,18 +2332,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::usize`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 145,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2426,11 +2374,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 100,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2449,15 +2399,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 146,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2465,15 +2413,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 146,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2501,15 +2447,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `sqrt`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 147,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2517,15 +2461,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `sqrt`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 147,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2553,90 +2495,27 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `max`,
-                    item_kind: MethodFn,
-                },
-            ),
-        ),
-        Ok(
-            SignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `max`,
-                                item_kind: MethodFn,
-                            },
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
-                                    data: [],
-                                },
-                                ty: DeclarativeTerm(`core::num::f32`),
-                            },
-                            self_ty: DeclarativeTerm(`core::num::f32`),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
-                                ty: DeclarativeTerm(`core::num::f32`),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [
-                                    DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
-                                            contract: None,
-                                            ty: DeclarativeTerm(`core::num::f32`),
-                                        },
-                                    ),
-                                ],
-                            },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 148,
                         },
                     ),
                 ),
             ),
         ),
-    ),
-    (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `min`,
-                    item_kind: MethodFn,
-                },
-            ),
-        ),
         Ok(
             SignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `min`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 148,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2671,15 +2550,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `sgnx`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 149,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2687,15 +2564,68 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 149,
+                                    },
+                                ),
+                            ),
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
                                 },
-                                ident: `sgnx`,
-                                item_kind: MethodFn,
+                                ty: DeclarativeTerm(`core::num::f32`),
                             },
+                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 150,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 150,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2723,15 +2653,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `cos`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 151,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2739,15 +2667,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `cos`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 151,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2775,15 +2701,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `sin`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 152,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2791,15 +2715,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `sin`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 152,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2827,15 +2749,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `acos`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 153,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2843,15 +2763,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f32`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `acos`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 153,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2879,13 +2797,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::f32`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::f32`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -2901,9 +2821,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 28,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 38,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2916,18 +2838,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::f32`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 154,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2963,11 +2880,13 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath {
-                    module_path: `core::num`,
-                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                    disambiguator: 0,
-                },
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 102,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -2986,15 +2905,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f64`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `abs`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 155,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -3002,15 +2919,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `abs`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 155,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -3038,15 +2953,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath {
-                    impl_block: TypeImplBlockPath {
-                        module_path: `core::num`,
-                        ty_path: TypePath(`core::num::f64`, `Extern`),
-                        disambiguator: 0,
-                    },
-                    ident: `acos`,
-                    item_kind: MethodFn,
-                },
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 156,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -3054,15 +2967,13 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath {
-                                impl_block: TypeImplBlockPath {
-                                    module_path: `core::num`,
-                                    ty_path: TypePath(`core::num::f64`, `Extern`),
-                                    disambiguator: 0,
-                                },
-                                ident: `acos`,
-                                item_kind: MethodFn,
-                            },
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 156,
+                                    },
+                                ),
+                            ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -3090,13 +3001,15 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath {
-                    module_path: `core::num`,
-                    trai_path: TraitPath(`core::ops::Add`),
-                    ty_sketch: TypeSketch::Path(
-                        TypePath(`core::num::f64`, `Extern`),
-                    ),
-                    disambiguator: 0,
+                TraitForTypeImplBlock {
+                    data: TraitForTypeImplBlockPathData {
+                        module_path: `core::num`,
+                        trai_path: TraitPath(`core::ops::Add`),
+                        ty_sketch: TypeSketch::Path(
+                            TypePath(`core::num::f64`, `Extern`),
+                        ),
+                        disambiguator: 0,
+                    },
                 },
             ),
         ),
@@ -3112,9 +3025,11 @@
                             EntityPath(
                                 Type(
                                     TypePath(
-                                        Id {
-                                            value: 29,
-                                        },
+                                        ItemPathId(
+                                            Id {
+                                                value: 39,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3127,18 +3042,13 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
-                TraitForTypeItemPath {
-                    impl_block: TraitForTypeImplBlockPath {
-                        module_path: `core::num`,
-                        trai_path: TraitPath(`core::ops::Add`),
-                        ty_sketch: TypeSketch::Path(
-                            TypePath(`core::num::f64`, `Extern`),
-                        ),
-                        disambiguator: 0,
-                    },
-                    ident: `add`,
-                    item_kind: MethodFn,
-                },
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 157,
+                        },
+                    ),
+                ),
             ),
         ),
         Ok(

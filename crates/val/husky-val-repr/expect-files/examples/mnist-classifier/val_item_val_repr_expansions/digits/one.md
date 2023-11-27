@@ -7,7 +7,6 @@
         FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
         Some(
             ValReprExpansion {
-                [salsa id]: 0,
                 hir_lazy_variable_val_repr_map: ArenaMap {
                     data: [
                         Some(
@@ -185,9 +184,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 78,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 292,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -288,9 +289,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 229,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -333,9 +336,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 229,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -499,9 +504,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 78,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 292,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -734,10 +741,13 @@
                             ),
                         ),
                         opn: ValOpn::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 286,
+                                    },
+                                ),
+                            ),
                         ),
                         arguments: [],
                         caching_class: Stmt,
@@ -1188,9 +1198,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 229,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1306,9 +1318,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 25,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 229,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1415,9 +1429,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 78,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 292,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -1681,10 +1697,13 @@
                             ),
                         ),
                         opn: ValOpn::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 286,
+                                    },
+                                ),
+                            ),
                         ),
                         arguments: [],
                         caching_class: Stmt,
@@ -2184,9 +2203,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 78,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 292,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -2571,9 +2592,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 78,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 292,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3664,9 +3687,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 78,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 292,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -3943,9 +3968,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 78,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 292,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -4498,9 +4525,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 78,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 292,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5351,9 +5380,11 @@
                                     path: MajorItem(
                                         Fugitive(
                                             FugitivePath(
-                                                Id {
-                                                    value: 78,
-                                                },
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 292,
+                                                    },
+                                                ),
                                             ),
                                         ),
                                     ),
@@ -5918,10 +5949,13 @@
                             ),
                         ),
                         opn: ValOpn::TypeVariant(
-                            TypeVariantPath {
-                                parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                ident: `Yes`,
-                            },
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 286,
+                                    },
+                                ),
+                            ),
                         ),
                         arguments: [],
                         caching_class: Stmt,

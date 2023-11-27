@@ -3,9 +3,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 52,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 288,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -23,9 +25,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 53,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 289,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -43,9 +47,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 54,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 290,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -63,9 +69,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 55,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 291,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -83,9 +91,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 56,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 292,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -103,9 +113,11 @@
         MajorItem(
             Fugitive(
                 FugitivePath(
-                    Id {
-                        value: 57,
-                    },
+                    ItemPathId(
+                        Id {
+                            value: 293,
+                        },
+                    ),
                 ),
             ),
         ),

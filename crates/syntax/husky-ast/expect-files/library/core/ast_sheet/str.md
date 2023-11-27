@@ -50,12 +50,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 36,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::str::str`, `Extern`),
                     variants: None,
                 },
             },
@@ -92,12 +88,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 37,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::str::StringLiteral`, `Extern`),
                     variants: None,
                 },
             },

@@ -5,14 +5,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::array`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::array`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 1,
                         ident_token: IdentToken {
@@ -24,14 +30,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::array`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::array`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `array`,
                 visibility: Scope::Pub,
@@ -39,14 +52,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::basic`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::basic`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 2,
                         ident_token: IdentToken {
@@ -58,14 +77,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::basic`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::basic`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `basic`,
                 visibility: Scope::Pub,
@@ -73,14 +99,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::clone`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::clone`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 3,
                         ident_token: IdentToken {
@@ -92,14 +124,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::clone`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::clone`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `clone`,
                 visibility: Scope::Pub,
@@ -107,14 +146,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::cmp`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::cmp`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 4,
                         ident_token: IdentToken {
@@ -126,14 +171,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::cmp`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::cmp`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `cmp`,
                 visibility: Scope::Pub,
@@ -141,14 +193,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::default`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::default`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 5,
                         ident_token: IdentToken {
@@ -160,14 +218,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::default`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::default`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `default`,
                 visibility: Scope::Pub,
@@ -175,14 +240,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::fmt`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::fmt`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 6,
                         ident_token: IdentToken {
@@ -194,14 +265,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::fmt`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::fmt`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `fmt`,
                 visibility: Scope::Pub,
@@ -209,14 +287,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::logic`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::logic`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 7,
                         ident_token: IdentToken {
@@ -228,14 +312,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::logic`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::logic`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `logic`,
                 visibility: Scope::Pub,
@@ -243,14 +334,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::marker`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::marker`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 8,
                         ident_token: IdentToken {
@@ -262,14 +359,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::marker`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::marker`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `marker`,
                 visibility: Scope::Pub,
@@ -277,14 +381,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::mem`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::mem`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 9,
                         ident_token: IdentToken {
@@ -296,14 +406,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::mem`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::mem`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `mem`,
                 visibility: Scope::Pub,
@@ -311,14 +428,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::num`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::num`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 10,
                         ident_token: IdentToken {
@@ -330,14 +453,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::num`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::num`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `num`,
                 visibility: Scope::Pub,
@@ -345,14 +475,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::ops`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::ops`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 11,
                         ident_token: IdentToken {
@@ -364,14 +500,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::ops`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::ops`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `ops`,
                 visibility: Scope::Pub,
@@ -379,14 +522,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::option`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::option`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 12,
                         ident_token: IdentToken {
@@ -398,14 +547,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::option`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::option`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `option`,
                 visibility: Scope::Pub,
@@ -413,14 +569,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::prelude`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::prelude`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 13,
                         ident_token: IdentToken {
@@ -432,14 +594,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::prelude`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::prelude`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `prelude`,
                 visibility: Scope::Pub,
@@ -447,14 +616,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::raw_bits`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::raw_bits`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 14,
                         ident_token: IdentToken {
@@ -466,14 +641,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::raw_bits`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::raw_bits`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `raw_bits`,
                 visibility: Scope::Pub,
@@ -481,14 +663,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::result`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::result`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 15,
                         ident_token: IdentToken {
@@ -500,14 +688,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::result`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::result`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `result`,
                 visibility: Scope::Pub,
@@ -515,14 +710,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::vec`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::vec`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 16,
                         ident_token: IdentToken {
@@ -534,14 +735,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::vec`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::vec`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `vec`,
                 visibility: Scope::Pub,
@@ -549,14 +757,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::slice`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::slice`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 17,
                         ident_token: IdentToken {
@@ -568,14 +782,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::slice`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::slice`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `slice`,
                 visibility: Scope::Pub,
@@ -583,14 +804,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::str`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::str`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 18,
                         ident_token: IdentToken {
@@ -602,14 +829,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::str`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::str`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `str`,
                 visibility: Scope::Pub,
@@ -617,14 +851,20 @@ EntitySynTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
                     SubmoduleSynNode {
-                        syn_node_path: SubmoduleSynNodePath {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmodulePath(
-                                    `core::visual`,
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: SubmodulePath(
+                                                `core::visual`,
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
                                 ),
-                                disambiguator: 0,
                             },
-                        },
+                        ),
                         visibility: Scope::Pub,
                         ast_idx: 19,
                         ident_token: IdentToken {
@@ -636,14 +876,21 @@ EntitySynTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::Submodule(
-                    SubmoduleSynNodePath {
-                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: SubmodulePath(
-                                `core::visual`,
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: SubmodulePath(
+                                            `core::visual`,
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
                             ),
-                            disambiguator: 0,
                         },
-                    },
+                    ),
                 ),
                 ident: `visual`,
                 visibility: Scope::Pub,

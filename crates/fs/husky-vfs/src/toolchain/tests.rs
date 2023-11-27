@@ -9,7 +9,6 @@ fn toolchain_debug_works() {
     let toolchain = db.dev_toolchain().unwrap();
     expect_test::expect![[r#"
         Toolchain {
-            [salsa id]: 0,
             data: ToolchainData::Local {
                 library_path: VirtualPath {
                     _data: RelPathBuf(

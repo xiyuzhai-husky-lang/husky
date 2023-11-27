@@ -1,6 +1,5 @@
 [
     SemaExprRangeRegion {
-        [salsa id]: 113,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 69..70,
@@ -93,7 +92,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 114,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 69..70,
@@ -186,7 +184,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 115,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 77..78,
@@ -416,7 +413,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 116,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 78..79,
@@ -668,7 +664,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 117,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 6..7,
@@ -1018,7 +1013,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 118,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [],
@@ -1042,7 +1036,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 119,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 4..5,
@@ -1078,7 +1071,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 120,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [],
@@ -1102,7 +1094,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 121,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [],
@@ -1124,7 +1115,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 122,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 0..1,
@@ -1148,7 +1138,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 123,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 102..103,
@@ -1267,7 +1256,6 @@
         },
     },
     SemaExprRangeRegion {
-        [salsa id]: 124,
         data: SemaExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 0..1,

@@ -1,6 +1,7 @@
 [
     (
         Submodule(
+            Room32,
             SubmodulePath(
                 ModulePath(
                     Id {
@@ -15,6 +16,7 @@
     ),
     (
         Submodule(
+            Room32,
             SubmodulePath(
                 ModulePath(
                     Id {
@@ -29,6 +31,7 @@
     ),
     (
         Submodule(
+            Room32,
             SubmodulePath(
                 ModulePath(
                     Id {

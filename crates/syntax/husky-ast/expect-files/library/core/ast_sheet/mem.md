@@ -50,12 +50,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 12,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::mem::Ref`, `Extern`),
                     variants: None,
                 },
             },
@@ -92,12 +88,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 13,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::mem::RefMut`, `Extern`),
                     variants: None,
                 },
             },
@@ -134,12 +126,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 14,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::mem::Leash`, `Extern`),
                     variants: None,
                 },
             },
@@ -182,12 +170,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 15,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`core::mem::At`, `Extern`),
                     variants: None,
                 },
             },

@@ -5,10 +5,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     1,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    ident: `Zero`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 187,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         4,
@@ -31,10 +34,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     2,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    ident: `One`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 188,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         6,
@@ -57,10 +63,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     3,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    ident: `Two`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 189,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         8,
@@ -83,10 +92,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     4,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    ident: `Three`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 190,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         10,
@@ -109,10 +121,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     5,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    ident: `Four`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 191,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         12,
@@ -135,10 +150,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     6,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    ident: `Five`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 192,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         14,
@@ -161,10 +179,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     7,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    ident: `Six`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 193,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         16,
@@ -187,10 +208,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     8,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    ident: `Seven`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 194,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         18,
@@ -213,10 +237,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     9,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    ident: `Eight`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 195,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         20,
@@ -239,10 +266,13 @@ AstSheet {
                 token_group_idx: TokenGroupIdx(
                     10,
                 ),
-                variant_path: TypeVariantPath {
-                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                    ident: `Nine`,
-                },
+                variant_path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 196,
+                        },
+                    ),
+                ),
                 vertical_token: VerticalToken(
                     TokenIdx(
                         22,
@@ -293,7 +323,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -329,7 +359,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -365,7 +395,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -401,7 +431,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -437,7 +467,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -473,7 +503,7 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: AssociatedItem {
+                block: DefnBlock::AssociatedItem {
                     body: None,
                 },
             },
@@ -510,12 +540,8 @@ AstSheet {
                     ),
                     drained: true,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 61,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`mnist::MnistLabel`, `Enum`),
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
@@ -564,12 +590,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 62,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`mnist::BinaryImage28`, `Struct`),
                     variants: None,
                 },
             },
@@ -648,12 +670,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Type {
-                    path: TypePath(
-                        Id {
-                            value: 63,
-                        },
-                    ),
+                block: DefnBlock::Type {
+                    path: TypePath(`mnist::BinaryGrid28`, `Struct`),
                     variants: None,
                 },
             },
@@ -732,12 +750,8 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: Fugitive {
-                    path: FugitivePath(
-                        Id {
-                            value: 80,
-                        },
-                    ),
+                block: DefnBlock::Fugitive {
+                    path: FugitivePath(`mnist::input`, `Val`),
                     body: None,
                 },
             },

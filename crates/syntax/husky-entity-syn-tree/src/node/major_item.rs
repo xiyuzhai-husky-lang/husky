@@ -10,7 +10,7 @@ use super::*;
 use husky_entity_path::MajorItemPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum MajorItemSynNodePath {
     Trait(TraitSynNodePath),
@@ -28,7 +28,7 @@ impl std::ops::Deref for MajorItemSynNodePath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum MajorItemSynNodePathData {
     Trait(TraitSynNodePathData),
@@ -110,6 +110,7 @@ impl HasSynNodePath for MajorItemPath {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub(crate) struct MajorItemSynNode {
     pub(crate) syn_node_path: MajorItemSynNodePath,
