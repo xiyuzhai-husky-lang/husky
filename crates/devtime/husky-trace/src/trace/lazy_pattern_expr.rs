@@ -25,7 +25,7 @@ pub enum LazyPatternExprEssence {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct LazyPatternExprTraceData {
     path: TracePath,
-    biological_parent: Trace,
+    biological_parent: TraceId,
     syn_pattern_expr_idx: SynPatternExprIdx,
     hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
     hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
@@ -33,10 +33,10 @@ pub struct LazyPatternExprTraceData {
     hir_lazy_expr_region: HirLazyExprRegion,
 }
 
-impl Trace {
+impl TraceId {
     pub(crate) fn new_lazy_pattern_expr(
         biological_parent_path: TracePath,
-        biological_parent: Trace,
+        biological_parent: TraceId,
         syn_pattern_expr_idx: SynPatternExprIdx,
         hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
         hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
@@ -54,7 +54,7 @@ impl Trace {
             },
             db,
         );
-        Trace::new(
+        TraceId::new(
             path,
             LazyPatternExprTraceData {
                 path,
@@ -72,7 +72,15 @@ impl Trace {
 }
 
 impl LazyPatternExprTraceData {
-    fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn have_subtraces(&self) -> bool {
+        false
+    }
+
+    pub(super) fn subtraces(&self) -> Vec<TraceId> {
+        vec![]
+    }
+
+    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sema_expr_region = self.sema_expr_region;
         let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
         let sema_expr_range_region_data = sema_expr_range_region.data(db);
@@ -88,7 +96,7 @@ impl LazyPatternExprTraceData {
         )
     }
 
-    fn val_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<ValRepr> {
+    pub(super) fn val_repr(&self, trace_id: TraceId, db: &::salsa::Db) -> Option<ValRepr> {
         let val_repr_expansion = trace_val_repr_expansion(db, trace_id);
         match self.hir_lazy_expr_region.hir_lazy_pattern_expr_arena(db)
             [self.hir_lazy_pattern_expr_idx?]
@@ -109,7 +117,7 @@ impl LazyPatternExprTraceData {
         }
     }
 
-    fn val_repr_expansion(&self, db: &::salsa::Db, trace: Trace) -> ValReprExpansion {
+    pub(super) fn val_repr_expansion(&self, db: &::salsa::Db) -> ValReprExpansion {
         self.biological_parent.val_repr_expansion(db)
     }
 }

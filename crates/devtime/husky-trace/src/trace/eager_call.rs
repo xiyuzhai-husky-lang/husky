@@ -1,6 +1,5 @@
 use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
-use husky_entity_syn_tree::helpers::tokra_region::HasDeclTokraRegion;
 use husky_entity_syn_tree::HasSynNodePath;
 use husky_syn_defn::HasSynDefn;
 
@@ -13,14 +12,14 @@ pub struct EagerCallTracePathData {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct EagerCallTraceData {
     path: TracePath,
-    biological_parent: Trace,
+    biological_parent: TraceId,
     callee_path: ItemPath,
 }
 
-impl Trace {
+impl TraceId {
     pub(crate) fn new_eager_call(
         biological_parent_path: TracePath,
-        biological_parent: Trace,
+        biological_parent: TraceId,
         callee_path: ItemPath,
         db: &::salsa::Db,
     ) -> Self {
@@ -31,7 +30,7 @@ impl Trace {
             },
             db,
         );
-        Trace::new(
+        TraceId::new(
             path,
             EagerCallTraceData {
                 path,
@@ -45,7 +44,7 @@ impl Trace {
 }
 
 impl EagerCallTraceData {
-    fn eager_call_trace_view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let callee_path = self.callee_path;
         TraceViewLines::new(
             callee_path.module_path(db),
@@ -57,7 +56,7 @@ impl EagerCallTraceData {
         )
     }
 
-    fn eager_call_trace_have_subtraces(&self, db: &::salsa::Db) -> bool {
+    pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         self.callee_path
             .syn_defn(db)
             .expect("no syn error at trace time")
@@ -65,10 +64,10 @@ impl EagerCallTraceData {
             .is_some()
     }
 
-    fn eager_call_trace_subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
+    pub(super) fn subtraces(&self, trace: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
-        Trace::new_eager_stmts_from_syn_body_with_syn_expr_region(
+        TraceId::new_eager_stmts_from_syn_body_with_syn_expr_region(
             biological_parent_path,
             biological_parent,
             self.callee_path

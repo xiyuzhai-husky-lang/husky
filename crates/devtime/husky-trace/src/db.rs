@@ -1,17 +1,11 @@
-use husky_text::db::TextDb;
-use husky_token_info::TokenInfoDb;
-
 use crate::*;
 
-pub trait TraceDb: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb + ValReprDb {
-    fn root_traces(&self, crate_path: CratePath) -> &[Trace];
+pub trait TraceDb {
+    fn root_traces(&self, crate_path: CratePath) -> &[TraceId];
 }
 
-impl TraceDb for Db
-where
-    Db: salsa::DbWithJar<TraceJar> + TokenInfoDb + TextDb + ValReprDb,
-{
-    fn root_traces(&self, crate_path: CratePath) -> &[Trace] {
+impl TraceDb for ::salsa::Db {
+    fn root_traces(&self, crate_path: CratePath) -> &[TraceId] {
         crate::trace::root_traces(self, crate_path).as_ref()
     }
 }
@@ -19,7 +13,7 @@ where
 #[salsa::jar(db = TraceDb)]
 pub struct TraceJar(
     crate::trace::TracePath,
-    crate::trace::Trace,
+    crate::trace::TraceId,
     crate::trace::trace_view_lines,
     crate::trace::trace_have_subtraces,
     crate::trace::trace_subtraces,

@@ -1,8 +1,8 @@
 use crate::{registry::associated_trace::IsAssociatedTraceRegistry, *};
 
 use husky_text::{HasText, Text};
-use husky_token::{RangedTokenSheet, TokenIdx, TokenIdxRange};
-use husky_token_info::TokenInfoSheetRef;
+use husky_token::{RangedTokenSheet, TokenDb, TokenIdx, TokenIdxRange};
+use husky_token_info::{TokenInfoDb, TokenInfoSheetRef};
 use husky_trace_protocol::view::{TraceViewLineData, TraceViewTokenData};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -103,7 +103,7 @@ where
             text.to_string(),
             token_class,
             spaces_before,
-            associated_trace_id,
+            associated_trace_id.map(Into::into),
         ));
     }
 

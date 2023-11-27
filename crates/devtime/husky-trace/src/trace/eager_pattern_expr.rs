@@ -19,21 +19,21 @@ pub enum EagerPatternExprEssence {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct EagerPatternExprTrace(Trace);
+pub struct EagerPatternExprTrace(TraceId);
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerPatternExprTraceData {
     path: TracePath,
-    biological_parent: Trace,
+    biological_parent: TraceId,
     syn_pattern_expr_idx: SynPatternExprIdx,
     hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
     sema_expr_region: SemaExprRegion,
 }
 
-impl Trace {
+impl TraceId {
     pub(crate) fn new_eager_pattern_expr(
         biological_parent_path: TracePath,
-        biological_parent: Trace,
+        biological_parent: TraceId,
         syn_pattern_expr_idx: SynPatternExprIdx,
         hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRuntimeSymbolIdx>>,
         sema_expr_region: SemaExprRegion,
@@ -49,7 +49,7 @@ impl Trace {
             },
             db,
         );
-        Trace::new(
+        TraceId::new(
             path,
             EagerPatternExprTraceData {
                 path,
@@ -65,7 +65,7 @@ impl Trace {
 }
 
 impl EagerPatternExprTraceData {
-    fn eager_pattern_expr_trace_view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sema_expr_region = self.sema_expr_region;
         let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
         let sema_expr_range_region_data = sema_expr_range_region.data(db);
@@ -85,7 +85,7 @@ impl EagerPatternExprTraceData {
         false
     }
 
-    pub fn subtraces(&self, _db: &::salsa::Db) -> &[Trace] {
-        &[]
+    pub fn subtraces(&self) -> Vec<TraceId> {
+        vec![]
     }
 }

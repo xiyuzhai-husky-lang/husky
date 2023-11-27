@@ -10,7 +10,7 @@ pub struct LazyCallInputTracePathData {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct LazyCallInputTraceData {
     path: TracePath,
-    biological_parent: Trace,
+    biological_parent: TraceId,
     input_sketch: LazyCallInputSketch,
 }
 
@@ -24,10 +24,10 @@ pub enum LazyCallInputSketch {
     Keyed,
 }
 
-impl Trace {
+impl TraceId {
     pub(crate) fn new_lazy_call_input(
         biological_parent_path: TracePath,
-        biological_parent: Trace,
+        biological_parent: TraceId,
         input_sketch: LazyCallInputSketch,
         db: &::salsa::Db,
     ) -> Self {
@@ -37,7 +37,7 @@ impl Trace {
             },
             db,
         );
-        Trace::new(
+        TraceId::new(
             path,
             LazyCallInputTraceData {
                 path,
@@ -47,5 +47,23 @@ impl Trace {
             .into(),
             db,
         )
+    }
+}
+
+impl LazyCallInputTraceData {
+    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+        todo!()
+    }
+
+    pub(super) fn have_subtraces(&self) -> bool {
+        false
+    }
+
+    pub(super) fn subtraces(&self) -> Vec<TraceId> {
+        vec![]
+    }
+
+    pub(super) fn val_repr(&self, db: &::salsa::Db) -> ValRepr {
+        todo!()
     }
 }

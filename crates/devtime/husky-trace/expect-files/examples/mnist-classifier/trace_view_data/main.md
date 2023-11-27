@@ -1,17 +1,12 @@
 [
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 32,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 1,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34,18 +29,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 38,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 4,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -68,14 +58,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 2,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 14,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -116,14 +105,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 16,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -139,8 +127,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 1,
+                                    value: 17,
                                 },
                             ),
                         },
@@ -150,8 +137,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 4,
+                                    value: 18,
                                 },
                             ),
                         },
@@ -185,8 +171,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 1,
+                                    value: 17,
                                 },
                             ),
                         },
@@ -197,14 +182,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 17,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -263,14 +247,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 4,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 18,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -335,14 +318,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 17,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -401,14 +383,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 3,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 15,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -497,14 +478,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 19,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -520,8 +500,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 5,
+                                    value: 33,
                                 },
                             ),
                         },
@@ -537,8 +516,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 1,
+                                    value: 34,
                                 },
                             ),
                         },
@@ -549,14 +527,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 5,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 33,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -627,14 +604,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 34,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -651,14 +627,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 2,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 20,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -674,8 +649,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 6,
+                                    value: 35,
                                 },
                             ),
                         },
@@ -691,8 +665,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 1,
+                                    value: 36,
                                 },
                             ),
                         },
@@ -708,8 +681,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 2,
+                                    value: 37,
                                 },
                             ),
                         },
@@ -750,14 +722,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 15,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 38,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -773,8 +744,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 2,
+                                    value: 45,
                                 },
                             ),
                         },
@@ -790,8 +760,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 7,
+                                    value: 46,
                                 },
                             ),
                         },
@@ -807,8 +776,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 3,
+                                    value: 47,
                                 },
                             ),
                         },
@@ -819,14 +787,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 16,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 39,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -842,8 +809,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 4,
+                                    value: 48,
                                 },
                             ),
                         },
@@ -866,14 +832,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 17,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 40,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -889,8 +854,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 8,
+                                    value: 49,
                                 },
                             ),
                         },
@@ -906,8 +870,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 5,
+                                    value: 50,
                                 },
                             ),
                         },
@@ -941,8 +904,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 3,
+                                    value: 51,
                                 },
                             ),
                         },
@@ -953,14 +915,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 18,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 41,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -976,8 +937,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 9,
+                                    value: 52,
                                 },
                             ),
                         },
@@ -993,8 +953,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 6,
+                                    value: 53,
                                 },
                             ),
                         },
@@ -1029,14 +988,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 19,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 42,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1052,8 +1010,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 4,
+                                    value: 54,
                                 },
                             ),
                         },
@@ -1069,8 +1026,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 10,
+                                    value: 55,
                                 },
                             ),
                         },
@@ -1086,8 +1042,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 7,
+                                    value: 56,
                                 },
                             ),
                         },
@@ -1127,8 +1082,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 8,
+                                    value: 57,
                                 },
                             ),
                         },
@@ -1156,8 +1110,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 9,
+                                    value: 58,
                                 },
                             ),
                         },
@@ -1180,14 +1133,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 20,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 43,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1203,8 +1155,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 10,
+                                    value: 59,
                                 },
                             ),
                         },
@@ -1227,14 +1178,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 21,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 44,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1269,14 +1219,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 6,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 35,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1329,14 +1278,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 36,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1365,14 +1313,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 2,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 37,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1425,14 +1372,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 3,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 21,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1448,8 +1394,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 5,
+                                    value: 60,
                                 },
                             ),
                         },
@@ -1471,8 +1416,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 11,
+                                    value: 61,
                                 },
                             ),
                         },
@@ -1482,8 +1426,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 11,
+                                    value: 62,
                                 },
                             ),
                         },
@@ -1511,8 +1454,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 11,
+                                    value: 61,
                                 },
                             ),
                         },
@@ -1523,14 +1465,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 5,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 60,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1547,14 +1488,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 11,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 61,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1607,14 +1547,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 11,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 62,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1679,14 +1618,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 11,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 61,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1739,14 +1677,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 4,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 22,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -1762,8 +1699,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 12,
+                                    value: 63,
                                 },
                             ),
                         },
@@ -1777,8 +1713,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 13,
+                                    value: 64,
                                 },
                             ),
                         },
@@ -1794,8 +1729,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 14,
+                                    value: 65,
                                 },
                             ),
                         },
@@ -1815,8 +1749,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 15,
+                                    value: 66,
                                 },
                             ),
                         },
@@ -1832,8 +1765,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 16,
+                                    value: 67,
                                 },
                             ),
                         },
@@ -1853,8 +1785,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 17,
+                                    value: 68,
                                 },
                             ),
                         },
@@ -1870,8 +1801,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 18,
+                                    value: 69,
                                 },
                             ),
                         },
@@ -1913,8 +1843,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 12,
+                                    value: 63,
                                 },
                             ),
                         },
@@ -1931,14 +1860,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 12,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 63,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2077,14 +2005,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 13,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 64,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2101,14 +2028,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 14,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 65,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2137,14 +2063,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 15,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 66,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2161,14 +2086,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 16,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 67,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2197,14 +2121,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 17,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 68,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2221,14 +2144,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 18,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 69,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2257,14 +2179,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 12,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 63,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2403,14 +2324,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 5,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 23,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2426,8 +2346,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 19,
+                                    value: 70,
                                 },
                             ),
                         },
@@ -2443,8 +2362,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 20,
+                                    value: 71,
                                 },
                             ),
                         },
@@ -2467,14 +2385,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 19,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 70,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2491,14 +2408,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 20,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 71,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2527,14 +2443,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 6,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 24,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2550,8 +2465,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 12,
+                                    value: 72,
                                 },
                             ),
                         },
@@ -2567,8 +2481,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 21,
+                                    value: 73,
                                 },
                             ),
                         },
@@ -2584,8 +2497,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 22,
+                                    value: 74,
                                 },
                             ),
                         },
@@ -2619,8 +2531,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 6,
+                                    value: 75,
                                 },
                             ),
                         },
@@ -2631,14 +2542,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 12,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 72,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2691,14 +2601,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 21,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 73,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2727,14 +2636,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 22,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 74,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2775,14 +2683,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 6,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 75,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2799,14 +2706,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 7,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 25,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2822,8 +2728,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 13,
+                                    value: 76,
                                 },
                             ),
                         },
@@ -2839,8 +2744,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 23,
+                                    value: 77,
                                 },
                             ),
                         },
@@ -2856,8 +2760,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 24,
+                                    value: 78,
                                 },
                             ),
                         },
@@ -2891,8 +2794,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 7,
+                                    value: 79,
                                 },
                             ),
                         },
@@ -2903,14 +2805,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 13,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 76,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2963,14 +2864,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 23,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 77,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2999,14 +2899,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 24,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 78,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3047,14 +2946,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 7,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 79,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3071,14 +2969,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 8,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 26,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3094,8 +2991,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 8,
+                                    value: 80,
                                 },
                             ),
                         },
@@ -3111,8 +3007,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 14,
+                                    value: 81,
                                 },
                             ),
                         },
@@ -3128,8 +3023,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 25,
+                                    value: 82,
                                 },
                             ),
                         },
@@ -3145,8 +3039,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 26,
+                                    value: 83,
                                 },
                             ),
                         },
@@ -3175,14 +3068,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 8,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 80,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3199,14 +3091,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 14,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 81,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3259,14 +3150,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 25,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 82,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3295,14 +3185,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 26,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 83,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3343,14 +3232,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 9,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 27,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3366,8 +3254,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 9,
+                                    value: 84,
                                 },
                             ),
                         },
@@ -3383,8 +3270,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 27,
+                                    value: 85,
                                 },
                             ),
                         },
@@ -3406,8 +3292,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 28,
+                                    value: 86,
                                 },
                             ),
                         },
@@ -3423,8 +3308,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 29,
+                                    value: 87,
                                 },
                             ),
                         },
@@ -3452,8 +3336,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 30,
+                                    value: 88,
                                 },
                             ),
                         },
@@ -3475,8 +3358,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 31,
+                                    value: 89,
                                 },
                             ),
                         },
@@ -3492,8 +3374,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 32,
+                                    value: 90,
                                 },
                             ),
                         },
@@ -3516,14 +3397,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 9,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 84,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3540,14 +3420,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 27,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 85,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3564,14 +3443,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 28,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 86,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3606,14 +3484,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 29,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 87,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3672,14 +3549,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 30,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 88,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3696,14 +3572,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 31,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 89,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3738,14 +3613,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 32,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 90,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3804,14 +3678,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 10,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 28,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3827,8 +3700,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 10,
+                                    value: 91,
                                 },
                             ),
                         },
@@ -3844,8 +3716,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 15,
+                                    value: 92,
                                 },
                             ),
                         },
@@ -3861,8 +3732,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 33,
+                                    value: 93,
                                 },
                             ),
                         },
@@ -3878,8 +3748,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 34,
+                                    value: 94,
                                 },
                             ),
                         },
@@ -3907,8 +3776,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 16,
+                                    value: 95,
                                 },
                             ),
                         },
@@ -3924,8 +3792,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 35,
+                                    value: 96,
                                 },
                             ),
                         },
@@ -3941,8 +3808,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 36,
+                                    value: 97,
                                 },
                             ),
                         },
@@ -3965,14 +3831,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 10,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 91,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3989,14 +3854,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 15,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 92,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4049,14 +3913,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 33,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 93,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4085,14 +3948,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 34,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 94,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4145,14 +4007,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 16,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 95,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4205,14 +4066,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 35,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 96,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4241,14 +4101,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 36,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 97,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4301,14 +4160,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 11,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 29,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4324,8 +4182,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 11,
+                                    value: 98,
                                 },
                             ),
                         },
@@ -4341,8 +4198,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 37,
+                                    value: 99,
                                 },
                             ),
                         },
@@ -4358,8 +4214,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 38,
+                                    value: 100,
                                 },
                             ),
                         },
@@ -4370,14 +4225,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 11,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 98,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4394,14 +4248,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 37,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 99,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4418,14 +4271,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 38,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 100,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4442,14 +4294,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 12,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 30,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4465,8 +4316,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 39,
+                                    value: 101,
                                 },
                             ),
                         },
@@ -4489,14 +4339,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 39,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 101,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4513,14 +4362,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 13,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 31,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4536,8 +4384,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 12,
+                                    value: 102,
                                 },
                             ),
                         },
@@ -4553,8 +4400,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 40,
+                                    value: 103,
                                 },
                             ),
                         },
@@ -4570,8 +4416,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 41,
+                                    value: 104,
                                 },
                             ),
                         },
@@ -4582,14 +4427,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 12,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 102,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4606,14 +4450,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 40,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 103,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4630,14 +4473,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 41,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 104,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4666,14 +4508,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 14,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 32,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4702,18 +4543,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 39,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 5,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4736,14 +4572,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 17,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 105,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4784,14 +4619,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 2,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 107,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4807,8 +4641,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 2,
+                                    value: 108,
                                 },
                             ),
                         },
@@ -4818,8 +4651,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 19,
+                                    value: 109,
                                 },
                             ),
                         },
@@ -4877,8 +4709,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 2,
+                                    value: 108,
                                 },
                             ),
                         },
@@ -4889,14 +4720,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 2,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 108,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4979,14 +4809,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 19,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 109,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5051,14 +4880,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 2,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 108,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5141,14 +4969,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 18,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 106,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5219,14 +5046,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 22,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 110,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5242,8 +5068,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 42,
+                                    value: 114,
                                 },
                             ),
                         },
@@ -5257,8 +5082,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 20,
+                                    value: 115,
                                 },
                             ),
                         },
@@ -5274,8 +5098,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 43,
+                                    value: 116,
                                 },
                             ),
                         },
@@ -5295,8 +5118,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 21,
+                                    value: 117,
                                 },
                             ),
                         },
@@ -5344,8 +5166,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 42,
+                                    value: 114,
                                 },
                             ),
                         },
@@ -5362,14 +5183,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 42,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 114,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5474,14 +5294,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 20,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 115,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5534,14 +5353,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 43,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 116,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5570,14 +5388,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 21,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 117,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5624,14 +5441,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 42,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 114,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5736,14 +5552,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 23,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 111,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5759,8 +5574,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 13,
+                                    value: 118,
                                 },
                             ),
                         },
@@ -5782,8 +5596,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 44,
+                                    value: 119,
                                 },
                             ),
                         },
@@ -5793,8 +5606,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 22,
+                                    value: 120,
                                 },
                             ),
                         },
@@ -5822,8 +5634,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 44,
+                                    value: 119,
                                 },
                             ),
                         },
@@ -5834,14 +5645,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 13,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 118,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5858,14 +5668,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 44,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 119,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5918,14 +5727,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 22,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 120,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5990,14 +5798,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 44,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 119,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6050,14 +5857,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 24,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 112,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6073,8 +5879,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 45,
+                                    value: 121,
                                 },
                             ),
                         },
@@ -6090,8 +5895,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 46,
+                                    value: 122,
                                 },
                             ),
                         },
@@ -6120,14 +5924,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 26,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 123,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6143,8 +5946,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 47,
+                                    value: 126,
                                 },
                             ),
                         },
@@ -6158,8 +5960,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 23,
+                                    value: 127,
                                 },
                             ),
                         },
@@ -6175,8 +5976,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 48,
+                                    value: 128,
                                 },
                             ),
                         },
@@ -6224,8 +6024,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 47,
+                                    value: 126,
                                 },
                             ),
                         },
@@ -6242,14 +6041,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 27,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 124,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6265,8 +6063,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 24,
+                                    value: 129,
                                 },
                             ),
                         },
@@ -6282,8 +6079,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 49,
+                                    value: 130,
                                 },
                             ),
                         },
@@ -6312,14 +6108,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 28,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 125,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6348,14 +6143,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 45,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 121,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6372,14 +6166,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 46,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 122,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6408,14 +6201,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 25,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 113,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6438,14 +6230,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 29,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 131,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6461,8 +6252,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 25,
+                                    value: 157,
                                 },
                             ),
                         },
@@ -6478,8 +6268,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 50,
+                                    value: 158,
                                 },
                             ),
                         },
@@ -6502,14 +6291,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 30,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 132,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6525,8 +6313,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 26,
+                                    value: 159,
                                 },
                             ),
                         },
@@ -6549,14 +6336,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 31,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 133,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6572,8 +6358,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 14,
+                                    value: 160,
                                 },
                             ),
                         },
@@ -6589,8 +6374,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 27,
+                                    value: 161,
                                 },
                             ),
                         },
@@ -6606,8 +6390,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 51,
+                                    value: 162,
                                 },
                             ),
                         },
@@ -6636,14 +6419,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 32,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 134,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6659,8 +6441,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 15,
+                                    value: 163,
                                 },
                             ),
                         },
@@ -6676,8 +6457,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 28,
+                                    value: 164,
                                 },
                             ),
                         },
@@ -6693,8 +6473,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 52,
+                                    value: 165,
                                 },
                             ),
                         },
@@ -6723,14 +6502,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 33,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 135,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6746,8 +6524,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 16,
+                                    value: 166,
                                 },
                             ),
                         },
@@ -6763,8 +6540,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 29,
+                                    value: 167,
                                 },
                             ),
                         },
@@ -6780,8 +6556,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 53,
+                                    value: 168,
                                 },
                             ),
                         },
@@ -6810,14 +6585,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 34,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 136,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6833,8 +6607,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 54,
+                                    value: 169,
                                 },
                             ),
                         },
@@ -6850,8 +6623,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 17,
+                                    value: 170,
                                 },
                             ),
                         },
@@ -6868,14 +6640,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 35,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 137,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -6891,8 +6662,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 18,
+                                    value: 171,
                                 },
                             ),
                         },
@@ -6908,8 +6678,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 55,
+                                    value: 172,
                                 },
                             ),
                         },
@@ -6931,8 +6700,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 56,
+                                    value: 173,
                                 },
                             ),
                         },
@@ -6948,8 +6716,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 57,
+                                    value: 174,
                                 },
                             ),
                         },
@@ -6977,8 +6744,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 58,
+                                    value: 175,
                                 },
                             ),
                         },
@@ -7000,8 +6766,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 59,
+                                    value: 176,
                                 },
                             ),
                         },
@@ -7017,8 +6782,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 60,
+                                    value: 177,
                                 },
                             ),
                         },
@@ -7041,14 +6805,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 36,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 138,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -7064,8 +6827,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 30,
+                                    value: 178,
                                 },
                             ),
                         },
@@ -7081,8 +6843,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 61,
+                                    value: 179,
                                 },
                             ),
                         },
@@ -7105,14 +6866,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 37,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 139,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -7128,8 +6888,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 62,
+                                    value: 180,
                                 },
                             ),
                         },
@@ -7143,8 +6902,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 31,
+                                    value: 181,
                                 },
                             ),
                         },
@@ -7160,8 +6918,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 63,
+                                    value: 182,
                                 },
                             ),
                         },
@@ -7199,8 +6956,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 32,
+                                    value: 183,
                                 },
                             ),
                         },
@@ -7216,8 +6972,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 64,
+                                    value: 184,
                                 },
                             ),
                         },
@@ -7237,8 +6992,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 33,
+                                    value: 185,
                                 },
                             ),
                         },
@@ -7254,8 +7008,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 65,
+                                    value: 186,
                                 },
                             ),
                         },
@@ -7275,8 +7028,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 34,
+                                    value: 187,
                                 },
                             ),
                         },
@@ -7292,8 +7044,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 66,
+                                    value: 188,
                                 },
                             ),
                         },
@@ -7341,8 +7092,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 62,
+                                    value: 180,
                                 },
                             ),
                         },
@@ -7359,14 +7109,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 38,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 140,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -7382,8 +7131,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 67,
+                                    value: 189,
                                 },
                             ),
                         },
@@ -7397,8 +7145,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 35,
+                                    value: 190,
                                 },
                             ),
                         },
@@ -7414,8 +7161,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 68,
+                                    value: 191,
                                 },
                             ),
                         },
@@ -7455,8 +7201,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 69,
+                                    value: 192,
                                 },
                             ),
                         },
@@ -7476,8 +7221,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 36,
+                                    value: 193,
                                 },
                             ),
                         },
@@ -7493,8 +7237,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 70,
+                                    value: 194,
                                 },
                             ),
                         },
@@ -7534,8 +7277,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 71,
+                                    value: 195,
                                 },
                             ),
                         },
@@ -7551,8 +7293,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 72,
+                                    value: 196,
                                 },
                             ),
                         },
@@ -7612,8 +7353,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 67,
+                                    value: 189,
                                 },
                             ),
                         },
@@ -7630,14 +7370,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 39,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 141,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -7653,8 +7392,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 73,
+                                    value: 197,
                                 },
                             ),
                         },
@@ -7670,8 +7408,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 19,
+                                    value: 198,
                                 },
                             ),
                         },
@@ -7688,14 +7425,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 40,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 142,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -7711,8 +7447,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 74,
+                                    value: 199,
                                 },
                             ),
                         },
@@ -7728,8 +7463,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 20,
+                                    value: 200,
                                 },
                             ),
                         },
@@ -7746,14 +7480,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 41,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 143,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -7769,8 +7502,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 75,
+                                    value: 201,
                                 },
                             ),
                         },
@@ -7793,14 +7525,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 42,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 144,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -7816,8 +7547,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 21,
+                                    value: 202,
                                 },
                             ),
                         },
@@ -7833,8 +7563,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 76,
+                                    value: 203,
                                 },
                             ),
                         },
@@ -7856,8 +7585,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 77,
+                                    value: 204,
                                 },
                             ),
                         },
@@ -7873,8 +7601,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 78,
+                                    value: 205,
                                 },
                             ),
                         },
@@ -7896,8 +7623,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 79,
+                                    value: 206,
                                 },
                             ),
                         },
@@ -7913,8 +7639,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 80,
+                                    value: 207,
                                 },
                             ),
                         },
@@ -7943,14 +7668,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 43,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 145,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -7966,8 +7690,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 22,
+                                    value: 208,
                                 },
                             ),
                         },
@@ -7983,8 +7706,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 81,
+                                    value: 209,
                                 },
                             ),
                         },
@@ -8000,8 +7722,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 82,
+                                    value: 210,
                                 },
                             ),
                         },
@@ -8024,14 +7745,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 44,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 146,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8047,8 +7767,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 23,
+                                    value: 211,
                                 },
                             ),
                         },
@@ -8064,8 +7783,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 83,
+                                    value: 212,
                                 },
                             ),
                         },
@@ -8087,8 +7805,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 84,
+                                    value: 213,
                                 },
                             ),
                         },
@@ -8104,8 +7821,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 85,
+                                    value: 214,
                                 },
                             ),
                         },
@@ -8127,8 +7843,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 86,
+                                    value: 215,
                                 },
                             ),
                         },
@@ -8144,8 +7859,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 87,
+                                    value: 216,
                                 },
                             ),
                         },
@@ -8186,14 +7900,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 45,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 147,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8209,8 +7922,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 24,
+                                    value: 217,
                                 },
                             ),
                         },
@@ -8226,8 +7938,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 88,
+                                    value: 218,
                                 },
                             ),
                         },
@@ -8243,8 +7954,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 89,
+                                    value: 219,
                                 },
                             ),
                         },
@@ -8267,14 +7977,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 46,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 148,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8290,8 +7999,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 90,
+                                    value: 220,
                                 },
                             ),
                         },
@@ -8305,8 +8013,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 91,
+                                    value: 221,
                                 },
                             ),
                         },
@@ -8322,8 +8029,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 92,
+                                    value: 222,
                                 },
                             ),
                         },
@@ -8343,8 +8049,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 93,
+                                    value: 223,
                                 },
                             ),
                         },
@@ -8360,8 +8065,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 94,
+                                    value: 224,
                                 },
                             ),
                         },
@@ -8403,8 +8107,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 90,
+                                    value: 220,
                                 },
                             ),
                         },
@@ -8421,14 +8124,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 47,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 149,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8444,8 +8146,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 95,
+                                    value: 225,
                                 },
                             ),
                         },
@@ -8468,14 +8169,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 48,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 150,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8491,8 +8191,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 25,
+                                    value: 226,
                                 },
                             ),
                         },
@@ -8508,8 +8207,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 37,
+                                    value: 227,
                                 },
                             ),
                         },
@@ -8525,8 +8223,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 96,
+                                    value: 228,
                                 },
                             ),
                         },
@@ -8537,14 +8234,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 49,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 151,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8560,8 +8256,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 26,
+                                    value: 229,
                                 },
                             ),
                         },
@@ -8577,8 +8272,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 38,
+                                    value: 230,
                                 },
                             ),
                         },
@@ -8594,8 +8288,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 97,
+                                    value: 231,
                                 },
                             ),
                         },
@@ -8606,14 +8299,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 50,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 152,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8629,8 +8321,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 27,
+                                    value: 232,
                                 },
                             ),
                         },
@@ -8646,8 +8337,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 98,
+                                    value: 233,
                                 },
                             ),
                         },
@@ -8663,8 +8353,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 99,
+                                    value: 234,
                                 },
                             ),
                         },
@@ -8675,14 +8364,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 51,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 153,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8698,8 +8386,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 28,
+                                    value: 235,
                                 },
                             ),
                         },
@@ -8715,8 +8402,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 100,
+                                    value: 236,
                                 },
                             ),
                         },
@@ -8732,8 +8418,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 101,
+                                    value: 237,
                                 },
                             ),
                         },
@@ -8744,14 +8429,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 52,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 154,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8767,8 +8451,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 102,
+                                    value: 238,
                                 },
                             ),
                         },
@@ -8797,14 +8480,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 53,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 155,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8820,8 +8502,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 103,
+                                    value: 239,
                                 },
                             ),
                         },
@@ -8844,14 +8525,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 54,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 156,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8880,18 +8560,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 40,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 6,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8914,14 +8589,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 39,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 240,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8962,14 +8636,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 3,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 243,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8985,8 +8658,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 3,
+                                    value: 244,
                                 },
                             ),
                         },
@@ -8996,8 +8668,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 42,
+                                    value: 245,
                                 },
                             ),
                         },
@@ -9031,8 +8702,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 3,
+                                    value: 244,
                                 },
                             ),
                         },
@@ -9043,14 +8713,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 3,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 244,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9109,14 +8778,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 42,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 245,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9181,14 +8849,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 3,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 244,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9247,14 +8914,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 40,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 241,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9295,14 +8961,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 4,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 246,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9318,8 +8983,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 4,
+                                    value: 247,
                                 },
                             ),
                         },
@@ -9329,8 +8993,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 43,
+                                    value: 248,
                                 },
                             ),
                         },
@@ -9376,8 +9039,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 4,
+                                    value: 247,
                                 },
                             ),
                         },
@@ -9388,14 +9050,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 4,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 247,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9466,14 +9127,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 43,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 248,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9538,14 +9198,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 4,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 247,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9616,14 +9275,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 41,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 242,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9712,14 +9370,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 55,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 249,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9735,8 +9392,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 44,
+                                    value: 261,
                                 },
                             ),
                         },
@@ -9752,8 +9408,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 29,
+                                    value: 262,
                                 },
                             ),
                         },
@@ -9764,14 +9419,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 44,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 261,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9842,14 +9496,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 29,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 262,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9866,14 +9519,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 56,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 250,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9889,8 +9541,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 30,
+                                    value: 263,
                                 },
                             ),
                         },
@@ -9906,8 +9557,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 45,
+                                    value: 264,
                                 },
                             ),
                         },
@@ -9923,8 +9573,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 104,
+                                    value: 265,
                                 },
                             ),
                         },
@@ -9953,14 +9602,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 30,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 263,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9977,14 +9625,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 45,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 264,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10025,14 +9672,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 104,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 265,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10061,14 +9707,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 57,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 251,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10084,8 +9729,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 105,
+                                    value: 266,
                                 },
                             ),
                         },
@@ -10101,8 +9745,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 31,
+                                    value: 267,
                                 },
                             ),
                         },
@@ -10113,14 +9756,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 105,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 266,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10137,14 +9779,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 31,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 267,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10161,14 +9802,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 58,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 252,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10184,8 +9824,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 32,
+                                    value: 268,
                                 },
                             ),
                         },
@@ -10201,8 +9840,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 46,
+                                    value: 269,
                                 },
                             ),
                         },
@@ -10218,8 +9856,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 106,
+                                    value: 270,
                                 },
                             ),
                         },
@@ -10230,14 +9867,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 32,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 268,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10254,14 +9890,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 46,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 269,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10314,14 +9949,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 106,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 270,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10350,14 +9984,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 59,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 253,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10373,8 +10006,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 33,
+                                    value: 271,
                                 },
                             ),
                         },
@@ -10390,8 +10022,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 47,
+                                    value: 272,
                                 },
                             ),
                         },
@@ -10407,8 +10038,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 107,
+                                    value: 273,
                                 },
                             ),
                         },
@@ -10424,8 +10054,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 48,
+                                    value: 274,
                                 },
                             ),
                         },
@@ -10441,8 +10070,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 108,
+                                    value: 275,
                                 },
                             ),
                         },
@@ -10453,14 +10081,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 33,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 271,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10477,14 +10104,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 47,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 272,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10537,14 +10163,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 107,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 273,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10573,14 +10198,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 48,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 274,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10633,14 +10257,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 108,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 275,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10669,14 +10292,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 60,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 254,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10692,8 +10314,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 109,
+                                    value: 276,
                                 },
                             ),
                         },
@@ -10709,8 +10330,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 110,
+                                    value: 277,
                                 },
                             ),
                         },
@@ -10744,8 +10364,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 34,
+                                    value: 278,
                                 },
                             ),
                         },
@@ -10762,14 +10381,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 67,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 279,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10785,8 +10403,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 111,
+                                    value: 291,
                                 },
                             ),
                         },
@@ -10800,8 +10417,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 49,
+                                    value: 292,
                                 },
                             ),
                         },
@@ -10817,8 +10433,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 112,
+                                    value: 293,
                                 },
                             ),
                         },
@@ -10838,8 +10453,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 50,
+                                    value: 294,
                                 },
                             ),
                         },
@@ -10855,8 +10469,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 113,
+                                    value: 295,
                                 },
                             ),
                         },
@@ -10898,8 +10511,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 111,
+                                    value: 291,
                                 },
                             ),
                         },
@@ -10916,14 +10528,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 68,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 280,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -10939,8 +10550,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 35,
+                                    value: 296,
                                 },
                             ),
                         },
@@ -10956,8 +10566,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 51,
+                                    value: 297,
                                 },
                             ),
                         },
@@ -10973,8 +10582,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 114,
+                                    value: 298,
                                 },
                             ),
                         },
@@ -11003,14 +10611,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 69,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 281,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11026,8 +10633,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 36,
+                                    value: 299,
                                 },
                             ),
                         },
@@ -11043,8 +10649,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 115,
+                                    value: 300,
                                 },
                             ),
                         },
@@ -11066,8 +10671,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 116,
+                                    value: 301,
                                 },
                             ),
                         },
@@ -11090,14 +10694,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 70,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 282,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11113,8 +10716,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 37,
+                                    value: 302,
                                 },
                             ),
                         },
@@ -11130,8 +10732,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 117,
+                                    value: 303,
                                 },
                             ),
                         },
@@ -11147,8 +10748,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 118,
+                                    value: 304,
                                 },
                             ),
                         },
@@ -11159,14 +10759,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 71,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 283,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11182,8 +10781,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 38,
+                                    value: 305,
                                 },
                             ),
                         },
@@ -11199,8 +10797,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 119,
+                                    value: 306,
                                 },
                             ),
                         },
@@ -11222,8 +10819,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 120,
+                                    value: 307,
                                 },
                             ),
                         },
@@ -11251,8 +10847,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 121,
+                                    value: 308,
                                 },
                             ),
                         },
@@ -11263,14 +10858,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 72,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 284,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11286,8 +10880,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 39,
+                                    value: 309,
                                 },
                             ),
                         },
@@ -11303,8 +10896,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 52,
+                                    value: 310,
                                 },
                             ),
                         },
@@ -11320,8 +10912,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 122,
+                                    value: 311,
                                 },
                             ),
                         },
@@ -11332,14 +10923,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 73,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 285,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11355,8 +10945,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 53,
+                                    value: 312,
                                 },
                             ),
                         },
@@ -11372,8 +10961,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 123,
+                                    value: 313,
                                 },
                             ),
                         },
@@ -11396,14 +10984,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 74,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 286,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11419,8 +11006,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 124,
+                                    value: 314,
                                 },
                             ),
                         },
@@ -11436,8 +11022,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 40,
+                                    value: 315,
                                 },
                             ),
                         },
@@ -11454,14 +11039,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 75,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 287,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11477,8 +11061,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 41,
+                                    value: 316,
                                 },
                             ),
                         },
@@ -11494,8 +11077,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 54,
+                                    value: 317,
                                 },
                             ),
                         },
@@ -11511,8 +11093,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 125,
+                                    value: 318,
                                 },
                             ),
                         },
@@ -11528,8 +11109,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 126,
+                                    value: 319,
                                 },
                             ),
                         },
@@ -11549,8 +11129,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 127,
+                                    value: 320,
                                 },
                             ),
                         },
@@ -11572,8 +11151,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 128,
+                                    value: 321,
                                 },
                             ),
                         },
@@ -11606,14 +11184,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 76,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 288,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11629,8 +11206,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 129,
+                                    value: 322,
                                 },
                             ),
                         },
@@ -11644,8 +11220,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 130,
+                                    value: 323,
                                 },
                             ),
                         },
@@ -11665,8 +11240,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 55,
+                                    value: 324,
                                 },
                             ),
                         },
@@ -11686,8 +11260,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 131,
+                                    value: 325,
                                 },
                             ),
                         },
@@ -11707,8 +11280,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 56,
+                                    value: 326,
                                 },
                             ),
                         },
@@ -11724,8 +11296,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 132,
+                                    value: 327,
                                 },
                             ),
                         },
@@ -11785,8 +11356,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 129,
+                                    value: 322,
                                 },
                             ),
                         },
@@ -11803,14 +11373,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 77,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 289,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11826,8 +11395,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 133,
+                                    value: 328,
                                 },
                             ),
                         },
@@ -11843,8 +11411,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 134,
+                                    value: 329,
                                 },
                             ),
                         },
@@ -11873,14 +11440,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 78,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 290,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11915,14 +11481,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 109,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 276,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11939,14 +11504,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 110,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 277,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11975,14 +11539,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 34,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 278,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -11999,14 +11562,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 61,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 255,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12022,8 +11584,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 135,
+                                    value: 330,
                                 },
                             ),
                         },
@@ -12037,8 +11598,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 57,
+                                    value: 331,
                                 },
                             ),
                         },
@@ -12054,8 +11614,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 136,
+                                    value: 332,
                                 },
                             ),
                         },
@@ -12097,8 +11656,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 135,
+                                    value: 330,
                                 },
                             ),
                         },
@@ -12115,14 +11673,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 135,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 330,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12205,14 +11762,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 57,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 331,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12253,14 +11809,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 136,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 332,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12289,14 +11844,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 135,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 330,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12379,14 +11933,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 62,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 256,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12402,8 +11955,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 58,
+                                    value: 333,
                                 },
                             ),
                         },
@@ -12419,8 +11971,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 137,
+                                    value: 334,
                                 },
                             ),
                         },
@@ -12449,14 +12000,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 79,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 335,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12472,8 +12022,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 59,
+                                    value: 336,
                                 },
                             ),
                         },
@@ -12489,8 +12038,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 138,
+                                    value: 337,
                                 },
                             ),
                         },
@@ -12513,14 +12061,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 58,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 333,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12561,14 +12108,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 137,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 334,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12597,14 +12143,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 63,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 257,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12620,8 +12165,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 139,
+                                    value: 338,
                                 },
                             ),
                         },
@@ -12637,8 +12181,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 140,
+                                    value: 339,
                                 },
                             ),
                         },
@@ -12678,8 +12221,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 141,
+                                    value: 340,
                                 },
                             ),
                         },
@@ -12695,8 +12237,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 142,
+                                    value: 341,
                                 },
                             ),
                         },
@@ -12731,14 +12272,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 139,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 338,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12755,14 +12295,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 140,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 339,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12791,14 +12330,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 141,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 340,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12863,14 +12401,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 142,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 341,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12959,14 +12496,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 64,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 258,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -12982,8 +12518,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 143,
+                                    value: 342,
                                 },
                             ),
                         },
@@ -12999,8 +12534,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 144,
+                                    value: 343,
                                 },
                             ),
                         },
@@ -13034,8 +12568,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 42,
+                                    value: 344,
                                 },
                             ),
                         },
@@ -13052,14 +12585,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 80,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 345,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13075,8 +12607,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 145,
+                                    value: 346,
                                 },
                             ),
                         },
@@ -13092,8 +12623,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 146,
+                                    value: 347,
                                 },
                             ),
                         },
@@ -13133,8 +12663,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 147,
+                                    value: 348,
                                 },
                             ),
                         },
@@ -13150,8 +12679,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 148,
+                                    value: 349,
                                 },
                             ),
                         },
@@ -13186,14 +12714,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 143,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 342,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13210,14 +12737,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 144,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 343,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13246,14 +12772,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 42,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 344,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13270,14 +12795,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 65,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 259,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13293,8 +12817,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 149,
+                                    value: 350,
                                 },
                             ),
                         },
@@ -13317,14 +12840,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 149,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 350,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13341,14 +12863,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 66,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 260,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13377,18 +12898,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 41,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 7,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13411,14 +12927,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 60,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 351,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13459,14 +12974,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 5,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 353,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13482,8 +12996,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 5,
+                                    value: 354,
                                 },
                             ),
                         },
@@ -13493,8 +13006,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 62,
+                                    value: 355,
                                 },
                             ),
                         },
@@ -13552,8 +13064,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 5,
+                                    value: 354,
                                 },
                             ),
                         },
@@ -13564,14 +13075,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 5,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 354,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13654,14 +13164,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 62,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 355,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13726,14 +13235,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 5,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 354,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13816,14 +13324,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 61,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 352,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13912,14 +13419,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 6,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 356,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13935,8 +13441,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 63,
+                                    value: 373,
                                 },
                             ),
                         },
@@ -13952,8 +13457,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 6,
+                                    value: 374,
                                 },
                             ),
                         },
@@ -13988,14 +13492,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 63,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 373,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14060,14 +13563,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 6,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 374,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14108,14 +13610,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 7,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 357,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14131,8 +13632,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 64,
+                                    value: 375,
                                 },
                             ),
                         },
@@ -14148,8 +13648,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 7,
+                                    value: 376,
                                 },
                             ),
                         },
@@ -14184,14 +13683,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 64,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 375,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14256,14 +13754,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 7,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 376,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14304,14 +13801,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 8,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 358,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14327,8 +13823,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 1,
+                                    value: 377,
                                 },
                             ),
                         },
@@ -14344,8 +13839,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 65,
+                                    value: 378,
                                 },
                             ),
                         },
@@ -14361,8 +13855,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 8,
+                                    value: 379,
                                 },
                             ),
                         },
@@ -14391,14 +13884,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 377,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14415,14 +13907,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 65,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 378,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14463,14 +13954,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 8,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 379,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14499,14 +13989,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 9,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 359,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14522,8 +14011,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 2,
+                                    value: 380,
                                 },
                             ),
                         },
@@ -14539,8 +14027,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 66,
+                                    value: 381,
                                 },
                             ),
                         },
@@ -14556,8 +14043,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 9,
+                                    value: 382,
                                 },
                             ),
                         },
@@ -14586,14 +14072,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 2,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 380,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14610,14 +14095,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 66,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 381,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14658,14 +14142,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 9,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 382,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14694,14 +14177,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 10,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 360,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14717,8 +14199,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 3,
+                                    value: 383,
                                 },
                             ),
                         },
@@ -14734,8 +14215,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 67,
+                                    value: 384,
                                 },
                             ),
                         },
@@ -14751,8 +14231,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 10,
+                                    value: 385,
                                 },
                             ),
                         },
@@ -14781,14 +14260,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 3,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 383,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14805,14 +14283,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 67,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 384,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14853,14 +14330,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 10,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 385,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14889,14 +14365,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 11,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 361,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14912,8 +14387,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 11,
+                                    value: 386,
                                 },
                             ),
                         },
@@ -14929,8 +14403,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 4,
+                                    value: 387,
                                 },
                             ),
                         },
@@ -14941,14 +14414,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 11,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 386,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14965,14 +14437,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 4,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 387,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14989,14 +14460,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 12,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 362,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15012,8 +14482,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 12,
+                                    value: 388,
                                 },
                             ),
                         },
@@ -15035,8 +14504,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 13,
+                                    value: 389,
                                 },
                             ),
                         },
@@ -15059,14 +14527,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 12,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 388,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15083,14 +14550,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 13,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 389,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15125,14 +14591,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 13,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 363,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15148,8 +14613,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 14,
+                                    value: 390,
                                 },
                             ),
                         },
@@ -15165,8 +14629,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 5,
+                                    value: 391,
                                 },
                             ),
                         },
@@ -15177,14 +14640,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 14,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 390,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15201,14 +14663,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 5,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 391,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15225,14 +14686,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 14,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 364,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15248,8 +14708,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 6,
+                                    value: 392,
                                 },
                             ),
                         },
@@ -15265,8 +14724,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 15,
+                                    value: 393,
                                 },
                             ),
                         },
@@ -15288,8 +14746,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 16,
+                                    value: 394,
                                 },
                             ),
                         },
@@ -15317,8 +14774,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 17,
+                                    value: 395,
                                 },
                             ),
                         },
@@ -15347,14 +14803,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 6,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 392,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15371,14 +14826,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 15,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 393,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15395,14 +14849,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 16,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 394,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15449,14 +14902,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 17,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 395,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15533,14 +14985,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 15,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 365,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15556,8 +15007,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 18,
+                                    value: 396,
                                 },
                             ),
                         },
@@ -15585,8 +15035,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 19,
+                                    value: 397,
                                 },
                             ),
                         },
@@ -15615,14 +15064,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 18,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 396,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15639,14 +15087,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 19,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 397,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15663,14 +15110,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 16,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 366,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15686,8 +15132,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 7,
+                                    value: 398,
                                 },
                             ),
                         },
@@ -15703,8 +15148,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 20,
+                                    value: 399,
                                 },
                             ),
                         },
@@ -15726,8 +15170,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 21,
+                                    value: 400,
                                 },
                             ),
                         },
@@ -15750,14 +15193,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 7,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 398,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15774,14 +15216,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 20,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 399,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15798,14 +15239,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 21,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 400,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15852,14 +15292,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 17,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 367,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15875,8 +15314,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 8,
+                                    value: 401,
                                 },
                             ),
                         },
@@ -15892,8 +15330,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 22,
+                                    value: 402,
                                 },
                             ),
                         },
@@ -15915,8 +15352,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 23,
+                                    value: 403,
                                 },
                             ),
                         },
@@ -15939,14 +15375,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 8,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 401,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15963,14 +15398,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 22,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 402,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -15987,14 +15421,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 23,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 403,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16041,14 +15474,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 18,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 368,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16064,8 +15496,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 9,
+                                    value: 404,
                                 },
                             ),
                         },
@@ -16081,8 +15512,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 24,
+                                    value: 405,
                                 },
                             ),
                         },
@@ -16098,8 +15528,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 25,
+                                    value: 406,
                                 },
                             ),
                         },
@@ -16115,8 +15544,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 26,
+                                    value: 407,
                                 },
                             ),
                         },
@@ -16133,14 +15561,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 9,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 404,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16157,14 +15584,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 24,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 405,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16181,14 +15607,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 25,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 406,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16235,14 +15660,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 26,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 407,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16259,14 +15683,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 19,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 369,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16282,8 +15705,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 27,
+                                    value: 408,
                                 },
                             ),
                         },
@@ -16306,14 +15728,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 27,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 408,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16330,14 +15751,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 20,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 370,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16353,8 +15773,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 68,
+                                    value: 409,
                                 },
                             ),
                         },
@@ -16370,8 +15789,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 28,
+                                    value: 410,
                                 },
                             ),
                         },
@@ -16394,14 +15812,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 68,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 409,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16442,14 +15859,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 28,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 410,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16478,14 +15894,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 21,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 371,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16501,8 +15916,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 29,
+                                    value: 411,
                                 },
                             ),
                         },
@@ -16524,8 +15938,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 30,
+                                    value: 412,
                                 },
                             ),
                         },
@@ -16554,14 +15967,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 29,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 411,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16578,14 +15990,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 30,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 412,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16620,14 +16031,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 22,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 372,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16656,18 +16066,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 42,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 8,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16690,14 +16095,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 69,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 413,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16738,14 +16142,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 23,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 417,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16761,8 +16164,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 31,
+                                    value: 418,
                                 },
                             ),
                         },
@@ -16772,8 +16174,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 73,
+                                    value: 419,
                                 },
                             ),
                         },
@@ -16819,8 +16220,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 31,
+                                    value: 418,
                                 },
                             ),
                         },
@@ -16831,14 +16231,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 31,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 418,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16909,14 +16308,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 73,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 419,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16981,14 +16379,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 31,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 418,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17059,14 +16456,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 70,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 414,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17107,14 +16503,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 24,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 420,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17130,8 +16525,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 32,
+                                    value: 421,
                                 },
                             ),
                         },
@@ -17141,8 +16535,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 74,
+                                    value: 422,
                                 },
                             ),
                         },
@@ -17176,8 +16569,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 32,
+                                    value: 421,
                                 },
                             ),
                         },
@@ -17188,14 +16580,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 32,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 421,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17254,14 +16645,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 74,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 422,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17326,14 +16716,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 32,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 421,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17392,14 +16781,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 71,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 415,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17440,14 +16828,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 25,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 423,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17463,8 +16850,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 33,
+                                    value: 424,
                                 },
                             ),
                         },
@@ -17474,8 +16860,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 75,
+                                    value: 425,
                                 },
                             ),
                         },
@@ -17509,8 +16894,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 33,
+                                    value: 424,
                                 },
                             ),
                         },
@@ -17521,14 +16905,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 33,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 424,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17587,14 +16970,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 75,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 425,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17659,14 +17041,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 33,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 424,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17725,14 +17106,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 72,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 416,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17797,14 +17177,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 26,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 426,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17820,8 +17199,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 76,
+                                    value: 437,
                                 },
                             ),
                         },
@@ -17837,8 +17215,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 34,
+                                    value: 438,
                                 },
                             ),
                         },
@@ -17872,8 +17249,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 10,
+                                    value: 439,
                                 },
                             ),
                         },
@@ -17884,14 +17260,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 76,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 437,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17932,14 +17307,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 34,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 438,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17968,14 +17342,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 10,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 439,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17992,14 +17365,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 27,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 427,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18015,8 +17387,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 77,
+                                    value: 440,
                                 },
                             ),
                         },
@@ -18032,8 +17403,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 35,
+                                    value: 441,
                                 },
                             ),
                         },
@@ -18067,8 +17437,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 11,
+                                    value: 442,
                                 },
                             ),
                         },
@@ -18079,14 +17448,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 77,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 440,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18127,14 +17495,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 35,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 441,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18163,14 +17530,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 11,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 442,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18187,14 +17553,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 28,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 428,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18210,8 +17575,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 12,
+                                    value: 443,
                                 },
                             ),
                         },
@@ -18227,8 +17591,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 78,
+                                    value: 444,
                                 },
                             ),
                         },
@@ -18244,8 +17607,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 36,
+                                    value: 445,
                                 },
                             ),
                         },
@@ -18256,14 +17618,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 12,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 443,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18280,14 +17641,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 78,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 444,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18340,14 +17700,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 36,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 445,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18376,14 +17735,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 29,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 429,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18399,8 +17757,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 37,
+                                    value: 446,
                                 },
                             ),
                         },
@@ -18416,8 +17773,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 38,
+                                    value: 447,
                                 },
                             ),
                         },
@@ -18451,8 +17807,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 13,
+                                    value: 448,
                                 },
                             ),
                         },
@@ -18463,14 +17818,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 37,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 446,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18487,14 +17841,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 38,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 447,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18523,14 +17876,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 13,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 448,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18547,14 +17899,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 30,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 430,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18570,8 +17921,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 14,
+                                    value: 449,
                                 },
                             ),
                         },
@@ -18587,8 +17937,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 79,
+                                    value: 450,
                                 },
                             ),
                         },
@@ -18604,8 +17953,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 39,
+                                    value: 451,
                                 },
                             ),
                         },
@@ -18634,14 +17982,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 14,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 449,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18658,14 +18005,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 79,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 450,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18706,14 +18052,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 39,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 451,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18742,14 +18087,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 31,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 431,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18765,8 +18109,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 40,
+                                    value: 452,
                                 },
                             ),
                         },
@@ -18782,8 +18125,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 15,
+                                    value: 453,
                                 },
                             ),
                         },
@@ -18794,14 +18136,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 40,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 452,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18818,14 +18159,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 15,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 453,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18842,14 +18182,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 32,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 432,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18865,8 +18204,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 16,
+                                    value: 454,
                                 },
                             ),
                         },
@@ -18882,8 +18220,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 41,
+                                    value: 455,
                                 },
                             ),
                         },
@@ -18905,8 +18242,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 42,
+                                    value: 456,
                                 },
                             ),
                         },
@@ -18934,8 +18270,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 43,
+                                    value: 457,
                                 },
                             ),
                         },
@@ -18946,14 +18281,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 16,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 454,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18970,14 +18304,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 41,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 455,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -18994,14 +18327,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 42,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 456,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19048,14 +18380,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 43,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 457,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19114,14 +18445,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 33,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 433,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19137,8 +18467,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 17,
+                                    value: 458,
                                 },
                             ),
                         },
@@ -19154,8 +18483,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 80,
+                                    value: 459,
                                 },
                             ),
                         },
@@ -19171,8 +18499,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 44,
+                                    value: 460,
                                 },
                             ),
                         },
@@ -19188,8 +18515,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 81,
+                                    value: 461,
                                 },
                             ),
                         },
@@ -19205,8 +18531,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 45,
+                                    value: 462,
                                 },
                             ),
                         },
@@ -19217,14 +18542,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 17,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 458,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19241,14 +18565,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 80,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 459,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19301,14 +18624,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 44,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 460,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19337,14 +18659,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 81,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 461,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19397,14 +18718,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 45,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 462,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19433,14 +18753,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 34,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 434,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19456,8 +18775,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 46,
+                                    value: 463,
                                 },
                             ),
                         },
@@ -19480,14 +18798,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 46,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 463,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19504,14 +18821,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 35,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 435,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19527,8 +18843,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 47,
+                                    value: 464,
                                 },
                             ),
                         },
@@ -19544,8 +18859,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 48,
+                                    value: 465,
                                 },
                             ),
                         },
@@ -19579,8 +18893,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 18,
+                                    value: 466,
                                 },
                             ),
                         },
@@ -19597,14 +18910,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 37,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 467,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19620,8 +18932,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 82,
+                                    value: 481,
                                 },
                             ),
                         },
@@ -19637,8 +18948,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 49,
+                                    value: 482,
                                 },
                             ),
                         },
@@ -19673,14 +18983,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 38,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 468,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19696,8 +19005,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 19,
+                                    value: 483,
                                 },
                             ),
                         },
@@ -19713,8 +19021,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 83,
+                                    value: 484,
                                 },
                             ),
                         },
@@ -19730,8 +19037,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 50,
+                                    value: 485,
                                 },
                             ),
                         },
@@ -19760,14 +19066,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 39,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 469,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19783,8 +19088,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 51,
+                                    value: 486,
                                 },
                             ),
                         },
@@ -19800,8 +19104,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 20,
+                                    value: 487,
                                 },
                             ),
                         },
@@ -19812,14 +19115,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 40,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 470,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19835,8 +19137,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 84,
+                                    value: 488,
                                 },
                             ),
                         },
@@ -19852,8 +19153,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 52,
+                                    value: 489,
                                 },
                             ),
                         },
@@ -19876,14 +19176,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 41,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 471,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -19899,8 +19198,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 21,
+                                    value: 490,
                                 },
                             ),
                         },
@@ -19916,8 +19214,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 85,
+                                    value: 491,
                                 },
                             ),
                         },
@@ -19933,8 +19230,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 53,
+                                    value: 492,
                                 },
                             ),
                         },
@@ -19950,8 +19246,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 86,
+                                    value: 493,
                                 },
                             ),
                         },
@@ -19967,8 +19262,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 54,
+                                    value: 494,
                                 },
                             ),
                         },
@@ -19979,14 +19273,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 42,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 472,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20002,8 +19295,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 22,
+                                    value: 495,
                                 },
                             ),
                         },
@@ -20019,8 +19311,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 87,
+                                    value: 496,
                                 },
                             ),
                         },
@@ -20036,8 +19327,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 55,
+                                    value: 497,
                                 },
                             ),
                         },
@@ -20066,14 +19356,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 43,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 473,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20089,8 +19378,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 56,
+                                    value: 498,
                                 },
                             ),
                         },
@@ -20106,8 +19394,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 23,
+                                    value: 499,
                                 },
                             ),
                         },
@@ -20118,14 +19405,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 44,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 474,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20141,8 +19427,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 57,
+                                    value: 500,
                                 },
                             ),
                         },
@@ -20164,8 +19449,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 58,
+                                    value: 501,
                                 },
                             ),
                         },
@@ -20193,8 +19477,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 59,
+                                    value: 502,
                                 },
                             ),
                         },
@@ -20217,14 +19500,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 45,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 475,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20240,8 +19522,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 60,
+                                    value: 503,
                                 },
                             ),
                         },
@@ -20263,8 +19544,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 61,
+                                    value: 504,
                                 },
                             ),
                         },
@@ -20293,14 +19573,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 46,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 476,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20316,8 +19595,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 88,
+                                    value: 505,
                                 },
                             ),
                         },
@@ -20333,8 +19611,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 62,
+                                    value: 506,
                                 },
                             ),
                         },
@@ -20357,14 +19634,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 47,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 477,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20380,8 +19656,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 24,
+                                    value: 507,
                                 },
                             ),
                         },
@@ -20397,8 +19672,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 89,
+                                    value: 508,
                                 },
                             ),
                         },
@@ -20414,8 +19688,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 63,
+                                    value: 509,
                                 },
                             ),
                         },
@@ -20444,14 +19717,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 48,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 478,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20467,8 +19739,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 64,
+                                    value: 510,
                                 },
                             ),
                         },
@@ -20491,14 +19762,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 49,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 479,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20514,8 +19784,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 65,
+                                    value: 511,
                                 },
                             ),
                         },
@@ -20538,14 +19807,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 50,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 480,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20580,14 +19848,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 47,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 464,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20604,14 +19871,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 48,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 465,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20640,14 +19906,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 18,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 466,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20664,14 +19929,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 36,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 436,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20700,18 +19964,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 43,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 9,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20734,14 +19993,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 90,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 512,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20830,14 +20088,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 51,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 513,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20866,18 +20123,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 44,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 10,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20900,14 +20152,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 91,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 514,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20948,14 +20199,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 52,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 517,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20971,8 +20221,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 66,
+                                    value: 518,
                                 },
                             ),
                         },
@@ -20982,8 +20231,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 94,
+                                    value: 519,
                                 },
                             ),
                         },
@@ -21017,8 +20265,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 66,
+                                    value: 518,
                                 },
                             ),
                         },
@@ -21029,14 +20276,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 66,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 518,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21095,14 +20341,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 94,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 519,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21167,14 +20412,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 66,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 518,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21233,14 +20477,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 92,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 515,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21281,14 +20524,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 53,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 520,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21304,8 +20546,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 67,
+                                    value: 521,
                                 },
                             ),
                         },
@@ -21315,8 +20556,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 95,
+                                    value: 522,
                                 },
                             ),
                         },
@@ -21362,8 +20602,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 67,
+                                    value: 521,
                                 },
                             ),
                         },
@@ -21374,14 +20613,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 67,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 521,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21452,14 +20690,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 95,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 522,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21524,14 +20761,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 67,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 521,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21602,14 +20838,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 93,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 516,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21698,14 +20933,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 54,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 523,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21721,8 +20955,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 96,
+                                    value: 533,
                                 },
                             ),
                         },
@@ -21738,8 +20971,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 25,
+                                    value: 534,
                                 },
                             ),
                         },
@@ -21750,14 +20982,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 96,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 533,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21846,14 +21077,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 25,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 534,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21870,14 +21100,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 55,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 524,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21893,8 +21122,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 97,
+                                    value: 535,
                                 },
                             ),
                         },
@@ -21910,8 +21138,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 26,
+                                    value: 536,
                                 },
                             ),
                         },
@@ -21922,14 +21149,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 97,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 535,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22018,14 +21244,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 26,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 536,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22042,14 +21267,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 56,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 525,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22065,8 +21289,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 98,
+                                    value: 537,
                                 },
                             ),
                         },
@@ -22082,8 +21305,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 68,
+                                    value: 538,
                                 },
                             ),
                         },
@@ -22106,14 +21328,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 98,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 537,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22166,14 +21387,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 68,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 538,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22202,14 +21422,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 57,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 526,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22225,8 +21444,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 27,
+                                    value: 539,
                                 },
                             ),
                         },
@@ -22242,8 +21460,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 99,
+                                    value: 540,
                                 },
                             ),
                         },
@@ -22259,8 +21476,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 69,
+                                    value: 541,
                                 },
                             ),
                         },
@@ -22271,14 +21487,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 27,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 539,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22295,14 +21510,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 99,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 540,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22343,14 +21557,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 69,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 541,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22379,14 +21592,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 58,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 527,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22402,8 +21614,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 70,
+                                    value: 542,
                                 },
                             ),
                         },
@@ -22432,14 +21643,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 64,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 543,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22455,8 +21665,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 100,
+                                    value: 547,
                                 },
                             ),
                         },
@@ -22472,8 +21681,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 71,
+                                    value: 548,
                                 },
                             ),
                         },
@@ -22507,8 +21715,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 28,
+                                    value: 549,
                                 },
                             ),
                         },
@@ -22519,14 +21726,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 65,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 544,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22542,8 +21748,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 29,
+                                    value: 550,
                                 },
                             ),
                         },
@@ -22559,8 +21764,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 101,
+                                    value: 551,
                                 },
                             ),
                         },
@@ -22576,8 +21780,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 72,
+                                    value: 552,
                                 },
                             ),
                         },
@@ -22593,8 +21796,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 102,
+                                    value: 553,
                                 },
                             ),
                         },
@@ -22610,8 +21812,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 73,
+                                    value: 554,
                                 },
                             ),
                         },
@@ -22622,14 +21823,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 66,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 545,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22645,8 +21845,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 74,
+                                    value: 555,
                                 },
                             ),
                         },
@@ -22675,14 +21874,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 67,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 546,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22717,14 +21915,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 70,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 542,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22741,14 +21938,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 59,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 528,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22764,8 +21960,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 75,
+                                    value: 556,
                                 },
                             ),
                         },
@@ -22794,14 +21989,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 68,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 557,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22817,8 +22011,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 30,
+                                    value: 560,
                                 },
                             ),
                         },
@@ -22834,8 +22027,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 103,
+                                    value: 561,
                                 },
                             ),
                         },
@@ -22851,8 +22043,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 76,
+                                    value: 562,
                                 },
                             ),
                         },
@@ -22868,8 +22059,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 104,
+                                    value: 563,
                                 },
                             ),
                         },
@@ -22885,8 +22075,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 77,
+                                    value: 564,
                                 },
                             ),
                         },
@@ -22897,14 +22086,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 69,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 558,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22920,8 +22108,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 78,
+                                    value: 565,
                                 },
                             ),
                         },
@@ -22944,14 +22131,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 70,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 559,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -22986,14 +22172,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 75,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 556,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23010,14 +22195,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 60,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 529,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23033,8 +22217,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 105,
+                                    value: 566,
                                 },
                             ),
                         },
@@ -23050,8 +22233,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 79,
+                                    value: 567,
                                 },
                             ),
                         },
@@ -23085,8 +22267,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 31,
+                                    value: 568,
                                 },
                             ),
                         },
@@ -23097,14 +22278,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 105,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 566,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23145,14 +22325,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 79,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 567,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23181,14 +22360,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 31,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 568,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23205,14 +22383,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 61,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 530,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23228,8 +22405,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 32,
+                                    value: 569,
                                 },
                             ),
                         },
@@ -23245,8 +22421,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 106,
+                                    value: 570,
                                 },
                             ),
                         },
@@ -23262,8 +22437,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 80,
+                                    value: 571,
                                 },
                             ),
                         },
@@ -23274,14 +22448,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 32,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 569,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23298,14 +22471,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 106,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 570,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23346,14 +22518,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 80,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 571,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23382,14 +22553,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 62,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 531,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23412,14 +22582,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 63,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 532,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23448,18 +22617,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 45,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 11,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23482,14 +22646,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 107,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 572,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23530,14 +22693,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 71,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 574,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23553,8 +22715,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 81,
+                                    value: 575,
                                 },
                             ),
                         },
@@ -23564,8 +22725,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 109,
+                                    value: 576,
                                 },
                             ),
                         },
@@ -23599,8 +22759,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 81,
+                                    value: 575,
                                 },
                             ),
                         },
@@ -23611,14 +22770,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 81,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 575,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23677,14 +22835,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 109,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 576,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23749,14 +22906,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 81,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 575,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23815,14 +22971,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 108,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 573,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23911,14 +23066,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 72,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 577,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23934,8 +23088,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 110,
+                                    value: 584,
                                 },
                             ),
                         },
@@ -23951,8 +23104,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 33,
+                                    value: 585,
                                 },
                             ),
                         },
@@ -23963,14 +23115,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 110,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 584,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24041,14 +23192,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 33,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 585,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24065,14 +23215,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 73,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 578,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24088,8 +23237,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 111,
+                                    value: 586,
                                 },
                             ),
                         },
@@ -24105,8 +23253,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 34,
+                                    value: 587,
                                 },
                             ),
                         },
@@ -24117,14 +23264,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 111,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 586,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24213,14 +23359,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 34,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 587,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24237,14 +23382,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 74,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 579,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24260,8 +23404,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 112,
+                                    value: 588,
                                 },
                             ),
                         },
@@ -24277,8 +23420,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 35,
+                                    value: 589,
                                 },
                             ),
                         },
@@ -24289,14 +23431,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 112,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 588,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24385,14 +23526,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 35,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 589,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24409,14 +23549,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 75,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 580,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24432,8 +23571,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 113,
+                                    value: 590,
                                 },
                             ),
                         },
@@ -24449,8 +23587,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 36,
+                                    value: 591,
                                 },
                             ),
                         },
@@ -24461,14 +23598,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 113,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 590,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24557,14 +23693,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 36,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 591,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24581,14 +23716,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 76,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 581,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24604,8 +23738,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 37,
+                                    value: 592,
                                 },
                             ),
                         },
@@ -24621,8 +23754,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 114,
+                                    value: 593,
                                 },
                             ),
                         },
@@ -24638,8 +23770,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 82,
+                                    value: 594,
                                 },
                             ),
                         },
@@ -24655,8 +23786,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 115,
+                                    value: 595,
                                 },
                             ),
                         },
@@ -24672,8 +23802,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 83,
+                                    value: 596,
                                 },
                             ),
                         },
@@ -24684,14 +23813,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 37,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 592,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24708,14 +23836,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 114,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 593,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24768,14 +23895,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 82,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 594,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24804,14 +23930,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 115,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 595,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24864,14 +23989,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 83,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 596,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24900,14 +24024,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 77,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 582,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -24923,8 +24046,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 116,
+                                    value: 597,
                                 },
                             ),
                         },
@@ -24940,8 +24062,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 84,
+                                    value: 598,
                                 },
                             ),
                         },
@@ -24957,8 +24078,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 85,
+                                    value: 599,
                                 },
                             ),
                         },
@@ -24992,8 +24112,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 38,
+                                    value: 600,
                                 },
                             ),
                         },
@@ -25010,14 +24129,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 79,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 601,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25033,8 +24151,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 117,
+                                    value: 603,
                                 },
                             ),
                         },
@@ -25050,8 +24167,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 86,
+                                    value: 604,
                                 },
                             ),
                         },
@@ -25067,8 +24183,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 87,
+                                    value: 605,
                                 },
                             ),
                         },
@@ -25102,8 +24217,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 39,
+                                    value: 606,
                                 },
                             ),
                         },
@@ -25120,14 +24234,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 80,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 602,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25150,14 +24263,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 116,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 597,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25210,14 +24322,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 84,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 598,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25246,14 +24357,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 85,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 599,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25294,14 +24404,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 38,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 600,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25318,14 +24427,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 78,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 583,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25354,18 +24462,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 46,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 12,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25388,14 +24491,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 118,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 607,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25436,14 +24538,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 81,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 610,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25459,8 +24560,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 88,
+                                    value: 611,
                                 },
                             ),
                         },
@@ -25470,8 +24570,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 121,
+                                    value: 612,
                                 },
                             ),
                         },
@@ -25505,8 +24604,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 88,
+                                    value: 611,
                                 },
                             ),
                         },
@@ -25517,14 +24615,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 88,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 611,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25583,14 +24680,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 121,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 612,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25655,14 +24751,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 88,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 611,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25721,14 +24816,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 119,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 608,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25769,14 +24863,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 82,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 613,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25792,8 +24885,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 89,
+                                    value: 614,
                                 },
                             ),
                         },
@@ -25803,8 +24895,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 122,
+                                    value: 615,
                                 },
                             ),
                         },
@@ -25838,8 +24929,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 89,
+                                    value: 614,
                                 },
                             ),
                         },
@@ -25850,14 +24940,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 89,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 614,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25916,14 +25005,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 122,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 615,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25988,14 +25076,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 89,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 614,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26054,14 +25141,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 120,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 609,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26150,14 +25236,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 83,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 616,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26173,8 +25258,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 123,
+                                    value: 627,
                                 },
                             ),
                         },
@@ -26190,8 +25274,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 40,
+                                    value: 628,
                                 },
                             ),
                         },
@@ -26202,14 +25285,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 123,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 627,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26298,14 +25380,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 40,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 628,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26322,14 +25403,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 84,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 617,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26345,8 +25425,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 124,
+                                    value: 629,
                                 },
                             ),
                         },
@@ -26362,8 +25441,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 41,
+                                    value: 630,
                                 },
                             ),
                         },
@@ -26374,14 +25452,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 124,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 629,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26470,14 +25547,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 41,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 630,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26494,14 +25570,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 85,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 618,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26517,8 +25592,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 42,
+                                    value: 631,
                                 },
                             ),
                         },
@@ -26534,8 +25608,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 125,
+                                    value: 632,
                                 },
                             ),
                         },
@@ -26551,8 +25624,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 90,
+                                    value: 633,
                                 },
                             ),
                         },
@@ -26563,14 +25635,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 42,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 631,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26587,14 +25658,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 125,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 632,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26647,14 +25717,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 90,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 633,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26683,14 +25752,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 86,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 619,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26706,8 +25774,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 91,
+                                    value: 634,
                                 },
                             ),
                         },
@@ -26723,8 +25790,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 92,
+                                    value: 635,
                                 },
                             ),
                         },
@@ -26758,8 +25824,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 43,
+                                    value: 636,
                                 },
                             ),
                         },
@@ -26770,14 +25835,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 91,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 634,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26794,14 +25858,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 92,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 635,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26830,14 +25893,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 43,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 636,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26854,14 +25916,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 87,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 620,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26877,8 +25938,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 44,
+                                    value: 637,
                                 },
                             ),
                         },
@@ -26894,8 +25954,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 126,
+                                    value: 638,
                                 },
                             ),
                         },
@@ -26911,8 +25970,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 93,
+                                    value: 639,
                                 },
                             ),
                         },
@@ -26941,14 +25999,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 44,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 637,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26965,14 +26022,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 126,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 638,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27013,14 +26069,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 93,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 639,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27049,14 +26104,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 88,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 621,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27072,8 +26126,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 94,
+                                    value: 640,
                                 },
                             ),
                         },
@@ -27089,8 +26142,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 45,
+                                    value: 641,
                                 },
                             ),
                         },
@@ -27101,14 +26153,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 94,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 640,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27125,14 +26176,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 45,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 641,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27149,14 +26199,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 89,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 622,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27172,8 +26221,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 46,
+                                    value: 642,
                                 },
                             ),
                         },
@@ -27189,8 +26237,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 95,
+                                    value: 643,
                                 },
                             ),
                         },
@@ -27212,8 +26259,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 96,
+                                    value: 644,
                                 },
                             ),
                         },
@@ -27241,8 +26287,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 97,
+                                    value: 645,
                                 },
                             ),
                         },
@@ -27253,14 +26298,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 46,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 642,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27277,14 +26321,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 95,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 643,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27301,14 +26344,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 96,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 644,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27355,14 +26397,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 97,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 645,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27421,14 +26462,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 90,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 623,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27444,8 +26484,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 47,
+                                    value: 646,
                                 },
                             ),
                         },
@@ -27461,8 +26500,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 127,
+                                    value: 647,
                                 },
                             ),
                         },
@@ -27478,8 +26516,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 98,
+                                    value: 648,
                                 },
                             ),
                         },
@@ -27495,8 +26532,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 128,
+                                    value: 649,
                                 },
                             ),
                         },
@@ -27512,8 +26548,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 99,
+                                    value: 650,
                                 },
                             ),
                         },
@@ -27524,14 +26559,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 47,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 646,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27548,14 +26582,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 127,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 647,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27608,14 +26641,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 98,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 648,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27644,14 +26676,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 128,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 649,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27704,14 +26735,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 99,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 650,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27740,14 +26770,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 91,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 624,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27763,8 +26792,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 100,
+                                    value: 651,
                                 },
                             ),
                         },
@@ -27787,14 +26815,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 100,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 651,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27811,14 +26838,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 92,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 625,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27834,8 +26860,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 101,
+                                    value: 652,
                                 },
                             ),
                         },
@@ -27851,8 +26876,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 102,
+                                    value: 653,
                                 },
                             ),
                         },
@@ -27886,8 +26910,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 48,
+                                    value: 654,
                                 },
                             ),
                         },
@@ -27904,14 +26927,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 94,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 655,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27927,8 +26949,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 129,
+                                    value: 669,
                                 },
                             ),
                         },
@@ -27944,8 +26965,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 103,
+                                    value: 670,
                                 },
                             ),
                         },
@@ -27980,14 +27000,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 95,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 656,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28003,8 +27022,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 49,
+                                    value: 671,
                                 },
                             ),
                         },
@@ -28020,8 +27038,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 130,
+                                    value: 672,
                                 },
                             ),
                         },
@@ -28037,8 +27054,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 104,
+                                    value: 673,
                                 },
                             ),
                         },
@@ -28067,14 +27083,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 96,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 657,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28090,8 +27105,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 105,
+                                    value: 674,
                                 },
                             ),
                         },
@@ -28107,8 +27121,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 50,
+                                    value: 675,
                                 },
                             ),
                         },
@@ -28119,14 +27132,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 97,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 658,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28142,8 +27154,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 131,
+                                    value: 676,
                                 },
                             ),
                         },
@@ -28159,8 +27170,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 106,
+                                    value: 677,
                                 },
                             ),
                         },
@@ -28183,14 +27193,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 98,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 659,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28206,8 +27215,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 51,
+                                    value: 678,
                                 },
                             ),
                         },
@@ -28223,8 +27231,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 132,
+                                    value: 679,
                                 },
                             ),
                         },
@@ -28240,8 +27247,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 107,
+                                    value: 680,
                                 },
                             ),
                         },
@@ -28257,8 +27263,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 133,
+                                    value: 681,
                                 },
                             ),
                         },
@@ -28274,8 +27279,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 108,
+                                    value: 682,
                                 },
                             ),
                         },
@@ -28286,14 +27290,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 99,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 660,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28309,8 +27312,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 52,
+                                    value: 683,
                                 },
                             ),
                         },
@@ -28326,8 +27328,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 134,
+                                    value: 684,
                                 },
                             ),
                         },
@@ -28343,8 +27344,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 109,
+                                    value: 685,
                                 },
                             ),
                         },
@@ -28373,14 +27373,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 100,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 661,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28396,8 +27395,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 110,
+                                    value: 686,
                                 },
                             ),
                         },
@@ -28413,8 +27411,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 53,
+                                    value: 687,
                                 },
                             ),
                         },
@@ -28425,14 +27422,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 101,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 662,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28448,8 +27444,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 111,
+                                    value: 688,
                                 },
                             ),
                         },
@@ -28471,8 +27466,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 112,
+                                    value: 689,
                                 },
                             ),
                         },
@@ -28500,8 +27494,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 113,
+                                    value: 690,
                                 },
                             ),
                         },
@@ -28524,14 +27517,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 102,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 663,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28547,8 +27539,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 114,
+                                    value: 691,
                                 },
                             ),
                         },
@@ -28570,8 +27561,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 115,
+                                    value: 692,
                                 },
                             ),
                         },
@@ -28600,14 +27590,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 103,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 664,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28623,8 +27612,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 135,
+                                    value: 693,
                                 },
                             ),
                         },
@@ -28640,8 +27628,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 116,
+                                    value: 694,
                                 },
                             ),
                         },
@@ -28664,14 +27651,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 104,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 665,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28687,8 +27673,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 54,
+                                    value: 695,
                                 },
                             ),
                         },
@@ -28704,8 +27689,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 136,
+                                    value: 696,
                                 },
                             ),
                         },
@@ -28721,8 +27705,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 117,
+                                    value: 697,
                                 },
                             ),
                         },
@@ -28751,14 +27734,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 105,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 666,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28774,8 +27756,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 118,
+                                    value: 698,
                                 },
                             ),
                         },
@@ -28798,14 +27779,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 106,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 667,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28821,8 +27801,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 119,
+                                    value: 699,
                                 },
                             ),
                         },
@@ -28845,14 +27824,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 107,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 668,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28887,14 +27865,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 101,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 652,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28911,14 +27888,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 102,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 653,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28947,14 +27923,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 48,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 654,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -28971,14 +27946,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 93,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 626,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29007,18 +27981,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 47,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 13,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29041,14 +28010,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 137,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 700,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29089,14 +28057,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 108,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 702,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29112,8 +28079,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 120,
+                                    value: 703,
                                 },
                             ),
                         },
@@ -29123,8 +28089,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 139,
+                                    value: 704,
                                 },
                             ),
                         },
@@ -29182,8 +28147,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 120,
+                                    value: 703,
                                 },
                             ),
                         },
@@ -29194,14 +28158,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 120,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 703,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29284,14 +28247,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 139,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 704,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29356,14 +28318,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 120,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 703,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29446,14 +28407,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 138,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 701,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29542,14 +28502,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 109,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 705,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29565,8 +28524,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 140,
+                                    value: 723,
                                 },
                             ),
                         },
@@ -29582,8 +28540,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 55,
+                                    value: 724,
                                 },
                             ),
                         },
@@ -29594,14 +28551,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 140,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 723,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29690,14 +28646,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 55,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 724,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29714,14 +28669,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 110,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 706,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29737,8 +28691,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 141,
+                                    value: 725,
                                 },
                             ),
                         },
@@ -29754,8 +28707,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 56,
+                                    value: 726,
                                 },
                             ),
                         },
@@ -29766,14 +28718,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 141,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 725,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29862,14 +28813,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 56,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 726,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29886,14 +28836,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 111,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 707,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29909,8 +28858,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 142,
+                                    value: 727,
                                 },
                             ),
                         },
@@ -29926,8 +28874,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 57,
+                                    value: 728,
                                 },
                             ),
                         },
@@ -29938,14 +28885,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 142,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 727,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30034,14 +28980,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 57,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 728,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30058,14 +29003,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 112,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 708,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30081,8 +29025,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 143,
+                                    value: 729,
                                 },
                             ),
                         },
@@ -30098,8 +29041,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 58,
+                                    value: 730,
                                 },
                             ),
                         },
@@ -30110,14 +29052,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 143,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 729,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30188,14 +29129,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 58,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 730,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30212,14 +29152,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 113,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 709,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30235,8 +29174,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 144,
+                                    value: 731,
                                 },
                             ),
                         },
@@ -30252,8 +29190,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 59,
+                                    value: 732,
                                 },
                             ),
                         },
@@ -30264,14 +29201,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 144,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 731,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30360,14 +29296,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 59,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 732,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30384,14 +29319,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 114,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 710,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30407,8 +29341,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 145,
+                                    value: 733,
                                 },
                             ),
                         },
@@ -30424,8 +29357,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 60,
+                                    value: 734,
                                 },
                             ),
                         },
@@ -30436,14 +29368,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 145,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 733,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30532,14 +29463,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 60,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 734,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30556,14 +29486,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 115,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 711,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30579,8 +29508,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 61,
+                                    value: 735,
                                 },
                             ),
                         },
@@ -30596,8 +29524,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 146,
+                                    value: 736,
                                 },
                             ),
                         },
@@ -30613,8 +29540,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 121,
+                                    value: 737,
                                 },
                             ),
                         },
@@ -30637,14 +29563,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 61,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 735,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30661,14 +29586,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 146,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 736,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30733,14 +29657,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 121,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 737,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30781,14 +29704,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 116,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 712,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30804,8 +29726,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 62,
+                                    value: 738,
                                 },
                             ),
                         },
@@ -30821,8 +29742,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 147,
+                                    value: 739,
                                 },
                             ),
                         },
@@ -30838,8 +29758,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 122,
+                                    value: 740,
                                 },
                             ),
                         },
@@ -30850,14 +29769,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 62,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 738,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30874,14 +29792,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 147,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 739,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30934,14 +29851,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 122,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 740,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30970,14 +29886,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 117,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 713,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30993,8 +29908,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 123,
+                                    value: 741,
                                 },
                             ),
                         },
@@ -31010,8 +29924,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 124,
+                                    value: 742,
                                 },
                             ),
                         },
@@ -31045,8 +29958,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 63,
+                                    value: 743,
                                 },
                             ),
                         },
@@ -31057,14 +29969,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 123,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 741,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31081,14 +29992,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 124,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 742,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31117,14 +30027,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 63,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 743,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31141,14 +30050,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 118,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 714,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31164,8 +30072,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 64,
+                                    value: 744,
                                 },
                             ),
                         },
@@ -31181,8 +30088,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 148,
+                                    value: 745,
                                 },
                             ),
                         },
@@ -31198,8 +30104,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 125,
+                                    value: 746,
                                 },
                             ),
                         },
@@ -31228,14 +30133,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 64,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 744,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31252,14 +30156,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 148,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 745,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31300,14 +30203,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 125,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 746,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31336,14 +30238,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 119,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 715,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31359,8 +30260,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 65,
+                                    value: 747,
                                 },
                             ),
                         },
@@ -31376,8 +30276,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 149,
+                                    value: 748,
                                 },
                             ),
                         },
@@ -31393,8 +30292,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 126,
+                                    value: 749,
                                 },
                             ),
                         },
@@ -31423,14 +30321,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 65,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 747,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31447,14 +30344,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 149,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 748,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31495,14 +30391,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 126,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 749,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31531,14 +30426,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 120,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 716,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31554,8 +30448,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 66,
+                                    value: 750,
                                 },
                             ),
                         },
@@ -31571,8 +30464,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 150,
+                                    value: 751,
                                 },
                             ),
                         },
@@ -31588,8 +30480,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 127,
+                                    value: 752,
                                 },
                             ),
                         },
@@ -31618,14 +30509,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 66,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 750,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31642,14 +30532,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 150,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 751,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31690,14 +30579,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 127,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 752,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31726,14 +30614,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 121,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 717,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31749,8 +30636,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 128,
+                                    value: 753,
                                 },
                             ),
                         },
@@ -31773,14 +30659,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 128,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 753,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31797,14 +30682,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 122,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 718,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31820,8 +30704,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 67,
+                                    value: 754,
                                 },
                             ),
                         },
@@ -31837,8 +30720,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 151,
+                                    value: 755,
                                 },
                             ),
                         },
@@ -31854,8 +30736,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 129,
+                                    value: 756,
                                 },
                             ),
                         },
@@ -31871,8 +30752,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 152,
+                                    value: 757,
                                 },
                             ),
                         },
@@ -31888,8 +30768,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 130,
+                                    value: 758,
                                 },
                             ),
                         },
@@ -31900,14 +30779,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 67,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 754,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31924,14 +30802,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 151,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 755,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -31984,14 +30861,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 129,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 756,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32020,14 +30896,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 152,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 757,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32080,14 +30955,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 130,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 758,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32116,14 +30990,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 123,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 719,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32139,8 +31012,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 131,
+                                    value: 759,
                                 },
                             ),
                         },
@@ -32163,14 +31035,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 131,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 759,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32187,14 +31058,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 124,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 720,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32210,8 +31080,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 132,
+                                    value: 760,
                                 },
                             ),
                         },
@@ -32240,14 +31109,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 127,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 761,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32263,8 +31131,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 133,
+                                    value: 775,
                                 },
                             ),
                         },
@@ -32280,8 +31147,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 68,
+                                    value: 776,
                                 },
                             ),
                         },
@@ -32292,14 +31158,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 128,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 762,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32315,8 +31180,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 134,
+                                    value: 777,
                                 },
                             ),
                         },
@@ -32332,8 +31196,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 69,
+                                    value: 778,
                                 },
                             ),
                         },
@@ -32344,14 +31207,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 129,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 763,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32367,8 +31229,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 70,
+                                    value: 779,
                                 },
                             ),
                         },
@@ -32384,8 +31245,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 135,
+                                    value: 780,
                                 },
                             ),
                         },
@@ -32407,8 +31267,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 136,
+                                    value: 781,
                                 },
                             ),
                         },
@@ -32419,14 +31278,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 130,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 764,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32442,8 +31300,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 137,
+                                    value: 782,
                                 },
                             ),
                         },
@@ -32472,14 +31329,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 131,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 765,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32495,8 +31351,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 71,
+                                    value: 783,
                                 },
                             ),
                         },
@@ -32512,8 +31367,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 138,
+                                    value: 784,
                                 },
                             ),
                         },
@@ -32535,8 +31389,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 139,
+                                    value: 785,
                                 },
                             ),
                         },
@@ -32564,8 +31417,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 140,
+                                    value: 786,
                                 },
                             ),
                         },
@@ -32594,14 +31446,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 132,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 766,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32617,8 +31468,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 72,
+                                    value: 787,
                                 },
                             ),
                         },
@@ -32634,8 +31484,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 141,
+                                    value: 788,
                                 },
                             ),
                         },
@@ -32657,8 +31506,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 142,
+                                    value: 789,
                                 },
                             ),
                         },
@@ -32686,8 +31534,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 143,
+                                    value: 790,
                                 },
                             ),
                         },
@@ -32698,14 +31545,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 133,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 767,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32721,8 +31567,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 73,
+                                    value: 791,
                                 },
                             ),
                         },
@@ -32738,8 +31583,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 144,
+                                    value: 792,
                                 },
                             ),
                         },
@@ -32761,8 +31605,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 145,
+                                    value: 793,
                                 },
                             ),
                         },
@@ -32790,8 +31633,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 146,
+                                    value: 794,
                                 },
                             ),
                         },
@@ -32802,14 +31644,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 134,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 768,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32825,8 +31666,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 74,
+                                    value: 795,
                                 },
                             ),
                         },
@@ -32842,8 +31682,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 147,
+                                    value: 796,
                                 },
                             ),
                         },
@@ -32865,8 +31704,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 148,
+                                    value: 797,
                                 },
                             ),
                         },
@@ -32882,8 +31720,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 149,
+                                    value: 798,
                                 },
                             ),
                         },
@@ -32906,14 +31743,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 135,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 769,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -32929,8 +31765,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 75,
+                                    value: 799,
                                 },
                             ),
                         },
@@ -32946,8 +31781,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 150,
+                                    value: 800,
                                 },
                             ),
                         },
@@ -32969,8 +31803,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 151,
+                                    value: 801,
                                 },
                             ),
                         },
@@ -32986,8 +31819,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 152,
+                                    value: 802,
                                 },
                             ),
                         },
@@ -33010,14 +31842,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 136,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 770,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33033,8 +31864,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 76,
+                                    value: 803,
                                 },
                             ),
                         },
@@ -33056,8 +31886,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 153,
+                                    value: 804,
                                 },
                             ),
                         },
@@ -33073,8 +31902,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 154,
+                                    value: 805,
                                 },
                             ),
                         },
@@ -33103,14 +31931,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 137,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 771,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33126,8 +31953,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 77,
+                                    value: 806,
                                 },
                             ),
                         },
@@ -33143,8 +31969,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 155,
+                                    value: 807,
                                 },
                             ),
                         },
@@ -33166,8 +31991,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 156,
+                                    value: 808,
                                 },
                             ),
                         },
@@ -33183,8 +32007,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 157,
+                                    value: 809,
                                 },
                             ),
                         },
@@ -33207,14 +32030,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 138,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 772,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33230,8 +32052,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 78,
+                                    value: 810,
                                 },
                             ),
                         },
@@ -33247,8 +32068,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 158,
+                                    value: 811,
                                 },
                             ),
                         },
@@ -33270,8 +32090,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 159,
+                                    value: 812,
                                 },
                             ),
                         },
@@ -33287,8 +32106,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 160,
+                                    value: 813,
                                 },
                             ),
                         },
@@ -33311,14 +32129,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 139,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 773,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33334,8 +32151,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 79,
+                                    value: 814,
                                 },
                             ),
                         },
@@ -33357,8 +32173,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 161,
+                                    value: 815,
                                 },
                             ),
                         },
@@ -33374,8 +32189,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 162,
+                                    value: 816,
                                 },
                             ),
                         },
@@ -33404,14 +32218,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 140,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 774,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33427,8 +32240,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 163,
+                                    value: 817,
                                 },
                             ),
                         },
@@ -33444,8 +32256,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 164,
+                                    value: 818,
                                 },
                             ),
                         },
@@ -33456,14 +32267,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 132,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 760,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33480,14 +32290,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 125,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 721,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33503,8 +32312,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 165,
+                                    value: 819,
                                 },
                             ),
                         },
@@ -33533,14 +32341,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 141,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 820,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33556,8 +32363,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 166,
+                                    value: 825,
                                 },
                             ),
                         },
@@ -33573,8 +32379,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 80,
+                                    value: 826,
                                 },
                             ),
                         },
@@ -33585,14 +32390,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 142,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 821,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33608,8 +32412,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 167,
+                                    value: 827,
                                 },
                             ),
                         },
@@ -33625,8 +32428,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 81,
+                                    value: 828,
                                 },
                             ),
                         },
@@ -33637,14 +32439,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 143,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 822,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33660,8 +32461,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 168,
+                                    value: 829,
                                 },
                             ),
                         },
@@ -33677,8 +32477,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 82,
+                                    value: 830,
                                 },
                             ),
                         },
@@ -33689,14 +32488,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 144,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 823,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33712,8 +32510,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 169,
+                                    value: 831,
                                 },
                             ),
                         },
@@ -33735,8 +32532,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 170,
+                                    value: 832,
                                 },
                             ),
                         },
@@ -33752,8 +32548,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 171,
+                                    value: 833,
                                 },
                             ),
                         },
@@ -33788,14 +32583,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 145,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 824,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33811,8 +32605,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 83,
+                                    value: 834,
                                 },
                             ),
                         },
@@ -33828,8 +32621,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 172,
+                                    value: 835,
                                 },
                             ),
                         },
@@ -33851,8 +32643,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 173,
+                                    value: 836,
                                 },
                             ),
                         },
@@ -33863,14 +32654,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 165,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 819,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33887,14 +32677,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 126,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 722,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33923,18 +32712,13 @@
         },
     ),
     (
-        Submodule(
-            SubmoduleTrace {
-                submodule_path: SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 33,
-                        },
-                    ),
-                ),
+        TraceId(
+            Id {
+                value: 2,
             },
         ),
         TraceViewData {
+            trace_kind: Submodule,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33957,14 +32741,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 153,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 837,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34023,14 +32806,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 146,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 844,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34046,8 +32828,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 174,
+                                    value: 845,
                                 },
                             ),
                         },
@@ -34057,8 +32838,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 160,
+                                    value: 846,
                                 },
                             ),
                         },
@@ -34068,8 +32848,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 174,
+                                    value: 845,
                                 },
                             ),
                         },
@@ -34080,14 +32859,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 174,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 845,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34122,14 +32900,13 @@
         },
     ),
     (
-        EagerCallInput(
-            EagerCallInputTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 847,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerCallInput,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34146,14 +32923,13 @@
         },
     ),
     (
-        EagerCall(
-            EagerCallTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 848,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerCall,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34242,14 +33018,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 160,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 846,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34296,14 +33071,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 174,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 845,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34338,14 +33112,13 @@
         },
     ),
     (
-        EagerCallInput(
-            EagerCallInputTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 847,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerCallInput,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34362,14 +33135,13 @@
         },
     ),
     (
-        EagerCall(
-            EagerCallTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 848,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerCall,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34458,14 +33230,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 154,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 838,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34518,14 +33289,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 147,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 849,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34547,8 +33317,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 84,
+                                    value: 853,
                                 },
                             ),
                         },
@@ -34571,14 +33340,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 84,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 853,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34601,14 +33369,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 148,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 850,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34630,8 +33397,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 85,
+                                    value: 854,
                                 },
                             ),
                         },
@@ -34654,14 +33420,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 85,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 854,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34684,14 +33449,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 149,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 851,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34707,8 +33471,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 175,
+                                    value: 855,
                                 },
                             ),
                         },
@@ -34724,8 +33487,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 161,
+                                    value: 856,
                                 },
                             ),
                         },
@@ -34741,8 +33503,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 176,
+                                    value: 857,
                                 },
                             ),
                         },
@@ -34771,14 +33532,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 151,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 858,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34794,8 +33554,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 86,
+                                    value: 860,
                                 },
                             ),
                         },
@@ -34811,8 +33570,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 162,
+                                    value: 861,
                                 },
                             ),
                         },
@@ -34828,8 +33586,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 177,
+                                    value: 862,
                                 },
                             ),
                         },
@@ -34851,8 +33608,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 178,
+                                    value: 863,
                                 },
                             ),
                         },
@@ -34863,14 +33619,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 86,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 860,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34887,14 +33642,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 162,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 861,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34953,14 +33707,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 177,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 862,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -34977,14 +33730,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 178,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 863,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35031,14 +33783,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 152,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 859,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35054,8 +33805,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 179,
+                                    value: 864,
                                 },
                             ),
                         },
@@ -35071,8 +33821,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 180,
+                                    value: 865,
                                 },
                             ),
                         },
@@ -35089,14 +33838,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 153,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 866,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35106,8 +33854,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 181,
+                                    value: 868,
                                 },
                             ),
                         },
@@ -35123,8 +33870,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 182,
+                                    value: 869,
                                 },
                             ),
                         },
@@ -35135,14 +33881,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 154,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 867,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35152,8 +33897,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 183,
+                                    value: 870,
                                 },
                             ),
                         },
@@ -35169,8 +33913,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 184,
+                                    value: 871,
                                 },
                             ),
                         },
@@ -35181,14 +33924,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 179,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 864,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35205,14 +33947,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 180,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 865,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35229,14 +33970,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 175,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 855,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35253,14 +33993,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 161,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 856,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35319,14 +34058,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 155,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 872,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35342,8 +34080,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 185,
+                                    value: 873,
                                 },
                             ),
                         },
@@ -35353,8 +34090,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 163,
+                                    value: 874,
                                 },
                             ),
                         },
@@ -35364,8 +34100,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 185,
+                                    value: 873,
                                 },
                             ),
                         },
@@ -35376,14 +34111,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 176,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 857,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35424,14 +34158,13 @@
         },
     ),
     (
-        EagerCall(
-            EagerCallTrace(
-                Id {
-                    value: 2,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 875,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerCall,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35490,14 +34223,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 150,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 852,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35513,8 +34245,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 164,
+                                    value: 876,
                                 },
                             ),
                         },
@@ -35530,8 +34261,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 186,
+                                    value: 877,
                                 },
                             ),
                         },
@@ -35548,14 +34278,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 164,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 876,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35614,14 +34343,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 156,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 878,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35637,8 +34365,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 187,
+                                    value: 879,
                                 },
                             ),
                         },
@@ -35648,8 +34375,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 165,
+                                    value: 880,
                                 },
                             ),
                         },
@@ -35659,8 +34385,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 187,
+                                    value: 879,
                                 },
                             ),
                         },
@@ -35671,14 +34396,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 186,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 877,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35695,14 +34419,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 155,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 839,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35749,14 +34472,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 157,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 881,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35778,8 +34500,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 87,
+                                    value: 884,
                                 },
                             ),
                         },
@@ -35802,14 +34523,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 87,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 884,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35832,14 +34552,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 158,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 882,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35855,8 +34574,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 188,
+                                    value: 885,
                                 },
                             ),
                         },
@@ -35872,8 +34590,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 166,
+                                    value: 886,
                                 },
                             ),
                         },
@@ -35889,8 +34606,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 189,
+                                    value: 887,
                                 },
                             ),
                         },
@@ -35919,14 +34635,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 160,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 888,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -35936,8 +34651,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 190,
+                                    value: 889,
                                 },
                             ),
                         },
@@ -35953,8 +34667,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 167,
+                                    value: 890,
                                 },
                             ),
                         },
@@ -35970,8 +34683,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 191,
+                                    value: 891,
                                 },
                             ),
                         },
@@ -35993,8 +34705,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 192,
+                                    value: 892,
                                 },
                             ),
                         },
@@ -36005,14 +34716,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 190,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 889,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36029,14 +34739,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 167,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 890,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36095,14 +34804,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 191,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 891,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36119,14 +34827,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 192,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 892,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36173,14 +34880,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 188,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 885,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36197,14 +34903,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 166,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 886,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36263,14 +34968,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 161,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 893,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36286,8 +34990,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 193,
+                                    value: 894,
                                 },
                             ),
                         },
@@ -36297,8 +35000,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 168,
+                                    value: 895,
                                 },
                             ),
                         },
@@ -36308,8 +35010,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 193,
+                                    value: 894,
                                 },
                             ),
                         },
@@ -36320,14 +35021,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 189,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 887,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36368,14 +35068,13 @@
         },
     ),
     (
-        EagerCall(
-            EagerCallTrace(
-                Id {
-                    value: 3,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 896,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerCall,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36434,14 +35133,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 159,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 883,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36457,8 +35155,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 194,
+                                    value: 897,
                                 },
                             ),
                         },
@@ -36474,8 +35171,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 169,
+                                    value: 898,
                                 },
                             ),
                         },
@@ -36491,8 +35187,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 195,
+                                    value: 899,
                                 },
                             ),
                         },
@@ -36503,14 +35198,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 194,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 897,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36527,14 +35221,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 169,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 898,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36587,14 +35280,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 162,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 900,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36616,8 +35308,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 88,
+                                    value: 904,
                                 },
                             ),
                         },
@@ -36640,14 +35331,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 163,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 901,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36669,8 +35359,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 89,
+                                    value: 905,
                                 },
                             ),
                         },
@@ -36693,14 +35382,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 164,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 902,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36716,8 +35404,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 196,
+                                    value: 906,
                                 },
                             ),
                         },
@@ -36733,8 +35420,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 170,
+                                    value: 907,
                                 },
                             ),
                         },
@@ -36750,8 +35436,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 197,
+                                    value: 908,
                                 },
                             ),
                         },
@@ -36780,14 +35465,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 165,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 903,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36803,8 +35487,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 171,
+                                    value: 909,
                                 },
                             ),
                         },
@@ -36820,8 +35503,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 198,
+                                    value: 910,
                                 },
                             ),
                         },
@@ -36838,14 +35520,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 195,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 899,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36874,14 +35555,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 156,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 840,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36946,14 +35626,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 166,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 911,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36963,8 +35642,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 172,
+                                    value: 912,
                                 },
                             ),
                         },
@@ -36980,8 +35658,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 199,
+                                    value: 913,
                                 },
                             ),
                         },
@@ -36992,14 +35669,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 172,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 912,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37052,14 +35728,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 167,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 914,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37081,8 +35756,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 90,
+                                    value: 918,
                                 },
                             ),
                         },
@@ -37105,14 +35779,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 168,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 915,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37134,8 +35807,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 91,
+                                    value: 919,
                                 },
                             ),
                         },
@@ -37158,14 +35830,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 169,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 916,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37181,8 +35852,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 200,
+                                    value: 920,
                                 },
                             ),
                         },
@@ -37198,8 +35868,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 173,
+                                    value: 921,
                                 },
                             ),
                         },
@@ -37215,8 +35884,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 201,
+                                    value: 922,
                                 },
                             ),
                         },
@@ -37245,14 +35913,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 170,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 917,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37268,8 +35935,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 174,
+                                    value: 923,
                                 },
                             ),
                         },
@@ -37285,8 +35951,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 202,
+                                    value: 924,
                                 },
                             ),
                         },
@@ -37303,14 +35968,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 199,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 913,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37339,14 +36003,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 157,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 841,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37399,14 +36062,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 171,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 925,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37416,8 +36078,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 175,
+                                    value: 926,
                                 },
                             ),
                         },
@@ -37433,8 +36094,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 203,
+                                    value: 927,
                                 },
                             ),
                         },
@@ -37463,14 +36123,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 175,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 926,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37523,14 +36182,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 172,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 928,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37552,8 +36210,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 92,
+                                    value: 932,
                                 },
                             ),
                         },
@@ -37576,14 +36233,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 173,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 929,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37605,8 +36261,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 93,
+                                    value: 933,
                                 },
                             ),
                         },
@@ -37629,14 +36284,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 174,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 930,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37652,8 +36306,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 204,
+                                    value: 934,
                                 },
                             ),
                         },
@@ -37669,8 +36322,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 176,
+                                    value: 935,
                                 },
                             ),
                         },
@@ -37686,8 +36338,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 205,
+                                    value: 936,
                                 },
                             ),
                         },
@@ -37716,14 +36367,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 175,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 931,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37739,8 +36389,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 177,
+                                    value: 937,
                                 },
                             ),
                         },
@@ -37756,8 +36405,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 206,
+                                    value: 938,
                                 },
                             ),
                         },
@@ -37774,14 +36422,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 203,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 927,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37810,14 +36457,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 158,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 842,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37870,14 +36516,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 176,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 939,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37887,8 +36532,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 178,
+                                    value: 940,
                                 },
                             ),
                         },
@@ -37904,8 +36548,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 207,
+                                    value: 941,
                                 },
                             ),
                         },
@@ -37916,14 +36559,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 178,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 940,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37976,14 +36618,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 177,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 942,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37993,8 +36634,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 179,
+                                    value: 943,
                                 },
                             ),
                         },
@@ -38010,8 +36650,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 208,
+                                    value: 944,
                                 },
                             ),
                         },
@@ -38040,14 +36679,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 207,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 941,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38076,14 +36714,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 159,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 843,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38148,14 +36785,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 178,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 945,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38165,8 +36801,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 180,
+                                    value: 946,
                                 },
                             ),
                         },
@@ -38182,8 +36817,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 209,
+                                    value: 947,
                                 },
                             ),
                         },
@@ -38194,14 +36828,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 180,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 946,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38254,14 +36887,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 179,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 948,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38271,8 +36903,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 181,
+                                    value: 949,
                                 },
                             ),
                         },
@@ -38288,8 +36919,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 210,
+                                    value: 950,
                                 },
                             ),
                         },
@@ -38300,14 +36930,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 209,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 947,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38336,14 +36965,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 1,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 3,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38390,14 +37018,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 180,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 951,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38407,8 +37034,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 182,
+                                    value: 961,
                                 },
                             ),
                         },
@@ -38425,14 +37051,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 182,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 961,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38503,14 +37128,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 81,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 962,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38526,8 +37150,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 150,
+                                    value: 966,
                                 },
                             ),
                         },
@@ -38541,8 +37164,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 183,
+                                    value: 967,
                                 },
                             ),
                         },
@@ -38558,8 +37180,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 151,
+                                    value: 968,
                                 },
                             ),
                         },
@@ -38579,8 +37200,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 184,
+                                    value: 969,
                                 },
                             ),
                         },
@@ -38628,8 +37248,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 150,
+                                    value: 966,
                                 },
                             ),
                         },
@@ -38646,14 +37265,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 150,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 966,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38758,14 +37376,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 183,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 967,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38818,14 +37435,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 151,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 968,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38854,14 +37470,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 184,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 969,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -38908,14 +37523,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 150,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 966,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39020,14 +37634,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 82,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 963,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39043,8 +37656,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 43,
+                                    value: 970,
                                 },
                             ),
                         },
@@ -39066,8 +37678,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 152,
+                                    value: 971,
                                 },
                             ),
                         },
@@ -39077,8 +37688,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 185,
+                                    value: 972,
                                 },
                             ),
                         },
@@ -39106,8 +37716,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 152,
+                                    value: 971,
                                 },
                             ),
                         },
@@ -39118,14 +37727,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 43,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 970,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39142,14 +37750,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 152,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 971,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39202,14 +37809,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 185,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 972,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39274,14 +37880,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 152,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 971,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39334,14 +37939,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 83,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 964,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39357,8 +37961,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 153,
+                                    value: 973,
                                 },
                             ),
                         },
@@ -39374,8 +37977,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 154,
+                                    value: 974,
                                 },
                             ),
                         },
@@ -39404,14 +38006,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 85,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 975,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39427,8 +38028,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 155,
+                                    value: 978,
                                 },
                             ),
                         },
@@ -39442,8 +38042,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 186,
+                                    value: 979,
                                 },
                             ),
                         },
@@ -39459,8 +38058,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 156,
+                                    value: 980,
                                 },
                             ),
                         },
@@ -39508,8 +38106,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 155,
+                                    value: 978,
                                 },
                             ),
                         },
@@ -39526,14 +38123,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 86,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 976,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39549,8 +38145,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 187,
+                                    value: 981,
                                 },
                             ),
                         },
@@ -39566,8 +38161,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 157,
+                                    value: 982,
                                 },
                             ),
                         },
@@ -39596,14 +38190,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 87,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 977,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39632,14 +38225,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 153,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 973,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39656,14 +38248,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 154,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 974,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39692,14 +38283,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 84,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 965,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39722,14 +38312,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 88,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 983,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39745,8 +38334,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 188,
+                                    value: 1009,
                                 },
                             ),
                         },
@@ -39762,8 +38350,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 158,
+                                    value: 1010,
                                 },
                             ),
                         },
@@ -39786,14 +38373,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 89,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 984,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39809,8 +38395,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 189,
+                                    value: 1011,
                                 },
                             ),
                         },
@@ -39833,14 +38418,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 90,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 985,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39856,8 +38440,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 44,
+                                    value: 1012,
                                 },
                             ),
                         },
@@ -39873,8 +38456,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 190,
+                                    value: 1013,
                                 },
                             ),
                         },
@@ -39890,8 +38472,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 159,
+                                    value: 1014,
                                 },
                             ),
                         },
@@ -39920,14 +38501,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 91,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 986,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -39943,8 +38523,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 45,
+                                    value: 1015,
                                 },
                             ),
                         },
@@ -39960,8 +38539,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 191,
+                                    value: 1016,
                                 },
                             ),
                         },
@@ -39977,8 +38555,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 160,
+                                    value: 1017,
                                 },
                             ),
                         },
@@ -40007,14 +38584,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 92,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 987,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -40030,8 +38606,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 46,
+                                    value: 1018,
                                 },
                             ),
                         },
@@ -40047,8 +38622,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 192,
+                                    value: 1019,
                                 },
                             ),
                         },
@@ -40064,8 +38638,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 161,
+                                    value: 1020,
                                 },
                             ),
                         },
@@ -40094,14 +38667,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 93,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 988,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -40117,8 +38689,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 162,
+                                    value: 1021,
                                 },
                             ),
                         },
@@ -40134,8 +38705,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 47,
+                                    value: 1022,
                                 },
                             ),
                         },
@@ -40152,14 +38722,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 94,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 989,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -40175,8 +38744,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 48,
+                                    value: 1023,
                                 },
                             ),
                         },
@@ -40192,8 +38760,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 163,
+                                    value: 1024,
                                 },
                             ),
                         },
@@ -40215,8 +38782,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 164,
+                                    value: 1025,
                                 },
                             ),
                         },
@@ -40232,8 +38798,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 165,
+                                    value: 1026,
                                 },
                             ),
                         },
@@ -40261,8 +38826,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 166,
+                                    value: 1027,
                                 },
                             ),
                         },
@@ -40284,8 +38848,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 167,
+                                    value: 1028,
                                 },
                             ),
                         },
@@ -40301,8 +38864,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 168,
+                                    value: 1029,
                                 },
                             ),
                         },
@@ -40325,14 +38887,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 95,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 990,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -40348,8 +38909,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 193,
+                                    value: 1030,
                                 },
                             ),
                         },
@@ -40365,8 +38925,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 169,
+                                    value: 1031,
                                 },
                             ),
                         },
@@ -40389,14 +38948,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 96,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 991,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -40412,8 +38970,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 170,
+                                    value: 1032,
                                 },
                             ),
                         },
@@ -40427,8 +38984,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 194,
+                                    value: 1033,
                                 },
                             ),
                         },
@@ -40444,8 +39000,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 171,
+                                    value: 1034,
                                 },
                             ),
                         },
@@ -40483,8 +39038,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 195,
+                                    value: 1035,
                                 },
                             ),
                         },
@@ -40500,8 +39054,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 172,
+                                    value: 1036,
                                 },
                             ),
                         },
@@ -40521,8 +39074,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 196,
+                                    value: 1037,
                                 },
                             ),
                         },
@@ -40538,8 +39090,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 173,
+                                    value: 1038,
                                 },
                             ),
                         },
@@ -40559,8 +39110,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 197,
+                                    value: 1039,
                                 },
                             ),
                         },
@@ -40576,8 +39126,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 174,
+                                    value: 1040,
                                 },
                             ),
                         },
@@ -40625,8 +39174,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 170,
+                                    value: 1032,
                                 },
                             ),
                         },
@@ -40643,14 +39191,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 97,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 992,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -40666,8 +39213,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 175,
+                                    value: 1041,
                                 },
                             ),
                         },
@@ -40681,8 +39227,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 198,
+                                    value: 1042,
                                 },
                             ),
                         },
@@ -40698,8 +39243,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 176,
+                                    value: 1043,
                                 },
                             ),
                         },
@@ -40739,8 +39283,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 177,
+                                    value: 1044,
                                 },
                             ),
                         },
@@ -40760,8 +39303,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 199,
+                                    value: 1045,
                                 },
                             ),
                         },
@@ -40777,8 +39319,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 178,
+                                    value: 1046,
                                 },
                             ),
                         },
@@ -40818,8 +39359,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 179,
+                                    value: 1047,
                                 },
                             ),
                         },
@@ -40835,8 +39375,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 180,
+                                    value: 1048,
                                 },
                             ),
                         },
@@ -40896,8 +39435,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 175,
+                                    value: 1041,
                                 },
                             ),
                         },
@@ -40914,14 +39452,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 98,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 993,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -40937,8 +39474,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 181,
+                                    value: 1049,
                                 },
                             ),
                         },
@@ -40954,8 +39490,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 49,
+                                    value: 1050,
                                 },
                             ),
                         },
@@ -40972,14 +39507,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 99,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 994,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -40995,8 +39529,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 182,
+                                    value: 1051,
                                 },
                             ),
                         },
@@ -41012,8 +39545,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 50,
+                                    value: 1052,
                                 },
                             ),
                         },
@@ -41030,14 +39562,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 100,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 995,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41053,8 +39584,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 183,
+                                    value: 1053,
                                 },
                             ),
                         },
@@ -41077,14 +39607,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 101,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 996,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41100,8 +39629,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 51,
+                                    value: 1054,
                                 },
                             ),
                         },
@@ -41117,8 +39645,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 184,
+                                    value: 1055,
                                 },
                             ),
                         },
@@ -41140,8 +39667,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 185,
+                                    value: 1056,
                                 },
                             ),
                         },
@@ -41157,8 +39683,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 186,
+                                    value: 1057,
                                 },
                             ),
                         },
@@ -41180,8 +39705,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 187,
+                                    value: 1058,
                                 },
                             ),
                         },
@@ -41197,8 +39721,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 188,
+                                    value: 1059,
                                 },
                             ),
                         },
@@ -41227,14 +39750,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 102,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 997,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41250,8 +39772,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 52,
+                                    value: 1060,
                                 },
                             ),
                         },
@@ -41267,8 +39788,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 189,
+                                    value: 1061,
                                 },
                             ),
                         },
@@ -41284,8 +39804,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 190,
+                                    value: 1062,
                                 },
                             ),
                         },
@@ -41308,14 +39827,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 103,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 998,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41331,8 +39849,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 53,
+                                    value: 1063,
                                 },
                             ),
                         },
@@ -41348,8 +39865,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 191,
+                                    value: 1064,
                                 },
                             ),
                         },
@@ -41371,8 +39887,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 192,
+                                    value: 1065,
                                 },
                             ),
                         },
@@ -41388,8 +39903,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 193,
+                                    value: 1066,
                                 },
                             ),
                         },
@@ -41411,8 +39925,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 194,
+                                    value: 1067,
                                 },
                             ),
                         },
@@ -41428,8 +39941,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 195,
+                                    value: 1068,
                                 },
                             ),
                         },
@@ -41470,14 +39982,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 104,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 999,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41493,8 +40004,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 54,
+                                    value: 1069,
                                 },
                             ),
                         },
@@ -41510,8 +40020,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 196,
+                                    value: 1070,
                                 },
                             ),
                         },
@@ -41527,8 +40036,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 197,
+                                    value: 1071,
                                 },
                             ),
                         },
@@ -41551,14 +40059,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 105,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1000,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41574,8 +40081,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 198,
+                                    value: 1072,
                                 },
                             ),
                         },
@@ -41589,8 +40095,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 199,
+                                    value: 1073,
                                 },
                             ),
                         },
@@ -41606,8 +40111,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 200,
+                                    value: 1074,
                                 },
                             ),
                         },
@@ -41627,8 +40131,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 201,
+                                    value: 1075,
                                 },
                             ),
                         },
@@ -41644,8 +40147,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 202,
+                                    value: 1076,
                                 },
                             ),
                         },
@@ -41687,8 +40189,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 198,
+                                    value: 1072,
                                 },
                             ),
                         },
@@ -41705,14 +40206,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 106,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1001,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41728,8 +40228,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 203,
+                                    value: 1077,
                                 },
                             ),
                         },
@@ -41752,14 +40251,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 107,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1002,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41775,8 +40273,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 55,
+                                    value: 1078,
                                 },
                             ),
                         },
@@ -41792,8 +40289,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 200,
+                                    value: 1079,
                                 },
                             ),
                         },
@@ -41809,8 +40305,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 204,
+                                    value: 1080,
                                 },
                             ),
                         },
@@ -41821,14 +40316,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 108,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1003,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41844,8 +40338,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 56,
+                                    value: 1081,
                                 },
                             ),
                         },
@@ -41861,8 +40354,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 201,
+                                    value: 1082,
                                 },
                             ),
                         },
@@ -41878,8 +40370,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 205,
+                                    value: 1083,
                                 },
                             ),
                         },
@@ -41890,14 +40381,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 109,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1004,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41913,8 +40403,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 57,
+                                    value: 1084,
                                 },
                             ),
                         },
@@ -41930,8 +40419,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 206,
+                                    value: 1085,
                                 },
                             ),
                         },
@@ -41947,8 +40435,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 207,
+                                    value: 1086,
                                 },
                             ),
                         },
@@ -41959,14 +40446,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 110,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1005,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -41982,8 +40468,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 58,
+                                    value: 1087,
                                 },
                             ),
                         },
@@ -41999,8 +40484,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 208,
+                                    value: 1088,
                                 },
                             ),
                         },
@@ -42016,8 +40500,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 209,
+                                    value: 1089,
                                 },
                             ),
                         },
@@ -42028,14 +40511,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 111,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1006,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42051,8 +40533,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 210,
+                                    value: 1090,
                                 },
                             ),
                         },
@@ -42081,14 +40562,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 112,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1007,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42104,8 +40584,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 211,
+                                    value: 1091,
                                 },
                             ),
                         },
@@ -42128,14 +40607,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 113,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1008,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42164,14 +40642,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 181,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 952,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42181,8 +40658,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 202,
+                                    value: 1092,
                                 },
                             ),
                         },
@@ -42199,14 +40675,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 202,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1092,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42295,14 +40770,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 114,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1093,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42318,8 +40792,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 203,
+                                    value: 1105,
                                 },
                             ),
                         },
@@ -42335,8 +40808,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 59,
+                                    value: 1106,
                                 },
                             ),
                         },
@@ -42347,14 +40819,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 203,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1105,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42425,14 +40896,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 59,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1106,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42449,14 +40919,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 115,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1094,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42472,8 +40941,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 60,
+                                    value: 1107,
                                 },
                             ),
                         },
@@ -42489,8 +40957,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 204,
+                                    value: 1108,
                                 },
                             ),
                         },
@@ -42506,8 +40973,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 212,
+                                    value: 1109,
                                 },
                             ),
                         },
@@ -42536,14 +41002,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 60,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1107,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42560,14 +41025,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 204,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1108,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42608,14 +41072,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 212,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1109,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42644,14 +41107,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 116,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1095,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42667,8 +41129,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 213,
+                                    value: 1110,
                                 },
                             ),
                         },
@@ -42684,8 +41145,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 61,
+                                    value: 1111,
                                 },
                             ),
                         },
@@ -42696,14 +41156,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 213,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1110,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42720,14 +41179,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 61,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1111,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42744,14 +41202,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 117,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1096,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42767,8 +41224,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 62,
+                                    value: 1112,
                                 },
                             ),
                         },
@@ -42784,8 +41240,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 205,
+                                    value: 1113,
                                 },
                             ),
                         },
@@ -42801,8 +41256,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 214,
+                                    value: 1114,
                                 },
                             ),
                         },
@@ -42813,14 +41267,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 62,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1112,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42837,14 +41290,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 205,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1113,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42897,14 +41349,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 214,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1114,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42933,14 +41384,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 118,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1097,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42956,8 +41406,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 63,
+                                    value: 1115,
                                 },
                             ),
                         },
@@ -42973,8 +41422,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 206,
+                                    value: 1116,
                                 },
                             ),
                         },
@@ -42990,8 +41438,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 215,
+                                    value: 1117,
                                 },
                             ),
                         },
@@ -43007,8 +41454,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 207,
+                                    value: 1118,
                                 },
                             ),
                         },
@@ -43024,8 +41470,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 216,
+                                    value: 1119,
                                 },
                             ),
                         },
@@ -43036,14 +41481,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 63,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1115,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43060,14 +41504,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 206,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1116,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43120,14 +41563,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 215,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1117,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43156,14 +41598,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 207,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1118,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43216,14 +41657,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 216,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1119,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43252,14 +41692,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 119,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1098,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43275,8 +41714,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 217,
+                                    value: 1120,
                                 },
                             ),
                         },
@@ -43292,8 +41730,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 218,
+                                    value: 1121,
                                 },
                             ),
                         },
@@ -43327,8 +41764,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 64,
+                                    value: 1122,
                                 },
                             ),
                         },
@@ -43345,14 +41781,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 126,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1123,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43368,8 +41803,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 219,
+                                    value: 1135,
                                 },
                             ),
                         },
@@ -43383,8 +41817,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 208,
+                                    value: 1136,
                                 },
                             ),
                         },
@@ -43400,8 +41833,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 220,
+                                    value: 1137,
                                 },
                             ),
                         },
@@ -43421,8 +41853,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 209,
+                                    value: 1138,
                                 },
                             ),
                         },
@@ -43438,8 +41869,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 221,
+                                    value: 1139,
                                 },
                             ),
                         },
@@ -43481,8 +41911,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 219,
+                                    value: 1135,
                                 },
                             ),
                         },
@@ -43499,14 +41928,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 127,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1124,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43522,8 +41950,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 65,
+                                    value: 1140,
                                 },
                             ),
                         },
@@ -43539,8 +41966,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 210,
+                                    value: 1141,
                                 },
                             ),
                         },
@@ -43556,8 +41982,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 222,
+                                    value: 1142,
                                 },
                             ),
                         },
@@ -43586,14 +42011,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 128,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1125,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43609,8 +42033,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 66,
+                                    value: 1143,
                                 },
                             ),
                         },
@@ -43626,8 +42049,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 223,
+                                    value: 1144,
                                 },
                             ),
                         },
@@ -43649,8 +42071,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 224,
+                                    value: 1145,
                                 },
                             ),
                         },
@@ -43673,14 +42094,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 129,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1126,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43696,8 +42116,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 67,
+                                    value: 1146,
                                 },
                             ),
                         },
@@ -43713,8 +42132,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 225,
+                                    value: 1147,
                                 },
                             ),
                         },
@@ -43730,8 +42148,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 226,
+                                    value: 1148,
                                 },
                             ),
                         },
@@ -43742,14 +42159,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 130,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1127,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43765,8 +42181,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 68,
+                                    value: 1149,
                                 },
                             ),
                         },
@@ -43782,8 +42197,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 227,
+                                    value: 1150,
                                 },
                             ),
                         },
@@ -43805,8 +42219,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 228,
+                                    value: 1151,
                                 },
                             ),
                         },
@@ -43834,8 +42247,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 229,
+                                    value: 1152,
                                 },
                             ),
                         },
@@ -43846,14 +42258,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 131,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1128,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43869,8 +42280,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 69,
+                                    value: 1153,
                                 },
                             ),
                         },
@@ -43886,8 +42296,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 211,
+                                    value: 1154,
                                 },
                             ),
                         },
@@ -43903,8 +42312,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 230,
+                                    value: 1155,
                                 },
                             ),
                         },
@@ -43915,14 +42323,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 132,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1129,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43938,8 +42345,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 212,
+                                    value: 1156,
                                 },
                             ),
                         },
@@ -43955,8 +42361,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 231,
+                                    value: 1157,
                                 },
                             ),
                         },
@@ -43979,14 +42384,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 133,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1130,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44002,8 +42406,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 232,
+                                    value: 1158,
                                 },
                             ),
                         },
@@ -44019,8 +42422,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 70,
+                                    value: 1159,
                                 },
                             ),
                         },
@@ -44037,14 +42439,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 134,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1131,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44060,8 +42461,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 71,
+                                    value: 1160,
                                 },
                             ),
                         },
@@ -44077,8 +42477,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 213,
+                                    value: 1161,
                                 },
                             ),
                         },
@@ -44094,8 +42493,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 233,
+                                    value: 1162,
                                 },
                             ),
                         },
@@ -44111,8 +42509,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 234,
+                                    value: 1163,
                                 },
                             ),
                         },
@@ -44132,8 +42529,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 235,
+                                    value: 1164,
                                 },
                             ),
                         },
@@ -44155,8 +42551,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 236,
+                                    value: 1165,
                                 },
                             ),
                         },
@@ -44189,14 +42584,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 135,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1132,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44212,8 +42606,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 237,
+                                    value: 1166,
                                 },
                             ),
                         },
@@ -44227,8 +42620,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 238,
+                                    value: 1167,
                                 },
                             ),
                         },
@@ -44248,8 +42640,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 214,
+                                    value: 1168,
                                 },
                             ),
                         },
@@ -44269,8 +42660,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 239,
+                                    value: 1169,
                                 },
                             ),
                         },
@@ -44290,8 +42680,7 @@
                             spaces_before: 12,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 215,
+                                    value: 1170,
                                 },
                             ),
                         },
@@ -44307,8 +42696,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 240,
+                                    value: 1171,
                                 },
                             ),
                         },
@@ -44368,8 +42756,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 237,
+                                    value: 1166,
                                 },
                             ),
                         },
@@ -44386,14 +42773,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 136,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1133,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44409,8 +42795,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 241,
+                                    value: 1172,
                                 },
                             ),
                         },
@@ -44426,8 +42811,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 242,
+                                    value: 1173,
                                 },
                             ),
                         },
@@ -44456,14 +42840,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 137,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1134,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44498,14 +42881,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 217,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1120,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44522,14 +42904,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 218,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1121,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44558,14 +42939,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 64,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1122,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44582,14 +42962,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 120,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1099,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44605,8 +42984,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 243,
+                                    value: 1174,
                                 },
                             ),
                         },
@@ -44620,8 +42998,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 216,
+                                    value: 1175,
                                 },
                             ),
                         },
@@ -44637,8 +43014,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 244,
+                                    value: 1176,
                                 },
                             ),
                         },
@@ -44680,8 +43056,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 243,
+                                    value: 1174,
                                 },
                             ),
                         },
@@ -44698,14 +43073,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 243,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1174,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44788,14 +43162,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 216,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1175,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44836,14 +43209,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 244,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1176,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44872,14 +43244,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 243,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1174,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44962,14 +43333,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 121,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1100,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44985,8 +43355,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 217,
+                                    value: 1177,
                                 },
                             ),
                         },
@@ -45002,8 +43371,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 245,
+                                    value: 1178,
                                 },
                             ),
                         },
@@ -45032,14 +43400,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 138,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1179,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45055,8 +43422,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 218,
+                                    value: 1180,
                                 },
                             ),
                         },
@@ -45072,8 +43438,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 246,
+                                    value: 1181,
                                 },
                             ),
                         },
@@ -45096,14 +43461,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 217,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1177,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45144,14 +43508,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 245,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1178,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45180,14 +43543,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 122,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1101,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45203,8 +43565,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 247,
+                                    value: 1182,
                                 },
                             ),
                         },
@@ -45220,8 +43581,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 248,
+                                    value: 1183,
                                 },
                             ),
                         },
@@ -45261,8 +43621,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 249,
+                                    value: 1184,
                                 },
                             ),
                         },
@@ -45278,8 +43637,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 250,
+                                    value: 1185,
                                 },
                             ),
                         },
@@ -45314,14 +43672,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 247,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1182,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45338,14 +43695,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 248,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1183,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45374,14 +43730,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 249,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1184,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45446,14 +43801,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 250,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1185,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45542,14 +43896,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 123,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1102,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45565,8 +43918,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 251,
+                                    value: 1186,
                                 },
                             ),
                         },
@@ -45582,8 +43934,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 252,
+                                    value: 1187,
                                 },
                             ),
                         },
@@ -45617,8 +43968,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 72,
+                                    value: 1188,
                                 },
                             ),
                         },
@@ -45635,14 +43985,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 139,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1189,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45658,8 +44007,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 253,
+                                    value: 1190,
                                 },
                             ),
                         },
@@ -45675,8 +44023,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 254,
+                                    value: 1191,
                                 },
                             ),
                         },
@@ -45716,8 +44063,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 255,
+                                    value: 1192,
                                 },
                             ),
                         },
@@ -45733,8 +44079,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 256,
+                                    value: 1193,
                                 },
                             ),
                         },
@@ -45769,14 +44114,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 251,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1186,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45793,14 +44137,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 252,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1187,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45829,14 +44172,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 72,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1188,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45853,14 +44195,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 124,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1103,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45876,8 +44217,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 257,
+                                    value: 1194,
                                 },
                             ),
                         },
@@ -45900,14 +44240,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 257,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1194,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45924,14 +44263,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 125,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1104,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45960,14 +44298,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 182,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 953,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45977,8 +44314,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 219,
+                                    value: 1195,
                                 },
                             ),
                         },
@@ -45995,14 +44331,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 219,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1195,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46091,14 +44426,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 140,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1196,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46114,8 +44448,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 220,
+                                    value: 1210,
                                 },
                             ),
                         },
@@ -46131,8 +44464,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 73,
+                                    value: 1211,
                                 },
                             ),
                         },
@@ -46143,14 +44475,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 220,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1210,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46221,14 +44552,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 73,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1211,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46245,14 +44575,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 141,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1197,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46268,8 +44597,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 221,
+                                    value: 1212,
                                 },
                             ),
                         },
@@ -46285,8 +44613,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 258,
+                                    value: 1213,
                                 },
                             ),
                         },
@@ -46302,8 +44629,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 259,
+                                    value: 1214,
                                 },
                             ),
                         },
@@ -46344,14 +44670,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 154,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1215,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46367,8 +44692,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 74,
+                                    value: 1222,
                                 },
                             ),
                         },
@@ -46384,8 +44708,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 222,
+                                    value: 1223,
                                 },
                             ),
                         },
@@ -46401,8 +44724,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 260,
+                                    value: 1224,
                                 },
                             ),
                         },
@@ -46413,14 +44735,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 155,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1216,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46436,8 +44757,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 261,
+                                    value: 1225,
                                 },
                             ),
                         },
@@ -46460,14 +44780,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 156,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1217,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46483,8 +44802,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 223,
+                                    value: 1226,
                                 },
                             ),
                         },
@@ -46500,8 +44818,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 262,
+                                    value: 1227,
                                 },
                             ),
                         },
@@ -46535,8 +44852,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 75,
+                                    value: 1228,
                                 },
                             ),
                         },
@@ -46547,14 +44863,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 157,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1218,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46570,8 +44885,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 224,
+                                    value: 1229,
                                 },
                             ),
                         },
@@ -46587,8 +44901,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 263,
+                                    value: 1230,
                                 },
                             ),
                         },
@@ -46623,14 +44936,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 158,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1219,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46646,8 +44958,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 76,
+                                    value: 1231,
                                 },
                             ),
                         },
@@ -46663,8 +44974,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 225,
+                                    value: 1232,
                                 },
                             ),
                         },
@@ -46680,8 +44990,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 264,
+                                    value: 1233,
                                 },
                             ),
                         },
@@ -46721,8 +45030,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 265,
+                                    value: 1234,
                                 },
                             ),
                         },
@@ -46750,8 +45058,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 266,
+                                    value: 1235,
                                 },
                             ),
                         },
@@ -46774,14 +45081,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 159,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1220,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46797,8 +45103,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 267,
+                                    value: 1236,
                                 },
                             ),
                         },
@@ -46821,14 +45126,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 160,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1221,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46863,14 +45167,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 221,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1212,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46923,14 +45226,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 258,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1213,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46959,14 +45261,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 259,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1214,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47019,14 +45320,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 142,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1198,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47042,8 +45342,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 77,
+                                    value: 1237,
                                 },
                             ),
                         },
@@ -47065,8 +45364,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 268,
+                                    value: 1238,
                                 },
                             ),
                         },
@@ -47076,8 +45374,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 226,
+                                    value: 1239,
                                 },
                             ),
                         },
@@ -47105,8 +45402,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 268,
+                                    value: 1238,
                                 },
                             ),
                         },
@@ -47117,14 +45413,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 77,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1237,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47141,14 +45436,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 268,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1238,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47201,14 +45495,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 226,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1239,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47273,14 +45566,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 268,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1238,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47333,14 +45625,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 143,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1199,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47356,8 +45647,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 269,
+                                    value: 1240,
                                 },
                             ),
                         },
@@ -47371,8 +45661,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 270,
+                                    value: 1241,
                                 },
                             ),
                         },
@@ -47388,8 +45677,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 271,
+                                    value: 1242,
                                 },
                             ),
                         },
@@ -47409,8 +45697,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 272,
+                                    value: 1243,
                                 },
                             ),
                         },
@@ -47426,8 +45713,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 273,
+                                    value: 1244,
                                 },
                             ),
                         },
@@ -47447,8 +45733,7 @@
                             spaces_before: 8,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 274,
+                                    value: 1245,
                                 },
                             ),
                         },
@@ -47464,8 +45749,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 275,
+                                    value: 1246,
                                 },
                             ),
                         },
@@ -47507,8 +45791,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 269,
+                                    value: 1240,
                                 },
                             ),
                         },
@@ -47525,14 +45808,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 269,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1240,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47671,14 +45953,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 270,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1241,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47695,14 +45976,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 271,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1242,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47731,14 +46011,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 272,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1243,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47755,14 +46034,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 273,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1244,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47791,14 +46069,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 274,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1245,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47815,14 +46092,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 275,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1246,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47851,14 +46127,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 269,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1240,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47997,14 +46272,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 144,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1200,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48020,8 +46294,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 276,
+                                    value: 1247,
                                 },
                             ),
                         },
@@ -48037,8 +46310,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 277,
+                                    value: 1248,
                                 },
                             ),
                         },
@@ -48061,14 +46333,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 276,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1247,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48085,14 +46356,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 277,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1248,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48121,14 +46391,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 145,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1201,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48144,8 +46413,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 227,
+                                    value: 1249,
                                 },
                             ),
                         },
@@ -48161,8 +46429,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 278,
+                                    value: 1250,
                                 },
                             ),
                         },
@@ -48178,8 +46445,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 279,
+                                    value: 1251,
                                 },
                             ),
                         },
@@ -48213,8 +46479,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 78,
+                                    value: 1252,
                                 },
                             ),
                         },
@@ -48225,14 +46490,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 227,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1249,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48285,14 +46549,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 278,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1250,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48321,14 +46584,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 279,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1251,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48369,14 +46631,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 78,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1252,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48393,14 +46654,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 146,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1202,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48416,8 +46676,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 228,
+                                    value: 1253,
                                 },
                             ),
                         },
@@ -48433,8 +46692,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 280,
+                                    value: 1254,
                                 },
                             ),
                         },
@@ -48450,8 +46708,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 281,
+                                    value: 1255,
                                 },
                             ),
                         },
@@ -48485,8 +46742,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 79,
+                                    value: 1256,
                                 },
                             ),
                         },
@@ -48497,14 +46753,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 228,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1253,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48557,14 +46812,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 280,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1254,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48593,14 +46847,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 281,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1255,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48641,14 +46894,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 79,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1256,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48665,14 +46917,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 147,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1203,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48688,8 +46939,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 80,
+                                    value: 1257,
                                 },
                             ),
                         },
@@ -48705,8 +46955,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 229,
+                                    value: 1258,
                                 },
                             ),
                         },
@@ -48722,8 +46971,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 282,
+                                    value: 1259,
                                 },
                             ),
                         },
@@ -48739,8 +46987,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 283,
+                                    value: 1260,
                                 },
                             ),
                         },
@@ -48769,14 +47016,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 80,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1257,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48793,14 +47039,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 229,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1258,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48853,14 +47098,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 282,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1259,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48889,14 +47133,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 283,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1260,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48937,14 +47180,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 148,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1204,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48960,8 +47202,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 81,
+                                    value: 1261,
                                 },
                             ),
                         },
@@ -48977,8 +47218,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 284,
+                                    value: 1262,
                                 },
                             ),
                         },
@@ -49000,8 +47240,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 285,
+                                    value: 1263,
                                 },
                             ),
                         },
@@ -49017,8 +47256,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 286,
+                                    value: 1264,
                                 },
                             ),
                         },
@@ -49046,8 +47284,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 287,
+                                    value: 1265,
                                 },
                             ),
                         },
@@ -49069,8 +47306,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 288,
+                                    value: 1266,
                                 },
                             ),
                         },
@@ -49086,8 +47322,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 289,
+                                    value: 1267,
                                 },
                             ),
                         },
@@ -49110,14 +47345,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 81,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1261,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49134,14 +47368,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 284,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1262,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49158,14 +47391,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 285,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1263,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49200,14 +47432,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 286,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1264,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49266,14 +47497,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 287,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1265,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49290,14 +47520,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 288,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1266,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49332,14 +47561,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 289,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1267,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49398,14 +47626,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 149,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1205,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49421,8 +47648,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 82,
+                                    value: 1268,
                                 },
                             ),
                         },
@@ -49438,8 +47664,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 230,
+                                    value: 1269,
                                 },
                             ),
                         },
@@ -49455,8 +47680,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 290,
+                                    value: 1270,
                                 },
                             ),
                         },
@@ -49472,8 +47696,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 291,
+                                    value: 1271,
                                 },
                             ),
                         },
@@ -49501,8 +47724,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 231,
+                                    value: 1272,
                                 },
                             ),
                         },
@@ -49518,8 +47740,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 292,
+                                    value: 1273,
                                 },
                             ),
                         },
@@ -49535,8 +47756,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 293,
+                                    value: 1274,
                                 },
                             ),
                         },
@@ -49559,14 +47779,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 82,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1268,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49583,14 +47802,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 230,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1269,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49643,14 +47861,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 290,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1270,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49679,14 +47896,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 291,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1271,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49739,14 +47955,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 231,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1272,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49799,14 +48014,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 292,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1273,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49835,14 +48049,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 293,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1274,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49895,14 +48108,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 150,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1206,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49918,8 +48130,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 83,
+                                    value: 1275,
                                 },
                             ),
                         },
@@ -49935,8 +48146,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 294,
+                                    value: 1276,
                                 },
                             ),
                         },
@@ -49952,8 +48162,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 295,
+                                    value: 1277,
                                 },
                             ),
                         },
@@ -49964,14 +48173,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 83,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1275,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49988,14 +48196,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 294,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1276,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50012,14 +48219,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 295,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1277,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50036,14 +48242,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 151,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1207,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50059,8 +48264,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 296,
+                                    value: 1278,
                                 },
                             ),
                         },
@@ -50083,14 +48287,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 296,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1278,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50107,14 +48310,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 152,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1208,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50130,8 +48332,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyPatternExpr,
-                                    value: 84,
+                                    value: 1279,
                                 },
                             ),
                         },
@@ -50147,8 +48348,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 297,
+                                    value: 1280,
                                 },
                             ),
                         },
@@ -50164,8 +48364,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: LazyExpr,
-                                    value: 298,
+                                    value: 1281,
                                 },
                             ),
                         },
@@ -50176,14 +48375,13 @@
         },
     ),
     (
-        LazyPatternExpr(
-            LazyPatternExprTrace(
-                Id {
-                    value: 84,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1279,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50200,14 +48398,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 297,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1280,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50224,14 +48421,13 @@
         },
     ),
     (
-        LazyExpr(
-            LazyExprTrace(
-                Id {
-                    value: 298,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1281,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50260,14 +48456,13 @@
         },
     ),
     (
-        LazyStmt(
-            LazyStmtTrace(
-                Id {
-                    value: 153,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1209,
+            },
         ),
         TraceViewData {
+            trace_kind: LazyStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50296,14 +48491,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 183,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 954,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50313,8 +48507,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 232,
+                                    value: 1282,
                                 },
                             ),
                         },
@@ -50331,14 +48524,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 232,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1282,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50427,14 +48619,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 190,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1283,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50450,8 +48641,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 233,
+                                    value: 1293,
                                 },
                             ),
                         },
@@ -50467,8 +48657,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 94,
+                                    value: 1294,
                                 },
                             ),
                         },
@@ -50479,14 +48668,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 233,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1293,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50575,14 +48763,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 94,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1294,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50599,14 +48786,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 191,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1284,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50622,8 +48808,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 234,
+                                    value: 1295,
                                 },
                             ),
                         },
@@ -50639,8 +48824,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 95,
+                                    value: 1296,
                                 },
                             ),
                         },
@@ -50651,14 +48835,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 234,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1295,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50747,14 +48930,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 95,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1296,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50771,14 +48953,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 192,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1285,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50794,8 +48975,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 235,
+                                    value: 1297,
                                 },
                             ),
                         },
@@ -50811,8 +48991,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 211,
+                                    value: 1298,
                                 },
                             ),
                         },
@@ -50835,14 +49014,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 235,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1297,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50895,14 +49073,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 211,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1298,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50931,14 +49108,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 193,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1286,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -50954,8 +49130,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 96,
+                                    value: 1299,
                                 },
                             ),
                         },
@@ -50971,8 +49146,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 236,
+                                    value: 1300,
                                 },
                             ),
                         },
@@ -50988,8 +49162,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 212,
+                                    value: 1301,
                                 },
                             ),
                         },
@@ -51000,14 +49173,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 96,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1299,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51024,14 +49196,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 236,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1300,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51072,14 +49243,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 212,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1301,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51108,14 +49278,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 194,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1287,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51131,8 +49300,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 213,
+                                    value: 1302,
                                 },
                             ),
                         },
@@ -51161,14 +49329,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 200,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1303,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51184,8 +49351,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 237,
+                                    value: 1307,
                                 },
                             ),
                         },
@@ -51201,8 +49367,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 214,
+                                    value: 1308,
                                 },
                             ),
                         },
@@ -51236,8 +49401,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 97,
+                                    value: 1309,
                                 },
                             ),
                         },
@@ -51248,14 +49412,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 201,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1304,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51271,8 +49434,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 98,
+                                    value: 1310,
                                 },
                             ),
                         },
@@ -51288,8 +49450,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 238,
+                                    value: 1311,
                                 },
                             ),
                         },
@@ -51305,8 +49466,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 215,
+                                    value: 1312,
                                 },
                             ),
                         },
@@ -51322,8 +49482,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 239,
+                                    value: 1313,
                                 },
                             ),
                         },
@@ -51339,8 +49498,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 216,
+                                    value: 1314,
                                 },
                             ),
                         },
@@ -51351,14 +49509,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 202,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1305,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51374,8 +49531,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 217,
+                                    value: 1315,
                                 },
                             ),
                         },
@@ -51404,14 +49560,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 203,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1306,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51446,14 +49601,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 213,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1302,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51470,14 +49624,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 195,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1288,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51493,8 +49646,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 218,
+                                    value: 1316,
                                 },
                             ),
                         },
@@ -51523,14 +49675,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 204,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1317,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51546,8 +49697,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 99,
+                                    value: 1320,
                                 },
                             ),
                         },
@@ -51563,8 +49713,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 240,
+                                    value: 1321,
                                 },
                             ),
                         },
@@ -51580,8 +49729,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 219,
+                                    value: 1322,
                                 },
                             ),
                         },
@@ -51597,8 +49745,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 241,
+                                    value: 1323,
                                 },
                             ),
                         },
@@ -51614,8 +49761,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 220,
+                                    value: 1324,
                                 },
                             ),
                         },
@@ -51626,14 +49772,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 205,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1318,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51649,8 +49794,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 221,
+                                    value: 1325,
                                 },
                             ),
                         },
@@ -51673,14 +49817,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 206,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1319,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51715,14 +49858,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 218,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1316,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51739,14 +49881,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 196,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1289,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51762,8 +49903,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 242,
+                                    value: 1326,
                                 },
                             ),
                         },
@@ -51779,8 +49919,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 222,
+                                    value: 1327,
                                 },
                             ),
                         },
@@ -51814,8 +49953,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 100,
+                                    value: 1328,
                                 },
                             ),
                         },
@@ -51826,14 +49964,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 242,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1326,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51874,14 +50011,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 222,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1327,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51910,14 +50046,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 100,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1328,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51934,14 +50069,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 197,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1290,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51957,8 +50091,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 101,
+                                    value: 1329,
                                 },
                             ),
                         },
@@ -51974,8 +50107,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 243,
+                                    value: 1330,
                                 },
                             ),
                         },
@@ -51991,8 +50123,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 223,
+                                    value: 1331,
                                 },
                             ),
                         },
@@ -52003,14 +50134,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 101,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1329,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52027,14 +50157,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 243,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1330,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52075,14 +50204,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 223,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1331,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52111,14 +50239,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 198,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1291,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52141,14 +50268,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 199,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1292,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52177,14 +50303,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 184,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 955,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52194,8 +50319,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 244,
+                                    value: 1332,
                                 },
                             ),
                         },
@@ -52212,14 +50336,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 244,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1332,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52308,14 +50431,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 207,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1333,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52331,8 +50453,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 245,
+                                    value: 1340,
                                 },
                             ),
                         },
@@ -52348,8 +50469,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 102,
+                                    value: 1341,
                                 },
                             ),
                         },
@@ -52360,14 +50480,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 245,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1340,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52438,14 +50557,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 102,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1341,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52462,14 +50580,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 208,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1334,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52485,8 +50602,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 246,
+                                    value: 1342,
                                 },
                             ),
                         },
@@ -52502,8 +50618,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 103,
+                                    value: 1343,
                                 },
                             ),
                         },
@@ -52514,14 +50629,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 246,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1342,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52610,14 +50724,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 103,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1343,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52634,14 +50747,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 209,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1335,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52657,8 +50769,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 247,
+                                    value: 1344,
                                 },
                             ),
                         },
@@ -52674,8 +50785,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 104,
+                                    value: 1345,
                                 },
                             ),
                         },
@@ -52686,14 +50796,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 247,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1344,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52782,14 +50891,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 104,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1345,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52806,14 +50914,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 210,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1336,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52829,8 +50936,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 248,
+                                    value: 1346,
                                 },
                             ),
                         },
@@ -52846,8 +50952,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 105,
+                                    value: 1347,
                                 },
                             ),
                         },
@@ -52858,14 +50963,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 248,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1346,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52954,14 +51058,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 105,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1347,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52978,14 +51081,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 211,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1337,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53001,8 +51103,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 106,
+                                    value: 1348,
                                 },
                             ),
                         },
@@ -53018,8 +51119,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 249,
+                                    value: 1349,
                                 },
                             ),
                         },
@@ -53035,8 +51135,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 224,
+                                    value: 1350,
                                 },
                             ),
                         },
@@ -53052,8 +51151,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 250,
+                                    value: 1351,
                                 },
                             ),
                         },
@@ -53069,8 +51167,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 225,
+                                    value: 1352,
                                 },
                             ),
                         },
@@ -53081,14 +51178,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 106,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1348,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53105,14 +51201,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 249,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1349,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53165,14 +51260,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 224,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1350,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53201,14 +51295,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 250,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1351,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53261,14 +51354,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 225,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1352,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53297,14 +51389,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 212,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1338,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53320,8 +51411,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 251,
+                                    value: 1353,
                                 },
                             ),
                         },
@@ -53337,8 +51427,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 226,
+                                    value: 1354,
                                 },
                             ),
                         },
@@ -53354,8 +51443,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 227,
+                                    value: 1355,
                                 },
                             ),
                         },
@@ -53389,8 +51477,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 107,
+                                    value: 1356,
                                 },
                             ),
                         },
@@ -53407,14 +51494,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 214,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1357,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53430,8 +51516,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 252,
+                                    value: 1359,
                                 },
                             ),
                         },
@@ -53447,8 +51532,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 228,
+                                    value: 1360,
                                 },
                             ),
                         },
@@ -53464,8 +51548,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 229,
+                                    value: 1361,
                                 },
                             ),
                         },
@@ -53499,8 +51582,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 108,
+                                    value: 1362,
                                 },
                             ),
                         },
@@ -53517,14 +51599,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 215,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1358,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53547,14 +51628,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 251,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1353,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53607,14 +51687,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 226,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1354,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53643,14 +51722,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 227,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1355,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53691,14 +51769,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 107,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1356,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53715,14 +51792,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 213,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1339,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53751,14 +51827,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 185,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 956,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53768,8 +51843,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 253,
+                                    value: 1363,
                                 },
                             ),
                         },
@@ -53786,14 +51860,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 253,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1363,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53882,14 +51955,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 216,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1364,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -53905,8 +51977,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 254,
+                                    value: 1381,
                                 },
                             ),
                         },
@@ -53922,8 +51993,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 230,
+                                    value: 1382,
                                 },
                             ),
                         },
@@ -53958,14 +52028,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 254,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1381,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54030,14 +52099,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 230,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1382,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54078,14 +52146,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 217,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1365,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54101,8 +52168,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 255,
+                                    value: 1383,
                                 },
                             ),
                         },
@@ -54118,8 +52184,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 231,
+                                    value: 1384,
                                 },
                             ),
                         },
@@ -54154,14 +52219,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 255,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1383,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54226,14 +52290,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 231,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1384,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54274,14 +52337,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 218,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1366,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54297,8 +52359,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 109,
+                                    value: 1385,
                                 },
                             ),
                         },
@@ -54314,8 +52375,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 256,
+                                    value: 1386,
                                 },
                             ),
                         },
@@ -54331,8 +52391,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 232,
+                                    value: 1387,
                                 },
                             ),
                         },
@@ -54361,14 +52420,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 109,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1385,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54385,14 +52443,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 256,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1386,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54433,14 +52490,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 232,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1387,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54469,14 +52525,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 219,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1367,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54492,8 +52547,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 110,
+                                    value: 1388,
                                 },
                             ),
                         },
@@ -54509,8 +52563,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 257,
+                                    value: 1389,
                                 },
                             ),
                         },
@@ -54526,8 +52579,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 233,
+                                    value: 1390,
                                 },
                             ),
                         },
@@ -54556,14 +52608,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 110,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1388,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54580,14 +52631,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 257,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1389,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54628,14 +52678,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 233,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1390,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54664,14 +52713,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 220,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1368,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54687,8 +52735,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 111,
+                                    value: 1391,
                                 },
                             ),
                         },
@@ -54704,8 +52751,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 258,
+                                    value: 1392,
                                 },
                             ),
                         },
@@ -54721,8 +52767,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 234,
+                                    value: 1393,
                                 },
                             ),
                         },
@@ -54751,14 +52796,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 111,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1391,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54775,14 +52819,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 258,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1392,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54823,14 +52866,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 234,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1393,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54859,14 +52901,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 221,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1369,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54882,8 +52923,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 235,
+                                    value: 1394,
                                 },
                             ),
                         },
@@ -54899,8 +52939,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 112,
+                                    value: 1395,
                                 },
                             ),
                         },
@@ -54911,14 +52950,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 235,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1394,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54935,14 +52973,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 112,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1395,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54959,14 +52996,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 222,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1370,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -54982,8 +53018,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 236,
+                                    value: 1396,
                                 },
                             ),
                         },
@@ -55005,8 +53040,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 237,
+                                    value: 1397,
                                 },
                             ),
                         },
@@ -55029,14 +53063,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 236,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1396,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55053,14 +53086,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 237,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1397,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55095,14 +53127,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 223,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1371,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55118,8 +53149,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 238,
+                                    value: 1398,
                                 },
                             ),
                         },
@@ -55135,8 +53165,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 113,
+                                    value: 1399,
                                 },
                             ),
                         },
@@ -55147,14 +53176,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 238,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1398,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55171,14 +53199,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 113,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1399,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55195,14 +53222,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 224,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1372,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55218,8 +53244,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 114,
+                                    value: 1400,
                                 },
                             ),
                         },
@@ -55235,8 +53260,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 239,
+                                    value: 1401,
                                 },
                             ),
                         },
@@ -55258,8 +53282,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 240,
+                                    value: 1402,
                                 },
                             ),
                         },
@@ -55287,8 +53310,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 241,
+                                    value: 1403,
                                 },
                             ),
                         },
@@ -55317,14 +53339,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 114,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1400,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55341,14 +53362,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 239,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1401,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55365,14 +53385,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 240,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1402,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55419,14 +53438,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 241,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1403,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55503,14 +53521,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 225,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1373,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55526,8 +53543,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 242,
+                                    value: 1404,
                                 },
                             ),
                         },
@@ -55555,8 +53571,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 243,
+                                    value: 1405,
                                 },
                             ),
                         },
@@ -55585,14 +53600,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 242,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1404,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55609,14 +53623,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 243,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1405,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55633,14 +53646,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 226,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1374,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55656,8 +53668,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 115,
+                                    value: 1406,
                                 },
                             ),
                         },
@@ -55673,8 +53684,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 244,
+                                    value: 1407,
                                 },
                             ),
                         },
@@ -55696,8 +53706,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 245,
+                                    value: 1408,
                                 },
                             ),
                         },
@@ -55720,14 +53729,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 115,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1406,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55744,14 +53752,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 244,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1407,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55768,14 +53775,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 245,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1408,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55822,14 +53828,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 227,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1375,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55845,8 +53850,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 116,
+                                    value: 1409,
                                 },
                             ),
                         },
@@ -55862,8 +53866,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 246,
+                                    value: 1410,
                                 },
                             ),
                         },
@@ -55885,8 +53888,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 247,
+                                    value: 1411,
                                 },
                             ),
                         },
@@ -55909,14 +53911,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 116,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1409,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55933,14 +53934,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 246,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1410,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -55957,14 +53957,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 247,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1411,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56011,14 +54010,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 228,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1376,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56034,8 +54032,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 117,
+                                    value: 1412,
                                 },
                             ),
                         },
@@ -56051,8 +54048,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 248,
+                                    value: 1413,
                                 },
                             ),
                         },
@@ -56068,8 +54064,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 249,
+                                    value: 1414,
                                 },
                             ),
                         },
@@ -56085,8 +54080,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 250,
+                                    value: 1415,
                                 },
                             ),
                         },
@@ -56103,14 +54097,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 117,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1412,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56127,14 +54120,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 248,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1413,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56151,14 +54143,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 249,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1414,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56205,14 +54196,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 250,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1415,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56229,14 +54219,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 229,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1377,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56252,8 +54241,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 251,
+                                    value: 1416,
                                 },
                             ),
                         },
@@ -56276,14 +54264,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 251,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1416,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56300,14 +54287,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 230,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1378,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56323,8 +54309,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 259,
+                                    value: 1417,
                                 },
                             ),
                         },
@@ -56340,8 +54325,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 252,
+                                    value: 1418,
                                 },
                             ),
                         },
@@ -56364,14 +54348,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 259,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1417,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56412,14 +54395,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 252,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1418,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56448,14 +54430,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 231,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1379,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56471,8 +54452,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 253,
+                                    value: 1419,
                                 },
                             ),
                         },
@@ -56494,8 +54474,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 254,
+                                    value: 1420,
                                 },
                             ),
                         },
@@ -56524,14 +54503,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 253,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1419,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56548,14 +54526,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 254,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1420,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56590,14 +54567,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 232,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1380,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56626,14 +54602,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 186,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 957,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56643,8 +54618,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 260,
+                                    value: 1421,
                                 },
                             ),
                         },
@@ -56661,14 +54635,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 260,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1421,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56757,14 +54730,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 233,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1422,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56780,8 +54752,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 261,
+                                    value: 1433,
                                 },
                             ),
                         },
@@ -56797,8 +54768,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 118,
+                                    value: 1434,
                                 },
                             ),
                         },
@@ -56809,14 +54779,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 261,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1433,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56905,14 +54874,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 118,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1434,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56929,14 +54897,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 234,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1423,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -56952,8 +54919,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 262,
+                                    value: 1435,
                                 },
                             ),
                         },
@@ -56969,8 +54935,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 119,
+                                    value: 1436,
                                 },
                             ),
                         },
@@ -56981,14 +54946,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 262,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1435,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57077,14 +55041,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 119,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1436,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57101,14 +55064,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 235,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1424,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57124,8 +55086,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 120,
+                                    value: 1437,
                                 },
                             ),
                         },
@@ -57141,8 +55102,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 263,
+                                    value: 1438,
                                 },
                             ),
                         },
@@ -57158,8 +55118,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 255,
+                                    value: 1439,
                                 },
                             ),
                         },
@@ -57170,14 +55129,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 120,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1437,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57194,14 +55152,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 263,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1438,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57254,14 +55211,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 255,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1439,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57290,14 +55246,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 236,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1425,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57313,8 +55268,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 256,
+                                    value: 1440,
                                 },
                             ),
                         },
@@ -57330,8 +55284,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 257,
+                                    value: 1441,
                                 },
                             ),
                         },
@@ -57365,8 +55318,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 121,
+                                    value: 1442,
                                 },
                             ),
                         },
@@ -57377,14 +55329,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 256,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1440,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57401,14 +55352,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 257,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1441,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57437,14 +55387,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 121,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1442,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57461,14 +55410,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 237,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1426,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57484,8 +55432,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 122,
+                                    value: 1443,
                                 },
                             ),
                         },
@@ -57501,8 +55448,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 264,
+                                    value: 1444,
                                 },
                             ),
                         },
@@ -57518,8 +55464,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 258,
+                                    value: 1445,
                                 },
                             ),
                         },
@@ -57548,14 +55493,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 122,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1443,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57572,14 +55516,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 264,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1444,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57620,14 +55563,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 258,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1445,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57656,14 +55598,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 238,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1427,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57679,8 +55620,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 259,
+                                    value: 1446,
                                 },
                             ),
                         },
@@ -57696,8 +55636,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 123,
+                                    value: 1447,
                                 },
                             ),
                         },
@@ -57708,14 +55647,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 259,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1446,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57732,14 +55670,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 123,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1447,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57756,14 +55693,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 239,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1428,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57779,8 +55715,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 124,
+                                    value: 1448,
                                 },
                             ),
                         },
@@ -57796,8 +55731,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 260,
+                                    value: 1449,
                                 },
                             ),
                         },
@@ -57819,8 +55753,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 261,
+                                    value: 1450,
                                 },
                             ),
                         },
@@ -57848,8 +55781,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 262,
+                                    value: 1451,
                                 },
                             ),
                         },
@@ -57860,14 +55792,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 124,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1448,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57884,14 +55815,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 260,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1449,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57908,14 +55838,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 261,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1450,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -57962,14 +55891,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 262,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1451,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58028,14 +55956,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 240,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1429,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58051,8 +55978,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 125,
+                                    value: 1452,
                                 },
                             ),
                         },
@@ -58068,8 +55994,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 265,
+                                    value: 1453,
                                 },
                             ),
                         },
@@ -58085,8 +56010,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 263,
+                                    value: 1454,
                                 },
                             ),
                         },
@@ -58102,8 +56026,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 266,
+                                    value: 1455,
                                 },
                             ),
                         },
@@ -58119,8 +56042,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 264,
+                                    value: 1456,
                                 },
                             ),
                         },
@@ -58131,14 +56053,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 125,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1452,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58155,14 +56076,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 265,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1453,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58215,14 +56135,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 263,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1454,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58251,14 +56170,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 266,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1455,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58311,14 +56229,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 264,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1456,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58347,14 +56264,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 241,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1430,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58370,8 +56286,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 265,
+                                    value: 1457,
                                 },
                             ),
                         },
@@ -58394,14 +56309,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 265,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1457,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58418,14 +56332,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 242,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1431,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58441,8 +56354,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 266,
+                                    value: 1458,
                                 },
                             ),
                         },
@@ -58458,8 +56370,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 267,
+                                    value: 1459,
                                 },
                             ),
                         },
@@ -58493,8 +56404,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 126,
+                                    value: 1460,
                                 },
                             ),
                         },
@@ -58511,14 +56421,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 244,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1461,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58534,8 +56443,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 267,
+                                    value: 1475,
                                 },
                             ),
                         },
@@ -58551,8 +56459,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 268,
+                                    value: 1476,
                                 },
                             ),
                         },
@@ -58587,14 +56494,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 245,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1462,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58610,8 +56516,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 127,
+                                    value: 1477,
                                 },
                             ),
                         },
@@ -58627,8 +56532,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 268,
+                                    value: 1478,
                                 },
                             ),
                         },
@@ -58644,8 +56548,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 269,
+                                    value: 1479,
                                 },
                             ),
                         },
@@ -58674,14 +56577,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 246,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1463,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58697,8 +56599,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 270,
+                                    value: 1480,
                                 },
                             ),
                         },
@@ -58714,8 +56615,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 128,
+                                    value: 1481,
                                 },
                             ),
                         },
@@ -58726,14 +56626,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 247,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1464,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58749,8 +56648,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 269,
+                                    value: 1482,
                                 },
                             ),
                         },
@@ -58766,8 +56664,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 271,
+                                    value: 1483,
                                 },
                             ),
                         },
@@ -58790,14 +56687,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 248,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1465,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58813,8 +56709,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 129,
+                                    value: 1484,
                                 },
                             ),
                         },
@@ -58830,8 +56725,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 270,
+                                    value: 1485,
                                 },
                             ),
                         },
@@ -58847,8 +56741,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 272,
+                                    value: 1486,
                                 },
                             ),
                         },
@@ -58864,8 +56757,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 271,
+                                    value: 1487,
                                 },
                             ),
                         },
@@ -58881,8 +56773,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 273,
+                                    value: 1488,
                                 },
                             ),
                         },
@@ -58893,14 +56784,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 249,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1466,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -58916,8 +56806,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 130,
+                                    value: 1489,
                                 },
                             ),
                         },
@@ -58933,8 +56822,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 272,
+                                    value: 1490,
                                 },
                             ),
                         },
@@ -58950,8 +56838,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 274,
+                                    value: 1491,
                                 },
                             ),
                         },
@@ -58980,14 +56867,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 250,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1467,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59003,8 +56889,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 275,
+                                    value: 1492,
                                 },
                             ),
                         },
@@ -59020,8 +56905,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 131,
+                                    value: 1493,
                                 },
                             ),
                         },
@@ -59032,14 +56916,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 251,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1468,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59055,8 +56938,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 276,
+                                    value: 1494,
                                 },
                             ),
                         },
@@ -59078,8 +56960,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 277,
+                                    value: 1495,
                                 },
                             ),
                         },
@@ -59107,8 +56988,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 278,
+                                    value: 1496,
                                 },
                             ),
                         },
@@ -59131,14 +57011,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 252,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1469,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59154,8 +57033,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 279,
+                                    value: 1497,
                                 },
                             ),
                         },
@@ -59177,8 +57055,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 280,
+                                    value: 1498,
                                 },
                             ),
                         },
@@ -59207,14 +57084,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 253,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1470,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59230,8 +57106,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 273,
+                                    value: 1499,
                                 },
                             ),
                         },
@@ -59247,8 +57122,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 281,
+                                    value: 1500,
                                 },
                             ),
                         },
@@ -59271,14 +57145,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 254,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1471,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59294,8 +57167,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 132,
+                                    value: 1501,
                                 },
                             ),
                         },
@@ -59311,8 +57183,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 274,
+                                    value: 1502,
                                 },
                             ),
                         },
@@ -59328,8 +57199,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 282,
+                                    value: 1503,
                                 },
                             ),
                         },
@@ -59358,14 +57228,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 255,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1472,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59381,8 +57250,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 283,
+                                    value: 1504,
                                 },
                             ),
                         },
@@ -59405,14 +57273,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 256,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1473,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59428,8 +57295,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 284,
+                                    value: 1505,
                                 },
                             ),
                         },
@@ -59452,14 +57318,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 257,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1474,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59494,14 +57359,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 266,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1458,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59518,14 +57382,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 267,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1459,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59554,14 +57417,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 126,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1460,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59578,14 +57440,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 243,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1432,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59614,14 +57475,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 187,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 958,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59631,8 +57491,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 275,
+                                    value: 1506,
                                 },
                             ),
                         },
@@ -59649,14 +57508,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 275,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1506,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59745,14 +57603,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 258,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1507,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59781,14 +57638,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 188,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 959,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59798,8 +57654,7 @@
                             spaces_before: 4,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 276,
+                                    value: 1508,
                                 },
                             ),
                         },
@@ -59816,14 +57671,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 276,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1508,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59912,14 +57766,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 259,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1509,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -59935,8 +57788,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 277,
+                                    value: 1527,
                                 },
                             ),
                         },
@@ -59952,8 +57804,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 133,
+                                    value: 1528,
                                 },
                             ),
                         },
@@ -59964,14 +57815,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 277,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1527,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60060,14 +57910,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 133,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1528,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60084,14 +57933,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 260,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1510,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60107,8 +57955,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 278,
+                                    value: 1529,
                                 },
                             ),
                         },
@@ -60124,8 +57971,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 134,
+                                    value: 1530,
                                 },
                             ),
                         },
@@ -60136,14 +57982,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 278,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1529,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60232,14 +58077,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 134,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1530,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60256,14 +58100,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 261,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1511,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60279,8 +58122,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 279,
+                                    value: 1531,
                                 },
                             ),
                         },
@@ -60296,8 +58138,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 135,
+                                    value: 1532,
                                 },
                             ),
                         },
@@ -60308,14 +58149,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 279,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1531,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60404,14 +58244,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 135,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1532,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60428,14 +58267,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 262,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1512,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60451,8 +58289,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 280,
+                                    value: 1533,
                                 },
                             ),
                         },
@@ -60468,8 +58305,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 136,
+                                    value: 1534,
                                 },
                             ),
                         },
@@ -60480,14 +58316,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 280,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1533,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60558,14 +58393,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 136,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1534,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60582,14 +58416,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 263,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1513,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60605,8 +58438,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 281,
+                                    value: 1535,
                                 },
                             ),
                         },
@@ -60622,8 +58454,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 137,
+                                    value: 1536,
                                 },
                             ),
                         },
@@ -60634,14 +58465,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 281,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1535,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60730,14 +58560,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 137,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1536,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60754,14 +58583,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 264,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1514,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60777,8 +58605,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 282,
+                                    value: 1537,
                                 },
                             ),
                         },
@@ -60794,8 +58621,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 138,
+                                    value: 1538,
                                 },
                             ),
                         },
@@ -60806,14 +58632,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 282,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1537,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60902,14 +58727,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 138,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1538,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60926,14 +58750,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 265,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1515,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -60949,8 +58772,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 139,
+                                    value: 1539,
                                 },
                             ),
                         },
@@ -60966,8 +58788,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 283,
+                                    value: 1540,
                                 },
                             ),
                         },
@@ -60983,8 +58804,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 285,
+                                    value: 1541,
                                 },
                             ),
                         },
@@ -61007,14 +58827,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 139,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1539,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61031,14 +58850,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 283,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1540,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61103,14 +58921,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 285,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1541,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61151,14 +58968,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 266,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1516,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61174,8 +58990,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 140,
+                                    value: 1542,
                                 },
                             ),
                         },
@@ -61191,8 +59006,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 284,
+                                    value: 1543,
                                 },
                             ),
                         },
@@ -61208,8 +59022,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 286,
+                                    value: 1544,
                                 },
                             ),
                         },
@@ -61220,14 +59033,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 140,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1542,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61244,14 +59056,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 284,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1543,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61304,14 +59115,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 286,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1544,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61340,14 +59150,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 267,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1517,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61363,8 +59172,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 287,
+                                    value: 1545,
                                 },
                             ),
                         },
@@ -61380,8 +59188,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 288,
+                                    value: 1546,
                                 },
                             ),
                         },
@@ -61415,8 +59222,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 141,
+                                    value: 1547,
                                 },
                             ),
                         },
@@ -61427,14 +59233,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 287,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1545,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61451,14 +59256,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 288,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1546,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61487,14 +59291,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 141,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1547,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61511,14 +59314,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 268,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1518,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61534,8 +59336,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 142,
+                                    value: 1548,
                                 },
                             ),
                         },
@@ -61551,8 +59352,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 285,
+                                    value: 1549,
                                 },
                             ),
                         },
@@ -61568,8 +59368,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 289,
+                                    value: 1550,
                                 },
                             ),
                         },
@@ -61598,14 +59397,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 142,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1548,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61622,14 +59420,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 285,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1549,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61670,14 +59467,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 289,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1550,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61706,14 +59502,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 269,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1519,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61729,8 +59524,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 143,
+                                    value: 1551,
                                 },
                             ),
                         },
@@ -61746,8 +59540,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 286,
+                                    value: 1552,
                                 },
                             ),
                         },
@@ -61763,8 +59556,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 290,
+                                    value: 1553,
                                 },
                             ),
                         },
@@ -61793,14 +59585,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 143,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1551,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61817,14 +59608,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 286,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1552,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61865,14 +59655,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 290,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1553,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61901,14 +59690,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 270,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1520,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -61924,8 +59712,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 144,
+                                    value: 1554,
                                 },
                             ),
                         },
@@ -61941,8 +59728,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 287,
+                                    value: 1555,
                                 },
                             ),
                         },
@@ -61958,8 +59744,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 291,
+                                    value: 1556,
                                 },
                             ),
                         },
@@ -61988,14 +59773,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 144,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1554,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62012,14 +59796,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 287,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1555,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62060,14 +59843,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 291,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1556,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62096,14 +59878,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 271,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1521,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62119,8 +59900,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 292,
+                                    value: 1557,
                                 },
                             ),
                         },
@@ -62143,14 +59923,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 292,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1557,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62167,14 +59946,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 272,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1522,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62190,8 +59968,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 145,
+                                    value: 1558,
                                 },
                             ),
                         },
@@ -62207,8 +59984,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 288,
+                                    value: 1559,
                                 },
                             ),
                         },
@@ -62224,8 +60000,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 293,
+                                    value: 1560,
                                 },
                             ),
                         },
@@ -62241,8 +60016,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: ValItem,
-                                    value: 289,
+                                    value: 1561,
                                 },
                             ),
                         },
@@ -62258,8 +60032,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 294,
+                                    value: 1562,
                                 },
                             ),
                         },
@@ -62270,14 +60043,13 @@
         },
     ),
     (
-        EagerPatternExpr(
-            EagerPatternExprTrace(
-                Id {
-                    value: 145,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1558,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerPatternExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62294,14 +60066,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 288,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1559,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62354,14 +60125,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 293,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1560,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62390,14 +60160,13 @@
         },
     ),
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 289,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1561,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62450,14 +60219,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 294,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1562,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62486,14 +60254,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 273,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1523,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62509,8 +60276,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 295,
+                                    value: 1563,
                                 },
                             ),
                         },
@@ -62533,14 +60299,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 295,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1563,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62557,14 +60322,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 274,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1524,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62580,8 +60344,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 296,
+                                    value: 1564,
                                 },
                             ),
                         },
@@ -62610,14 +60373,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 277,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1565,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62633,8 +60395,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 297,
+                                    value: 1579,
                                 },
                             ),
                         },
@@ -62650,8 +60411,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 146,
+                                    value: 1580,
                                 },
                             ),
                         },
@@ -62662,14 +60422,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 278,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1566,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62685,8 +60444,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 298,
+                                    value: 1581,
                                 },
                             ),
                         },
@@ -62702,8 +60460,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 147,
+                                    value: 1582,
                                 },
                             ),
                         },
@@ -62714,14 +60471,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 279,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1567,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62737,8 +60493,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 148,
+                                    value: 1583,
                                 },
                             ),
                         },
@@ -62754,8 +60509,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 299,
+                                    value: 1584,
                                 },
                             ),
                         },
@@ -62777,8 +60531,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 300,
+                                    value: 1585,
                                 },
                             ),
                         },
@@ -62789,14 +60542,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 280,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1568,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62812,8 +60564,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 301,
+                                    value: 1586,
                                 },
                             ),
                         },
@@ -62842,14 +60593,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 281,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1569,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62865,8 +60615,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 149,
+                                    value: 1587,
                                 },
                             ),
                         },
@@ -62882,8 +60631,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 302,
+                                    value: 1588,
                                 },
                             ),
                         },
@@ -62905,8 +60653,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 303,
+                                    value: 1589,
                                 },
                             ),
                         },
@@ -62934,8 +60681,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 304,
+                                    value: 1590,
                                 },
                             ),
                         },
@@ -62964,14 +60710,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 282,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1570,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -62987,8 +60732,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 150,
+                                    value: 1591,
                                 },
                             ),
                         },
@@ -63004,8 +60748,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 305,
+                                    value: 1592,
                                 },
                             ),
                         },
@@ -63027,8 +60770,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 306,
+                                    value: 1593,
                                 },
                             ),
                         },
@@ -63056,8 +60798,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 307,
+                                    value: 1594,
                                 },
                             ),
                         },
@@ -63068,14 +60809,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 283,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1571,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63091,8 +60831,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 151,
+                                    value: 1595,
                                 },
                             ),
                         },
@@ -63108,8 +60847,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 308,
+                                    value: 1596,
                                 },
                             ),
                         },
@@ -63131,8 +60869,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 309,
+                                    value: 1597,
                                 },
                             ),
                         },
@@ -63160,8 +60897,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 310,
+                                    value: 1598,
                                 },
                             ),
                         },
@@ -63172,14 +60908,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 284,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1572,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63195,8 +60930,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 152,
+                                    value: 1599,
                                 },
                             ),
                         },
@@ -63212,8 +60946,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 311,
+                                    value: 1600,
                                 },
                             ),
                         },
@@ -63235,8 +60968,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 312,
+                                    value: 1601,
                                 },
                             ),
                         },
@@ -63252,8 +60984,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 313,
+                                    value: 1602,
                                 },
                             ),
                         },
@@ -63276,14 +61007,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 285,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1573,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63299,8 +61029,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 153,
+                                    value: 1603,
                                 },
                             ),
                         },
@@ -63316,8 +61045,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 314,
+                                    value: 1604,
                                 },
                             ),
                         },
@@ -63339,8 +61067,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 315,
+                                    value: 1605,
                                 },
                             ),
                         },
@@ -63356,8 +61083,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 316,
+                                    value: 1606,
                                 },
                             ),
                         },
@@ -63380,14 +61106,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 286,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1574,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63403,8 +61128,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 154,
+                                    value: 1607,
                                 },
                             ),
                         },
@@ -63426,8 +61150,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 317,
+                                    value: 1608,
                                 },
                             ),
                         },
@@ -63443,8 +61166,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 318,
+                                    value: 1609,
                                 },
                             ),
                         },
@@ -63473,14 +61195,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 287,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1575,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63496,8 +61217,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 155,
+                                    value: 1610,
                                 },
                             ),
                         },
@@ -63513,8 +61233,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 319,
+                                    value: 1611,
                                 },
                             ),
                         },
@@ -63536,8 +61255,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 320,
+                                    value: 1612,
                                 },
                             ),
                         },
@@ -63553,8 +61271,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 321,
+                                    value: 1613,
                                 },
                             ),
                         },
@@ -63577,14 +61294,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 288,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1576,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63600,8 +61316,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 156,
+                                    value: 1614,
                                 },
                             ),
                         },
@@ -63617,8 +61332,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 322,
+                                    value: 1615,
                                 },
                             ),
                         },
@@ -63640,8 +61354,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 323,
+                                    value: 1616,
                                 },
                             ),
                         },
@@ -63657,8 +61370,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 324,
+                                    value: 1617,
                                 },
                             ),
                         },
@@ -63681,14 +61393,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 289,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1577,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63704,8 +61415,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 157,
+                                    value: 1618,
                                 },
                             ),
                         },
@@ -63727,8 +61437,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 325,
+                                    value: 1619,
                                 },
                             ),
                         },
@@ -63744,8 +61453,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 326,
+                                    value: 1620,
                                 },
                             ),
                         },
@@ -63774,14 +61482,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 290,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1578,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63797,8 +61504,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 327,
+                                    value: 1621,
                                 },
                             ),
                         },
@@ -63814,8 +61520,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 328,
+                                    value: 1622,
                                 },
                             ),
                         },
@@ -63826,14 +61531,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 296,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1564,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63850,14 +61554,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 275,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1525,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63873,8 +61576,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 329,
+                                    value: 1623,
                                 },
                             ),
                         },
@@ -63903,14 +61605,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 291,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1624,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63926,8 +61627,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 330,
+                                    value: 1629,
                                 },
                             ),
                         },
@@ -63943,8 +61643,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 158,
+                                    value: 1630,
                                 },
                             ),
                         },
@@ -63955,14 +61654,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 292,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1625,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -63978,8 +61676,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 331,
+                                    value: 1631,
                                 },
                             ),
                         },
@@ -63995,8 +61692,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 159,
+                                    value: 1632,
                                 },
                             ),
                         },
@@ -64007,14 +61703,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 293,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1626,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -64030,8 +61725,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 332,
+                                    value: 1633,
                                 },
                             ),
                         },
@@ -64047,8 +61741,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 160,
+                                    value: 1634,
                                 },
                             ),
                         },
@@ -64059,14 +61752,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 294,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1627,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -64082,8 +61774,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 333,
+                                    value: 1635,
                                 },
                             ),
                         },
@@ -64105,8 +61796,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 334,
+                                    value: 1636,
                                 },
                             ),
                         },
@@ -64122,8 +61812,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 335,
+                                    value: 1637,
                                 },
                             ),
                         },
@@ -64158,14 +61847,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 295,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1628,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -64181,8 +61869,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerPatternExpr,
-                                    value: 161,
+                                    value: 1638,
                                 },
                             ),
                         },
@@ -64198,8 +61885,7 @@
                             spaces_before: 1,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 336,
+                                    value: 1639,
                                 },
                             ),
                         },
@@ -64221,8 +61907,7 @@
                             spaces_before: 0,
                             associated_trace_id: Some(
                                 TraceId {
-                                    kind: EagerExpr,
-                                    value: 337,
+                                    value: 1640,
                                 },
                             ),
                         },
@@ -64233,14 +61918,13 @@
         },
     ),
     (
-        EagerExpr(
-            EagerExprTrace(
-                Id {
-                    value: 329,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1623,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerExpr,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -64257,14 +61941,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 276,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1526,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -64293,14 +61976,13 @@
         },
     ),
     (
-        EagerStmt(
-            EagerStmtTrace(
-                Id {
-                    value: 189,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 960,
+            },
         ),
         TraceViewData {
+            trace_kind: EagerStmt,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [

@@ -34,7 +34,7 @@ use husky_entity_path::MajorItemPath;
 use husky_entity_path::{FugitivePath, ItemPath};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_sema_expr::SemaExprIdx;
-use husky_trace_protocol::{protocol::IsTrace, view::TraceViewData};
+use husky_trace_protocol::{id::TraceKind, protocol::IsTrace, view::TraceViewData};
 use husky_val_repr::expansion::ValReprExpansion;
 use husky_val_repr::repr::ValRepr;
 use vec_like::VecPairMap;
@@ -70,11 +70,23 @@ impl TracePath {
 }
 
 #[salsa::tracked(db = TraceDb, jar = TraceJar, constructor = new_inner)]
-pub struct Trace {
+pub struct TraceId {
     #[id]
     path: TracePath,
     #[return_ref]
     data: TraceData,
+}
+
+impl From<::husky_trace_protocol::id::TraceId> for TraceId {
+    fn from(id: ::husky_trace_protocol::id::TraceId) -> Self {
+        unsafe { std::mem::transmute(id) }
+    }
+}
+
+impl Into<::husky_trace_protocol::id::TraceId> for TraceId {
+    fn into(self) -> ::husky_trace_protocol::id::TraceId {
+        unsafe { std::mem::transmute(self) }
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -94,11 +106,11 @@ pub enum TraceData {
     EagerStmt(EagerStmtTraceData),
 }
 
-impl Trace {
+impl TraceId {
     fn from_item_path(item_path: ItemPath, db: &::salsa::Db) -> Option<Self> {
         match item_path {
-            ItemPath::Submodule(submodule_path) => {
-                Trace::new_submodule(submodule_path, db).map(Into::into)
+            ItemPath::Submodule(_, submodule_path) => {
+                TraceId::new_submodule(submodule_path, db).map(Into::into)
             }
             ItemPath::MajorItem(major_item_path) => Self::from_major_item_path(major_item_path, db),
             _ => None,
@@ -114,13 +126,13 @@ impl Trace {
 
     fn from_fugitive_path(fugitive_path: FugitivePath, db: &::salsa::Db) -> Option<Self> {
         match fugitive_path.fugitive_kind(db) {
-            FugitiveKind::Val => Some(Trace::from_val_item_path(fugitive_path, db).into()),
+            FugitiveKind::Val => Some(TraceId::from_val_item_path(fugitive_path, db).into()),
             FugitiveKind::FunctionFn | FugitiveKind::FunctionGn | FugitiveKind::AliasType => None,
         }
     }
 
     #[cfg(test)]
-    fn associated_traces(self, db: &::salsa::Db) -> Vec<Trace> {
+    fn associated_traces(self, db: &::salsa::Db) -> Vec<TraceId> {
         self.view_data(db)
             .associated_trace_ids()
             .into_iter()
@@ -133,33 +145,27 @@ impl Trace {
     }
 
     pub fn view_data(self, db: &::salsa::Db) -> TraceViewData {
-        TraceViewData::new(trace_view_lines(db, self).data(), self.have_subtraces(db))
+        TraceViewData::new(
+            self.trace_kind(db),
+            trace_view_lines(db, self).data(),
+            self.have_subtraces(db),
+        )
+    }
+
+    pub fn trace_kind(self, db: &::salsa::Db) -> TraceKind {
+        self.data(db).trace_kind()
     }
 
     pub fn have_subtraces(self, db: &::salsa::Db) -> bool {
         trace_have_subtraces(db, self)
     }
 
-    pub fn subtraces(self, db: &::salsa::Db) -> &[Trace] {
+    pub fn subtraces(self, db: &::salsa::Db) -> &[TraceId] {
         trace_subtraces(db, self)
     }
 
     pub fn val_repr(self, db: &::salsa::Db) -> Option<ValRepr> {
-        todo!()
-        // match self {
-        //     Trace::ValItem(slf) => Some(slf.val_repr(db)),
-        //     Trace::LazyExpr(slf) => slf.val_repr(db),
-        //     Trace::LazyPatternExpr(slf) => slf.val_repr(db),
-        //     Trace::LazyCall(slf) => Some(slf.val_repr(db)),
-        //     Trace::LazyCallInput(slf) => Some(slf.val_repr(db)),
-        //     Trace::LazyStmt(slf) => slf.val_repr(db),
-        //     Trace::Submodule(_) => None,
-        //     Trace::EagerExpr(_) => None,
-        //     Trace::EagerPatternExpr(_) => None,
-        //     Trace::EagerCallInput(_) => None,
-        //     Trace::EagerCall(_) => None,
-        //     Trace::EagerStmt(_) => None,
-        // }
+        self.data(db).val_repr(self, db)
     }
 
     pub fn val_repr_expansion(self, db: &::salsa::Db) -> ValReprExpansion {
@@ -167,87 +173,123 @@ impl Trace {
     }
 }
 
-#[salsa::tracked(jar = TraceJar)]
-fn trace_view_lines(db: &::salsa::Db, trace_id: Trace) -> TraceViewLines {
-    trace_id.data(db).view_tokens(db)
+impl TraceData {
+    pub fn trace_kind(&self) -> TraceKind {
+        match self {
+            TraceData::Submodule(_) => TraceKind::Submodule,
+            TraceData::ValItem(_) => TraceKind::ValItem,
+            TraceData::LazyCallInput(_) => TraceKind::LazyCallInput,
+            TraceData::LazyCall(_) => TraceKind::LazyCall,
+            TraceData::LazyExpr(_) => TraceKind::LazyExpr,
+            TraceData::LazyPatternExpr(_) => TraceKind::LazyPatternExpr,
+            TraceData::LazyStmt(_) => TraceKind::LazyStmt,
+            TraceData::EagerCallInput(_) => TraceKind::EagerCallInput,
+            TraceData::EagerCall(_) => TraceKind::EagerCall,
+            TraceData::EagerExpr(_) => TraceKind::EagerExpr,
+            TraceData::EagerPatternExpr(_) => TraceKind::EagerPatternExpr,
+            TraceData::EagerStmt(_) => TraceKind::EagerStmt,
+        }
+    }
+
+    pub fn val_repr(&self, trace_id: TraceId, db: &::salsa::Db) -> Option<ValRepr> {
+        match self {
+            TraceData::ValItem(slf) => Some(slf.val_repr(db)),
+            TraceData::LazyExpr(slf) => slf.val_repr(trace_id, db),
+            TraceData::LazyPatternExpr(slf) => slf.val_repr(trace_id, db),
+            TraceData::LazyCall(slf) => Some(slf.val_repr(db)),
+            TraceData::LazyCallInput(slf) => Some(slf.val_repr(db)),
+            TraceData::LazyStmt(slf) => slf.val_repr(trace_id, db),
+            TraceData::Submodule(_) => None,
+            TraceData::EagerExpr(_) => None,
+            TraceData::EagerPatternExpr(_) => None,
+            TraceData::EagerCallInput(_) => None,
+            TraceData::EagerCall(_) => None,
+            TraceData::EagerStmt(_) => None,
+        }
+    }
 }
 
 #[salsa::tracked(jar = TraceJar)]
-fn trace_have_subtraces(db: &::salsa::Db, trace_id: Trace) -> bool {
+fn trace_view_lines(db: &::salsa::Db, trace_id: TraceId) -> TraceViewLines {
+    trace_id.data(db).view_lines(trace_id, db)
+}
+
+#[salsa::tracked(jar = TraceJar)]
+fn trace_have_subtraces(db: &::salsa::Db, trace_id: TraceId) -> bool {
     trace_id.data(db).have_subtraces(db)
 }
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-fn trace_subtraces(db: &::salsa::Db, trace_id: Trace) -> Vec<Trace> {
-    trace_id.data(db).subtraces(db)
+fn trace_subtraces(db: &::salsa::Db, trace_id: TraceId) -> Vec<TraceId> {
+    trace_id.data(db).subtraces(trace_id, db)
 }
 
 #[salsa::tracked(jar = TraceJar)]
-fn trace_val_repr_expansion(db: &::salsa::Db, trace_id: Trace) -> ValReprExpansion {
+fn trace_val_repr_expansion(db: &::salsa::Db, trace_id: TraceId) -> ValReprExpansion {
     trace_id.data(db).val_repr_expansion(trace_id, db)
 }
 
 impl TraceData {
-    fn view_tokens(&self, db: &::salsa::Db) -> TraceViewLines {
+    fn view_lines(&self, trace_id: TraceId, db: &::salsa::Db) -> TraceViewLines {
         match self {
-            TraceData::Submodule(slf) => slf.view_tokens(db),
-            TraceData::ValItem(_) => todo!(),
-            TraceData::LazyCallInput(_) => todo!(),
-            TraceData::LazyCall(_) => todo!(),
-            TraceData::LazyExpr(_) => todo!(),
-            TraceData::LazyPatternExpr(_) => todo!(),
-            TraceData::LazyStmt(_) => todo!(),
-            TraceData::EagerCallInput(_) => todo!(),
-            TraceData::EagerCall(_) => todo!(),
-            TraceData::EagerExpr(_) => todo!(),
-            TraceData::EagerPatternExpr(_) => todo!(),
-            TraceData::EagerStmt(_) => todo!(),
+            TraceData::Submodule(slf) => slf.view_lines(db),
+            TraceData::ValItem(slf) => slf.view_lines(db),
+            TraceData::LazyCallInput(slf) => slf.view_lines(db),
+            TraceData::LazyCall(slf) => slf.view_lines(db),
+            TraceData::LazyExpr(slf) => slf.view_lines(db),
+            TraceData::LazyPatternExpr(slf) => slf.view_lines(db),
+            TraceData::LazyStmt(slf) => slf.view_lines(trace_id, db),
+            TraceData::EagerCallInput(slf) => slf.view_lines(db),
+            TraceData::EagerCall(slf) => slf.view_lines(db),
+            TraceData::EagerExpr(slf) => slf.view_lines(db),
+            TraceData::EagerPatternExpr(slf) => slf.view_lines(db),
+            TraceData::EagerStmt(slf) => slf.view_lines(trace_id, db),
         }
     }
 
     fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         match self {
-            TraceData::Submodule(_) => todo!(),
-            TraceData::ValItem(_) => todo!(),
-            TraceData::LazyCallInput(_) => todo!(),
-            TraceData::LazyCall(_) => todo!(),
-            TraceData::LazyExpr(_) => todo!(),
-            TraceData::LazyPatternExpr(_) => todo!(),
-            TraceData::LazyStmt(_) => todo!(),
-            TraceData::EagerCallInput(_) => todo!(),
-            TraceData::EagerCall(_) => todo!(),
-            TraceData::EagerExpr(_) => todo!(),
-            TraceData::EagerPatternExpr(_) => todo!(),
-            TraceData::EagerStmt(_) => todo!(),
+            TraceData::Submodule(slf) => slf.have_subtraces(),
+            TraceData::ValItem(slf) => slf.have_subtraces(db),
+            TraceData::LazyCallInput(slf) => slf.have_subtraces(),
+            TraceData::LazyCall(slf) => slf.have_subtraces(db),
+            TraceData::LazyExpr(slf) => slf.have_subtraces(db),
+            TraceData::LazyPatternExpr(slf) => slf.have_subtraces(),
+            TraceData::LazyStmt(slf) => slf.have_subtraces(db),
+            TraceData::EagerCallInput(slf) => slf.have_subtraces(db),
+            TraceData::EagerCall(slf) => slf.have_subtraces(db),
+            TraceData::EagerExpr(slf) => slf.have_subtraces(db),
+            TraceData::EagerPatternExpr(slf) => slf.have_subtraces(db),
+            TraceData::EagerStmt(slf) => slf.have_subtraces(db),
         }
     }
 
-    fn subtraces(&self, db: &::salsa::Db) -> Vec<Trace> {
+    fn subtraces(&self, trace_id: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
         match self {
-            TraceData::Submodule(_) => todo!(),
-            TraceData::ValItem(_) => todo!(),
-            TraceData::LazyCallInput(_) => todo!(),
-            TraceData::LazyCall(_) => todo!(),
-            TraceData::LazyExpr(_) => todo!(),
-            TraceData::LazyPatternExpr(_) => todo!(),
-            TraceData::LazyStmt(_) => todo!(),
-            TraceData::EagerCallInput(_) => todo!(),
-            TraceData::EagerCall(_) => todo!(),
-            TraceData::EagerExpr(_) => todo!(),
-            TraceData::EagerPatternExpr(_) => todo!(),
-            TraceData::EagerStmt(_) => todo!(),
+            TraceData::Submodule(slf) => slf.subtraces(db),
+            TraceData::ValItem(slf) => slf.subtraces(trace_id, db),
+            TraceData::LazyCallInput(slf) => slf.subtraces(),
+            TraceData::LazyCall(slf) => slf.subtraces(trace_id, db),
+            TraceData::LazyExpr(slf) => slf.subtraces(trace_id, db),
+            TraceData::LazyPatternExpr(slf) => slf.subtraces(),
+            TraceData::LazyStmt(slf) => slf.subtraces(trace_id, db),
+            TraceData::EagerCallInput(slf) => slf.subtraces(),
+            TraceData::EagerCall(slf) => slf.subtraces(trace_id, db),
+            TraceData::EagerExpr(slf) => slf.subtraces(trace_id, db),
+            TraceData::EagerPatternExpr(slf) => slf.subtraces(),
+            TraceData::EagerStmt(slf) => slf.subtraces(trace_id, db),
         }
     }
 
-    fn val_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> ValReprExpansion {
+    fn val_repr_expansion(&self, trace_id: TraceId, db: &::salsa::Db) -> ValReprExpansion {
         match self {
             TraceData::Submodule(_) => unreachable!(),
             TraceData::ValItem(slf) => slf.val_repr_expansion(trace_id, db),
             TraceData::LazyCallInput(_) => todo!(),
             TraceData::LazyCall(_) => todo!(),
-            TraceData::LazyExpr(_) => todo!(),
-            TraceData::LazyPatternExpr(_) => todo!(),
-            TraceData::LazyStmt(_) => todo!(),
+            TraceData::LazyExpr(slf) => slf.val_repr_expansion(db),
+            TraceData::LazyPatternExpr(slf) => slf.val_repr_expansion(db),
+            TraceData::LazyStmt(slf) => slf.val_repr_expansion(db),
             TraceData::EagerCallInput(_) => todo!(),
             TraceData::EagerCall(_) => todo!(),
             TraceData::EagerExpr(_) => todo!(),
@@ -257,100 +299,14 @@ impl TraceData {
     }
 }
 
-impl From<husky_trace_protocol::id::TraceId> for Trace {
-    fn from(trace_id: husky_trace_protocol::id::TraceId) -> Self {
-        todo!()
-        // match trace_id.kind() {
-        //     TraceKind::Submodule => {
-        //         Trace::Submodule(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        //     TraceKind::ValItem => Trace::ValItem(unsafe { std::mem::transmute(trace_id.value()) }),
-        //     TraceKind::LazyCallInput => {
-        //         Trace::LazyCallInput(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        //     TraceKind::LazyCall => {
-        //         Trace::LazyCall(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        //     TraceKind::LazyExpr => {
-        //         Trace::LazyExpr(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        //     TraceKind::LazyPatternExpr => {
-        //         Trace::LazyPatternExpr(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        //     TraceKind::LazyStmt => {
-        //         Trace::LazyStmt(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        //     TraceKind::EagerCallInput => {
-        //         Trace::EagerCallInput(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        //     TraceKind::EagerCall => {
-        //         Trace::EagerCall(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        //     TraceKind::EagerExpr => {
-        //         Trace::EagerExpr(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        //     TraceKind::EagerPatternExpr => {
-        //         Trace::EagerPatternExpr(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        //     TraceKind::EagerStmt => {
-        //         Trace::EagerStmt(unsafe { std::mem::transmute(trace_id.value()) })
-        //     }
-        // }
-    }
-}
-
-impl Into<husky_trace_protocol::id::TraceId> for Trace {
-    fn into(self) -> husky_trace_protocol::id::TraceId {
-        todo!()
-        // match self {
-        //     Trace::Submodule(trace) => {
-        //         TraceId::new(TraceKind::Submodule, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::ValItem(trace) => {
-        //         TraceId::new(TraceKind::ValItem, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::LazyCall(trace) => {
-        //         TraceId::new(TraceKind::LazyCall, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::LazyCallInput(trace) => {
-        //         TraceId::new(TraceKind::LazyCallInput, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::LazyExpr(trace) => {
-        //         TraceId::new(TraceKind::LazyExpr, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::LazyPatternExpr(trace) => {
-        //         TraceId::new(TraceKind::LazyPatternExpr, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::LazyStmt(trace) => {
-        //         TraceId::new(TraceKind::LazyStmt, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::EagerCall(trace) => {
-        //         TraceId::new(TraceKind::EagerCall, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::EagerCallInput(trace) => {
-        //         TraceId::new(TraceKind::EagerCallInput, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::EagerExpr(trace) => {
-        //         TraceId::new(TraceKind::EagerExpr, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::EagerPatternExpr(trace) => {
-        //         TraceId::new(TraceKind::EagerPatternExpr, trace.as_id().as_nonzero_u32())
-        //     }
-        //     Trace::EagerStmt(trace) => {
-        //         TraceId::new(TraceKind::EagerStmt, trace.as_id().as_nonzero_u32())
-        //     }
-        // }
-    }
-}
-
-impl IsTrace for Trace {}
+impl IsTrace for TraceId {}
 
 #[salsa::tracked(jar = TraceJar, return_ref)]
-pub(crate) fn root_traces(db: &::salsa::Db, crate_path: CratePath) -> Vec<Trace> {
+pub(crate) fn root_traces(db: &::salsa::Db, crate_path: CratePath) -> Vec<TraceId> {
     let root_module_path = crate_path.root_module_path(db);
     module_item_paths(db, root_module_path)
         .iter()
-        .filter_map(|&item_path| Trace::from_item_path(item_path, db))
+        .filter_map(|&item_path| TraceId::from_item_path(item_path, db))
         .collect()
 }
 
@@ -369,9 +325,9 @@ fn find_traces<R>(
     crate_path: CratePath,
     max_depth: u8,
     db: &::salsa::Db,
-    f: impl Fn(Trace) -> R,
-) -> Vec<(Trace, R)> {
-    let mut traces: Vec<(Trace, R)> = vec![];
+    f: impl Fn(TraceId) -> R,
+) -> Vec<(TraceId, R)> {
+    let mut traces: Vec<(TraceId, R)> = vec![];
     for &root_trace in root_traces(db, crate_path) {
         find_traces_aux(root_trace, max_depth - 1, &f, &mut traces, db)
     }
@@ -380,10 +336,10 @@ fn find_traces<R>(
 
 #[cfg(test)]
 fn find_traces_aux<R>(
-    trace: Trace,
+    trace: TraceId,
     max_depth: u8,
-    f: &impl Fn(Trace) -> R,
-    traces: &mut Vec<(Trace, R)>,
+    f: &impl Fn(TraceId) -> R,
+    traces: &mut Vec<(TraceId, R)>,
     db: &::salsa::Db,
 ) {
     traces.push((trace, f(trace)));

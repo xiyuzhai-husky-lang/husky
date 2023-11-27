@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceViewData {
+    pub trace_kind: TraceKind,
     lines_data: Vec<TraceViewLineData>,
     have_subtraces: bool,
 }
@@ -31,8 +32,9 @@ pub struct TraceViewLineData {
 }
 
 impl TraceViewData {
-    pub fn new(lines: Vec<TraceViewLineData>, have_subtraces: bool) -> Self {
+    pub fn new(trace_kind: TraceKind, lines: Vec<TraceViewLineData>, have_subtraces: bool) -> Self {
         Self {
+            trace_kind,
             lines_data: lines,
             have_subtraces,
         }

@@ -29,7 +29,7 @@ pub enum EagerExprEssence {
 #[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
 pub struct EagerExprTraceData {
     path: TracePath,
-    biological_parent: Trace,
+    biological_parent: TraceId,
     sema_expr_idx: SemaExprIdx,
     hir_eager_expr_idx: Option<HirEagerExprIdx>,
     sema_expr_region: SemaExprRegion,
@@ -37,10 +37,10 @@ pub struct EagerExprTraceData {
     hir_eager_expr_source_map: HirEagerExprSourceMap,
 }
 
-impl Trace {
+impl TraceId {
     pub(crate) fn new_eager_expr(
         biological_parent_path: TracePath,
-        biological_parent: Trace,
+        biological_parent: TraceId,
         sema_expr_idx: SemaExprIdx,
         hir_eager_expr_idx: Option<HirEagerExprIdx>,
         sema_expr_region: SemaExprRegion,
@@ -58,7 +58,7 @@ impl Trace {
             },
             db,
         );
-        Trace::new(
+        TraceId::new(
             path,
             EagerExprTraceData {
                 path,
@@ -109,7 +109,7 @@ impl EagerExprTraceData {
         }
     }
 
-    fn eager_expr_trace_subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
+    pub(super) fn subtraces(&self, trace: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
         use husky_syn_defn::HasSynDefn;
         let biological_parent_path = self.path;
         let biological_parent = trace;
@@ -146,7 +146,7 @@ impl EagerExprTraceData {
                     db,
                 );
                 subtraces.push(
-                    Trace::new_eager_call(
+                    TraceId::new_eager_call(
                         biological_parent_path,
                         biological_parent,
                         path.into(),
@@ -182,7 +182,7 @@ impl EagerExprTraceData {
                     db,
                 );
                 subtraces.push(
-                    Trace::new_eager_call(
+                    TraceId::new_eager_call(
                         biological_parent_path,
                         biological_parent,
                         path.into(),
@@ -217,7 +217,7 @@ impl EagerExprTraceData {
                     db,
                 );
                 subtraces.push(
-                    Trace::new_eager_call(
+                    TraceId::new_eager_call(
                         biological_parent_path,
                         biological_parent,
                         path.into(),
@@ -238,13 +238,13 @@ impl EagerExprTraceData {
 
 fn fn_call_eager_expr_trace_input_traces(
     trace_path: TracePath,
-    trace: Trace,
+    trace: TraceId,
     ritchie_parameter_argument_matches: &[SemaRitchieParameterArgumentMatch],
     caller_sema_expr_region: SemaExprRegion,
     caller_hir_eager_expr_source_map_data: &HirEagerExprSourceMapData,
     callee_syn_expr_region: SynExprRegion,
     db: &::salsa::Db,
-) -> Vec<Trace> {
+) -> Vec<TraceId> {
     ritchie_parameter_argument_matches
         .iter()
         .map(|m| {
@@ -264,7 +264,7 @@ fn fn_call_eager_expr_trace_input_traces(
                     todo!()
                 }
             };
-            Trace::new_eager_call_input(
+            TraceId::new_eager_call_input(
                 trace_path,
                 trace,
                 data,

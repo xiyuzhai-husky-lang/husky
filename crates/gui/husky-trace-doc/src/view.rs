@@ -63,7 +63,7 @@ where
         if entry.expanded()
             && let Some(subtrace_ids) = entry.subtrace_ids()
         {
-            self.render_subtraces(ui, trace_id, subtrace_ids);
+            self.render_subtraces(ui, entry.view_data().trace_kind, subtrace_ids);
         }
         for &associated_trace_id in entry.associated_trace_ids() {
             self.render_associated_trace(associated_trace_id, ui)
@@ -116,8 +116,13 @@ where
         }
     }
 
-    fn render_subtraces(&mut self, ui: &mut egui::Ui, trace_id: TraceId, subtrace_ids: &[TraceId]) {
-        match trace_id.kind() {
+    fn render_subtraces(
+        &mut self,
+        ui: &mut egui::Ui,
+        trace_kind: TraceKind,
+        subtrace_ids: &[TraceId],
+    ) {
+        match trace_kind {
             TraceKind::Submodule => {
                 egui::Frame::none()
                     .inner_margin(Margin {

@@ -1,7 +1,6 @@
 use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 use husky_entity_path::AssociatedItemPath;
-use husky_entity_syn_tree::helpers::tokra_region::HasDeclTokraRegion;
 use husky_entity_syn_tree::HasSynNodePath;
 use husky_syn_defn::HasSynDefn;
 
@@ -14,14 +13,14 @@ pub struct LazyCallTracePathData {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct LazyCallTraceData {
     path: TracePath,
-    biological_parent: Trace,
+    biological_parent: TraceId,
     callee_path: ItemPath,
 }
 
-impl Trace {
+impl TraceId {
     pub(crate) fn new_lazy_call(
         biological_parent_path: TracePath,
-        biological_parent: Trace,
+        biological_parent: TraceId,
         callee_path: ItemPath,
         db: &::salsa::Db,
     ) -> Self {
@@ -32,7 +31,7 @@ impl Trace {
             },
             db,
         );
-        Trace::new(
+        TraceId::new(
             path,
             LazyCallTraceData {
                 path,
@@ -46,7 +45,7 @@ impl Trace {
 }
 
 impl LazyCallTraceData {
-    fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let callee_path = self.callee_path;
         TraceViewLines::new(
             callee_path.module_path(db),
@@ -58,7 +57,7 @@ impl LazyCallTraceData {
         )
     }
 
-    fn have_subtraces(&self, db: &::salsa::Db) -> bool {
+    pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         self.callee_path
             .syn_defn(db)
             .expect("no syn error at trace time")
@@ -66,8 +65,8 @@ impl LazyCallTraceData {
             .is_some()
     }
 
-    fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
-        Trace::new_lazy_stmts_from_syn_body_with_syn_expr_region(
+    pub(super) fn subtraces(&self, trace: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
+        TraceId::new_lazy_stmts_from_syn_body_with_syn_expr_region(
             self.path,
             trace,
             self.callee_path
@@ -78,7 +77,7 @@ impl LazyCallTraceData {
         )
     }
 
-    pub fn val_repr(self, db: &::salsa::Db) -> ValRepr {
+    pub fn val_repr(&self, db: &::salsa::Db) -> ValRepr {
         self.biological_parent.val_repr(db).expect("should be some")
     }
 }

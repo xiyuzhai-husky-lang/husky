@@ -12,7 +12,7 @@ pub struct EagerCallInputTracePathData {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct EagerCallInputTraceData {
     path: TracePath,
-    biological_parent: Trace,
+    biological_parent: TraceId,
     input_sketch: EagerCallInputSketch,
     caller_sema_expr_region: SemaExprRegion,
     callee_syn_expr_region: SynExprRegion,
@@ -29,10 +29,10 @@ pub enum EagerCallInputSketch {
     Keyed,
 }
 
-impl Trace {
+impl TraceId {
     pub(crate) fn new_eager_call_input(
         biological_parent_path: TracePath,
-        biological_parent: Trace,
+        biological_parent: TraceId,
         input_sketch: EagerCallInputSketch,
         caller_sema_expr_region: SemaExprRegion,
         callee_syn_expr_region: SynExprRegion,
@@ -44,7 +44,7 @@ impl Trace {
             },
             db,
         );
-        Trace::new(
+        TraceId::new(
             path,
             EagerCallInputTraceData {
                 path,
@@ -57,26 +57,10 @@ impl Trace {
             db,
         )
     }
-
-    // pub fn view_lines<'a>(self, db: &'a ::salsa::Db) -> &'a TraceViewLines {
-    //     eager_call_input_trace_view_lines(db, self)
-    // }
-
-    // pub fn have_subtraces(self, _db: &::salsa::Db,) -> bool {
-    //     false
-    // }
-
-    // pub fn subtraces(self, _db: &::salsa::Db,) -> &[Trace] {
-    //     &[]
-    // }
-
-    // pub fn val_repr(self, _db: &::salsa::Db,) -> ValRepr {
-    //     todo!()
-    // }
 }
 
 impl EagerCallInputTraceData {
-    fn eager_call_input_trace_view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let caller_sema_expr_region = self.caller_sema_expr_region;
         let caller_sema_expr_range_region = sema_expr_range_region(db, caller_sema_expr_region);
         let caller_sema_expr_range_region_data = caller_sema_expr_range_region.data(db);
@@ -100,5 +84,17 @@ impl EagerCallInputTraceData {
             EagerCallInputSketch::Variadic => todo!(),
             EagerCallInputSketch::Keyed => todo!(),
         }
+    }
+
+    pub fn have_subtraces(&self, _db: &::salsa::Db) -> bool {
+        false
+    }
+
+    pub fn subtraces(&self) -> Vec<TraceId> {
+        vec![]
+    }
+
+    pub fn val_repr(&self, _db: &::salsa::Db) -> ValRepr {
+        todo!()
     }
 }

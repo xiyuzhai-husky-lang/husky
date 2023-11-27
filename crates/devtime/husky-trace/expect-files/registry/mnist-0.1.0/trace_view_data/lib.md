@@ -1,13 +1,12 @@
 [
     (
-        ValItem(
-            ValItemTrace(
-                Id {
-                    value: 290,
-                },
-            ),
+        TraceId(
+            Id {
+                value: 1641,
+            },
         ),
         TraceViewData {
+            trace_kind: ValItem,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
