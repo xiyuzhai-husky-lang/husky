@@ -15,6 +15,7 @@ husky-trace = { path = "../../devtime/husky-trace" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # hir
+husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "../../hir/husky-hir-expr" }
@@ -33,7 +34,6 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-task = { path = "../../kernel/husky-task" }
-husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 # lex
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
