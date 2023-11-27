@@ -1,25 +1,17 @@
 use super::*;
 use syn::{Fields, Type};
 
-pub(super) fn struct_debug_with_db_impl(
-    db_trai: &Path,
-    jar_ty: &Type,
-    item: &ItemStruct,
-) -> proc_macro2::TokenStream {
+pub(super) fn struct_debug_with_db_impl(item: &ItemStruct) -> proc_macro2::TokenStream {
     let ident = &item.ident;
 
     let body = match item.fields {
-        syn::Fields::Named(_) => {
-            struct_regular_fields_debug_with_db(db_trai, jar_ty, &item.ident, &item.fields)
-        }
-        syn::Fields::Unnamed(_) => {
-            struct_tuple_fields_debug_with_db(db_trai, jar_ty, &item.ident, &item.fields)
-        }
+        syn::Fields::Named(_) => struct_regular_fields_debug_with_db(&item.ident, &item.fields),
+        syn::Fields::Unnamed(_) => struct_tuple_fields_debug_with_db(&item.ident, &item.fields),
         syn::Fields::Unit => todo!("unit struct debug with db"),
     };
     // todo: refactor this as a function
     let generics = &item.generics;
-    let generics_without_db = generics_without_db(generics, db_trai);
+    let generics_without_db = generics_without_db(generics);
     let self_ty = if item.generics.params.is_empty() {
         quote! { #ident }
     } else {
@@ -53,12 +45,7 @@ pub(super) fn struct_debug_with_db_impl(
     }
 }
 
-fn struct_regular_fields_debug_with_db(
-    db_trai: &Path,
-    jar_ty: &Type,
-    ident: &Ident,
-    fields: &Fields,
-) -> proc_macro2::TokenStream {
+fn struct_regular_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_macro2::TokenStream {
     let ident_string = ident.to_string();
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
     let fields = fields
@@ -96,12 +83,7 @@ fn struct_regular_fields_debug_with_db(
     }
 }
 
-fn struct_tuple_fields_debug_with_db(
-    db_trai: &Path,
-    jar_ty: &Type,
-    ident: &Ident,
-    fields: &Fields,
-) -> proc_macro2::TokenStream {
+fn struct_tuple_fields_debug_with_db(ident: &Ident, fields: &Fields) -> proc_macro2::TokenStream {
     let ident_string = ident.to_string();
     // `::salsa::debug::helper::SalsaDebug` will use `DebugWithDb` or fallbak to `Debug`
     let fields = fields

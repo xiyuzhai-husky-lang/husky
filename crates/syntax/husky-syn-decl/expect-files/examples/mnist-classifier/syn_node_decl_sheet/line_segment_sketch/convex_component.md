@@ -548,7 +548,7 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodeDataPath::TraitForTypeItem(
+                AssociatedItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitForTypeItemPath {
@@ -569,7 +569,7 @@ SynNodeDeclSheet {
                 ),
             ),
             ItemSynNodeDecl::AssociatedItem(
-                AssociatedItemSynNodeDataDecl::TraitForTypeItem(
+                AssociatedItemSynNodeDecl::TraitForTypeItem(
                     TraitForTypeItemSynNodeDecl::MethodFn(
                         TraitForTypeMethodFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath {
@@ -763,7 +763,7 @@ SynNodeDeclSheet {
                                     ),
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::AssociatedItem(
-                                            AssociatedItemSynNodeDataPath::TraitForTypeItem(
+                                            AssociatedItemSynNodePath::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath {

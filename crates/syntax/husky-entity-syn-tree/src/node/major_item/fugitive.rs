@@ -41,7 +41,7 @@ impl FugitiveSynNodePath {
         self.maybe_ambiguous_path(db).path.fugitive_kind(db)
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> MajorItemSynNodeData {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> MajorItemSynNode {
         fugitive_syn_node(db, self)
     }
 }
@@ -49,14 +49,14 @@ impl FugitiveSynNodePath {
 pub(crate) fn fugitive_syn_node(
     db: &::salsa::Db,
     syn_node_path: FugitiveSynNodePath,
-) -> MajorItemSynNodeData {
+) -> MajorItemSynNode {
     let module_path: ModulePath = todo!(); //syn_node_path.module_path(db);
     let item_sheet = module_path.item_tree_sheet(db);
     match item_sheet
         .major_item_node(syn_node_path.into())
         .expect("should be some")
     {
-        ItemSynNodeData::MajorItem(node) => node,
+        ItemSynNode::MajorItem(node) => node,
         _ => unreachable!(),
     }
 }

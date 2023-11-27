@@ -15,7 +15,7 @@ use husky_entity_kind::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
-pub enum AssociatedItemSynNodeDataPath {
+pub enum AssociatedItemSynNodePath {
     TypeItem(TypeItemSynNodePath),
     TraitItem(TraitItemSynNodePath),
     TraitForTypeItem(TraitForTypeItemSynNodePath),
@@ -24,35 +24,35 @@ pub enum AssociatedItemSynNodeDataPath {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 #[enum_class::from_variants]
-pub enum AssociatedItemSynNodeDataPathData {
+pub enum AssociatedItemSynNodePathData {
     TypeItem(TypeItemSynNodePathData),
     TraitItem(TraitItemSynNodePathData),
     TraitForTypeItem(TraitForTypeItemSynNodePathData),
 }
 
-impl AssociatedItemSynNodeDataPath {
+impl AssociatedItemSynNodePath {
     pub fn path(self, db: &::salsa::Db) -> Option<AssociatedItemPath> {
         match self {
-            AssociatedItemSynNodeDataPath::TypeItem(syn_node_path) => {
+            AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
                 syn_node_path.path(db).map(Into::into)
             }
-            AssociatedItemSynNodeDataPath::TraitItem(syn_node_path) => {
+            AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
                 syn_node_path.path(db).map(Into::into)
             }
-            AssociatedItemSynNodeDataPath::TraitForTypeItem(syn_node_path) => {
+            AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
                 syn_node_path.path(db).map(Into::into)
             }
-            AssociatedItemSynNodeDataPath::IllFormedItem(_syn_node_path) => None,
+            AssociatedItemSynNodePath::IllFormedItem(_syn_node_path) => None,
         }
     }
 
-    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> AssociatedItemSynNodeData {
+    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> AssociatedItemSynNode {
         todo!()
     }
 }
 
 impl HasSynNodePath for AssociatedItemPath {
-    type SynNodePath = AssociatedItemSynNodeDataPath;
+    type SynNodePath = AssociatedItemSynNodePath;
 
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
         match self {
@@ -65,26 +65,26 @@ impl HasSynNodePath for AssociatedItemPath {
 
 #[derive(Debug, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
-pub(crate) enum AssociatedItemSynNodeData {
-    TypeItem(TypeItemSynNodeData),
-    TraitItem(TraitItemSynNodeData),
-    TraitForTypeItem(TraitForTypeItemSynNodeData),
+pub(crate) enum AssociatedItemSynNode {
+    TypeItem(TypeItemSynNode),
+    TraitItem(TraitItemSynNode),
+    TraitForTypeItem(TraitForTypeItemSynNode),
 }
 
-impl AssociatedItemSynNodeData {
-    pub fn syn_node_path(self, db: &::salsa::Db) -> AssociatedItemSynNodeDataPath {
+impl AssociatedItemSynNode {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> AssociatedItemSynNodePath {
         match self {
-            AssociatedItemSynNodeData::TypeItem(node) => node.syn_node_path(db).into(),
-            AssociatedItemSynNodeData::TraitItem(_) => todo!(),
-            AssociatedItemSynNodeData::TraitForTypeItem(_) => todo!(),
+            AssociatedItemSynNode::TypeItem(node) => node.syn_node_path(db).into(),
+            AssociatedItemSynNode::TraitItem(_) => todo!(),
+            AssociatedItemSynNode::TraitForTypeItem(_) => todo!(),
         }
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
-            AssociatedItemSynNodeData::TypeItem(node) => node.module_path(db),
-            AssociatedItemSynNodeData::TraitItem(_) => todo!(),
-            AssociatedItemSynNodeData::TraitForTypeItem(_) => todo!(),
+            AssociatedItemSynNode::TypeItem(node) => node.module_path(db),
+            AssociatedItemSynNode::TraitItem(_) => todo!(),
+            AssociatedItemSynNode::TraitForTypeItem(_) => todo!(),
         }
     }
 }

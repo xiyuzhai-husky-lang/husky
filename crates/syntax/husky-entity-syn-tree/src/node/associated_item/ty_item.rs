@@ -24,7 +24,7 @@ impl TypeItemSynNodePath {
     ) -> Self {
         Self(ItemSynNodePathId::new(
             db,
-            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodeDataPathData::TypeItem(
+            ItemSynNodePathData::AssociatedItem(AssociatedItemSynNodePathData::TypeItem(
                 TypeItemSynNodePathData {
                     maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
                 },
@@ -47,7 +47,7 @@ impl TypeItemSynNodePath {
         self.maybe_ambiguous_path(db).path.item_kind(db)
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeItemSynNodeData {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeItemSynNode {
         ty_item_syn_node(db, self)
     }
 }
@@ -77,7 +77,7 @@ impl HasSynNodePath for TypeItemPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub(crate) struct TypeItemSynNodeData {
+pub(crate) struct TypeItemSynNode {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     pub ast_idx: AstIdx,
@@ -87,7 +87,7 @@ pub(crate) struct TypeItemSynNodeData {
     pub is_generic: bool,
 }
 
-impl TypeItemSynNodeData {
+impl TypeItemSynNode {
     #[inline(always)]
     fn new(
         db: &::salsa::Db,
@@ -123,7 +123,7 @@ impl TypeItemSynNodeData {
 pub(crate) fn ty_item_syn_node(
     db: &::salsa::Db,
     syn_node_path: TypeItemSynNodePath,
-) -> TypeItemSynNodeData {
+) -> TypeItemSynNode {
     syn_node_path
         .impl_block(db)
         .associated_items(db)
@@ -133,10 +133,11 @@ pub(crate) fn ty_item_syn_node(
         .expect("some")
 }
 
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn ty_impl_block_items(
     db: &::salsa::Db,
     syn_node_path: TypeImplBlockSynNodePath,
-) -> Vec<(Ident, TypeItemSynNodePath, TypeItemSynNodeData)> {
+) -> Vec<(Ident, TypeItemSynNodePath, TypeItemSynNode)> {
     let impl_block_syn_node = syn_node_path.syn_node(db);
     let module_path = todo!(); // syn_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path);
@@ -161,7 +162,7 @@ pub(crate) fn ty_impl_block_items(
                         } => *ty_item_kind,
                         _ => unreachable!(),
                     };
-                    let (syn_node_path, node) = TypeItemSynNodeData::new(
+                    let (syn_node_path, node) = TypeItemSynNode::new(
                         db,
                         &mut registry,
                         syn_node_path,

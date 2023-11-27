@@ -4,7 +4,7 @@ EntitySynTreeSheet {
         entries: [
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
-                    SubmoduleSynNodeData {
+                    SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -42,7 +42,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
-                    SubmoduleSynNodeData {
+                    SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -80,7 +80,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
-                    SubmoduleSynNodeData {
+                    SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -118,7 +118,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
-                    SubmoduleSynNodeData {
+                    SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -156,7 +156,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -194,7 +194,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -232,7 +232,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -280,7 +280,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -328,7 +328,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -376,7 +376,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -424,7 +424,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
-                    MajorItemSynNodeData {
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -872,7 +872,7 @@ EntitySynTreeSheet {
                     },
                 },
             ),
-            ImplBlockSynNodeData::TraitForTypeImplBlock(
+            ImplBlockSynNode::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNode {
                     syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlock {
@@ -887,7 +887,7 @@ EntitySynTreeSheet {
                         },
                     },
                     ast_idx: 171,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             81,
                         ),
@@ -923,7 +923,7 @@ EntitySynTreeSheet {
                     ),
                 },
             ),
-            ImplBlockSynNodeData::TypeImplBlock(
+            ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath(
@@ -935,7 +935,7 @@ EntitySynTreeSheet {
                         ),
                     },
                     ast_idx: 172,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             110,
                         ),
@@ -964,7 +964,7 @@ EntitySynTreeSheet {
                     },
                 },
             ),
-            ImplBlockSynNodeData::TraitForTypeImplBlock(
+            ImplBlockSynNode::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNode {
                     syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlock {
@@ -979,7 +979,7 @@ EntitySynTreeSheet {
                         },
                     },
                     ast_idx: 174,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             185,
                         ),
@@ -1015,7 +1015,7 @@ EntitySynTreeSheet {
                     ),
                 },
             ),
-            ImplBlockSynNodeData::TypeImplBlock(
+            ImplBlockSynNode::TypeImplBlock(
                 TypeImplBlockSynNode {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath(
@@ -1027,7 +1027,7 @@ EntitySynTreeSheet {
                         ),
                     },
                     ast_idx: 175,
-                    impl_regional_token: ImplToken {
+                    impl_token: ImplToken {
                         token_idx: TokenIdx(
                             204,
                         ),

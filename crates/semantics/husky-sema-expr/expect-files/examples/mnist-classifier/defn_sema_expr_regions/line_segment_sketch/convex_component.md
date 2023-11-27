@@ -3,7 +3,7 @@
         [salsa id]: 231,
         path: SynNodeRegionPath::Defn(
             ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodeDataPath::TraitForTypeItem(
+                AssociatedItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitForTypeItemPath {
@@ -155,7 +155,7 @@
                             ),
                             path: SynNodeRegionPath::Decl(
                                 ItemSynNodePath::AssociatedItem(
-                                    AssociatedItemSynNodeDataPath::TraitForTypeItem(
+                                    AssociatedItemSynNodePath::TraitForTypeItem(
                                         TraitForTypeItemSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitForTypeItemPath {
@@ -253,7 +253,7 @@
                 ),
                 path: SynNodeRegionPath::Defn(
                     ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodeDataPath::TraitForTypeItem(
+                        AssociatedItemSynNodePath::TraitForTypeItem(
                             TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {

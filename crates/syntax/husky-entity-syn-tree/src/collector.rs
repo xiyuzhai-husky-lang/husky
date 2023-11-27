@@ -77,7 +77,7 @@ impl<'a> EntityTreeCollector<'a> {
 
     fn collect_impl_node_block_tables(
         &mut self,
-    ) -> Vec<VecPairMap<ImplBlockSynNodePath, ImplBlockSynNodeData>> {
+    ) -> Vec<VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>> {
         let mut impl_blocks_for_each_module = vec![];
         for presheet in self.presheets.iter() {
             let module_path = presheet.module_path();
@@ -89,7 +89,7 @@ impl<'a> EntityTreeCollector<'a> {
                         Ast::ImplBlock {
                             token_group_idx,
                             items,
-                        } => Some(ImplBlockSynNodeData::parse_from_token_group(
+                        } => Some(ImplBlockSynNode::parse_from_token_group(
                             self.db,
                             self.crate_root_path,
                             &mut self.impl_registry,

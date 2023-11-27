@@ -6,7 +6,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -44,7 +44,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -82,7 +82,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -120,7 +120,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -158,7 +158,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -196,7 +196,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -234,7 +234,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -272,7 +272,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2020,7 +2020,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2058,7 +2058,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2096,7 +2096,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2144,7 +2144,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2182,7 +2182,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2230,7 +2230,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4175,7 +4175,7 @@ EntitySynTreeCrateBundle {
                             },
                         },
                     ),
-                    ImplBlockSynNodeData::TraitForTypeImplBlock(
+                    ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlock {
@@ -4190,7 +4190,7 @@ EntitySynTreeCrateBundle {
                                 },
                             },
                             ast_idx: 125,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     78,
                                 ),
@@ -4226,7 +4226,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -4238,7 +4238,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 126,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     97,
                                 ),
@@ -4381,7 +4381,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4419,7 +4419,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4467,7 +4467,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4515,7 +4515,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4563,7 +4563,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4611,7 +4611,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4659,7 +4659,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4707,7 +4707,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4755,7 +4755,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4797,7 +4797,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4845,7 +4845,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7210,7 +7210,7 @@ EntitySynTreeCrateBundle {
                             },
                         },
                     ),
-                    ImplBlockSynNodeData::TraitForTypeImplBlock(
+                    ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlock {
@@ -7225,7 +7225,7 @@ EntitySynTreeCrateBundle {
                                 },
                             },
                             ast_idx: 196,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     39,
                                 ),
@@ -7261,7 +7261,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -7273,7 +7273,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 197,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     61,
                                 ),
@@ -7562,7 +7562,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7600,7 +7600,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7638,7 +7638,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7676,7 +7676,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7714,7 +7714,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7752,7 +7752,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7861,7 +7861,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -7873,7 +7873,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 81,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     23,
                                 ),
@@ -7899,7 +7899,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -7911,7 +7911,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 84,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     178,
                                 ),
@@ -7937,7 +7937,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -7949,7 +7949,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 86,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     507,
                                 ),
@@ -7975,7 +7975,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -7987,7 +7987,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 88,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     617,
                                 ),
@@ -8013,7 +8013,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -8025,7 +8025,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 90,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     751,
                                 ),
@@ -8054,7 +8054,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -8092,7 +8092,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -8130,7 +8130,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -8168,7 +8168,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -8206,7 +8206,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8244,7 +8244,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8282,7 +8282,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8330,7 +8330,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8378,7 +8378,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8426,7 +8426,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8474,7 +8474,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8922,7 +8922,7 @@ EntitySynTreeCrateBundle {
                             },
                         },
                     ),
-                    ImplBlockSynNodeData::TraitForTypeImplBlock(
+                    ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlock {
@@ -8937,7 +8937,7 @@ EntitySynTreeCrateBundle {
                                 },
                             },
                             ast_idx: 171,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     81,
                                 ),
@@ -8973,7 +8973,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -8985,7 +8985,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 172,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     110,
                                 ),
@@ -9014,7 +9014,7 @@ EntitySynTreeCrateBundle {
                             },
                         },
                     ),
-                    ImplBlockSynNodeData::TraitForTypeImplBlock(
+                    ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlock {
@@ -9029,7 +9029,7 @@ EntitySynTreeCrateBundle {
                                 },
                             },
                             ast_idx: 174,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     185,
                                 ),
@@ -9065,7 +9065,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -9077,7 +9077,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 175,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     204,
                                 ),
@@ -9427,7 +9427,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -9465,7 +9465,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -12210,7 +12210,7 @@ EntitySynTreeCrateBundle {
                             },
                         },
                     ),
-                    ImplBlockSynNodeData::TraitForTypeImplBlock(
+                    ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlock {
@@ -12225,7 +12225,7 @@ EntitySynTreeCrateBundle {
                                 },
                             },
                             ast_idx: 76,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     49,
                                 ),
@@ -12261,7 +12261,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -12273,7 +12273,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 77,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     68,
                                 ),
@@ -12703,7 +12703,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -13466,7 +13466,7 @@ EntitySynTreeCrateBundle {
                             },
                         },
                     ),
-                    ImplBlockSynNodeData::TraitForTypeImplBlock(
+                    ImplBlockSynNode::TraitForTypeImplBlock(
                         TraitForTypeImplBlockSynNode {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlock {
@@ -13481,7 +13481,7 @@ EntitySynTreeCrateBundle {
                                 },
                             },
                             ast_idx: 5,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     22,
                                 ),
@@ -13595,7 +13595,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -14778,7 +14778,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -14992,7 +14992,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -15004,7 +15004,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 18,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     20,
                                 ),
@@ -15108,7 +15108,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -15146,7 +15146,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -16998,7 +16998,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     ),
-                    ImplBlockSynNodeData::TypeImplBlock(
+                    ImplBlockSynNode::TypeImplBlock(
                         TypeImplBlockSynNode {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath(
@@ -17010,7 +17010,7 @@ EntitySynTreeCrateBundle {
                                 ),
                             },
                             ast_idx: 24,
-                            impl_regional_token: ImplToken {
+                            impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     25,
                                 ),
@@ -17080,7 +17080,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -17118,7 +17118,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -17156,7 +17156,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -17194,7 +17194,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -17232,7 +17232,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -17270,7 +17270,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -17308,7 +17308,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -17346,7 +17346,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -17384,7 +17384,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -17422,7 +17422,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::Submodule(
-                            SubmoduleSynNodeData {
+                            SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: SubmodulePath(
@@ -20319,7 +20319,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -20367,7 +20367,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -20415,7 +20415,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -23509,7 +23509,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -23557,7 +23557,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -23601,7 +23601,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -23649,7 +23649,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -23697,7 +23697,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -26811,7 +26811,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -26859,7 +26859,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -26907,7 +26907,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -26955,7 +26955,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -27003,7 +27003,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -30119,7 +30119,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -30167,7 +30167,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -30215,7 +30215,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -30263,7 +30263,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -30311,7 +30311,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -33427,7 +33427,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -33475,7 +33475,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -33523,7 +33523,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -33571,7 +33571,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -33619,7 +33619,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -33667,7 +33667,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -33715,7 +33715,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -36853,7 +36853,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -39925,7 +39925,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -39973,7 +39973,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -40021,7 +40021,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -40069,7 +40069,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -40117,7 +40117,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -40165,7 +40165,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -43292,7 +43292,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -43340,7 +43340,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -43388,7 +43388,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -46482,7 +46482,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -46530,7 +46530,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -46578,7 +46578,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -46626,7 +46626,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -46674,7 +46674,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -49790,7 +49790,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -49838,7 +49838,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -49886,7 +49886,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -49934,7 +49934,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -49982,7 +49982,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -53098,7 +53098,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -53142,7 +53142,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -53186,7 +53186,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -53230,7 +53230,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -53274,7 +53274,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -53318,7 +53318,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -53362,7 +53362,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {

@@ -26,7 +26,7 @@ impl AttrSynNodePath {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> AttrSynNodeData {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> AttrSynNode {
         attr_node(db, self)
     }
 
@@ -48,7 +48,7 @@ impl HasSynNodePath for AttrItemPath {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-fn attr_node(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrSynNodeData {
+fn attr_node(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrSynNode {
     syn_node_path
         .parent_syn_node_path(db)
         .attr_syn_nodes(db)
@@ -58,12 +58,12 @@ fn attr_node(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrSynNodeDat
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub(crate) struct AttrSynNodeData {
+pub(crate) struct AttrSynNode {
     syn_node_path: AttrSynNodePath,
     ast_idx: AstIdx,
 }
 
-impl AttrSynNodeData {
+impl AttrSynNode {
     pub(crate) fn new(
         parent_path: ItemSynNodePath,
         path: AttrItemPath,
@@ -74,7 +74,7 @@ impl AttrSynNodeData {
         let syn_node_path = AttrSynNodePath::new(parent_path, path, registry, db);
         (
             syn_node_path,
-            AttrSynNodeData::new_inner(db, syn_node_path, ast_idx),
+            AttrSynNode::new_inner(db, syn_node_path, ast_idx),
         )
     }
 }

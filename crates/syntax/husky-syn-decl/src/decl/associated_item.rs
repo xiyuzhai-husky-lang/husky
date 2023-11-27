@@ -15,26 +15,26 @@ use husky_entity_kind::TraitItemKind;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = SynDeclDb, jar = SynDeclJar)]
 #[enum_class::from_variants]
-pub enum AssociatedItemSynNodeDataDecl {
+pub enum AssociatedItemSynNodeDecl {
     TypeItem(TypeItemSynNodeDecl),
     TraitItem(TraitItemSynNodeDecl),
     TraitForTypeItem(TraitForTypeItemSynNodeDecl),
     IllFormedItem(IllFormedItemSynNodeDecl),
 }
 
-impl AssociatedItemSynNodeDataDecl {
-    pub fn syn_node_path(self, db: &::salsa::Db) -> AssociatedItemSynNodeDataPath {
+impl AssociatedItemSynNodeDecl {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> AssociatedItemSynNodePath {
         match self {
-            AssociatedItemSynNodeDataDecl::TypeItem(syn_node_decl) => {
+            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
                 syn_node_decl.syn_node_path(db).into()
             }
-            AssociatedItemSynNodeDataDecl::TraitItem(syn_node_decl) => {
+            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => {
                 syn_node_decl.syn_node_path(db).into()
             }
-            AssociatedItemSynNodeDataDecl::TraitForTypeItem(syn_node_decl) => {
+            AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => {
                 syn_node_decl.syn_node_path(db).into()
             }
-            AssociatedItemSynNodeDataDecl::IllFormedItem(syn_node_decl) => {
+            AssociatedItemSynNodeDecl::IllFormedItem(syn_node_decl) => {
                 syn_node_decl.syn_node_path(db).into()
             }
         }
@@ -42,53 +42,49 @@ impl AssociatedItemSynNodeDataDecl {
 
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
-            AssociatedItemSynNodeDataDecl::TypeItem(syn_node_decl) => {
+            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
                 syn_node_decl.template_parameters(db)
             }
-            AssociatedItemSynNodeDataDecl::TraitItem(syn_node_decl) => {
+            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => {
                 syn_node_decl.template_parameters(db)
             }
-            AssociatedItemSynNodeDataDecl::TraitForTypeItem(_) => todo!(),
-            AssociatedItemSynNodeDataDecl::IllFormedItem(_) => todo!(),
+            AssociatedItemSynNodeDecl::TraitForTypeItem(_) => todo!(),
+            AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
         }
     }
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            AssociatedItemSynNodeDataDecl::TypeItem(syn_node_decl) => {
+            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => {
                 syn_node_decl.syn_expr_region(db)
             }
-            AssociatedItemSynNodeDataDecl::TraitItem(syn_node_decl) => {
+            AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => {
                 syn_node_decl.syn_expr_region(db)
             }
-            AssociatedItemSynNodeDataDecl::TraitForTypeItem(syn_node_decl) => {
-                syn_node_decl.syn_expr_region(db)
-            }
-            AssociatedItemSynNodeDataDecl::IllFormedItem(_) => todo!(),
+            AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
         }
     }
 
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
-            AssociatedItemSynNodeDataDecl::TypeItem(syn_node_decl) => syn_node_decl.errors(db),
-            AssociatedItemSynNodeDataDecl::TraitItem(syn_node_decl) => syn_node_decl.errors(db),
-            AssociatedItemSynNodeDataDecl::TraitForTypeItem(syn_node_decl) => {
-                syn_node_decl.errors(db)
-            }
-            AssociatedItemSynNodeDataDecl::IllFormedItem(_) => todo!(),
+            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.errors(db),
+            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.errors(db),
+            AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => syn_node_decl.errors(db),
+            AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
         }
     }
 }
 
-impl HasSynNodeDecl for AssociatedItemSynNodeDataPath {
-    type NodeDecl = AssociatedItemSynNodeDataDecl;
+impl HasSynNodeDecl for AssociatedItemSynNodePath {
+    type NodeDecl = AssociatedItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a ::salsa::Db) -> Self::NodeDecl {
         match self {
-            AssociatedItemSynNodeDataPath::TypeItem(path) => path.syn_node_decl(db).into(),
-            AssociatedItemSynNodeDataPath::TraitItem(path) => path.syn_node_decl(db).into(),
-            AssociatedItemSynNodeDataPath::TraitForTypeItem(path) => path.syn_node_decl(db).into(),
-            AssociatedItemSynNodeDataPath::IllFormedItem(path) => path.syn_node_decl(db).into(),
+            AssociatedItemSynNodePath::TypeItem(path) => path.syn_node_decl(db).into(),
+            AssociatedItemSynNodePath::TraitItem(path) => path.syn_node_decl(db).into(),
+            AssociatedItemSynNodePath::TraitForTypeItem(path) => path.syn_node_decl(db).into(),
+            AssociatedItemSynNodePath::IllFormedItem(path) => path.syn_node_decl(db).into(),
         }
     }
 }

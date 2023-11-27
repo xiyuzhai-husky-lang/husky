@@ -25,7 +25,7 @@ impl TypeVariantSynNodePath {
         )
     }
 
-    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeVariantSynNodeData {
+    pub(crate) fn syn_node(self, db: &::salsa::Db) -> TypeVariantSynNode {
         ty_variant_syn_node(db, self)
     }
 
@@ -48,7 +48,7 @@ impl TypeSynNodePath {
     fn ty_variant_syn_nodes<'a>(
         self,
         db: &'a ::salsa::Db,
-    ) -> &'a [(Ident, TypeVariantSynNodePath, TypeVariantSynNodeData)] {
+    ) -> &'a [(Ident, TypeVariantSynNodePath, TypeVariantSynNode)] {
         ty_variant_syn_nodes(db, self)
     }
 }
@@ -66,14 +66,14 @@ impl HasSynNodePath for TypeVariantPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub(crate) struct TypeVariantSynNodeData {
+pub(crate) struct TypeVariantSynNode {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
 }
 
-impl TypeVariantSynNodeData {
+impl TypeVariantSynNode {
     fn new(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
@@ -95,7 +95,7 @@ impl TypeVariantSynNodeData {
 pub(crate) fn ty_variant_syn_nodes(
     db: &::salsa::Db,
     ty_node_path: TypeSynNodePath,
-) -> Vec<(Ident, TypeVariantSynNodePath, TypeVariantSynNodeData)> {
+) -> Vec<(Ident, TypeVariantSynNodePath, TypeVariantSynNode)> {
     let module_path: ModulePath = ty_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path);
     match ty_node_path.ty_kind(db) {
@@ -122,7 +122,7 @@ pub(crate) fn ty_variant_syn_nodes(
                 ..
             } => {
                 let ident = ident_token.ident();
-                let (syn_node_path, node) = TypeVariantSynNodeData::new(
+                let (syn_node_path, node) = TypeVariantSynNode::new(
                     db,
                     &mut registry,
                     ty_node_path,
@@ -140,7 +140,7 @@ pub(crate) fn ty_variant_syn_nodes(
 pub(crate) fn ty_variant_syn_node(
     db: &::salsa::Db,
     syn_node_path: TypeVariantSynNodePath,
-) -> TypeVariantSynNodeData {
+) -> TypeVariantSynNode {
     syn_node_path
         .parent_ty_node_path(db)
         .ty_variant_syn_nodes(db)

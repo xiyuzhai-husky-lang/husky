@@ -133,12 +133,9 @@ fn item_syn_defn_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
 ) -> Option<()> {
-    let syn_node_data = id.syn_node_data(db);
-    let builder = SynDefnTokraRegionBuilder::new(
-        syn_node_data.module_path(db),
-        syn_node_data.ast_idx(db),
-        db,
-    )?;
+    let syn_node = id.syn_node(db);
+    let builder =
+        SynDefnTokraRegionBuilder::new(syn_node.module_path(db), syn_node.ast_idx(db), db)?;
     Some(builder.build())
 }
 

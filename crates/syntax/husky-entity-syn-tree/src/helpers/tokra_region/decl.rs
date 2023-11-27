@@ -164,8 +164,8 @@ fn item_syn_node_decl_tokra_region(
     id: ItemSynNodePathId,
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     build_decl_tokra_region(
-        id.syn_node_data(db).module_path(db),
-        id.syn_node_data(db).ast_idx(db),
+        id.syn_node(db).module_path(db),
+        id.syn_node(db).ast_idx(db),
         db,
     )
 }

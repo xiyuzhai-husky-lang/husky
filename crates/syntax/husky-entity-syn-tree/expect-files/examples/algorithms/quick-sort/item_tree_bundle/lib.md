@@ -6,7 +6,7 @@ EntitySynTreeCrateBundle {
                 entries: [
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -50,7 +50,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -98,7 +98,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -146,7 +146,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -194,7 +194,7 @@ EntitySynTreeCrateBundle {
                     },
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
-                            MajorItemSynNodeData {
+                            MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {

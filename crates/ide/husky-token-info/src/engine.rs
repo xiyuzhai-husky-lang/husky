@@ -217,15 +217,15 @@ impl<'a> TokenInfoEngine<'a> {
         // todo!()
     }
 
-    fn visit_associated_item(&mut self, syn_node_defn: AssociatedItemSynNodeDataDefn) {
+    fn visit_associated_item(&mut self, syn_node_defn: AssociatedItemSynNodeDefn) {
         match syn_node_defn {
-            AssociatedItemSynNodeDataDefn::TypeItem(syn_node_defn) => {
+            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => {
                 self.visit_ty_item_syn_node(syn_node_defn)
             }
-            AssociatedItemSynNodeDataDefn::TraitItem(syn_node_defn) => {
+            AssociatedItemSynNodeDefn::TraitItem(syn_node_defn) => {
                 self.visit_trai_item_node(syn_node_defn)
             }
-            AssociatedItemSynNodeDataDefn::TraitForTypeItem(syn_node_defn) => {
+            AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
                 self.visit_trai_for_ty_item_syn_node(syn_node_defn)
             }
         }

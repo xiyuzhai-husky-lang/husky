@@ -4,7 +4,7 @@ EntitySynTreeSheet {
         entries: [
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
-                    SubmoduleSynNodeData {
+                    SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -42,7 +42,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
-                    SubmoduleSynNodeData {
+                    SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -80,7 +80,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
-                    SubmoduleSynNodeData {
+                    SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -118,7 +118,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
-                    SubmoduleSynNodeData {
+                    SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(
@@ -156,7 +156,7 @@ EntitySynTreeSheet {
             },
             ItemNodeEntry {
                 node: ItemSynNode::Submodule(
-                    SubmoduleSynNodeData {
+                    SubmoduleSynNode {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: SubmodulePath(

@@ -62,7 +62,6 @@ pub struct EntitySynTreeJar(
     // module items
     trai_node,
     trai_item_paths,
-    ty_node,
     ty_attrs,
     ty_attr_paths,
     // ty_impl_blocks,
@@ -75,6 +74,8 @@ pub struct EntitySynTreeJar(
     ty_variant_paths,
     // impl blocks
     // - type impl block
+    // - trai for ty
+    trai_for_ty_impl_block_items,
     // attr
     attr_node,
     // other

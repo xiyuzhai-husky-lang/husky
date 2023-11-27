@@ -1396,7 +1396,7 @@
         [salsa id]: 299,
         path: SynNodeRegionPath::Decl(
             ItemSynNodePath::AssociatedItem(
-                AssociatedItemSynNodeDataPath::TraitForTypeItem(
+                AssociatedItemSynNodePath::TraitForTypeItem(
                     TraitForTypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitForTypeItemPath {
@@ -1545,7 +1545,7 @@
                 ),
                 path: SynNodeRegionPath::Decl(
                     ItemSynNodePath::AssociatedItem(
-                        AssociatedItemSynNodeDataPath::TraitForTypeItem(
+                        AssociatedItemSynNodePath::TraitForTypeItem(
                             TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
