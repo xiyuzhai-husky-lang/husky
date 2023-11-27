@@ -29,6 +29,19 @@ pub enum ItemSynNodePath {
     Attr(Room32, AttrSynNodePath),
 }
 
+impl ItemSynNodePath {
+    pub fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a ItemSynNode {
+        match self {
+            ItemSynNodePath::Submodule(_, _) => todo!(),
+            ItemSynNodePath::MajorItem(_) => todo!(),
+            ItemSynNodePath::TypeVariant(_, _) => todo!(),
+            ItemSynNodePath::ImplBlock(_) => todo!(),
+            ItemSynNodePath::AssociatedItem(_) => todo!(),
+            ItemSynNodePath::Attr(_, _) => todo!(),
+        }
+    }
+}
+
 impl std::ops::Deref for ItemSynNodePath {
     type Target = ItemSynNodePathId;
 
@@ -55,15 +68,50 @@ pub enum ItemSynNodePathData {
 
 impl ItemSynNodePathId {
     pub fn path(self, db: &::salsa::Db) -> Option<ItemPath> {
-        todo!()
+        self.data(db).path()
     }
 
-    pub fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a ItemSynNode {
-        todo!()
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.data(db).module_path(db)
     }
 
-    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
-        todo!()
+    pub(crate) fn ast_idx(self, db: &::salsa::Db) -> AstIdx {
+        self.data(db).ast_idx(self, db)
+    }
+}
+
+impl ItemSynNodePathData {
+    pub fn path(self) -> Option<ItemPath> {
+        match self {
+            ItemSynNodePathData::Submodule(slf) => slf.path().map(Into::into),
+            ItemSynNodePathData::MajorItem(slf) => slf.path().map(Into::into),
+            ItemSynNodePathData::TypeVariant(slf) => slf.path().map(Into::into),
+            ItemSynNodePathData::ImplBlock(slf) => slf.path().map(Into::into),
+            ItemSynNodePathData::AssociatedItem(slf) => slf.path().map(Into::into),
+            ItemSynNodePathData::Attr(slf) => slf.path().map(Into::into),
+        }
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        match self {
+            ItemSynNodePathData::Submodule(slf) => slf.module_path(db),
+            ItemSynNodePathData::MajorItem(slf) => slf.module_path(db),
+            ItemSynNodePathData::TypeVariant(slf) => slf.module_path(db),
+            ItemSynNodePathData::ImplBlock(slf) => slf.module_path(db),
+            ItemSynNodePathData::AssociatedItem(slf) => slf.module_path(db),
+            ItemSynNodePathData::Attr(slf) => slf.module_path(db),
+        }
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        match self {
+            ItemSynNodePathData::Submodule(slf) => slf.ast_idx(id, db),
+            ItemSynNodePathData::MajorItem(slf) => slf.ast_idx(id, db),
+            ItemSynNodePathData::TypeVariant(slf) => slf.ast_idx(id, db),
+            ItemSynNodePathData::ImplBlock(slf) => slf.ast_idx(id, db),
+            ItemSynNodePathData::AssociatedItem(slf) => slf.ast_idx(id, db),
+            ItemSynNodePathData::Attr(slf) => slf.ast_idx(id, db),
+        }
     }
 }
 
@@ -73,7 +121,7 @@ impl ItemSynNodePath {
             ItemSynNodePath::Submodule(_, syn_node_path) => syn_node_path.path(db).map(Into::into),
             ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.path(db).map(Into::into),
             ItemSynNodePath::TypeVariant(_, syn_node_path) => {
-                syn_node_path.path(db).map(Into::into)
+                syn_node_path.unambiguous_path(db).map(Into::into)
             }
             ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.path(db).map(Into::into),
             ItemSynNodePath::AssociatedItem(syn_node_path) => {
@@ -84,8 +132,7 @@ impl ItemSynNodePath {
     }
 
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
-        // self.module_path(db).toolchain(db)
-        todo!()
+        self.module_path(db).toolchain(db)
     }
 
     pub(crate) fn attr_syn_nodes(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNode)] {
@@ -111,15 +158,14 @@ impl HasSynNodePath for ItemPath {
     type SynNodePath = ItemSynNodePath;
 
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
-        todo!()
-        // match self {
-        //     ItemPath::Submodule(_, path) => path.syn_node_path(db).into(),
-        //     ItemPath::MajorItem(path) => path.syn_node_path(db).into(),
-        //     ItemPath::AssociatedItem(path) => path.syn_node_path(db).into(),
-        //     ItemPath::TypeVariant(_, path) => path.syn_node_path(db).into(),
-        //     ItemPath::ImplBlock(path) => path.syn_node_path(db).into(),
-        //     ItemPath::Attr(_, path) => path.syn_node_path(db).into(),
-        // }
+        match self {
+            ItemPath::Submodule(_, path) => path.syn_node_path(db).into(),
+            ItemPath::MajorItem(path) => path.syn_node_path(db).into(),
+            ItemPath::AssociatedItem(path) => path.syn_node_path(db).into(),
+            ItemPath::TypeVariant(_, path) => path.syn_node_path(db).into(),
+            ItemPath::ImplBlock(path) => path.syn_node_path(db).into(),
+            ItemPath::Attr(_, path) => path.syn_node_path(db).into(),
+        }
     }
 }
 

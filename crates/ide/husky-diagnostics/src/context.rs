@@ -1,9 +1,6 @@
 use crate::*;
 use husky_ast::{AstDb, AstIdx, AstSheet, AstTokenIdxRangeSheet, HasAstSheet};
-use husky_entity_syn_tree::{
-    helpers::tokra_region::{HasDeclTokraRegion, HasSynDefnTokraRegion},
-    SynNodeRegionPath,
-};
+use husky_entity_syn_tree::SynNodeRegionPath;
 use husky_fluffy_term::FluffyTermRegion;
 use husky_regional_token::{
     RegionalTokenIdx, RegionalTokenIdxBase, RegionalTokenIdxRange, RegionalTokenStreamState,

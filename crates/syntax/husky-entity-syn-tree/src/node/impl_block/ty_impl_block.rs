@@ -10,7 +10,7 @@ pub struct TypeImplBlockSynNodePath(ItemSynNodePathId);
 // basically a wrapper type
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TypeImplBlockSynNodePathData {
-    path: TypeImplBlockPath,
+    pub(crate) path: TypeImplBlockPath,
 }
 
 impl From<TypeImplBlockSynNodePath> for ItemSynNodePath {
@@ -57,6 +57,20 @@ impl TypeImplBlockSynNodePath {
         self.associated_items(db)
             .iter()
             .map(|&(_, syn_node_path, _)| syn_node_path)
+    }
+}
+
+impl TypeImplBlockSynNodePathData {
+    pub fn path(self) -> TypeImplBlockPath {
+        self.path
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.path.module_path(db)
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        TypeImplBlockSynNodePath(id).syn_node(db).ast_idx
     }
 }
 

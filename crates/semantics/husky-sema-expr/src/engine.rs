@@ -14,10 +14,7 @@ pub(crate) use self::utils::*;
 
 use self::symbol::*;
 use crate::*;
-use husky_entity_syn_tree::helpers::{
-    tokra_region::{HasDeclTokraRegion, HasSynDefnTokraRegion},
-    TraitInUseItemsTable,
-};
+use husky_entity_syn_tree::helpers::TraitInUseItemsTable;
 use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_print_utils::p;
 use husky_regional_token::{RegionalTokenIdx, RegionalTokensData};

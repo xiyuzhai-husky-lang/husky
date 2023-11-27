@@ -50,8 +50,12 @@ impl TraitForTypeItemSynNodePath {
 }
 
 impl TraitForTypeItemSynNodePathData {
-    pub fn path(&self, db: &::salsa::Db) -> Option<TraitForTypeItemPath> {
+    pub fn path(&self) -> Option<TraitForTypeItemPath> {
         self.maybe_ambiguous_path.unambiguous_path()
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.maybe_ambiguous_path.path.module_path(db)
     }
 
     pub fn impl_block(&self, db: &::salsa::Db) -> TraitForTypeImplBlockSynNodePath {
@@ -63,6 +67,10 @@ impl TraitForTypeItemSynNodePathData {
 
     pub fn item_kind(&self, db: &::salsa::Db) -> TraitItemKind {
         self.maybe_ambiguous_path.path.item_kind(db)
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        self.syn_node(TraitForTypeItemSynNodePath(id), db).ast_idx
     }
 
     pub(crate) fn syn_node<'a>(

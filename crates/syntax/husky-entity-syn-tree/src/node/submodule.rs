@@ -32,7 +32,7 @@ impl SubmoduleSynNodePath {
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<SubmodulePath> {
-        self.data(db).maybe_ambiguous_path.unambiguous_path()
+        self.data(db).path()
     }
 
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a SubmoduleSynNode {
@@ -42,6 +42,20 @@ impl SubmoduleSynNodePath {
             Some(ItemSynNode::Submodule(node)) => node,
             _ => unreachable!(),
         }
+    }
+}
+
+impl SubmoduleSynNodePathData {
+    pub fn path(self) -> Option<SubmodulePath> {
+        self.maybe_ambiguous_path.unambiguous_path()
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.maybe_ambiguous_path.path.module_path(db)
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        SubmoduleSynNodePath(id).syn_node(db).ast_idx
     }
 }
 

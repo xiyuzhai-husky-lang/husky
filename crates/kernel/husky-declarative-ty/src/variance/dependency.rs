@@ -87,7 +87,7 @@ pub(crate) fn trai_item_variance_crate_dependencies(
     todo!()
 }
 
-// #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variance_crate_dependencies(
     db: &::salsa::Db,
     path: FugitivePath,

@@ -38,8 +38,12 @@ impl SubmodulePath {
         self.0
     }
 
-    pub fn parent(self, db: &::salsa::Db) -> ModulePath {
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.0.parent(db).unwrap()
+    }
+
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        self.0.ident(db)
     }
 }
 

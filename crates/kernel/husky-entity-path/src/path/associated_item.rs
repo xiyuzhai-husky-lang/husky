@@ -55,6 +55,22 @@ impl AssociatedItemPathData {
             AssociatedItemPathData::TraitForTypeItem(data) => data.module_path(db),
         }
     }
+
+    pub fn ident(self, db: &::salsa::Db) -> Ident {
+        match self {
+            AssociatedItemPathData::TypeItem(slf) => slf.ident,
+            AssociatedItemPathData::TraitItem(slf) => slf.ident,
+            AssociatedItemPathData::TraitForTypeItem(slf) => slf.ident,
+        }
+    }
+
+    pub(crate) fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
+        match self {
+            AssociatedItemPathData::TypeItem(slf) => slf.entity_kind(db),
+            AssociatedItemPathData::TraitItem(slf) => slf.entity_kind(db),
+            AssociatedItemPathData::TraitForTypeItem(slf) => slf.entity_kind(db),
+        }
+    }
 }
 
 impl salsa::DisplayWithDb for AssociatedItemPath {

@@ -81,7 +81,7 @@ pub(crate) fn trai_item_variances(
     calc_item_variances(db, path)
 }
 
-// #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variances(
     db: &::salsa::Db,
     path: FugitivePath,
@@ -89,7 +89,7 @@ pub(crate) fn form_item_variances(
     calc_item_variances(db, path)
 }
 
-// #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
+#[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn ty_item_item_variances(
     db: &::salsa::Db,
     path: TypeItemPath,

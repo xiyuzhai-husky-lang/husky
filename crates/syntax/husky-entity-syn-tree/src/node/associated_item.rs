@@ -47,9 +47,31 @@ impl AssociatedItemSynNodePath {
             _ => unreachable!(),
         })
     }
+}
 
-    pub(crate) fn syn_node(self, _db: &::salsa::Db) -> AssociatedItemSynNode {
-        todo!()
+impl AssociatedItemSynNodePathData {
+    pub fn path(self) -> Option<AssociatedItemPath> {
+        match self {
+            AssociatedItemSynNodePathData::TypeItem(slf) => slf.path().map(Into::into),
+            AssociatedItemSynNodePathData::TraitItem(slf) => slf.path().map(Into::into),
+            AssociatedItemSynNodePathData::TraitForTypeItem(slf) => slf.path().map(Into::into),
+        }
+    }
+
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        match self {
+            AssociatedItemSynNodePathData::TypeItem(slf) => slf.module_path(db),
+            AssociatedItemSynNodePathData::TraitItem(slf) => slf.module_path(db),
+            AssociatedItemSynNodePathData::TraitForTypeItem(slf) => slf.module_path(db),
+        }
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        match self {
+            AssociatedItemSynNodePathData::TypeItem(slf) => slf.ast_idx(id, db),
+            AssociatedItemSynNodePathData::TraitItem(slf) => slf.ast_idx(id, db),
+            AssociatedItemSynNodePathData::TraitForTypeItem(slf) => slf.ast_idx(id, db),
+        }
     }
 }
 

@@ -3,6 +3,7 @@ use smallvec::SmallVec;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]
+#[salsa::deref_id]
 pub struct TraitItemSynNodePath(ItemSynNodePathId);
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -65,8 +66,17 @@ impl TraitItemSynNodePathData {
         self.maybe_ambiguous_path.unambiguous_path()
     }
 
+    pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
+        self.maybe_ambiguous_path.path.module_path(db)
+    }
+
     pub fn item_kind(self, db: &::salsa::Db) -> TraitItemKind {
         self.maybe_ambiguous_path.path.item_kind(db)
+    }
+
+    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+        todo!()
+        // TraitItemSynNodePath(id).syn_node(db).ast_idx
     }
 
     pub(crate) fn syn_node<'a>(
@@ -142,7 +152,7 @@ impl TraitItemSynNode {
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        todo!(); // self.syn_node_path(db).module_path(db)
+        self.syn_node_path.module_path(db)
     }
 }
 
@@ -155,7 +165,7 @@ pub(crate) fn trai_item_syn_nodes(
         APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS],
 > {
     let trai_node = trai_node_path.syn_node(db);
-    let module_path = todo!(); // trai_node_path.module_path(db);
+    let module_path = trai_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path);
     let DefnBlock::Trait { path: _, items } = trai_node.block else {
         unreachable!()

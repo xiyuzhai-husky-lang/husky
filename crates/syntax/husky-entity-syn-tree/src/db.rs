@@ -104,6 +104,6 @@ pub struct EntitySynTreeJar(
     crate::helpers::tokra_region::DeclTokraRegion,
     crate::helpers::tokra_region::decl::item_syn_node_decl_tokra_region_with_source_map,
     crate::helpers::tokra_region::defn::DefnTokraRegion,
-    crate::helpers::tokra_region::defn::SynDefnTokraRegionSourceMap,
+    crate::helpers::tokra_region::defn::DefnTokraRegionSourceMap,
     crate::helpers::tokra_region::defn::item_syn_defn_tokra_region_with_source_map,
 );

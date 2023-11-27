@@ -190,10 +190,14 @@ impl SymbolDeclarativeTermRegion {
                 )) => Some(self.new_self_ty_symbol(db).into()),
                 SynNodeRegionPath::Decl(ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(ty_node_path),
-                )) => Some(self.ty_defn_self_ty_term(
-                    db,
-                    ty_node_path.path(db).expect("should have valid item path"),
-                )),
+                )) => Some(
+                    self.ty_defn_self_ty_term(
+                        db,
+                        ty_node_path
+                            .unambiguous_path(db)
+                            .expect("should have valid item path"),
+                    ),
+                ),
                 SynNodeRegionPath::Decl(ItemSynNodePath::ImplBlock(syn_node_path)) => {
                     match syn_node_path {
                         ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {

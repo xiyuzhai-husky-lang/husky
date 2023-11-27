@@ -79,7 +79,7 @@ impl MajorItemPathData {
         self.module_path(db).crate_path(db)
     }
 
-    pub(crate) fn item_kind(self, db: &::salsa::Db) -> EntityKind {
+    pub(crate) fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
         match self {
             MajorItemPathData::Type(data) => data.item_kind(),
             MajorItemPathData::Trait(data) => EntityKind::MajorItem {

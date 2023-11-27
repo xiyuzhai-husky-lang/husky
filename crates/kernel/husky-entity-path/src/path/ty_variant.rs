@@ -9,8 +9,8 @@ pub struct TypeVariantPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeVariantPathData {
-    parent_ty_path: TypePath,
-    ident: Ident,
+    pub parent_ty_path: TypePath,
+    pub ident: Ident,
 }
 
 impl TypeVariantPath {
