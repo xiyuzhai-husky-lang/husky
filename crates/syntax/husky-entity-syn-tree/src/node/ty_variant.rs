@@ -55,6 +55,11 @@ impl TypeVariantSynNodePath {
 }
 
 impl TypeVariantSynNodePathData {
+    #[inline(always)]
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> TypeVariantSynNodePath {
+        TypeVariantSynNodePath(id)
+    }
+
     pub fn path(self) -> Option<TypeVariantPath> {
         self.maybe_ambiguous_path.unambiguous_path()
     }

@@ -65,6 +65,11 @@ impl TraitForTypeImplBlockSynNodePath {
 }
 
 impl TraitForTypeImplBlockSynNodePathData {
+    #[inline(always)]
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> TraitForTypeImplBlockSynNodePath {
+        TraitForTypeImplBlockSynNodePath(id)
+    }
+
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.path.module_path(db)
     }

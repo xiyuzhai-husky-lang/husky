@@ -72,6 +72,10 @@ impl TraitSynNodePath {
 }
 
 impl TraitSynNodePathData {
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> TraitSynNodePath {
+        TraitSynNodePath(id)
+    }
+
     pub fn path(self) -> Option<TraitPath> {
         self.maybe_ambiguous_path.unambiguous_path()
     }

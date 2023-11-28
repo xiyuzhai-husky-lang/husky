@@ -48,6 +48,11 @@ impl SubmoduleSynNodePath {
 }
 
 impl SubmoduleSynNodePathData {
+    #[inline(always)]
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> SubmoduleSynNodePath {
+        SubmoduleSynNodePath(id)
+    }
+
     pub fn path(self) -> Option<SubmodulePath> {
         self.maybe_ambiguous_path.unambiguous_path()
     }

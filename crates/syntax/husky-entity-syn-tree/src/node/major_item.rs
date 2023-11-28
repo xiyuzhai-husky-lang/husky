@@ -73,6 +73,15 @@ impl MajorItemSynNodePath {
 }
 
 impl MajorItemSynNodePathData {
+    #[inline(always)]
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> MajorItemSynNodePath {
+        match self {
+            MajorItemSynNodePathData::Trait(slf) => slf.syn_node_path(id).into(),
+            MajorItemSynNodePathData::Type(slf) => slf.syn_node_path(id).into(),
+            MajorItemSynNodePathData::Fugitive(slf) => slf.syn_node_path(id).into(),
+        }
+    }
+
     pub fn path(self) -> Option<MajorItemPath> {
         match self {
             MajorItemSynNodePathData::Trait(slf) => slf.path().map(Into::into),
