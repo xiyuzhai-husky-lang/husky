@@ -62,6 +62,11 @@ impl TypeImplBlockSynNodePath {
 }
 
 impl TypeImplBlockSynNodePathData {
+    #[inline(always)]
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> TypeImplBlockSynNodePath {
+        TypeImplBlockSynNodePath(id)
+    }
+
     pub fn path(self) -> TypeImplBlockPath {
         self.path
     }

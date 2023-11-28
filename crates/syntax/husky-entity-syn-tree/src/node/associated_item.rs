@@ -50,6 +50,15 @@ impl AssociatedItemSynNodePath {
 }
 
 impl AssociatedItemSynNodePathData {
+    #[inline(always)]
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> AssociatedItemSynNodePath {
+        match self {
+            AssociatedItemSynNodePathData::TypeItem(slf) => slf.syn_node_path(id).into(),
+            AssociatedItemSynNodePathData::TraitItem(slf) => slf.syn_node_path(id).into(),
+            AssociatedItemSynNodePathData::TraitForTypeItem(slf) => slf.syn_node_path(id).into(),
+        }
+    }
+
     pub fn path(self) -> Option<AssociatedItemPath> {
         match self {
             AssociatedItemSynNodePathData::TypeItem(slf) => slf.path().map(Into::into),

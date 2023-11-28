@@ -64,6 +64,11 @@ impl TraitItemSynNodePath {
 }
 
 impl TraitItemSynNodePathData {
+    #[inline(always)]
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> TraitItemSynNodePath {
+        TraitItemSynNodePath(id)
+    }
+
     pub fn path(self) -> Option<TraitItemPath> {
         self.maybe_ambiguous_path.unambiguous_path()
     }

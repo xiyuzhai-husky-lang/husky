@@ -63,6 +63,15 @@ impl ImplBlockSynNodePath {
 }
 
 impl ImplBlockSynNodePathData {
+    #[inline(always)]
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> ImplBlockSynNodePath {
+        match self {
+            ImplBlockSynNodePathData::TypeImplBlock(slf) => slf.syn_node_path(id).into(),
+            ImplBlockSynNodePathData::TraitForTypeImplBlock(slf) => slf.syn_node_path(id).into(),
+            ImplBlockSynNodePathData::IllFormedImplBlock(slf) => slf.syn_node_path(id).into(),
+        }
+    }
+
     pub fn path(self) -> Option<ImplBlockPath> {
         match self {
             ImplBlockSynNodePathData::TypeImplBlock(slf) => Some(slf.path().into()),

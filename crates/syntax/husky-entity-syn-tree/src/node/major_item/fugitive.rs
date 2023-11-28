@@ -76,6 +76,10 @@ impl FugitiveSynNodePath {
 }
 
 impl FugitiveSynNodePathData {
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> FugitiveSynNodePath {
+        FugitiveSynNodePath(id)
+    }
+
     pub fn path(self) -> Option<FugitivePath> {
         self.maybe_ambiguous_path.unambiguous_path()
     }

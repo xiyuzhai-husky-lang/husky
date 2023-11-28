@@ -12,7 +12,7 @@ pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
 
-use crate::*;
+use crate::{helpers::paths::module_item_syn_node_paths, *};
 use enum_class::Room32;
 use husky_token::IdentToken;
 use vec_like::VecPairMap;
@@ -68,6 +68,17 @@ pub enum ItemSynNodePathData {
 }
 
 impl ItemSynNodePathId {
+    pub fn syn_node_path(self, db: &::salsa::Db) -> ItemSynNodePath {
+        match self.data(db) {
+            ItemSynNodePathData::Submodule(data) => data.syn_node_path(self).into(),
+            ItemSynNodePathData::MajorItem(data) => data.syn_node_path(self).into(),
+            ItemSynNodePathData::TypeVariant(data) => data.syn_node_path(self).into(),
+            ItemSynNodePathData::ImplBlock(data) => data.syn_node_path(self).into(),
+            ItemSynNodePathData::AssociatedItem(data) => data.syn_node_path(self).into(),
+            ItemSynNodePathData::Attr(data) => data.syn_node_path(self).into(),
+        }
+    }
+
     pub fn path(self, db: &::salsa::Db) -> Option<ItemPath> {
         self.data(db).path()
     }
@@ -79,6 +90,18 @@ impl ItemSynNodePathId {
     pub(crate) fn ast_idx(self, db: &::salsa::Db) -> AstIdx {
         self.data(db).ast_idx(self, db)
     }
+}
+
+#[test]
+fn path_id_conversion_works() {
+    DB::default().ast_plain_test(
+        |db, module_path| {
+            for &syn_node_path in module_item_syn_node_paths(db, module_path) {
+                assert_eq!(syn_node_path.syn_node_path(db), syn_node_path);
+            }
+        },
+        &AstTestConfig::new("path_id_conversion"),
+    )
 }
 
 impl ItemSynNodePathData {

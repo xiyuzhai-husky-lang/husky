@@ -65,6 +65,11 @@ impl AttrSynNodePath {
 }
 
 impl AttrSynNodePathData {
+    #[inline(always)]
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> AttrSynNodePath {
+        AttrSynNodePath(id)
+    }
+
     pub fn path(self) -> Option<AttrItemPath> {
         self.maybe_ambiguous_path.unambiguous_path()
     }

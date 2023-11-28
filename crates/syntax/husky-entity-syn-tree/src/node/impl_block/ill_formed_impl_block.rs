@@ -28,6 +28,11 @@ impl IllFormedImplBlockSynNodePath {
 }
 
 impl IllFormedImplBlockSynNodePathData {
+    #[inline(always)]
+    pub fn syn_node_path(self, id: ItemSynNodePathId) -> IllFormedImplBlockSynNodePath {
+        IllFormedImplBlockSynNodePath(id)
+    }
+
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.module_path
     }
