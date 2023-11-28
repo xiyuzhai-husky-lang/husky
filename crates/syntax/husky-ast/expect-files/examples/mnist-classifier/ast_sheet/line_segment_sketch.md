@@ -1441,8 +1441,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -1475,8 +1483,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `mnist_classifier::line_segment_sketch::convex_component`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -1509,8 +1525,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `mnist_classifier::line_segment_sketch::convexity`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -1543,8 +1567,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `mnist_classifier::line_segment_sketch::line_segment`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },

@@ -93,14 +93,14 @@ impl ItemSynNodePathId {
 }
 
 #[test]
-fn path_id_conversion_works() {
+fn syn_node_path_id_conversion_works() {
     DB::default().ast_plain_test(
         |db, module_path| {
             for &syn_node_path in module_item_syn_node_paths(db, module_path) {
                 assert_eq!(syn_node_path.syn_node_path(db), syn_node_path);
             }
         },
-        &AstTestConfig::new("path_id_conversion"),
+        &AstTestConfig::new("syn_node_path_id_conversion"),
     )
 }
 

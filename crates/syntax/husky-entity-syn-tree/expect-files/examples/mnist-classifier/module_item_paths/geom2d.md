@@ -32,9 +32,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 319,
+                        value: 390,
                     },
                 ),
             ),
@@ -45,7 +62,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 347,
+                        value: 391,
                     },
                 ),
             ),
@@ -56,7 +73,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 348,
+                        value: 392,
                     },
                 ),
             ),
@@ -67,7 +84,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 349,
+                        value: 393,
                     },
                 ),
             ),
@@ -78,18 +95,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 350,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 351,
+                        value: 394,
                     },
                 ),
             ),
@@ -98,9 +104,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 320,
+                        value: 395,
                     },
                 ),
             ),
@@ -111,7 +134,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 352,
+                        value: 396,
                     },
                 ),
             ),
@@ -122,7 +145,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 353,
+                        value: 397,
                     },
                 ),
             ),
@@ -133,7 +156,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 354,
+                        value: 398,
                     },
                 ),
             ),
@@ -144,7 +167,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 355,
+                        value: 399,
                     },
                 ),
             ),
@@ -155,7 +178,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 356,
+                        value: 400,
                     },
                 ),
             ),
@@ -166,7 +189,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 357,
+                        value: 401,
                     },
                 ),
             ),
@@ -177,18 +200,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 358,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 359,
+                        value: 402,
                     },
                 ),
             ),
@@ -197,9 +209,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 321,
+                        value: 403,
                     },
                 ),
             ),
@@ -210,18 +239,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 360,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 361,
+                        value: 404,
                     },
                 ),
             ),
@@ -230,9 +248,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 322,
+                        value: 405,
                     },
                 ),
             ),
@@ -243,7 +278,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 362,
+                        value: 406,
                     },
                 ),
             ),
@@ -254,7 +289,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 363,
+                        value: 407,
                     },
                 ),
             ),
@@ -265,7 +300,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 364,
+                        value: 408,
                     },
                 ),
             ),
@@ -276,7 +311,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 365,
+                        value: 409,
                     },
                 ),
             ),
@@ -287,18 +322,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 366,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 367,
+                        value: 410,
                     },
                 ),
             ),
@@ -307,9 +331,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 323,
+                        value: 411,
                     },
                 ),
             ),
@@ -320,7 +361,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 368,
+                        value: 412,
                     },
                 ),
             ),
@@ -331,7 +372,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 369,
+                        value: 413,
                     },
                 ),
             ),
@@ -342,18 +383,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 370,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 371,
+                        value: 414,
                     },
                 ),
             ),

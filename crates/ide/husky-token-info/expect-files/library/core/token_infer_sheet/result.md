@@ -434,7 +434,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 208,
+                                                                    value: 227,
                                                                 },
                                                             ),
                                                         ),
@@ -490,7 +490,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 209,
+                                                                    value: 228,
                                                                 },
                                                             ),
                                                         ),

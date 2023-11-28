@@ -91,12 +91,15 @@ pub fn module_item_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<ItemP
     paths
 }
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub fn module_submodule_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<SubmodulePath> {
+pub fn module_submodule_item_paths(
+    db: &::salsa::Db,
+    module_path: ModulePath,
+) -> Vec<SubmoduleItemPath> {
     module_item_paths(db, module_path)
         .iter()
         .copied()
         .filter_map(|item_path| match item_path {
-            ItemPath::Submodule(_, submodule_path) => Some(submodule_path),
+            ItemPath::Submodule(_, submodule_item_path) => Some(submodule_item_path),
             _ => None,
         })
         .collect()
@@ -108,6 +111,18 @@ fn module_item_paths_works() {
     db.ast_expect_test_debug_with_db(
         |db, module_path| module_item_paths(db, module_path),
         &AstTestConfig::new("module_item_paths"),
+    )
+}
+
+#[test]
+fn item_path_id_conversion_works() {
+    DB::default().vfs_plain_test(
+        |db, module_path| {
+            for &item_path in module_item_paths(db, module_path) {
+                assert_eq!(item_path.item_path(db), item_path);
+            }
+        },
+        &AstTestConfig::new("item_path_id_conversion"),
     )
 }
 
@@ -128,7 +143,7 @@ pub fn collect_module_paths(
     for item_path in module_item_paths(db, module_path) {
         match item_path {
             ItemPath::Submodule(_, submodule_path) => {
-                collect_module_paths(submodule_path.inner(), module_paths, db)
+                collect_module_paths(submodule_path.self_module_path(db), module_paths, db)
             }
             _ => (),
         }

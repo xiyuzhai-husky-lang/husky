@@ -2,8 +2,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::array`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::array`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -13,8 +21,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::basic`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::basic`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -24,8 +40,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::clone`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::clone`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -35,8 +59,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::cmp`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::cmp`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -46,8 +78,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::default`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::default`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -57,8 +97,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::fmt`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::fmt`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -68,8 +116,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::logic`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::logic`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -79,8 +135,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::marker`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::marker`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -90,8 +154,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::mem`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::mem`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -101,8 +173,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::num`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::num`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -112,8 +192,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::ops`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::ops`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -123,8 +211,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::option`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::option`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -134,8 +230,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::prelude`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::prelude`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -145,8 +249,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::raw_bits`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::raw_bits`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -156,8 +268,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::result`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::result`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -167,8 +287,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::vec`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::vec`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -178,8 +306,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::slice`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::slice`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -189,8 +325,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::str`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::str`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -200,8 +344,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `core::visual`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::visual`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(

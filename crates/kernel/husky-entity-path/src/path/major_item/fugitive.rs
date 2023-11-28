@@ -8,6 +8,7 @@ use std::fmt::Debug;
 #[salsa::deref_id]
 pub struct FugitivePath(ItemPathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct FugitivePathData {
     module_path: ModulePath,
@@ -57,6 +58,11 @@ impl FugitivePath {
 }
 
 impl FugitivePathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> FugitivePath {
+        FugitivePath(id)
+    }
+
     pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
         self.module_path.crate_path(db)
     }

@@ -36,8 +36,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -199,7 +207,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 451,
+                                                                    value: 494,
                                                                 },
                                                             ),
                                                         ),
@@ -314,7 +322,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 452,
+                                                                    value: 495,
                                                                 },
                                                             ),
                                                         ),

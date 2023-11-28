@@ -55,18 +55,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 225,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                         ),
                     },
                 ),
@@ -79,7 +69,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 385,
+                            value: 428,
                         },
                     ),
                 ),

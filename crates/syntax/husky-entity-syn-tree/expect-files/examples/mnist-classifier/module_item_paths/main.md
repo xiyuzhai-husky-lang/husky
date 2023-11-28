@@ -1,44 +1,100 @@
 [
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `mnist_classifier::connected_component`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `mnist_classifier::connected_component`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `mnist_classifier::raw_contour`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `mnist_classifier::raw_contour`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `mnist_classifier::geom2d`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `mnist_classifier::geom2d`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `mnist_classifier::line_segment_sketch`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `mnist_classifier::fermi`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `mnist_classifier::fermi`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `mnist_classifier::digits`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `mnist_classifier::digits`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `mnist_classifier::major`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `mnist_classifier::major`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::MajorItem(

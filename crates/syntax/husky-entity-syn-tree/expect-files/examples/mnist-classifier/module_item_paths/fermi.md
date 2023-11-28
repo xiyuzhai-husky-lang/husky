@@ -12,9 +12,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `mnist_classifier::fermi`,
+                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 332,
+                        value: 387,
                     },
                 ),
             ),
@@ -25,7 +42,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 344,
+                        value: 388,
                     },
                 ),
             ),
@@ -36,18 +53,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 345,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 346,
+                        value: 389,
                     },
                 ),
             ),

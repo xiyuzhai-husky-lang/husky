@@ -209,8 +209,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::array`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::array`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -232,8 +240,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::basic`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::basic`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -255,8 +271,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::clone`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::clone`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -278,8 +302,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::cmp`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::cmp`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -301,8 +333,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::default`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::default`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -324,8 +364,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::fmt`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::fmt`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -347,8 +395,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::logic`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::logic`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -370,8 +426,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::marker`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::marker`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -393,8 +457,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::mem`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::mem`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -416,8 +488,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::num`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::num`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -439,8 +519,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::ops`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::ops`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -462,8 +550,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::option`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::option`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -485,8 +581,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::prelude`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::prelude`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -508,8 +612,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::raw_bits`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::raw_bits`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -531,8 +643,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::result`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::result`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -554,8 +674,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::vec`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::vec`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -577,8 +705,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::slice`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::slice`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -600,8 +736,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::str`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::str`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -623,8 +767,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `core::visual`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `core::visual`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -2132,20 +2284,50 @@ EntitySynTreeSheet {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::TypeVariant {
                                                     ty_variant_path: TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 61,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 79,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 124,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 61,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 79,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 124,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -2155,11 +2337,26 @@ EntitySynTreeSheet {
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 61,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::TypeVariant(
+                                                        TypeVariantPathData {
+                                                            parent_ty_path: TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 79,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            ident: Ident(
+                                                                Coword(
+                                                                    Id {
+                                                                        value: 124,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -2169,11 +2366,26 @@ EntitySynTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
                                     TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 61,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::TypeVariant(
+                                                TypeVariantPathData {
+                                                    parent_ty_path: TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 79,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    ident: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 124,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2185,11 +2397,26 @@ EntitySynTreeSheet {
                         ),
                         path: PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 61,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 79,
+                                                    },
+                                                ),
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 124,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -2215,20 +2442,50 @@ EntitySynTreeSheet {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::TypeVariant {
                                                     ty_variant_path: TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 62,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 79,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 125,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 62,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::TypeVariant(
+                                                                TypeVariantPathData {
+                                                                    parent_ty_path: TypePath(
+                                                                        ItemPathId(
+                                                                            Id {
+                                                                                value: 79,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                    ident: Ident(
+                                                                        Coword(
+                                                                            Id {
+                                                                                value: 125,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -2238,11 +2495,26 @@ EntitySynTreeSheet {
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 62,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::TypeVariant(
+                                                        TypeVariantPathData {
+                                                            parent_ty_path: TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 79,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            ident: Ident(
+                                                                Coword(
+                                                                    Id {
+                                                                        value: 125,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -2252,11 +2524,26 @@ EntitySynTreeSheet {
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
                                     TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 62,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::TypeVariant(
+                                                TypeVariantPathData {
+                                                    parent_ty_path: TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 79,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    ident: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 125,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2268,11 +2555,26 @@ EntitySynTreeSheet {
                         ),
                         path: PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 62,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 79,
+                                                    },
+                                                ),
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 125,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         visibility: Scope::PubUnder(

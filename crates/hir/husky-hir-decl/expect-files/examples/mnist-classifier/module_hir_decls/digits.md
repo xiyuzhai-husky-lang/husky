@@ -1,71 +1,151 @@
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `mnist_classifier::digits::zero`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `mnist_classifier::digits::one`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits::one`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `mnist_classifier::digits::six`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits::six`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `mnist_classifier::digits::three`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits::three`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `mnist_classifier::digits::four`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits::four`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `mnist_classifier::digits::five`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits::five`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `mnist_classifier::digits::seven`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `mnist_classifier::digits::eight`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `mnist_classifier::digits::nine`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `mnist_classifier::digits::two`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits::two`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),

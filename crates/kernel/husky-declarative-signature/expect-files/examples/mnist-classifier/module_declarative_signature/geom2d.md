@@ -201,11 +201,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 319,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -228,7 +234,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 347,
+                            value: 390,
                         },
                     ),
                 ),
@@ -242,7 +248,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 347,
+                                        value: 390,
                                     },
                                 ),
                             ),
@@ -279,7 +285,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 348,
+                            value: 391,
                         },
                     ),
                 ),
@@ -293,7 +299,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 348,
+                                        value: 391,
                                     },
                                 ),
                             ),
@@ -327,7 +333,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 349,
+                            value: 392,
                         },
                     ),
                 ),
@@ -341,7 +347,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 349,
+                                        value: 392,
                                     },
                                 ),
                             ),
@@ -382,7 +388,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 350,
+                            value: 393,
                         },
                     ),
                 ),
@@ -396,7 +402,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 350,
+                                        value: 393,
                                     },
                                 ),
                             ),
@@ -430,7 +436,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 351,
+                            value: 394,
                         },
                     ),
                 ),
@@ -444,7 +450,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 351,
+                                        value: 394,
                                     },
                                 ),
                             ),
@@ -483,11 +489,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 320,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -510,7 +522,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 352,
+                            value: 395,
                         },
                     ),
                 ),
@@ -524,7 +536,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 352,
+                                        value: 395,
                                     },
                                 ),
                             ),
@@ -558,7 +570,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 353,
+                            value: 396,
                         },
                     ),
                 ),
@@ -572,7 +584,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 353,
+                                        value: 396,
                                     },
                                 ),
                             ),
@@ -613,7 +625,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 354,
+                            value: 397,
                         },
                     ),
                 ),
@@ -627,7 +639,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 354,
+                                        value: 397,
                                     },
                                 ),
                             ),
@@ -661,7 +673,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 355,
+                            value: 398,
                         },
                     ),
                 ),
@@ -675,62 +687,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 355,
-                                    },
-                                ),
-                            ),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
-                                    data: [],
-                                },
-                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            },
-                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
-                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [
-                                    DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
-                                            contract: None,
-                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                                        },
-                                    ),
-                                ],
-                            },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 356,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Ok(
-            SignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 356,
+                                        value: 398,
                                     },
                                 ),
                             ),
@@ -771,7 +728,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 357,
+                            value: 399,
                         },
                     ),
                 ),
@@ -785,7 +742,62 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 357,
+                                        value: 399,
+                                    },
+                                ),
+                            ),
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 400,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 400,
                                     },
                                 ),
                             ),
@@ -826,7 +838,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 358,
+                            value: 401,
                         },
                     ),
                 ),
@@ -840,7 +852,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 358,
+                                        value: 401,
                                     },
                                 ),
                             ),
@@ -881,7 +893,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 359,
+                            value: 402,
                         },
                     ),
                 ),
@@ -895,7 +907,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 359,
+                                        value: 402,
                                     },
                                 ),
                             ),
@@ -940,11 +952,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 321,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -967,7 +985,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 360,
+                            value: 403,
                         },
                     ),
                 ),
@@ -981,7 +999,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 360,
+                                        value: 403,
                                     },
                                 ),
                             ),
@@ -1022,7 +1040,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 361,
+                            value: 404,
                         },
                     ),
                 ),
@@ -1036,7 +1054,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 361,
+                                        value: 404,
                                     },
                                 ),
                             ),
@@ -1075,11 +1093,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 322,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1102,7 +1126,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 362,
+                            value: 405,
                         },
                     ),
                 ),
@@ -1116,7 +1140,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 362,
+                                        value: 405,
                                     },
                                 ),
                             ),
@@ -1157,7 +1181,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 363,
+                            value: 406,
                         },
                     ),
                 ),
@@ -1171,7 +1195,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 363,
+                                        value: 406,
                                     },
                                 ),
                             ),
@@ -1212,7 +1236,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 364,
+                            value: 407,
                         },
                     ),
                 ),
@@ -1226,7 +1250,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 364,
+                                        value: 407,
                                     },
                                 ),
                             ),
@@ -1260,7 +1284,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 365,
+                            value: 408,
                         },
                     ),
                 ),
@@ -1274,7 +1298,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 365,
+                                        value: 408,
                                     },
                                 ),
                             ),
@@ -1308,7 +1332,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 366,
+                            value: 409,
                         },
                     ),
                 ),
@@ -1322,7 +1346,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 366,
+                                        value: 409,
                                     },
                                 ),
                             ),
@@ -1356,7 +1380,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 367,
+                            value: 410,
                         },
                     ),
                 ),
@@ -1370,7 +1394,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 367,
+                                        value: 410,
                                     },
                                 ),
                             ),
@@ -1402,11 +1426,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 323,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::geom2d`,
+                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1429,7 +1459,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 368,
+                            value: 411,
                         },
                     ),
                 ),
@@ -1443,7 +1473,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 368,
+                                        value: 411,
                                     },
                                 ),
                             ),
@@ -1477,7 +1507,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 369,
+                            value: 412,
                         },
                     ),
                 ),
@@ -1491,7 +1521,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 369,
+                                        value: 412,
                                     },
                                 ),
                             ),
@@ -1525,7 +1555,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 370,
+                            value: 413,
                         },
                     ),
                 ),
@@ -1539,7 +1569,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 370,
+                                        value: 413,
                                     },
                                 ),
                             ),
@@ -1573,7 +1603,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 371,
+                            value: 414,
                         },
                     ),
                 ),
@@ -1587,7 +1617,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 371,
+                                        value: 414,
                                     },
                                 ),
                             ),

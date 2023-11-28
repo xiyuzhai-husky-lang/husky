@@ -10,8 +10,16 @@ EntitySynTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `std::prelude`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `std::prelude`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -38,8 +46,16 @@ EntitySynTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `std::prelude`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `std::prelude`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -61,8 +77,16 @@ EntitySynTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `std::logic`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `std::logic`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -89,8 +113,16 @@ EntitySynTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `std::logic`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `std::logic`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -112,8 +144,16 @@ EntitySynTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `std::ops`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `std::ops`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -140,8 +180,16 @@ EntitySynTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `std::ops`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `std::ops`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },

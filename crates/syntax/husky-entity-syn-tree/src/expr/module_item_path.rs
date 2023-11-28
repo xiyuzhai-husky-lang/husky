@@ -107,7 +107,7 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
             PathNameToken::Ident(ident_token) => self
                 .item_tree_symbol_context
                 .resolve_root_ident(ident_token)?
-                .path(self.db)
+                .principal_entity_path(self.db)
                 .major()?,
             PathNameToken::CrateRoot(_) => self.crate_root_path.into(),
             PathNameToken::SelfMod(_) => todo!(),
@@ -127,7 +127,7 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
                     .item_tree_symbol_context
                     .resolve_root_ident(ident_token)
                     .ok_or(OriginalMajorPathExprError::UnrecognizedIdent(ident_token))?
-                    .path(self.db)
+                    .principal_entity_path(self.db)
                     .major()
                 {
                     Some(path) => path,
@@ -152,7 +152,7 @@ impl<'a, 'b> MajorItemPathExprParser<'a, 'b> {
                 .item_tree_symbol_context
                 .resolve_subitem(parent.into(), ident_token.ident())
                 .ok_or(OriginalMajorPathExprError::NoSuchSubitem)?
-                .path(self.db)
+                .principal_entity_path(self.db)
                 .major()
             {
                 Some(major_path) => major_path,

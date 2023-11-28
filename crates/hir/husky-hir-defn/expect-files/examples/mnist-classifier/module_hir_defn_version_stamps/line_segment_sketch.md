@@ -2,10 +2,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 42,
+                        value: 277,
                     },
                 ),
             ),
@@ -17,10 +17,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 43,
+                        value: 278,
                     },
                 ),
             ),
@@ -32,10 +32,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 44,
+                        value: 279,
                     },
                 ),
             ),
@@ -47,10 +47,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 45,
+                        value: 280,
                     },
                 ),
             ),
@@ -65,7 +65,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 248,
+                            value: 281,
                         },
                     ),
                 ),
@@ -87,7 +87,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 249,
+                            value: 282,
                         },
                     ),
                 ),
@@ -109,7 +109,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 250,
+                            value: 283,
                         },
                     ),
                 ),
@@ -131,7 +131,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 251,
+                            value: 284,
                         },
                     ),
                 ),
@@ -153,7 +153,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 252,
+                            value: 285,
                         },
                     ),
                 ),
@@ -175,7 +175,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 253,
+                            value: 286,
                         },
                     ),
                 ),
@@ -197,7 +197,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 254,
+                            value: 287,
                         },
                     ),
                 ),
@@ -219,7 +219,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 356,
+                            value: 399,
                         },
                     ),
                 ),
@@ -241,7 +241,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 440,
+                            value: 483,
                         },
                     ),
                 ),
@@ -263,7 +263,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 357,
+                            value: 400,
                         },
                     ),
                 ),
@@ -285,7 +285,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 392,
+                            value: 435,
                         },
                     ),
                 ),
@@ -307,7 +307,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 393,
+                            value: 436,
                         },
                     ),
                 ),
@@ -329,7 +329,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 358,
+                            value: 401,
                         },
                     ),
                 ),
@@ -351,7 +351,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 441,
+                            value: 484,
                         },
                     ),
                 ),
@@ -373,7 +373,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 359,
+                            value: 402,
                         },
                     ),
                 ),
@@ -395,7 +395,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 402,
+                            value: 445,
                         },
                     ),
                 ),
@@ -417,7 +417,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 403,
+                            value: 446,
                         },
                     ),
                 ),
@@ -439,7 +439,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 404,
+                            value: 447,
                         },
                     ),
                 ),

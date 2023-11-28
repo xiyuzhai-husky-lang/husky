@@ -74,6 +74,11 @@ impl TypePath {
 }
 
 impl TypePathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> TypePath {
+        TypePath(id)
+    }
+
     pub(super) fn item_kind(self) -> EntityKind {
         EntityKind::MajorItem {
             module_item_kind: MajorItemKind::Type(self.ty_kind),

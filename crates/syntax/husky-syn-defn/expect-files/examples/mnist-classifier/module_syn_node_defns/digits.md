@@ -7,8 +7,16 @@
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -27,8 +35,16 @@
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -47,8 +63,16 @@
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -67,8 +91,16 @@
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -87,8 +119,16 @@
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -107,8 +147,16 @@
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -127,8 +175,16 @@
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -147,8 +203,16 @@
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -167,8 +231,16 @@
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -187,8 +259,16 @@
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },

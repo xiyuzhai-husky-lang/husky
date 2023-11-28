@@ -114,7 +114,7 @@ impl EntitySymbolEntry {
             symbol: UseSymbol::new(
                 db,
                 original_symbol,
-                original_symbol.path(db),
+                original_symbol.principal_entity_path(db),
                 visibility,
                 rule.ast_idx(),
                 rule.use_expr_idx(),
@@ -158,7 +158,7 @@ impl EntitySymbolEntry {
                 symbol: UseSymbol::new(
                     db,
                     self.symbol,
-                    self.symbol.path(db),
+                    self.symbol.principal_entity_path(db),
                     rule.visibility(),
                     rule.ast_idx(),
                     rule.use_expr_idx(),

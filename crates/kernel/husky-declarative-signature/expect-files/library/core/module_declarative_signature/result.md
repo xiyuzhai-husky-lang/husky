@@ -99,14 +99,8 @@
                             ],
                         },
                         trai: DeclarativeTerm(`core::ops::Unveil core::result::Result t s`),
-                        self_ty: Path(
-                            ExplicitApplication(
-                                DeclarativeTermExplicitApplication(
-                                    Id {
-                                        value: 38,
-                                    },
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::result::Result t s`),
                         ),
                     },
                 ),
@@ -119,7 +113,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 163,
+                            value: 182,
                         },
                     ),
                 ),
@@ -146,7 +140,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 164,
+                            value: 183,
                         },
                     ),
                 ),

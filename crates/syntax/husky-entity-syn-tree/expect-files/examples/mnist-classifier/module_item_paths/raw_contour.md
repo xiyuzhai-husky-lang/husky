@@ -73,7 +73,7 @@
             TraitForTypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 395,
+                        value: 438,
                     },
                 ),
             ),
@@ -82,9 +82,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `mnist_classifier::raw_contour`,
+                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 318,
+                        value: 439,
                     },
                 ),
             ),
@@ -95,7 +112,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 396,
+                        value: 440,
                     },
                 ),
             ),
@@ -106,7 +123,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 397,
+                        value: 441,
                     },
                 ),
             ),
@@ -117,7 +134,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 398,
+                        value: 442,
                     },
                 ),
             ),
@@ -128,18 +145,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 399,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 400,
+                        value: 443,
                     },
                 ),
             ),

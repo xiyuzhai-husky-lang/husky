@@ -1,20 +1,44 @@
 [
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `std::prelude`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `std::prelude`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `std::logic`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `std::logic`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `std::ops`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `std::ops`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
 ]

@@ -132,7 +132,7 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -180,16 +180,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 292,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -285,16 +279,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 229,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -332,16 +320,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 229,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -379,7 +361,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -460,7 +442,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -500,16 +482,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 292,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -588,7 +564,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -669,7 +645,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -742,11 +718,26 @@
                         ),
                         opn: ValOpn::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 286,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 328,
+                                                    },
+                                                ),
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         arguments: [],
@@ -770,7 +761,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -908,7 +899,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -950,7 +941,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -989,7 +980,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1031,7 +1022,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -1070,7 +1061,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1112,7 +1103,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -1143,7 +1134,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -1194,16 +1185,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 229,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -1241,7 +1226,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -1314,16 +1299,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 229,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -1361,7 +1340,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -1385,7 +1364,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -1425,16 +1404,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 292,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -1531,7 +1504,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -1594,7 +1567,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -1698,11 +1671,26 @@
                         ),
                         opn: ValOpn::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 286,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 328,
+                                                    },
+                                                ),
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         arguments: [],
@@ -1718,7 +1706,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -1771,7 +1759,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1795,7 +1783,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -1819,7 +1807,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -1872,7 +1860,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -1896,7 +1884,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -1959,7 +1947,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2056,7 +2044,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -2095,7 +2083,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2127,7 +2115,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2159,7 +2147,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2199,16 +2187,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 292,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -2302,7 +2284,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2344,7 +2326,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -2397,7 +2379,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2429,7 +2411,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2471,7 +2453,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -2524,7 +2506,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -2548,7 +2530,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -2588,16 +2570,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 292,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -2673,7 +2649,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -2724,7 +2700,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -2777,7 +2753,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2801,7 +2777,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -2825,7 +2801,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -2878,7 +2854,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -2902,7 +2878,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -3004,7 +2980,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -3057,7 +3033,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -3081,7 +3057,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -3134,7 +3110,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -3158,7 +3134,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -3229,7 +3205,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -3260,7 +3236,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -3291,7 +3267,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -3315,7 +3291,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -3339,7 +3315,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -3412,7 +3388,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -3465,7 +3441,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -3489,7 +3465,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -3542,7 +3518,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -3566,7 +3542,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -3619,7 +3595,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -3643,7 +3619,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -3683,16 +3659,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 292,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -3773,7 +3743,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -3797,7 +3767,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -3821,7 +3791,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -3845,7 +3815,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -3869,7 +3839,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -3893,7 +3863,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -3964,16 +3934,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 292,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -4049,7 +4013,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -4108,7 +4072,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4150,7 +4114,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -4203,7 +4167,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -4235,7 +4199,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4277,7 +4241,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -4330,7 +4294,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -4362,7 +4326,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4404,7 +4368,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -4457,7 +4421,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -4481,7 +4445,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -4521,16 +4485,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 292,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -4689,7 +4647,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -4742,7 +4700,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4766,7 +4724,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -4819,7 +4777,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -4843,7 +4801,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -4867,7 +4825,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -4898,7 +4856,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -4929,7 +4887,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -4953,7 +4911,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -5006,7 +4964,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -5030,7 +4988,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -5083,7 +5041,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -5107,7 +5065,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -5178,7 +5136,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -5209,7 +5167,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Index,
+                                data: LinkageData::Index,
                             },
                         ),
                         arguments: [
@@ -5240,7 +5198,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -5264,7 +5222,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -5288,7 +5246,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -5312,7 +5270,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Method,
+                                data: LinkageData::Method,
                             },
                         ),
                         arguments: [
@@ -5336,7 +5294,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: PropsStructField,
+                                data: LinkageData::PropsStructField,
                             },
                         ),
                         arguments: [
@@ -5376,16 +5334,10 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: Item {
-                                    item_path: MajorItem(
-                                        Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 292,
-                                                    },
-                                                ),
-                                            ),
+                                data: LinkageData::Item {
+                                    item_path: ItemPath::MajorItem(
+                                        MajorItemPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                     ),
                                     instantiation: LinkageInstantiation {
@@ -5547,7 +5499,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -5579,7 +5531,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -5603,7 +5555,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -5627,7 +5579,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -5713,7 +5665,7 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: MemoizedField,
+                                data: LinkageData::MemoizedField,
                             },
                         ),
                         arguments: [
@@ -5950,11 +5902,26 @@
                         ),
                         opn: ValOpn::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 286,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 328,
+                                                    },
+                                                ),
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 450,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                         arguments: [],

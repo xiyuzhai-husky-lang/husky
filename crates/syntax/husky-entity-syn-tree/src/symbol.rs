@@ -12,7 +12,7 @@ pub struct UseSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum EntitySymbol {
     CrateRoot {
@@ -32,7 +32,7 @@ pub enum EntitySymbol {
         item_path: PrincipalEntityPath,
     },
     Submodule {
-        submodule_path: SubmodulePath,
+        submodule_item_path: SubmoduleItemPath,
     },
     MajorItem {
         module_item_path: MajorItemPath,
@@ -47,7 +47,7 @@ impl EntitySymbol {
     pub(crate) fn from_node(db: &::salsa::Db, node: &ItemSynNode) -> Option<Self> {
         match node {
             ItemSynNode::Submodule(node) => Some(EntitySymbol::Submodule {
-                submodule_path: node.unambiguous_path(db)?,
+                submodule_item_path: node.unambiguous_path(db)?,
             }),
             ItemSynNode::MajorItem(node) => Some(EntitySymbol::MajorItem {
                 module_item_path: node.unambiguous_path(db)?,
@@ -63,7 +63,7 @@ impl EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub fn path(self, db: &::salsa::Db) -> PrincipalEntityPath {
+    pub fn principal_entity_path(self, db: &::salsa::Db) -> PrincipalEntityPath {
         match self {
             EntitySymbol::CrateRoot { root_module_path } => root_module_path.into(),
             EntitySymbol::SelfModule { module_path } => module_path.into(),
@@ -72,7 +72,10 @@ impl EntitySymbol {
             } => super_module_path.into(),
             EntitySymbol::UniversalPrelude { item_path }
             | EntitySymbol::PackageDependency { item_path } => item_path.into(),
-            EntitySymbol::Submodule { submodule_path, .. } => submodule_path.inner().into(),
+            EntitySymbol::Submodule {
+                submodule_item_path: submodule_path,
+                ..
+            } => submodule_path.self_module_path(db).into(),
             EntitySymbol::MajorItem {
                 module_item_path, ..
             } => module_item_path.into(),

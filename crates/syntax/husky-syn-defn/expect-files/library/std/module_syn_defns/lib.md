@@ -3,8 +3,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `std::prelude`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `std::prelude`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -12,8 +20,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `std::logic`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `std::logic`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -21,8 +37,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `std::ops`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `std::ops`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },

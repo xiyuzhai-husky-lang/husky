@@ -74,11 +74,26 @@
                             opt_path: Some(
                                 PrincipalEntityPath::TypeVariant(
                                     TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 333,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::TypeVariant(
+                                                TypeVariantPathData {
+                                                    parent_ty_path: TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 370,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    ident: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 506,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -154,11 +169,26 @@
                             path: Ok(
                                 PrincipalEntityPath::TypeVariant(
                                     TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 333,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::TypeVariant(
+                                                TypeVariantPathData {
+                                                    parent_ty_path: TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 370,
+                                                            },
+                                                        ),
+                                                    ),
+                                                    ident: Ident(
+                                                        Coword(
+                                                            Id {
+                                                                value: 506,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -232,7 +262,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 317,
+                                                        value: 360,
                                                     },
                                                 ),
                                             ),
@@ -265,7 +295,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 327,
+                                                        value: 370,
                                                     },
                                                 ),
                                             ),
@@ -323,7 +353,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 333,
+                                                    value: 376,
                                                 },
                                             ),
                                         ),
@@ -340,7 +370,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 327,
+                                                            value: 370,
                                                         },
                                                     ),
                                                 ),
@@ -415,7 +445,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 327,
+                                                    value: 370,
                                                 },
                                             ),
                                         ),
@@ -438,7 +468,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 317,
+                                                    value: 360,
                                                 },
                                             ),
                                         ),
@@ -480,7 +510,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 333,
+                                                    value: 376,
                                                 },
                                             ),
                                         ),
@@ -719,7 +749,7 @@
                                                                         TypePath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 327,
+                                                                                    value: 370,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -757,7 +787,7 @@
                                                         TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 327,
+                                                                    value: 370,
                                                                 },
                                                             ),
                                                         ),
@@ -781,7 +811,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 327,
+                                                                value: 370,
                                                             },
                                                         ),
                                                     ),

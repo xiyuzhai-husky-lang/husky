@@ -6,11 +6,26 @@ AstSheet {
                     2,
                 ),
                 variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 176,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 218,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 528,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -35,11 +50,26 @@ AstSheet {
                     3,
                 ),
                 variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 177,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 218,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 218,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -64,11 +94,26 @@ AstSheet {
                     6,
                 ),
                 variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 179,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 221,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 278,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -93,11 +138,26 @@ AstSheet {
                     7,
                 ),
                 variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 180,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 221,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 531,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -158,11 +218,26 @@ AstSheet {
                     12,
                 ),
                 variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 182,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 224,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 533,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -187,11 +262,26 @@ AstSheet {
                     13,
                 ),
                 variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 183,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 224,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 534,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -216,11 +306,26 @@ AstSheet {
                     14,
                 ),
                 variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 184,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 224,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 535,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(

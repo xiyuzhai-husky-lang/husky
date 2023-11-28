@@ -3,8 +3,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::array`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::array`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -12,8 +20,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::basic`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::basic`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -21,8 +37,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::clone`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::clone`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -30,8 +54,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::cmp`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::cmp`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -39,8 +71,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::default`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::default`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -48,8 +88,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::fmt`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::fmt`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -57,8 +105,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::logic`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::logic`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -66,8 +122,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::marker`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::marker`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -75,8 +139,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::mem`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::mem`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -84,8 +156,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::num`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::num`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -93,8 +173,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::ops`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::ops`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -102,8 +190,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::option`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::option`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -111,8 +207,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::prelude`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::prelude`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -120,8 +224,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::raw_bits`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::raw_bits`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -129,8 +241,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::result`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::result`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -138,8 +258,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::vec`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::vec`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -147,8 +275,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::slice`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::slice`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -156,8 +292,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::str`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::str`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -165,8 +309,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `core::visual`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::visual`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },

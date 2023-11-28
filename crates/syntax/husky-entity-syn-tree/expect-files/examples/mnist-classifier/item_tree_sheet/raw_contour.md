@@ -815,8 +815,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::connected_component`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::connected_component`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -838,8 +846,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::raw_contour`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::raw_contour`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -861,8 +877,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::geom2d`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::geom2d`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -884,8 +908,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -907,8 +939,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::fermi`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::fermi`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -930,8 +970,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -953,8 +1001,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::major`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::major`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -3074,7 +3130,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 253,
+                                                value: 296,
                                             },
                                         ),
                                     ),
@@ -3094,7 +3150,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 253,
+                                                    value: 296,
                                                 },
                                             ),
                                         ),
@@ -3256,8 +3312,16 @@ EntitySynTreeSheet {
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::geom2d`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::geom2d`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -3290,8 +3354,16 @@ EntitySynTreeSheet {
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::connected_component`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::connected_component`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -3324,8 +3396,16 @@ EntitySynTreeSheet {
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),

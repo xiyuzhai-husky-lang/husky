@@ -2,10 +2,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 27,
+                        value: 242,
                     },
                 ),
             ),
@@ -17,10 +17,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 47,
+                        value: 243,
                     },
                 ),
             ),
@@ -32,10 +32,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 40,
+                        value: 244,
                     },
                 ),
             ),
@@ -47,10 +47,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 41,
+                        value: 245,
                     },
                 ),
             ),
@@ -62,10 +62,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 39,
+                        value: 246,
                     },
                 ),
             ),
@@ -77,10 +77,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 28,
+                        value: 247,
                     },
                 ),
             ),
@@ -92,10 +92,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 46,
+                        value: 248,
                     },
                 ),
             ),
@@ -110,7 +110,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 220,
+                            value: 249,
                         },
                     ),
                 ),

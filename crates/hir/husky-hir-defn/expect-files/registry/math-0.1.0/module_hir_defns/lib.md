@@ -2,8 +2,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `math::algebra`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::algebra`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -11,8 +19,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `math::algebraic_geometry`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::algebraic_geometry`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -20,8 +36,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `math::algebraic_topology`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::algebraic_topology`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -29,8 +53,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `math::category_theory`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::category_theory`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -38,8 +70,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `math::probability`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::probability`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },

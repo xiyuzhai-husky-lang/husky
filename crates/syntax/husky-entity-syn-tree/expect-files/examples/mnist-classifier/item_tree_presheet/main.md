@@ -10,8 +10,16 @@ EntitySynTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -38,8 +46,16 @@ EntitySynTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::connected_component`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::connected_component`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -61,8 +77,16 @@ EntitySynTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -89,8 +113,16 @@ EntitySynTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::raw_contour`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::raw_contour`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -112,8 +144,16 @@ EntitySynTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -140,8 +180,16 @@ EntitySynTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::geom2d`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::geom2d`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -163,8 +211,16 @@ EntitySynTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -191,8 +247,16 @@ EntitySynTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::line_segment_sketch`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -214,8 +278,16 @@ EntitySynTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -242,8 +314,16 @@ EntitySynTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::fermi`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::fermi`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -265,8 +345,16 @@ EntitySynTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -293,8 +381,16 @@ EntitySynTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::digits`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::digits`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -316,8 +412,16 @@ EntitySynTreePresheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -344,8 +448,16 @@ EntitySynTreePresheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::major`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::major`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },

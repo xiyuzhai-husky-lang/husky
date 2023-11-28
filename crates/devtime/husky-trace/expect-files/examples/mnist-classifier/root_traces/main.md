@@ -3,18 +3,26 @@
         path: TracePath {
             data: TracePathData::Submodule(
                 SubmoduleTracePathData {
-                    submodule_path: SubmodulePath(
-                        `mnist_classifier::digits`,
+                    submodule_item_path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
         },
         data: Submodule(
             SubmoduleTraceData {
-                submodule_path: SubmodulePath(
-                    ModulePath(
+                submodule_item_path: SubmoduleItemPath(
+                    ItemPathId(
                         Id {
-                            value: 32,
+                            value: 215,
                         },
                     ),
                 ),
@@ -25,18 +33,26 @@
         path: TracePath {
             data: TracePathData::Submodule(
                 SubmoduleTracePathData {
-                    submodule_path: SubmodulePath(
-                        `mnist_classifier::major`,
+                    submodule_item_path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::major`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
         },
         data: Submodule(
             SubmoduleTraceData {
-                submodule_path: SubmodulePath(
-                    ModulePath(
+                submodule_item_path: SubmoduleItemPath(
+                    ItemPathId(
                         Id {
-                            value: 33,
+                            value: 216,
                         },
                     ),
                 ),
@@ -50,7 +66,7 @@
                     val_item_path: FugitivePath(
                         ItemPathId(
                             Id {
-                                value: 188,
+                                value: 217,
                             },
                         ),
                     ),
@@ -67,7 +83,7 @@
                 val_item_path: FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 188,
+                            value: 217,
                         },
                     ),
                 ),

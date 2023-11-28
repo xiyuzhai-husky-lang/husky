@@ -411,18 +411,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 195,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                         ),
                     },
                 ),
@@ -435,7 +425,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 395,
+                            value: 438,
                         },
                     ),
                 ),
@@ -468,11 +458,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 318,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::raw_contour`,
+                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -495,7 +491,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 396,
+                            value: 439,
                         },
                     ),
                 ),
@@ -509,7 +505,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 396,
+                                        value: 439,
                                     },
                                 ),
                             ),
@@ -532,7 +528,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 397,
+                            value: 440,
                         },
                     ),
                 ),
@@ -546,7 +542,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 397,
+                                        value: 440,
                                     },
                                 ),
                             ),
@@ -569,7 +565,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 398,
+                            value: 441,
                         },
                     ),
                 ),
@@ -583,7 +579,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 398,
+                                        value: 441,
                                     },
                                 ),
                             ),
@@ -606,7 +602,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 399,
+                            value: 442,
                         },
                     ),
                 ),
@@ -620,7 +616,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 399,
+                                        value: 442,
                                     },
                                 ),
                             ),
@@ -643,7 +639,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 400,
+                            value: 443,
                         },
                     ),
                 ),
@@ -657,7 +653,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 400,
+                                        value: 443,
                                     },
                                 ),
                             ),

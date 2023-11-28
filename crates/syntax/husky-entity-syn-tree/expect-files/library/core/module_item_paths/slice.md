@@ -12,9 +12,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `core::slice`,
+                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 107,
+                        value: 178,
                     },
                 ),
             ),
@@ -25,18 +42,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 159,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 160,
+                        value: 179,
                     },
                 ),
             ),
@@ -61,7 +67,7 @@
             TraitForTypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 161,
+                        value: 180,
                     },
                 ),
             ),
@@ -70,9 +76,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `core::slice`,
+                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 109,
+                        value: 181,
                     },
                 ),
             ),
@@ -83,7 +106,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 162,
+                        value: 182,
                     },
                 ),
             ),
@@ -94,7 +117,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 163,
+                        value: 183,
                     },
                 ),
             ),
@@ -105,7 +128,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 164,
+                        value: 184,
                     },
                 ),
             ),
@@ -116,18 +139,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 165,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 166,
+                        value: 185,
                     },
                 ),
             ),

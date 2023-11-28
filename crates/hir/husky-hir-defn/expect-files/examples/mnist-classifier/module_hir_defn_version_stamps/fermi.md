@@ -5,7 +5,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 260,
+                            value: 293,
                         },
                     ),
                 ),
@@ -27,7 +27,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 261,
+                            value: 294,
                         },
                     ),
                 ),
@@ -49,7 +49,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 364,
+                            value: 407,
                         },
                     ),
                 ),
@@ -71,7 +71,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 377,
+                            value: 420,
                         },
                     ),
                 ),
@@ -93,7 +93,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 378,
+                            value: 421,
                         },
                     ),
                 ),
@@ -115,7 +115,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 379,
+                            value: 422,
                         },
                     ),
                 ),

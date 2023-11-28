@@ -14,11 +14,17 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 106,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::vec`,
+                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
                 template_parameters: HirTemplateParameters(
                     [
@@ -64,11 +70,17 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 106,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::ImplBlock(
+                                            ImplBlockPathData::TypeImplBlock(
+                                                TypeImplBlockPathData {
+                                                    module_path: `core::vec`,
+                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),

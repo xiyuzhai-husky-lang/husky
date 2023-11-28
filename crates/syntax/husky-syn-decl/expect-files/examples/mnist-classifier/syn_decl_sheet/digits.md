@@ -3,14 +3,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `mnist_classifier::digits::zero`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits::zero`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::zero`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -18,14 +34,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `mnist_classifier::digits::one`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits::one`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::one`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -33,14 +65,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `mnist_classifier::digits::six`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits::six`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::six`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -48,14 +96,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `mnist_classifier::digits::three`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits::three`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::three`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -63,14 +127,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `mnist_classifier::digits::four`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits::four`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::four`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -78,14 +158,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `mnist_classifier::digits::five`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits::five`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::five`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::five`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -93,14 +189,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `mnist_classifier::digits::seven`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits::seven`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::seven`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -108,14 +220,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `mnist_classifier::digits::eight`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits::eight`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::eight`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -123,14 +251,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `mnist_classifier::digits::nine`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits::nine`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::nine`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -138,14 +282,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `mnist_classifier::digits::two`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits::two`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::two`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),

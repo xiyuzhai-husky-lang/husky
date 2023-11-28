@@ -3,14 +3,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `math::algebra`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::algebra`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `math::algebra`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::algebra`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -18,14 +34,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `math::algebraic_geometry`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::algebraic_geometry`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `math::algebraic_geometry`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::algebraic_geometry`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -33,14 +65,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `math::algebraic_topology`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::algebraic_topology`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `math::algebraic_topology`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::algebraic_topology`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -48,14 +96,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `math::category_theory`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::category_theory`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `math::category_theory`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::category_theory`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -63,14 +127,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `math::probability`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::probability`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `math::probability`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::probability`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),

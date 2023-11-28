@@ -61,6 +61,11 @@ impl salsa::DisplayWithDb for TypeItemPath {
 }
 
 impl TypeItemPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> TypeItemPath {
+        TypeItemPath(id)
+    }
+
     pub fn impl_block(self) -> TypeImplBlockPath {
         self.impl_block
     }

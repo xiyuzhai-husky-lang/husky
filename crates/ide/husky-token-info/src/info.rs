@@ -127,7 +127,11 @@ impl TokenInfoData {
             TokenInfoData::UseExpr { state, .. } => match state {
                 OnceUseRuleState::Resolved {
                     original_symbol: Some(original_symbol),
-                } => original_symbol.path(db).item_kind(db).class().into(),
+                } => original_symbol
+                    .principal_entity_path(db)
+                    .item_kind(db)
+                    .class()
+                    .into(),
                 OnceUseRuleState::Resolved {
                     original_symbol: None,
                 } => todo!(),

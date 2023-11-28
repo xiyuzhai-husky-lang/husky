@@ -69,7 +69,7 @@ pub(crate) fn none_core_crate_universal_prelude(
                 ident: entry.ident,
                 visibility: Scope::Pub,
                 symbol: EntitySymbol::UniversalPrelude {
-                    item_path: entry.symbol.path(db),
+                    item_path: entry.symbol.principal_entity_path(db),
                 },
             }),
     );

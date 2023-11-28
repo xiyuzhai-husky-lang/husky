@@ -13,8 +13,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -39,8 +47,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::line_segment_sketch::convex_component`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::line_segment_sketch::convex_component`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -65,8 +81,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::line_segment_sketch::convexity`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::line_segment_sketch::convexity`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -91,8 +115,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::line_segment_sketch::line_segment`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::line_segment_sketch::line_segment`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -120,8 +152,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -146,8 +186,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -172,8 +220,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -218,8 +274,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -264,8 +328,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -310,8 +382,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -660,7 +740,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 454,
+                                                                    value: 497,
                                                                 },
                                                             ),
                                                         ),
@@ -822,7 +902,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 423,
+                                                                    value: 466,
                                                                 },
                                                             ),
                                                         ),
@@ -1144,7 +1224,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 424,
+                                                                    value: 467,
                                                                 },
                                                             ),
                                                         ),
@@ -1445,7 +1525,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 455,
+                                                                    value: 498,
                                                                 },
                                                             ),
                                                         ),
@@ -1560,7 +1640,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 433,
+                                                                    value: 476,
                                                                 },
                                                             ),
                                                         ),
@@ -1687,7 +1767,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 434,
+                                                                    value: 477,
                                                                 },
                                                             ),
                                                         ),
@@ -2570,7 +2650,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 435,
+                                                                    value: 478,
                                                                 },
                                                             ),
                                                         ),

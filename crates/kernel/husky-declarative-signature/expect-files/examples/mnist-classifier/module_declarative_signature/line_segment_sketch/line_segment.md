@@ -36,11 +36,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 331,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -63,7 +69,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 386,
+                            value: 429,
                         },
                     ),
                 ),
@@ -77,7 +83,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 386,
+                                        value: 429,
                                     },
                                 ),
                             ),
@@ -111,7 +117,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 387,
+                            value: 430,
                         },
                     ),
                 ),
@@ -125,7 +131,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 387,
+                                        value: 430,
                                     },
                                 ),
                             ),

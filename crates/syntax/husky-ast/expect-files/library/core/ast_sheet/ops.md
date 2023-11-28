@@ -1014,11 +1014,26 @@ AstSheet {
                     62,
                 ),
                 variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 58,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 76,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 121,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
@@ -1043,11 +1058,26 @@ AstSheet {
                     63,
                 ),
                 variant_path: TypeVariantPath(
-                    ItemPathId(
-                        Id {
-                            value: 59,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::TypeVariant(
+                            TypeVariantPathData {
+                                parent_ty_path: TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 76,
+                                        },
+                                    ),
+                                ),
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 122,
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    },
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(

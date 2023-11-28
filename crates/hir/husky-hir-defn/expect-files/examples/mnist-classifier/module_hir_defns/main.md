@@ -2,8 +2,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `mnist_classifier::connected_component`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::connected_component`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -11,8 +19,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `mnist_classifier::raw_contour`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::raw_contour`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -20,8 +36,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `mnist_classifier::geom2d`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::geom2d`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -29,8 +53,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `mnist_classifier::line_segment_sketch`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::line_segment_sketch`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -38,8 +70,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `mnist_classifier::fermi`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::fermi`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -47,8 +87,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `mnist_classifier::digits`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::digits`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -56,8 +104,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `mnist_classifier::major`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `mnist_classifier::major`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },

@@ -3,8 +3,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::zero`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -12,8 +20,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::one`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -21,8 +37,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::six`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -30,8 +54,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::three`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -39,8 +71,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::four`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -48,8 +88,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::five`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::five`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -57,8 +105,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::seven`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -66,8 +122,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::eight`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -75,8 +139,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::nine`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -84,8 +156,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits::two`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },

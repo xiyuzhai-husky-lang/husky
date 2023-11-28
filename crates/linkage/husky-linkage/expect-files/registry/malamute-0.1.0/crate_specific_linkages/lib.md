@@ -1,12 +1,12 @@
 [
     Linkage {
-        data: Item {
-            item_path: AssociatedItem(
-                TraitForTypeItem(
+        data: LinkageData::Item {
+            item_path: ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 447,
+                                value: 490,
                             },
                         ),
                     ),
@@ -19,13 +19,13 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: AssociatedItem(
-                TraitForTypeItem(
+        data: LinkageData::Item {
+            item_path: ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 448,
+                                value: 491,
                             },
                         ),
                     ),

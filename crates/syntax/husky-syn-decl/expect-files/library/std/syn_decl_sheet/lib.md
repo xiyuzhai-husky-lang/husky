@@ -3,14 +3,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `std::prelude`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `std::prelude`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `std::prelude`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `std::prelude`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -18,14 +34,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `std::logic`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `std::logic`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `std::logic`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `std::logic`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),
@@ -33,14 +65,30 @@ SynDeclSheet {
         (
             ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    `std::ops`,
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `std::ops`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             SynDecl::Submodule(
                 SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `std::ops`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `std::ops`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             ),

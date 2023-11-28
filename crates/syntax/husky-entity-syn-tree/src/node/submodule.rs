@@ -9,14 +9,14 @@ pub struct SubmoduleSynNodePath(ItemSynNodePathId);
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db]
 pub struct SubmoduleSynNodePathData {
-    maybe_ambiguous_path: MaybeAmbiguousPath<SubmodulePath>,
+    maybe_ambiguous_path: MaybeAmbiguousPath<SubmoduleItemPath>,
 }
 
 impl SubmoduleSynNodePath {
     pub(super) fn new(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
-        path: SubmodulePath,
+        path: SubmoduleItemPath,
     ) -> Self {
         Self(ItemSynNodePathId::new(
             db,
@@ -33,7 +33,7 @@ impl SubmoduleSynNodePath {
         }
     }
 
-    pub fn path(self, db: &::salsa::Db) -> Option<SubmodulePath> {
+    pub fn path(self, db: &::salsa::Db) -> Option<SubmoduleItemPath> {
         self.data(db).path()
     }
 
@@ -53,7 +53,7 @@ impl SubmoduleSynNodePathData {
         SubmoduleSynNodePath(id)
     }
 
-    pub fn path(self) -> Option<SubmodulePath> {
+    pub fn path(self) -> Option<SubmoduleItemPath> {
         self.maybe_ambiguous_path.unambiguous_path()
     }
 
@@ -66,7 +66,7 @@ impl SubmoduleSynNodePathData {
     }
 }
 
-impl HasSynNodePath for SubmodulePath {
+impl HasSynNodePath for SubmoduleItemPath {
     type SynNodePath = SubmoduleSynNodePath;
 
     fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
@@ -92,20 +92,20 @@ impl SubmoduleSynNode {
     pub(super) fn new(
         db: &::salsa::Db,
         registry: &mut ItemSynNodePathRegistry,
-        submodule_path: SubmodulePath,
+        submodule_item_path: SubmoduleItemPath,
         visibility: Scope,
         ast_idx: AstIdx,
         ident_token: IdentToken,
     ) -> Self {
         Self {
-            syn_node_path: SubmoduleSynNodePath::new(db, registry, submodule_path),
+            syn_node_path: SubmoduleSynNodePath::new(db, registry, submodule_item_path),
             visibility,
             ast_idx,
             ident_token,
         }
     }
 
-    pub fn unambiguous_path(&self, db: &::salsa::Db) -> Option<SubmodulePath> {
+    pub fn unambiguous_path(&self, db: &::salsa::Db) -> Option<SubmoduleItemPath> {
         self.syn_node_path.path(db)
     }
 }

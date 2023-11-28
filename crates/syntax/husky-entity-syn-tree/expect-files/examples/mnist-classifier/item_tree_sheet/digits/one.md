@@ -383,8 +383,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::zero`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::zero`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -406,8 +414,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::one`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::one`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -429,8 +445,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::six`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::six`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -452,8 +476,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::three`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::three`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -475,8 +507,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::four`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::four`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -498,8 +538,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::five`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::five`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -521,8 +569,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::seven`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::seven`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -544,8 +600,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::eight`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::eight`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -567,8 +631,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::nine`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::nine`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -590,8 +662,16 @@ EntitySynTreeSheet {
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::two`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::two`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                         path: PrincipalEntityPath::Module(
@@ -652,8 +732,16 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::connected_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -687,8 +775,16 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -722,8 +818,16 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -757,8 +861,16 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -792,8 +904,16 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::fermi`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -827,8 +947,16 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -862,8 +990,16 @@ EntitySynTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::major`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(

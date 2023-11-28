@@ -2,9 +2,9 @@ use super::*;
 use salsa::Db;
 use vec_like::VecPairMap;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ImplBlockPath {
     TypeImplBlock(TypeImplBlockPath),
     TraitForTypeImplBlock(TraitForTypeImplBlockPath),
@@ -26,15 +26,23 @@ impl std::ops::Deref for ImplBlockPath {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ImplBlockPathData {
     TypeImplBlock(TypeImplBlockPathData),
     TraitForTypeImplBlock(TraitForTypeImplBlockPathData),
 }
 
 impl ImplBlockPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> ImplBlockPath {
+        match self {
+            ImplBlockPathData::TypeImplBlock(slf) => slf.item_path(id).into(),
+            ImplBlockPathData::TraitForTypeImplBlock(slf) => slf.item_path(id).into(),
+        }
+    }
+
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
             ImplBlockPathData::TypeImplBlock(data) => data.module_path(),
@@ -43,11 +51,13 @@ impl ImplBlockPathData {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::debug_with_db]
 #[salsa::as_id(jar = EntityPathJar)]
 #[salsa::deref_id]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TypeImplBlockPath(ItemPathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeImplBlockPathData {
     module_path: ModulePath,
@@ -69,6 +79,11 @@ impl TypeImplBlockPath {
 }
 
 impl TypeImplBlockPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> TypeImplBlockPath {
+        TypeImplBlockPath(id)
+    }
+
     pub fn module_path(self) -> ModulePath {
         self.module_path
     }
@@ -113,13 +128,13 @@ impl TypeImplBlockPathData {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id(jar = EntityPathJar)]
 #[salsa::deref_id]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TraitForTypeImplBlockPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 pub struct TraitForTypeImplBlockPathData {
     module_path: ModulePath,
     trai_path: TraitPath,
@@ -163,6 +178,11 @@ impl TraitForTypeImplBlockPath {
 }
 
 impl TraitForTypeImplBlockPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> TraitForTypeImplBlockPath {
+        TraitForTypeImplBlockPath(id)
+    }
+
     pub fn module_path(self) -> ModulePath {
         self.module_path
     }
@@ -181,7 +201,7 @@ impl TraitForTypeImplBlockPathData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 pub enum TypeSketch {
     DeriveAny,
     // { ty_kind: Option<TypeKind> }
@@ -228,7 +248,7 @@ pub struct ImplBlockRegistry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 pub enum ImplBlockKind {
     Type {
         ty_path: TypePath,

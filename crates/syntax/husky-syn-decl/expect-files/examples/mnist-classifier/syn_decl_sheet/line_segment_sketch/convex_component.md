@@ -489,7 +489,7 @@ SynDeclSheet {
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 385,
+                                value: 428,
                             },
                         ),
                     ),
@@ -502,7 +502,7 @@ SynDeclSheet {
                             path: TraitForTypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 385,
+                                        value: 428,
                                     },
                                 ),
                             ),
@@ -662,7 +662,7 @@ SynDeclSheet {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 385,
+                                                                                    value: 428,
                                                                                 },
                                                                             ),
                                                                         ),

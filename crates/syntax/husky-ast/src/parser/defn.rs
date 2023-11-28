@@ -34,7 +34,10 @@ impl<'a> AstParser<'a> {
         let ident = ident_token.ident();
         let block = match item_kind {
             EntityKind::Module => DefnBlock::Submodule {
-                path: ModulePath::new_child(self.db, self.module_path, ident)?,
+                path: SubmoduleItemPath::new(
+                    ModulePath::new_child(self.db, self.module_path, ident)?,
+                    self.db,
+                ),
             },
             EntityKind::MajorItem {
                 module_item_kind,

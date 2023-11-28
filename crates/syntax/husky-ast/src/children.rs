@@ -27,7 +27,7 @@ pub enum DefnBlock {
         body: Option<FugitiveBody>,
     },
     Submodule {
-        path: SubmodulePath,
+        path: SubmoduleItemPath,
     },
     Type {
         path: TypePath,

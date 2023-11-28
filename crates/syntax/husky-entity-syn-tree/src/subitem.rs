@@ -31,7 +31,7 @@ pub(crate) fn subitem_path(
                 .module_symbols()
                 .resolve_ident(db, ReferenceModulePath::Generic, ident)
             {
-                Some(item_symbol) => Ok(item_symbol.path(db).into()),
+                Some(item_symbol) => Ok(item_symbol.principal_entity_path(db).into()),
                 None => Err(OriginalEntityTreeError::NoVisibleSubitem)?,
             }
         }

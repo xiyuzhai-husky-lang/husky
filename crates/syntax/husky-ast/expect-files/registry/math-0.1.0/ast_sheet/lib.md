@@ -30,8 +30,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `math::algebra`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::algebra`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -64,8 +72,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `math::algebraic_geometry`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::algebraic_geometry`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -98,8 +114,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `math::algebraic_topology`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::algebraic_topology`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -132,8 +156,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `math::category_theory`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::category_theory`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -166,8 +198,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `math::probability`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::probability`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },

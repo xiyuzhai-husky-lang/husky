@@ -7,9 +7,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `core::vec`,
+                                ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 106,
+                        value: 186,
                     },
                 ),
             ),
@@ -20,7 +37,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 167,
+                        value: 187,
                     },
                 ),
             ),
@@ -31,7 +48,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 168,
+                        value: 188,
                     },
                 ),
             ),
@@ -42,7 +59,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 169,
+                        value: 189,
                     },
                 ),
             ),
@@ -53,7 +70,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 170,
+                        value: 190,
                     },
                 ),
             ),
@@ -64,7 +81,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 171,
+                        value: 191,
                     },
                 ),
             ),
@@ -75,7 +92,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 172,
+                        value: 192,
                     },
                 ),
             ),
@@ -86,18 +103,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 173,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 174,
+                        value: 193,
                     },
                 ),
             ),

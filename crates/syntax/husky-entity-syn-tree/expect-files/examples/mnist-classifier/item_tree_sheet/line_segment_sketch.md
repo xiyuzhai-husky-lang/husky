@@ -10,8 +10,16 @@ EntitySynTreeSheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -38,8 +46,16 @@ EntitySynTreeSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -61,8 +77,16 @@ EntitySynTreeSheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::convex_component`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch::convex_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -89,8 +113,16 @@ EntitySynTreeSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::convex_component`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::line_segment_sketch::convex_component`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -112,8 +144,16 @@ EntitySynTreeSheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::convexity`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch::convexity`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -140,8 +180,16 @@ EntitySynTreeSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::convexity`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::line_segment_sketch::convexity`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -163,8 +211,16 @@ EntitySynTreeSheet {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch::line_segment`,
+                                            path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch::line_segment`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -191,8 +247,16 @@ EntitySynTreeSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::line_segment`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::line_segment_sketch::line_segment`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -644,8 +708,16 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 symbol: EntitySymbol::Submodule {
-                    submodule_path: SubmodulePath(
-                        `mnist_classifier::line_segment_sketch::concave_component`,
+                    submodule_item_path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -655,8 +727,16 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 symbol: EntitySymbol::Submodule {
-                    submodule_path: SubmodulePath(
-                        `mnist_classifier::line_segment_sketch::convex_component`,
+                    submodule_item_path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -666,8 +746,16 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 symbol: EntitySymbol::Submodule {
-                    submodule_path: SubmodulePath(
-                        `mnist_classifier::line_segment_sketch::convexity`,
+                    submodule_item_path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -677,8 +765,16 @@ EntitySynTreeSheet {
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 symbol: EntitySymbol::Submodule {
-                    submodule_path: SubmodulePath(
-                        `mnist_classifier::line_segment_sketch::line_segment`,
+                    submodule_item_path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -1101,7 +1197,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 260,
+                                                value: 303,
                                             },
                                         ),
                                     ),
@@ -1121,7 +1217,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 260,
+                                                    value: 303,
                                                 },
                                             ),
                                         ),
@@ -1225,7 +1321,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 262,
+                                                value: 305,
                                             },
                                         ),
                                     ),
@@ -1245,7 +1341,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 262,
+                                                    value: 305,
                                                 },
                                             ),
                                         ),
@@ -1293,8 +1389,16 @@ EntitySynTreeSheet {
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1321,8 +1425,16 @@ EntitySynTreeSheet {
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch::convex_component`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch::convex_component`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1349,8 +1461,16 @@ EntitySynTreeSheet {
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch::line_segment`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch::line_segment`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1433,8 +1553,16 @@ EntitySynTreeSheet {
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch::line_segment`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch::line_segment`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1467,8 +1595,16 @@ EntitySynTreeSheet {
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::geom2d`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::geom2d`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),
@@ -1501,8 +1637,16 @@ EntitySynTreeSheet {
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::raw_contour`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::raw_contour`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     ),

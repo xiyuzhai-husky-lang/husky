@@ -303,7 +303,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 479,
+                                value: 527,
                             },
                         ),
                     ),
@@ -311,7 +311,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 479,
+                                    value: 527,
                                 },
                             ),
                         ),
@@ -335,7 +335,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 479,
+                                                    value: 527,
                                                 },
                                             ),
                                         ),
@@ -381,11 +381,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 474,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `mnist`,
+                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -401,11 +407,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 474,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -442,7 +454,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 480,
+                                value: 528,
                             },
                         ),
                     ),
@@ -450,7 +462,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 480,
+                                    value: 528,
                                 },
                             ),
                         ),
@@ -473,7 +485,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 480,
+                                                    value: 528,
                                                 },
                                             ),
                                         ),
@@ -590,7 +602,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 481,
+                                value: 529,
                             },
                         ),
                     ),
@@ -598,7 +610,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 481,
+                                    value: 529,
                                 },
                             ),
                         ),
@@ -618,7 +630,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 481,
+                                                    value: 529,
                                                 },
                                             ),
                                         ),
@@ -727,7 +739,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 482,
+                                value: 530,
                             },
                         ),
                     ),
@@ -735,7 +747,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 482,
+                                    value: 530,
                                 },
                             ),
                         ),
@@ -759,7 +771,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 482,
+                                                    value: 530,
                                                 },
                                             ),
                                         ),
@@ -805,11 +817,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 477,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `mnist`,
+                                        ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -825,11 +843,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 477,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -866,7 +890,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 483,
+                                value: 531,
                             },
                         ),
                     ),
@@ -874,7 +898,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 483,
+                                    value: 531,
                                 },
                             ),
                         ),
@@ -897,7 +921,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 483,
+                                                    value: 531,
                                                 },
                                             ),
                                         ),
@@ -1014,7 +1038,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 484,
+                                value: 532,
                             },
                         ),
                     ),
@@ -1022,7 +1046,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 484,
+                                    value: 532,
                                 },
                             ),
                         ),
@@ -1042,7 +1066,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 484,
+                                                    value: 532,
                                                 },
                                             ),
                                         ),

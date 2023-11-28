@@ -3,8 +3,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::connected_component`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -12,8 +20,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::raw_contour`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -21,8 +37,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::geom2d`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::geom2d`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -30,8 +54,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::line_segment_sketch`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::line_segment_sketch`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -39,8 +71,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::fermi`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -48,8 +88,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::digits`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -57,8 +105,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `mnist_classifier::major`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `mnist_classifier::major`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -516,11 +572,26 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 284,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::TypeVariant(
+                                                                        TypeVariantPathData {
+                                                                            parent_ty_path: TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 325,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            ident: Ident(
+                                                                                Coword(
+                                                                                    Id {
+                                                                                        value: 241,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -702,11 +773,26 @@ Ok(
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 284,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::TypeVariant(
+                                                                        TypeVariantPathData {
+                                                                            parent_ty_path: TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 325,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            ident: Ident(
+                                                                                Coword(
+                                                                                    Id {
+                                                                                        value: 241,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),

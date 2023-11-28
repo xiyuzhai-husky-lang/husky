@@ -1,32 +1,72 @@
 [
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `math::algebra`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `math::algebra`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `math::algebraic_geometry`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `math::algebraic_geometry`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `math::algebraic_topology`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `math::algebraic_topology`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `math::category_theory`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `math::category_theory`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
     ItemPath::Submodule(
         Room32,
-        SubmodulePath(
-            `math::probability`,
+        SubmoduleItemPath(
+            ItemPathId {
+                data: ItemPathData::SubmoduleItem(
+                    SubmoduleItemPathData {
+                        submodule_path: SubmodulePath(
+                            `math::probability`,
+                        ),
+                    },
+                ),
+            },
         ),
     ),
 ]

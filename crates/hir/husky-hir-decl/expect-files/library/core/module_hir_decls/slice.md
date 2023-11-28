@@ -25,11 +25,17 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 107,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::slice`,
+                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
                 template_parameters: HirTemplateParameters(
                     [
@@ -75,11 +81,17 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 107,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::ImplBlock(
+                                            ImplBlockPathData::TypeImplBlock(
+                                                TypeImplBlockPathData {
+                                                    module_path: `core::slice`,
+                                                    ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -270,11 +282,17 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 109,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::slice`,
+                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
                 template_parameters: HirTemplateParameters(
                     [
@@ -320,11 +338,17 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 109,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::ImplBlock(
+                                            ImplBlockPathData::TypeImplBlock(
+                                                TypeImplBlockPathData {
+                                                    module_path: `core::slice`,
+                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),

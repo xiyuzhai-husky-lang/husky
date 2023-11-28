@@ -88,7 +88,7 @@ pub enum RitchieTraitKind {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 pub enum TermTypeExpectation {
     FinalDestinationEqsSort,
     FinalDestinationEqsNonSortTypePath(TypePath),

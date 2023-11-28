@@ -1,134 +1,286 @@
 [
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::array`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::array`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::basic`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::basic`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::clone`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::clone`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::cmp`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::cmp`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::default`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::default`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::fmt`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::fmt`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::logic`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::logic`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::marker`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::marker`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::mem`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::mem`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::num`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::num`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::ops`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::ops`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::option`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::option`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::prelude`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::prelude`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::raw_bits`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::raw_bits`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::result`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::result`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::vec`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::vec`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::slice`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::slice`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::str`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::str`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
     HirDecl::Submodule(
         SubmoduleHirDecl {
-            path: SubmodulePath(
-                `core::visual`,
+            path: SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `core::visual`,
+                            ),
+                        },
+                    ),
+                },
             ),
         },
     ),
