@@ -28,7 +28,7 @@
             TraitForTypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 372,
+                        value: 415,
                     },
                 ),
             ),
@@ -37,9 +37,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 329,
+                        value: 416,
                     },
                 ),
             ),
@@ -50,7 +67,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 373,
+                        value: 417,
                     },
                 ),
             ),
@@ -61,7 +78,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 374,
+                        value: 418,
                     },
                 ),
             ),
@@ -72,7 +89,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 375,
+                        value: 419,
                     },
                 ),
             ),
@@ -83,7 +100,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 376,
+                        value: 420,
                     },
                 ),
             ),
@@ -94,7 +111,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 377,
+                        value: 421,
                     },
                 ),
             ),
@@ -105,7 +122,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 378,
+                        value: 422,
                     },
                 ),
             ),
@@ -116,7 +133,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 379,
+                        value: 423,
                     },
                 ),
             ),
@@ -127,7 +144,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 380,
+                        value: 424,
                     },
                 ),
             ),
@@ -138,7 +155,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 381,
+                        value: 425,
                     },
                 ),
             ),
@@ -149,7 +166,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 382,
+                        value: 426,
                     },
                 ),
             ),
@@ -160,18 +177,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 383,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 384,
+                        value: 427,
                     },
                 ),
             ),

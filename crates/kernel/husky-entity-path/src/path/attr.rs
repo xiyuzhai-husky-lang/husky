@@ -7,6 +7,7 @@ use crate::*;
 #[salsa::deref_id]
 pub struct AttrItemPath(ItemPathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct AttrItemPathData {
     // todo: change type to AttrParentPath
@@ -41,6 +42,11 @@ impl AttrItemPath {
 }
 
 impl AttrItemPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> AttrItemPath {
+        AttrItemPath(id)
+    }
+
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.parent.module_path(db)
     }

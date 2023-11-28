@@ -113,18 +113,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 427,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`mnist::BinaryImage28`),
                         ),
                     },
                 ),
@@ -137,7 +127,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 436,
+                            value: 484,
                         },
                     ),
                 ),
@@ -170,11 +160,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 431,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist`,
+                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -197,7 +193,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 437,
+                            value: 485,
                         },
                     ),
                 ),
@@ -211,7 +207,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 437,
+                                        value: 485,
                                     },
                                 ),
                             ),
@@ -252,18 +248,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::IntIndex`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 427,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`mnist::BinaryImage28`),
                         ),
                     },
                 ),
@@ -276,7 +262,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 438,
+                            value: 486,
                         },
                     ),
                 ),
@@ -320,18 +306,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 428,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`mnist::BinaryGrid28`),
                         ),
                     },
                 ),
@@ -344,7 +320,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 439,
+                            value: 487,
                         },
                     ),
                 ),
@@ -377,11 +353,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 434,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist`,
+                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -404,7 +386,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 440,
+                            value: 488,
                         },
                     ),
                 ),
@@ -418,7 +400,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 440,
+                                        value: 488,
                                     },
                                 ),
                             ),
@@ -459,18 +441,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::IntIndex`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 428,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`mnist::BinaryGrid28`),
                         ),
                     },
                 ),
@@ -483,7 +455,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 441,
+                            value: 489,
                         },
                     ),
                 ),

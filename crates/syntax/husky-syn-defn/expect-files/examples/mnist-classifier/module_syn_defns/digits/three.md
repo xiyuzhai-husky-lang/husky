@@ -552,11 +552,26 @@ Ok(
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 299,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::TypeVariant(
+                                                                    TypeVariantPathData {
+                                                                        parent_ty_path: TypePath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 338,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        ident: Ident(
+                                                                            Coword(
+                                                                                Id {
+                                                                                    value: 488,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 ),
@@ -632,11 +647,26 @@ Ok(
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 299,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::TypeVariant(
+                                                                    TypeVariantPathData {
+                                                                        parent_ty_path: TypePath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 338,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        ident: Ident(
+                                                                            Coword(
+                                                                                Id {
+                                                                                    value: 488,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 ),
@@ -745,11 +775,26 @@ Ok(
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::TypeVariant(
                                                                         TypeVariantPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 299,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::TypeVariant(
+                                                                                    TypeVariantPathData {
+                                                                                        parent_ty_path: TypePath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 338,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        ident: Ident(
+                                                                                            Coword(
+                                                                                                Id {
+                                                                                                    value: 488,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                     ),
                                                                 ),
@@ -825,11 +870,26 @@ Ok(
                                                                 path: Ok(
                                                                     PrincipalEntityPath::TypeVariant(
                                                                         TypeVariantPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 299,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::TypeVariant(
+                                                                                    TypeVariantPathData {
+                                                                                        parent_ty_path: TypePath(
+                                                                                            ItemPathId(
+                                                                                                Id {
+                                                                                                    value: 338,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                        ident: Ident(
+                                                                                            Coword(
+                                                                                                Id {
+                                                                                                    value: 488,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    },
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                     ),
                                                                 ),
@@ -1665,11 +1725,26 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 286,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::TypeVariant(
+                                                                        TypeVariantPathData {
+                                                                            parent_ty_path: TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 328,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            ident: Ident(
+                                                                                Coword(
+                                                                                    Id {
+                                                                                        value: 450,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -1851,11 +1926,26 @@ Ok(
                                                     path: Ok(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 286,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::TypeVariant(
+                                                                        TypeVariantPathData {
+                                                                            parent_ty_path: TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 328,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            ident: Ident(
+                                                                                Coword(
+                                                                                    Id {
+                                                                                        value: 450,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -3210,11 +3300,26 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 61,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::TypeVariant(
+                                                                        TypeVariantPathData {
+                                                                            parent_ty_path: TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 79,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            ident: Ident(
+                                                                                Coword(
+                                                                                    Id {
+                                                                                        value: 124,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -3304,11 +3409,26 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 61,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::TypeVariant(
+                                                                    TypeVariantPathData {
+                                                                        parent_ty_path: TypePath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 79,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        ident: Ident(
+                                                                            Coword(
+                                                                                Id {
+                                                                                    value: 124,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 },
@@ -4018,11 +4138,26 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 61,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::TypeVariant(
+                                                                        TypeVariantPathData {
+                                                                            parent_ty_path: TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 79,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            ident: Ident(
+                                                                                Coword(
+                                                                                    Id {
+                                                                                        value: 124,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -4112,11 +4247,26 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 61,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::TypeVariant(
+                                                                    TypeVariantPathData {
+                                                                        parent_ty_path: TypePath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 79,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        ident: Ident(
+                                                                            Coword(
+                                                                                Id {
+                                                                                    value: 124,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 },
@@ -4826,11 +4976,26 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::TypeVariant(
                                                             TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 61,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::TypeVariant(
+                                                                        TypeVariantPathData {
+                                                                            parent_ty_path: TypePath(
+                                                                                ItemPathId(
+                                                                                    Id {
+                                                                                        value: 79,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                            ident: Ident(
+                                                                                Coword(
+                                                                                    Id {
+                                                                                        value: 124,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                },
                                                             ),
                                                         ),
                                                     ),
@@ -4920,11 +5085,26 @@ Ok(
                                                     ),
                                                     principal_entity_path: PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 61,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::TypeVariant(
+                                                                    TypeVariantPathData {
+                                                                        parent_ty_path: TypePath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 79,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        ident: Ident(
+                                                                            Coword(
+                                                                                Id {
+                                                                                    value: 124,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 },

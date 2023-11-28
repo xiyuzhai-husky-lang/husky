@@ -283,11 +283,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 76,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -310,7 +316,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 118,
+                            value: 137,
                         },
                     ),
                 ),
@@ -324,7 +330,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 118,
+                                        value: 137,
                                     },
                                 ),
                             ),
@@ -358,7 +364,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 119,
+                            value: 138,
                         },
                     ),
                 ),
@@ -372,7 +378,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 119,
+                                        value: 138,
                                     },
                                 ),
                             ),
@@ -430,18 +436,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::i8`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 26,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::i8`),
                         ),
                     },
                 ),
@@ -454,7 +450,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 120,
+                            value: 139,
                         },
                     ),
                 ),
@@ -494,11 +490,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 78,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -521,7 +523,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 121,
+                            value: 140,
                         },
                     ),
                 ),
@@ -535,7 +537,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 121,
+                                        value: 140,
                                     },
                                 ),
                             ),
@@ -569,7 +571,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 122,
+                            value: 141,
                         },
                     ),
                 ),
@@ -583,7 +585,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 122,
+                                        value: 141,
                                     },
                                 ),
                             ),
@@ -641,18 +643,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::i32`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 27,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::i16`),
                         ),
                     },
                 ),
@@ -665,7 +657,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 123,
+                            value: 142,
                         },
                     ),
                 ),
@@ -705,11 +697,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 80,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -732,7 +730,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 124,
+                            value: 143,
                         },
                     ),
                 ),
@@ -746,7 +744,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 124,
+                                        value: 143,
                                     },
                                 ),
                             ),
@@ -780,7 +778,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 125,
+                            value: 144,
                         },
                     ),
                 ),
@@ -794,7 +792,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 125,
+                                        value: 144,
                                     },
                                 ),
                             ),
@@ -835,7 +833,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 126,
+                            value: 145,
                         },
                     ),
                 ),
@@ -849,7 +847,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 126,
+                                        value: 145,
                                     },
                                 ),
                             ),
@@ -907,18 +905,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::i32`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 28,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::i32`),
                         ),
                     },
                 ),
@@ -931,7 +919,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 127,
+                            value: 146,
                         },
                     ),
                 ),
@@ -971,11 +959,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 82,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -998,7 +992,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 128,
+                            value: 147,
                         },
                     ),
                 ),
@@ -1012,7 +1006,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 128,
+                                        value: 147,
                                     },
                                 ),
                             ),
@@ -1063,18 +1057,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::i64`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 29,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::i64`),
                         ),
                     },
                 ),
@@ -1087,7 +1071,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 129,
+                            value: 148,
                         },
                     ),
                 ),
@@ -1127,11 +1111,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 84,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1154,7 +1144,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 130,
+                            value: 149,
                         },
                     ),
                 ),
@@ -1168,7 +1158,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 130,
+                                        value: 149,
                                     },
                                 ),
                             ),
@@ -1219,18 +1209,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::i128`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 30,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::i128`),
                         ),
                     },
                 ),
@@ -1243,7 +1223,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 131,
+                            value: 150,
                         },
                     ),
                 ),
@@ -1283,11 +1263,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 86,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1310,7 +1296,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 132,
+                            value: 151,
                         },
                     ),
                 ),
@@ -1324,7 +1310,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 132,
+                                        value: 151,
                                     },
                                 ),
                             ),
@@ -1375,18 +1361,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::isize`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 31,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::isize`),
                         ),
                     },
                 ),
@@ -1399,7 +1375,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 133,
+                            value: 152,
                         },
                     ),
                 ),
@@ -1439,11 +1415,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 88,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1466,7 +1448,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 134,
+                            value: 153,
                         },
                     ),
                 ),
@@ -1480,7 +1462,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 134,
+                                        value: 153,
                                     },
                                 ),
                             ),
@@ -1531,18 +1513,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::u8`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 32,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::u8`),
                         ),
                     },
                 ),
@@ -1555,7 +1527,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 135,
+                            value: 154,
                         },
                     ),
                 ),
@@ -1595,11 +1567,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 90,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1622,7 +1600,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 136,
+                            value: 155,
                         },
                     ),
                 ),
@@ -1636,7 +1614,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 136,
+                                        value: 155,
                                     },
                                 ),
                             ),
@@ -1687,18 +1665,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::u16`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 33,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::u16`),
                         ),
                     },
                 ),
@@ -1711,7 +1679,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 137,
+                            value: 156,
                         },
                     ),
                 ),
@@ -1751,11 +1719,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 92,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1778,7 +1752,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 138,
+                            value: 157,
                         },
                     ),
                 ),
@@ -1792,7 +1766,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 138,
+                                        value: 157,
                                     },
                                 ),
                             ),
@@ -1843,18 +1817,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::u32`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 34,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::u32`),
                         ),
                     },
                 ),
@@ -1867,7 +1831,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 139,
+                            value: 158,
                         },
                     ),
                 ),
@@ -1907,11 +1871,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 94,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -1934,7 +1904,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 140,
+                            value: 159,
                         },
                     ),
                 ),
@@ -1948,7 +1918,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 140,
+                                        value: 159,
                                     },
                                 ),
                             ),
@@ -1999,18 +1969,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::u64`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 35,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::u64`),
                         ),
                     },
                 ),
@@ -2023,7 +1983,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 141,
+                            value: 160,
                         },
                     ),
                 ),
@@ -2063,11 +2023,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 96,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -2090,7 +2056,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 142,
+                            value: 161,
                         },
                     ),
                 ),
@@ -2104,7 +2070,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 142,
+                                        value: 161,
                                     },
                                 ),
                             ),
@@ -2155,18 +2121,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::u128`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 36,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::u128`),
                         ),
                     },
                 ),
@@ -2179,7 +2135,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 143,
+                            value: 162,
                         },
                     ),
                 ),
@@ -2219,11 +2175,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 98,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -2246,7 +2208,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 144,
+                            value: 163,
                         },
                     ),
                 ),
@@ -2260,7 +2222,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 144,
+                                        value: 163,
                                     },
                                 ),
                             ),
@@ -2311,18 +2273,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::usize`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 37,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::usize`),
                         ),
                     },
                 ),
@@ -2335,7 +2287,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 145,
+                            value: 164,
                         },
                     ),
                 ),
@@ -2375,11 +2327,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 100,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -2402,7 +2360,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 146,
+                            value: 165,
                         },
                     ),
                 ),
@@ -2416,7 +2374,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 146,
+                                        value: 165,
                                     },
                                 ),
                             ),
@@ -2450,7 +2408,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 147,
+                            value: 166,
                         },
                     ),
                 ),
@@ -2464,7 +2422,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 147,
+                                        value: 166,
                                     },
                                 ),
                             ),
@@ -2498,7 +2456,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 148,
+                            value: 167,
                         },
                     ),
                 ),
@@ -2512,62 +2470,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 148,
-                                    },
-                                ),
-                            ),
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                template_parameters: DeclarativeTemplateParameterTemplates {
-                                    data: [],
-                                },
-                                ty: DeclarativeTerm(`core::num::f32`),
-                            },
-                            self_ty: DeclarativeTerm(`core::num::f32`),
-                            template_parameters: DeclarativeTemplateParameterTemplates {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
-                                ty: DeclarativeTerm(`core::num::f32`),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [
-                                    DeclarativeRitchieParameter::Regular(
-                                        DeclarativeRitchieRegularParameter {
-                                            contract: None,
-                                            ty: DeclarativeTerm(`core::num::f32`),
-                                        },
-                                    ),
-                                ],
-                            },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssociatedItem(
-            AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 149,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Ok(
-            SignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 149,
+                                        value: 167,
                                     },
                                 ),
                             ),
@@ -2608,7 +2511,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 150,
+                            value: 168,
                         },
                     ),
                 ),
@@ -2622,7 +2525,62 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 150,
+                                        value: 168,
+                                    },
+                                ),
+                            ),
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            self_ty: DeclarativeTerm(`core::num::f32`),
+                            template_parameters: DeclarativeTemplateParameterTemplates {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieRegularParameter {
+                                contract: None,
+                                ty: DeclarativeTerm(`core::num::f32`),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Regular(
+                                        DeclarativeRitchieRegularParameter {
+                                            contract: None,
+                                            ty: DeclarativeTerm(`core::num::f32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 169,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            path: TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 169,
                                     },
                                 ),
                             ),
@@ -2656,7 +2614,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 151,
+                            value: 170,
                         },
                     ),
                 ),
@@ -2670,7 +2628,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 151,
+                                        value: 170,
                                     },
                                 ),
                             ),
@@ -2704,7 +2662,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 152,
+                            value: 171,
                         },
                     ),
                 ),
@@ -2718,7 +2676,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 152,
+                                        value: 171,
                                     },
                                 ),
                             ),
@@ -2752,7 +2710,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 153,
+                            value: 172,
                         },
                     ),
                 ),
@@ -2766,7 +2724,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 153,
+                                        value: 172,
                                     },
                                 ),
                             ),
@@ -2817,18 +2775,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::f32`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 38,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::f32`),
                         ),
                     },
                 ),
@@ -2841,7 +2789,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 154,
+                            value: 173,
                         },
                     ),
                 ),
@@ -2881,11 +2829,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 102,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::num`,
+                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -2908,7 +2862,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 155,
+                            value: 174,
                         },
                     ),
                 ),
@@ -2922,7 +2876,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 155,
+                                        value: 174,
                                     },
                                 ),
                             ),
@@ -2956,7 +2910,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 156,
+                            value: 175,
                         },
                     ),
                 ),
@@ -2970,7 +2924,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 156,
+                                        value: 175,
                                     },
                                 ),
                             ),
@@ -3021,18 +2975,8 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::f64`),
-                        self_ty: Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::num::f64`),
                         ),
                     },
                 ),
@@ -3045,7 +2989,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 157,
+                            value: 176,
                         },
                     ),
                 ),

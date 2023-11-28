@@ -189,14 +189,8 @@
                             ],
                         },
                         trai: DeclarativeTerm(`core::marker::Copy`),
-                        self_ty: Path(
-                            ExplicitApplication(
-                                DeclarativeTermExplicitApplication(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`core::mem::Leash t`),
                         ),
                     },
                 ),

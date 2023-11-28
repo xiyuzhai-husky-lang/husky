@@ -37,8 +37,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::basic`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::basic`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -84,8 +92,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::num`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::num`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -131,8 +147,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::raw_bits`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::raw_bits`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -178,8 +202,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::fmt`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::fmt`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -225,8 +257,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::visual`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::visual`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -272,8 +312,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::marker`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::marker`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -319,8 +367,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::clone`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::clone`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -366,8 +422,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::option`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::option`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -413,8 +477,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::cmp`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::cmp`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -460,8 +532,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::slice`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::slice`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -507,8 +587,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::vec`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::vec`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),

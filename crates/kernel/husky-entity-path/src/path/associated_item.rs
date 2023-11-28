@@ -10,7 +10,7 @@ pub use ty_item::*;
 use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum AssociatedItemPath {
     TypeItem(TypeItemPath),
@@ -27,7 +27,7 @@ impl std::ops::Deref for AssociatedItemPath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum AssociatedItemPathData {
     TypeItem(TypeItemPathData),
@@ -48,6 +48,15 @@ impl From<TypeItemPath> for ItemPath {
 }
 
 impl AssociatedItemPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> AssociatedItemPath {
+        match self {
+            AssociatedItemPathData::TypeItem(slf) => slf.item_path(id).into(),
+            AssociatedItemPathData::TraitItem(slf) => slf.item_path(id).into(),
+            AssociatedItemPathData::TraitForTypeItem(slf) => slf.item_path(id).into(),
+        }
+    }
+
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
             AssociatedItemPathData::TypeItem(data) => data.module_path(db),

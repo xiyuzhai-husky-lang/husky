@@ -12,8 +12,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::connected_component`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::connected_component`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -40,8 +48,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::connected_component`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::connected_component`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -63,8 +79,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::raw_contour`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::raw_contour`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -91,8 +115,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::raw_contour`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::raw_contour`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -114,8 +146,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::geom2d`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::geom2d`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -142,8 +182,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::geom2d`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::geom2d`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -165,8 +213,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::line_segment_sketch`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -193,8 +249,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::line_segment_sketch`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::line_segment_sketch`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -216,8 +280,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::fermi`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::fermi`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -244,8 +316,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::fermi`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::fermi`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -267,8 +347,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -295,8 +383,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -318,8 +414,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::major`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::major`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -346,8 +450,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::major`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::major`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -435,8 +547,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::connected_component`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::connected_component`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -446,8 +566,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::raw_contour`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::raw_contour`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -457,8 +585,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::geom2d`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::geom2d`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -468,8 +604,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -479,8 +623,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::fermi`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::fermi`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -490,8 +642,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -501,8 +661,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::major`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::major`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -1840,8 +2008,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::major`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -1874,8 +2050,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -1908,8 +2092,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::fermi`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -1942,8 +2134,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -1976,8 +2176,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -2010,8 +2218,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::connected_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -2545,8 +2761,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::connected_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2568,8 +2792,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2591,8 +2823,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2614,8 +2854,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2637,8 +2885,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::fermi`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2660,8 +2916,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -2683,8 +2947,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::major`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -4443,7 +4715,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 251,
+                                                        value: 294,
                                                     },
                                                 ),
                                             ),
@@ -4463,7 +4735,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 251,
+                                                            value: 294,
                                                         },
                                                     ),
                                                 ),
@@ -4571,8 +4843,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -5427,8 +5707,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::connected_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -5450,8 +5738,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -5473,8 +5769,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -5496,8 +5800,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -5519,8 +5831,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::fermi`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -5542,8 +5862,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -5565,8 +5893,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::major`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -7686,7 +8022,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 253,
+                                                        value: 296,
                                                     },
                                                 ),
                                             ),
@@ -7706,7 +8042,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 253,
+                                                            value: 296,
                                                         },
                                                     ),
                                                 ),
@@ -7868,8 +8204,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -7902,8 +8246,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::connected_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -7936,8 +8288,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -8398,7 +8758,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 254,
+                                                        value: 297,
                                                     },
                                                 ),
                                             ),
@@ -8418,7 +8778,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 254,
+                                                            value: 297,
                                                         },
                                                     ),
                                                 ),
@@ -8452,7 +8812,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 255,
+                                                        value: 298,
                                                     },
                                                 ),
                                             ),
@@ -8472,7 +8832,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 255,
+                                                            value: 298,
                                                         },
                                                     ),
                                                 ),
@@ -8506,7 +8866,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 256,
+                                                        value: 299,
                                                     },
                                                 ),
                                             ),
@@ -8526,7 +8886,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 256,
+                                                            value: 299,
                                                         },
                                                     ),
                                                 ),
@@ -8560,7 +8920,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 257,
+                                                        value: 300,
                                                     },
                                                 ),
                                             ),
@@ -8580,7 +8940,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 257,
+                                                            value: 300,
                                                         },
                                                     ),
                                                 ),
@@ -8614,7 +8974,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 258,
+                                                        value: 301,
                                                     },
                                                 ),
                                             ),
@@ -8634,7 +8994,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 258,
+                                                            value: 301,
                                                         },
                                                     ),
                                                 ),
@@ -8679,8 +9039,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -8707,8 +9075,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -8730,8 +9106,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -8758,8 +9142,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::line_segment_sketch::convex_component`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::line_segment_sketch::convex_component`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -8781,8 +9173,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -8809,8 +9209,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::line_segment_sketch::convexity`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::line_segment_sketch::convexity`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -8832,8 +9240,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -8860,8 +9276,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::line_segment_sketch::line_segment`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::line_segment_sketch::line_segment`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -9313,8 +9737,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch::concave_component`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -9324,8 +9756,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch::convex_component`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch::convex_component`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -9335,8 +9775,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch::convexity`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch::convexity`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -9346,8 +9794,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::line_segment_sketch`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::line_segment_sketch::line_segment`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::line_segment_sketch::line_segment`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -9770,7 +10226,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 260,
+                                                        value: 303,
                                                     },
                                                 ),
                                             ),
@@ -9790,7 +10246,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 260,
+                                                            value: 303,
                                                         },
                                                     ),
                                                 ),
@@ -9894,7 +10350,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 262,
+                                                        value: 305,
                                                     },
                                                 ),
                                             ),
@@ -9914,7 +10370,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 262,
+                                                            value: 305,
                                                         },
                                                     ),
                                                 ),
@@ -9962,8 +10418,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -9990,8 +10454,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -10018,8 +10490,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -10102,8 +10582,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -10136,8 +10624,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -10170,8 +10666,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -10416,8 +10920,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::connected_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -10439,8 +10951,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -10462,8 +10982,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -10485,8 +11013,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -10508,8 +11044,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::fermi`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -10531,8 +11075,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -10554,8 +11106,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::major`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -10914,8 +11474,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -10937,8 +11505,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -10960,8 +11536,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -10983,8 +11567,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -13154,7 +13746,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 264,
+                                                        value: 307,
                                                     },
                                                 ),
                                             ),
@@ -13174,7 +13766,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 264,
+                                                            value: 307,
                                                         },
                                                     ),
                                                 ),
@@ -13363,8 +13955,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -13397,8 +13997,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -13431,8 +14039,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -13465,8 +14081,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -13499,8 +14123,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -13533,8 +14165,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -13693,8 +14333,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -13716,8 +14364,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -13739,8 +14395,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -13762,8 +14426,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -14505,8 +15177,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -14617,8 +15297,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -14640,8 +15328,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -14663,8 +15359,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -14686,8 +15390,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -15612,8 +16324,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -15646,8 +16366,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -15680,8 +16408,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -15965,7 +16701,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 266,
+                                                        value: 309,
                                                     },
                                                 ),
                                             ),
@@ -15985,7 +16721,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 266,
+                                                            value: 309,
                                                         },
                                                     ),
                                                 ),
@@ -16066,8 +16802,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -16241,8 +16985,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::connected_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -16264,8 +17016,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -16287,8 +17047,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -16310,8 +17078,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -16333,8 +17109,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::fermi`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -16356,8 +17140,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -16379,8 +17171,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::major`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -18019,7 +18819,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 267,
+                                                        value: 310,
                                                     },
                                                 ),
                                             ),
@@ -18039,7 +18839,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 267,
+                                                            value: 310,
                                                         },
                                                     ),
                                                 ),
@@ -18125,8 +18925,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits::zero`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits::zero`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -18153,8 +18961,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits::zero`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits::zero`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18176,8 +18992,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits::one`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits::one`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -18204,8 +19028,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits::one`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits::one`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18227,8 +19059,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits::six`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits::six`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -18255,8 +19095,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits::six`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits::six`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18278,8 +19126,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits::three`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits::three`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -18306,8 +19162,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits::three`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits::three`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18329,8 +19193,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits::four`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits::four`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -18357,8 +19229,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits::four`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits::four`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18380,8 +19260,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits::five`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits::five`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -18408,8 +19296,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits::five`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits::five`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18431,8 +19327,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits::seven`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits::seven`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -18459,8 +19363,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits::seven`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits::seven`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18482,8 +19394,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits::eight`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits::eight`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -18510,8 +19430,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits::eight`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits::eight`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18533,8 +19461,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits::nine`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits::nine`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -18561,8 +19497,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits::nine`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits::nine`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18584,8 +19528,16 @@ EntitySynTreeCrateBundle {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmodulePath(
-                                                        `mnist_classifier::digits::two`,
+                                                    path: SubmoduleItemPath(
+                                                        ItemPathId {
+                                                            data: ItemPathData::SubmoduleItem(
+                                                                SubmoduleItemPathData {
+                                                                    submodule_path: SubmodulePath(
+                                                                        `mnist_classifier::digits::two`,
+                                                                    ),
+                                                                },
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -18612,8 +19564,16 @@ EntitySynTreeCrateBundle {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits::two`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits::two`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -18637,8 +19597,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::zero`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::zero`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -18648,8 +19616,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::one`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::one`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -18659,8 +19635,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::six`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::six`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -18670,8 +19654,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::three`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::three`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -18681,8 +19673,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::four`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::four`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -18692,8 +19692,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::five`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::five`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -18703,8 +19711,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::seven`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::seven`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -18714,8 +19730,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::eight`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::eight`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -18725,8 +19749,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::nine`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::nine`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -18736,8 +19768,16 @@ EntitySynTreeCrateBundle {
                             `mnist_classifier::digits`,
                         ),
                         symbol: EntitySymbol::Submodule {
-                            submodule_path: SubmodulePath(
-                                `mnist_classifier::digits::two`,
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId {
+                                    data: ItemPathData::SubmoduleItem(
+                                        SubmoduleItemPathData {
+                                            submodule_path: SubmodulePath(
+                                                `mnist_classifier::digits::two`,
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         },
                     },
@@ -18770,8 +19810,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::connected_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -18793,8 +19841,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -18816,8 +19872,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -18839,8 +19903,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -18862,8 +19934,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::fermi`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -18885,8 +19965,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -18908,8 +19996,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::major`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -20729,8 +21825,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -21015,8 +22119,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -21047,8 +22159,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -21079,8 +22199,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -21111,8 +22239,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -21143,8 +22279,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -21175,8 +22319,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -21207,8 +22359,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -21239,8 +22399,16 @@ EntitySynTreeCrateBundle {
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -21723,8 +22891,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -21746,8 +22922,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -21769,8 +22953,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -21792,8 +22984,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -21815,8 +23015,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -21838,8 +23046,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -21861,8 +23077,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -21884,8 +23108,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -21907,8 +23139,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -21930,8 +23170,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -21992,8 +23240,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -22027,8 +23283,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -22062,8 +23326,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -22097,8 +23369,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -22132,8 +23412,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -22167,8 +23455,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -22202,8 +23498,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -25105,8 +26409,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -25128,8 +26440,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -25151,8 +26471,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -25174,8 +26502,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -25197,8 +26533,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -25220,8 +26564,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -25243,8 +26595,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -25266,8 +26626,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -25289,8 +26657,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -25312,8 +26688,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -25374,8 +26758,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -25409,8 +26801,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -25444,8 +26844,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -25479,8 +26887,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -25514,8 +26930,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -25549,8 +26973,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -25584,8 +27016,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -28493,8 +29933,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -28516,8 +29964,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -28539,8 +29995,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -28562,8 +30026,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -28585,8 +30057,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -28608,8 +30088,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -28631,8 +30119,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -28654,8 +30150,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -28677,8 +30181,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -28700,8 +30212,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -28762,8 +30282,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -28797,8 +30325,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -28832,8 +30368,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -28867,8 +30411,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -28902,8 +30454,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -28937,8 +30497,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -28972,8 +30540,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -31881,8 +33457,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31904,8 +33488,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31927,8 +33519,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31950,8 +33550,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31973,8 +33581,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -31996,8 +33612,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -32019,8 +33643,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -32042,8 +33674,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -32065,8 +33705,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -32088,8 +33736,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -32150,8 +33806,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -32185,8 +33849,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -32220,8 +33892,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -32255,8 +33935,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -32290,8 +33978,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -32325,8 +34021,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -32360,8 +34064,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35419,8 +37131,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -35442,8 +37162,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -35465,8 +37193,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -35488,8 +37224,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -35511,8 +37255,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -35534,8 +37286,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -35557,8 +37317,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -35580,8 +37348,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -35603,8 +37379,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -35626,8 +37410,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -35688,8 +37480,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35723,8 +37523,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35758,8 +37566,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35793,8 +37609,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35828,8 +37652,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35863,8 +37695,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -35898,8 +37738,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38507,8 +40355,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38530,8 +40386,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38553,8 +40417,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38576,8 +40448,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38599,8 +40479,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38622,8 +40510,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38645,8 +40541,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38668,8 +40572,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38691,8 +40603,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38714,8 +40634,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -38776,8 +40704,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38811,8 +40747,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38846,8 +40790,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38881,8 +40833,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38916,8 +40876,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38951,8 +40919,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -38986,8 +40962,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -41970,8 +43954,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -41993,8 +43985,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -42016,8 +44016,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -42039,8 +44047,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -42062,8 +44078,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -42085,8 +44109,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -42108,8 +44140,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -42131,8 +44171,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -42154,8 +44202,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -42177,8 +44233,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -42239,8 +44303,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42274,8 +44346,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42309,8 +44389,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42344,8 +44432,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42379,8 +44475,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42414,8 +44518,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -42449,8 +44561,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45208,8 +47328,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45231,8 +47359,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45254,8 +47390,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45277,8 +47421,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45300,8 +47452,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45323,8 +47483,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45346,8 +47514,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45369,8 +47545,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45392,8 +47576,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45415,8 +47607,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -45477,8 +47677,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45512,8 +47720,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45547,8 +47763,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45582,8 +47806,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45617,8 +47849,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45652,8 +47892,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -45687,8 +47935,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -48596,8 +50852,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48619,8 +50883,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48642,8 +50914,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48665,8 +50945,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48688,8 +50976,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48711,8 +51007,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48734,8 +51038,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48757,8 +51069,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48780,8 +51100,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48803,8 +51131,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -48865,8 +51201,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -48900,8 +51244,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -48935,8 +51287,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -48970,8 +51330,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -49005,8 +51373,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -49040,8 +51416,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -49075,8 +51459,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -51984,8 +54376,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::zero`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::zero`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52007,8 +54407,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::one`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::one`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52030,8 +54438,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::six`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::six`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52053,8 +54469,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::three`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::three`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52076,8 +54500,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::four`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::four`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52099,8 +54531,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::five`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::five`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52122,8 +54562,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::seven`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::seven`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52145,8 +54593,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::eight`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::eight`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52168,8 +54624,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::nine`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::nine`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52191,8 +54655,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits::two`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits::two`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -52253,8 +54725,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::connected_component`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::connected_component`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52288,8 +54768,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::raw_contour`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::raw_contour`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52323,8 +54811,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::geom2d`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::geom2d`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52358,8 +54854,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::line_segment_sketch`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::line_segment_sketch`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52393,8 +54897,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::fermi`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::fermi`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52428,8 +54940,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::digits`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::digits`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -52463,8 +54983,16 @@ EntitySynTreeCrateBundle {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::Submodule {
-                                            submodule_path: SubmodulePath(
-                                                `mnist_classifier::major`,
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId {
+                                                    data: ItemPathData::SubmoduleItem(
+                                                        SubmoduleItemPathData {
+                                                            submodule_path: SubmodulePath(
+                                                                `mnist_classifier::major`,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                         },
                                         path: PrincipalEntityPath::Module(
@@ -55480,8 +58008,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::connected_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55503,8 +58039,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55526,8 +58070,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::geom2d`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::geom2d`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55549,8 +58101,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55572,8 +58132,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::fermi`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55595,8 +58163,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(
@@ -55618,8 +58194,16 @@ EntitySynTreeCrateBundle {
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::major`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                                 path: PrincipalEntityPath::Module(

@@ -1921,11 +1921,17 @@ Ok(
             ImplBlockSynDecl::Type(
                 TypeImplBlockSynDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 332,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `mnist_classifier::fermi`,
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: [],
                     self_ty_expr: SelfTypeSyndicate {
@@ -1945,7 +1951,7 @@ Ok(
                                                             path: TypeImplBlockPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 332,
+                                                                        value: 375,
                                                                     },
                                                                 ),
                                                             ),
@@ -2041,7 +2047,7 @@ Ok(
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 345,
+                                    value: 388,
                                 },
                             ),
                         ),
@@ -2049,7 +2055,7 @@ Ok(
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 345,
+                                        value: 388,
                                     },
                                 ),
                             ),
@@ -2076,7 +2082,7 @@ Ok(
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 332,
+                                                                                            value: 375,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2175,7 +2181,7 @@ Ok(
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 345,
+                                                                                    value: 388,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -2287,7 +2293,7 @@ Ok(
                                                                                                 path: TypeImplBlockPath(
                                                                                                     ItemPathId(
                                                                                                         Id {
-                                                                                                            value: 332,
+                                                                                                            value: 375,
                                                                                                         },
                                                                                                     ),
                                                                                                 ),
@@ -2386,7 +2392,7 @@ Ok(
                                                                                         path: TypeItemPath(
                                                                                             ItemPathId(
                                                                                                 Id {
-                                                                                                    value: 345,
+                                                                                                    value: 388,
                                                                                                 },
                                                                                             ),
                                                                                         ),
@@ -2487,7 +2493,7 @@ Ok(
                                                                             path: TypeItemPath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 345,
+                                                                                        value: 388,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -2989,7 +2995,7 @@ Ok(
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 346,
+                                    value: 389,
                                 },
                             ),
                         ),
@@ -2997,7 +3003,7 @@ Ok(
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 346,
+                                        value: 389,
                                     },
                                 ),
                             ),
@@ -3024,7 +3030,7 @@ Ok(
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 332,
+                                                                                            value: 375,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3123,7 +3129,7 @@ Ok(
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 346,
+                                                                                    value: 389,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -3235,7 +3241,7 @@ Ok(
                                                                                                 path: TypeImplBlockPath(
                                                                                                     ItemPathId(
                                                                                                         Id {
-                                                                                                            value: 332,
+                                                                                                            value: 375,
                                                                                                         },
                                                                                                     ),
                                                                                                 ),
@@ -3334,7 +3340,7 @@ Ok(
                                                                                         path: TypeItemPath(
                                                                                             ItemPathId(
                                                                                                 Id {
-                                                                                                    value: 346,
+                                                                                                    value: 389,
                                                                                                 },
                                                                                             ),
                                                                                         ),
@@ -3435,7 +3441,7 @@ Ok(
                                                                             path: TypeItemPath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 346,
+                                                                                        value: 389,
                                                                                     },
                                                                                 ),
                                                                             ),
@@ -3937,7 +3943,7 @@ Ok(
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 347,
+                                    value: 390,
                                 },
                             ),
                         ),
@@ -3945,7 +3951,7 @@ Ok(
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 347,
+                                        value: 390,
                                     },
                                 ),
                             ),
@@ -3972,7 +3978,7 @@ Ok(
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 332,
+                                                                                            value: 375,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4071,7 +4077,7 @@ Ok(
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 347,
+                                                                                    value: 390,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -4183,7 +4189,7 @@ Ok(
                                                                                                 path: TypeImplBlockPath(
                                                                                                     ItemPathId(
                                                                                                         Id {
-                                                                                                            value: 332,
+                                                                                                            value: 375,
                                                                                                         },
                                                                                                     ),
                                                                                                 ),
@@ -4282,7 +4288,7 @@ Ok(
                                                                                         path: TypeItemPath(
                                                                                             ItemPathId(
                                                                                                 Id {
-                                                                                                    value: 347,
+                                                                                                    value: 390,
                                                                                                 },
                                                                                             ),
                                                                                         ),
@@ -4383,7 +4389,7 @@ Ok(
                                                                             path: TypeItemPath(
                                                                                 ItemPathId(
                                                                                     Id {
-                                                                                        value: 347,
+                                                                                        value: 390,
                                                                                     },
                                                                                 ),
                                                                             ),

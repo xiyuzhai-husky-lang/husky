@@ -30,8 +30,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `std::prelude`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `std::prelude`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -64,8 +72,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `std::logic`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `std::logic`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -98,8 +114,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `std::ops`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `std::ops`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },

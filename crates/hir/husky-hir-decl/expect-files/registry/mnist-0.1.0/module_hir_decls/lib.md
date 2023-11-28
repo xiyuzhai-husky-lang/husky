@@ -158,11 +158,17 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 464,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist`,
+                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -178,11 +184,17 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 464,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::ImplBlock(
+                                            ImplBlockPathData::TypeImplBlock(
+                                                TypeImplBlockPathData {
+                                                    module_path: `mnist`,
+                                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),
@@ -382,11 +394,17 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 467,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `mnist`,
+                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -402,11 +420,17 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 467,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::ImplBlock(
+                                            ImplBlockPathData::TypeImplBlock(
+                                                TypeImplBlockPathData {
+                                                    module_path: `mnist`,
+                                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),

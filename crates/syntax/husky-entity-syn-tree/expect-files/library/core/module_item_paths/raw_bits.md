@@ -7,9 +7,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `core::raw_bits`,
+                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 104,
+                        value: 171,
                     },
                 ),
             ),
@@ -20,7 +37,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 152,
+                        value: 172,
                     },
                 ),
             ),
@@ -31,7 +48,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 153,
+                        value: 173,
                     },
                 ),
             ),
@@ -42,7 +59,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 154,
+                        value: 174,
                     },
                 ),
             ),
@@ -53,18 +70,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 155,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 156,
+                        value: 175,
                     },
                 ),
             ),

@@ -1,14 +1,18 @@
 [
     Linkage {
-        data: Item {
-            item_path: Submodule(
+        data: LinkageData::Item {
+            item_path: ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 22,
-                        },
-                    ),
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `std::prelude`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -18,15 +22,19 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: Submodule(
+        data: LinkageData::Item {
+            item_path: ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 23,
-                        },
-                    ),
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `std::logic`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -36,15 +44,19 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: Submodule(
+        data: LinkageData::Item {
+            item_path: ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 24,
-                        },
-                    ),
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `std::ops`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {

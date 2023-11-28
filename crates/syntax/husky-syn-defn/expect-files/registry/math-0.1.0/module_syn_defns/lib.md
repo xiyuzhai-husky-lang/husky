@@ -3,8 +3,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `math::algebra`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::algebra`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -12,8 +20,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `math::algebraic_geometry`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::algebraic_geometry`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -21,8 +37,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `math::algebraic_topology`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::algebraic_topology`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -30,8 +54,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `math::category_theory`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::category_theory`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -39,8 +71,16 @@ Ok(
         SynDefn::Submodule(
             SubmoduleSynDefn {
                 decl: SubmoduleSynDecl {
-                    path: SubmodulePath(
-                        `math::probability`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `math::probability`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },

@@ -36,8 +36,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -257,7 +265,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 453,
+                                                                    value: 496,
                                                                 },
                                                             ),
                                                         ),

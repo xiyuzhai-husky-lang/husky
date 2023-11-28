@@ -2,8 +2,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `math::algebra`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `math::algebra`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -13,8 +21,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `math::algebraic_geometry`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `math::algebraic_geometry`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -24,8 +40,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `math::algebraic_topology`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `math::algebraic_topology`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -35,8 +59,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `math::category_theory`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `math::category_theory`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -46,8 +78,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `math::probability`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `math::probability`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(

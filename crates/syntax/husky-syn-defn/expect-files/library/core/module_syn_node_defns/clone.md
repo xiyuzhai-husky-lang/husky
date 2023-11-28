@@ -283,7 +283,7 @@
                                             path: TraitForTypeItemPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 111,
+                                                        value: 130,
                                                     },
                                                 ),
                                             ),
@@ -304,7 +304,7 @@
                                                 path: TraitForTypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 111,
+                                                            value: 130,
                                                         },
                                                     ),
                                                 ),
@@ -478,7 +478,7 @@
                                                                     path: TraitForTypeItemPath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 111,
+                                                                                value: 130,
                                                                             },
                                                                         ),
                                                                     ),

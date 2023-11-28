@@ -97,7 +97,7 @@ pub struct EntitySynTreeJar(
     crate::helpers::paths::module_item_paths,
     crate::helpers::paths::module_item_syn_node_paths,
     crate::helpers::paths::crate_module_paths,
-    crate::helpers::paths::module_submodule_paths,
+    crate::helpers::paths::module_submodule_item_paths,
     crate::helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     crate::helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     crate::helpers::tokra_region::SnippetTokraRegion,

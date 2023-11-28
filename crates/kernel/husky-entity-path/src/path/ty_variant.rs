@@ -2,9 +2,10 @@ use salsa::Db;
 
 use crate::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db]
 #[salsa::as_id(jar = EntityPathJar)]
 #[salsa::deref_id]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeVariantPath(ItemPathId);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -46,6 +47,11 @@ impl TypeVariantPath {
 }
 
 impl TypeVariantPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> TypeVariantPath {
+        TypeVariantPath(id)
+    }
+
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         self.parent_ty_path.toolchain(db)
     }

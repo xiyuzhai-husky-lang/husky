@@ -1,9 +1,10 @@
 use super::*;
+use husky_entity_path::SubmoduleItemPath;
 use husky_hir_defn::{HasHirDefn, TypeHirDefn};
 use husky_vfs::SubmodulePath;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
-    pub(crate) fn use_all_in_submodule(&mut self, submodule_path: SubmodulePath) {
+    pub(crate) fn use_all_in_submodule(&mut self, submodule_path: SubmoduleItemPath) {
         let db = self.db;
         self.on_fresh_semicolon_line(|builder| {
             builder.write_str("pub use self::");

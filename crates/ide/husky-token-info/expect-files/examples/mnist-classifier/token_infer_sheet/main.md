@@ -13,8 +13,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::connected_component`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::connected_component`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -39,8 +47,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::raw_contour`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::raw_contour`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -65,8 +81,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::geom2d`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::geom2d`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -91,8 +115,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::line_segment_sketch`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::line_segment_sketch`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -117,8 +149,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::fermi`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::fermi`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -143,8 +183,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::digits`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::digits`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -169,8 +217,16 @@ Ok(
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmodulePath(
-                                                    `mnist_classifier::major`,
+                                                path: SubmoduleItemPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::SubmoduleItem(
+                                                            SubmoduleItemPathData {
+                                                                submodule_path: SubmodulePath(
+                                                                    `mnist_classifier::major`,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                                 disambiguator: 0,
                                             },
@@ -218,8 +274,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::major`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::major`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -264,8 +328,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::digits`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::digits`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -310,8 +382,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::fermi`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::fermi`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -357,8 +437,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::raw_contour`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::raw_contour`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -403,8 +491,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -449,8 +545,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `mnist_classifier::connected_component`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::connected_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -788,11 +892,26 @@ Ok(
                         11,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 333,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 374,
+                                                    },
+                                                ),
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 241,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                     ),
@@ -800,11 +919,26 @@ Ok(
                         EntityPath::TypeVariant(
                             Room32,
                             TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 333,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::TypeVariant(
+                                        TypeVariantPathData {
+                                            parent_ty_path: TypePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 374,
+                                                    },
+                                                ),
+                                            ),
+                                            ident: Ident(
+                                                Coword(
+                                                    Id {
+                                                        value: 241,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                },
                             ),
                         ),
                     ),

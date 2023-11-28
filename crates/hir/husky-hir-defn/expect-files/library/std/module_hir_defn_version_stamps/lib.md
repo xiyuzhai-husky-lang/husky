@@ -2,10 +2,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 24,
+                        value: 231,
                     },
                 ),
             ),
@@ -17,10 +17,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 22,
+                        value: 232,
                     },
                 ),
             ),
@@ -32,10 +32,10 @@
     (
         Submodule(
             Room32,
-            SubmodulePath(
-                ModulePath(
+            SubmoduleItemPath(
+                ItemPathId(
                     Id {
-                        value: 23,
+                        value: 233,
                     },
                 ),
             ),

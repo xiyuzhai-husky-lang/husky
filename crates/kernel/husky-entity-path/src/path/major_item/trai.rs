@@ -53,6 +53,11 @@ impl TraitPath {
 }
 
 impl TraitPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> TraitPath {
+        TraitPath(id)
+    }
+
     pub fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
         self.module_path.show_aux(f, db)?;
         f.write_str(show_connection(self.connection))?;

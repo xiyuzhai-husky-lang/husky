@@ -14,11 +14,17 @@
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 104,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::raw_bits`,
+                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
                 template_parameters: HirTemplateParameters(
                     [],
@@ -34,11 +40,17 @@
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
                                 TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 104,
-                                        },
-                                    ),
+                                    ItemPathId {
+                                        data: ItemPathData::ImplBlock(
+                                            ImplBlockPathData::TypeImplBlock(
+                                                TypeImplBlockPathData {
+                                                    module_path: `core::raw_bits`,
+                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    },
                                 ),
                             ),
                         ),

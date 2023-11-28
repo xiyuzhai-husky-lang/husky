@@ -286,11 +286,17 @@ SynDeclSheet {
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 107,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::slice`,
+                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -298,11 +304,17 @@ SynDeclSheet {
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
                         path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 107,
-                                },
-                            ),
+                            ItemPathId {
+                                data: ItemPathData::ImplBlock(
+                                    ImplBlockPathData::TypeImplBlock(
+                                        TypeImplBlockPathData {
+                                            module_path: `core::slice`,
+                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                         template_parameters: [
                             TemplateSynParameterData {
@@ -336,7 +348,7 @@ SynDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 107,
+                                                                            value: 126,
                                                                         },
                                                                     ),
                                                                 ),
@@ -482,7 +494,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 159,
+                                value: 178,
                             },
                         ),
                     ),
@@ -495,7 +507,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 159,
+                                        value: 178,
                                     },
                                 ),
                             ),
@@ -524,7 +536,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 107,
+                                                                                            value: 126,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -673,7 +685,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 159,
+                                                                                    value: 178,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -784,7 +796,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 160,
+                                value: 179,
                             },
                         ),
                     ),
@@ -797,7 +809,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 160,
+                                        value: 179,
                                     },
                                 ),
                             ),
@@ -874,7 +886,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 107,
+                                                                                            value: 126,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1023,7 +1035,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 160,
+                                                                                    value: 179,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1550,7 +1562,7 @@ SynDeclSheet {
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 161,
+                                value: 180,
                             },
                         ),
                     ),
@@ -1563,7 +1575,7 @@ SynDeclSheet {
                             path: TraitForTypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 161,
+                                        value: 180,
                                     },
                                 ),
                             ),
@@ -1808,7 +1820,7 @@ SynDeclSheet {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 161,
+                                                                                    value: 180,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1903,11 +1915,17 @@ SynDeclSheet {
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 109,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::slice`,
+                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -1915,11 +1933,17 @@ SynDeclSheet {
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
                         path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 109,
-                                },
-                            ),
+                            ItemPathId {
+                                data: ItemPathData::ImplBlock(
+                                    ImplBlockPathData::TypeImplBlock(
+                                        TypeImplBlockPathData {
+                                            module_path: `core::slice`,
+                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                         template_parameters: [
                             TemplateSynParameterData {
@@ -1953,7 +1977,7 @@ SynDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 109,
+                                                                            value: 128,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2099,7 +2123,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 162,
+                                value: 181,
                             },
                         ),
                     ),
@@ -2112,7 +2136,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 162,
+                                        value: 181,
                                     },
                                 ),
                             ),
@@ -2141,7 +2165,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 109,
+                                                                                            value: 128,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2290,7 +2314,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 162,
+                                                                                    value: 181,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -2401,7 +2425,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 163,
+                                value: 182,
                             },
                         ),
                     ),
@@ -2414,7 +2438,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 163,
+                                        value: 182,
                                     },
                                 ),
                             ),
@@ -2443,7 +2467,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 109,
+                                                                                            value: 128,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2592,7 +2616,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 163,
+                                                                                    value: 182,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -2703,7 +2727,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 164,
+                                value: 183,
                             },
                         ),
                     ),
@@ -2716,7 +2740,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 164,
+                                        value: 183,
                                     },
                                 ),
                             ),
@@ -2745,7 +2769,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 109,
+                                                                                            value: 128,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2894,7 +2918,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 164,
+                                                                                    value: 183,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -3005,7 +3029,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 165,
+                                value: 184,
                             },
                         ),
                     ),
@@ -3018,7 +3042,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 165,
+                                        value: 184,
                                     },
                                 ),
                             ),
@@ -3047,7 +3071,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 109,
+                                                                                            value: 128,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3196,7 +3220,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 165,
+                                                                                    value: 184,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -3307,7 +3331,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 166,
+                                value: 185,
                             },
                         ),
                     ),
@@ -3320,7 +3344,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 166,
+                                        value: 185,
                                     },
                                 ),
                             ),
@@ -3349,7 +3373,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 109,
+                                                                                            value: 128,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3498,7 +3522,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 166,
+                                                                                    value: 185,
                                                                                 },
                                                                             ),
                                                                         ),

@@ -138,7 +138,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 228,
+                                                                    value: 247,
                                                                 },
                                                             ),
                                                         ),

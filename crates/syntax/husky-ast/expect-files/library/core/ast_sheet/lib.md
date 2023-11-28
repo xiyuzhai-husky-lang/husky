@@ -30,8 +30,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::array`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::array`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -64,8 +72,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::basic`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::basic`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -98,8 +114,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::clone`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::clone`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -132,8 +156,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::cmp`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::cmp`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -166,8 +198,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::default`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::default`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -200,8 +240,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::fmt`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::fmt`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -234,8 +282,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::logic`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::logic`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -268,8 +324,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::marker`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::marker`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -302,8 +366,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::mem`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::mem`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -336,8 +408,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::num`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::num`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -370,8 +450,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::ops`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::ops`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -404,8 +492,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::option`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::option`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -438,8 +534,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::prelude`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::prelude`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -472,8 +576,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::raw_bits`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::raw_bits`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -506,8 +618,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::result`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::result`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -540,8 +660,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::vec`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::vec`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -574,8 +702,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::slice`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::slice`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -608,8 +744,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::str`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::str`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },
@@ -642,8 +786,16 @@ AstSheet {
                     drained: true,
                 },
                 block: DefnBlock::Submodule {
-                    path: SubmodulePath(
-                        `core::visual`,
+                    path: SubmoduleItemPath(
+                        ItemPathId {
+                            data: ItemPathData::SubmoduleItem(
+                                SubmoduleItemPathData {
+                                    submodule_path: SubmodulePath(
+                                        `core::visual`,
+                                    ),
+                                },
+                            ),
+                        },
                     ),
                 },
             },

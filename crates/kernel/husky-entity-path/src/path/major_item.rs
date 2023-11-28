@@ -14,7 +14,7 @@ use salsa::Db;
 use utils::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum MajorItemPath {
     Type(TypePath),
@@ -31,7 +31,7 @@ impl std::ops::Deref for MajorItemPath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum MajorItemPathData {
     Type(TypePathData),
@@ -60,6 +60,15 @@ impl MajorItemPath {
 }
 
 impl MajorItemPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> MajorItemPath {
+        match self {
+            MajorItemPathData::Type(slf) => slf.item_path(id).into(),
+            MajorItemPathData::Trait(slf) => slf.item_path(id).into(),
+            MajorItemPathData::Fugitive(slf) => slf.item_path(id).into(),
+        }
+    }
+
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
             MajorItemPathData::Type(data) => data.module_path(),

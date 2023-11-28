@@ -5,7 +5,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 444,
+                            value: 487,
                         },
                     ),
                 ),
@@ -27,7 +27,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 447,
+                            value: 490,
                         },
                     ),
                 ),
@@ -49,7 +49,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 450,
+                            value: 493,
                         },
                     ),
                 ),
@@ -71,7 +71,7 @@
                 FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 454,
+                            value: 497,
                         },
                     ),
                 ),
@@ -93,7 +93,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 455,
+                            value: 498,
                         },
                     ),
                 ),
@@ -115,7 +115,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 457,
+                            value: 500,
                         },
                     ),
                 ),
@@ -137,7 +137,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 456,
+                            value: 499,
                         },
                     ),
                 ),
@@ -159,7 +159,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 458,
+                            value: 501,
                         },
                     ),
                 ),

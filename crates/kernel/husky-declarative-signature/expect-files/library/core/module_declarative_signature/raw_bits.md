@@ -23,11 +23,17 @@
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 104,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::ImplBlock(
+                            ImplBlockPathData::TypeImplBlock(
+                                TypeImplBlockPathData {
+                                    module_path: `core::raw_bits`,
+                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -50,7 +56,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 158,
+                            value: 177,
                         },
                     ),
                 ),
@@ -64,7 +70,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 158,
+                                        value: 177,
                                     },
                                 ),
                             ),
@@ -105,7 +111,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 159,
+                            value: 178,
                         },
                     ),
                 ),
@@ -119,7 +125,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 159,
+                                        value: 178,
                                     },
                                 ),
                             ),
@@ -153,7 +159,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 160,
+                            value: 179,
                         },
                     ),
                 ),
@@ -167,7 +173,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 160,
+                                        value: 179,
                                     },
                                 ),
                             ),
@@ -201,7 +207,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 161,
+                            value: 180,
                         },
                     ),
                 ),
@@ -215,7 +221,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 161,
+                                        value: 180,
                                     },
                                 ),
                             ),
@@ -249,7 +255,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 162,
+                            value: 181,
                         },
                     ),
                 ),
@@ -263,7 +269,7 @@
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 162,
+                                        value: 181,
                                     },
                                 ),
                             ),

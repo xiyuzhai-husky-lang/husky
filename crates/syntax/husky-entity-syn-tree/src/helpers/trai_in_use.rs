@@ -80,7 +80,7 @@ fn trait_items_table_impl(
         Default::default();
     for entry in item_symbol_table_ref.data().iter() {
         let PrincipalEntityPath::MajorItem(MajorItemPath::Trait(trai_path)) =
-            entry.symbol().path(db)
+            entry.symbol().principal_entity_path(db)
         else {
             continue;
         };

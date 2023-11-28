@@ -58,12 +58,21 @@
                             ],
                         },
                         trai: DeclarativeTerm(`core::clone::Clone`),
-                        self_ty: DerivedAny(
-                            DeclarativeTermSymbol(
-                                Id {
-                                    value: 5,
-                                },
-                            ),
+                        self_ty: DeclarativeSelfType::DerivedAny(
+                            DeclarativeTermSymbol {
+                                ty: Ok(
+                                    Category(
+                                        TermCategory {
+                                            universe: TermUniverse(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                index: DeclarativeTermSymbolIndex(
+                                    SelfType,
+                                ),
+                            },
                         ),
                     },
                 ),
@@ -76,7 +85,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 117,
+                            value: 136,
                         },
                     ),
                 ),

@@ -168,7 +168,7 @@ impl<'a> EntityTreePresheetMut<'a> {
         #[cfg(test)]
         assert!(rule.is_unresolved());
         rule.mark_as_resolved(original_symbol);
-        let path = original_symbol.path(db);
+        let path = original_symbol.principal_entity_path(db);
         match rule.variant() {
             OnceUseRuleVariant::Parent {
                 parent_name_token: _,

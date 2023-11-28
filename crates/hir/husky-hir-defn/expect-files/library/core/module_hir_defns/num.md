@@ -620,11 +620,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 76,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -640,11 +646,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 76,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -681,7 +693,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 120,
+                                value: 139,
                             },
                         ),
                     ),
@@ -689,7 +701,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 120,
+                                    value: 139,
                                 },
                             ),
                         ),
@@ -713,7 +725,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 120,
+                                                    value: 139,
                                                 },
                                             ),
                                         ),
@@ -761,7 +773,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 121,
+                                value: 140,
                             },
                         ),
                     ),
@@ -769,7 +781,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 121,
+                                    value: 140,
                                 },
                             ),
                         ),
@@ -803,7 +815,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 121,
+                                                    value: 140,
                                                 },
                                             ),
                                         ),
@@ -946,7 +958,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 122,
+                                value: 141,
                             },
                         ),
                     ),
@@ -954,7 +966,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 122,
+                                    value: 141,
                                 },
                             ),
                         ),
@@ -988,7 +1000,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 122,
+                                                    value: 141,
                                                 },
                                             ),
                                         ),
@@ -1051,11 +1063,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 78,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -1071,11 +1089,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 78,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -1112,7 +1136,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 123,
+                                value: 142,
                             },
                         ),
                     ),
@@ -1120,7 +1144,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 123,
+                                    value: 142,
                                 },
                             ),
                         ),
@@ -1144,7 +1168,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 123,
+                                                    value: 142,
                                                 },
                                             ),
                                         ),
@@ -1192,7 +1216,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 124,
+                                value: 143,
                             },
                         ),
                     ),
@@ -1200,7 +1224,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 124,
+                                    value: 143,
                                 },
                             ),
                         ),
@@ -1234,7 +1258,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 124,
+                                                    value: 143,
                                                 },
                                             ),
                                         ),
@@ -1377,7 +1401,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 125,
+                                value: 144,
                             },
                         ),
                     ),
@@ -1385,7 +1409,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 125,
+                                    value: 144,
                                 },
                             ),
                         ),
@@ -1419,7 +1443,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 125,
+                                                    value: 144,
                                                 },
                                             ),
                                         ),
@@ -1482,11 +1506,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 80,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -1502,11 +1532,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 80,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -1543,7 +1579,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 126,
+                                value: 145,
                             },
                         ),
                     ),
@@ -1551,7 +1587,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 126,
+                                    value: 145,
                                 },
                             ),
                         ),
@@ -1575,7 +1611,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 126,
+                                                    value: 145,
                                                 },
                                             ),
                                         ),
@@ -1623,7 +1659,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 127,
+                                value: 146,
                             },
                         ),
                     ),
@@ -1631,7 +1667,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 127,
+                                    value: 146,
                                 },
                             ),
                         ),
@@ -1665,7 +1701,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 127,
+                                                    value: 146,
                                                 },
                                             ),
                                         ),
@@ -1730,7 +1766,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 128,
+                                value: 147,
                             },
                         ),
                     ),
@@ -1738,7 +1774,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 128,
+                                    value: 147,
                                 },
                             ),
                         ),
@@ -1772,7 +1808,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 128,
+                                                    value: 147,
                                                 },
                                             ),
                                         ),
@@ -1915,7 +1951,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 129,
+                                value: 148,
                             },
                         ),
                     ),
@@ -1923,7 +1959,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 129,
+                                    value: 148,
                                 },
                             ),
                         ),
@@ -1957,7 +1993,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 129,
+                                                    value: 148,
                                                 },
                                             ),
                                         ),
@@ -2020,11 +2056,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 82,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -2040,11 +2082,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 82,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -2081,7 +2129,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 130,
+                                value: 149,
                             },
                         ),
                     ),
@@ -2089,7 +2137,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 130,
+                                    value: 149,
                                 },
                             ),
                         ),
@@ -2113,7 +2161,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 130,
+                                                    value: 149,
                                                 },
                                             ),
                                         ),
@@ -2239,7 +2287,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 131,
+                                value: 150,
                             },
                         ),
                     ),
@@ -2247,7 +2295,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 131,
+                                    value: 150,
                                 },
                             ),
                         ),
@@ -2281,7 +2329,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 131,
+                                                    value: 150,
                                                 },
                                             ),
                                         ),
@@ -2344,11 +2392,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 84,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -2364,11 +2418,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 84,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -2405,7 +2465,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 132,
+                                value: 151,
                             },
                         ),
                     ),
@@ -2413,7 +2473,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 132,
+                                    value: 151,
                                 },
                             ),
                         ),
@@ -2437,7 +2497,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 132,
+                                                    value: 151,
                                                 },
                                             ),
                                         ),
@@ -2563,7 +2623,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 133,
+                                value: 152,
                             },
                         ),
                     ),
@@ -2571,7 +2631,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 133,
+                                    value: 152,
                                 },
                             ),
                         ),
@@ -2605,7 +2665,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 133,
+                                                    value: 152,
                                                 },
                                             ),
                                         ),
@@ -2668,11 +2728,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 86,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -2688,11 +2754,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 86,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -2729,7 +2801,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 134,
+                                value: 153,
                             },
                         ),
                     ),
@@ -2737,7 +2809,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 134,
+                                    value: 153,
                                 },
                             ),
                         ),
@@ -2761,7 +2833,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 134,
+                                                    value: 153,
                                                 },
                                             ),
                                         ),
@@ -2887,7 +2959,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 135,
+                                value: 154,
                             },
                         ),
                     ),
@@ -2895,7 +2967,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 135,
+                                    value: 154,
                                 },
                             ),
                         ),
@@ -2929,7 +3001,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 135,
+                                                    value: 154,
                                                 },
                                             ),
                                         ),
@@ -2992,11 +3064,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 88,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -3012,11 +3090,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 88,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -3053,7 +3137,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 136,
+                                value: 155,
                             },
                         ),
                     ),
@@ -3061,7 +3145,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 136,
+                                    value: 155,
                                 },
                             ),
                         ),
@@ -3085,7 +3169,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 136,
+                                                    value: 155,
                                                 },
                                             ),
                                         ),
@@ -3211,7 +3295,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 137,
+                                value: 156,
                             },
                         ),
                     ),
@@ -3219,7 +3303,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 137,
+                                    value: 156,
                                 },
                             ),
                         ),
@@ -3253,7 +3337,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 137,
+                                                    value: 156,
                                                 },
                                             ),
                                         ),
@@ -3316,11 +3400,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 90,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -3336,11 +3426,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 90,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -3377,7 +3473,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 138,
+                                value: 157,
                             },
                         ),
                     ),
@@ -3385,7 +3481,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 138,
+                                    value: 157,
                                 },
                             ),
                         ),
@@ -3409,7 +3505,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 138,
+                                                    value: 157,
                                                 },
                                             ),
                                         ),
@@ -3535,7 +3631,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 139,
+                                value: 158,
                             },
                         ),
                     ),
@@ -3543,7 +3639,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 139,
+                                    value: 158,
                                 },
                             ),
                         ),
@@ -3577,7 +3673,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 139,
+                                                    value: 158,
                                                 },
                                             ),
                                         ),
@@ -3640,11 +3736,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 92,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -3660,11 +3762,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 92,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -3701,7 +3809,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 140,
+                                value: 159,
                             },
                         ),
                     ),
@@ -3709,7 +3817,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 140,
+                                    value: 159,
                                 },
                             ),
                         ),
@@ -3733,7 +3841,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 140,
+                                                    value: 159,
                                                 },
                                             ),
                                         ),
@@ -3859,7 +3967,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 141,
+                                value: 160,
                             },
                         ),
                     ),
@@ -3867,7 +3975,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 141,
+                                    value: 160,
                                 },
                             ),
                         ),
@@ -3901,7 +4009,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 141,
+                                                    value: 160,
                                                 },
                                             ),
                                         ),
@@ -3964,11 +4072,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 94,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -3984,11 +4098,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 94,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -4025,7 +4145,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 142,
+                                value: 161,
                             },
                         ),
                     ),
@@ -4033,7 +4153,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 142,
+                                    value: 161,
                                 },
                             ),
                         ),
@@ -4057,7 +4177,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 142,
+                                                    value: 161,
                                                 },
                                             ),
                                         ),
@@ -4183,7 +4303,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 143,
+                                value: 162,
                             },
                         ),
                     ),
@@ -4191,7 +4311,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 143,
+                                    value: 162,
                                 },
                             ),
                         ),
@@ -4225,7 +4345,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 143,
+                                                    value: 162,
                                                 },
                                             ),
                                         ),
@@ -4288,11 +4408,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 96,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -4308,11 +4434,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 96,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -4349,7 +4481,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 144,
+                                value: 163,
                             },
                         ),
                     ),
@@ -4357,7 +4489,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 144,
+                                    value: 163,
                                 },
                             ),
                         ),
@@ -4381,7 +4513,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 144,
+                                                    value: 163,
                                                 },
                                             ),
                                         ),
@@ -4507,7 +4639,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 145,
+                                value: 164,
                             },
                         ),
                     ),
@@ -4515,7 +4647,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 145,
+                                    value: 164,
                                 },
                             ),
                         ),
@@ -4549,7 +4681,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 145,
+                                                    value: 164,
                                                 },
                                             ),
                                         ),
@@ -4612,11 +4744,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 98,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -4632,11 +4770,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 98,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -4673,7 +4817,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 146,
+                                value: 165,
                             },
                         ),
                     ),
@@ -4681,7 +4825,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 146,
+                                    value: 165,
                                 },
                             ),
                         ),
@@ -4705,7 +4849,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 146,
+                                                    value: 165,
                                                 },
                                             ),
                                         ),
@@ -4831,7 +4975,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 147,
+                                value: 166,
                             },
                         ),
                     ),
@@ -4839,7 +4983,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 147,
+                                    value: 166,
                                 },
                             ),
                         ),
@@ -4873,7 +5017,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 147,
+                                                    value: 166,
                                                 },
                                             ),
                                         ),
@@ -4936,11 +5080,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 100,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -4956,11 +5106,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 100,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -4997,7 +5153,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 148,
+                                value: 167,
                             },
                         ),
                     ),
@@ -5005,7 +5161,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 148,
+                                    value: 167,
                                 },
                             ),
                         ),
@@ -5029,7 +5185,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 148,
+                                                    value: 167,
                                                 },
                                             ),
                                         ),
@@ -5077,7 +5233,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 149,
+                                value: 168,
                             },
                         ),
                     ),
@@ -5085,7 +5241,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 149,
+                                    value: 168,
                                 },
                             ),
                         ),
@@ -5109,7 +5265,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 149,
+                                                    value: 168,
                                                 },
                                             ),
                                         ),
@@ -5157,7 +5313,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 150,
+                                value: 169,
                             },
                         ),
                     ),
@@ -5165,7 +5321,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 150,
+                                    value: 169,
                                 },
                             ),
                         ),
@@ -5199,7 +5355,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 150,
+                                                    value: 169,
                                                 },
                                             ),
                                         ),
@@ -5264,7 +5420,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 151,
+                                value: 170,
                             },
                         ),
                     ),
@@ -5272,7 +5428,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 151,
+                                    value: 170,
                                 },
                             ),
                         ),
@@ -5306,7 +5462,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 151,
+                                                    value: 170,
                                                 },
                                             ),
                                         ),
@@ -5371,7 +5527,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 152,
+                                value: 171,
                             },
                         ),
                     ),
@@ -5379,7 +5535,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 152,
+                                    value: 171,
                                 },
                             ),
                         ),
@@ -5403,7 +5559,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 152,
+                                                    value: 171,
                                                 },
                                             ),
                                         ),
@@ -5451,7 +5607,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 153,
+                                value: 172,
                             },
                         ),
                     ),
@@ -5459,7 +5615,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 153,
+                                    value: 172,
                                 },
                             ),
                         ),
@@ -5483,7 +5639,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 153,
+                                                    value: 172,
                                                 },
                                             ),
                                         ),
@@ -5531,7 +5687,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 154,
+                                value: 173,
                             },
                         ),
                     ),
@@ -5539,7 +5695,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 154,
+                                    value: 173,
                                 },
                             ),
                         ),
@@ -5563,7 +5719,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 154,
+                                                    value: 173,
                                                 },
                                             ),
                                         ),
@@ -5611,7 +5767,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 155,
+                                value: 174,
                             },
                         ),
                     ),
@@ -5619,7 +5775,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 155,
+                                    value: 174,
                                 },
                             ),
                         ),
@@ -5643,7 +5799,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 155,
+                                                    value: 174,
                                                 },
                                             ),
                                         ),
@@ -5769,7 +5925,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 156,
+                                value: 175,
                             },
                         ),
                     ),
@@ -5777,7 +5933,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 156,
+                                    value: 175,
                                 },
                             ),
                         ),
@@ -5811,7 +5967,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 156,
+                                                    value: 175,
                                                 },
                                             ),
                                         ),
@@ -5874,11 +6030,17 @@
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
                     path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 102,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `core::num`,
+                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                     template_parameters: HirTemplateParameters(
                         [],
@@ -5894,11 +6056,17 @@
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
                                     TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 102,
-                                            },
-                                        ),
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::num`,
+                                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
                                     ),
                                 ),
                             ),
@@ -5935,7 +6103,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 157,
+                                value: 176,
                             },
                         ),
                     ),
@@ -5943,7 +6111,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 157,
+                                    value: 176,
                                 },
                             ),
                         ),
@@ -5967,7 +6135,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 157,
+                                                    value: 176,
                                                 },
                                             ),
                                         ),
@@ -6015,7 +6183,7 @@
                     path: TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 158,
+                                value: 177,
                             },
                         ),
                     ),
@@ -6023,7 +6191,7 @@
                         path: TypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 158,
+                                    value: 177,
                                 },
                             ),
                         ),
@@ -6047,7 +6215,7 @@
                                         TypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 158,
+                                                    value: 177,
                                                 },
                                             ),
                                         ),
@@ -6173,7 +6341,7 @@
                     path: TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 159,
+                                value: 178,
                             },
                         ),
                     ),
@@ -6181,7 +6349,7 @@
                         path: TraitForTypeItemPath(
                             ItemPathId(
                                 Id {
-                                    value: 159,
+                                    value: 178,
                                 },
                             ),
                         ),
@@ -6215,7 +6383,7 @@
                                         TraitForTypeItemPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 159,
+                                                    value: 178,
                                                 },
                                             ),
                                         ),

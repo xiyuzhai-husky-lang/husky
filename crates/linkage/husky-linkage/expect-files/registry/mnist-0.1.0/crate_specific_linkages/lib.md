@@ -1,15 +1,9 @@
 [
     Linkage {
-        data: Item {
-            item_path: MajorItem(
-                Type(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 449,
-                            },
-                        ),
-                    ),
+        data: LinkageData::Item {
+            item_path: ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -19,16 +13,10 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: MajorItem(
-                Type(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 460,
-                            },
-                        ),
-                    ),
+        data: LinkageData::Item {
+            item_path: ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist::BinaryImage28`, `Struct`),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -38,16 +26,10 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: MajorItem(
-                Type(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 461,
-                            },
-                        ),
-                    ),
+        data: LinkageData::Item {
+            item_path: ItemPath::MajorItem(
+                MajorItemPath::Type(
+                    TypePath(`mnist::BinaryGrid28`, `Struct`),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -57,16 +39,10 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: MajorItem(
-                Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 462,
-                            },
-                        ),
-                    ),
+        data: LinkageData::Item {
+            item_path: ItemPath::MajorItem(
+                MajorItemPath::Fugitive(
+                    FugitivePath(`mnist::input`, `Val`),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -76,16 +52,19 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: ImplBlock(
-                TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 463,
-                            },
-                        ),
-                    ),
+        data: LinkageData::Item {
+            item_path: ItemPath::ImplBlock(
+                ImplBlockPath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `mnist`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                            ),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -95,13 +74,13 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: AssociatedItem(
-                TraitForTypeItem(
+        data: LinkageData::Item {
+            item_path: ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 469,
+                                value: 517,
                             },
                         ),
                     ),
@@ -114,15 +93,21 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: ImplBlock(
-                TypeImplBlock(
+        data: LinkageData::Item {
+            item_path: ItemPath::ImplBlock(
+                ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 464,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `mnist`,
+                                        ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -133,13 +118,13 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: AssociatedItem(
-                TypeItem(
+        data: LinkageData::Item {
+            item_path: ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 470,
+                                value: 518,
                             },
                         ),
                     ),
@@ -152,16 +137,19 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: ImplBlock(
-                TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 465,
-                            },
-                        ),
-                    ),
+        data: LinkageData::Item {
+            item_path: ItemPath::ImplBlock(
+                ImplBlockPath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `mnist`,
+                            trai_path: TraitPath(`core::ops::IntIndex`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist::BinaryImage28`, `Struct`),
+                            ),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -171,13 +159,13 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: AssociatedItem(
-                TraitForTypeItem(
+        data: LinkageData::Item {
+            item_path: ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 471,
+                                value: 519,
                             },
                         ),
                     ),
@@ -190,16 +178,19 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: ImplBlock(
-                TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 466,
-                            },
-                        ),
-                    ),
+        data: LinkageData::Item {
+            item_path: ItemPath::ImplBlock(
+                ImplBlockPath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `mnist`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            ),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -209,13 +200,13 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: AssociatedItem(
-                TraitForTypeItem(
+        data: LinkageData::Item {
+            item_path: ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 472,
+                                value: 520,
                             },
                         ),
                     ),
@@ -228,15 +219,21 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: ImplBlock(
-                TypeImplBlock(
+        data: LinkageData::Item {
+            item_path: ItemPath::ImplBlock(
+                ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 467,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `mnist`,
+                                        ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -247,13 +244,13 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: AssociatedItem(
-                TypeItem(
+        data: LinkageData::Item {
+            item_path: ItemPath::AssociatedItem(
+                AssociatedItemPath::TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 473,
+                                value: 521,
                             },
                         ),
                     ),
@@ -266,16 +263,19 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: ImplBlock(
-                TraitForTypeImplBlock(
-                    TraitForTypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 468,
-                            },
-                        ),
-                    ),
+        data: LinkageData::Item {
+            item_path: ItemPath::ImplBlock(
+                ImplBlockPath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlock {
+                        data: TraitForTypeImplBlockPathData {
+                            module_path: `mnist`,
+                            trai_path: TraitPath(`core::ops::IntIndex`),
+                            ty_sketch: TypeSketch::Path(
+                                TypePath(`mnist::BinaryGrid28`, `Struct`),
+                            ),
+                            disambiguator: 0,
+                        },
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -285,13 +285,13 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: AssociatedItem(
-                TraitForTypeItem(
+        data: LinkageData::Item {
+            item_path: ItemPath::AssociatedItem(
+                AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 474,
+                                value: 522,
                             },
                         ),
                     ),

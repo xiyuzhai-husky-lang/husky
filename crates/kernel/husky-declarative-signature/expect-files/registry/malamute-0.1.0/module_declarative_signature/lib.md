@@ -210,14 +210,8 @@
                             ],
                         },
                         trai: DeclarativeTerm(`core::ops::Unveil malamute::OneVsAll t a`),
-                        self_ty: Path(
-                            ExplicitApplication(
-                                DeclarativeTermExplicitApplication(
-                                    Id {
-                                        value: 95,
-                                    },
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`malamute::Class t`),
                         ),
                     },
                 ),
@@ -230,7 +224,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 414,
+                            value: 457,
                         },
                     ),
                 ),
@@ -293,14 +287,8 @@
                             ],
                         },
                         trai: DeclarativeTerm(`core::ops::Unveil malamute::OneVsAllResult t a`),
-                        self_ty: Path(
-                            ExplicitApplication(
-                                DeclarativeTermExplicitApplication(
-                                    Id {
-                                        value: 97,
-                                    },
-                                ),
-                            ),
+                        self_ty: DeclarativeSelfType::Path(
+                            DeclarativeTerm(`malamute::OneVsAll t a`),
                         ),
                     },
                 ),
@@ -313,7 +301,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 415,
+                            value: 458,
                         },
                     ),
                 ),

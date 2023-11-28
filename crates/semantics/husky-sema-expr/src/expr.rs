@@ -24,6 +24,7 @@ use husky_token_data::LiteralData;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
 use smallvec::SmallVec;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum SemaExprData {
     Literal(RegionalTokenIdx, LiteralData),
@@ -234,6 +235,7 @@ pub enum SemaExprData {
     },
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaExprEntry {
     data_result: SemaExprDataResult<SemaExprData>,

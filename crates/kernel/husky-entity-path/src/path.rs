@@ -2,6 +2,7 @@ mod associated_item;
 mod attr;
 mod impl_block;
 mod major_item;
+mod submodule;
 mod ty_variant;
 
 use enum_class::Room32;
@@ -11,6 +12,7 @@ pub use self::associated_item::*;
 pub use self::attr::*;
 pub use self::impl_block::*;
 pub use self::major_item::*;
+pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
@@ -21,6 +23,10 @@ pub struct ItemPathId {
 }
 
 impl ItemPathId {
+    pub fn item_path(self, db: &::salsa::Db) -> ItemPath {
+        self.data(db).item_path(self)
+    }
+
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.data(db).module_path(db)
     }
@@ -42,10 +48,11 @@ impl ItemPathId {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum ItemPathData {
-    Submodule(SubmodulePath),
+    SubmoduleItem(SubmoduleItemPathData),
     MajorItem(MajorItemPathData),
     AssociatedItem(AssociatedItemPathData),
     TypeVariant(TypeVariantPathData),
@@ -54,9 +61,21 @@ pub enum ItemPathData {
 }
 
 impl ItemPathData {
+    #[inline(always)]
+    fn item_path(self, id: ItemPathId) -> ItemPath {
+        match self {
+            ItemPathData::SubmoduleItem(slf) => slf.item_path(id).into(),
+            ItemPathData::MajorItem(slf) => slf.item_path(id).into(),
+            ItemPathData::AssociatedItem(slf) => slf.item_path(id).into(),
+            ItemPathData::TypeVariant(slf) => slf.item_path(id).into(),
+            ItemPathData::ImplBlock(slf) => slf.item_path(id).into(),
+            ItemPathData::Attr(slf) => slf.item_path(id).into(),
+        }
+    }
+
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
-            ItemPathData::Submodule(slf) => slf.module_path(db),
+            ItemPathData::SubmoduleItem(slf) => slf.module_path(db),
             ItemPathData::MajorItem(slf) => slf.module_path(db),
             ItemPathData::AssociatedItem(slf) => slf.module_path(db),
             ItemPathData::TypeVariant(slf) => slf.module_path(db),
@@ -67,7 +86,7 @@ impl ItemPathData {
 
     pub fn ident(self, db: &::salsa::Db) -> Option<Ident> {
         match self {
-            ItemPathData::Submodule(slf) => Some(slf.ident(db)),
+            ItemPathData::SubmoduleItem(slf) => Some(slf.ident(db)),
             ItemPathData::MajorItem(slf) => Some(slf.ident()),
             ItemPathData::AssociatedItem(slf) => Some(slf.ident(db)),
             ItemPathData::TypeVariant(slf) => Some(slf.ident),
@@ -78,7 +97,7 @@ impl ItemPathData {
 
     pub fn entity_kind(self, db: &::salsa::Db) -> EntityKind {
         match self {
-            ItemPathData::Submodule(_) => EntityKind::Module,
+            ItemPathData::SubmoduleItem(_) => EntityKind::Module,
             ItemPathData::MajorItem(slf) => slf.entity_kind(db),
             ItemPathData::AssociatedItem(slf) => slf.entity_kind(db),
             ItemPathData::TypeVariant(slf) => EntityKind::TypeVariant,
@@ -89,7 +108,7 @@ impl ItemPathData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum EntityPath {
     Module(ModulePath),
@@ -181,7 +200,7 @@ impl From<TraitPath> for EntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum IdentifiableEntityPath {
     Module(ModulePath),
@@ -190,11 +209,11 @@ pub enum IdentifiableEntityPath {
     TypeVariant(TypeVariantPath),
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ItemPath {
-    Submodule(Room32, SubmodulePath),
+    Submodule(Room32, SubmoduleItemPath),
     MajorItem(MajorItemPath),
     AssociatedItem(AssociatedItemPath),
     TypeVariant(Room32, TypeVariantPath),
@@ -230,10 +249,9 @@ impl ItemPath {
         self.module_item_path()?.ty_path()
     }
 
-    #[inline(always)]
-    pub fn major(self) -> Option<MajorEntityPath> {
+    pub fn major(self, db: &::salsa::Db) -> Option<MajorEntityPath> {
         match self {
-            ItemPath::Submodule(_, path) => Some(path.inner().into()),
+            ItemPath::Submodule(_, path) => Some(path.self_module_path(db).into()),
             ItemPath::MajorItem(path) => Some(path.into()),
             ItemPath::AssociatedItem(_)
             | ItemPath::TypeVariant(_, _)
@@ -279,7 +297,7 @@ impl From<TraitPath> for ItemPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum PatternPath {
     Type(TypePath),
@@ -287,7 +305,7 @@ pub enum PatternPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum MajorEntityPath {
     Module(ModulePath),
@@ -322,7 +340,7 @@ impl MajorEntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum PrincipalEntityPath {
     Module(ModulePath),
@@ -370,7 +388,7 @@ impl From<PrincipalEntityPath> for EntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum PrincipalItemPath {
     Submodule(SubmodulePath),

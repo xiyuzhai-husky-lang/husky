@@ -580,11 +580,26 @@ SynNodeDeclSheet {
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 296,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::TypeVariant(
+                                                                    TypeVariantPathData {
+                                                                        parent_ty_path: TypePath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 338,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        ident: Ident(
+                                                                            Coword(
+                                                                                Id {
+                                                                                    value: 443,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 ),
@@ -660,11 +675,26 @@ SynNodeDeclSheet {
                                                 path: Ok(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 296,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::TypeVariant(
+                                                                    TypeVariantPathData {
+                                                                        parent_ty_path: TypePath(
+                                                                            ItemPathId(
+                                                                                Id {
+                                                                                    value: 338,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                        ident: Ident(
+                                                                            Coword(
+                                                                                Id {
+                                                                                    value: 443,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                            },
                                                         ),
                                                     ),
                                                 ),

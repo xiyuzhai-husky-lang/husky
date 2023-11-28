@@ -8,8 +8,16 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -25,8 +33,16 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -45,8 +61,16 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convex_component`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -62,8 +86,16 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::convex_component`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::line_segment_sketch::convex_component`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -82,8 +114,16 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::convexity`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -99,8 +139,16 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::convexity`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::line_segment_sketch::convexity`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -119,8 +167,16 @@ SynNodeDeclSheet {
                         data: ItemSynNodePathData::Submodule(
                             SubmoduleSynNodePathData {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                    path: SubmodulePath(
-                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                    path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                     disambiguator: 0,
                                 },
@@ -136,8 +192,16 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmodulePath(
-                                            `mnist_classifier::line_segment_sketch::line_segment`,
+                                        path: SubmoduleItemPath(
+                                            ItemPathId {
+                                                data: ItemPathData::SubmoduleItem(
+                                                    SubmoduleItemPathData {
+                                                        submodule_path: SubmodulePath(
+                                                            `mnist_classifier::line_segment_sketch::line_segment`,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         ),
                                         disambiguator: 0,
                                     },
@@ -3631,7 +3695,7 @@ SynNodeDeclSheet {
                                             path: TraitForTypeItemPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 388,
+                                                        value: 431,
                                                     },
                                                 ),
                                             ),
@@ -3657,7 +3721,7 @@ SynNodeDeclSheet {
                                                     path: TraitForTypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 388,
+                                                                value: 431,
                                                             },
                                                         ),
                                                     ),
@@ -3862,7 +3926,7 @@ SynNodeDeclSheet {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 388,
+                                                                                    value: 431,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -3966,7 +4030,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 325,
+                                                    value: 368,
                                                 },
                                             ),
                                         ),
@@ -3988,7 +4052,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 325,
+                                                        value: 368,
                                                     },
                                                 ),
                                             ),
@@ -4031,7 +4095,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 325,
+                                                                            value: 368,
                                                                         },
                                                                     ),
                                                                 ),
@@ -4133,7 +4197,7 @@ SynNodeDeclSheet {
                                             path: TypeItemPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 389,
+                                                        value: 432,
                                                     },
                                                 ),
                                             ),
@@ -4159,7 +4223,7 @@ SynNodeDeclSheet {
                                                     path: TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 389,
+                                                                value: 432,
                                                             },
                                                         ),
                                                     ),
@@ -4287,7 +4351,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 325,
+                                                                                            value: 368,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4386,7 +4450,7 @@ SynNodeDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 389,
+                                                                                    value: 432,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -4744,7 +4808,7 @@ SynNodeDeclSheet {
                                             path: TypeItemPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 390,
+                                                        value: 433,
                                                     },
                                                 ),
                                             ),
@@ -4770,7 +4834,7 @@ SynNodeDeclSheet {
                                                     path: TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 390,
+                                                                value: 433,
                                                             },
                                                         ),
                                                     ),
@@ -4844,7 +4908,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 325,
+                                                                                            value: 368,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4943,7 +5007,7 @@ SynNodeDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 390,
+                                                                                    value: 433,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -5262,7 +5326,7 @@ SynNodeDeclSheet {
                                             path: TraitForTypeItemPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 391,
+                                                        value: 434,
                                                     },
                                                 ),
                                             ),
@@ -5288,7 +5352,7 @@ SynNodeDeclSheet {
                                                     path: TraitForTypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 391,
+                                                                value: 434,
                                                             },
                                                         ),
                                                     ),
@@ -5493,7 +5557,7 @@ SynNodeDeclSheet {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 391,
+                                                                                    value: 434,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -5597,7 +5661,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 327,
+                                                    value: 370,
                                                 },
                                             ),
                                         ),
@@ -5619,7 +5683,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 327,
+                                                        value: 370,
                                                     },
                                                 ),
                                             ),
@@ -5662,7 +5726,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 327,
+                                                                            value: 370,
                                                                         },
                                                                     ),
                                                                 ),
@@ -5764,7 +5828,7 @@ SynNodeDeclSheet {
                                             path: TypeItemPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 392,
+                                                        value: 435,
                                                     },
                                                 ),
                                             ),
@@ -5790,7 +5854,7 @@ SynNodeDeclSheet {
                                                     path: TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 392,
+                                                                value: 435,
                                                             },
                                                         ),
                                                     ),
@@ -5842,7 +5906,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 327,
+                                                                                            value: 370,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -5941,7 +6005,7 @@ SynNodeDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 392,
+                                                                                    value: 435,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -6059,7 +6123,7 @@ SynNodeDeclSheet {
                                             path: TypeItemPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 393,
+                                                        value: 436,
                                                     },
                                                 ),
                                             ),
@@ -6085,7 +6149,7 @@ SynNodeDeclSheet {
                                                     path: TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 393,
+                                                                value: 436,
                                                             },
                                                         ),
                                                     ),
@@ -6137,7 +6201,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 327,
+                                                                                            value: 370,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -6236,7 +6300,7 @@ SynNodeDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 393,
+                                                                                    value: 436,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -6341,7 +6405,7 @@ SynNodeDeclSheet {
                                             path: TypeItemPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 394,
+                                                        value: 437,
                                                     },
                                                 ),
                                             ),
@@ -6367,7 +6431,7 @@ SynNodeDeclSheet {
                                                     path: TypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 394,
+                                                                value: 437,
                                                             },
                                                         ),
                                                     ),
@@ -6476,7 +6540,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 327,
+                                                                                            value: 370,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -6575,7 +6639,7 @@ SynNodeDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 394,
+                                                                                    value: 437,
                                                                                 },
                                                                             ),
                                                                         ),

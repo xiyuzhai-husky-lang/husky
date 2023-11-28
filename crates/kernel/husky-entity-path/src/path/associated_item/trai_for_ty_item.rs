@@ -59,6 +59,11 @@ impl TraitForTypeItemPath {
 }
 
 impl TraitForTypeItemPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> TraitForTypeItemPath {
+        TraitForTypeItemPath(id)
+    }
+
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         self.impl_block.module_path(db)
     }

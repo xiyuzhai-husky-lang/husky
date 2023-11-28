@@ -61,6 +61,11 @@ impl salsa::DisplayWithDb for TraitItemPath {
 }
 
 impl TraitItemPathData {
+    #[inline(always)]
+    pub(super) fn item_path(self, id: ItemPathId) -> TraitItemPath {
+        TraitItemPath(id)
+    }
+
     pub fn trai_path(&self) -> TraitPath {
         self.trai_path
     }

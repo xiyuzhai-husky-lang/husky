@@ -59,8 +59,16 @@ Ok(
                         state: OnceUseRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
-                                    submodule_path: SubmodulePath(
-                                        `core::ops`,
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId {
+                                            data: ItemPathData::SubmoduleItem(
+                                                SubmoduleItemPathData {
+                                                    submodule_path: SubmodulePath(
+                                                        `core::ops`,
+                                                    ),
+                                                },
+                                            ),
+                                        },
                                     ),
                                 },
                             ),
@@ -273,7 +281,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 134,
+                                                                    value: 153,
                                                                 },
                                                             ),
                                                         ),
@@ -334,7 +342,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 135,
+                                                                    value: 154,
                                                                 },
                                                             ),
                                                         ),
@@ -489,7 +497,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 136,
+                                                                    value: 155,
                                                                 },
                                                             ),
                                                         ),
@@ -749,7 +757,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 137,
+                                                                    value: 156,
                                                                 },
                                                             ),
                                                         ),
@@ -810,7 +818,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 138,
+                                                                    value: 157,
                                                                 },
                                                             ),
                                                         ),
@@ -965,7 +973,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 139,
+                                                                    value: 158,
                                                                 },
                                                             ),
                                                         ),
@@ -1225,7 +1233,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 140,
+                                                                    value: 159,
                                                                 },
                                                             ),
                                                         ),
@@ -1286,7 +1294,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 141,
+                                                                    value: 160,
                                                                 },
                                                             ),
                                                         ),
@@ -1381,7 +1389,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 142,
+                                                                    value: 161,
                                                                 },
                                                             ),
                                                         ),
@@ -1535,7 +1543,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 143,
+                                                                    value: 162,
                                                                 },
                                                             ),
                                                         ),
@@ -1795,7 +1803,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 144,
+                                                                    value: 163,
                                                                 },
                                                             ),
                                                         ),
@@ -1916,7 +1924,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 145,
+                                                                    value: 164,
                                                                 },
                                                             ),
                                                         ),
@@ -2176,7 +2184,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 146,
+                                                                    value: 165,
                                                                 },
                                                             ),
                                                         ),
@@ -2297,7 +2305,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 147,
+                                                                    value: 166,
                                                                 },
                                                             ),
                                                         ),
@@ -2557,7 +2565,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 148,
+                                                                    value: 167,
                                                                 },
                                                             ),
                                                         ),
@@ -2678,7 +2686,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 149,
+                                                                    value: 168,
                                                                 },
                                                             ),
                                                         ),
@@ -2938,7 +2946,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 150,
+                                                                    value: 169,
                                                                 },
                                                             ),
                                                         ),
@@ -3059,7 +3067,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 151,
+                                                                    value: 170,
                                                                 },
                                                             ),
                                                         ),
@@ -3319,7 +3327,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 152,
+                                                                    value: 171,
                                                                 },
                                                             ),
                                                         ),
@@ -3440,7 +3448,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 153,
+                                                                    value: 172,
                                                                 },
                                                             ),
                                                         ),
@@ -3700,7 +3708,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 154,
+                                                                    value: 173,
                                                                 },
                                                             ),
                                                         ),
@@ -3821,7 +3829,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 155,
+                                                                    value: 174,
                                                                 },
                                                             ),
                                                         ),
@@ -4081,7 +4089,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 156,
+                                                                    value: 175,
                                                                 },
                                                             ),
                                                         ),
@@ -4202,7 +4210,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 157,
+                                                                    value: 176,
                                                                 },
                                                             ),
                                                         ),
@@ -4462,7 +4470,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 158,
+                                                                    value: 177,
                                                                 },
                                                             ),
                                                         ),
@@ -4583,7 +4591,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 159,
+                                                                    value: 178,
                                                                 },
                                                             ),
                                                         ),
@@ -4843,7 +4851,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 160,
+                                                                    value: 179,
                                                                 },
                                                             ),
                                                         ),
@@ -4964,7 +4972,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 161,
+                                                                    value: 180,
                                                                 },
                                                             ),
                                                         ),
@@ -5224,7 +5232,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 162,
+                                                                    value: 181,
                                                                 },
                                                             ),
                                                         ),
@@ -5285,7 +5293,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 163,
+                                                                    value: 182,
                                                                 },
                                                             ),
                                                         ),
@@ -5346,102 +5354,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 164,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        AssociatedItem {
-                            associated_item_kind: TypeItem(
-                                MethodFn,
-                            ),
-                        },
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssociatedItem(
-                            AssociatedItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssociatedItem(
-                                            AssociatedItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 165,
+                                                                    value: 183,
                                                                 },
                                                             ),
                                                         ),
@@ -5536,7 +5449,102 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 166,
+                                                                    value: 184,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        AssociatedItem {
+                            associated_item_kind: TypeItem(
+                                MethodFn,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
+                            pattern_symbol_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssociatedItem(
+                            AssociatedItemSynNodePath::TypeItem(
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssociatedItem(
+                                            AssociatedItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypeItemPath(
+                                                            ItemPathId(
+                                                                Id {
+                                                                    value: 185,
                                                                 },
                                                             ),
                                                         ),
@@ -5597,7 +5605,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 167,
+                                                                    value: 186,
                                                                 },
                                                             ),
                                                         ),
@@ -5658,7 +5666,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 168,
+                                                                    value: 187,
                                                                 },
                                                             ),
                                                         ),
@@ -5719,7 +5727,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 169,
+                                                                    value: 188,
                                                                 },
                                                             ),
                                                         ),
@@ -5839,7 +5847,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 170,
+                                                                    value: 189,
                                                                 },
                                                             ),
                                                         ),
@@ -6099,7 +6107,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 171,
+                                                                    value: 190,
                                                                 },
                                                             ),
                                                         ),
@@ -6160,7 +6168,7 @@ Ok(
                                                         path: TypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 172,
+                                                                    value: 191,
                                                                 },
                                                             ),
                                                         ),
@@ -6281,7 +6289,7 @@ Ok(
                                                         path: TraitForTypeItemPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 173,
+                                                                    value: 192,
                                                                 },
                                                             ),
                                                         ),

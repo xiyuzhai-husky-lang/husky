@@ -33,12 +33,12 @@ impl SubmoduleSynDefn {
         self.decl
     }
 
-    pub fn path(self, db: &::salsa::Db) -> SubmodulePath {
+    pub fn path(self, db: &::salsa::Db) -> SubmoduleItemPath {
         self.decl.path(db)
     }
 }
 
-impl HasSynDefn for SubmodulePath {
+impl HasSynDefn for SubmoduleItemPath {
     type SynDefn = SubmoduleSynDefn;
 
     fn syn_defn(self, db: &::salsa::Db) -> SynDefnResult<Self::SynDefn> {

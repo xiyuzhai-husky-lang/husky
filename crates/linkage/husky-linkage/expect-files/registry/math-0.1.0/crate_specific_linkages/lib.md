@@ -1,14 +1,18 @@
 [
     Linkage {
-        data: Item {
-            item_path: Submodule(
+        data: LinkageData::Item {
+            item_path: ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 53,
-                        },
-                    ),
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::algebra`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -18,15 +22,19 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: Submodule(
+        data: LinkageData::Item {
+            item_path: ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 54,
-                        },
-                    ),
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::algebraic_geometry`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -36,15 +44,19 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: Submodule(
+        data: LinkageData::Item {
+            item_path: ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 55,
-                        },
-                    ),
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::algebraic_topology`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -54,15 +66,19 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: Submodule(
+        data: LinkageData::Item {
+            item_path: ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 56,
-                        },
-                    ),
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::category_theory`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -72,15 +88,19 @@
         },
     },
     Linkage {
-        data: Item {
-            item_path: Submodule(
+        data: LinkageData::Item {
+            item_path: ItemPath::Submodule(
                 Room32,
-                SubmodulePath(
-                    ModulePath(
-                        Id {
-                            value: 57,
-                        },
-                    ),
+                SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `math::probability`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             ),
             instantiation: LinkageInstantiation {

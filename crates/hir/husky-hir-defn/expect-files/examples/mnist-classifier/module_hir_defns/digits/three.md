@@ -248,7 +248,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 395,
+                                                            value: 438,
                                                         },
                                                     ),
                                                 ),
@@ -280,11 +280,26 @@
                                         HirEagerExprData::PrincipalEntityPath(
                                             PrincipalEntityPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 61,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 79,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                ident: Ident(
+                                                                    Coword(
+                                                                        Id {
+                                                                            value: 124,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -298,7 +313,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 390,
+                                                            value: 433,
                                                         },
                                                     ),
                                                 ),
@@ -311,7 +326,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 423,
+                                                            value: 466,
                                                         },
                                                     ),
                                                 ),
@@ -325,11 +340,26 @@
                                         },
                                         HirEagerExprData::TypeVariantConstructorCall {
                                             path: TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 61,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::TypeVariant(
+                                                        TypeVariantPathData {
+                                                            parent_ty_path: TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 79,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            ident: Ident(
+                                                                Coword(
+                                                                    Id {
+                                                                        value: 124,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             function_hir_eager_expr_idx: 7,
                                             template_arguments: None,
@@ -529,7 +559,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 395,
+                                                            value: 438,
                                                         },
                                                     ),
                                                 ),
@@ -561,11 +591,26 @@
                                         HirEagerExprData::PrincipalEntityPath(
                                             PrincipalEntityPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 61,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 79,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                ident: Ident(
+                                                                    Coword(
+                                                                        Id {
+                                                                            value: 124,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -579,7 +624,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 390,
+                                                            value: 433,
                                                         },
                                                     ),
                                                 ),
@@ -592,7 +637,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 423,
+                                                            value: 466,
                                                         },
                                                     ),
                                                 ),
@@ -606,11 +651,26 @@
                                         },
                                         HirEagerExprData::TypeVariantConstructorCall {
                                             path: TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 61,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::TypeVariant(
+                                                        TypeVariantPathData {
+                                                            parent_ty_path: TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 79,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            ident: Ident(
+                                                                Coword(
+                                                                    Id {
+                                                                        value: 124,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             function_hir_eager_expr_idx: 7,
                                             template_arguments: None,
@@ -810,7 +870,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 395,
+                                                            value: 438,
                                                         },
                                                     ),
                                                 ),
@@ -842,11 +902,26 @@
                                         HirEagerExprData::PrincipalEntityPath(
                                             PrincipalEntityPath::TypeVariant(
                                                 TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 61,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::TypeVariant(
+                                                            TypeVariantPathData {
+                                                                parent_ty_path: TypePath(
+                                                                    ItemPathId(
+                                                                        Id {
+                                                                            value: 79,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                                ident: Ident(
+                                                                    Coword(
+                                                                        Id {
+                                                                            value: 124,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -860,7 +935,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 390,
+                                                            value: 433,
                                                         },
                                                     ),
                                                 ),
@@ -873,7 +948,7 @@
                                                 TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 423,
+                                                            value: 466,
                                                         },
                                                     ),
                                                 ),
@@ -887,11 +962,26 @@
                                         },
                                         HirEagerExprData::TypeVariantConstructorCall {
                                             path: TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 61,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::TypeVariant(
+                                                        TypeVariantPathData {
+                                                            parent_ty_path: TypePath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 79,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                            ident: Ident(
+                                                                Coword(
+                                                                    Id {
+                                                                        value: 124,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
                                             ),
                                             function_hir_eager_expr_idx: 7,
                                             template_arguments: None,

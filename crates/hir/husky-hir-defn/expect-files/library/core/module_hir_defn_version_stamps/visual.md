@@ -5,7 +5,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 72,
+                            value: 91,
                         },
                     ),
                 ),
@@ -27,7 +27,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 73,
+                            value: 92,
                         },
                     ),
                 ),
@@ -49,7 +49,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 110,
+                            value: 129,
                         },
                     ),
                 ),
@@ -71,7 +71,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 211,
+                            value: 230,
                         },
                     ),
                 ),

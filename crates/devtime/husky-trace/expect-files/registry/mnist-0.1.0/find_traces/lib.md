@@ -7,7 +7,7 @@
                         val_item_path: FugitivePath(
                             ItemPathId(
                                 Id {
-                                    value: 440,
+                                    value: 488,
                                 },
                             ),
                         ),
@@ -24,7 +24,7 @@
                     val_item_path: FugitivePath(
                         ItemPathId(
                             Id {
-                                value: 440,
+                                value: 488,
                             },
                         ),
                     ),

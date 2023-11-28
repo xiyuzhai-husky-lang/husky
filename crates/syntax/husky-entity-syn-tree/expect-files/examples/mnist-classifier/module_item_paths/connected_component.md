@@ -48,7 +48,7 @@
             TraitForTypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 333,
+                        value: 376,
                     },
                 ),
             ),
@@ -57,9 +57,26 @@
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(
+                ItemPathId {
+                    data: ItemPathData::ImplBlock(
+                        ImplBlockPathData::TypeImplBlock(
+                            TypeImplBlockPathData {
+                                module_path: `mnist_classifier::connected_component`,
+                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+    ),
+    ItemPath::AssociatedItem(
+        AssociatedItemPath::TypeItem(
+            TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 316,
+                        value: 377,
                     },
                 ),
             ),
@@ -70,7 +87,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 334,
+                        value: 378,
                     },
                 ),
             ),
@@ -81,7 +98,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 335,
+                        value: 379,
                     },
                 ),
             ),
@@ -92,7 +109,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 336,
+                        value: 380,
                     },
                 ),
             ),
@@ -103,7 +120,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 337,
+                        value: 381,
                     },
                 ),
             ),
@@ -114,7 +131,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 338,
+                        value: 382,
                     },
                 ),
             ),
@@ -125,7 +142,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 339,
+                        value: 383,
                     },
                 ),
             ),
@@ -136,7 +153,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 340,
+                        value: 384,
                     },
                 ),
             ),
@@ -147,7 +164,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 341,
+                        value: 385,
                     },
                 ),
             ),
@@ -158,18 +175,7 @@
             TypeItemPath(
                 ItemPathId(
                     Id {
-                        value: 342,
-                    },
-                ),
-            ),
-        ),
-    ),
-    ItemPath::AssociatedItem(
-        AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId(
-                    Id {
-                        value: 343,
+                        value: 386,
                     },
                 ),
             ),

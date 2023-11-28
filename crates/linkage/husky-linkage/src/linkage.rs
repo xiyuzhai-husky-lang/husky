@@ -8,6 +8,7 @@ pub struct Linkage {
     pub data: LinkageData,
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
     Coersion {},

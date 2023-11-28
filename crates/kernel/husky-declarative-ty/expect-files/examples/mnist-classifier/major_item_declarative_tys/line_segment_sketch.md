@@ -2,8 +2,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `mnist_classifier::line_segment_sketch::concave_component`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -13,8 +21,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `mnist_classifier::line_segment_sketch::convex_component`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch::convex_component`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -24,8 +40,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `mnist_classifier::line_segment_sketch::convexity`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(
@@ -35,8 +59,16 @@
     (
         ItemPath::Submodule(
             Room32,
-            SubmodulePath(
-                `mnist_classifier::line_segment_sketch::line_segment`,
+            SubmoduleItemPath(
+                ItemPathId {
+                    data: ItemPathData::SubmoduleItem(
+                        SubmoduleItemPathData {
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch::line_segment`,
+                            ),
+                        },
+                    ),
+                },
             ),
         ),
         Ok(

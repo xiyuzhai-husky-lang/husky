@@ -7,7 +7,7 @@ pub struct SubmoduleHirDefn {
 }
 
 impl SubmoduleHirDefn {
-    pub fn path(self, db: &::salsa::Db) -> SubmodulePath {
+    pub fn path(self, db: &::salsa::Db) -> SubmoduleItemPath {
         self.hir_decl.path(db)
     }
 
@@ -16,7 +16,7 @@ impl SubmoduleHirDefn {
     }
 }
 
-impl HasHirDefn for SubmodulePath {
+impl HasHirDefn for SubmoduleItemPath {
     type HirDefn = SubmoduleHirDefn;
 
     fn hir_defn(self, db: &::salsa::Db) -> Option<Self::HirDefn> {

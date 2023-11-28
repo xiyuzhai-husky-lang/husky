@@ -3469,7 +3469,7 @@ SynDeclSheet {
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 395,
+                                value: 438,
                             },
                         ),
                     ),
@@ -3482,7 +3482,7 @@ SynDeclSheet {
                             path: TraitForTypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 395,
+                                        value: 438,
                                     },
                                 ),
                             ),
@@ -3642,7 +3642,7 @@ SynDeclSheet {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 395,
+                                                                                    value: 438,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -3739,11 +3739,17 @@ SynDeclSheet {
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
                     TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 318,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::ImplBlock(
+                                ImplBlockPathData::TypeImplBlock(
+                                    TypeImplBlockPathData {
+                                        module_path: `mnist_classifier::raw_contour`,
+                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        disambiguator: 0,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -3751,11 +3757,17 @@ SynDeclSheet {
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
                         path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 318,
-                                },
-                            ),
+                            ItemPathId {
+                                data: ItemPathData::ImplBlock(
+                                    ImplBlockPathData::TypeImplBlock(
+                                        TypeImplBlockPathData {
+                                            module_path: `mnist_classifier::raw_contour`,
+                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                ),
+                            },
                         ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
@@ -3775,7 +3787,7 @@ SynDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 318,
+                                                                            value: 361,
                                                                         },
                                                                     ),
                                                                 ),
@@ -3871,7 +3883,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 396,
+                                value: 439,
                             },
                         ),
                     ),
@@ -3884,7 +3896,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 396,
+                                        value: 439,
                                     },
                                 ),
                             ),
@@ -3911,7 +3923,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 318,
+                                                                                            value: 361,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4010,7 +4022,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 396,
+                                                                                    value: 439,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -4109,7 +4121,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 397,
+                                value: 440,
                             },
                         ),
                     ),
@@ -4122,7 +4134,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 397,
+                                        value: 440,
                                     },
                                 ),
                             ),
@@ -4149,7 +4161,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 318,
+                                                                                            value: 361,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4248,7 +4260,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 397,
+                                                                                    value: 440,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -4347,7 +4359,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 398,
+                                value: 441,
                             },
                         ),
                     ),
@@ -4360,7 +4372,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 398,
+                                        value: 441,
                                     },
                                 ),
                             ),
@@ -4387,7 +4399,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 318,
+                                                                                            value: 361,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4486,7 +4498,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 398,
+                                                                                    value: 441,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -4585,7 +4597,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 399,
+                                value: 442,
                             },
                         ),
                     ),
@@ -4598,7 +4610,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 399,
+                                        value: 442,
                                     },
                                 ),
                             ),
@@ -4625,7 +4637,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 318,
+                                                                                            value: 361,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4724,7 +4736,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 399,
+                                                                                    value: 442,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -4823,7 +4835,7 @@ SynDeclSheet {
                     TypeItemPath(
                         ItemPathId(
                             Id {
-                                value: 400,
+                                value: 443,
                             },
                         ),
                     ),
@@ -4836,7 +4848,7 @@ SynDeclSheet {
                             path: TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 400,
+                                        value: 443,
                                     },
                                 ),
                             ),
@@ -4894,7 +4906,7 @@ SynDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 318,
+                                                                                            value: 361,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4993,7 +5005,7 @@ SynDeclSheet {
                                                                         path: TypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 400,
+                                                                                    value: 443,
                                                                                 },
                                                                             ),
                                                                         ),

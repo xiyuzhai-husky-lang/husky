@@ -2,8 +2,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::array`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::array`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -11,8 +19,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::basic`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::basic`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -20,8 +36,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::clone`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::clone`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -29,8 +53,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::cmp`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::cmp`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -38,8 +70,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::default`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::default`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -47,8 +87,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::fmt`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::fmt`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -56,8 +104,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::logic`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::logic`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -65,8 +121,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::marker`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::marker`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -74,8 +138,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::mem`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::mem`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -83,8 +155,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::num`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::num`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -92,8 +172,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::ops`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::ops`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -101,8 +189,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::option`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::option`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -110,8 +206,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::prelude`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::prelude`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -119,8 +223,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::raw_bits`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::raw_bits`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -128,8 +240,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::result`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::result`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -137,8 +257,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::vec`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::vec`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -146,8 +274,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::slice`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::slice`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -155,8 +291,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::str`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::str`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },
@@ -164,8 +308,16 @@
     HirDefn::Submodule(
         SubmoduleHirDefn {
             hir_decl: SubmoduleHirDecl {
-                path: SubmodulePath(
-                    `core::visual`,
+                path: SubmoduleItemPath(
+                    ItemPathId {
+                        data: ItemPathData::SubmoduleItem(
+                            SubmoduleItemPathData {
+                                submodule_path: SubmodulePath(
+                                    `core::visual`,
+                                ),
+                            },
+                        ),
+                    },
                 ),
             },
         },

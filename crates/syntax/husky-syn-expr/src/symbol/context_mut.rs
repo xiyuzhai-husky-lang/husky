@@ -34,7 +34,7 @@ impl<'a> SynSymbolContextMut<'a> {
         self.symbol_region.resolve_ident(token_idx, ident).or(self
             .module_symbol_context
             .resolve_ident(db, reference_module_path, token_idx, ident)
-            .map(|e| Symbol::PrincipalEntity(e.path(db))))
+            .map(|e| Symbol::PrincipalEntity(e.principal_entity_path(db))))
     }
 
     pub(crate) fn into_expr_region(

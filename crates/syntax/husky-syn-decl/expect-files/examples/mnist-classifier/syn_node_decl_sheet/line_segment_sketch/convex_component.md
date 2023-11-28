@@ -611,7 +611,7 @@ SynNodeDeclSheet {
                                             path: TraitForTypeItemPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 385,
+                                                        value: 428,
                                                     },
                                                 ),
                                             ),
@@ -637,7 +637,7 @@ SynNodeDeclSheet {
                                                     path: TraitForTypeItemPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 385,
+                                                                value: 428,
                                                             },
                                                         ),
                                                     ),
@@ -842,7 +842,7 @@ SynNodeDeclSheet {
                                                                         path: TraitForTypeItemPath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 385,
+                                                                                    value: 428,
                                                                                 },
                                                                             ),
                                                                         ),
