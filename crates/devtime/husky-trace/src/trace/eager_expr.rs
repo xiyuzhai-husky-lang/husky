@@ -10,6 +10,8 @@ use husky_sema_expr::{
     helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion,
     SemaRitchieParameterArgumentMatch,
 };
+use husky_syn_decl::HasSynDecl;
+use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[cfg_attr(debug_assertions, salsa::debug_with_db(db = TraceDb))]
@@ -110,7 +112,6 @@ impl EagerExprTraceData {
     }
 
     pub(super) fn subtraces(&self, trace: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
-        use husky_syn_defn::HasSynDefn;
         let biological_parent_path = self.path;
         let biological_parent = trace;
         let sema_expr_idx = self.sema_expr_idx;
@@ -133,16 +134,14 @@ impl EagerExprTraceData {
                 else {
                     unreachable!()
                 };
-                let syn_defn = path.syn_defn(db).unwrap();
-                let syn_decl = syn_defn.decl(db);
-                let callee_syn_expr_region = syn_decl.syn_expr_region(db);
+                let syn_decl = path.syn_decl(db).unwrap();
                 let mut subtraces = fn_call_eager_expr_trace_input_traces(
                     biological_parent_path,
                     biological_parent,
                     ritchie_parameter_argument_matches,
                     caller_sema_expr_region,
                     hir_eager_expr_source_map_data,
-                    callee_syn_expr_region,
+                    syn_decl.syn_expr_region(db),
                     db,
                 );
                 subtraces.push(
@@ -168,17 +167,14 @@ impl EagerExprTraceData {
                 else {
                     unreachable!()
                 };
-                let syn_defn = path.syn_defn(db).expect("no syn error at trace stage");
-                let syn_decl = syn_defn.decl(db);
-                // todo: syn_decl.parenate_parameters(db);
-                let callee_syn_expr_region = syn_decl.syn_expr_region(db);
+                let syn_decl = path.syn_decl(db).unwrap();
                 let mut subtraces = fn_call_eager_expr_trace_input_traces(
                     biological_parent_path,
                     biological_parent,
                     ritchie_parameter_argument_matches,
                     caller_sema_expr_region,
                     hir_eager_expr_source_map_data,
-                    callee_syn_expr_region,
+                    syn_decl.syn_expr_region(db),
                     db,
                 );
                 subtraces.push(
@@ -204,16 +200,14 @@ impl EagerExprTraceData {
                 else {
                     unreachable!()
                 };
-                let syn_defn = path.syn_defn(db).expect("no syn error at trace stage");
-                let syn_decl = syn_defn.decl(db);
-                let callee_syn_expr_region = syn_decl.syn_expr_region(db);
+                let syn_decl = path.syn_decl(db).unwrap();
                 let mut subtraces = fn_call_eager_expr_trace_input_traces(
                     biological_parent_path,
                     biological_parent,
                     ritchie_parameter_argument_matches,
                     caller_sema_expr_region,
                     hir_eager_expr_source_map_data,
-                    callee_syn_expr_region,
+                    syn_decl.syn_expr_region(db),
                     db,
                 );
                 subtraces.push(

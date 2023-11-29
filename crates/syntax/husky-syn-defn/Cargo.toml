@@ -15,6 +15,7 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
 husky-manifest = { path = "../../semantics/husky-manifest" }
 # kernel
+husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # lex

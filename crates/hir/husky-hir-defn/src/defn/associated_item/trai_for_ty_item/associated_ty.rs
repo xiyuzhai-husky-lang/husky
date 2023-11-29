@@ -24,9 +24,6 @@ impl TraitForTypeAssociatedTypeHirDefn {
         path: TraitForTypeItemPath,
         hir_decl: TraitForTypeAssociatedTypeHirDecl,
     ) -> Self {
-        let Ok(TraitForTypeItemSynDefn::AssociatedType(syn_defn)) = path.syn_defn(db) else {
-            unreachable!()
-        };
         TraitForTypeAssociatedTypeHirDefn::new_inner(db, path, hir_decl)
     }
 

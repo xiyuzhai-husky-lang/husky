@@ -32,8 +32,6 @@ pub struct DiagnosticsJar(
     token_diagnostic_sheet,
     DeclDiagnosticSheet,
     decl_diagnostic_sheet,
-    DefnDiagnosticSheet,
-    defn_diagnostic_sheet,
     ExprDiagnosticSheet,
     expr_diagnostic_sheet,
     ExprTypeDiagnosticSheet,

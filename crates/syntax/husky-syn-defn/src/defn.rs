@@ -1,231 +1,126 @@
-mod associated_item;
-mod attr;
-mod impl_block;
-mod major_item;
-mod submodule;
-mod ty_variant;
-
-pub use self::associated_item::*;
-pub use self::attr::*;
-pub use self::major_item::*;
-pub use self::submodule::*;
-pub use self::ty_variant::*;
-
 use crate::*;
 use husky_ast::AstIdx;
+use husky_entity_kind::{TraitItemKind, TypeItemKind};
 use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_item_syn_node_paths};
 use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
-#[enum_class::from_variants]
-pub enum ItemSynNodeDefn {
-    Submodule(SubmoduleSynNodeDefn),
-    MajorItem(MajorItemSynNodeDefn),
-    TypeVariant(TypeVariantSynNodeDefn),
-    ImplBlock(ImplBlockSynNodeDecl),
-    AssociatedItem(AssociatedItemSynNodeDefn),
-    Attr(AttrSynNodeDefn),
+#[salsa::debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ItemSynNodeDefn {
+    pub body: SynExprIdx,
+    pub syn_expr_region: SynExprRegion,
 }
 
-impl ItemSynNodeDefn {
-    pub fn syn_node_decl(self, db: &::salsa::Db) -> ItemSynNodeDecl {
-        match self {
-            ItemSynNodeDefn::Submodule(syn_node_defn) => syn_node_defn.syn_node_decl().into(),
-            ItemSynNodeDefn::MajorItem(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
-            ItemSynNodeDefn::TypeVariant(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
-            ItemSynNodeDefn::ImplBlock(syn_node_decl) => syn_node_decl.into(),
-            ItemSynNodeDefn::AssociatedItem(syn_node_defn) => {
-                syn_node_defn.syn_node_decl(db).into()
-            }
-            ItemSynNodeDefn::Attr(syn_node_defn) => syn_node_defn.syn_node_decl().into(),
+#[salsa::tracked(jar = SynDefnJar)]
+pub fn item_syn_node_defn(
+    db: &::salsa::Db,
+    item_syn_node_path_id: ItemSynNodePathId,
+) -> Option<ItemSynNodeDefn> {
+    let syn_node_path = item_syn_node_path_id.syn_node_path(db);
+    let (allow_self_ty, allow_self_value) = match syn_node_path {
+        ItemSynNodePath::MajorItem(MajorItemSynNodePath::Fugitive(path)) => {
+            (AllowSelfType::False, AllowSelfValue::False)
         }
-    }
-
-    pub fn body_with_syn_expr_region(
-        self,
-        db: &::salsa::Db,
-    ) -> Option<(SynExprIdx, SynExprRegion)> {
-        match self {
-            ItemSynNodeDefn::MajorItem(defn) => defn.body_with_syn_expr_region(db),
-            ItemSynNodeDefn::AssociatedItem(defn) => defn.body_with_syn_expr_region(db),
-            ItemSynNodeDefn::Submodule(_)
-            | ItemSynNodeDefn::TypeVariant(_)
-            | ItemSynNodeDefn::ImplBlock(_)
-            | ItemSynNodeDefn::Attr(_) => None,
-        }
-    }
-
-    pub fn syn_expr_region(self, db: &::salsa::Db) -> Option<SynExprRegion> {
-        self.body_with_syn_expr_region(db).map(|v| v.1)
-    }
+        ItemSynNodePath::AssociatedItem(path) => (
+            AllowSelfType::True,
+            match path {
+                AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
+                    match syn_node_path.data(db).item_kind(db) {
+                        TypeItemKind::MethodFn => AllowSelfValue::True,
+                        TypeItemKind::AssociatedFunctionFn => AllowSelfValue::False,
+                        TypeItemKind::AssociatedVal => AllowSelfValue::True,
+                        TypeItemKind::AssociatedType => AllowSelfValue::False,
+                        TypeItemKind::MemoizedField => AllowSelfValue::True,
+                    }
+                }
+                AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
+                    match syn_node_path.data(db).item_kind(db) {
+                        TraitItemKind::MethodFn => AllowSelfValue::True,
+                        TraitItemKind::AssociatedType => AllowSelfValue::False,
+                        TraitItemKind::AssociatedVal => AllowSelfValue::True,
+                    }
+                }
+                AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
+                    match syn_node_path.data(db).item_kind(db) {
+                        TraitItemKind::MethodFn => AllowSelfValue::True,
+                        TraitItemKind::AssociatedType => AllowSelfValue::False,
+                        TraitItemKind::AssociatedVal => AllowSelfValue::True,
+                    }
+                }
+                AssociatedItemSynNodePath::IllFormedItem(_) => todo!(),
+            },
+        ),
+        _ => return None,
+    };
+    let (body, syn_expr_region) = parse_defn_block_expr(
+        syn_node_path,
+        syn_node_path.syn_node_decl(db).syn_expr_region(db)?,
+        allow_self_ty,
+        allow_self_value,
+        db,
+    )?;
+    Some(ItemSynNodeDefn {
+        body,
+        syn_expr_region,
+    })
 }
 
-pub trait HasSynNodeDefn: Copy {
-    type SynNodeDefn;
-
-    fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn;
+#[salsa::debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct ItemSynDefn {
+    pub body: SynExprIdx,
+    pub syn_expr_region: SynExprRegion,
 }
 
-impl HasSynNodeDefn for ItemSynNodePath {
-    type SynNodeDefn = ItemSynNodeDefn;
-
-    fn syn_node_defn(self, db: &::salsa::Db) -> Self::SynNodeDefn {
-        match self {
-            ItemSynNodePath::Submodule(_, path) => path.syn_node_defn(db).into(),
-            ItemSynNodePath::MajorItem(path) => path.syn_node_defn(db).into(),
-            ItemSynNodePath::TypeVariant(_, path) => path.syn_node_defn(db).into(),
-            ItemSynNodePath::ImplBlock(path) => path.syn_node_defn(db).into(),
-            ItemSynNodePath::AssociatedItem(path) => path.syn_node_defn(db).into(),
-            ItemSynNodePath::Attr(_, path) => path.syn_node_defn(db).into(),
-        }
-    }
+pub fn item_syn_defn(db: &::salsa::Db, item_path: ItemPath) -> Option<ItemSynDefn> {
+    let ItemSynNodeDefn {
+        body,
+        syn_expr_region,
+    } = item_syn_node_defn(db, *item_path.syn_node_path(db))?;
+    Some(ItemSynDefn {
+        body,
+        syn_expr_region,
+    })
 }
 
-pub trait HasNodeDefns: Copy {
-    fn node_defns(self, db: &::salsa::Db) -> &[ItemSynNodeDefn];
-}
-
-impl HasNodeDefns for ModulePath {
-    fn node_defns(self, db: &::salsa::Db) -> &[ItemSynNodeDefn] {
-        module_syn_node_defns(db, self)
-    }
-}
-
-#[salsa::tracked(jar = SynDefnJar, return_ref)]
-pub(crate) fn module_syn_node_defns(
+pub fn module_item_syn_node_defns(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<ItemSynNodeDefn> {
+) -> Vec<(ItemSynNodePath, Option<ItemSynNodeDefn>)> {
     module_item_syn_node_paths(db, module_path)
         .iter()
         .copied()
-        .map(|syn_node_path| syn_node_path.syn_node_defn(db))
+        .map(|syn_node_path| (syn_node_path, item_syn_node_defn(db, *syn_node_path)))
         .collect()
 }
 
 #[test]
-fn module_node_defns_works() {
+fn module_item_syn_node_defns_works() {
     use tests::*;
 
     DB::default().ast_expect_test_debug_with_db(
-        |db, module_path: ModulePath| module_path.node_defns(db),
-        &AstTestConfig::new("module_syn_node_defns"),
+        |db, module_path: ModulePath| module_item_syn_node_defns(db, module_path),
+        &AstTestConfig::new("module_item_syn_node_defns"),
     );
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
-#[enum_class::from_variants]
-pub enum SynDefn {
-    Submodule(SubmoduleSynDefn),
-    MajorItem(MajorItemSynDefn),
-    TypeVariant(TypeVariantSynDefn),
-    ImplBlock(ImplBlockSynDecl),
-    AssociatedItem(AssociatedItemSynDefn),
-}
-
-impl SynDefn {
-    pub fn syn_decl(self, db: &::salsa::Db) -> SynDecl {
-        match self {
-            SynDefn::Submodule(defn) => SynDecl::Submodule(defn.decl()),
-            SynDefn::MajorItem(defn) => defn.syn_decl(db).into(),
-            SynDefn::TypeVariant(defn) => defn.decl(db).into(),
-            SynDefn::ImplBlock(decl) => decl.into(),
-            SynDefn::AssociatedItem(defn) => defn.decl(db).into(),
-        }
-    }
-
-    pub fn ast_idx(self, _db: &::salsa::Db) -> AstIdx {
-        todo!()
-        // self.decl(db).ast_idx(db)
-    }
-
-    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
-        self.syn_decl(db).template_parameters(db)
-    }
-
-    pub fn body_with_syn_expr_region(
-        self,
-        db: &::salsa::Db,
-    ) -> Option<(SynExprIdx, SynExprRegion)> {
-        match self {
-            SynDefn::Submodule(_) => None,
-            SynDefn::MajorItem(defn) => defn.body_with_syn_expr_region(db),
-            SynDefn::AssociatedItem(defn) => defn.body_with_syn_expr_region(db),
-            SynDefn::TypeVariant(_defn) => None,
-            SynDefn::ImplBlock(_) => None,
-        }
-    }
-
-    pub fn syn_expr_region(self, db: &::salsa::Db) -> Option<SynExprRegion> {
-        self.body_with_syn_expr_region(db).map(|v| v.1)
-    }
-}
-
-impl SynDefn {
-    pub fn path(self, db: &::salsa::Db) -> ItemPath {
-        match self {
-            SynDefn::Submodule(defn) => defn.path(db).into(),
-            SynDefn::MajorItem(defn) => defn.path(db).into(),
-            SynDefn::AssociatedItem(defn) => defn.path(db).into(),
-            SynDefn::TypeVariant(defn) => defn.path(db).into(),
-            SynDefn::ImplBlock(decl) => decl.path(db).into(),
-        }
-    }
-}
-
-pub trait HasSynDefn: Copy {
-    type SynDefn;
-
-    fn syn_defn(self, db: &::salsa::Db) -> SynDefnResult<Self::SynDefn>;
-}
-
-impl HasSynDefn for ItemPath {
-    type SynDefn = SynDefn;
-
-    fn syn_defn(self, db: &::salsa::Db) -> SynDefnResult<Self::SynDefn> {
-        Ok(match self {
-            ItemPath::Submodule(_, path) => path.syn_defn(db)?.into(),
-            ItemPath::MajorItem(path) => path.syn_defn(db)?.into(),
-            ItemPath::ImplBlock(path) => path.syn_defn(db)?.into(),
-            ItemPath::AssociatedItem(path) => path.syn_defn(db)?.into(),
-            ItemPath::TypeVariant(_, _) => todo!(),
-            ItemPath::Attr(_, _) => todo!(),
-        })
-    }
-}
-
-pub trait HasDefns: Copy {
-    fn defns(self, db: &::salsa::Db) -> EntitySynTreeResult<&[SynDefn]>;
-}
-
-impl HasDefns for ModulePath {
-    fn defns(self, db: &::salsa::Db) -> EntitySynTreeResult<&[SynDefn]> {
-        Ok(module_syn_defns(db, self)
-            .as_ref()
-            .expect("syn tree error is deprecated"))
-    }
-}
-
-#[salsa::tracked(jar = SynDefnJar, return_ref)]
-pub(crate) fn module_syn_defns(
+pub fn module_item_syn_defns(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<SynDefn>> {
-    Ok(module_item_paths(db, module_path)
+) -> Vec<(ItemPath, Option<ItemSynDefn>)> {
+    module_item_paths(db, module_path)
         .iter()
         .copied()
-        .filter_map(|path| path.syn_defn(db).ok())
-        .collect())
+        .map(|path| (path, item_syn_defn(db, path)))
+        .collect()
 }
 
 #[test]
-fn module_defns_works() {
+fn module_item_syn_defns_works() {
     use tests::*;
 
     DB::default().ast_expect_test_debug_with_db(
-        |db, module_path: ModulePath| module_path.defns(db),
-        &AstTestConfig::new("module_syn_defns"),
+        |db, module_path: ModulePath| module_item_syn_defns(db, module_path),
+        &AstTestConfig::new("module_item_syn_defns"),
     );
 }

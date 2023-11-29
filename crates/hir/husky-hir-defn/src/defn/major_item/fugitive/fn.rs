@@ -27,14 +27,11 @@ impl FunctionFnHirDefn {
         path: FugitivePath,
         hir_decl: FunctionFnFugitiveHirDecl,
     ) -> Self {
-        let Ok(FugitiveSynDefn::FunctionFn(syn_defn)) = path.syn_defn(db) else {
-            unreachable!()
-        };
         FunctionFnHirDefn::new_inner(
             db,
             path,
             hir_decl,
-            hir_eager_body_with_expr_region(syn_defn.body_with_syn_expr_region(db), db),
+            hir_eager_body_with_expr_region(path.into(), db),
         )
     }
 

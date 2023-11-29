@@ -14,9 +14,6 @@ DiagnosticSheet {
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],
     },
-    defn_diagnostic_sheet: DefnDiagnosticSheet {
-        diagnostics: [],
-    },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [],
     },

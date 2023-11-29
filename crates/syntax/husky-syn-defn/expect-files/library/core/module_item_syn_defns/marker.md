@@ -1,0 +1,18 @@
+[
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::marker::Copy`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::marker::Sized`),
+            ),
+        ),
+        None,
+    ),
+]

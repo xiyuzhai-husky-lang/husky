@@ -138,8 +138,12 @@ impl AssociatedItemSynDecl {
 impl HasSynDecl for AssociatedItemPath {
     type Decl = AssociatedItemSynDecl;
 
-    fn syn_decl(self, _db: &::salsa::Db) -> DeclResult<Self::Decl> {
-        todo!()
+    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+        match self {
+            AssociatedItemPath::TypeItem(slf) => slf.syn_decl(db).map(Into::into),
+            AssociatedItemPath::TraitItem(slf) => slf.syn_decl(db).map(Into::into),
+            AssociatedItemPath::TraitForTypeItem(slf) => slf.syn_decl(db).map(Into::into),
+        }
     }
 }
 

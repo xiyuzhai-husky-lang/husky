@@ -18,6 +18,7 @@ husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 # syntax
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
+husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 # semantics
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # comptime

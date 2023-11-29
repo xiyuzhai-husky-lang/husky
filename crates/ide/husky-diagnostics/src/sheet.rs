@@ -1,6 +1,5 @@
 mod ast;
 mod decl;
-mod defn;
 mod sema_expr;
 mod syn_expr;
 mod syn_tree;
@@ -8,7 +7,6 @@ mod token;
 
 pub(crate) use self::ast::*;
 pub(crate) use self::decl::*;
-pub(crate) use self::defn::*;
 pub(crate) use self::sema_expr::*;
 pub(crate) use self::syn_expr::*;
 pub(crate) use self::syn_tree::*;
@@ -23,7 +21,6 @@ pub struct DiagnosticSheet {
     pub ast_diagnostic_sheet: AstDiagnosticSheet,
     pub expr_diagnostic_sheet: ExprDiagnosticSheet,
     pub decl_diagnostic_sheet: DeclDiagnosticSheet,
-    pub defn_diagnostic_sheet: DefnDiagnosticSheet,
     pub expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet,
 }
 
@@ -36,7 +33,6 @@ pub(crate) fn diagnostic_sheet(db: &::salsa::Db, module_path: ModulePath) -> Dia
         ast_diagnostic_sheet(db, module_path),
         expr_diagnostic_sheet(db, module_path),
         decl_diagnostic_sheet(db, module_path),
-        defn_diagnostic_sheet(db, module_path),
         expr_ty_diagnostic_sheet(db, module_path),
     )
 }
@@ -53,7 +49,6 @@ impl DiagnosticSheet {
             .chain(self.ast_diagnostic_sheet(db).diagnostics(db).iter())
             .chain(self.expr_diagnostic_sheet(db).diagnostics(db).iter())
             .chain(self.decl_diagnostic_sheet(db).diagnostics(db).iter())
-            .chain(self.defn_diagnostic_sheet(db).diagnostics(db).iter())
             .chain(self.expr_ty_diagnostic_sheet(db).diagnostics(db).iter())
     }
 }

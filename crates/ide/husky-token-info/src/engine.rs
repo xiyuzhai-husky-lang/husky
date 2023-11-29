@@ -98,8 +98,10 @@ impl<'a> TokenInfoEngine<'a> {
         if let Some(syn_expr_region) = syn_node_path.syn_node_decl(db).syn_expr_region(db) {
             self.visit_expr_region(syn_expr_region)
         }
-        let syn_node_defn = syn_node_path.syn_node_defn(db);
-        if let Some(syn_expr_region) = syn_node_defn.syn_expr_region(db) {
+        if let Some(ItemSynNodeDefn {
+            syn_expr_region, ..
+        }) = item_syn_node_defn(db, *syn_node_path)
+        {
             self.visit_expr_region(syn_expr_region)
         }
         match self.ast_sheet[syn_node_path.decl_ast_idx(db)] {
@@ -117,124 +119,10 @@ impl<'a> TokenInfoEngine<'a> {
             Ast::Attr { .. } => (),
             _ => unreachable!(),
         }
-        match syn_node_defn {
-            ItemSynNodeDefn::MajorItem(defn) => self.visit_module_item_node(defn),
-            ItemSynNodeDefn::AssociatedItem(defn) => self.visit_associated_item(defn),
-            ItemSynNodeDefn::TypeVariant(_) => todo!(),
-            ItemSynNodeDefn::ImplBlock(_) => (),
-            ItemSynNodeDefn::Submodule(_) => (),
-            ItemSynNodeDefn::Attr(_) => (),
-        }
     }
 
     fn visit_expr_region(&mut self, syn_expr_region: SynExprRegion) {
         DeclTokenInfoEngine::new(self, syn_expr_region).visit_all()
-    }
-
-    fn visit_module_item_node(&mut self, defn: MajorItemSynNodeDefn) {
-        match defn {
-            MajorItemSynNodeDefn::Type(defn) => self.visit_ty(defn),
-            MajorItemSynNodeDefn::Trait(defn) => self.visit_trai(defn),
-            MajorItemSynNodeDefn::Fugitive(defn) => self.visit_fugitive_syn_node(defn),
-        }
-    }
-
-    fn visit_ty(&mut self, defn: TypeSynNodeDefn) {
-        match defn {
-            TypeSynNodeDefn::Enum(defn) => self.visit_enum_ty(defn),
-            TypeSynNodeDefn::Inductive(defn) => self.visit_inductive_ty(defn),
-            TypeSynNodeDefn::Record(defn) => self.visit_record_ty(defn),
-            TypeSynNodeDefn::UnitStruct(defn) => self.visit_unit_struct_ty(defn),
-            TypeSynNodeDefn::TupleStruct(defn) => self.visit_tuple_struct_ty(defn),
-            TypeSynNodeDefn::PropsStruct(defn) => self.visit_props_struct_ty(defn),
-            TypeSynNodeDefn::Structure(defn) => self.visit_structure_ty(defn),
-            TypeSynNodeDefn::Extern(defn) => self.visit_alias_ty(defn),
-            TypeSynNodeDefn::Union(_) => todo!(),
-        }
-    }
-
-    fn visit_enum_ty(&mut self, _defn: EnumTypeSynNodeDefn) {
-        // todo!()
-    }
-
-    fn visit_inductive_ty(&mut self, _defn: InductiveTypeSynNodeDefn) {
-        // todo!()
-    }
-
-    fn visit_record_ty(&mut self, _defn: RecordTypeSynNodeDefn) {
-        // todo!()
-    }
-
-    fn visit_unit_struct_ty(&mut self, _defn: UnitStructTypeSynNodeDefn) {
-        // todo!()
-    }
-
-    fn visit_tuple_struct_ty(&mut self, _defn: TupleStructTypeSynNodeDefn) {
-        // todo!()
-    }
-
-    fn visit_props_struct_ty(&mut self, _defn: PropsStructTypeSynNodeDefn) {
-        // todo!()
-    }
-
-    fn visit_structure_ty(&mut self, _defn: StructureTypeSynNodeDefn) {
-        // todo!()
-    }
-
-    fn visit_alias_ty(&mut self, _defn: ExternTypeSynNodeDefn) {
-        // todo!()
-    }
-
-    fn visit_trai(&mut self, _defn: TraitSynNodeDefn) {
-        //todo!()
-    }
-
-    fn visit_fugitive_syn_node(&mut self, defn: FugitiveSynNodeDefn) {
-        match defn {
-            FugitiveSynNodeDefn::FunctionFn(defn) => self.visit_fn_node(defn),
-            FugitiveSynNodeDefn::Val(defn) => self.visit_val_node(defn),
-            FugitiveSynNodeDefn::Gn(defn) => self.visit_gn_node(defn),
-        }
-    }
-
-    fn visit_fn_node(&mut self, _syn_node_defn: FnSynNodeDefn) {}
-
-    fn visit_val_node(&mut self, _syn_node_defn: ValSynNodeDefn) {}
-
-    fn visit_gn_node(&mut self, syn_node_defn: GnSynNodeDefn) {
-        let _syn_node_decl = syn_node_defn.syn_node_decl(self.db);
-        // todo!()
-    }
-
-    fn visit_value(&mut self, syn_node_defn: ValSynNodeDefn) {
-        let _syn_node_decl = syn_node_defn.syn_node_decl(self.db);
-        // todo!()
-    }
-
-    fn visit_associated_item(&mut self, syn_node_defn: AssociatedItemSynNodeDefn) {
-        match syn_node_defn {
-            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => {
-                self.visit_ty_item_syn_node(syn_node_defn)
-            }
-            AssociatedItemSynNodeDefn::TraitItem(syn_node_defn) => {
-                self.visit_trai_item_node(syn_node_defn)
-            }
-            AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
-                self.visit_trai_for_ty_item_syn_node(syn_node_defn)
-            }
-        }
-    }
-
-    fn visit_ty_item_syn_node(&self, _syn_node_defn: TypeItemSynNodeDefn) {
-        // todo!()
-    }
-
-    fn visit_trai_item_node(&self, _syn_node_defn: TraitItemSynNodeDefn) {
-        // todo!()
-    }
-
-    fn visit_trai_for_ty_item_syn_node(&self, _syn_node_defn: TraitForTypeItemSynNodeDefn) {
-        // todo!()
     }
 }
 
