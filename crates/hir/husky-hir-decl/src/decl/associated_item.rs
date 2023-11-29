@@ -11,7 +11,7 @@ use super::*;
 type SmallVecImpl<T> = SmallVec<[T; 2]>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum AssociatedItemHirDecl {
     TypeItem(TypeItemHirDecl),
@@ -36,13 +36,13 @@ impl AssociatedItemHirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> HirExprRegion {
-    //     match self {
-    //         AssociatedItemHirDecl::TypeItem(decl) => decl.hir_expr_region(db),
-    //         AssociatedItemHirDecl::TraitItem(decl) => decl.hir_expr_region(db),
-    //         AssociatedItemHirDecl::TraitForTypeItem(decl) => decl.hir_expr_region(db),
-    //     }
-    // }
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
+        match self {
+            AssociatedItemHirDecl::TypeItem(decl) => decl.hir_expr_region(db),
+            AssociatedItemHirDecl::TraitItem(decl) => decl.hir_expr_region(db),
+            AssociatedItemHirDecl::TraitForTypeItem(decl) => decl.hir_expr_region(db),
+        }
+    }
 }
 
 impl HasHirDecl for AssociatedItemPath {

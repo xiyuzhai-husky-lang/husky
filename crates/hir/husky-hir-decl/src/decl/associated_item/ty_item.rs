@@ -45,15 +45,15 @@ impl TypeItemHirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> HirExprRegion {
-    //     match self {
-    //         TypeItemHirDecl::AssociatedFn(decl) => decl.hir_expr_region(db).into(),
-    //         TypeItemHirDecl::MethodFn(decl) => decl.hir_expr_region(db).into(),
-    //         TypeItemHirDecl::AssociatedType(decl) => decl.hir_expr_region(db).into(),
-    //         TypeItemHirDecl::AssociatedVal(decl) => decl.hir_expr_region(db).into(),
-    //         TypeItemHirDecl::MemoizedField(decl) => decl.hir_expr_region(db).into(),
-    //     }
-    // }
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
+        match self {
+            TypeItemHirDecl::AssociatedFn(decl) => decl.hir_eager_expr_region(db).into(),
+            TypeItemHirDecl::MethodFn(decl) => decl.hir_eager_expr_region(db).into(),
+            TypeItemHirDecl::AssociatedType(decl) => decl.hir_eager_expr_region(db).into(),
+            TypeItemHirDecl::AssociatedVal(decl) => decl.hir_expr_region(db).into(),
+            TypeItemHirDecl::MemoizedField(decl) => decl.hir_eager_expr_region(db).into(),
+        }
+    }
 }
 
 impl HasHirDecl for TypeItemPath {

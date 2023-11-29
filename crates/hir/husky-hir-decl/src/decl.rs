@@ -39,7 +39,7 @@ impl HasHirDecl for ItemPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::debug_with_db(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum HirDecl {
     Submodule(SubmoduleHirDecl),
@@ -62,15 +62,16 @@ impl HirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> Option<HirExprRegion> {
-    //     match self {
-    //         HirDecl::Submodule(_) => None,
-    //         HirDecl::MajorItem(decl) => decl.hir_expr_region(db).into(),
-    //         HirDecl::ImplBlock(decl) => None,
-    //         HirDecl::AssociatedItem(decl) => decl.hir_expr_region(db).into(),
-    //         HirDecl::TypeVariant(_decl) => todo!(),
-    //     }
-    // }
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
+        match self {
+            HirDecl::Submodule(decl) => None,
+            HirDecl::MajorItem(decl) => Some(decl.hir_expr_region(db)),
+            HirDecl::ImplBlock(decl) => Some(decl.hir_eager_expr_region(db).into()),
+            HirDecl::AssociatedItem(decl) => Some(decl.hir_expr_region(db)),
+            HirDecl::TypeVariant(decl) => Some(decl.hir_expr_region(db)),
+            HirDecl::Attr(decl) => None,
+        }
+    }
 
     pub fn path(self, db: &::salsa::Db) -> ItemPath {
         match self {
