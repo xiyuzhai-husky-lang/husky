@@ -13,13 +13,13 @@ use crate::{
 pub struct HirEagerExprRegion {
     pub path: RegionPath,
     #[return_ref]
-    pub hir_eager_expr_arena: HirEagerExprArena,
+    pub expr_arena: HirEagerExprArena,
     #[return_ref]
-    pub hir_eager_stmt_arena: HirEagerStmtArena,
+    pub stmt_arena: HirEagerStmtArena,
     #[return_ref]
-    pub hir_eager_pattern_expr_arena: HirEagerPatternExprArena,
+    pub pattern_expr_arena: HirEagerPatternExprArena,
     #[return_ref]
-    pub hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData,
+    pub comptime_symbol_region_data: HirEagerComptimeSymbolRegionData,
     #[return_ref]
-    pub hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData,
+    pub runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData,
 }

@@ -1,3 +1,4 @@
+#![feature(impl_trait_in_assoc_type)]
 #![feature(step_trait)]
 mod arena;
 mod arena_idx;

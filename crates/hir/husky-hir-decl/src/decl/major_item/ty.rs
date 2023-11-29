@@ -44,7 +44,7 @@ impl TypeHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a HirTemplateParameters {
         match self {
             TypeHirDecl::Enum(decl) => decl.template_parameters(db),
             TypeHirDecl::UnitStruct(decl) => decl.template_parameters(db),

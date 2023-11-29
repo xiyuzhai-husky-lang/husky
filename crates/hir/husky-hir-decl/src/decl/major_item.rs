@@ -18,11 +18,11 @@ pub enum MajorItemHirDecl {
 }
 
 impl MajorItemHirDecl {
-    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> Option<&'a HirTemplateParameters> {
         match self {
-            MajorItemHirDecl::Type(decl) => decl.template_parameters(db),
+            MajorItemHirDecl::Type(decl) => Some(decl.template_parameters(db)),
             MajorItemHirDecl::Fugitive(decl) => decl.template_parameters(db),
-            MajorItemHirDecl::Trait(decl) => decl.template_parameters(db),
+            MajorItemHirDecl::Trait(decl) => Some(decl.template_parameters(db)),
         }
     }
 

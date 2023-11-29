@@ -51,13 +51,13 @@ pub enum HirDecl {
 }
 
 impl HirDecl {
-    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> Option<&'a HirTemplateParameters> {
         match self {
-            HirDecl::Submodule(_) => &[],
+            HirDecl::Submodule(_) => None,
             HirDecl::MajorItem(decl) => decl.template_parameters(db),
-            HirDecl::ImplBlock(decl) => decl.template_parameters(db),
+            HirDecl::ImplBlock(decl) => Some(decl.template_parameters(db)),
             HirDecl::AssociatedItem(decl) => decl.template_parameters(db),
-            HirDecl::TypeVariant(_decl) => &[],
+            HirDecl::TypeVariant(_decl) => None,
             HirDecl::Attr(_) => todo!(),
         }
     }

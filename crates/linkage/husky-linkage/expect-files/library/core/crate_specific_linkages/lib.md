@@ -1,14 +1,12 @@
 [
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 130,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 21,
+                        },
                     ),
                 ),
             ),
@@ -20,14 +18,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 131,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 22,
+                        },
                     ),
                 ),
             ),
@@ -39,14 +35,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 132,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 23,
+                        },
                     ),
                 ),
             ),
@@ -58,14 +52,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 133,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 24,
+                        },
                     ),
                 ),
             ),
@@ -77,14 +69,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 134,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 25,
+                        },
                     ),
                 ),
             ),
@@ -96,14 +86,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 135,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 26,
+                        },
                     ),
                 ),
             ),
@@ -115,14 +103,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 136,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 27,
+                        },
                     ),
                 ),
             ),
@@ -134,14 +120,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 137,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 130,
+                        },
                     ),
                 ),
             ),
@@ -153,14 +137,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 138,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 34,
+                        },
                     ),
                 ),
             ),
@@ -172,14 +154,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 139,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 45,
+                        },
                     ),
                 ),
             ),
@@ -191,14 +171,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 140,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 46,
+                        },
                     ),
                 ),
             ),
@@ -210,14 +188,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 141,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 47,
+                        },
                     ),
                 ),
             ),
@@ -229,14 +205,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 142,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 48,
+                        },
                     ),
                 ),
             ),
@@ -248,14 +222,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 143,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 49,
+                        },
                     ),
                 ),
             ),
@@ -267,14 +239,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 144,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 50,
+                        },
                     ),
                 ),
             ),
@@ -286,14 +256,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 145,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 51,
+                        },
                     ),
                 ),
             ),
@@ -305,14 +273,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 146,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 52,
+                        },
                     ),
                 ),
             ),
@@ -324,14 +290,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 147,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 53,
+                        },
                     ),
                 ),
             ),
@@ -343,14 +307,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 148,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 54,
+                        },
                     ),
                 ),
             ),
@@ -362,14 +324,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 149,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 55,
+                        },
                     ),
                 ),
             ),
@@ -381,14 +341,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 150,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 56,
+                        },
                     ),
                 ),
             ),
@@ -400,14 +358,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 151,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 57,
+                        },
                     ),
                 ),
             ),
@@ -419,14 +375,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 152,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 58,
+                        },
                     ),
                 ),
             ),
@@ -438,14 +392,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 153,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 131,
+                        },
                     ),
                 ),
             ),
@@ -457,14 +409,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 154,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 132,
+                        },
                     ),
                 ),
             ),
@@ -476,14 +426,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 155,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 133,
+                        },
                     ),
                 ),
             ),
@@ -495,14 +443,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 156,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 134,
+                        },
                     ),
                 ),
             ),
@@ -514,14 +460,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 157,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 135,
+                        },
                     ),
                 ),
             ),
@@ -533,14 +477,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 158,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 136,
+                        },
                     ),
                 ),
             ),
@@ -552,14 +494,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 159,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 137,
+                        },
                     ),
                 ),
             ),
@@ -571,14 +511,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 160,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 138,
+                        },
                     ),
                 ),
             ),
@@ -590,14 +528,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 161,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 139,
+                        },
                     ),
                 ),
             ),
@@ -609,14 +545,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 162,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 140,
+                        },
                     ),
                 ),
             ),
@@ -628,14 +562,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 163,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 141,
+                        },
                     ),
                 ),
             ),
@@ -647,14 +579,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 164,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 142,
+                        },
                     ),
                 ),
             ),
@@ -666,14 +596,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 165,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 143,
+                        },
                     ),
                 ),
             ),
@@ -685,14 +613,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 166,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 144,
+                        },
                     ),
                 ),
             ),
@@ -704,14 +630,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 167,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 145,
+                        },
                     ),
                 ),
             ),
@@ -723,14 +647,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 168,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 146,
+                        },
                     ),
                 ),
             ),
@@ -742,14 +664,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 169,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 147,
+                        },
                     ),
                 ),
             ),
@@ -761,14 +681,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 170,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 148,
+                        },
                     ),
                 ),
             ),
@@ -780,14 +698,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 171,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 149,
+                        },
                     ),
                 ),
             ),
@@ -799,14 +715,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 172,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 150,
+                        },
                     ),
                 ),
             ),
@@ -818,14 +732,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 173,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 151,
+                        },
                     ),
                 ),
             ),
@@ -837,14 +749,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 174,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 152,
+                        },
                     ),
                 ),
             ),
@@ -856,14 +766,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 175,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 153,
+                        },
                     ),
                 ),
             ),
@@ -875,14 +783,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 176,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 154,
+                        },
                     ),
                 ),
             ),
@@ -894,14 +800,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 177,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 155,
+                        },
                     ),
                 ),
             ),
@@ -913,14 +817,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 178,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 156,
+                        },
                     ),
                 ),
             ),
@@ -932,14 +834,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 179,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 157,
+                        },
                     ),
                 ),
             ),
@@ -951,14 +851,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 180,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 158,
+                        },
                     ),
                 ),
             ),
@@ -970,14 +868,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 181,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 159,
+                        },
                     ),
                 ),
             ),
@@ -989,14 +885,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 182,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 160,
+                        },
                     ),
                 ),
             ),
@@ -1008,14 +902,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 183,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 161,
+                        },
                     ),
                 ),
             ),
@@ -1027,14 +919,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 184,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 162,
+                        },
                     ),
                 ),
             ),
@@ -1046,14 +936,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 185,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 163,
+                        },
                     ),
                 ),
             ),
@@ -1065,14 +953,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 186,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 164,
+                        },
                     ),
                 ),
             ),
@@ -1084,14 +970,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 187,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 165,
+                        },
                     ),
                 ),
             ),
@@ -1103,14 +987,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 188,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 166,
+                        },
                     ),
                 ),
             ),
@@ -1122,14 +1004,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 189,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 167,
+                        },
                     ),
                 ),
             ),
@@ -1141,14 +1021,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 190,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 168,
+                        },
                     ),
                 ),
             ),
@@ -1160,14 +1038,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 191,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 169,
+                        },
                     ),
                 ),
             ),
@@ -1179,14 +1055,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 192,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 170,
+                        },
                     ),
                 ),
             ),
@@ -1198,14 +1072,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 193,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 82,
+                        },
                     ),
                 ),
             ),
@@ -1217,14 +1089,454 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 194,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 171,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 172,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 173,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 174,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 175,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 176,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 177,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 178,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 179,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 180,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 181,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 182,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 183,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 184,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 185,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 186,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 187,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 188,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 189,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 190,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 191,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 192,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 193,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 89,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 90,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 92,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 194,
+                        },
                     ),
                 ),
             ),

@@ -14,6 +14,10 @@ enum-class = { path = "../../abstractions/enum-class" }
 version-stamp = { path = "../../abstractions/version-stamp" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
+# hir
+husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
+husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
+husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
@@ -31,9 +35,6 @@ salsa = { path = "../../abstractions/salsa", features = ["test-utils"] }
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
-husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
-husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
-husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }

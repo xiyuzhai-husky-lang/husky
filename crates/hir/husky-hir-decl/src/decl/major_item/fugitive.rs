@@ -23,11 +23,11 @@ pub enum FugitiveHirDecl {
 }
 
 impl FugitiveHirDecl {
-    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> Option<&'a HirTemplateParameters> {
         match self {
-            FugitiveHirDecl::FunctionFn(decl) => decl.template_parameters(db),
-            FugitiveHirDecl::Val(_decl) => &[],
-            FugitiveHirDecl::FunctionGn(decl) => decl.template_parameters(db),
+            FugitiveHirDecl::FunctionFn(decl) => Some(decl.template_parameters(db)),
+            FugitiveHirDecl::Val(_decl) => None,
+            FugitiveHirDecl::FunctionGn(decl) => Some(decl.template_parameters(db)),
             FugitiveHirDecl::TypeAlias(_) => todo!(),
         }
     }

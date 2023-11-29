@@ -14,8 +14,10 @@ pub use self::ty_variant::*;
 
 use crate::*;
 use ::version_stamp::HasVersionStamp;
-use husky_hir_decl::parameter::parenate::eager::HirEagerParenateParameter;
 use husky_hir_decl::parameter::template::HirTemplateParameter;
+use husky_hir_decl::parameter::{
+    parenate::eager::HirEagerParenateParameter, template::HirTemplateParameters,
+};
 use husky_hir_eager_expr::helpers::hir_eager_body_with_expr_region;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -42,7 +44,7 @@ impl HirDefn {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> Option<&'a HirTemplateParameters> {
         self.hir_decl(db).template_parameters(db)
     }
 

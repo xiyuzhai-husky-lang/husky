@@ -31,12 +31,12 @@ impl TraitForTypeItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> Option<&'a HirTemplateParameters> {
         match self {
-            TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.template_parameters(db),
-            TraitForTypeItemHirDecl::MethodFn(decl) => decl.template_parameters(db),
-            TraitForTypeItemHirDecl::AssociatedType(decl) => decl.template_parameters(db),
-            TraitForTypeItemHirDecl::AssociatedVal(_) => &[],
+            TraitForTypeItemHirDecl::AssociatedFn(decl) => Some(decl.template_parameters(db)),
+            TraitForTypeItemHirDecl::MethodFn(decl) => Some(decl.template_parameters(db)),
+            TraitForTypeItemHirDecl::AssociatedType(decl) => Some(decl.template_parameters(db)),
+            TraitForTypeItemHirDecl::AssociatedVal(_) => None,
         }
     }
 

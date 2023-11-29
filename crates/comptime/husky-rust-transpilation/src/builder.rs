@@ -286,24 +286,24 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
     // todo: there is room for optimization
     pub(crate) fn hir_eager_expr_arena(&self) -> &'a HirEagerExprArena {
-        self.extension.hir_eager_expr_arena(self.db)
+        self.extension.expr_arena(self.db)
     }
 
     // todo: there is room for optimization
     pub(crate) fn hir_eager_pattern_expr_arena(&self) -> &'a HirEagerPatternExprArena {
-        self.extension.hir_eager_pattern_expr_arena(self.db)
+        self.extension.pattern_expr_arena(self.db)
     }
 
     // todo: there is room for optimization
     pub(crate) fn hir_eager_stmt_arena(&self) -> &'a HirEagerStmtArena {
-        self.extension.hir_eager_stmt_arena(self.db)
+        self.extension.stmt_arena(self.db)
     }
 
     fn hir_comptime_symbol(&mut self, symbol: impl Into<HirComptimeSymbol>) {
         let hir_comptime_symbol = symbol.into();
         let Some(symbol_name) = self
             .extension
-            .hir_eager_comptime_symbol_region_data(self.db)
+            .comptime_symbol_region_data(self.db)
             .symbol_name(hir_comptime_symbol)
         else {
             let db = self.db;
@@ -311,9 +311,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
             p!(
                 self.extension.path(db).debug(db),
                 hir_comptime_symbol.debug(db),
-                self.extension
-                    .hir_eager_comptime_symbol_region_data(db)
-                    .debug(db)
+                self.extension.comptime_symbol_region_data(db).debug(db)
             );
             todo!()
         };
@@ -485,8 +483,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 impl TranspileToRust<HirEagerExprRegion> for HirEagerRuntimeSymbolIdx {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
-        let hir_eager_runtime_symbol_region_data =
-            builder.extension.hir_eager_runtime_symbol_region_data(db);
+        let hir_eager_runtime_symbol_region_data = builder.extension.runtime_symbol_region_data(db);
         if builder.result.ends_with(|c: char| c.is_alphabetic()) {
             builder.write_str(" ")
         }
