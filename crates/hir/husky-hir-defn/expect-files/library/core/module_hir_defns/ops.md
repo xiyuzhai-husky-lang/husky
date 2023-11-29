@@ -36,16 +36,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -64,7 +64,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -112,16 +112,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -140,7 +140,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -188,16 +188,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -216,7 +216,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -264,16 +264,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -292,7 +292,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -340,16 +340,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -368,7 +368,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -416,16 +416,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -444,7 +444,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -492,16 +492,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -520,7 +520,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -568,16 +568,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -596,7 +596,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -644,16 +644,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -672,7 +672,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -720,16 +720,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -748,7 +748,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -776,21 +776,21 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -838,16 +838,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -866,7 +866,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -914,16 +914,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -942,7 +942,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -970,21 +970,21 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -1012,21 +1012,21 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -1074,16 +1074,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -1102,7 +1102,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -1150,16 +1150,16 @@
                                 ),
                             ),
                         ),
-                        hir_eager_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_stmt_arena: Arena {
+                        stmt_arena: Arena {
                             data: [],
                         },
-                        hir_eager_pattern_expr_arena: Arena {
+                        pattern_expr_arena: Arena {
                             data: [],
                         },
-                        hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeSymbolEntry {
@@ -1178,7 +1178,7 @@
                                 ],
                             },
                         },
-                        hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -1246,16 +1246,16 @@
                                     ),
                                 ),
                             ),
-                            hir_eager_expr_arena: Arena {
+                            expr_arena: Arena {
                                 data: [],
                             },
-                            hir_eager_stmt_arena: Arena {
+                            stmt_arena: Arena {
                                 data: [],
                             },
-                            hir_eager_pattern_expr_arena: Arena {
+                            pattern_expr_arena: Arena {
                                 data: [],
                             },
-                            hir_eager_comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeSymbolRegionData {
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeSymbolEntry {
@@ -1287,7 +1287,7 @@
                                     ],
                                 },
                             },
-                            hir_eager_runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeSymbolRegionData {
                                 arena: Arena {
                                     data: [],
                                 },

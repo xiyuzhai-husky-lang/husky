@@ -38,7 +38,10 @@ impl TraitItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, _db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(
+        self,
+        _db: &'a ::salsa::Db,
+    ) -> Option<&'a HirTemplateParameters> {
         match self {
             TraitItemHirDecl::AssociatedFn(_) => todo!(),
             TraitItemHirDecl::MethodFn(_) => todo!(),

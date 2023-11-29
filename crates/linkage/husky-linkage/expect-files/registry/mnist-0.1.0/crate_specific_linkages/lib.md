@@ -1,11 +1,11 @@
 [
     Linkage {
         data: LinkageData::PathLeading {
-            path: Fugitive(
-                FugitivePath(
+            path: TypeConstructor(
+                TypePath(
                     ItemPathId(
                         Id {
-                            value: 510,
+                            value: 497,
                         },
                     ),
                 ),
@@ -18,14 +18,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 517,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 508,
+                        },
                     ),
                 ),
             ),
@@ -37,14 +35,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 518,
-                            },
-                        ),
+            path: TypeConstructor(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 509,
+                        },
                     ),
                 ),
             ),
@@ -56,14 +52,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 519,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 517,
+                        },
                     ),
                 ),
             ),
@@ -75,14 +69,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 520,
-                            },
-                        ),
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 518,
+                        },
                     ),
                 ),
             ),
@@ -94,14 +86,12 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 521,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 519,
+                        },
                     ),
                 ),
             ),
@@ -113,14 +103,46 @@
     },
     Linkage {
         data: LinkageData::PathLeading {
-            path: AssociatedItem(
-                TraitForTypeItem(
-                    TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 522,
-                            },
-                        ),
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 520,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TypeItem(
+                TypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 521,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 522,
+                        },
                     ),
                 ),
             ),

@@ -45,18 +45,15 @@ impl TraitForTypeItemHirDefn {
         }
     }
 
-    pub fn hir_expr_region(self, _db: &::salsa::Db) -> Option<HirExprRegion> {
-        todo!()
-        // match self {
-        //     TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => {
-        //         Some(hir_defn.hir_expr_region(db).into())
-        //     }
-        //     TraitForTypeItemHirDefn::MethodFn(hir_defn) => Some(hir_defn.hir_expr_region(db).into()),
-        //     TraitForTypeItemHirDefn::AssociatedType(hir_defn) => {
-        //         hir_defn.hir_expr_region(db).into()
-        //     }
-        //     TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.hir_expr_region(db).into(),
-        // }
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
+        match self {
+            TraitForTypeItemHirDefn::AssociatedFn(slf) => {
+                slf.hir_eager_expr_region(db).map(Into::into)
+            }
+            TraitForTypeItemHirDefn::MethodFn(slf) => slf.hir_eager_expr_region(db).map(Into::into),
+            TraitForTypeItemHirDefn::AssociatedType(slf) => None,
+            TraitForTypeItemHirDefn::AssociatedVal(slf) => slf.hir_expr_region(db),
+        }
     }
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {

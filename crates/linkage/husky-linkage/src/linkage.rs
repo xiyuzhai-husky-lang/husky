@@ -28,7 +28,7 @@ pub enum LinkageData {
 
 impl Linkage {
     pub fn from_item_path(item_path: ItemPath, db: &::salsa::Db) -> Option<Self> {
-        let stats = item_hir_template_parameter_stats(db, item_path)?;
+        let stats = item_hir_template_parameter_stats(db, *item_path)?;
         if stats.tys + stats.constants > 0 {
             return None;
         }

@@ -49,10 +49,9 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
         }
     }
 
-    pub(crate) fn add_hir_eager_expr_region(&mut self, eager_expr_region: HirEagerExprRegion) {
+    pub(crate) fn add_hir_eager_expr_region(&mut self, hir_eager_expr_region: HirEagerExprRegion) {
         let db = self.db;
-        let hir_eager_expr_arena = eager_expr_region.hir_eager_expr_arena(db);
-        for hir_eager_expr_data in hir_eager_expr_arena.iter() {
+        for hir_eager_expr_data in hir_eager_expr_region.expr_arena(db) {
             match *hir_eager_expr_data {
                 HirEagerExprData::Literal(_) => (),
                 HirEagerExprData::PrincipalEntityPath(path) => match path {

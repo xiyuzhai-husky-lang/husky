@@ -28,7 +28,7 @@ impl AssociatedItemHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> Option<&'a HirTemplateParameters> {
         match self {
             AssociatedItemHirDecl::TypeItem(decl) => decl.template_parameters(db),
             AssociatedItemHirDecl::TraitItem(decl) => decl.template_parameters(db),

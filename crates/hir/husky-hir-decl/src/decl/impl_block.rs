@@ -40,7 +40,7 @@ impl ImplBlockHirDecl {
         }
     }
 
-    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [HirTemplateParameter] {
+    pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a HirTemplateParameters {
         match self {
             ImplBlockHirDecl::Type(slf) => slf.template_parameters(db),
             ImplBlockHirDecl::TraitForType(slf) => slf.template_parameters(db),

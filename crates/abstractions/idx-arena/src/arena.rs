@@ -5,6 +5,16 @@ pub struct Arena<T> {
     data: Vec<T>,
 }
 
+impl<'a, T> IntoIterator for &'a Arena<T> {
+    type Item = &'a T;
+
+    type IntoIter = impl Iterator<Item = &'a T> + 'a;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.data.iter()
+    }
+}
+
 impl<T> Default for Arena<T> {
     fn default() -> Self {
         Self {

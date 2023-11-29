@@ -94,6 +94,16 @@ impl HirTemplateParameters {
     }
 }
 
+impl<'a> std::iter::IntoIterator for &'a HirTemplateParameters {
+    type Item = &'a HirTemplateParameter;
+
+    type IntoIter = impl Iterator<Item = &'a HirTemplateParameter> + 'a;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.iter()
+    }
+}
+
 impl std::ops::Deref for HirTemplateParameters {
     type Target = [HirTemplateParameter];
 
@@ -110,11 +120,12 @@ pub struct HirTemplateParameterStats {
     pub places: u8,
 }
 
-// #[salsa::tracked(jar = HirDeclJar)]
+#[salsa::tracked(jar = HirDeclJar)]
 pub fn item_hir_template_parameter_stats(
     db: &::salsa::Db,
-    item_path: ItemPath,
+    item_path_id: ItemPathId,
 ) -> Option<HirTemplateParameterStats> {
+    let item_path = item_path_id.item_path(db);
     let mut stats = HirTemplateParameterStats {
         tys: 0,
         constants: 0,
@@ -122,7 +133,7 @@ pub fn item_hir_template_parameter_stats(
         places: 0,
     };
     let hir_decl = item_path.hir_decl(db)?;
-    for param in hir_decl.template_parameters(db) {
+    for param in hir_decl.template_parameters(db)? {
         match param.data {
             HirTemplateParameterData::Type { .. } => stats.tys += 1,
             HirTemplateParameterData::Constant { .. } => stats.constants += 1,
