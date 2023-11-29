@@ -5,7 +5,7 @@ use husky_syn_decl::TypeAssociatedValSynDecl;
 pub struct TypeAssociatedValHirDecl {
     pub path: TypeItemPath,
     pub return_ty: HirType,
-    pub hir_eager_expr_region: HirEagerExprRegion,
+    pub hir_expr_region: HirExprRegion,
 }
 
 impl TypeAssociatedValHirDecl {

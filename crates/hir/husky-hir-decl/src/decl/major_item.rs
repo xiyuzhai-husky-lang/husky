@@ -9,7 +9,7 @@ pub use self::ty::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum MajorItemHirDecl {
     Type(TypeHirDecl),
@@ -26,13 +26,13 @@ impl MajorItemHirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> Option<HirExprRegion> {
-    //     match self {
-    //         MajorItemHirDecl::Type(decl) => Some(decl.hir_expr_region(db)),
-    //         MajorItemHirDecl::Fugitive(decl) => Some(decl.hir_expr_region(db)),
-    //         MajorItemHirDecl::Trait(decl) => None,
-    //     }
-    // }
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
+        match self {
+            MajorItemHirDecl::Type(decl) => decl.hir_expr_region(db),
+            MajorItemHirDecl::Fugitive(decl) => decl.hir_expr_region(db),
+            MajorItemHirDecl::Trait(decl) => decl.hir_eager_expr_region(db).into(),
+        }
+    }
 
     pub fn path(self, db: &::salsa::Db) -> MajorItemPath {
         match self {

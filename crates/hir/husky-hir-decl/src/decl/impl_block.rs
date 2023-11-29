@@ -7,7 +7,7 @@ pub use self::ty_impl_block::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum ImplBlockHirDecl {
     Type(TypeImplBlockHirDecl),
@@ -30,6 +30,13 @@ impl ImplBlockHirDecl {
         match self {
             ImplBlockHirDecl::Type(decl) => decl.path(db).into(),
             ImplBlockHirDecl::TraitForType(_) => todo!(),
+        }
+    }
+
+    pub fn hir_eager_expr_region(self, db: &::salsa::Db) -> HirEagerExprRegion {
+        match self {
+            ImplBlockHirDecl::Type(slf) => slf.hir_eager_expr_region(db),
+            ImplBlockHirDecl::TraitForType(slf) => slf.hir_eager_expr_region(db),
         }
     }
 

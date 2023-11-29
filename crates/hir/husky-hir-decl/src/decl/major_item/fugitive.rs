@@ -13,7 +13,7 @@ pub use self::val::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum FugitiveHirDecl {
     FunctionFn(FunctionFnFugitiveHirDecl),
@@ -32,13 +32,14 @@ impl FugitiveHirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> HirExprRegion {
-    //     match self {
-    //         FugitiveHirDecl::Fn(decl) => decl.hir_expr_region(db).into(),
-    //         FugitiveHirDecl::Val(decl) => decl.hir_expr_region(db).into(),
-    //         FugitiveHirDecl::Gn(decl) => decl.hir_expr_region(db).into(),
-    //     }
-    // }
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
+        match self {
+            FugitiveHirDecl::FunctionFn(decl) => decl.hir_eager_expr_region(db).into(),
+            FugitiveHirDecl::Val(decl) => decl.hir_eager_expr_region(db).into(),
+            FugitiveHirDecl::FunctionGn(decl) => decl.hir_lazy_expr_region(db).into(),
+            FugitiveHirDecl::TypeAlias(decl) => decl.hir_eager_expr_region(db).into(),
+        }
+    }
 
     pub fn path(self, db: &::salsa::Db) -> FugitivePath {
         match self {

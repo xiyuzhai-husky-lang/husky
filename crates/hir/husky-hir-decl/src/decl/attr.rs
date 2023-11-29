@@ -5,7 +5,7 @@ pub use self::derive::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::debug_with_db(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::debug_with_db]
 pub enum AttrHirDecl {
     Derive(DeriveAttrHirDecl),
 }

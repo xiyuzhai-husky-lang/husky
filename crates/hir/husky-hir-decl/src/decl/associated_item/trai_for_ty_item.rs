@@ -40,14 +40,14 @@ impl TraitForTypeItemHirDecl {
         }
     }
 
-    // pub fn hir_expr_region(self, db: &::salsa::Db,) -> HirExprRegion {
-    //     match self {
-    //         TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.hir_expr_region(db).into(),
-    //         TraitForTypeItemHirDecl::MethodFn(decl) => decl.hir_expr_region(db).into(),
-    //         TraitForTypeItemHirDecl::AssociatedType(decl) => decl.hir_expr_region(db).into(),
-    //         TraitForTypeItemHirDecl::AssociatedVal(decl) => decl.hir_expr_region(db).into(),
-    //     }
-    // }
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
+        match self {
+            TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.hir_eager_expr_region(db).into(),
+            TraitForTypeItemHirDecl::MethodFn(decl) => decl.hir_eager_expr_region(db).into(),
+            TraitForTypeItemHirDecl::AssociatedType(decl) => decl.hir_eager_expr_region(db).into(),
+            TraitForTypeItemHirDecl::AssociatedVal(decl) => decl.hir_expr_region(db),
+        }
+    }
 }
 
 impl HasHirDecl for TraitForTypeItemPath {
