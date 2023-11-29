@@ -1,550 +1,8 @@
 [
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::array`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::basic`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::clone`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::cmp`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::default`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::fmt`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::logic`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::marker`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::mem`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::num`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::ops`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::option`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::prelude`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::raw_bits`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::result`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::vec`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::slice`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::str`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `core::visual`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::bool`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::never`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::unit`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Trait`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Module`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Lifetime`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::basic::Place`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::clone::Clone`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::clone`,
-                            trai_path: TraitPath(`core::clone::Clone`),
-                            ty_sketch: TypeSketch::DeriveAny,
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -561,320 +19,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::PartialEq`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::Eq`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::PartialOrd`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::cmp::Ord`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::fmt::Debug`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::logic::Prop`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::marker::Copy`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::marker::Sized`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::i8`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::i16`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::i32`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::i64`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::i128`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::isize`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::u8`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::u16`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::u32`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::u64`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::u128`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::usize`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::f32`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::num::f64`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::i8`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -891,9 +38,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -910,31 +57,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i8`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -951,34 +76,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::i16`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -995,9 +95,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1014,31 +114,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i16`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1055,34 +133,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::i32`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1099,9 +152,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1118,9 +171,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1137,31 +190,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1178,34 +209,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::i64`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1222,31 +228,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1263,34 +247,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::i128`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1307,31 +266,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::i128`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1348,34 +285,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::isize`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1392,31 +304,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1433,34 +323,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::u8`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1477,31 +342,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u8`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1518,34 +361,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::u16`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1562,31 +380,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u16`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1603,34 +399,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::u32`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1647,31 +418,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1688,34 +437,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::u64`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1732,31 +456,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1773,34 +475,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::u128`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1817,31 +494,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::u128`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1858,34 +513,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::usize`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1902,31 +532,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::usize`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1943,34 +551,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1987,9 +570,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2006,9 +589,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2025,9 +608,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2044,9 +627,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2063,9 +646,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2082,9 +665,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2101,9 +684,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2120,31 +703,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -2161,34 +722,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::num`,
-                                        ty_path: TypePath(`core::num::f64`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2205,9 +741,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2224,31 +760,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::num`,
-                            trai_path: TraitPath(`core::ops::Add`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`core::num::f64`, `Extern`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -2265,86 +779,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::IntIndex`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Neg`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::ops::Not`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::raw_bits::r32`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `core::raw_bits`,
-                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2361,9 +798,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2380,9 +817,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2399,9 +836,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2418,9 +855,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2437,9 +874,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -2456,9 +893,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -2475,9 +912,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2494,9 +931,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2513,9 +950,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2532,9 +969,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2551,9 +988,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2570,9 +1007,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2589,9 +1026,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2608,9 +1045,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2627,9 +1064,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2646,9 +1083,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2665,9 +1102,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -2684,9 +1121,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2703,9 +1140,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2722,9 +1159,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2741,9 +1178,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2760,9 +1197,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2779,81 +1216,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::str::str`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::str::StringLiteral`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Trait(
-                    TraitPath(`core::visual::Visualize`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`core::visual::Html`, `Extern`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `core::visual`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::DeriveAny,
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {

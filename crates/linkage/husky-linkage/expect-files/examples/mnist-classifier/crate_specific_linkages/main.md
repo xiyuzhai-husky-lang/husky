@@ -1,263 +1,13 @@
 [
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::connected_component`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::raw_contour`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::geom2d`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::fermi`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::major`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::main`, `Val`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::connected_component`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                            ),
-                            disambiguator: 0,
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 249,
                         },
-                    },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -267,9 +17,60 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 252,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 254,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 255,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -286,34 +87,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::connected_component`,
-                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -330,9 +106,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -349,9 +125,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -368,9 +144,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -387,9 +163,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -406,9 +182,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -425,9 +201,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -444,9 +220,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -463,9 +239,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -482,9 +258,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -501,162 +277,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::raw_contour`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                            ),
-                            disambiguator: 0,
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 262,
                         },
-                    },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -666,9 +294,128 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 263,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 264,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 265,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 266,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 267,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 269,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 270,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -685,34 +432,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::raw_contour`,
-                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -729,9 +451,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -748,9 +470,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -767,9 +489,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -786,9 +508,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -805,112 +527,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::geom2d`,
-                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -927,9 +546,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -946,9 +565,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -965,9 +584,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -984,9 +603,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1003,34 +622,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::geom2d`,
-                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1047,9 +641,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1066,9 +660,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1085,9 +679,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1104,9 +698,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1123,9 +717,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1142,9 +736,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1161,9 +755,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1180,34 +774,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::geom2d`,
-                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1224,9 +793,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1243,34 +812,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::geom2d`,
-                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1287,9 +831,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1306,9 +850,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1325,9 +869,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1344,9 +888,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1363,9 +907,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1382,34 +926,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::geom2d`,
-                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1426,9 +945,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1445,9 +964,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1464,9 +983,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1483,198 +1002,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::line_segment_sketch::concave_component`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::line_segment_sketch::convex_component`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::line_segment_sketch::convexity`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::line_segment_sketch::line_segment`,
-                                ),
-                            },
-                        ),
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                            ),
-                            disambiguator: 0,
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 283,
                         },
-                    },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -1684,9 +1019,77 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 284,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 285,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 286,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 287,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1703,34 +1106,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1747,9 +1125,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1766,31 +1144,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::line_segment_sketch`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1807,34 +1163,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1851,9 +1182,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1870,9 +1201,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -1889,45 +1220,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                            ),
-                            disambiguator: 0,
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 289,
                         },
-                    },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -1937,9 +1237,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -1956,34 +1256,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2000,9 +1275,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2019,9 +1294,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2038,9 +1313,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2057,9 +1332,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2076,9 +1351,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2095,9 +1370,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2114,9 +1389,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2133,9 +1408,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2152,9 +1427,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2171,9 +1446,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2190,9 +1465,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2209,44 +1484,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlock {
-                        data: TraitForTypeImplBlockPathData {
-                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
-                            trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_sketch: TypeSketch::Path(
-                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                            ),
-                            disambiguator: 0,
-                        },
-                    },
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -2263,46 +1503,12 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::line_segment_sketch::line_segment`,
-                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 291,
                         },
                     ),
                 ),
@@ -2314,9 +1520,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2333,9 +1539,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2352,46 +1558,12 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Type(
-                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::ImplBlock(
-                ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId {
-                            data: ItemPathData::ImplBlock(
-                                ImplBlockPathData::TypeImplBlock(
-                                    TypeImplBlockPathData {
-                                        module_path: `mnist_classifier::fermi`,
-                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                ),
-                            ),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 294,
                         },
                     ),
                 ),
@@ -2403,9 +1575,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2422,9 +1594,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2441,9 +1613,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TypeItem(
                     TypeItemPath(
                         ItemPathId(
                             Id {
@@ -2460,19 +1632,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits::zero`,
-                                ),
-                            },
-                        ),
-                    },
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 305,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2482,19 +1649,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits::one`,
-                                ),
-                            },
-                        ),
-                    },
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 306,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2504,19 +1666,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits::six`,
-                                ),
-                            },
-                        ),
-                    },
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 307,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2526,19 +1683,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits::three`,
-                                ),
-                            },
-                        ),
-                    },
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 308,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2548,19 +1700,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits::four`,
-                                ),
-                            },
-                        ),
-                    },
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 309,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2570,19 +1717,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits::five`,
-                                ),
-                            },
-                        ),
-                    },
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 310,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2592,19 +1734,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits::seven`,
-                                ),
-                            },
-                        ),
-                    },
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 311,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2614,19 +1751,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits::eight`,
-                                ),
-                            },
-                        ),
-                    },
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 312,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2636,19 +1768,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits::nine`,
-                                ),
-                            },
-                        ),
-                    },
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 313,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2658,19 +1785,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::Submodule(
-                Room32,
-                SubmoduleItemPath(
-                    ItemPathId {
-                        data: ItemPathData::SubmoduleItem(
-                            SubmoduleItemPathData {
-                                submodule_path: SubmodulePath(
-                                    `mnist_classifier::digits::two`,
-                                ),
-                            },
-                        ),
-                    },
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 314,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2680,10 +1802,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 315,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2693,10 +1819,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 316,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2706,10 +1836,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 317,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2719,10 +1853,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 318,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2732,10 +1870,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 319,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2745,10 +1887,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 320,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2758,10 +1904,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 321,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2771,10 +1921,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 322,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2784,10 +1938,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 323,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2797,10 +1955,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 324,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2810,10 +1972,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 325,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2823,10 +1989,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 326,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2836,10 +2006,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 327,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2849,10 +2023,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 328,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2862,10 +2040,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 329,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2875,10 +2057,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 330,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2888,10 +2074,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 331,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2901,10 +2091,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 332,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2914,10 +2108,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 333,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2927,10 +2125,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 334,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2940,10 +2142,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 335,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2953,10 +2159,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 336,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2966,10 +2176,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 337,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2979,10 +2193,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 338,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -2992,10 +2210,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 339,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3005,10 +2227,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 340,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3018,10 +2244,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 341,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3031,10 +2261,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 342,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3044,10 +2278,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 343,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3057,10 +2295,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 344,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3070,10 +2312,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 345,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3083,10 +2329,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 346,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3096,10 +2346,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 347,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3109,10 +2363,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 348,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3122,10 +2380,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 349,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3135,10 +2397,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 350,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3148,10 +2414,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 351,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3161,10 +2431,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 352,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3174,10 +2448,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 353,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3187,10 +2465,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 354,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3200,10 +2482,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 355,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -3213,140 +2499,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 356,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {

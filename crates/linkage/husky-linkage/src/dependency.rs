@@ -5,8 +5,8 @@ use crate::linkage::{Linkage, LinkageData};
 fn linkage_path_dependencies(db: &::salsa::Db, linkage_path: Linkage) {
     match linkage_path.data(db) {
         LinkageData::Coersion {} => todo!(),
-        LinkageData::Item {
-            item_path,
+        LinkageData::PathLeading {
+            path,
             ref instantiation,
         } => todo!(),
         LinkageData::PropsStructField => todo!(),

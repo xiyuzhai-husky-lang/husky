@@ -1603,10 +1603,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -1741,10 +1745,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -1893,10 +1901,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -2009,10 +2021,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -2182,10 +2198,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -2355,10 +2375,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -2528,10 +2552,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -2722,10 +2750,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -5552,10 +5584,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -6172,10 +6208,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -6441,10 +6481,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -6667,10 +6711,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -6805,10 +6853,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -7329,10 +7381,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -12842,10 +12898,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -13069,10 +13129,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -37842,10 +37906,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -38111,10 +38179,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -38337,10 +38409,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -38475,10 +38551,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -38999,10 +39079,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -44014,10 +44098,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -44241,10 +44329,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -46938,10 +47030,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -47076,10 +47172,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -47228,10 +47328,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -47344,10 +47448,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -47517,10 +47625,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -47690,10 +47802,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -47863,10 +47979,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`malamute::narrow_down`, `FunctionGn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 335,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -48057,10 +48177,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {
@@ -50887,10 +51011,14 @@
                 ),
                 opn: ValOpn::LinkageImpl(
                     Linkage {
-                        data: LinkageData::Item {
-                            item_path: ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
+                        data: LinkageData::PathLeading {
+                            path: Fugitive(
+                                FugitivePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 262,
+                                        },
+                                    ),
                                 ),
                             ),
                             instantiation: LinkageInstantiation {

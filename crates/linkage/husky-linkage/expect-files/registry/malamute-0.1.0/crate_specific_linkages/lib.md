@@ -1,8 +1,8 @@
 [
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {
@@ -19,9 +19,9 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::AssociatedItem(
-                AssociatedItemPath::TraitForTypeItem(
+        data: LinkageData::PathLeading {
+            path: AssociatedItem(
+                TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId(
                             Id {

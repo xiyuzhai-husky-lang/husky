@@ -8,5 +8,6 @@ pub struct LinkageJar(
     crate::version_stamp::LinkageVersionStamp,
     crate::template_argument::ty::LinkageTypePathLeading,
     crate::template_argument::ty::LinkageTypeRitchie,
-    crate::pantheon::linkage_pantheon,
+    crate::pantheon::valkyrie_linkage_pantheon,
+    crate::valkyrie::item_valkyrie_rides,
 );
