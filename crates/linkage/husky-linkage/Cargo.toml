@@ -6,6 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 smallvec.workspace = true
+fxhash.workspace = true
 # abstractions
 salsa = { path = "../../abstractions/salsa" }
 vec-like = { path = "../../abstractions/vec-like" }
@@ -18,6 +19,8 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
+# semantics
+husky-manifest = { path = "../../semantics/husky-manifest" }
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 
@@ -46,7 +49,6 @@ husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # semantics
-husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # syntax

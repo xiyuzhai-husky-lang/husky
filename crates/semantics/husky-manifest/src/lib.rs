@@ -75,7 +75,7 @@ impl PackageManifest {
                         .deps()
                         .iter()
                         .map(|dependency_ast| {
-                            ManifestDependency::from_ast(
+                            PackageDependency::from_ast(
                                 db,
                                 toolchain,
                                 registry_path,
@@ -98,7 +98,7 @@ impl PackageManifest {
                         .deps()
                         .iter()
                         .map(|dependency_ast| {
-                            ManifestDependency::from_ast(
+                            PackageDependency::from_ast(
                                 db,
                                 toolchain,
                                 registry_path,

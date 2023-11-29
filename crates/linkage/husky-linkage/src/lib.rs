@@ -5,6 +5,7 @@ pub mod form;
 pub mod instantiation;
 pub mod jar;
 pub mod linkage;
+mod pantheon;
 pub mod place;
 pub mod root;
 pub mod template_argument;

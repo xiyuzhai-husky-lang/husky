@@ -76,7 +76,7 @@ pub(crate) fn rust_transpilation_packages(
             let mut packages = vec![RustTranspilationPackage::new(package_path, target_path, db)];
             packages.extend(
                 package_path
-                    .package_deps(db)
+                    .package_dependencies(db)
                     .expect("no error at this stage")
                     .iter()
                     .map(|dep| RustTranspilationPackage::new(dep.package_path(), target_path, db)),
