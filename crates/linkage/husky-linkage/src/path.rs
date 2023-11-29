@@ -1,12 +1,47 @@
 use crate::*;
 use husky_entity_path::*;
+use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_hir_defn::HirDefn;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum LinkageItemPath {
     Fugitive(FugitivePath),
-    AssociatedItem(AssociatedItemPath),
+    TypeItem(TypeItemPath),
+    TraitItem(TraitItemPath),
+    TraitForTypeItem(TraitForTypeItemPath),
+}
+
+impl std::ops::Deref for LinkageItemPath {
+    type Target = ItemPathId;
+
+    fn deref(&self) -> &Self::Target {
+        unsafe { &std::mem::transmute::<_, &(u32, ItemPathId)>(self).1 }
+    }
+}
+
+#[test]
+fn linkage_item_path_deref_works() {
+    DB::default().ast_plain_test(
+        |db, module_path| {
+            for &item_path in module_item_paths(db, module_path) {
+                if let Some(linkage_item_path) = LinkageItemPath::try_from_item_path(item_path) {
+                    assert_eq!(*linkage_item_path, *item_path)
+                }
+            }
+        },
+        &AstTestConfig::new("linkage_item_path_deref"),
+    )
+}
+
+impl From<AssociatedItemPath> for LinkageItemPath {
+    fn from(path: AssociatedItemPath) -> Self {
+        match path {
+            AssociatedItemPath::TypeItem(path) => path.into(),
+            AssociatedItemPath::TraitItem(path) => path.into(),
+            AssociatedItemPath::TraitForTypeItem(path) => path.into(),
+        }
+    }
 }
 
 impl LinkageItemPath {
