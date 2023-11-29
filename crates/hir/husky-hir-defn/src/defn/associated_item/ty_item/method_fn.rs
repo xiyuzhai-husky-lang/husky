@@ -21,14 +21,11 @@ impl From<TypeMethodFnHirDefn> for HirDefn {
 
 impl TypeMethodFnHirDefn {
     pub(super) fn new(db: &::salsa::Db, path: TypeItemPath, hir_decl: TypeMethodFnHirDecl) -> Self {
-        let Ok(TypeItemSynDefn::MethodFn(syn_defn)) = path.syn_defn(db) else {
-            unreachable!("hir stage no error")
-        };
         TypeMethodFnHirDefn::new_inner(
             db,
             path,
             hir_decl,
-            hir_eager_body_with_expr_region(syn_defn.body_with_syn_expr_region(db), db),
+            hir_eager_body_with_expr_region(path.into(), db),
         )
     }
 

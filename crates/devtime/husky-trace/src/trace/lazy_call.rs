@@ -2,7 +2,7 @@ use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 use husky_entity_path::AssociatedItemPath;
 use husky_entity_syn_tree::HasSynNodePath;
-use husky_syn_defn::HasSynDefn;
+use husky_syn_defn::item_syn_defn;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct LazyCallTracePathData {
@@ -58,21 +58,14 @@ impl LazyCallTraceData {
     }
 
     pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
-        self.callee_path
-            .syn_defn(db)
-            .expect("no syn error at trace time")
-            .body_with_syn_expr_region(db)
-            .is_some()
+        item_syn_defn(db, self.callee_path).is_some()
     }
 
     pub(super) fn subtraces(&self, trace: TraceId, db: &::salsa::Db) -> Vec<TraceId> {
         TraceId::new_lazy_stmts_from_syn_body_with_syn_expr_region(
             self.path,
             trace,
-            self.callee_path
-                .syn_defn(db)
-                .expect("no syn error at trace time")
-                .body_with_syn_expr_region(db),
+            item_syn_defn(db, self.callee_path),
             db,
         )
     }

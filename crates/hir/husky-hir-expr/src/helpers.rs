@@ -15,22 +15,24 @@ use husky_sema_expr::{helpers::analysis::sema_expr_region_contains_gn, SemaExprD
 use husky_syn_expr::SynExprRegion;
 
 use crate::{source_map::HirExprSourceMap, *};
+use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 
 pub fn hir_body_with_expr_region(
-    body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
+    path: ItemPath,
     db: &::salsa::Db,
 ) -> Option<(HirExprIdx, HirExprRegion)> {
-    let (body, syn_expr_region) = body_with_syn_expr_region?;
+    let ItemSynDefn {
+        body,
+        syn_expr_region,
+    } = item_syn_defn(db, path)?;
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
-    Some(match sema_expr_region_contains_gn(db, sema_expr_region) {
+    Some(match is_lazy(sema_expr_region, db) {
         true => {
-            let (body, expr_region) =
-                hir_lazy_body_with_expr_region(Some((body, syn_expr_region)), db)?;
+            let (body, expr_region) = hir_lazy_body_with_expr_region(path, db)?;
             (body.into(), expr_region.into())
         }
         false => {
-            let (body, expr_region) =
-                hir_eager_body_with_expr_region(Some((body, syn_expr_region)), db)?;
+            let (body, expr_region) = hir_eager_body_with_expr_region(path.into(), db)?;
             (body.into(), expr_region.into())
         }
     })
@@ -49,7 +51,20 @@ pub fn hir_expr_region_with_source_map(
     db: &::salsa::Db,
 ) -> (HirExprRegion, HirExprSourceMap) {
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
-    let lazy = match sema_expr_region.path(db).region_path(db).unwrap() {
+    let lazy = is_lazy(sema_expr_region, db);
+    if lazy {
+        let (hir_lazy_expr_region, source_map) =
+            hir_lazy_expr_region_with_source_map(db, sema_expr_region);
+        (hir_lazy_expr_region.into(), source_map.into())
+    } else {
+        let (hir_eager_expr_region, source_map) =
+            hir_eager_expr_region_with_source_map(db, sema_expr_region);
+        (hir_eager_expr_region.into(), source_map.into())
+    }
+}
+
+fn is_lazy(sema_expr_region: husky_sema_expr::SemaExprRegion, db: &salsa::Db) -> bool {
+    match sema_expr_region.path(db).region_path(db).unwrap() {
         RegionPath::Snippet(_) =>
         /* ad hoc */
         {
@@ -86,14 +101,5 @@ pub fn hir_expr_region_with_source_map(
             },
             _ => false,
         },
-    };
-    if lazy {
-        let (hir_lazy_expr_region, source_map) =
-            hir_lazy_expr_region_with_source_map(db, sema_expr_region);
-        (hir_lazy_expr_region.into(), source_map.into())
-    } else {
-        let (hir_eager_expr_region, source_map) =
-            hir_eager_expr_region_with_source_map(db, sema_expr_region);
-        (hir_eager_expr_region.into(), source_map.into())
     }
 }

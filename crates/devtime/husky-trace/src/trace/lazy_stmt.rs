@@ -18,6 +18,7 @@ use husky_sema_expr::{
     helpers::range::sema_expr_range_region, SemaExprData, SemaExprDb, SemaExprRegion, SemaStmtData,
     SemaStmtIdx, SemaStmtIdxRange,
 };
+use husky_syn_defn::ItemSynDefn;
 use husky_token_info::TokenInfoSource;
 use husky_val_repr::expansion::ValReprExpansion;
 
@@ -308,10 +309,14 @@ impl TraceId {
     pub(crate) fn new_lazy_stmts_from_syn_body_with_syn_expr_region(
         parent_trace_path: TracePath,
         parent_trace: TraceId,
-        body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
+        syn_defn: Option<ItemSynDefn>,
         db: &::salsa::Db,
     ) -> Vec<TraceId> {
-        let Some((body, syn_expr_region)) = body_with_syn_expr_region else {
+        let Some(ItemSynDefn {
+            body,
+            syn_expr_region,
+        }) = syn_defn
+        else {
             return vec![];
         };
         let sema_expr_region = db.sema_expr_region(syn_expr_region);

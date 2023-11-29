@@ -100,8 +100,11 @@ impl ImplBlockSynNodePathData {
 impl HasSynNodePath for ImplBlockPath {
     type SynNodePath = ImplBlockSynNodePath;
 
-    fn syn_node_path(self, _db: &::salsa::Db) -> Self::SynNodePath {
-        todo!()
+    fn syn_node_path(self, db: &::salsa::Db) -> Self::SynNodePath {
+        match self {
+            ImplBlockPath::TypeImplBlock(slf) => slf.syn_node_path(db).into(),
+            ImplBlockPath::TraitForTypeImplBlock(slf) => slf.syn_node_path(db).into(),
+        }
     }
 }
 

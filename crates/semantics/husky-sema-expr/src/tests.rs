@@ -70,13 +70,10 @@ fn decl_sema_expr_sheets_works() {
 }
 
 fn defn_sema_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<SemaExprRegion> {
-    let Ok(defns) = module_path.defns(db) else {
-        return vec![];
-    };
-    defns
+    module_item_syn_defns(db, module_path)
         .iter()
         .copied()
-        .filter_map(|defn| Some(db.sema_expr_region(defn.syn_expr_region(db)?)))
+        .filter_map(|(_, defn)| Some(db.sema_expr_region(defn?.syn_expr_region)))
         .collect()
 }
 

@@ -1,12 +1,16 @@
 use crate::*;
 use husky_sema_expr::{SemaExprDb, SemaExprRegion};
+use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 use husky_syn_expr::{SynExprIdx, SynExprRegion};
 
 pub fn hir_eager_body_with_expr_region(
-    body_with_syn_expr_region: Option<(SynExprIdx, SynExprRegion)>,
+    item_path: ItemPath,
     db: &::salsa::Db,
 ) -> Option<(HirEagerExprIdx, HirEagerExprRegion)> {
-    let (body, syn_expr_region) = body_with_syn_expr_region?;
+    let ItemSynDefn {
+        body,
+        syn_expr_region,
+    } = item_syn_defn(db, item_path)?;
     let sema_expr_region = db.sema_expr_region(syn_expr_region);
     let (hir_eager_expr_region, hir_eager_source_map) =
         hir_eager_expr_region_with_source_map(db, sema_expr_region);

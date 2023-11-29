@@ -3,7 +3,8 @@ use husky_fluffy_term::*;
 use husky_sema_expr::{
     OriginalExprTermError, OriginalSemaExprDataError, OriginalSemaExprTypeError, SemaExprTermError,
 };
-use husky_syn_defn::HasDefns;
+use husky_syn_decl::HasSynNodeDecl;
+use husky_syn_defn::module_item_syn_node_defns;
 use husky_syn_expr::SynExprRegion;
 use salsa::DisplayWithDb;
 
@@ -19,18 +20,15 @@ pub(crate) fn expr_ty_diagnostic_sheet(
     module_path: ModulePath,
 ) -> ExprTypeDiagnosticSheet {
     let mut diagnostics = vec![];
-    if let Ok(defns) = module_path.defns(db) {
-        for defn in defns {
-            let decl = defn.syn_decl(db);
-            if let Some(syn_expr_region) = decl.syn_expr_region(db) {
-                collect_expr_ty_diagnostics(db, syn_expr_region, &mut diagnostics);
-            }
-            if let Some(syn_expr_region) = defn.syn_expr_region(db) {
-                collect_expr_ty_diagnostics(db, syn_expr_region, &mut diagnostics);
-            }
+    for (syn_node_path, defn) in module_item_syn_node_defns(db, module_path) {
+        let decl = syn_node_path.syn_node_decl(db);
+        if let Some(syn_expr_region) = decl.syn_expr_region(db) {
+            collect_expr_ty_diagnostics(db, syn_expr_region, &mut diagnostics);
+        }
+        if let Some(defn) = defn {
+            collect_expr_ty_diagnostics(db, defn.syn_expr_region, &mut diagnostics);
         }
     }
-    // todo
     ExprTypeDiagnosticSheet::new(db, diagnostics)
 }
 

@@ -27,6 +27,7 @@ husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 # syntax
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
+husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 
 [dev-dependencies]
 husky-hir-lazy-expr = { path = ".", features = ["test-utils"] }

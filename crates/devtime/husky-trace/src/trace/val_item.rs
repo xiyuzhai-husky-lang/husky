@@ -2,7 +2,7 @@ use super::*;
 use crate::registry::associated_trace::VoidAssociatedTraceRegistry;
 use husky_hir_defn::HasHirDefn;
 use husky_sema_expr::{helpers::analysis::sema_expr_region_contains_gn, SemaExprData, SemaExprDb};
-use husky_syn_defn::{FugitiveSynDefn, HasSynDefn};
+use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct ValItemTracePathData {
@@ -55,10 +55,11 @@ impl ValItemTraceData {
         let biological_parent_path = self.path;
         let biological_parent = trace;
         let val_item_path = self.val_item_path;
-        let Ok(FugitiveSynDefn::Val(val_item_defn)) = val_item_path.syn_defn(db) else {
-            unreachable!("no error at trace stage")
-        };
-        let Some((body, syn_expr_region)) = val_item_defn.body_with_syn_expr_region(db) else {
+        let Some(ItemSynDefn {
+            body,
+            syn_expr_region,
+        }) = item_syn_defn(db, val_item_path.into())
+        else {
             return vec![];
         };
         let sema_expr_region = db.sema_expr_region(syn_expr_region);

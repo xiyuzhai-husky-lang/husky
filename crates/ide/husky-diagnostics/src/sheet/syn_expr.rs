@@ -1,5 +1,6 @@
 use super::*;
-use husky_syn_defn::HasDefns;
+use husky_syn_decl::HasSynNodeDecl;
+use husky_syn_defn::{module_item_syn_node_defns, ItemSynNodeDefn};
 use husky_syn_expr::{
     OriginalSynExprError, SynExprData, SynExprError, SynExprRegion, SynExprResult,
     SynPrincipalEntityPathExpr, SynStmtData,
@@ -17,19 +18,20 @@ pub(crate) fn expr_diagnostic_sheet(
     module_path: ModulePath,
 ) -> ExprDiagnosticSheet {
     let mut sheet_collector = ModuleDiagnosticsCollector::new(db, module_path);
-    if let Ok(defns) = module_path.defns(db) {
-        for defn in defns.iter().copied() {
-            let decl = defn.syn_decl(db);
-            if let Some(syn_expr_region) = decl.syn_expr_region(db) {
-                sheet_collector
-                    .region_collector(syn_expr_region)
-                    .collect_expr_diagnostics(syn_expr_region);
-            }
-            if let Some(syn_expr_region) = defn.syn_expr_region(db) {
-                sheet_collector
-                    .region_collector(syn_expr_region)
-                    .collect_expr_diagnostics(syn_expr_region);
-            }
+    for (syn_node_path, defn) in module_item_syn_node_defns(db, module_path) {
+        let decl = syn_node_path.syn_node_decl(db);
+        if let Some(syn_expr_region) = decl.syn_expr_region(db) {
+            sheet_collector
+                .region_collector(syn_expr_region)
+                .collect_expr_diagnostics(syn_expr_region);
+        }
+        if let Some(ItemSynNodeDefn {
+            syn_expr_region, ..
+        }) = defn
+        {
+            sheet_collector
+                .region_collector(syn_expr_region)
+                .collect_expr_diagnostics(syn_expr_region);
         }
     }
     let diagnostics = sheet_collector.finish();

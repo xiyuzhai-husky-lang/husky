@@ -22,14 +22,11 @@ impl From<ValHirDefn> for HirDefn {
 
 impl ValHirDefn {
     pub(super) fn new(db: &::salsa::Db, path: FugitivePath, hir_decl: ValFugitiveHirDecl) -> Self {
-        let Ok(FugitiveSynDefn::Val(syn_defn)) = path.syn_defn(db) else {
-            unreachable!()
-        };
         Self::new_inner(
             db,
             path,
             hir_decl,
-            hir_body_with_expr_region(syn_defn.body_with_syn_expr_region(db), db),
+            hir_body_with_expr_region(path.into(), db),
         )
     }
 

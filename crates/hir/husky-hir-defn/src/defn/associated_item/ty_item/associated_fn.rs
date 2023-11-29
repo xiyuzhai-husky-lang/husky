@@ -25,14 +25,11 @@ impl TypeAssociatedFnHirDefn {
         path: TypeItemPath,
         hir_decl: TypeAssociatedFnHirDecl,
     ) -> TypeAssociatedFnHirDefn {
-        let Ok(TypeItemSynDefn::AssociatedFn(syn_defn)) = path.syn_defn(db) else {
-            unreachable!()
-        };
         TypeAssociatedFnHirDefn::new_inner(
             db,
             path,
             hir_decl,
-            hir_eager_body_with_expr_region(syn_defn.body_with_syn_expr_region(db), db),
+            hir_eager_body_with_expr_region(path.into(), db),
         )
     }
 
