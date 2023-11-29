@@ -12,7 +12,10 @@ pub struct LinkagePantheon {
 }
 
 #[salsa::tracked(jar = LinkageJar, return_ref)]
-pub(crate) fn linkage_pantheon(db: &::salsa::Db, package_path: PackagePath) -> LinkagePantheon {
+pub(crate) fn valkyrie_linkage_pantheon(
+    db: &::salsa::Db,
+    package_path: PackagePath,
+) -> LinkagePantheon {
     let mut pantheon = LinkagePantheon {
         package_path,
         instantiation_map: Default::default(),
@@ -21,7 +24,7 @@ pub(crate) fn linkage_pantheon(db: &::salsa::Db, package_path: PackagePath) -> L
         .package_dependencies(db)
         .expect("no error at this stage")
     {
-        pantheon.merge(linkage_pantheon(db, dep.package_path()))
+        pantheon.merge(valkyrie_linkage_pantheon(db, dep.package_path()))
     }
     // todo: add new linkages instantiated here
     pantheon
@@ -31,7 +34,7 @@ pub(crate) fn linkage_pantheon(db: &::salsa::Db, package_path: PackagePath) -> L
 fn linkage_pantheon_works() {
     let mut db = DB::default();
     db.ast_expect_test_debug_with_db(
-        |db, package_path| linkage_pantheon(db, package_path),
+        |db, package_path| valkyrie_linkage_pantheon(db, package_path),
         &AstTestConfig::new("linkage_pantheon"),
     )
 }

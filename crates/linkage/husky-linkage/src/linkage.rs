@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{path::LinkageItemPath, *};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_hir_defn::HasHirDefn;
 use husky_hir_ty::{instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments};
@@ -12,8 +12,8 @@ pub struct Linkage {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
     Coersion {},
-    Item {
-        item_path: ItemPath,
+    PathLeading {
+        path: LinkageItemPath,
         instantiation: LinkageInstantiation,
     },
     // todo: merge into Item
@@ -34,8 +34,8 @@ impl Linkage {
         }
         Some(Self::new(
             db,
-            LinkageData::Item {
-                item_path,
+            LinkageData::PathLeading {
+                path: LinkageItemPath::try_from_item_path(item_path)?,
                 // ad hoc consider places
                 instantiation: LinkageInstantiation::new_first_born(),
             },
@@ -69,8 +69,8 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::Item {
-                item_path: path.into(),
+            LinkageData::PathLeading {
+                path: LinkageItemPath::try_from_item_path(path.into()).unwrap(),
                 instantiation: LinkageInstantiation::from_hir(instantiation, db),
             },
         )
@@ -84,11 +84,11 @@ impl HasVersionStamp for Linkage {
         let mut builder = LinkageVersionStampBuilder::new(self, db);
         match self.data(db) {
             LinkageData::Coersion {} => (),
-            LinkageData::Item {
-                item_path: path,
+            LinkageData::PathLeading {
+                path,
                 instantiation,
             } => {
-                builder.add(path.hir_defn(db).unwrap());
+                builder.add(path.hir_defn(db));
                 todo!()
             }
             LinkageData::PropsStructField => todo!(),

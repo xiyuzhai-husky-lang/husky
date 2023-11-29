@@ -1,9 +1,13 @@
 [
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 240,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {
@@ -13,10 +17,14 @@
         },
     },
     Linkage {
-        data: LinkageData::Item {
-            item_path: ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
+        data: LinkageData::PathLeading {
+            path: Fugitive(
+                FugitivePath(
+                    ItemPathId(
+                        Id {
+                            value: 241,
+                        },
+                    ),
                 ),
             ),
             instantiation: LinkageInstantiation {

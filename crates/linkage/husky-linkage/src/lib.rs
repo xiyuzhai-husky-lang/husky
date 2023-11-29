@@ -5,7 +5,8 @@ pub mod form;
 pub mod instantiation;
 pub mod jar;
 pub mod linkage;
-mod pantheon;
+pub mod pantheon;
+pub mod path;
 pub mod place;
 pub mod root;
 pub mod template_argument;
@@ -13,6 +14,7 @@ pub mod template_argument;
 mod tests;
 pub mod trai;
 pub mod trai_for_ty;
+pub mod valkyrie;
 pub mod version_stamp;
 
 use self::instantiation::*;
