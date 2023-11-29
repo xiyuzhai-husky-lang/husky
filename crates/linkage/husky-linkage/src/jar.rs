@@ -8,4 +8,5 @@ pub struct LinkageJar(
     crate::version_stamp::LinkageVersionStamp,
     crate::template_argument::ty::LinkageTypePathLeading,
     crate::template_argument::ty::LinkageTypeRitchie,
+    crate::pantheon::linkage_pantheon,
 );

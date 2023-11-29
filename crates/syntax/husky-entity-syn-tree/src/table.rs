@@ -4,7 +4,7 @@ pub use self::prelude::*;
 
 use crate::*;
 use husky_coword::coword_menu;
-use husky_manifest::ManifestDependency;
+use husky_manifest::PackageDependency;
 
 use husky_token::IdentToken;
 use husky_vfs::error::VfsResult;
@@ -86,7 +86,7 @@ impl EntitySymbolEntry {
 
     pub(crate) fn new_package_dependency(
         db: &::salsa::Db,
-        package_dependency: &ManifestDependency,
+        package_dependency: &PackageDependency,
     ) -> VfsResult<Self> {
         let package_path = package_dependency.package_path();
         let Some(lib_root_module_path) = package_path.lib_root_module_path(db) else {

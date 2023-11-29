@@ -2,11 +2,11 @@ use crate::*;
 use husky_manifest_ast::ManifestDependencyAst;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ManifestDependency {
+pub struct PackageDependency {
     package_path: PackagePath,
 }
 
-impl ManifestDependency {
+impl PackageDependency {
     pub fn package_path(&self) -> PackagePath {
         self.package_path
     }
@@ -19,7 +19,7 @@ impl ManifestDependency {
     ) -> Self {
         // ad hoc
         // todo: check source
-        ManifestDependency {
+        PackageDependency {
             package_path: PackagePath::new_registry_package(
                 db,
                 toolchain,

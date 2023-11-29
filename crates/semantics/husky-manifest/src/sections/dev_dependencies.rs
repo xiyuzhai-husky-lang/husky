@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = ManifestDb, jar = ManifestJar)]
 pub struct PackageDevDependenciesSection {
     #[return_ref]
-    pub data: Vec<ManifestDependency>,
+    pub data: Vec<PackageDependency>,
 }
 
 #[salsa::tracked(jar = ManifestJar, return_ref)]
