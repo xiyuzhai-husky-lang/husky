@@ -10,6 +10,8 @@ pub enum LinkageItemPath {
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
     TraitForTypeItem(TraitForTypeItemPath),
+    TypeConstructor(TypePath),
+    TypeVariantConstructor(TypeVariantPath),
 }
 
 impl std::ops::Deref for LinkageItemPath {
@@ -49,12 +51,12 @@ impl LinkageItemPath {
         match item_path {
             ItemPath::Submodule(_, _) => None,
             ItemPath::MajorItem(path) => match path {
-                MajorItemPath::Type(_) => None,
+                MajorItemPath::Type(path) => Some(path.into()),
                 MajorItemPath::Trait(_) => None,
                 MajorItemPath::Fugitive(path) => Some(path.into()),
             },
             ItemPath::AssociatedItem(path) => Some(path.into()),
-            ItemPath::TypeVariant(_, _) => None,
+            ItemPath::TypeVariant(_, path) => Some(path.into()),
             ItemPath::ImplBlock(_) => None,
             ItemPath::Attr(_, _) => None,
         }
