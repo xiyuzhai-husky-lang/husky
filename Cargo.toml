@@ -75,6 +75,8 @@ tower = { version = "0.4", features = ["util"] }
 tower-http = { version = "0.4.0", features = ["fs", "trace"] }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 rustc-hash = "1.1.0"
+# comptime
+husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
 # linkage
 husky-javelin = { path = "crates/linkage/husky-javelin" }
 husky-linkage = { path = "crates/linkage/husky-linkage" }
