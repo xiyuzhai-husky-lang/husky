@@ -55,6 +55,8 @@ husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 husky-token-data = { path = "../../lex/husky-token-data" }
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
+# linkage
+husky-javelin = { path = "../../linkage/husky-javelin" }
 # semantics
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }

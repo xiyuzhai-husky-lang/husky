@@ -31,12 +31,14 @@ impl Jars {
     where
         Jar: HasJarIndex + 'static,
     {
-        let any: &Box<dyn std::any::Any + Send + Sync + 'static> = self.map
-            [<Jar as HasJarIndex>::JAR_INDEX]
-            .as_ref()
-            .expect("should be initialized");
-        let any: &(dyn std::any::Any + Send + Sync + 'static) = &**any;
-        any.downcast_ref().expect("should be the right type")
+        let jar_index = <Jar as HasJarIndex>::JAR_INDEX;
+        let Some(jar): Option<&Box<dyn std::any::Any + Send + Sync + 'static>> =
+            self.map[jar_index].as_ref()
+        else {
+            unreachable!("{:?} should be initialized", jar_index)
+        };
+        let jar: &(dyn std::any::Any + Send + Sync + 'static) = &**jar;
+        jar.downcast_ref().expect("should be the right type")
     }
 
     pub fn jar_mut<Jar>(&mut self) -> &mut Jar

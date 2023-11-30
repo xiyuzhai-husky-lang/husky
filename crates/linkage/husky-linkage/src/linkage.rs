@@ -14,19 +14,19 @@ pub struct Linkage {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
-    // Coersion {},
-    // PathLeading {
-    //     path: JavelinPath,
-    //     instantiation: LinkageInstantiation,
-    // },
-    // // todo: merge into Item
-    // PropsStructField,
-    // // todo: merge into Item
-    // MemoizedField,
-    // // todo: merge into Item
-    // Index,
-    // // todo: merge into Item
-    // Method,
+    Coersion {},
+    PathLeading {
+        // path: JavelinPath,
+        // instantiation: LinkageInstantiation,
+    },
+    // todo: merge into Item
+    PropsStructField,
+    // todo: merge into Item
+    MemoizedField,
+    // todo: merge into Item
+    Index,
+    // todo: merge into Item
+    Method,
     Todo,
 }
 
@@ -36,15 +36,15 @@ impl Linkage {
         if stats.tys + stats.constants > 0 {
             return None;
         }
-        todo!()
-        // Some(Self::new(
-        //     db,
-        //     JavelinData::PathLeading {
-        //         path: JavelinPath::try_from_item_path(item_path)?,
-        //         // ad hoc consider places
-        //         instantiation: JavelinInstantiation::new_first_born(),
-        //     },
-        // ))
+        Some(Self::new(
+            db,
+            Javelin::from_item_path(item_path, db)?,
+            LinkageData::PathLeading {
+                // path: JavelinPath::try_from_item_path(item_path)?,
+                // // ad hoc consider places
+                // instantiation: JavelinInstantiation::new_first_born(),
+            },
+        ))
     }
 
     pub fn new_suffix(db: &::salsa::Db) -> Self {
@@ -52,23 +52,27 @@ impl Linkage {
     }
 
     pub fn new_props_struct_field(db: &::salsa::Db) -> Self {
-        todo!()
-        // Self::new(db, JavelinData::PropsStructField)
+        Self::new(
+            db,
+            Javelin::new_props_struct_field(db),
+            LinkageData::PropsStructField,
+        )
     }
 
     pub fn new_memoized_field(db: &::salsa::Db) -> Self {
-        todo!()
-        // Self::new(db, JavelinData::MemoizedField)
+        Self::new(
+            db,
+            Javelin::new_memoized_field(db),
+            LinkageData::MemoizedField,
+        )
     }
 
     pub fn new_method(db: &::salsa::Db) -> Self {
-        todo!()
-        //Self::new(db, JavelinData::Method)
+        Self::new(db, Javelin::new_method(db), LinkageData::Method)
     }
 
     pub fn new_index(db: &::salsa::Db) -> Self {
-        todo!()
-        //   Self::new(db, JavelinData::Index)
+        Self::new(db, Javelin::new_index(db), LinkageData::Index)
     }
 
     pub fn new_item(
@@ -76,14 +80,14 @@ impl Linkage {
         hir_instantiation: &HirInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        todo!()
-        //Self::new(
-        //     db,
-        //     JavelinData::PathLeading {
-        //         path: JavelinPath::try_from_item_path(path.into()).unwrap(),
-        //         instantiation: JavelinInstantiation::from_hir(hir_instantiation, None, db),
-        //     },
-        // )
+        Self::new(
+            db,
+            Javelin::new_item(path, hir_instantiation, db),
+            LinkageData::PathLeading {
+                // path: JavelinPath::try_from_item_path(path.into()).unwrap(),
+                // instantiation: JavelinInstantiation::from_hir(hir_instantiation, None, db),
+            },
+        )
     }
 }
 

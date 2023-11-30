@@ -132,6 +132,9 @@
                         val_domain_repr: Omni,
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -180,21 +183,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 335,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 335,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -283,21 +289,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 262,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 262,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -328,21 +337,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 262,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 262,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -373,6 +385,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -454,6 +469,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -494,21 +512,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 335,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 335,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -580,6 +601,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -661,6 +685,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -777,6 +804,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -915,6 +945,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -957,6 +990,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -996,6 +1032,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -1038,6 +1077,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -1077,6 +1119,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -1119,6 +1164,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -1150,6 +1198,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -1201,21 +1252,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 262,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 262,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -1246,6 +1300,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -1319,21 +1376,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 262,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 262,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -1364,6 +1424,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -1388,6 +1451,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -1428,21 +1494,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 335,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 335,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -1532,6 +1601,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -1595,6 +1667,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -1734,6 +1809,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -1787,6 +1865,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -1811,6 +1892,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -1835,6 +1919,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -1888,6 +1975,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -1912,6 +2002,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -1975,6 +2068,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -2072,6 +2168,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -2111,6 +2210,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -2143,6 +2245,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -2175,6 +2280,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -2215,21 +2323,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 335,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 335,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -2316,6 +2427,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -2358,6 +2472,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -2411,6 +2528,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -2443,6 +2563,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -2485,6 +2608,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -2538,6 +2664,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -2562,6 +2691,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -2602,21 +2734,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 335,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 335,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -2685,6 +2820,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -2736,6 +2874,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -2789,6 +2930,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -2813,6 +2957,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -2837,6 +2984,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -2890,6 +3040,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -2914,6 +3067,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -3016,6 +3172,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -3069,6 +3228,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -3093,6 +3255,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -3146,6 +3311,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -3170,6 +3338,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -3241,6 +3412,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -3272,6 +3446,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -3303,6 +3480,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -3327,6 +3507,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -3351,6 +3534,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -3424,6 +3610,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -3477,6 +3666,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -3501,6 +3693,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -3554,6 +3749,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -3578,6 +3776,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -3631,6 +3832,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -3655,6 +3859,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -3695,21 +3902,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 335,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 335,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -3783,6 +3993,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -3807,6 +4020,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -3831,6 +4047,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -3855,6 +4074,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -3879,6 +4101,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -3903,6 +4128,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -3974,21 +4202,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 335,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 335,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -4057,6 +4288,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -4116,6 +4350,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -4158,6 +4395,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -4211,6 +4451,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -4243,6 +4486,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -4285,6 +4531,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -4338,6 +4587,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -4370,6 +4622,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -4412,6 +4667,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -4465,6 +4723,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -4489,6 +4750,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -4529,21 +4793,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 335,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 335,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -4695,6 +4962,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -4748,6 +5018,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -4772,6 +5045,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -4825,6 +5101,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -4849,6 +5128,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -4873,6 +5155,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -4904,6 +5189,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -4935,6 +5223,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -4959,6 +5250,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -5012,6 +5306,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -5036,6 +5333,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -5089,6 +5389,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -5113,6 +5416,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -5184,6 +5490,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -5215,6 +5524,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Index,
+                                },
                                 data: LinkageData::Index,
                             },
                         ),
@@ -5246,6 +5558,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -5270,6 +5585,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -5294,6 +5612,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -5318,6 +5639,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::Method,
+                                },
                                 data: LinkageData::Method,
                             },
                         ),
@@ -5342,6 +5666,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::PropsStructField,
+                                },
                                 data: LinkageData::PropsStructField,
                             },
                         ),
@@ -5382,21 +5709,24 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
-                                data: LinkageData::PathLeading {
-                                    path: Fugitive(
-                                        FugitivePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 335,
-                                                },
+                                javelin: Javelin {
+                                    data: JavelinData::PathLeading {
+                                        path: Fugitive(
+                                            FugitivePath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 335,
+                                                    },
+                                                ),
                                             ),
                                         ),
-                                    ),
-                                    instantiation: LinkageInstantiation {
-                                        symbol_resolutions: [],
-                                        separator: None,
+                                        instantiation: JavelinInstantiation {
+                                            symbol_resolutions: [],
+                                            separator: None,
+                                        },
                                     },
                                 },
+                                data: LinkageData::PathLeading,
                             },
                         ),
                         arguments: [
@@ -5551,6 +5881,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -5583,6 +5916,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -5607,6 +5943,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -5631,6 +5970,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
@@ -5717,6 +6059,9 @@
                         ),
                         opn: ValOpn::LinkageImpl(
                             Linkage {
+                                javelin: Javelin {
+                                    data: JavelinData::MemoizedField,
+                                },
                                 data: LinkageData::MemoizedField,
                             },
                         ),
