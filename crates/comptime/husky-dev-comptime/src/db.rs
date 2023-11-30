@@ -33,6 +33,7 @@ use std::panic::RefUnwindSafe;
     husky_toml_token::TomlTokenJar,
     husky_text::db::TextJar,
     // linkage
+    husky_javelin::jar::JavelinJar,
     husky_linkage::jar::LinkageJar,
     // semantics
     husky_sema_expr::SemaExprJar,
