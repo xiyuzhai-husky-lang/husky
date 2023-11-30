@@ -6,7 +6,9 @@
                     [],
                 ),
             ),
-            rides: [],
+            rides: VecSet {
+                data: [],
+            },
         },
     ),
     Some(
@@ -16,7 +18,9 @@
                     [],
                 ),
             ),
-            rides: [],
+            rides: VecSet {
+                data: [],
+            },
         },
     ),
     Some(
@@ -26,7 +30,9 @@
                     [],
                 ),
             ),
-            rides: [],
+            rides: VecSet {
+                data: [],
+            },
         },
     ),
     Some(
@@ -36,7 +42,9 @@
                     [],
                 ),
             ),
-            rides: [],
+            rides: VecSet {
+                data: [],
+            },
         },
     ),
     Some(
@@ -46,7 +54,9 @@
                     [],
                 ),
             ),
-            rides: [],
+            rides: VecSet {
+                data: [],
+            },
         },
     ),
     Some(
@@ -56,7 +66,9 @@
                     [],
                 ),
             ),
-            rides: [],
+            rides: VecSet {
+                data: [],
+            },
         },
     ),
     Some(
@@ -66,7 +78,9 @@
                     [],
                 ),
             ),
-            rides: [],
+            rides: VecSet {
+                data: [],
+            },
         },
     ),
 ]

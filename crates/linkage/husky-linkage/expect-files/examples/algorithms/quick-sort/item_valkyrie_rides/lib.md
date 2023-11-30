@@ -8,9 +8,7 @@
                             symbol: Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
-                                    variance: Some(
-                                        Covariant,
-                                    ),
+                                    variance: None,
                                     disambiguator: 0,
                                 },
                             ),
@@ -18,7 +16,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 25,
+                                            value: 115,
                                         },
                                     ),
                                 ),
@@ -29,7 +27,46 @@
                 ),
             ),
             rides: VecSet {
-                data: [],
+                data: [
+                    ValkyrieRide {
+                        linkage_path: TypeItem(
+                            TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 214,
+                                    },
+                                ),
+                            ),
+                        ),
+                        instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    Explicit(
+                                        Type(
+                                            Symbol(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                1,
+                            ),
+                        },
+                    },
+                ],
             },
         },
     ),
@@ -42,9 +79,7 @@
                             symbol: Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
-                                    variance: Some(
-                                        Covariant,
-                                    ),
+                                    variance: None,
                                     disambiguator: 0,
                                 },
                             ),
@@ -52,7 +87,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 25,
+                                            value: 115,
                                         },
                                     ),
                                 ),
@@ -84,7 +119,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 25,
+                                            value: 115,
                                         },
                                     ),
                                 ),
@@ -95,143 +130,52 @@
                 ),
             ),
             rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
+                data: [
+                    ValkyrieRide {
+                        linkage_path: TypeItem(
+                            TypeItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 215,
+                                    },
+                                ),
                             ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 25,
+                        ),
+                        instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    Type(
+                                        Type {
+                                            attrs: HirSymbolAttrs,
+                                            variance: None,
+                                            disambiguator: 0,
                                         },
                                     ),
+                                    Explicit(
+                                        Type(
+                                            Symbol(
+                                                Type {
+                                                    attrs: HirSymbolAttrs,
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
+                                        ),
+                                    ),
                                 ),
-                                traits: [],
-                            },
-                        },
-                    ],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
+                                (
+                                    Type(
+                                        SelfLifetime,
+                                    ),
+                                    SelfLifetime,
+                                ),
+                            ],
+                            separator: Some(
+                                1,
                             ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                                traits: [],
-                            },
                         },
-                    ],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
+                    },
+                ],
             },
         },
     ),
