@@ -19,5 +19,5 @@ ValkyrieJavelinPantheon {
         },
     },
     instantiation_map: {},
-    new_valkyrie_javelins: [],
+    package_valkyrie_javelins: [],
 }

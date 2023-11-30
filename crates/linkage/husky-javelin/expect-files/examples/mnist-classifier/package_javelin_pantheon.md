@@ -306,7 +306,7 @@ ValkyrieJavelinPantheon {
             },
         ),
     },
-    new_valkyrie_javelins: [
+    package_valkyrie_javelins: [
         ValkyrieJavelin(
             Javelin(
                 Id {

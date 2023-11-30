@@ -297,18 +297,18 @@ pub struct ValkyrieJavelinPantheon {
     package_path: PackagePath,
     // map each javelin to a package where it's instantiated
     instantiation_map: FxHashMap<ValkyrieJavelin, PackagePath>,
-    new_valkyrie_javelins: Vec<ValkyrieJavelin>,
+    package_valkyrie_javelins: Vec<ValkyrieJavelin>,
 }
 
 #[salsa::tracked(jar = JavelinJar, return_ref)]
-pub(crate) fn package_valkyrie_javelin_pantheon(
+fn package_valkyrie_javelin_pantheon(
     db: &::salsa::Db,
     package_path: PackagePath,
 ) -> ValkyrieJavelinPantheon {
     let mut pantheon = ValkyrieJavelinPantheon {
         package_path,
         instantiation_map: Default::default(),
-        new_valkyrie_javelins: Default::default(),
+        package_valkyrie_javelins: Default::default(),
     };
     for dep in package_path
         .package_dependencies(db)
@@ -323,17 +323,24 @@ pub(crate) fn package_valkyrie_javelin_pantheon(
     for &javelin in package_amazon_javelins(db, package_path) {
         pantheon.try_add_valkyrie_javelins_instantiated_by_javelin(*javelin, db)
     }
-    while bar < pantheon.new_valkyrie_javelins.len() {
-        let new_bar = pantheon.new_valkyrie_javelins.len();
-        for i in bar..pantheon.new_valkyrie_javelins.len() {
+    while bar < pantheon.package_valkyrie_javelins.len() {
+        let new_bar = pantheon.package_valkyrie_javelins.len();
+        for i in bar..pantheon.package_valkyrie_javelins.len() {
             pantheon.try_add_valkyrie_javelins_instantiated_by_javelin(
-                *pantheon.new_valkyrie_javelins[i],
+                *pantheon.package_valkyrie_javelins[i],
                 db,
             )
         }
         bar = new_bar
     }
     pantheon
+}
+
+pub(crate) fn package_valkyrie_javelins<'db>(
+    db: &'db ::salsa::Db,
+    package_path: PackagePath,
+) -> &'db [ValkyrieJavelin] {
+    &package_valkyrie_javelin_pantheon(db, package_path).package_valkyrie_javelins
 }
 
 impl ValkyrieJavelinPantheon {
@@ -373,7 +380,7 @@ impl ValkyrieJavelinPantheon {
     fn add_new_valkyrie_javelin(&mut self, valkyrie_javelin: ValkyrieJavelin) {
         self.instantiation_map
             .insert(valkyrie_javelin, self.package_path);
-        self.new_valkyrie_javelins.push(valkyrie_javelin)
+        self.package_valkyrie_javelins.push(valkyrie_javelin)
     }
 }
 
