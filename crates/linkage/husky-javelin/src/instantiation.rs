@@ -69,7 +69,7 @@ impl JavelinTermSymbolResolution {
                 ))
             }
             HirTermSymbolResolution::SelfLifetime => JavelinTermSymbolResolution::SelfLifetime,
-            HirTermSymbolResolution::SelfPlace(place) => JavelinTermSymbolResolution::SelfPlace,
+            HirTermSymbolResolution::SelfPlace(_) => JavelinTermSymbolResolution::SelfPlace,
         }
     }
 }
