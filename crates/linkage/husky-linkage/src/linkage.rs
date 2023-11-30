@@ -1,10 +1,14 @@
-use crate::{path::LinkageItemPath, *};
+use crate::{
+    javelin::{instantiation::JavelinInstantiation, path::JavelinItemPath, Javelin},
+    *,
+};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_hir_defn::HasHirDefn;
 use husky_hir_ty::{instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments};
 
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = pub(crate) new)]
 pub struct Linkage {
+    pub javelin: Javelin,
     #[return_ref]
     pub data: LinkageData,
 }
@@ -12,19 +16,20 @@ pub struct Linkage {
 #[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
-    Coersion {},
-    PathLeading {
-        path: LinkageItemPath,
-        instantiation: LinkageInstantiation,
-    },
-    // todo: merge into Item
-    PropsStructField,
-    // todo: merge into Item
-    MemoizedField,
-    // todo: merge into Item
-    Index,
-    // todo: merge into Item
-    Method,
+    // Coersion {},
+    // PathLeading {
+    //     path: JavelinItemPath,
+    //     instantiation: LinkageInstantiation,
+    // },
+    // // todo: merge into Item
+    // PropsStructField,
+    // // todo: merge into Item
+    // MemoizedField,
+    // // todo: merge into Item
+    // Index,
+    // // todo: merge into Item
+    // Method,
+    Todo,
 }
 
 impl Linkage {
@@ -36,9 +41,9 @@ impl Linkage {
         Some(Self::new(
             db,
             LinkageData::PathLeading {
-                path: LinkageItemPath::try_from_item_path(item_path)?,
+                path: JavelinItemPath::try_from_item_path(item_path)?,
                 // ad hoc consider places
-                instantiation: LinkageInstantiation::new_first_born(),
+                instantiation: JavelinInstantiation::new_first_born(),
             },
         ))
     }
@@ -71,8 +76,8 @@ impl Linkage {
         Self::new(
             db,
             LinkageData::PathLeading {
-                path: LinkageItemPath::try_from_item_path(path.into()).unwrap(),
-                instantiation: LinkageInstantiation::from_hir(hir_instantiation, None, db),
+                path: JavelinItemPath::try_from_item_path(path.into()).unwrap(),
+                instantiation: JavelinInstantiation::from_hir(hir_instantiation, None, db),
             },
         )
     }

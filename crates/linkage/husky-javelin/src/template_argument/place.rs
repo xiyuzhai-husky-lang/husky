@@ -2,7 +2,7 @@ use crate::*;
 use husky_hir_ty::place::HirPlace;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum LinkagePlace {
+pub enum JavelinPlace {
     Const,
     /// reduce to
     /// - ImmutableStackOwned if base type is known to be copyable
@@ -44,18 +44,18 @@ pub enum LinkagePlace {
     Leashed,
     Todo,
 }
-impl LinkagePlace {
-    pub(crate) fn from_hir(place: HirPlace) -> LinkagePlace {
+impl JavelinPlace {
+    pub(crate) fn from_hir(place: HirPlace) -> JavelinPlace {
         match place {
-            HirPlace::Const => LinkagePlace::Const,
-            HirPlace::StackPure => LinkagePlace::StackPure,
-            HirPlace::ImmutableStackOwned => LinkagePlace::ImmutableStackOwned,
-            HirPlace::MutableStackOwned => LinkagePlace::MutableStackOwned,
-            HirPlace::Transient => LinkagePlace::Transient,
-            HirPlace::Ref => LinkagePlace::Ref,
-            HirPlace::RefMut => LinkagePlace::RefMut,
-            HirPlace::Leashed => LinkagePlace::Leashed,
-            HirPlace::Todo => LinkagePlace::Todo,
+            HirPlace::Const => JavelinPlace::Const,
+            HirPlace::StackPure => JavelinPlace::StackPure,
+            HirPlace::ImmutableStackOwned => JavelinPlace::ImmutableStackOwned,
+            HirPlace::MutableStackOwned => JavelinPlace::MutableStackOwned,
+            HirPlace::Transient => JavelinPlace::Transient,
+            HirPlace::Ref => JavelinPlace::Ref,
+            HirPlace::RefMut => JavelinPlace::RefMut,
+            HirPlace::Leashed => JavelinPlace::Leashed,
+            HirPlace::Todo => JavelinPlace::Todo,
         }
     }
 }

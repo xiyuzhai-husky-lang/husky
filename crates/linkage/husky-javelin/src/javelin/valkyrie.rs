@@ -1,4 +1,8 @@
-use crate::{instantiation::LinkageInstantiation, path::LinkageItemPath, *};
+use super::{
+    instantiation::JavelinInstantiation, javelin::amazon::package_amazon_javelins,
+    path::JavelinItemPath, *,
+};
+use fxhash::FxHashMap;
 use husky_entity_path::{ItemPathId, MajorItemPath, PrincipalEntityPath};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_hir_decl::{parameter::template::HirTemplateParameters, HasHirDecl};
@@ -7,30 +11,31 @@ use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprRegion};
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprData, HirLazyExprRegion};
 use husky_hir_ty::instantiation::HirInstantiation;
+use husky_manifest::HasPackageManifest;
 use husky_vfs::PackagePath;
 use smallvec::ToSmallVec;
 use vec_like::VecSet;
 
-/// can be instantiated to a path leading linkage given LinkageInstantiation
+/// can be instantiated to a path leading javelin given JavelinInstantiation
 #[derive(Debug, PartialEq, Eq)]
 pub struct ValkyrieRide {
-    linkage_item_path: LinkageItemPath,
+    javelin_item_path: JavelinItemPath,
     hir_instantiation: HirInstantiation,
 }
 
 impl ValkyrieRide {
-    fn to_linkage(
+    fn to_javelin(
         &self,
-        linkage_instantiation: &LinkageInstantiation,
+        javelin_instantiation: &JavelinInstantiation,
         db: &::salsa::Db,
-    ) -> Linkage {
-        Linkage::new(
+    ) -> Javelin {
+        Javelin::new(
             db,
-            LinkageData::PathLeading {
-                path: self.linkage_item_path,
-                instantiation: LinkageInstantiation::from_hir(
+            JavelinData::PathLeading {
+                path: self.javelin_item_path,
+                instantiation: JavelinInstantiation::from_hir(
                     &self.hir_instantiation,
-                    Some(linkage_instantiation),
+                    Some(javelin_instantiation),
                     db,
                 ),
             },
@@ -45,7 +50,7 @@ pub struct ValkyrieRides {
     rides: VecSet<ValkyrieRide>,
 }
 
-#[salsa::tracked(jar = LinkageJar, return_ref)]
+#[salsa::tracked(jar = JavelinJar, return_ref)]
 fn item_valkyrie_rides(db: &::salsa::Db, id: ItemPathId) -> Option<ValkyrieRides> {
     let item_path = id.item_path(db);
     let hir_decl = item_path.hir_decl(db)?;
@@ -203,10 +208,10 @@ impl ValkyrieRides {
         }
     }
 
-    fn try_add_ride(&mut self, linkage_path: LinkageItemPath, instantiation: &HirInstantiation) {
+    fn try_add_ride(&mut self, javelin_path: JavelinItemPath, instantiation: &HirInstantiation) {
         if !instantiation.is_empty() {
             self.rides.insert_move(ValkyrieRide {
-                linkage_item_path: linkage_path,
+                javelin_item_path: javelin_path,
                 hir_instantiation: instantiation.clone(),
             })
         }
@@ -226,11 +231,11 @@ fn item_valkyrie_rides_works() {
     )
 }
 
-#[salsa::tracked(jar = LinkageJar, return_ref)]
-pub(crate) fn linkage_valkyrie_linkages(db: &::salsa::Db, linkage: Linkage) -> VecSet<Linkage> {
-    match *linkage.data(db) {
-        LinkageData::Coersion {} => Default::default(),
-        LinkageData::PathLeading {
+#[salsa::tracked(jar = JavelinJar, return_ref)]
+pub(crate) fn javelin_valkyrie_javelins(db: &::salsa::Db, javelin: Javelin) -> VecSet<Javelin> {
+    match *javelin.data(db) {
+        JavelinData::Coersion {} => Default::default(),
+        JavelinData::PathLeading {
             path,
             ref instantiation,
         } => {
@@ -240,19 +245,110 @@ pub(crate) fn linkage_valkyrie_linkages(db: &::salsa::Db, linkage: Linkage) -> V
             valkyrie_rides
                 .rides
                 .iter()
-                .map(|ride| ride.to_linkage(instantiation, db))
+                .map(|ride| ride.to_javelin(instantiation, db))
                 .collect()
         }
-        LinkageData::PropsStructField => todo!(),
-        LinkageData::MemoizedField => todo!(),
-        LinkageData::Index => todo!(),
-        LinkageData::Method => todo!(),
+        JavelinData::PropsStructField => todo!(),
+        JavelinData::MemoizedField => todo!(),
+        JavelinData::Index => todo!(),
+        JavelinData::Method => todo!(),
     }
 }
 
-pub struct PackageValkyrieLinkagesBuilder<'db> {
+pub struct PackageValkyrieJavelinsBuilder<'db> {
     db: &'db ::salsa::Db,
-    linkages: VecSet<Linkage>,
+    javelins: VecSet<Javelin>,
 }
 
-impl<'db> PackageValkyrieLinkagesBuilder<'db> {}
+impl<'db> PackageValkyrieJavelinsBuilder<'db> {}
+
+#[salsa::debug_with_db]
+#[derive(Debug, PartialEq, Eq)]
+pub struct JavelinPantheon {
+    package_path: PackagePath,
+    // map each javelin to a package where it's instantiated
+    instantiation_map: FxHashMap<Javelin, PackagePath>,
+    new_javelins: Vec<Javelin>,
+}
+
+#[salsa::tracked(jar = JavelinJar, return_ref)]
+pub(crate) fn package_valkyrie_javelin_pantheon(
+    db: &::salsa::Db,
+    package_path: PackagePath,
+) -> JavelinPantheon {
+    let mut pantheon = JavelinPantheon {
+        package_path,
+        instantiation_map: Default::default(),
+        new_javelins: Default::default(),
+    };
+    for dep in package_path
+        .package_dependencies(db)
+        .expect("no error at this stage")
+    {
+        pantheon.add_valkyrie_javelins_instantiated_by_package(package_valkyrie_javelin_pantheon(
+            db,
+            dep.package_path(),
+        ))
+    }
+    let mut bar = 0;
+    for &javelin in package_amazon_javelins(db, package_path) {
+        pantheon.try_add_valkyrie_javelins_instantiated_by_javelin(javelin, db)
+    }
+    while bar < pantheon.new_javelins.len() {
+        let new_bar = pantheon.new_javelins.len();
+        for i in bar..pantheon.new_javelins.len() {
+            pantheon.try_add_valkyrie_javelins_instantiated_by_javelin(pantheon.new_javelins[i], db)
+        }
+        bar = new_bar
+    }
+    pantheon
+}
+
+impl JavelinPantheon {
+    pub fn new_javelins<'a>(&'a self) -> impl Iterator<Item = Javelin> + 'a {
+        self.instantiation_map
+            .iter()
+            .filter_map(|(&javelin, &package_path)| {
+                (package_path == self.package_path).then_some(javelin)
+            })
+    }
+
+    fn add_valkyrie_javelins_instantiated_by_package(
+        &mut self,
+        other_package_javelin_pantheon: &Self,
+    ) {
+        for (&javelin, &package_path) in other_package_javelin_pantheon.instantiation_map.iter() {
+            self.instantiation_map
+                .entry(javelin)
+                .or_insert(package_path);
+        }
+    }
+
+    // do nothing if already instantiated
+    fn try_add_valkyrie_javelins_instantiated_by_javelin(
+        &mut self,
+        javelin: Javelin,
+        db: &::salsa::Db,
+    ) {
+        for &valkyrie_javelin in javelin_valkyrie_javelins(db, javelin) {
+            match self.instantiation_map.get(&valkyrie_javelin) {
+                Some(_) => (),
+                None => self.add_new_javelin(valkyrie_javelin),
+            }
+        }
+    }
+
+    fn add_new_javelin(&mut self, javelin: Javelin) {
+        self.instantiation_map.insert(javelin, self.package_path);
+        self.new_javelins.push(javelin)
+    }
+}
+
+#[test]
+fn package_javelin_pantheon_works() {
+    let mut db = DB::default();
+    db.ast_expect_test_debug_with_db(
+        |db, package_path| package_valkyrie_javelin_pantheon(db, package_path),
+        &AstTestConfig::new("package_javelin_pantheon"),
+    )
+}

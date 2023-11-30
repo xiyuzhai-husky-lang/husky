@@ -1,9 +1,8 @@
 [package]
-name = "husky-linkage"
+name = "husky-javelin"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 smallvec.workspace = true
 fxhash.workspace = true
@@ -23,8 +22,6 @@ husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-decl = { path = "../../hir/husky-hir-decl" }
 husky-hir-defn = { path = "../../hir/husky-hir-defn" }
-# linkage
-husky-javelin.workspace = true
 # semantics
 husky-manifest = { path = "../../semantics/husky-manifest" }
 # syntax

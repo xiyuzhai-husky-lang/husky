@@ -1,4 +1,7 @@
-use crate::*;
+use crate::{
+    template_argument::{place::JavelinPlace, JavelinTemplateArgument},
+    *,
+};
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolResolution},
     HirComptimeSymbol,
@@ -6,26 +9,26 @@ use husky_hir_ty::{
 use vec_like::SmallVecPairMap;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct LinkageInstantiation {
-    symbol_resolutions: SmallVecPairMap<HirComptimeSymbol, LinkageTermSymbolResolution, 4>,
+pub struct JavelinInstantiation {
+    symbol_resolutions: SmallVecPairMap<HirComptimeSymbol, JavelinTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
-impl LinkageInstantiation {
+impl JavelinInstantiation {
     pub(crate) fn from_hir(
         hir_instantiation: &HirInstantiation,
-        linkage_instantiation: Option<&LinkageInstantiation>,
+        javelin_instantiation: Option<&JavelinInstantiation>,
         db: &::salsa::Db,
-    ) -> LinkageInstantiation {
-        LinkageInstantiation {
+    ) -> JavelinInstantiation {
+        JavelinInstantiation {
             symbol_resolutions: hir_instantiation
                 .symbol_map()
                 .iter()
                 .map(|&(symbol, resolution)| {
                     (
                         symbol,
-                        LinkageTermSymbolResolution::from_hir(
+                        JavelinTermSymbolResolution::from_hir(
                             resolution,
-                            linkage_instantiation,
+                            javelin_instantiation,
                             db,
                         ),
                     )
@@ -44,29 +47,29 @@ impl LinkageInstantiation {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum LinkageTermSymbolResolution {
-    Explicit(LinkageTemplateArgument),
+pub enum JavelinTermSymbolResolution {
+    Explicit(JavelinTemplateArgument),
     SelfLifetime,
-    SelfPlace(LinkagePlace),
+    SelfPlace(JavelinPlace),
 }
 
-impl LinkageTermSymbolResolution {
+impl JavelinTermSymbolResolution {
     fn from_hir(
         resolution: HirTermSymbolResolution,
-        linkage_instantiation: Option<&LinkageInstantiation>,
+        javelin_instantiation: Option<&JavelinInstantiation>,
         db: &::salsa::Db,
     ) -> Self {
         match resolution {
             HirTermSymbolResolution::Explicit(template_argument) => {
-                LinkageTermSymbolResolution::Explicit(LinkageTemplateArgument::from_hir(
+                JavelinTermSymbolResolution::Explicit(JavelinTemplateArgument::from_hir(
                     template_argument,
-                    linkage_instantiation,
+                    javelin_instantiation,
                     db,
                 ))
             }
-            HirTermSymbolResolution::SelfLifetime => LinkageTermSymbolResolution::SelfLifetime,
+            HirTermSymbolResolution::SelfLifetime => JavelinTermSymbolResolution::SelfLifetime,
             HirTermSymbolResolution::SelfPlace(place) => {
-                LinkageTermSymbolResolution::SelfPlace(LinkagePlace::from_hir(place))
+                JavelinTermSymbolResolution::SelfPlace(JavelinPlace::from_hir(place))
             }
         }
     }
