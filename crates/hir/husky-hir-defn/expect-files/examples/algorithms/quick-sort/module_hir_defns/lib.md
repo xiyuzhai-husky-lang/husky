@@ -150,7 +150,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                Symbol(
+                                                                    Type {
+                                                                        attrs: HirSymbolAttrs,
+                                                                        variance: None,
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::PrincipalEntityPath(
@@ -202,7 +228,10 @@
                                         HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                             function_hir_eager_expr_idx: 3,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     4,
@@ -514,7 +543,10 @@
                                         HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`quick_sort::partition`, `FunctionFn`),
                                             function_hir_eager_expr_idx: 4,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     5,
@@ -560,7 +592,10 @@
                                         HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                             function_hir_eager_expr_idx: 9,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     10,
@@ -606,7 +641,10 @@
                                         HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`quick_sort::quick_sort_aux`, `FunctionFn`),
                                             function_hir_eager_expr_idx: 16,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     17,
@@ -1190,7 +1228,39 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                Symbol(
+                                                                    Type {
+                                                                        attrs: HirSymbolAttrs,
+                                                                        variance: None,
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    (
+                                                        Type(
+                                                            SelfLifetime,
+                                                        ),
+                                                        SelfLifetime,
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     49,
@@ -1245,7 +1315,39 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                Symbol(
+                                                                    Type {
+                                                                        attrs: HirSymbolAttrs,
+                                                                        variance: None,
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    (
+                                                        Type(
+                                                            SelfLifetime,
+                                                        ),
+                                                        SelfLifetime,
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     57,

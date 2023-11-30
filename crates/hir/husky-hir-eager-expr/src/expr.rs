@@ -8,7 +8,7 @@ use crate::{symbol::runtime_symbol::HirEagerRuntimeSymbolIdx, *};
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::{FluffyFieldSignature, MethodFluffySignature, StaticDispatch};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
-use husky_hir_ty::HirConstSymbol;
+use husky_hir_ty::{instantiation::HirInstantiation, HirConstSymbol};
 use husky_sema_expr::{SemaExprData, SemaExprIdx, SemaRitchieParameterArgumentMatch};
 use husky_syn_expr::InheritedSynSymbolKind;
 use vec_like::VecMap;
@@ -48,26 +48,25 @@ pub enum HirEagerExprData {
     TypeConstructorFnCall {
         path: TypePath,
         function_hir_eager_expr_idx: HirEagerExprIdx,
-        template_arguments: Option<HirEagerTemplateArgumentList>,
+        instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     TypeVariantConstructorCall {
         path: TypeVariantPath,
         function_hir_eager_expr_idx: HirEagerExprIdx,
-        template_arguments: Option<HirEagerTemplateArgumentList>,
+        instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     FunctionFnCall {
         path: FugitivePath,
         function_hir_eager_expr_idx: HirEagerExprIdx,
-        template_arguments: Option<HirEagerTemplateArgumentList>,
+        instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     AssociatedFunctionFnCall {
         path: AssociatedItemPath,
         function_hir_eager_expr_idx: HirEagerExprIdx,
-        parent_template_arguments: Option<HirEagerTemplateArgumentList>,
-        template_arguments: Option<HirEagerTemplateArgumentList>,
+        instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     PropsStructField {
@@ -83,7 +82,7 @@ pub enum HirEagerExprData {
         self_argument: HirEagerExprIdx,
         ident: Ident,
         path: AssociatedItemPath,
-        template_arguments: Option<HirEagerTemplateArgumentList>,
+        instantiation: HirInstantiation,
         item_groups: SmallVec<[HirEagerCallListItemGroup; 4]>,
     },
     NewTuple {
@@ -239,14 +238,16 @@ impl ToHirEager for SemaExprIdx {
                             MajorItemPath::Type(path) => HirEagerExprData::TypeConstructorFnCall {
                                 function_hir_eager_expr_idx,
                                 path,
-                                template_arguments,
+                                // ad hoc
+                                instantiation: HirInstantiation::new_empty(),
                                 item_groups,
                             },
                             MajorItemPath::Trait(_) => unreachable!(),
                             MajorItemPath::Fugitive(path) => HirEagerExprData::FunctionFnCall {
                                 function_hir_eager_expr_idx,
                                 path,
-                                template_arguments,
+                                // ad hoc
+                                instantiation: HirInstantiation::new_empty(),
                                 item_groups,
                             },
                         },
@@ -254,7 +255,8 @@ impl ToHirEager for SemaExprIdx {
                             HirEagerExprData::TypeVariantConstructorCall {
                                 function_hir_eager_expr_idx,
                                 path,
-                                template_arguments,
+                                // ad hoc
+                                instantiation: HirInstantiation::new_empty(),
                                 item_groups,
                             }
                         }
@@ -265,8 +267,7 @@ impl ToHirEager for SemaExprIdx {
                         function_hir_eager_expr_idx,
                         path: associated_item_path,
                         // ad hoc
-                        parent_template_arguments: None,
-                        template_arguments,
+                        instantiation: HirInstantiation::new_empty(),
                         item_groups,
                     },
                     _ => todo!(),
@@ -320,7 +321,11 @@ impl ToHirEager for SemaExprIdx {
                     self_argument: self_argument_sema_expr_idx.to_hir_eager(builder),
                     ident: ident_token.ident(),
                     path: signature.path(),
-                    template_arguments: template_arguments.as_ref().map(|_| todo!()),
+                    instantiation: HirInstantiation::from_fluffy(
+                        signature.instantiation(),
+                        builder.db(),
+                        builder.fluffy_terms(),
+                    ),
                     item_groups: builder
                         .new_call_list_item_groups(ritchie_parameter_argument_matches),
                 }

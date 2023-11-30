@@ -77,11 +77,11 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::MemoizedField { path, .. } => self.add_item_path(path),
                 HirEagerExprData::MethodFnCall {
                     path,
-                    ref template_arguments,
+                    ref instantiation,
                     ..
                 } => {
-                    // todo!();
-                    self.add_item_path(path)
+                    self.add_item_path(path);
+                    self.add_instantiation(instantiation)
                 }
                 HirEagerExprData::NewTuple { .. } => (),
                 HirEagerExprData::Index { .. } =>

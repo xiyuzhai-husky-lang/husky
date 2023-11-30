@@ -6,7 +6,7 @@ use crate::{
     *,
 };
 use husky_ethereal_term::EtherealTerm;
-use husky_fluffy_term::FluffyTermBase;
+use husky_fluffy_term::{FluffyTermBase, FluffyTerms};
 use husky_sema_expr::{
     SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
     SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
@@ -241,6 +241,10 @@ impl<'a> HirEagerExprBuilder<'a> {
     ) -> EtherealTerm {
         self.sema_expr_region_data
             .syn_pattern_expr_ty(syn_pattern_expr_idx, self.db)
+    }
+
+    pub(crate) fn fluffy_terms(&self) -> &FluffyTerms {
+        self.sema_expr_region_data.fluffy_term_region().terms()
     }
 }
 

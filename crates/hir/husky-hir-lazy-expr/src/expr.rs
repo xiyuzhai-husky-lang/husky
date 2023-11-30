@@ -213,12 +213,14 @@ impl ToHirLazy for SemaExprIdx {
                         PrincipalEntityPath::MajorItem(path) => match path {
                             MajorItemPath::Type(path) => HirLazyExprData::TypeConstructorFnCall {
                                 path,
+                                // ad hoc
                                 instantiation: HirInstantiation::new_empty(),
                                 item_groups,
                             },
                             MajorItemPath::Trait(_) => unreachable!(),
                             MajorItemPath::Fugitive(path) => HirLazyExprData::FunctionFnItemCall {
                                 path,
+                                // ad hoc
                                 instantiation: HirInstantiation::new_empty(),
                                 // HirInstantiation::from_fluffy(
                                 //     instantiation,
