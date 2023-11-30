@@ -1,36 +1,40 @@
 [
-    Javelin {
-        data: JavelinData::PathLeading {
-            path: Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 240,
-                        },
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: Fugitive(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 240,
+                            },
+                        ),
                     ),
                 ),
-            ),
-            instantiation: JavelinInstantiation {
-                symbol_resolutions: [],
-                separator: None,
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
             },
         },
-    },
-    Javelin {
-        data: JavelinData::PathLeading {
-            path: Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 241,
-                        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: Fugitive(
+                    FugitivePath(
+                        ItemPathId(
+                            Id {
+                                value: 241,
+                            },
+                        ),
                     ),
                 ),
-            ),
-            instantiation: JavelinInstantiation {
-                symbol_resolutions: [],
-                separator: None,
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
             },
         },
-    },
+    ),
 ]

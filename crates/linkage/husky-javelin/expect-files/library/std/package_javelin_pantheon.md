@@ -1,4 +1,4 @@
-JavelinPantheon {
+ValkyrieJavelinPantheon {
     package_path: PackagePath {
         toolchain: Toolchain {
             data: ToolchainData::Local {
@@ -13,5 +13,5 @@ JavelinPantheon {
         data: PackagePathSource::Library,
     },
     instantiation_map: {},
-    new_javelins: [],
+    new_valkyrie_javelins: [],
 }
