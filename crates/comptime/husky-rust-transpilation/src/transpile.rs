@@ -1,6 +1,6 @@
 use crate::{
     defn::module_defn_rust_transpilation,
-    linkages::package_linkages_transpilation,
+    linkage::package_linkages_transpilation,
     manifest::package_rust_manifest,
     package::{
         rust_transpilation_packages, RustTranspilationLibraryPackage,

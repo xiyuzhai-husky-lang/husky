@@ -1,4 +1,4 @@
-use cargo_manifest::{Edition, Manifest, MaybeInherited, Package, Workspace};
+use cargo_manifest::{Edition, Manifest, MaybeInherited, Package, Product, Workspace};
 
 use crate::*;
 
@@ -60,7 +60,20 @@ pub(crate) fn package_rust_manifest(db: &::salsa::Db, package_path: PackagePath)
         test: None,
         example: None,
         patch: None,
-        lib: None,
+        lib: Some(Product {
+            path: None,
+            name: None,
+            test: true,
+            doctest: true,
+            bench: true,
+            doc: true,
+            plugin: false,
+            proc_macro: false,
+            harness: true,
+            edition: None,
+            required_features: vec![],
+            crate_type: Some(vec!["dylib".into()]),
+        }),
         profile: None,
         badges: None,
     })

@@ -3,7 +3,7 @@ mod builder;
 pub mod db;
 mod defn;
 mod expr;
-mod linkages;
+mod linkage;
 mod manifest;
 mod package;
 #[cfg(test)]
