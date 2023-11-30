@@ -233,7 +233,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Literal(
@@ -279,7 +305,10 @@
                                         HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                             function_hir_eager_expr_idx: 11,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     12,
@@ -372,7 +401,10 @@
                                         HirEagerExprData::FunctionFnCall {
                                             path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                                             function_hir_eager_expr_idx: 30,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     31,
@@ -463,7 +495,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     48,
@@ -476,7 +534,10 @@
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             function_hir_eager_expr_idx: 44,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     45,
@@ -498,7 +559,39 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 47,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    (
+                                                        Type(
+                                                            SelfLifetime,
+                                                        ),
+                                                        SelfLifetime,
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     51,
@@ -598,7 +691,7 @@
                                                     PathLeading(
                                                         HirTypePathLeading(
                                                             Id {
-                                                                value: 52,
+                                                                value: 53,
                                                             },
                                                         ),
                                                     ),
@@ -952,7 +1045,29 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            SelfType,
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 64,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Block {
@@ -1333,7 +1448,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::MethodFnCall {
@@ -1348,7 +1468,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Binary {
@@ -1514,7 +1639,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Suffix {
@@ -1540,7 +1691,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -1558,7 +1714,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::MethodFnCall {
@@ -1573,7 +1734,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -1595,7 +1761,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -1617,7 +1809,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -1658,7 +1876,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     24,
@@ -2048,7 +2271,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Index {
@@ -2069,7 +2318,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -2091,7 +2345,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -2113,7 +2393,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -2144,7 +2450,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -2173,7 +2484,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     22,
@@ -2471,7 +2787,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Suffix {
@@ -2529,7 +2871,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -2551,7 +2919,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -2599,7 +2993,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     28,
@@ -2636,7 +3035,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     34,
@@ -2673,7 +3077,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     40,
@@ -2710,7 +3119,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     46,
@@ -2745,7 +3159,10 @@
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             function_hir_eager_expr_idx: 50,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     51,
@@ -2771,7 +3188,10 @@
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             function_hir_eager_expr_idx: 54,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     55,
@@ -2784,7 +3204,10 @@
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             function_hir_eager_expr_idx: 49,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     53,
@@ -3171,7 +3594,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     5,
@@ -3341,7 +3769,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Suffix {
@@ -3364,7 +3818,29 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            SelfType,
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 43,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -3386,7 +3862,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Suffix {
@@ -3409,13 +3911,38 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            SelfType,
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 43,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::TypeConstructorFnCall {
                                             path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                             function_hir_eager_expr_idx: 1,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     7,
@@ -3581,7 +4108,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Suffix {
@@ -3604,7 +4157,29 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            SelfType,
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 43,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Block {
@@ -3763,7 +4338,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Suffix {
@@ -3786,7 +4387,29 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            SelfType,
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 43,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Block {
@@ -3941,7 +4564,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::MethodFnCall {
@@ -3956,7 +4584,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Block {
@@ -4115,7 +4748,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Suffix {
@@ -4134,7 +4793,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Block {
@@ -4293,7 +4957,33 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [
+                                                    (
+                                                        Type(
+                                                            Type {
+                                                                attrs: HirSymbolAttrs,
+                                                                variance: None,
+                                                                disambiguator: 0,
+                                                            },
+                                                        ),
+                                                        Explicit(
+                                                            Type(
+                                                                PathLeading(
+                                                                    HirTypePathLeading(
+                                                                        Id {
+                                                                            value: 49,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                ],
+                                                separator: Some(
+                                                    1,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Suffix {
@@ -4312,7 +5002,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Block {

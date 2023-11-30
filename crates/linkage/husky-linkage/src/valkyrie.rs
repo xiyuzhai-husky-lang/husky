@@ -61,10 +61,7 @@ impl ValkyrieRides {
                 HirEagerExprData::AssociatedFn {
                     associated_item_path,
                 } => todo!(),
-                HirEagerExprData::Literal(_) => todo!(),
                 HirEagerExprData::PrincipalEntityPath(_) => todo!(),
-                HirEagerExprData::ConstSymbol(_) => todo!(),
-                HirEagerExprData::Variable(_) => todo!(),
                 HirEagerExprData::Binary { lopd, opr, ropd } => todo!(),
                 HirEagerExprData::Be { src, ref target } => todo!(),
                 HirEagerExprData::Prefix {
@@ -78,26 +75,25 @@ impl ValkyrieRides {
                 HirEagerExprData::TypeConstructorFnCall {
                     path,
                     function_hir_eager_expr_idx,
-                    ref template_arguments,
+                    ref instantiation,
                     ref item_groups,
                 } => todo!(),
                 HirEagerExprData::TypeVariantConstructorCall {
                     path,
                     function_hir_eager_expr_idx,
-                    ref template_arguments,
+                    ref instantiation,
                     ref item_groups,
                 } => todo!(),
                 HirEagerExprData::FunctionFnCall {
                     path,
                     function_hir_eager_expr_idx,
-                    ref template_arguments,
+                    ref instantiation,
                     ref item_groups,
                 } => todo!(),
                 HirEagerExprData::AssociatedFunctionFnCall {
                     path,
                     function_hir_eager_expr_idx,
-                    ref parent_template_arguments,
-                    ref template_arguments,
+                    ref instantiation,
                     ref item_groups,
                 } => todo!(),
                 HirEagerExprData::PropsStructField {
@@ -113,7 +109,7 @@ impl ValkyrieRides {
                     self_argument,
                     ident,
                     path,
-                    ref template_arguments,
+                    ref instantiation,
                     ref item_groups,
                 } => todo!(),
                 HirEagerExprData::NewTuple { ref items } => todo!(),
@@ -122,10 +118,7 @@ impl ValkyrieRides {
                     ref items,
                 } => todo!(),
                 HirEagerExprData::NewList { ref items } => todo!(),
-                HirEagerExprData::Block { .. } => (),
-                HirEagerExprData::EmptyHtmlTag { .. } => (),
-                HirEagerExprData::Todo => (),
-                HirEagerExprData::Unreachable => (),
+                _ => (),
             }
         }
     }

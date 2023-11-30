@@ -253,7 +253,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -331,7 +336,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Prefix {
@@ -362,7 +372,10 @@
                                                 },
                                             ),
                                             function_hir_eager_expr_idx: 7,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     11,
@@ -564,7 +577,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -642,7 +660,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Prefix {
@@ -673,7 +696,10 @@
                                                 },
                                             ),
                                             function_hir_eager_expr_idx: 7,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     11,
@@ -875,7 +901,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Variable(
@@ -953,7 +984,12 @@
                                                     ),
                                                 ),
                                             ),
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: Some(
+                                                    0,
+                                                ),
+                                            },
                                             item_groups: [],
                                         },
                                         HirEagerExprData::Prefix {
@@ -984,7 +1020,10 @@
                                                 },
                                             ),
                                             function_hir_eager_expr_idx: 7,
-                                            template_arguments: None,
+                                            instantiation: HirInstantiation {
+                                                symbol_map: [],
+                                                separator: None,
+                                            },
                                             item_groups: [
                                                 Regular(
                                                     11,

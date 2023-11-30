@@ -65,7 +65,9 @@ impl HirInstantiation {
                                 FluffyTermSymbolResolution::SelfLifetime => {
                                     HirTermSymbolResolution::SelfLifetime
                                 }
-                                FluffyTermSymbolResolution::SelfPlace(_) => todo!(),
+                                FluffyTermSymbolResolution::SelfPlace(place) => {
+                                    HirTermSymbolResolution::SelfPlace(HirPlace::from_fluffy(place))
+                                }
                             },
                         )),
                         None => None,
