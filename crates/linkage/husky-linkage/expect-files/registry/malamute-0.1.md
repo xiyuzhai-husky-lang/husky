@@ -1,22 +1,36 @@
-LinkagePantheon {
-    package_path: PackagePath {
-        toolchain: Toolchain {
-            data: ToolchainData::Local {
-                library_path: VirtualPath {
-                    _data: RelPathBuf(
-                        "../../../library",
+[
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 490,
+                        },
                     ),
-                },
-            },
-        },
-        name: `malamute`,
-        data: PackagePathSource::Local {
-            path: VirtualPath {
-                _data: RelPathBuf(
-                    "../../../registry/malamute-0.1.0",
                 ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
             },
         },
     },
-    instantiation_map: {},
-}
+    Linkage {
+        data: LinkageData::PathLeading {
+            path: TraitForTypeItem(
+                TraitForTypeItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 491,
+                        },
+                    ),
+                ),
+            ),
+            instantiation: LinkageInstantiation {
+                symbol_resolutions: [],
+                separator: None,
+            },
+        },
+    },
+]
