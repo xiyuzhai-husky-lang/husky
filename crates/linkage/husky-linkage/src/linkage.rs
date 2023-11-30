@@ -2,8 +2,9 @@ use crate::*;
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_hir_defn::HasHirDefn;
 use husky_hir_ty::{instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments};
-use husky_javelin::javelin::{Javelin, JavelinData};
-use smallvec::SmallVec;
+use husky_javelin::javelin::{package_javelins, Javelin, JavelinData};
+use husky_vfs::PackagePath;
+use smallvec::{smallvec, SmallVec};
 
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = pub(crate) new)]
 pub struct Linkage {
@@ -100,6 +101,7 @@ impl HasVersionStamp for Linkage {
     }
 }
 
+#[deprecated(note = "ad hoc implementation")]
 #[salsa::tracked(jar = LinkageJar, return_ref)]
 fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVec<[Linkage; 4]> {
     match javelin.data(db) {
@@ -107,10 +109,24 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
         JavelinData::PathLeading {
             path,
             instantiation,
-        } => todo!(),
+        } => smallvec![Linkage::new(db, javelin, LinkageData::PathLeading {})],
         JavelinData::PropsStructField => todo!(),
         JavelinData::MemoizedField => todo!(),
         JavelinData::Index => todo!(),
         JavelinData::Method => todo!(),
     }
+}
+
+#[salsa::tracked(jar = LinkageJar, return_ref)]
+pub fn package_linkages(db: &::salsa::Db, package_path: PackagePath) -> Vec<Linkage> {
+    package_javelins(db, package_path)
+        .map(|javelin| linkages_emancipated_by_javelin(db, javelin).iter().copied())
+        .flatten()
+        .collect()
+}
+
+#[test]
+fn package_linkages_works() {
+    DB::default()
+        .ast_expect_test_debug_with_db(package_linkages, &AstTestConfig::new("package_linkages"))
 }

@@ -4,4 +4,5 @@ use crate::*;
 pub struct LinkageJar(
     crate::linkage::Linkage,
     crate::linkage::linkages_emancipated_by_javelin,
+    crate::linkage::package_linkages,
 );
