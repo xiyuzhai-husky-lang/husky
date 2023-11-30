@@ -95,6 +95,7 @@ pub enum JarIndex {
     TokenDataJar,
     TomlTokenJar,
     // linkage
+    JavelinJar,
     LinkageJar,
     // semantics
     CorgiConfigJar,
