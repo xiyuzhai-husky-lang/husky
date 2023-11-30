@@ -2,7 +2,8 @@ use crate::*;
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_hir_defn::HasHirDefn;
 use husky_hir_ty::{instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments};
-use husky_javelin::javelin::Javelin;
+use husky_javelin::javelin::{Javelin, JavelinData};
+use smallvec::SmallVec;
 
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = pub(crate) new)]
 pub struct Linkage {
@@ -96,5 +97,20 @@ impl HasVersionStamp for Linkage {
 
     fn version_stamp(self, db: &::salsa::Db) -> LinkageVersionStamp {
         todo!()
+    }
+}
+
+#[salsa::tracked(jar = LinkageJar, return_ref)]
+fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVec<[Linkage; 4]> {
+    match javelin.data(db) {
+        JavelinData::Coersion {} => todo!(),
+        JavelinData::PathLeading {
+            path,
+            instantiation,
+        } => todo!(),
+        JavelinData::PropsStructField => todo!(),
+        JavelinData::MemoizedField => todo!(),
+        JavelinData::Index => todo!(),
+        JavelinData::Method => todo!(),
     }
 }
