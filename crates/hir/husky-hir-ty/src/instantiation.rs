@@ -28,6 +28,21 @@ pub enum HirTermSymbolResolution {
     SelfLifetime,
     SelfPlace(HirPlace),
 }
+impl HirTermSymbolResolution {
+    fn is_univalent_for_javelin(&self) -> bool {
+        match self {
+            HirTermSymbolResolution::Explicit(arg) => match arg {
+                HirTemplateArgument::Vacant => true,
+                HirTemplateArgument::Type(_) => false,
+                HirTemplateArgument::Constant(_) => false,
+                HirTemplateArgument::Lifetime(_) => true,
+                HirTemplateArgument::Place(_) => true,
+            },
+            HirTermSymbolResolution::SelfLifetime => true,
+            HirTermSymbolResolution::SelfPlace(_) => true,
+        }
+    }
+}
 
 impl HirInstantiation {
     #[deprecated]
@@ -86,7 +101,9 @@ impl HirInstantiation {
         self.separator
     }
 
-    pub fn is_empty(&self) -> bool {
-        self.symbol_map.is_empty()
+    pub fn is_univalent_for_javelin(&self) -> bool {
+        self.symbol_map
+            .iter()
+            .all(|(_, res)| res.is_univalent_for_javelin())
     }
 }

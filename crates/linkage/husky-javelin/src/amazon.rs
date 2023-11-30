@@ -8,7 +8,7 @@ use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_vfs::{CratePath, PackagePath};
 use vec_like::VecSet;
 
-/// an Amazon javelin is one with empty instantiation
+/// an Amazon javelin is one with univalent instantiation
 #[salsa::as_id]
 #[salsa::deref_id]
 #[salsa::debug_with_db]
@@ -26,7 +26,7 @@ impl AmazonJavelin {
             JavelinData::PathLeading {
                 path: JavelinPath::try_from_item_path(item_path)?,
                 // ad hoc consider places
-                instantiation: JavelinInstantiation::new_first_born(),
+                instantiation: JavelinInstantiation::new_empty(),
             },
         )))
     }

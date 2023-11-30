@@ -35,15 +35,17 @@ impl JavelinInstantiation {
         }
     }
 
-    pub(crate) fn new_first_born(/* places */) -> Self {
+    pub(crate) fn new_empty(/* places */) -> Self {
         Self {
             symbol_resolutions: Default::default(),
             separator: None,
         }
     }
 
-    pub fn is_empty(&self) -> bool {
-        self.symbol_resolutions.is_empty()
+    pub fn is_univalent(&self) -> bool {
+        self.symbol_resolutions
+            .iter()
+            .all(|(_, res)| res.is_univalent())
     }
 }
 
@@ -70,6 +72,20 @@ impl JavelinTermSymbolResolution {
             }
             HirTermSymbolResolution::SelfLifetime => JavelinTermSymbolResolution::SelfLifetime,
             HirTermSymbolResolution::SelfPlace(_) => JavelinTermSymbolResolution::SelfPlace,
+        }
+    }
+
+    fn is_univalent(&self) -> bool {
+        match self {
+            JavelinTermSymbolResolution::Explicit(arg) => match arg {
+                JavelinTemplateArgument::Vacant => true,
+                JavelinTemplateArgument::Type(_) => false,
+                JavelinTemplateArgument::Constant(_) => false,
+                JavelinTemplateArgument::Lifetime => true,
+                JavelinTemplateArgument::Place => true,
+            },
+            JavelinTermSymbolResolution::SelfLifetime => true,
+            JavelinTermSymbolResolution::SelfPlace => true,
         }
     }
 }

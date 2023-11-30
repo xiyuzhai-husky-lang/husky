@@ -30,7 +30,7 @@ impl ValkyrieJavelin {
         match javelin.data(db) {
             JavelinData::Coersion {} => todo!(),
             JavelinData::PathLeading { instantiation, .. } => {
-                debug_assert!(!instantiation.is_empty())
+                debug_assert!(!instantiation.is_univalent())
             }
             JavelinData::PropsStructField => (),
             JavelinData::MemoizedField => (),
@@ -54,7 +54,7 @@ impl ValkyrieRide {
         javelin_instantiation: &JavelinInstantiation,
         db: &::salsa::Db,
     ) -> ValkyrieJavelin {
-        debug_assert!(!self.hir_instantiation.is_empty());
+        debug_assert!(!self.hir_instantiation.is_univalent_for_javelin());
         ValkyrieJavelin(Javelin::new(
             db,
             JavelinData::PathLeading {
@@ -235,7 +235,7 @@ impl ValkyrieRides {
     }
 
     fn try_add_ride(&mut self, javelin_path: JavelinPath, instantiation: &HirInstantiation) {
-        if !instantiation.is_empty() {
+        if !instantiation.is_univalent_for_javelin() {
             self.rides.insert_move(ValkyrieRide {
                 javelin_item_path: javelin_path,
                 hir_instantiation: instantiation.clone(),
