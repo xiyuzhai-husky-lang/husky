@@ -7,14 +7,35 @@ use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprRegion};
 use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprData, HirLazyExprRegion};
 use husky_hir_ty::instantiation::HirInstantiation;
+use husky_vfs::PackagePath;
 use smallvec::ToSmallVec;
 use vec_like::VecSet;
 
 /// can be instantiated to a path leading linkage given LinkageInstantiation
 #[derive(Debug, PartialEq, Eq)]
 pub struct ValkyrieRide {
-    linkage_path: LinkageItemPath,
-    instantiation: HirInstantiation,
+    linkage_item_path: LinkageItemPath,
+    hir_instantiation: HirInstantiation,
+}
+
+impl ValkyrieRide {
+    fn to_linkage(
+        &self,
+        linkage_instantiation: &LinkageInstantiation,
+        db: &::salsa::Db,
+    ) -> Linkage {
+        Linkage::new(
+            db,
+            LinkageData::PathLeading {
+                path: self.linkage_item_path,
+                instantiation: LinkageInstantiation::from_hir(
+                    &self.hir_instantiation,
+                    Some(linkage_instantiation),
+                    db,
+                ),
+            },
+        )
+    }
 }
 
 #[salsa::debug_with_db]
@@ -185,8 +206,8 @@ impl ValkyrieRides {
     fn try_add_ride(&mut self, linkage_path: LinkageItemPath, instantiation: &HirInstantiation) {
         if !instantiation.is_empty() {
             self.rides.insert_move(ValkyrieRide {
-                linkage_path,
-                instantiation: instantiation.clone(),
+                linkage_item_path: linkage_path,
+                hir_instantiation: instantiation.clone(),
             })
         }
     }
@@ -204,3 +225,34 @@ fn item_valkyrie_rides_works() {
         &AstTestConfig::new("item_valkyrie_rides"),
     )
 }
+
+#[salsa::tracked(jar = LinkageJar, return_ref)]
+pub(crate) fn linkage_valkyrie_linkages(db: &::salsa::Db, linkage: Linkage) -> VecSet<Linkage> {
+    match *linkage.data(db) {
+        LinkageData::Coersion {} => Default::default(),
+        LinkageData::PathLeading {
+            path,
+            ref instantiation,
+        } => {
+            let Some(valkyrie_rides) = item_valkyrie_rides(db, *path) else {
+                return Default::default();
+            };
+            valkyrie_rides
+                .rides
+                .iter()
+                .map(|ride| ride.to_linkage(instantiation, db))
+                .collect()
+        }
+        LinkageData::PropsStructField => todo!(),
+        LinkageData::MemoizedField => todo!(),
+        LinkageData::Index => todo!(),
+        LinkageData::Method => todo!(),
+    }
+}
+
+pub struct PackageValkyrieLinkagesBuilder<'db> {
+    db: &'db ::salsa::Db,
+    linkages: VecSet<Linkage>,
+}
+
+impl<'db> PackageValkyrieLinkagesBuilder<'db> {}

@@ -22,13 +22,18 @@ pub struct LinkageTypePathLeading {
 pub struct LinkageTypeRitchie {}
 
 impl LinkageType {
-    pub(super) fn from_hir(hir_ty: HirType, db: &::salsa::Db) -> Self {
+    pub(super) fn from_hir(
+        hir_ty: HirType,
+        linkage_instantiation: Option<&LinkageInstantiation>,
+        db: &::salsa::Db,
+    ) -> Self {
         match hir_ty {
             HirType::PathLeading(hir_ty) => LinkageTypePathLeading::new(
                 db,
                 hir_ty.ty_path(db),
                 LinkageTemplateArgument::from_hir_template_arguments(
                     hir_ty.template_arguments(db),
+                    linkage_instantiation,
                     db,
                 ),
             )
@@ -36,7 +41,7 @@ impl LinkageType {
             HirType::Symbol(_) => unreachable!(),
             HirType::TypeAssociatedType(_) => unreachable!(),
             HirType::TraitAssociatedType(_) => unreachable!(),
-            HirType::Ritchie(_) => todo!(),
+            HirType::Ritchie(_) => LinkageTypeRitchie::new(db).into(),
         }
     }
 }

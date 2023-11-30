@@ -1,36 +1,23 @@
-[
-    Linkage {
-        data: LinkageData::PathLeading {
-            path: Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 240,
-                        },
+LinkagePantheon {
+    package_path: PackagePath {
+        toolchain: Toolchain {
+            data: ToolchainData::Local {
+                library_path: VirtualPath {
+                    _data: RelPathBuf(
+                        "../../../library",
                     ),
+                },
+            },
+        },
+        name: `quick-sort`,
+        data: PackagePathSource::Local {
+            path: VirtualPath {
+                _data: RelPathBuf(
+                    "../../../examples/algorithms/quick-sort",
                 ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
             },
         },
     },
-    Linkage {
-        data: LinkageData::PathLeading {
-            path: Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 241,
-                        },
-                    ),
-                ),
-            ),
-            instantiation: LinkageInstantiation {
-                symbol_resolutions: [],
-                separator: None,
-            },
-        },
-    },
-]
+    instantiation_map: {},
+    new_linkages: [],
+}

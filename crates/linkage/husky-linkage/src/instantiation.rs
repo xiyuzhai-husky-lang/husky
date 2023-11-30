@@ -12,21 +12,26 @@ pub struct LinkageInstantiation {
 }
 impl LinkageInstantiation {
     pub(crate) fn from_hir(
-        instantiation: &HirInstantiation,
+        hir_instantiation: &HirInstantiation,
+        linkage_instantiation: Option<&LinkageInstantiation>,
         db: &::salsa::Db,
     ) -> LinkageInstantiation {
         LinkageInstantiation {
-            symbol_resolutions: instantiation
+            symbol_resolutions: hir_instantiation
                 .symbol_map()
                 .iter()
                 .map(|&(symbol, resolution)| {
                     (
                         symbol,
-                        LinkageTermSymbolResolution::from_hir(resolution, db),
+                        LinkageTermSymbolResolution::from_hir(
+                            resolution,
+                            linkage_instantiation,
+                            db,
+                        ),
                     )
                 })
                 .collect(),
-            separator: instantiation.separator(),
+            separator: hir_instantiation.separator(),
         }
     }
 
@@ -46,11 +51,16 @@ pub enum LinkageTermSymbolResolution {
 }
 
 impl LinkageTermSymbolResolution {
-    fn from_hir(resolution: HirTermSymbolResolution, db: &::salsa::Db) -> Self {
+    fn from_hir(
+        resolution: HirTermSymbolResolution,
+        linkage_instantiation: Option<&LinkageInstantiation>,
+        db: &::salsa::Db,
+    ) -> Self {
         match resolution {
             HirTermSymbolResolution::Explicit(template_argument) => {
                 LinkageTermSymbolResolution::Explicit(LinkageTemplateArgument::from_hir(
                     template_argument,
+                    linkage_instantiation,
                     db,
                 ))
             }

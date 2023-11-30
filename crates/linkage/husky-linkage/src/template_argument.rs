@@ -18,23 +18,30 @@ pub enum LinkageTemplateArgument {
 impl LinkageTemplateArgument {
     pub(crate) fn from_hir_template_arguments(
         template_arguments: &[HirTemplateArgument],
+        linkage_instantiation: Option<&LinkageInstantiation>,
         db: &::salsa::Db,
     ) -> LinkageTemplateArguments {
         template_arguments
             .iter()
-            .map(|&template_argument| LinkageTemplateArgument::from_hir(template_argument, db))
+            .map(|&template_argument| {
+                LinkageTemplateArgument::from_hir(template_argument, linkage_instantiation, db)
+            })
             .collect()
     }
 
-    pub(crate) fn from_hir(template_argument: HirTemplateArgument, db: &::salsa::Db) -> Self {
+    pub(crate) fn from_hir(
+        template_argument: HirTemplateArgument,
+        linkage_instantiation: Option<&LinkageInstantiation>,
+        db: &::salsa::Db,
+    ) -> Self {
         match template_argument {
             HirTemplateArgument::Vacant => LinkageTemplateArgument::Vacant,
-            HirTemplateArgument::Type(hir_ty) => {
-                LinkageTemplateArgument::Type(LinkageType::from_hir(hir_ty, db))
-            }
-            HirTemplateArgument::Constant(hir_constant) => {
-                LinkageTemplateArgument::Constant(LinkageConstant::from_hir(hir_constant))
-            }
+            HirTemplateArgument::Type(hir_ty) => LinkageTemplateArgument::Type(
+                LinkageType::from_hir(hir_ty, linkage_instantiation, db),
+            ),
+            HirTemplateArgument::Constant(hir_constant) => LinkageTemplateArgument::Constant(
+                LinkageConstant::from_hir(hir_constant, linkage_instantiation),
+            ),
             HirTemplateArgument::Lifetime(_) => LinkageTemplateArgument::Lifetime,
             HirTemplateArgument::Place(_) => LinkageTemplateArgument::Place,
         }
