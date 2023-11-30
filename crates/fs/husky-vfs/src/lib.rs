@@ -11,7 +11,7 @@ mod file;
 mod lsp_support;
 pub mod path;
 pub mod snippet;
-#[cfg(feature = "test-utils")]
+#[cfg(debug_assertions)]
 pub mod test_utils;
 #[cfg(test)]
 mod tests;
@@ -22,7 +22,7 @@ pub use self::cache::VfsCache;
 #[cfg(feature = "lsp_support")]
 pub use self::lsp_support::*;
 pub use self::path::*;
-#[cfg(feature = "test-utils")]
+#[cfg(debug_assertions)]
 pub use self::test_utils::*;
 pub use self::toolchain::*;
 // pub use self::watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};

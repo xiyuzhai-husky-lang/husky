@@ -6,7 +6,7 @@ mod helpers;
 mod sheet;
 mod snippet;
 mod stream;
-#[cfg(feature = "test-utils")]
+#[cfg(debug_assertions)]
 pub mod test_utils;
 #[cfg(test)]
 mod tests;
