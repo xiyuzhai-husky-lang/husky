@@ -39,7 +39,7 @@ impl Javelin {
             JavelinData::PathLeading {
                 path: JavelinPath::try_from_item_path(item_path)?,
                 // ad hoc consider places
-                instantiation: JavelinInstantiation::new_first_born(),
+                instantiation: JavelinInstantiation::new_empty(),
             },
         ))
     }
