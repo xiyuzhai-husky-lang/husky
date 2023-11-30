@@ -6,6 +6,16 @@ pub struct VecSet<K> {
     data: Vec<K>,
 }
 
+impl<'a, K> IntoIterator for &'a VecSet<K> {
+    type Item = &'a K;
+
+    type IntoIter = impl Iterator<Item = &'a K> + 'a;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.data.iter()
+    }
+}
+
 impl<K> VecSet<K> {
     pub fn new_one_elem_set(elem: K) -> Self {
         Self { data: vec![elem] }
@@ -20,10 +30,7 @@ impl<K> Default for VecSet<K> {
     }
 }
 
-impl<K> Deref for VecSet<K>
-where
-    K: PartialEq + Eq + Copy,
-{
+impl<K> Deref for VecSet<K> {
     type Target = [K];
 
     fn deref(&self) -> &Self::Target {

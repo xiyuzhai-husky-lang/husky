@@ -3,8 +3,9 @@ use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_hir_defn::HasHirDefn;
 use husky_hir_ty::{instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments};
 
-#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
+#[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = pub(crate) new)]
 pub struct Linkage {
+    #[return_ref]
     pub data: LinkageData,
 }
 
@@ -64,14 +65,14 @@ impl Linkage {
 
     pub fn new_item(
         path: impl Into<ItemPath>,
-        instantiation: &HirInstantiation,
+        hir_instantiation: &HirInstantiation,
         db: &::salsa::Db,
     ) -> Self {
         Self::new(
             db,
             LinkageData::PathLeading {
                 path: LinkageItemPath::try_from_item_path(path.into()).unwrap(),
-                instantiation: LinkageInstantiation::from_hir(instantiation, db),
+                instantiation: LinkageInstantiation::from_hir(hir_instantiation, None, db),
             },
         )
     }

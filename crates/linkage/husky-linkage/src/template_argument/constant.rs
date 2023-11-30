@@ -28,7 +28,10 @@ pub enum LinkageConstant {
 }
 
 impl LinkageConstant {
-    pub(crate) fn from_hir(hir_constant: HirConstant) -> LinkageConstant {
+    pub(crate) fn from_hir(
+        hir_constant: HirConstant,
+        linkage_instantiation: Option<&LinkageInstantiation>,
+    ) -> LinkageConstant {
         match hir_constant {
             HirConstant::Unit(value) => LinkageConstant::Unit(value),
             HirConstant::Bool(value) => LinkageConstant::Bool(value),
@@ -51,7 +54,7 @@ impl LinkageConstant {
             HirConstant::R64(value) => LinkageConstant::R64(value),
             HirConstant::R128(value) => LinkageConstant::R128(value),
             HirConstant::RSize(value) => LinkageConstant::RSize(value),
-            HirConstant::Symbol(_) => unreachable!(),
+            HirConstant::Symbol(_) => todo!("use linkage instantiation"),
         }
     }
 }

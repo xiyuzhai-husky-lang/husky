@@ -33,7 +33,7 @@
             rides: VecSet {
                 data: [
                     ValkyrieRide {
-                        linkage_path: TraitForTypeItem(
+                        linkage_item_path: TraitForTypeItem(
                             TraitForTypeItemPath(
                                 ItemPathId(
                                     Id {
@@ -42,7 +42,7 @@
                                 ),
                             ),
                         ),
-                        instantiation: HirInstantiation {
+                        hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
                                     Type(

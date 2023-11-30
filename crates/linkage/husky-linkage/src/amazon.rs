@@ -4,7 +4,10 @@ use husky_vfs::{CratePath, PackagePath};
 use vec_like::VecSet;
 
 #[salsa::tracked(jar = LinkageJar, return_ref)]
-fn package_amazon_linkages(db: &::salsa::Db, package_path: PackagePath) -> VecSet<Linkage> {
+pub(crate) fn package_amazon_linkages(
+    db: &::salsa::Db,
+    package_path: PackagePath,
+) -> VecSet<Linkage> {
     let mut linkages: VecSet<Linkage> = Default::default();
     for &crate_path in package_path.crate_paths(db) {
         for &module_path in crate_module_paths(db, crate_path) {

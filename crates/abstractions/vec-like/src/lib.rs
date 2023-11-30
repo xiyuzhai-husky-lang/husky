@@ -1,3 +1,4 @@
+#![feature(impl_trait_in_assoc_type)]
 mod append_only;
 pub mod error;
 mod ordered_small_vec_set;
