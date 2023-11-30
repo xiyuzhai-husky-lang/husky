@@ -8,8 +8,6 @@ pub mod version_stamp;
 
 use self::jar::*;
 use self::linkage::*;
-use self::place::*;
-use self::template_argument::*;
 #[cfg(test)]
 use self::tests::*;
 use self::version_stamp::*;

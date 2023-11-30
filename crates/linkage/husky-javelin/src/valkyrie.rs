@@ -1,5 +1,5 @@
-use super::{
-    instantiation::JavelinInstantiation, javelin::amazon::package_amazon_javelins,
+use crate::{
+    amazon::package_amazon_javelins, instantiation::JavelinInstantiation, javelin::JavelinData,
     path::JavelinItemPath, *,
 };
 use fxhash::FxHashMap;
@@ -22,6 +22,8 @@ pub struct ValkyrieRide {
     javelin_item_path: JavelinItemPath,
     hir_instantiation: HirInstantiation,
 }
+
+pub struct ValkyrieJavelin(Javelin);
 
 impl ValkyrieRide {
     fn to_javelin(
