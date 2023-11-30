@@ -1,6 +1,6 @@
 use crate::{
     amazon::package_amazon_javelins, instantiation::JavelinInstantiation, javelin::JavelinData,
-    path::JavelinItemPath, *,
+    path::JavelinPath, *,
 };
 use fxhash::FxHashMap;
 use husky_entity_path::{ItemPathId, MajorItemPath, PrincipalEntityPath};
@@ -19,7 +19,7 @@ use vec_like::VecSet;
 /// can be instantiated to a path leading javelin given JavelinInstantiation
 #[derive(Debug, PartialEq, Eq)]
 pub struct ValkyrieRide {
-    javelin_item_path: JavelinItemPath,
+    javelin_item_path: JavelinPath,
     hir_instantiation: HirInstantiation,
 }
 
@@ -210,7 +210,7 @@ impl ValkyrieRides {
         }
     }
 
-    fn try_add_ride(&mut self, javelin_path: JavelinItemPath, instantiation: &HirInstantiation) {
+    fn try_add_ride(&mut self, javelin_path: JavelinPath, instantiation: &HirInstantiation) {
         if !instantiation.is_empty() {
             self.rides.insert_move(ValkyrieRide {
                 javelin_item_path: javelin_path,

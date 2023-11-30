@@ -16,7 +16,7 @@ pub struct Linkage {
 pub enum LinkageData {
     // Coersion {},
     // PathLeading {
-    //     path: JavelinItemPath,
+    //     path: JavelinPath,
     //     instantiation: LinkageInstantiation,
     // },
     // // todo: merge into Item
@@ -36,14 +36,15 @@ impl Linkage {
         if stats.tys + stats.constants > 0 {
             return None;
         }
-        Some(Self::new(
-            db,
-            JavelinData::PathLeading {
-                path: JavelinItemPath::try_from_item_path(item_path)?,
-                // ad hoc consider places
-                instantiation: JavelinInstantiation::new_first_born(),
-            },
-        ))
+        todo!()
+        // Some(Self::new(
+        //     db,
+        //     JavelinData::PathLeading {
+        //         path: JavelinPath::try_from_item_path(item_path)?,
+        //         // ad hoc consider places
+        //         instantiation: JavelinInstantiation::new_first_born(),
+        //     },
+        // ))
     }
 
     pub fn new_suffix(db: &::salsa::Db) -> Self {
@@ -51,19 +52,23 @@ impl Linkage {
     }
 
     pub fn new_props_struct_field(db: &::salsa::Db) -> Self {
-        Self::new(db, JavelinData::PropsStructField)
+        todo!()
+        // Self::new(db, JavelinData::PropsStructField)
     }
 
     pub fn new_memoized_field(db: &::salsa::Db) -> Self {
-        Self::new(db, JavelinData::MemoizedField)
+        todo!()
+        // Self::new(db, JavelinData::MemoizedField)
     }
 
     pub fn new_method(db: &::salsa::Db) -> Self {
-        Self::new(db, JavelinData::Method)
+        todo!()
+        //Self::new(db, JavelinData::Method)
     }
 
     pub fn new_index(db: &::salsa::Db) -> Self {
-        Self::new(db, JavelinData::Index)
+        todo!()
+        //   Self::new(db, JavelinData::Index)
     }
 
     pub fn new_item(
@@ -71,13 +76,14 @@ impl Linkage {
         hir_instantiation: &HirInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        Self::new(
-            db,
-            JavelinData::PathLeading {
-                path: JavelinItemPath::try_from_item_path(path.into()).unwrap(),
-                instantiation: JavelinInstantiation::from_hir(hir_instantiation, None, db),
-            },
-        )
+        todo!()
+        //Self::new(
+        //     db,
+        //     JavelinData::PathLeading {
+        //         path: JavelinPath::try_from_item_path(path.into()).unwrap(),
+        //         instantiation: JavelinInstantiation::from_hir(hir_instantiation, None, db),
+        //     },
+        // )
     }
 }
 

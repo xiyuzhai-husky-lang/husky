@@ -5,7 +5,7 @@ use husky_hir_defn::HirDefn;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
-pub enum JavelinItemPath {
+pub enum JavelinPath {
     Fugitive(FugitivePath),
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
@@ -14,7 +14,7 @@ pub enum JavelinItemPath {
     TypeVariantConstructor(TypeVariantPath),
 }
 
-impl std::ops::Deref for JavelinItemPath {
+impl std::ops::Deref for JavelinPath {
     type Target = ItemPathId;
 
     fn deref(&self) -> &Self::Target {
@@ -27,7 +27,7 @@ fn javelin_item_path_deref_works() {
     DB::default().ast_plain_test(
         |db, module_path| {
             for &item_path in module_item_paths(db, module_path) {
-                if let Some(javelin_item_path) = JavelinItemPath::try_from_item_path(item_path) {
+                if let Some(javelin_item_path) = JavelinPath::try_from_item_path(item_path) {
                     assert_eq!(*javelin_item_path, *item_path)
                 }
             }
@@ -36,7 +36,7 @@ fn javelin_item_path_deref_works() {
     )
 }
 
-impl From<AssociatedItemPath> for JavelinItemPath {
+impl From<AssociatedItemPath> for JavelinPath {
     fn from(path: AssociatedItemPath) -> Self {
         match path {
             AssociatedItemPath::TypeItem(path) => path.into(),
@@ -46,7 +46,7 @@ impl From<AssociatedItemPath> for JavelinItemPath {
     }
 }
 
-impl JavelinItemPath {
+impl JavelinPath {
     pub fn try_from_item_path(item_path: ItemPath) -> Option<Self> {
         match item_path {
             ItemPath::Submodule(_, _) => None,
