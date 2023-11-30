@@ -44,6 +44,10 @@ impl JavelinInstantiation {
             separator: None,
         }
     }
+
+    pub fn is_empty(&self) -> bool {
+        self.symbol_resolutions.is_empty()
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
