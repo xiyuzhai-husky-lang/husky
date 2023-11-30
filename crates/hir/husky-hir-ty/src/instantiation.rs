@@ -85,4 +85,8 @@ impl HirInstantiation {
     pub fn separator(&self) -> Option<u8> {
         self.separator
     }
+
+    pub fn is_empty(&self) -> bool {
+        self.symbol_map.is_empty()
+    }
 }

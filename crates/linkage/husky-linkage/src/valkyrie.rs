@@ -1,5 +1,5 @@
 use crate::{instantiation::LinkageInstantiation, path::LinkageItemPath, *};
-use husky_entity_path::ItemPathId;
+use husky_entity_path::{ItemPathId, MajorItemPath, PrincipalEntityPath};
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_hir_decl::{parameter::template::HirTemplateParameters, HasHirDecl};
 use husky_hir_defn::HasHirDefn;
@@ -8,6 +8,7 @@ use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::{HirLazyExprData, HirLazyExprRegion};
 use husky_hir_ty::instantiation::HirInstantiation;
 use smallvec::ToSmallVec;
+use vec_like::VecSet;
 
 /// can be instantiated to a path leading linkage given LinkageInstantiation
 #[derive(Debug, PartialEq, Eq)]
@@ -20,7 +21,7 @@ pub struct ValkyrieRide {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ValkyrieRides {
     hir_template_parameters: Option<HirTemplateParameters>,
-    rides: Vec<ValkyrieRide>,
+    rides: VecSet<ValkyrieRide>,
 }
 
 #[salsa::tracked(jar = LinkageJar, return_ref)]
@@ -30,7 +31,7 @@ fn item_valkyrie_rides(db: &::salsa::Db, id: ItemPathId) -> Option<ValkyrieRides
     let hir_template_parameters = hir_decl.template_parameters(db).map(Clone::clone);
     let mut valkyrie_ride = ValkyrieRides {
         hir_template_parameters,
-        rides: vec![],
+        rides: Default::default(),
     };
     valkyrie_ride.add_hir_expr_region(hir_decl.hir_expr_region(db)?, db);
     if let Some(hir_expr_region) = item_path.hir_defn(db)?.hir_expr_region(db) {
@@ -57,67 +58,65 @@ impl ValkyrieRides {
         db: &::salsa::Db,
     ) {
         for data in hir_eager_expr_region.expr_arena(db) {
+            #[deprecated(note = "incomplete")]
             match *data {
                 HirEagerExprData::AssociatedFn {
                     associated_item_path,
-                } => todo!(),
-                HirEagerExprData::PrincipalEntityPath(_) => todo!(),
-                HirEagerExprData::Binary { lopd, opr, ropd } => todo!(),
-                HirEagerExprData::Be { src, ref target } => todo!(),
-                HirEagerExprData::Prefix {
-                    opr,
-                    opd_hir_expr_idx,
-                } => todo!(),
-                HirEagerExprData::Suffix {
-                    opd_hir_expr_idx,
-                    opr,
-                } => todo!(),
+                } => (), // ad hoc
+                HirEagerExprData::PrincipalEntityPath(path) => match path {
+                    PrincipalEntityPath::Module(_) => unreachable!(),
+                    PrincipalEntityPath::MajorItem(path) => match path {
+                        MajorItemPath::Type(_) => (),
+                        MajorItemPath::Trait(_) => (),
+                        MajorItemPath::Fugitive(_) => (),
+                    },
+                    PrincipalEntityPath::TypeVariant(path) => (),
+                },
+                HirEagerExprData::Be { src, ref target } => (),
                 HirEagerExprData::TypeConstructorFnCall {
                     path,
-                    function_hir_eager_expr_idx,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation),
                 HirEagerExprData::TypeVariantConstructorCall {
                     path,
-                    function_hir_eager_expr_idx,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation),
                 HirEagerExprData::FunctionFnCall {
                     path,
-                    function_hir_eager_expr_idx,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation),
                 HirEagerExprData::AssociatedFunctionFnCall {
                     path,
-                    function_hir_eager_expr_idx,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation),
                 HirEagerExprData::PropsStructField {
                     owner_hir_expr_idx,
                     ident,
-                } => todo!(),
+                } => (),
                 HirEagerExprData::MemoizedField {
                     owner_hir_expr_idx,
                     ident,
                     path,
-                } => todo!(),
+                } =>
+                /* ad hoc */
+                {
+                    ()
+                }
                 HirEagerExprData::MethodFnCall {
-                    self_argument,
-                    ident,
                     path,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
-                HirEagerExprData::NewTuple { ref items } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation),
+                HirEagerExprData::NewTuple { ref items } => (),
                 HirEagerExprData::Index {
                     owner_hir_expr_idx,
                     ref items,
-                } => todo!(),
-                HirEagerExprData::NewList { ref items } => todo!(),
+                } => (),
+                HirEagerExprData::NewList { ref items } => (),
                 _ => (),
             }
         }
@@ -130,68 +129,65 @@ impl ValkyrieRides {
     ) {
         for data in hir_lazy_expr_region.hir_lazy_expr_arena(db) {
             match *data {
-                HirLazyExprData::AssociatedFn { path } => todo!(),
-                HirLazyExprData::PrincipalEntityPath(_) => todo!(),
+                HirLazyExprData::AssociatedFn { path } => (),
+                HirLazyExprData::PrincipalEntityPath(_) => (),
                 HirLazyExprData::Be { src, ref target } =>
                 /* ad hoc */
                 {
                     ()
                 }
-                HirLazyExprData::Prefix {
-                    opr,
-                    opd_hir_expr_idx,
-                } => todo!(),
-                HirLazyExprData::Suffix {
-                    opd_hir_expr_idx,
-                    opr,
-                } => todo!(),
                 HirLazyExprData::TypeConstructorFnCall {
                     path,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation),
                 HirLazyExprData::TypeVariantConstructorFnCall {
                     path,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation),
                 HirLazyExprData::FunctionFnItemCall {
                     path,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation),
                 HirLazyExprData::FunctionGnItemCall {
                     path,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation),
                 HirLazyExprData::AssociatedFunctionFnCall {
                     path,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
-                HirLazyExprData::PropsStructField { owner, ident } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation),
+                HirLazyExprData::PropsStructField { owner, ident } => (), // ad hoc
                 HirLazyExprData::MemoizedField {
                     owner,
                     ident,
                     path,
                     ref indirections,
                     ref instantiation,
-                } => todo!(),
+                } => (), // ad hoc
                 HirLazyExprData::MethodFnCall {
-                    self_argument,
-                    ident,
                     path,
-                    ref indirections,
                     ref instantiation,
-                    ref item_groups,
-                } => todo!(),
-                HirLazyExprData::NewTuple { ref items } => todo!(),
-                HirLazyExprData::Index { owner, ref items } => todo!(),
-                HirLazyExprData::NewList { ref items } => todo!(),
-                HirLazyExprData::Block { stmts } => todo!(),
+                    ..
+                } => self.try_add_ride(path.into(), instantiation), // todo: handle indirections
+                HirLazyExprData::NewTuple { ref items } => (),
+                HirLazyExprData::Index { owner, ref items } => (),
+                HirLazyExprData::NewList { ref items } => (),
                 _ => (),
             }
+        }
+    }
+
+    fn try_add_ride(&mut self, linkage_path: LinkageItemPath, instantiation: &HirInstantiation) {
+        if !instantiation.is_empty() {
+            self.rides.insert_move(ValkyrieRide {
+                linkage_path,
+                instantiation: instantiation.clone(),
+            })
         }
     }
 }

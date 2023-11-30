@@ -6,7 +6,9 @@
                     [],
                 ),
             ),
-            rides: [],
+            rides: VecSet {
+                data: [],
+            },
         },
     ),
     None,

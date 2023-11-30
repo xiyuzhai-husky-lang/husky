@@ -53,7 +53,9 @@
                     ],
                 ),
             ),
-            rides: [],
+            rides: VecSet {
+                data: [],
+            },
         },
     ),
 ]

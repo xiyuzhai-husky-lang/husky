@@ -1,4 +1,4 @@
-use crate::{*, error::InsertEntryRepeatError};
+use crate::{error::InsertEntryRepeatError, *};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
@@ -129,7 +129,7 @@ impl<K> VecSet<K> {
 
     pub fn insert_move(&mut self, value: K)
     where
-        K: Copy + PartialEq + Eq,
+        K: PartialEq + Eq,
     {
         if self.contains(&value) {
             ()

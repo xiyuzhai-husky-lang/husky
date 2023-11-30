@@ -26,7 +26,9 @@
                     ],
                 ),
             ),
-            rides: [],
+            rides: VecSet {
+                data: [],
+            },
         },
     ),
 ]
