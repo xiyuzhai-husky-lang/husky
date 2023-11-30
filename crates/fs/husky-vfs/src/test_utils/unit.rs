@@ -31,7 +31,7 @@ impl VfsTestUnit for PackagePath {
         config: &VfsTestConfig,
     ) -> PathBuf {
         package_expect_files_dir
-            .with_extension(config.test_name)
+            .join(config.test_name)
             .with_extension(config.expect_file_extension())
     }
 
