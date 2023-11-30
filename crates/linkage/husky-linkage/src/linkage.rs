@@ -1,10 +1,8 @@
-use crate::{
-    javelin::{instantiation::JavelinInstantiation, path::JavelinItemPath, Javelin},
-    *,
-};
+use crate::*;
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_hir_defn::HasHirDefn;
 use husky_hir_ty::{instantiation::HirInstantiation, HirTemplateArgument, HirTemplateArguments};
+use husky_javelin::javelin::Javelin;
 
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = pub(crate) new)]
 pub struct Linkage {
@@ -40,7 +38,7 @@ impl Linkage {
         }
         Some(Self::new(
             db,
-            LinkageData::PathLeading {
+            JavelinData::PathLeading {
                 path: JavelinItemPath::try_from_item_path(item_path)?,
                 // ad hoc consider places
                 instantiation: JavelinInstantiation::new_first_born(),
@@ -53,19 +51,19 @@ impl Linkage {
     }
 
     pub fn new_props_struct_field(db: &::salsa::Db) -> Self {
-        Self::new(db, LinkageData::PropsStructField)
+        Self::new(db, JavelinData::PropsStructField)
     }
 
     pub fn new_memoized_field(db: &::salsa::Db) -> Self {
-        Self::new(db, LinkageData::MemoizedField)
+        Self::new(db, JavelinData::MemoizedField)
     }
 
     pub fn new_method(db: &::salsa::Db) -> Self {
-        Self::new(db, LinkageData::Method)
+        Self::new(db, JavelinData::Method)
     }
 
     pub fn new_index(db: &::salsa::Db) -> Self {
-        Self::new(db, LinkageData::Index)
+        Self::new(db, JavelinData::Index)
     }
 
     pub fn new_item(
@@ -75,7 +73,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::PathLeading {
+            JavelinData::PathLeading {
                 path: JavelinItemPath::try_from_item_path(path.into()).unwrap(),
                 instantiation: JavelinInstantiation::from_hir(hir_instantiation, None, db),
             },
@@ -87,21 +85,6 @@ impl HasVersionStamp for Linkage {
     type VersionStamp = LinkageVersionStamp;
 
     fn version_stamp(self, db: &::salsa::Db) -> LinkageVersionStamp {
-        let mut builder = LinkageVersionStampBuilder::new(self, db);
-        match self.data(db) {
-            LinkageData::Coersion {} => (),
-            LinkageData::PathLeading {
-                path,
-                instantiation,
-            } => {
-                builder.add(path.hir_defn(db));
-                todo!()
-            }
-            LinkageData::PropsStructField => todo!(),
-            LinkageData::MemoizedField => todo!(),
-            LinkageData::Index => todo!(),
-            LinkageData::Method => todo!(),
-        }
         todo!()
     }
 }
