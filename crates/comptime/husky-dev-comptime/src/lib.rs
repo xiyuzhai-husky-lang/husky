@@ -1,4 +1,4 @@
-mod db;
+pub mod db;
 
 use self::db::DevComptimeDb;
 use husky_coword::Kebab;

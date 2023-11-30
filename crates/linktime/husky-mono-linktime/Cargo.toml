@@ -23,5 +23,5 @@ husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
-husky-standard-dev-comptime-db = { path = "../../comptime/husky-standard-dev-comptime-db" }
+husky-dev-comptime.workspace = true
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
