@@ -2,7 +2,7 @@ use husky_entity_path::ItemPath;
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
 use husky_hir_ty::instantiation::HirInstantiation;
 
-use crate::{instantiation::JavelinInstantiation, path::JavelinItemPath, *};
+use crate::{instantiation::JavelinInstantiation, path::JavelinPath, *};
 
 #[salsa::interned(db = JavelinDb, jar = JavelinJar, constructor = pub(crate) new)]
 pub struct Javelin {
@@ -15,7 +15,7 @@ pub struct Javelin {
 pub enum JavelinData {
     Coersion {},
     PathLeading {
-        path: JavelinItemPath,
+        path: JavelinPath,
         instantiation: JavelinInstantiation,
     },
     // todo: merge into Item
@@ -37,7 +37,7 @@ impl Javelin {
         Some(Self::new(
             db,
             JavelinData::PathLeading {
-                path: JavelinItemPath::try_from_item_path(item_path)?,
+                path: JavelinPath::try_from_item_path(item_path)?,
                 // ad hoc consider places
                 instantiation: JavelinInstantiation::new_first_born(),
             },
@@ -72,7 +72,7 @@ impl Javelin {
         Self::new(
             db,
             JavelinData::PathLeading {
-                path: JavelinItemPath::try_from_item_path(path.into()).unwrap(),
+                path: JavelinPath::try_from_item_path(path.into()).unwrap(),
                 instantiation: JavelinInstantiation::from_hir(hir_instantiation, None, db),
             },
         )
