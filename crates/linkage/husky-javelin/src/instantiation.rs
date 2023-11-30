@@ -1,7 +1,4 @@
-use crate::{
-    template_argument::{place::JavelinPlace, JavelinTemplateArgument},
-    *,
-};
+use crate::{template_argument::JavelinTemplateArgument, *};
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolResolution},
     HirComptimeSymbol,
@@ -54,7 +51,7 @@ impl JavelinInstantiation {
 pub enum JavelinTermSymbolResolution {
     Explicit(JavelinTemplateArgument),
     SelfLifetime,
-    SelfPlace(JavelinPlace),
+    SelfPlace,
 }
 
 impl JavelinTermSymbolResolution {
@@ -72,9 +69,7 @@ impl JavelinTermSymbolResolution {
                 ))
             }
             HirTermSymbolResolution::SelfLifetime => JavelinTermSymbolResolution::SelfLifetime,
-            HirTermSymbolResolution::SelfPlace(place) => {
-                JavelinTermSymbolResolution::SelfPlace(JavelinPlace::from_hir(place))
-            }
+            HirTermSymbolResolution::SelfPlace(place) => JavelinTermSymbolResolution::SelfPlace,
         }
     }
 }

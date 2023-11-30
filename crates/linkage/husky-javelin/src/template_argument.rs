@@ -1,5 +1,4 @@
 pub mod constant;
-pub mod place;
 pub mod ty;
 
 use self::constant::*;
