@@ -132,7 +132,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerParenateParameter {
                 ty,
             } => {
                 pattern_expr_idx.transpile_to_rust(builder);
-                builder.opr(RustOpr::Colon);
+                builder.opr(RustPunctuation::Colon);
                 ty.transpile_to_rust(builder)
             }
             HirEagerParenateParameter::Keyed => todo!(),

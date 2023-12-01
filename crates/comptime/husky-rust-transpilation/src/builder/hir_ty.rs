@@ -1,3 +1,5 @@
+use either::*;
+use husky_entity_path::PreludeContainerTypePath;
 use husky_hir_ty::ritchie::{HirRitchieParameter, HirRitchieType};
 use husky_term_prelude::RitchieTypeKind;
 
@@ -8,10 +10,28 @@ impl TranspileToRust<HirEagerExprRegion> for HirType {
         let db = builder.db;
         match *self {
             HirType::PathLeading(path_leading_hir_ty) => {
-                path_leading_hir_ty.ty_path(db).transpile_to_rust(builder);
                 let template_arguments = path_leading_hir_ty.template_arguments(db);
-                if !template_arguments.is_empty() {
-                    builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
+                match path_leading_hir_ty.ty_path(db).refine(db) {
+                    Left(PreludeTypePath::Container(PreludeContainerTypePath::Array)) => {
+                        debug_assert_eq!(template_arguments.len(), 2);
+                        builder.bracketed(RustBracket::Box, |builder| {
+                            template_arguments[0].transpile_to_rust(builder);
+                            builder.opr(RustPunctuation::SemicolonInArray);
+                            template_arguments[1].transpile_to_rust(builder);
+                        })
+                    }
+                    Left(PreludeTypePath::Container(PreludeContainerTypePath::Slice)) => {
+                        debug_assert_eq!(template_arguments.len(), 1);
+                        builder.bracketed(RustBracket::Box, |builder| {
+                            template_arguments[0].transpile_to_rust(builder)
+                        })
+                    }
+                    _ => {
+                        path_leading_hir_ty.ty_path(db).transpile_to_rust(builder);
+                        if !template_arguments.is_empty() {
+                            builder.bracketed_comma_list(RustBracket::Angle, template_arguments)
+                        }
+                    }
                 }
             }
             HirType::Symbol(symbol) => builder.hir_comptime_symbol(symbol),
@@ -30,7 +50,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirRitchieType {
             RitchieTypeKind::Gn => builder.word("gn"),
         }
         builder.bracketed_comma_list(RustBracket::Par, self.parameters(db).iter());
-        builder.opr(RustOpr::LightArrow);
+        builder.opr(RustPunctuation::LightArrow);
         self.return_ty(db).transpile_to_rust(builder)
     }
 }

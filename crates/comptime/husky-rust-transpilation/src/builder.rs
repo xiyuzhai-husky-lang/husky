@@ -3,12 +3,12 @@ mod hir_ty;
 pub(crate) mod keyword;
 mod literal;
 mod macro_name;
-mod opr;
 mod path;
+mod punctuation;
 
 pub(crate) use self::keyword::*;
 pub(crate) use self::macro_name::*;
-pub(crate) use self::opr::*;
+pub(crate) use self::punctuation::*;
 
 use crate::*;
 use husky_coword::{Ident, Label};
@@ -330,7 +330,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
     pub(crate) fn return_ty(&mut self, return_ty: HirType) {
         let db = self.db;
         if !return_ty.is_equal_to_unit_obviously(db) {
-            self.opr(RustOpr::LightArrow);
+            self.opr(RustPunctuation::LightArrow);
             return_ty.transpile_to_rust(self)
         }
     }

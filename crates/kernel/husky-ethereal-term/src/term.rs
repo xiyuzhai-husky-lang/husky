@@ -446,7 +446,7 @@ pub(crate) fn ethereal_term_from_declarative_term_list(
                 Some(PreludeTypePath::List) => {
                     todo!()
                 }
-                Some(PreludeTypePath::Arr(_)) => {
+                Some(PreludeTypePath::Container(_)) => {
                     todo!()
                 }
                 Some(_) | None => todo!(),
