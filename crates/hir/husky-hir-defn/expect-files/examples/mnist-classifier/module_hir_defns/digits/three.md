@@ -246,11 +246,29 @@
                                             ident: `displacement`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 438,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `displacement`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {
@@ -316,11 +334,29 @@
                                             ident: `bounding_box`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 433,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `bounding_box`,
+                                                                    item_kind: MemoizedField,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         },
@@ -329,11 +365,29 @@
                                             ident: `ymin`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 466,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::geom2d`,
+                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `ymin`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {
@@ -570,11 +624,29 @@
                                             ident: `displacement`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 438,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `displacement`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {
@@ -640,11 +712,29 @@
                                             ident: `bounding_box`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 433,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `bounding_box`,
+                                                                    item_kind: MemoizedField,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         },
@@ -653,11 +743,29 @@
                                             ident: `ymin`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 466,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::geom2d`,
+                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `ymin`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {
@@ -894,11 +1002,29 @@
                                             ident: `displacement`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 438,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `displacement`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {
@@ -964,11 +1090,29 @@
                                             ident: `bounding_box`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 433,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `bounding_box`,
+                                                                    item_kind: MemoizedField,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                         },
@@ -977,11 +1121,29 @@
                                             ident: `ymin`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 466,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `mnist_classifier::geom2d`,
+                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `ymin`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {

@@ -10,7 +10,9 @@ pub(crate) fn package_linkages_transpilation(
     let mut builder_base = RustTranspilationBuilderBase::new(db, None);
     let mut builder = RustTranspilationBuilder::new(&mut builder_base);
     for linkage in package_linkages(db, package_path) {
-        builder.comment(&format!("todo: {:?}", linkage.debug(db)))
+        builder.on_fresh_paragraph(|builder| {
+            builder.comment(&format!("todo: {:#?}", linkage.debug(db)))
+        })
     }
     builder_base.finish()
 }

@@ -2,14 +2,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 250,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -22,14 +16,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 251,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -42,14 +30,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 252,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -62,14 +44,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 253,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -82,14 +58,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 254,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -102,14 +72,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 255,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -122,13 +86,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 408,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::connected_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -142,13 +121,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 417,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::connected_component`,
+                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `top_k_row_span_sum`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -162,13 +159,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 418,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::connected_component`,
+                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `top_k_row_right_mass_sum`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -182,14 +197,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 256,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -202,14 +211,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 257,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -222,14 +225,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 262,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -242,14 +239,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 263,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -262,14 +253,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 264,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -282,14 +267,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 265,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -302,14 +281,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 266,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -322,14 +295,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 267,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -342,14 +309,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 268,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -362,14 +323,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 269,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -382,14 +337,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 270,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -402,13 +351,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 419,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::raw_contour`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -422,13 +386,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 424,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::raw_contour`,
+                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `displacement`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -442,14 +424,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 271,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -462,14 +438,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 272,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -482,14 +452,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 273,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -502,14 +466,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 274,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -522,14 +480,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 275,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -542,14 +494,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 276,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -562,13 +508,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 425,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `from_i_shift28`,
+                                        item_kind: AssociatedFunctionFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -582,13 +546,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 426,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `vector`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -602,13 +584,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 427,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `to`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -622,13 +622,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 428,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `norm`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -642,13 +660,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 429,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `dist`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -662,13 +698,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 430,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `point`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -682,13 +736,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 431,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `to`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -702,13 +774,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 432,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `norm`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -722,13 +812,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 433,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `dot`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -742,13 +850,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 434,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `cross`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -762,13 +888,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 435,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `angle`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -782,13 +926,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 436,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `rotation_direction_to`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -802,13 +964,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 437,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `angle_to`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -822,13 +1002,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 438,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `relative_range`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -842,13 +1040,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 439,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `relative_point`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -862,13 +1078,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 440,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `relative_bounding_box`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -882,13 +1116,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 441,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `relative_point`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -902,13 +1154,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 442,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `xmin`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -922,13 +1192,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 443,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `xmax`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -942,13 +1230,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 444,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `ymin`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -962,13 +1268,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 445,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `ymax`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -982,13 +1306,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 446,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `xmin`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1002,13 +1344,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 447,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `xmax`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1022,13 +1382,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 448,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `ymin`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1042,13 +1420,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 449,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::geom2d`,
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `ymax`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1062,14 +1458,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 281,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1082,14 +1472,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 282,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1102,14 +1486,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 283,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1122,14 +1500,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 284,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1142,14 +1514,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 285,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1162,14 +1528,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 286,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1182,14 +1542,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 287,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1202,13 +1556,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 450,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1222,13 +1591,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 451,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `new`,
+                                        item_kind: AssociatedFunctionFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1242,13 +1629,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 452,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `displacement`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1262,13 +1667,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 453,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::line_segment_sketch`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1282,13 +1702,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 456,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `new`,
+                                        item_kind: AssociatedFunctionFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1302,14 +1740,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 288,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1322,14 +1754,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 289,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1342,13 +1768,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 457,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1362,13 +1803,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 464,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `line_segment`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1382,13 +1841,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 465,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `start`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1402,13 +1879,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 466,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `end`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1422,13 +1917,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 467,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `displacement`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1442,13 +1955,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 468,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `start_tangent`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1462,13 +1993,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 469,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `end_tangent`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1482,14 +2031,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 290,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1502,13 +2045,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 470,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1522,14 +2080,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 291,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1542,14 +2094,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 292,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1562,13 +2108,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 471,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `displacement`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1582,13 +2146,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 472,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `dist_to_point`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1602,14 +2184,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 293,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1622,14 +2198,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 294,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1642,14 +2212,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 306,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1662,14 +2226,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 310,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::one::upmost`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1682,14 +2240,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 311,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::one::downmost`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1702,14 +2254,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 312,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::one::hat`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1722,14 +2268,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 316,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::six::upmost`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1742,14 +2282,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 317,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::six::bottom1`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1762,14 +2296,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 320,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::three::uparc`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1782,14 +2310,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 321,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::three::downarc`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1802,14 +2324,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 322,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::three::back`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1822,14 +2338,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 324,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1842,14 +2352,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 328,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1862,14 +2366,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 329,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1882,14 +2380,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 332,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1902,14 +2394,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 334,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1922,14 +2408,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 335,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1942,14 +2422,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 339,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1962,14 +2436,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 343,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::nine::downmost`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1982,14 +2450,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 344,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::nine::big_cc`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2002,14 +2464,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 346,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2022,14 +2478,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 347,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2042,14 +2492,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 348,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2062,13 +2506,26 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 130,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::clone`,
+                                                trai_path: TraitPath(`core::clone::Clone`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `clone`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2101,13 +2558,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 179,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `push`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2150,13 +2625,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 178,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `ilen`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2193,13 +2686,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 181,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `last`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2242,13 +2753,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 179,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `push`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2291,13 +2820,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 182,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `pop`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2340,13 +2887,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 179,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `push`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2389,13 +2954,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 178,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `ilen`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2432,246 +3015,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 181,
-                            },
-                        ),
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [
-                        (
-                            Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            Explicit(
-                                Type(
-                                    PathLeading(
-                                        JavelinTypePathLeading(
-                                            Id {
-                                                value: 5,
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
                                             },
                                         ),
-                                    ),
+                                        ident: `last`,
+                                        item_kind: MethodFn,
+                                    },
                                 ),
                             ),
-                        ),
-                        (
-                            Type(
-                                SelfPlace,
-                            ),
-                            SelfPlace,
-                        ),
-                    ],
-                    separator: Some(
-                        1,
-                    ),
-                },
-            },
-        },
-        data: LinkageData::PathLeading,
-    },
-    Linkage {
-        javelin: Javelin {
-            data: JavelinData::PathLeading {
-                path: TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 190,
-                            },
-                        ),
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [
-                        (
-                            Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            Explicit(
-                                Type(
-                                    PathLeading(
-                                        JavelinTypePathLeading(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: Some(
-                        1,
-                    ),
-                },
-            },
-        },
-        data: LinkageData::PathLeading,
-    },
-    Linkage {
-        javelin: Javelin {
-            data: JavelinData::PathLeading {
-                path: TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 182,
-                            },
-                        ),
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [
-                        (
-                            Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            Explicit(
-                                Type(
-                                    PathLeading(
-                                        JavelinTypePathLeading(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                        (
-                            Type(
-                                SelfLifetime,
-                            ),
-                            SelfLifetime,
-                        ),
-                    ],
-                    separator: Some(
-                        1,
-                    ),
-                },
-            },
-        },
-        data: LinkageData::PathLeading,
-    },
-    Linkage {
-        javelin: Javelin {
-            data: JavelinData::PathLeading {
-                path: TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 191,
-                            },
-                        ),
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [
-                        (
-                            Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            Explicit(
-                                Type(
-                                    PathLeading(
-                                        JavelinTypePathLeading(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: Some(
-                        1,
-                    ),
-                },
-            },
-        },
-        data: LinkageData::PathLeading,
-    },
-    Linkage {
-        javelin: Javelin {
-            data: JavelinData::PathLeading {
-                path: TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 179,
-                            },
-                        ),
-                    ),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [
-                        (
-                            Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            Explicit(
-                                Type(
-                                    PathLeading(
-                                        JavelinTypePathLeading(
-                                            Id {
-                                                value: 5,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                        (
-                            Type(
-                                SelfLifetime,
-                            ),
-                            SelfLifetime,
-                        ),
-                    ],
-                    separator: Some(
-                        1,
-                    ),
-                },
-            },
-        },
-        data: LinkageData::PathLeading,
-    },
-    Linkage {
-        javelin: Javelin {
-            data: JavelinData::PathLeading {
-                path: TypeItem(
-                    TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 180,
-                            },
-                        ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2714,13 +3082,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 184,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `start`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2757,13 +3143,349 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `pop`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [
+                        (
+                            Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            Explicit(
+                                Type(
+                                    PathLeading(
+                                        JavelinTypePathLeading(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        (
+                            Type(
+                                SelfLifetime,
+                            ),
+                            SelfLifetime,
+                        ),
+                    ],
+                    separator: Some(
+                        1,
+                    ),
+                },
+            },
+        },
+        data: LinkageData::PathLeading,
+    },
+    Linkage {
+        javelin: Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `end`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [
+                        (
+                            Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            Explicit(
+                                Type(
+                                    PathLeading(
+                                        JavelinTypePathLeading(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ],
+                    separator: Some(
+                        1,
+                    ),
+                },
+            },
+        },
+        data: LinkageData::PathLeading,
+    },
+    Linkage {
+        javelin: Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `push`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [
+                        (
+                            Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            Explicit(
+                                Type(
+                                    PathLeading(
+                                        JavelinTypePathLeading(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        (
+                            Type(
+                                SelfLifetime,
+                            ),
+                            SelfLifetime,
+                        ),
+                    ],
+                    separator: Some(
+                        1,
+                    ),
+                },
+            },
+        },
+        data: LinkageData::PathLeading,
+    },
+    Linkage {
+        javelin: Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `first`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [
+                        (
+                            Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            Explicit(
+                                Type(
+                                    PathLeading(
+                                        JavelinTypePathLeading(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        (
+                            Type(
+                                SelfPlace,
+                            ),
+                            SelfPlace,
+                        ),
+                    ],
+                    separator: Some(
+                        1,
+                    ),
+                },
+            },
+        },
+        data: LinkageData::PathLeading,
+    },
+    Linkage {
+        javelin: Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeItem(
+                    TypeItemPath(
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `cyclic_slice_leashed`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [
+                        (
+                            Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            Explicit(
+                                Type(
+                                    PathLeading(
+                                        JavelinTypePathLeading(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ],
+                    separator: Some(
+                        1,
+                    ),
+                },
+            },
+        },
+        data: LinkageData::PathLeading,
+    },
+    Linkage {
+        javelin: Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 194,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::visual`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2796,13 +3518,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 184,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `cyclic_slice_leashed`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2839,13 +3579,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 179,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `push`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2888,13 +3646,26 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 194,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::visual`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2927,13 +3698,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 192,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `first`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -2970,13 +3759,26 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 130,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::clone`,
+                                                trai_path: TraitPath(`core::clone::Clone`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `clone`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -3009,13 +3811,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 193,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `last`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -3052,13 +3872,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 183,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `collect_leashes`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -3095,13 +3933,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 178,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `ilen`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -3138,13 +3994,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 185,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `pop_with_largest_opt_f32`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -3187,13 +4061,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 179,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `push`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {

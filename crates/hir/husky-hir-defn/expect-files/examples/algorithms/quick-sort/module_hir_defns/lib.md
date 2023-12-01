@@ -143,26 +143,44 @@
                                             ident: `len`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 214,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `core::slice`,
+                                                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `len`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
                                                     (
-                                                        Type(
+                                                        HirComptimeSymbol::Type(
                                                             Type {
                                                                 attrs: HirSymbolAttrs,
                                                                 variance: None,
                                                                 disambiguator: 0,
                                                             },
                                                         ),
-                                                        Explicit(
-                                                            Type(
-                                                                Symbol(
+                                                        HirTermSymbolResolution::Explicit(
+                                                            HirTemplateArgument::Type(
+                                                                HirType::Symbol(
                                                                     Type {
                                                                         attrs: HirSymbolAttrs,
                                                                         variance: None,
@@ -1221,26 +1239,44 @@
                                             ident: `swap`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 215,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `core::slice`,
+                                                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `swap`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
                                                     (
-                                                        Type(
+                                                        HirComptimeSymbol::Type(
                                                             Type {
                                                                 attrs: HirSymbolAttrs,
                                                                 variance: None,
                                                                 disambiguator: 0,
                                                             },
                                                         ),
-                                                        Explicit(
-                                                            Type(
-                                                                Symbol(
+                                                        HirTermSymbolResolution::Explicit(
+                                                            HirTemplateArgument::Type(
+                                                                HirType::Symbol(
                                                                     Type {
                                                                         attrs: HirSymbolAttrs,
                                                                         variance: None,
@@ -1251,10 +1287,10 @@
                                                         ),
                                                     ),
                                                     (
-                                                        Type(
+                                                        HirComptimeSymbol::Type(
                                                             SelfLifetime,
                                                         ),
-                                                        SelfLifetime,
+                                                        HirTermSymbolResolution::SelfLifetime,
                                                     ),
                                                 ],
                                                 separator: Some(
@@ -1308,26 +1344,44 @@
                                             ident: `swap`,
                                             path: AssociatedItemPath::TypeItem(
                                                 TypeItemPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 215,
-                                                        },
-                                                    ),
+                                                    ItemPathId {
+                                                        data: ItemPathData::AssociatedItem(
+                                                            AssociatedItemPathData::TypeItem(
+                                                                TypeItemPathData {
+                                                                    impl_block: TypeImplBlockPath(
+                                                                        ItemPathId {
+                                                                            data: ItemPathData::ImplBlock(
+                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                    TypeImplBlockPathData {
+                                                                                        module_path: `core::slice`,
+                                                                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                ),
+                                                                            ),
+                                                                        },
+                                                                    ),
+                                                                    ident: `swap`,
+                                                                    item_kind: MethodFn,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
                                                 ),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
                                                     (
-                                                        Type(
+                                                        HirComptimeSymbol::Type(
                                                             Type {
                                                                 attrs: HirSymbolAttrs,
                                                                 variance: None,
                                                                 disambiguator: 0,
                                                             },
                                                         ),
-                                                        Explicit(
-                                                            Type(
-                                                                Symbol(
+                                                        HirTermSymbolResolution::Explicit(
+                                                            HirTemplateArgument::Type(
+                                                                HirType::Symbol(
                                                                     Type {
                                                                         attrs: HirSymbolAttrs,
                                                                         variance: None,
@@ -1338,10 +1392,10 @@
                                                         ),
                                                     ),
                                                     (
-                                                        Type(
+                                                        HirComptimeSymbol::Type(
                                                             SelfLifetime,
                                                         ),
-                                                        SelfLifetime,
+                                                        HirTermSymbolResolution::SelfLifetime,
                                                     ),
                                                 ],
                                                 separator: Some(

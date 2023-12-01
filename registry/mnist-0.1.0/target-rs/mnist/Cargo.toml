@@ -5,3 +5,9 @@ version = "0.1.0"
 
 [workspace]
 members = []
+
+[lib]
+plugin = false
+proc-macro = false
+required-features = []
+crate-type = ["dylib"]

@@ -743,11 +743,26 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 415,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -756,11 +771,26 @@ SynDeclSheet {
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 415,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TraitForTypeItem(
+                                            TraitForTypeItemPathData {
+                                                impl_block: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                                ident: `visualize`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             self_value_parameter: None,
@@ -916,11 +946,26 @@ SynDeclSheet {
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 415,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                        TraitForTypeItemPathData {
+                                                                                            impl_block: TraitForTypeImplBlock {
+                                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    ),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            },
+                                                                                            ident: `visualize`,
+                                                                                            item_kind: MethodFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -1157,11 +1202,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 416,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `norm`,
+                                        item_kind: MemoizedField,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -1170,11 +1233,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 416,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `norm`,
+                                                item_kind: MemoizedField,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
@@ -1296,11 +1377,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 416,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `norm`,
+                                                                                            item_kind: MemoizedField,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -1395,11 +1494,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 417,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `rel_norm`,
+                                        item_kind: MemoizedField,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -1408,11 +1525,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 417,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `rel_norm`,
+                                                item_kind: MemoizedField,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
@@ -1534,11 +1669,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 417,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `rel_norm`,
+                                                                                            item_kind: MemoizedField,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -1633,11 +1786,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 418,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `hausdorff_norm`,
+                                        item_kind: MemoizedField,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -1646,11 +1817,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 418,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `hausdorff_norm`,
+                                                item_kind: MemoizedField,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
@@ -1772,11 +1961,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 418,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `hausdorff_norm`,
+                                                                                            item_kind: MemoizedField,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -1871,11 +2078,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 419,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `angle_change`,
+                                        item_kind: MemoizedField,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -1884,11 +2109,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 419,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `angle_change`,
+                                                item_kind: MemoizedField,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
@@ -2010,11 +2253,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 419,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `angle_change`,
+                                                                                            item_kind: MemoizedField,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2109,11 +2370,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 420,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `bounding_box`,
+                                        item_kind: MemoizedField,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -2122,11 +2401,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 420,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `bounding_box`,
+                                                item_kind: MemoizedField,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
@@ -2248,11 +2545,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 420,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `bounding_box`,
+                                                                                            item_kind: MemoizedField,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2347,11 +2662,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 421,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `relative_bounding_box`,
+                                        item_kind: MemoizedField,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -2360,11 +2693,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 421,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `relative_bounding_box`,
+                                                item_kind: MemoizedField,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
@@ -2486,11 +2837,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 421,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `relative_bounding_box`,
+                                                                                            item_kind: MemoizedField,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2585,11 +2954,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 422,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `line_segment`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -2598,11 +2985,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 422,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `line_segment`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             self_value_parameter: None,
@@ -2726,11 +3131,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 422,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `line_segment`,
+                                                                                            item_kind: MethodFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2825,11 +3248,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 423,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `start`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -2838,11 +3279,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 423,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `start`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             self_value_parameter: None,
@@ -2966,11 +3425,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 423,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `start`,
+                                                                                            item_kind: MethodFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -3065,11 +3542,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 424,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `end`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -3078,11 +3573,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 424,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `end`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             self_value_parameter: None,
@@ -3206,11 +3719,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 424,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `end`,
+                                                                                            item_kind: MethodFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -3305,11 +3836,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 425,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `displacement`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -3318,11 +3867,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 425,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `displacement`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             self_value_parameter: None,
@@ -3446,11 +4013,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 425,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `displacement`,
+                                                                                            item_kind: MethodFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -3545,11 +4130,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 426,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `start_tangent`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -3558,11 +4161,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 426,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `start_tangent`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             self_value_parameter: None,
@@ -3686,11 +4307,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 426,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `start_tangent`,
+                                                                                            item_kind: MethodFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -3785,11 +4424,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 427,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `end_tangent`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -3798,11 +4455,29 @@ SynDeclSheet {
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 427,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `end_tangent`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             self_value_parameter: None,
@@ -3926,11 +4601,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 427,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
+                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `end_tangent`,
+                                                                                            item_kind: MethodFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },

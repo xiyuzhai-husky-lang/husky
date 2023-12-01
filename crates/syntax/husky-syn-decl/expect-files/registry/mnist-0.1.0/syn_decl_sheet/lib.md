@@ -676,11 +676,26 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 484,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -689,11 +704,26 @@ SynDeclSheet {
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 484,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TraitForTypeItem(
+                                            TraitForTypeItemPathData {
+                                                impl_block: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                                ident: `visualize`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             self_value_parameter: None,
@@ -849,11 +879,26 @@ SynDeclSheet {
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 484,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                        TraitForTypeItemPathData {
+                                                                                            impl_block: TraitForTypeImplBlock {
+                                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                                    module_path: `mnist`,
+                                                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                                    ),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            },
+                                                                                            ident: `visualize`,
+                                                                                            item_kind: MethodFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -1090,11 +1135,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 485,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist`,
+                                                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `new_zeros`,
+                                        item_kind: AssociatedFunctionFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -1103,11 +1166,29 @@ SynDeclSheet {
                     TypeItemSynDecl::AssociatedFn(
                         TypeAssociatedFnSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 485,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `new_zeros`,
+                                                item_kind: AssociatedFunctionFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             parenate_parameters: [],
@@ -1230,11 +1311,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 485,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist`,
+                                                                                                                ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `new_zeros`,
+                                                                                            item_kind: AssociatedFunctionFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -1523,11 +1622,26 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 486,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `Output`,
+                                        item_kind: AssociatedType,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -1536,11 +1650,26 @@ SynDeclSheet {
                     TraitForTypeItemSynDecl::AssociatedType(
                         TraitForTypeAssociatedTypeSynDecl {
                             path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 486,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TraitForTypeItem(
+                                            TraitForTypeItemPathData {
+                                                impl_block: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                                ident: `Output`,
+                                                item_kind: AssociatedType,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
@@ -1732,11 +1861,26 @@ SynDeclSheet {
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 486,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                        TraitForTypeItemPathData {
+                                                                                            impl_block: TraitForTypeImplBlock {
+                                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                                    module_path: `mnist`,
+                                                                                                    trai_path: TraitPath(`core::ops::IntIndex`),
+                                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                                        TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                                                                    ),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            },
+                                                                                            ident: `Output`,
+                                                                                            item_kind: AssociatedType,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2004,11 +2148,26 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 487,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -2017,11 +2176,26 @@ SynDeclSheet {
                     TraitForTypeItemSynDecl::MethodFn(
                         TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 487,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TraitForTypeItem(
+                                            TraitForTypeItemPathData {
+                                                impl_block: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                                ident: `visualize`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             self_value_parameter: None,
@@ -2177,11 +2351,26 @@ SynDeclSheet {
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 487,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                        TraitForTypeItemPathData {
+                                                                                            impl_block: TraitForTypeImplBlock {
+                                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                                    module_path: `mnist`,
+                                                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                                    ),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            },
+                                                                                            ident: `visualize`,
+                                                                                            item_kind: MethodFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2418,11 +2607,29 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 488,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist`,
+                                                            ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `new_zeros`,
+                                        item_kind: AssociatedFunctionFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -2431,11 +2638,29 @@ SynDeclSheet {
                     TypeItemSynDecl::AssociatedFn(
                         TypeAssociatedFnSynDecl {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 488,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist`,
+                                                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `new_zeros`,
+                                                item_kind: AssociatedFunctionFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             parenate_parameters: [],
@@ -2558,11 +2783,29 @@ SynDeclSheet {
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 488,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TypeItem(
+                                                                                        TypeItemPathData {
+                                                                                            impl_block: TypeImplBlockPath(
+                                                                                                ItemPathId {
+                                                                                                    data: ItemPathData::ImplBlock(
+                                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                                            TypeImplBlockPathData {
+                                                                                                                module_path: `mnist`,
+                                                                                                                ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                                                disambiguator: 0,
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                },
+                                                                                            ),
+                                                                                            ident: `new_zeros`,
+                                                                                            item_kind: AssociatedFunctionFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -2851,11 +3094,26 @@ SynDeclSheet {
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 489,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `Output`,
+                                        item_kind: AssociatedType,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
             ),
@@ -2864,11 +3122,26 @@ SynDeclSheet {
                     TraitForTypeItemSynDecl::AssociatedType(
                         TraitForTypeAssociatedTypeSynDecl {
                             path: TraitForTypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 489,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TraitForTypeItem(
+                                            TraitForTypeItemPathData {
+                                                impl_block: TraitForTypeImplBlock {
+                                                    data: TraitForTypeImplBlockPathData {
+                                                        module_path: `mnist`,
+                                                        trai_path: TraitPath(`core::ops::IntIndex`),
+                                                        ty_sketch: TypeSketch::Path(
+                                                            TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                        ),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                                ident: `Output`,
+                                                item_kind: AssociatedType,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             template_parameters: [],
                             ty_term_expr_idx: 1,
@@ -3060,11 +3333,26 @@ SynDeclSheet {
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 489,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                        TraitForTypeItemPathData {
+                                                                                            impl_block: TraitForTypeImplBlock {
+                                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                                    module_path: `mnist`,
+                                                                                                    trai_path: TraitPath(`core::ops::IntIndex`),
+                                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                                        TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                                                                    ),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            },
+                                                                                            ident: `Output`,
+                                                                                            item_kind: AssociatedType,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },

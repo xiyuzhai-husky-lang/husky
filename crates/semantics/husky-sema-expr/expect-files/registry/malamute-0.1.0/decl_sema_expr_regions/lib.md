@@ -4447,11 +4447,26 @@
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 490,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                            TraitForTypeItemPathData {
+                                                                impl_block: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `malamute`,
+                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`malamute::Class`, `Enum`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                                ident: `Output`,
+                                                                item_kind: AssociatedType,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -4834,11 +4849,26 @@
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 490,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                                    TraitForTypeItemPathData {
+                                                                        impl_block: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `malamute`,
+                                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                ty_sketch: TypeSketch::Path(
+                                                                                    TypePath(`malamute::Class`, `Enum`),
+                                                                                ),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                        ident: `Output`,
+                                                                        item_kind: AssociatedType,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -7181,11 +7211,26 @@
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 491,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                            TraitForTypeItemPathData {
+                                                                impl_block: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `malamute`,
+                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                                ident: `Output`,
+                                                                item_kind: AssociatedType,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -7589,11 +7634,26 @@
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 491,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                                    TraitForTypeItemPathData {
+                                                                        impl_block: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `malamute`,
+                                                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                ty_sketch: TypeSketch::Path(
+                                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                                ),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                        ident: `Output`,
+                                                                        item_kind: AssociatedType,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },

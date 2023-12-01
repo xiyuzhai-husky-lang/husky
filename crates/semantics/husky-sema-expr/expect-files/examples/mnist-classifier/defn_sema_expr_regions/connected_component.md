@@ -22800,11 +22800,26 @@
                                     TraitForTypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 379,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                            TraitForTypeItemPathData {
+                                                                impl_block: TraitForTypeImplBlock {
+                                                                    data: TraitForTypeImplBlockPathData {
+                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                        trai_path: TraitPath(`core::visual::Visualize`),
+                                                                        ty_sketch: TypeSketch::Path(
+                                                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                                ident: `visualize`,
+                                                                item_kind: MethodFn,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -22965,11 +22980,26 @@
                                                         TraitForTypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TraitForTypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 379,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TraitForTypeItem(
+                                                                                TraitForTypeItemPathData {
+                                                                                    impl_block: TraitForTypeImplBlock {
+                                                                                        data: TraitForTypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                            ty_sketch: TypeSketch::Path(
+                                                                                                TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            ),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    },
+                                                                                    ident: `visualize`,
+                                                                                    item_kind: MethodFn,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -23066,11 +23096,26 @@
                                             TraitForTypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitForTypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 379,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TraitForTypeItem(
+                                                                    TraitForTypeItemPathData {
+                                                                        impl_block: TraitForTypeImplBlock {
+                                                                            data: TraitForTypeImplBlockPathData {
+                                                                                module_path: `mnist_classifier::connected_component`,
+                                                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                ty_sketch: TypeSketch::Path(
+                                                                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                ),
+                                                                                disambiguator: 0,
+                                                                            },
+                                                                        },
+                                                                        ident: `visualize`,
+                                                                        item_kind: MethodFn,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -23726,11 +23771,29 @@
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 380,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TypeItem(
+                                                            TypeItemPathData {
+                                                                impl_block: TypeImplBlockPath(
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                ident: `raw_contours`,
+                                                                item_kind: MemoizedField,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -23859,11 +23922,29 @@
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 380,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TypeItem(
+                                                                                TypeItemPathData {
+                                                                                    impl_block: TypeImplBlockPath(
+                                                                                        ItemPathId {
+                                                                                            data: ItemPathData::ImplBlock(
+                                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                                    TypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    ident: `raw_contours`,
+                                                                                    item_kind: MemoizedField,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -23973,11 +24054,29 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 380,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TypeItem(
+                                                                    TypeItemPathData {
+                                                                        impl_block: TypeImplBlockPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::ImplBlock(
+                                                                                    ImplBlockPathData::TypeImplBlock(
+                                                                                        TypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        ident: `raw_contours`,
+                                                                        item_kind: MemoizedField,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -24595,11 +24694,29 @@
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 381,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TypeItem(
+                                                            TypeItemPathData {
+                                                                impl_block: TypeImplBlockPath(
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                ident: `eff_holes`,
+                                                                item_kind: MemoizedField,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -24728,11 +24845,29 @@
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 381,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TypeItem(
+                                                                                TypeItemPathData {
+                                                                                    impl_block: TypeImplBlockPath(
+                                                                                        ItemPathId {
+                                                                                            data: ItemPathData::ImplBlock(
+                                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                                    TypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    ident: `eff_holes`,
+                                                                                    item_kind: MemoizedField,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -24829,11 +24964,29 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 381,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TypeItem(
+                                                                    TypeItemPathData {
+                                                                        impl_block: TypeImplBlockPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::ImplBlock(
+                                                                                    ImplBlockPathData::TypeImplBlock(
+                                                                                        TypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        ident: `eff_holes`,
+                                                                        item_kind: MemoizedField,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -28826,11 +28979,29 @@
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 382,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TypeItem(
+                                                            TypeItemPathData {
+                                                                impl_block: TypeImplBlockPath(
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                ident: `max_hole_ilen`,
+                                                                item_kind: MemoizedField,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -28959,11 +29130,29 @@
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 382,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TypeItem(
+                                                                                TypeItemPathData {
+                                                                                    impl_block: TypeImplBlockPath(
+                                                                                        ItemPathId {
+                                                                                            data: ItemPathData::ImplBlock(
+                                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                                    TypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    ident: `max_hole_ilen`,
+                                                                                    item_kind: MemoizedField,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -29060,11 +29249,29 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 382,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TypeItem(
+                                                                    TypeItemPathData {
+                                                                        impl_block: TypeImplBlockPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::ImplBlock(
+                                                                                    ImplBlockPathData::TypeImplBlock(
+                                                                                        TypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        ident: `max_hole_ilen`,
+                                                                        item_kind: MemoizedField,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -32314,11 +32521,29 @@
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 383,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TypeItem(
+                                                            TypeItemPathData {
+                                                                impl_block: TypeImplBlockPath(
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                ident: `max_row_span`,
+                                                                item_kind: MemoizedField,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -32447,11 +32672,29 @@
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 383,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TypeItem(
+                                                                                TypeItemPathData {
+                                                                                    impl_block: TypeImplBlockPath(
+                                                                                        ItemPathId {
+                                                                                            data: ItemPathData::ImplBlock(
+                                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                                    TypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    ident: `max_row_span`,
+                                                                                    item_kind: MemoizedField,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -32548,11 +32791,29 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 383,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TypeItem(
+                                                                    TypeItemPathData {
+                                                                        impl_block: TypeImplBlockPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::ImplBlock(
+                                                                                    ImplBlockPathData::TypeImplBlock(
+                                                                                        TypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        ident: `max_row_span`,
+                                                                        item_kind: MemoizedField,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -35165,11 +35426,29 @@
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 384,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TypeItem(
+                                                            TypeItemPathData {
+                                                                impl_block: TypeImplBlockPath(
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                ident: `row_span_sum`,
+                                                                item_kind: MemoizedField,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -35298,11 +35577,29 @@
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 384,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TypeItem(
+                                                                                TypeItemPathData {
+                                                                                    impl_block: TypeImplBlockPath(
+                                                                                        ItemPathId {
+                                                                                            data: ItemPathData::ImplBlock(
+                                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                                    TypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    ident: `row_span_sum`,
+                                                                                    item_kind: MemoizedField,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -35399,11 +35696,29 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 384,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TypeItem(
+                                                                    TypeItemPathData {
+                                                                        impl_block: TypeImplBlockPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::ImplBlock(
+                                                                                    ImplBlockPathData::TypeImplBlock(
+                                                                                        TypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        ident: `row_span_sum`,
+                                                                        item_kind: MemoizedField,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -37545,11 +37860,29 @@
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 385,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TypeItem(
+                                                            TypeItemPathData {
+                                                                impl_block: TypeImplBlockPath(
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                ident: `distribution`,
+                                                                item_kind: MemoizedField,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -37678,11 +38011,29 @@
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 385,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TypeItem(
+                                                                                TypeItemPathData {
+                                                                                    impl_block: TypeImplBlockPath(
+                                                                                        ItemPathId {
+                                                                                            data: ItemPathData::ImplBlock(
+                                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                                    TypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    ident: `distribution`,
+                                                                                    item_kind: MemoizedField,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -37779,11 +38130,29 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 385,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TypeItem(
+                                                                    TypeItemPathData {
+                                                                        impl_block: TypeImplBlockPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::ImplBlock(
+                                                                                    ImplBlockPathData::TypeImplBlock(
+                                                                                        TypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        ident: `distribution`,
+                                                                        item_kind: MemoizedField,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -45030,11 +45399,29 @@
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 386,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TypeItem(
+                                                            TypeItemPathData {
+                                                                impl_block: TypeImplBlockPath(
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                ident: `upper_mass`,
+                                                                item_kind: MemoizedField,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -45163,11 +45550,29 @@
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 386,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TypeItem(
+                                                                                TypeItemPathData {
+                                                                                    impl_block: TypeImplBlockPath(
+                                                                                        ItemPathId {
+                                                                                            data: ItemPathData::ImplBlock(
+                                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                                    TypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    ident: `upper_mass`,
+                                                                                    item_kind: MemoizedField,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -45264,11 +45669,29 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 386,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TypeItem(
+                                                                    TypeItemPathData {
+                                                                        impl_block: TypeImplBlockPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::ImplBlock(
+                                                                                    ImplBlockPathData::TypeImplBlock(
+                                                                                        TypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        ident: `upper_mass`,
+                                                                        item_kind: MemoizedField,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -46124,11 +46547,29 @@
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 387,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TypeItem(
+                                                            TypeItemPathData {
+                                                                impl_block: TypeImplBlockPath(
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                ident: `lower_mass`,
+                                                                item_kind: MemoizedField,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -46257,11 +46698,29 @@
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 387,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TypeItem(
+                                                                                TypeItemPathData {
+                                                                                    impl_block: TypeImplBlockPath(
+                                                                                        ItemPathId {
+                                                                                            data: ItemPathData::ImplBlock(
+                                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                                    TypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    ident: `lower_mass`,
+                                                                                    item_kind: MemoizedField,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -46358,11 +46817,29 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 387,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TypeItem(
+                                                                    TypeItemPathData {
+                                                                        impl_block: TypeImplBlockPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::ImplBlock(
+                                                                                    ImplBlockPathData::TypeImplBlock(
+                                                                                        TypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        ident: `lower_mass`,
+                                                                        item_kind: MemoizedField,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -47218,11 +47695,29 @@
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 388,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TypeItem(
+                                                            TypeItemPathData {
+                                                                impl_block: TypeImplBlockPath(
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                ident: `top_k_row_span_sum`,
+                                                                item_kind: MethodFn,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -47351,11 +47846,29 @@
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 388,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TypeItem(
+                                                                                TypeItemPathData {
+                                                                                    impl_block: TypeImplBlockPath(
+                                                                                        ItemPathId {
+                                                                                            data: ItemPathData::ImplBlock(
+                                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                                    TypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    ident: `top_k_row_span_sum`,
+                                                                                    item_kind: MethodFn,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -47540,11 +48053,29 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 388,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TypeItem(
+                                                                    TypeItemPathData {
+                                                                        impl_block: TypeImplBlockPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::ImplBlock(
+                                                                                    ImplBlockPathData::TypeImplBlock(
+                                                                                        TypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        ident: `top_k_row_span_sum`,
+                                                                        item_kind: MethodFn,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },
@@ -51219,11 +51750,29 @@
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 389,
-                                                    },
-                                                ),
+                                                ItemPathId {
+                                                    data: ItemPathData::AssociatedItem(
+                                                        AssociatedItemPathData::TypeItem(
+                                                            TypeItemPathData {
+                                                                impl_block: TypeImplBlockPath(
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::ImplBlock(
+                                                                            ImplBlockPathData::TypeImplBlock(
+                                                                                TypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::connected_component`,
+                                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
+                                                                ),
+                                                                ident: `top_k_row_right_mass_sum`,
+                                                                item_kind: MethodFn,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
                                             ),
                                             disambiguator: 0,
                                         },
@@ -51352,11 +51901,29 @@
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 389,
-                                                                        },
-                                                                    ),
+                                                                    ItemPathId {
+                                                                        data: ItemPathData::AssociatedItem(
+                                                                            AssociatedItemPathData::TypeItem(
+                                                                                TypeItemPathData {
+                                                                                    impl_block: TypeImplBlockPath(
+                                                                                        ItemPathId {
+                                                                                            data: ItemPathData::ImplBlock(
+                                                                                                ImplBlockPathData::TypeImplBlock(
+                                                                                                    TypeImplBlockPathData {
+                                                                                                        module_path: `mnist_classifier::connected_component`,
+                                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                                        disambiguator: 0,
+                                                                                                    },
+                                                                                                ),
+                                                                                            ),
+                                                                                        },
+                                                                                    ),
+                                                                                    ident: `top_k_row_right_mass_sum`,
+                                                                                    item_kind: MethodFn,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    },
                                                                 ),
                                                                 disambiguator: 0,
                                                             },
@@ -51541,11 +52108,29 @@
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 389,
-                                                            },
-                                                        ),
+                                                        ItemPathId {
+                                                            data: ItemPathData::AssociatedItem(
+                                                                AssociatedItemPathData::TypeItem(
+                                                                    TypeItemPathData {
+                                                                        impl_block: TypeImplBlockPath(
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::ImplBlock(
+                                                                                    ImplBlockPathData::TypeImplBlock(
+                                                                                        TypeImplBlockPathData {
+                                                                                            module_path: `mnist_classifier::connected_component`,
+                                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                                            disambiguator: 0,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
+                                                                        ),
+                                                                        ident: `top_k_row_right_mass_sum`,
+                                                                        item_kind: MethodFn,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
                                                     ),
                                                     disambiguator: 0,
                                                 },

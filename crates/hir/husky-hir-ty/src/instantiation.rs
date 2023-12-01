@@ -21,6 +21,7 @@ impl std::ops::Deref for HirInstantiation {
     }
 }
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirTermSymbolResolution {
     Explicit(HirTemplateArgument),
