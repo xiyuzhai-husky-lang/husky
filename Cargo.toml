@@ -75,8 +75,20 @@ tower = { version = "0.4", features = ["util"] }
 tower-http = { version = "0.4.0", features = ["fs", "trace"] }
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 rustc-hash = "1.1.0"
+# abstractions
+alt-option = { path = "crates/abstractions/alt-option" }
+enum-class = { path = "crates/abstractions/enum-class" }
+idx-arena = { path = "crates/abstractions/idx-arena" }
+original-error = { path = "crates/abstractions/original-error" }
+parsec = { path = "crates/abstractions/parsec" }
+salsa = { path = "crates/abstractions/salsa" }
+vec-like = { path = "crates/abstractions/vec-like" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
+# fs
+husky-vfs = { path = "crates/fs/husky-vfs" }
+# lex
+husky-token-data = { path = "crates/lex/husky-token-data" }
 # linkage
 husky-javelin = { path = "crates/linkage/husky-javelin" }
 husky-linkage = { path = "crates/linkage/husky-linkage" }

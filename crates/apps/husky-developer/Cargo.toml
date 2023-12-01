@@ -14,7 +14,7 @@ thiserror.workspace = true
 tracing = { workspace = true }
 tokio = { workspace = true, features = ["rt-multi-thread", "macros"] }
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # devtime
 husky-devtime = { path = "../../devtime/husky-devtime" }
 # kernel

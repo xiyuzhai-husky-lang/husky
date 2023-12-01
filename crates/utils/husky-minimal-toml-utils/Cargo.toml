@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 # utils

@@ -13,16 +13,16 @@ ordered-float.workspace = true
 thiserror.workspace = true
 smallvec.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-enum-class = { path = "../../abstractions/enum-class" }
-vec-like = { path = "../../abstractions/vec-like" }
-idx-arena = { path = "../../abstractions/idx-arena" }
-original-error = { path = "../../abstractions/original-error" }
-parsec = { path = "../../abstractions/parsec" }
+salsa.workspace = true
+enum-class.workspace = true
+vec-like.workspace = true
+idx-arena.workspace = true
+original-error.workspace = true
+parsec.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

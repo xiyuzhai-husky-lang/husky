@@ -8,10 +8,10 @@ edition = "2021"
 dashmap.workspace = true
 smallvec.workspace = true
 # abstraction
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 version-stamp = { path = "../../abstractions/version-stamp" }
 # kernel
 husky-task = { path = "../../kernel/husky-task" }
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
-husky-vfs = { path = "../../fs/husky-vfs" }
-husky-linkage = { path = "../../linkage/husky-linkage" }
+husky-vfs.workspace = true
+husky-linkage.workspace = true

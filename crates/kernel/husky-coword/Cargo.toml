@@ -8,8 +8,8 @@ edition = "2021"
 expect-test = "1.4.0"
 once_cell = "1.16.0"
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-vec-like = { path = "../../abstractions/vec-like" }
+salsa.workspace = true
+vec-like.workspace = true
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }

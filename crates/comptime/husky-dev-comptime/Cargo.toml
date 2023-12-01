@@ -7,13 +7,13 @@ edition = "2021"
 [dependencies]
 dashmap.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # comptime
 husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
 # devtime
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
@@ -35,13 +35,13 @@ husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-task = { path = "../../kernel/husky-task" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 husky-text = { path = "../../lex/husky-text" }
 # linkage
-husky-javelin = { path = "../../linkage/husky-javelin" }
-husky-linkage = { path = "../../linkage/husky-linkage" }
+husky-javelin.workspace = true
+husky-linkage.workspace = true
 # protocols
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # semantics

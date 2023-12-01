@@ -16,9 +16,9 @@ smallvec.workspace = true
 # abstractions
 shifted-unsigned-int = { path = "../../abstractions/shifted-unsigned-int" }
 serde-impl = { path = "../../abstractions/serde-impl" }
-enum-class = { path = "../../abstractions/enum-class" }
+enum-class.workspace = true
 notify = { path = "../../abstractions/notify" }
-vec-like = { path = "../../abstractions/vec-like" }
+vec-like.workspace = true
 # protocols
 husky-token-protocol = { path = "../../protocols/husky-token-protocol", features = [
     "serde"

@@ -9,10 +9,10 @@ smallvec.workspace = true
 thiserror.workspace = true
 syn = { version = "2.0.0", optional = true }
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-enum-class = { path = "../../abstractions/enum-class" }
-idx-arena = { path = "../../abstractions/idx-arena" }
-vec-like = { path = "../../abstractions/vec-like" }
+salsa.workspace = true
+enum-class.workspace = true
+idx-arena.workspace = true
+vec-like.workspace = true
 # hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }

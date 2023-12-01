@@ -7,9 +7,9 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # lex
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-text-span = { path = "../../lex/husky-text-span" }
@@ -20,7 +20,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 expect-test = "1.4.0"
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-toml-token = { path = ".", features = ["test-utils"] }

@@ -8,12 +8,12 @@ edition = "2021"
 smallvec.workspace = true
 # abstractions
 small-cell-stack = { path = "../../abstractions/small-cell-stack" }
-enum-class = { path = "../../abstractions/enum-class" }
-salsa = { path = "../../abstractions/salsa" }
+enum-class.workspace = true
+salsa.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # kernel
-husky-linkage = { path = "../../linkage/husky-linkage" }
+husky-linkage.workspace = true
 # protocols
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }

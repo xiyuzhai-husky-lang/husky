@@ -9,16 +9,16 @@ thiserror.workspace = true
 smallvec.workspace = true
 either.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-enum-class = { path = "../../abstractions/enum-class" }
-idx-arena = { path = "../../abstractions/idx-arena" }
-vec-like = { path = "../../abstractions/vec-like" }
+salsa.workspace = true
+enum-class.workspace = true
+idx-arena.workspace = true
+vec-like.workspace = true
 maybe-result = { path = "../../abstractions/maybe-result" }
-alt-option = { path = "../../abstractions/alt-option" }
+alt-option.workspace = true
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

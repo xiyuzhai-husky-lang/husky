@@ -11,18 +11,18 @@ thiserror.workspace = true
 smallvec.workspace = true
 either.workspace = true
 # abstractions
-parsec = { path = "../../abstractions/parsec" }
-salsa = { path = "../../abstractions/salsa" }
-idx-arena = { path = "../../abstractions/idx-arena" }
-vec-like = { path = "../../abstractions/vec-like" }
-original-error = { path = "../../abstractions/original-error" }
-enum-class = { path = "../../abstractions/enum-class" }
+parsec.workspace = true
+salsa.workspace = true
+idx-arena.workspace = true
+vec-like.workspace = true
+original-error.workspace = true
+enum-class.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # lex
 # `husky-token` shouldn't be included for dependencies!!
 husky-token = { path = "../../lex/husky-token" }
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }

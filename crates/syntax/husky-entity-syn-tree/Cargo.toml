@@ -10,19 +10,19 @@ description = "Generic LSP server scaffold."
 thiserror.workspace = true
 smallvec.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-enum-class = { path = "../../abstractions/enum-class" }
+salsa.workspace = true
+enum-class.workspace = true
 with-db = { path = "../../abstractions/with-db" }
-idx-arena = { path = "../../abstractions/idx-arena" }
-vec-like = { path = "../../abstractions/vec-like" }
-original-error = { path = "../../abstractions/original-error" }
-parsec = { path = "../../abstractions/parsec" }
+idx-arena.workspace = true
+vec-like.workspace = true
+original-error.workspace = true
+parsec.workspace = true
 maybe-result = { path = "../../abstractions/maybe-result" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # lex
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 # todo: make this optional and add feature tokra
 husky-regional-token = { path = "../../lex/husky-regional-token" }

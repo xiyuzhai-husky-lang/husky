@@ -8,15 +8,15 @@ edition = "2021"
 smallvec.workspace = true
 thiserror.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-enum-class = { path = "../../abstractions/enum-class" }
+salsa.workspace = true
+enum-class.workspace = true
 # hir
 husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "../../hir/husky-hir-expr" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
@@ -40,7 +40,7 @@ salsa = { path = "../../abstractions/salsa", features = ["test-utils"] }
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel

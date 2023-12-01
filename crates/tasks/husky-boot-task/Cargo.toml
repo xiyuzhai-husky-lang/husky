@@ -7,7 +7,6 @@ edition = "2021"
 [dependencies]
 # comptime
 husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
-husky-standard-dev-comptime-db = { path = "../../comptime/husky-standard-dev-comptime-db" }
 # kernel
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 husky-task = { path = "../../kernel/husky-task" }

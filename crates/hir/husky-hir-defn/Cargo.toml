@@ -6,10 +6,10 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 version-stamp = { path = "../../abstractions/version-stamp" }
-enum-class = { path = "../../abstractions/enum-class" }
-vec-like = { path = "../../abstractions/vec-like" }
+enum-class.workspace = true
+vec-like.workspace = true
 # comptime
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
@@ -23,7 +23,7 @@ husky-hir-ty = { path = "../../hir/husky-hir-ty" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
@@ -45,7 +45,7 @@ husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # semantics

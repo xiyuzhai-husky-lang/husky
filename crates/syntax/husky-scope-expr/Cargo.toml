@@ -7,15 +7,15 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-original-error = { path = "../../abstractions/original-error" }
-parsec = { path = "../../abstractions/parsec" }
+salsa.workspace = true
+original-error.workspace = true
+parsec.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # kernel
 husky-scope = { path = "../../kernel/husky-scope" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }

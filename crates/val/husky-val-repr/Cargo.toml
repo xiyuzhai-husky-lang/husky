@@ -14,9 +14,9 @@ rustc-hash.workspace = true
 lsp-types.workspace = true
 smallvec.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # hir
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
@@ -29,7 +29,7 @@ husky-coword = { path = "../../kernel/husky-coword" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-task = { path = "../../kernel/husky-task" }
 # linkage
-husky-linkage = { path = "../../linkage/husky-linkage" }
+husky-linkage.workspace = true
 # val
 husky-val = { path = "../../val/husky-val" }
 # utils
@@ -52,11 +52,11 @@ husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # linkage
-husky-javelin = { path = "../../linkage/husky-javelin" }
+husky-javelin.workspace = true
 # semantics
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }

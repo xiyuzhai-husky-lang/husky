@@ -7,13 +7,13 @@ edition = "2021"
 [dependencies]
 thiserror.workspace = true
 # abstractions
-enum-class = { path = "../../abstractions/enum-class" }
-parsec = { path = "../../abstractions/parsec" }
-salsa = { path = "../../abstractions/salsa" }
+enum-class.workspace = true
+parsec.workspace = true
+salsa.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }

@@ -5,17 +5,17 @@ edition = "2021"
 
 [dependencies]
 serde.workspace = true
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 lsp-types.workspace = true
 indexmap = "1.8.1"
 libloading = "0.7.3"
 relative-path = "1.7.2"
 # abstractions
-idx-arena = { path = "../../abstractions/idx-arena" }
+idx-arena.workspace = true
 # comptime
 husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }

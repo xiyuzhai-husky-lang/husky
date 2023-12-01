@@ -8,8 +8,8 @@ edition = "2021"
 thiserror.workspace = true
 smallvec.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-vec-like = { path = "../../abstractions/vec-like" }
+salsa.workspace = true
+vec-like.workspace = true
 propagate = { path = "../../abstractions/propagate" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
@@ -34,7 +34,7 @@ husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # syntax

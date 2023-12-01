@@ -7,7 +7,6 @@ edition = "2021"
 [dependencies]
 # comptime
 husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
-husky-standard-dev-comptime-db = { path = "../../comptime/husky-standard-dev-comptime-db" }
 # devtime
 husky-devtime = { path = "../../devtime/husky-devtime" }
 # protocols

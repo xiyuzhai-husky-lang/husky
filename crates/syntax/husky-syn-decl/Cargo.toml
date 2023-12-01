@@ -10,20 +10,20 @@ derive-getters = "0.2.0"
 either.workspace = true
 smallvec.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-enum-class = { path = "../../abstractions/enum-class" }
-vec-like = { path = "../../abstractions/vec-like" }
-original-error = { path = "../../abstractions/original-error" }
-parsec = { path = "../../abstractions/parsec" }
+salsa.workspace = true
+enum-class.workspace = true
+vec-like.workspace = true
+original-error.workspace = true
+parsec.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-opr = { path = "../../kernel/husky-opr" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # syntax
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }

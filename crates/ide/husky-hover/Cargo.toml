@@ -9,15 +9,15 @@ lsp-types.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # ide
 husky-documentation = { path = "../../ide/husky-documentation" }
 # infer
 husky-token-info = { path = "../../ide/husky-token-info" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # kernel

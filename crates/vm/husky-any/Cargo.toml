@@ -11,7 +11,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 cyclic-slice = { path = "../../abstractions/cyclic-slice" }
-vec-like = { path = "../../abstractions/vec-like" }
+vec-like.workspace = true
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }

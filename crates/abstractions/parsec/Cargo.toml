@@ -7,5 +7,5 @@ edition = "2021"
 [dependencies]
 smallvec.workspace = true
 # abstractions
-original-error = { path = "../../abstractions/original-error" }
-vec-like = { path = "../../abstractions/vec-like" }
+original-error.workspace = true
+vec-like.workspace = true
