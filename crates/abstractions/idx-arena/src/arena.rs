@@ -27,7 +27,11 @@ impl<T> salsa::DebugWithDb for Arena<T>
 where
     T: salsa::DebugWithDb,
 {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         f.debug_struct("Arena")
             .field("data", &self.data.debug_with(db))
             .finish()

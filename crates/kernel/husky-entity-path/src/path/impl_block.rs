@@ -76,6 +76,14 @@ impl TypeImplBlockPath {
     pub fn ty_path(self, db: &::salsa::Db) -> TypePath {
         self.data(db).ty_path
     }
+
+    pub(crate) fn show_aux(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.data(db).show_aux(f, db)
+    }
 }
 
 impl TypeImplBlockPathData {
@@ -94,6 +102,18 @@ impl TypeImplBlockPathData {
 
     pub fn disambiguator(self) -> u8 {
         self.disambiguator
+    }
+
+    pub(crate) fn show_aux(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        self.ty_path.show_aux(f, db)?;
+        use std::fmt::Display;
+        f.write_str("(")?;
+        self.disambiguator.fmt(f);
+        f.write_str(")")
     }
 }
 
@@ -237,7 +257,11 @@ impl TraitForTypeImplBlockPath {
 }
 
 impl salsa::DebugWithDb for TraitForTypeImplBlockPath {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         self.show(f, db)
     }
 }

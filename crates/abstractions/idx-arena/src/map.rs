@@ -12,7 +12,11 @@ where
     T: salsa::DebugWithDb,
     V: salsa::DebugWithDb,
 {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         let elements = self
             .data
             .iter()

@@ -344,31 +344,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::i8(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -382,31 +358,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::i8(0)::max`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -455,31 +407,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -493,31 +421,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -566,31 +470,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::i32(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -604,31 +484,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -642,31 +498,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `min`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -715,31 +547,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i64`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -788,31 +596,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i128`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -861,31 +645,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::isize`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -934,31 +694,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::u8`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1007,31 +743,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::u16`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1080,31 +792,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::u32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1153,31 +841,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::u64`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1226,31 +890,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::u128`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1299,31 +939,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::usize`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1372,31 +988,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1410,31 +1002,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `sqrt`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1448,31 +1016,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1486,31 +1030,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `min`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1524,31 +1044,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `sgnx`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1562,31 +1058,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `cos`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::f32(0)::cos`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1600,31 +1072,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `sin`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::f32(0)::sin`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1638,31 +1086,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `acos`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1711,31 +1135,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::f64(0)::abs`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1749,31 +1149,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `acos`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::num::f64(0)::acos`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1836,31 +1212,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::raw_bits`,
-                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `last_bits`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1874,31 +1226,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::raw_bits`,
-                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `ctz`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1912,31 +1240,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::raw_bits`,
-                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `co`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1950,31 +1254,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::raw_bits`,
-                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `span`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1988,31 +1268,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::raw_bits`,
-                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `right_mass`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2096,31 +1352,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::vec`,
-                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `ilen`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2134,31 +1366,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::vec`,
-                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `push`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2172,31 +1380,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::vec`,
-                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `first`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::vec::Vec(0)::first`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2210,31 +1394,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::vec`,
-                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `last`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2248,31 +1408,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::vec`,
-                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `pop`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2286,31 +1422,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::vec`,
-                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `collect_leashes`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::vec::Vec(0)::collect_leashes`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2324,31 +1436,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::vec`,
-                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `cyclic_slice_leashed`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::vec::Vec(0)::cyclic_slice_leashed`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2362,31 +1450,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::vec`,
-                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `pop_with_largest_opt_f32`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::vec::Vec(0)::pop_with_largest_opt_f32`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2400,31 +1464,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `len`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::slice::Slice(0)::len`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2438,31 +1478,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `swap`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::slice::Slice(0)::swap`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2511,31 +1527,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `ilen`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::ilen`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2549,31 +1541,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `start`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2587,31 +1555,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `end`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2625,31 +1569,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `first`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::first`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -2663,31 +1583,7 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::slice`,
-                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `last`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::slice::CyclicSlice(0)::last`, `MethodFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],

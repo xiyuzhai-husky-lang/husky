@@ -3,7 +3,7 @@ use husky_entity_path::TypePath;
 use husky_hir_ty::HirType;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::debug_with_db(db = JavelinDb, jar = JavelinJar)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
 pub enum JavelinType {
     PathLeading(JavelinTypePathLeading),

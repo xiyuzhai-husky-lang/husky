@@ -78,7 +78,11 @@ impl salsa::salsa_struct::SalsaStructInDb for Coword {
 }
 
 impl ::salsa::DebugWithDb for Coword {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, db: &::salsa::Db) -> ::std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> ::std::fmt::Result {
         f.debug_tuple("Word").field(&self.data(db)).finish()
     }
 }

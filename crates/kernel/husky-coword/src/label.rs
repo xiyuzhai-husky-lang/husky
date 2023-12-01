@@ -68,7 +68,11 @@ impl Label {
 }
 
 impl salsa::DebugWithDb for Label {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         f.write_fmt(format_args!("`'{}`", &self.ident.data(db)))
     }
 }

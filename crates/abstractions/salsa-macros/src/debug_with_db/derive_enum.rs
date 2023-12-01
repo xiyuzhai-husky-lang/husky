@@ -31,7 +31,7 @@ pub(super) fn enum_debug_with_db_impl(item: &ItemEnum) -> proc_macro2::TokenStre
     if item.variants.is_empty() {
         quote! {
         impl #generics_without_db ::salsa::DebugWithDb for #self_ty #where_clause {
-            fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
+            fn debug_with_db_fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
                 unreachable!()
             }
         }}
@@ -49,7 +49,7 @@ pub(super) fn enum_debug_with_db_impl(item: &ItemEnum) -> proc_macro2::TokenStre
             .collect::<proc_macro2::TokenStream>();
         quote! {
             impl #generics_without_db ::salsa::DebugWithDb for #self_ty #where_clause {
-                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
+                fn debug_with_db_fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db,) -> ::std::fmt::Result {
                     #[allow(unused_imports)]
                     use ::salsa::debug::helper::Fallback;
                     match self {

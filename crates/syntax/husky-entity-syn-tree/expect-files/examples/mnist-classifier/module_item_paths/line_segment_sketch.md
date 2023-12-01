@@ -149,60 +149,12 @@
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssociatedItem(
-                        AssociatedItemPathData::TypeItem(
-                            TypeItemPathData {
-                                impl_block: TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                ident: `new`,
-                                item_kind: AssociatedFunctionFn,
-                            },
-                        ),
-                    ),
-                },
-            ),
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`, `AssociatedFunctionFn`),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssociatedItem(
-                        AssociatedItemPathData::TypeItem(
-                            TypeItemPathData {
-                                impl_block: TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                ident: `displacement`,
-                                item_kind: MethodFn,
-                            },
-                        ),
-                    ),
-                },
-            ),
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
         ),
     ),
     ItemPath::ImplBlock(
@@ -264,89 +216,17 @@
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssociatedItem(
-                        AssociatedItemPathData::TypeItem(
-                            TypeItemPathData {
-                                impl_block: TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                ident: `concave_components`,
-                                item_kind: MemoizedField,
-                            },
-                        ),
-                    ),
-                },
-            ),
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`, `MemoizedField`),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssociatedItem(
-                        AssociatedItemPathData::TypeItem(
-                            TypeItemPathData {
-                                impl_block: TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                ident: `bounding_box`,
-                                item_kind: MemoizedField,
-                            },
-                        ),
-                    ),
-                },
-            ),
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`, `MemoizedField`),
         ),
     ),
     ItemPath::AssociatedItem(
         AssociatedItemPath::TypeItem(
-            TypeItemPath(
-                ItemPathId {
-                    data: ItemPathData::AssociatedItem(
-                        AssociatedItemPathData::TypeItem(
-                            TypeItemPathData {
-                                impl_block: TypeImplBlockPath(
-                                    ItemPathId {
-                                        data: ItemPathData::ImplBlock(
-                                            ImplBlockPathData::TypeImplBlock(
-                                                TypeImplBlockPathData {
-                                                    module_path: `mnist_classifier::line_segment_sketch`,
-                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                                ident: `new`,
-                                item_kind: AssociatedFunctionFn,
-                            },
-                        ),
-                    ),
-                },
-            ),
+            TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
         ),
     ),
 ]

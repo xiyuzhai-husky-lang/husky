@@ -1442,31 +1442,7 @@ SynNodeDeclSheet {
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TypeItem(
-                                                            TypeItemPathData {
-                                                                impl_block: TypeImplBlockPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::ImplBlock(
-                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                TypeImplBlockPathData {
-                                                                                    module_path: `mnist`,
-                                                                                    ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ident: `new_zeros`,
-                                                                item_kind: AssociatedFunctionFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+                                            path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -1486,31 +1462,7 @@ SynNodeDeclSheet {
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TypeItem(
-                                                                    TypeItemPathData {
-                                                                        impl_block: TypeImplBlockPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::ImplBlock(
-                                                                                    ImplBlockPathData::TypeImplBlock(
-                                                                                        TypeImplBlockPathData {
-                                                                                            module_path: `mnist`,
-                                                                                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                                                            disambiguator: 0,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
-                                                                        ident: `new_zeros`,
-                                                                        item_kind: AssociatedFunctionFn,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
+                                                    path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -1677,31 +1629,7 @@ SynNodeDeclSheet {
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist`,
-                                                                                                                ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `new_zeros`,
-                                                                                            item_kind: AssociatedFunctionFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3184,31 +3112,7 @@ SynNodeDeclSheet {
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TypeItem(
-                                                            TypeItemPathData {
-                                                                impl_block: TypeImplBlockPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::ImplBlock(
-                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                TypeImplBlockPathData {
-                                                                                    module_path: `mnist`,
-                                                                                    ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ident: `new_zeros`,
-                                                                item_kind: AssociatedFunctionFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+                                            path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -3228,31 +3132,7 @@ SynNodeDeclSheet {
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TypeItem(
-                                                                    TypeItemPathData {
-                                                                        impl_block: TypeImplBlockPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::ImplBlock(
-                                                                                    ImplBlockPathData::TypeImplBlock(
-                                                                                        TypeImplBlockPathData {
-                                                                                            module_path: `mnist`,
-                                                                                            ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                                                                            disambiguator: 0,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
-                                                                        ident: `new_zeros`,
-                                                                        item_kind: AssociatedFunctionFn,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
+                                                    path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -3419,31 +3299,7 @@ SynNodeDeclSheet {
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist`,
-                                                                                                                ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `new_zeros`,
-                                                                                            item_kind: AssociatedFunctionFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

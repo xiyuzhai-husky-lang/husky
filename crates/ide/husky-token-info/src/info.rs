@@ -182,7 +182,11 @@ impl std::fmt::Debug for ExprRegionLeash {
 }
 
 impl salsa::DebugWithDb for ExprRegionLeash {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, _db: &::salsa::Db) -> std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        _db: &::salsa::Db,
+    ) -> std::fmt::Result {
         f.write_str("ExprRegionLeash(_)")
     }
 }
