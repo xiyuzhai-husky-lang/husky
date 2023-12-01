@@ -3,7 +3,7 @@ ValkyrieJavelinPantheon {
         toolchain: Toolchain {
             data: ToolchainData::Local {
                 library_path: VirtualPath {
-                    _data: RelPathBuf(
+                    _data: VirtualPathBuf(
                         "../../../library",
                     ),
                 },
@@ -12,7 +12,7 @@ ValkyrieJavelinPantheon {
         name: `quick-sort`,
         data: PackagePathSource::Local {
             path: VirtualPath {
-                _data: RelPathBuf(
+                _data: VirtualPathBuf(
                     "../../../examples/algorithms/quick-sort",
                 ),
             },

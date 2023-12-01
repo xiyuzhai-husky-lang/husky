@@ -20,7 +20,8 @@ husky-linkage.workspace = true
 # comptime
 husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
 # utils
-husky-print-utils = { path = "../../utils/husky-print-utils" }
+husky-cargo-utils.workspace = true
+husky-print-utils.workspace = true
 
 [dev-dependencies]
 husky-dev-comptime.workspace = true

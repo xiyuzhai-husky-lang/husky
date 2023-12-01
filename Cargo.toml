@@ -70,6 +70,7 @@ tokio = { version = "1.32.0", features = ["full"] }
 tokio-stream = { version = "0.1.9" }
 tokio-tungstenite = { version = "0.20" }
 toml = "0.8.8"
+toml_edit = "0.21.0"
 tracing = "0.1"
 xxhash-rust = { version = "0.8.5" }
 tower = { version = "0.4", features = ["util"] }
@@ -134,6 +135,8 @@ husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-entity-syn-tree = { path = "crates/syntax/husky-entity-syn-tree" }
 # utls
 husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
+husky-check-utils = { path = "crates/utils/husky-check-utils" }
+husky-print-utils = { path = "crates/utils/husky-print-utils" }
 # val
 husky-val = { path = "crates/val/husky-val" }
 husky-val-repr = { path = "crates/val/husky-val-repr" }
