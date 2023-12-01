@@ -21,9 +21,9 @@ husky-entity-path.workspace = true
 husky-token-data = { path = "../../lex/husky-token-data", features = [
     "protocol_support"
 ] }
-husky-token = { path = "../../lex/husky-token" }
+husky-token.workspace = true
 husky-regional-token = { path = "../../lex/husky-regional-token" }
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
+husky-text-protocol.workspace = true
 # protocols
 husky-entity-protocol = { path = "../../protocols/husky-entity-protocol", optional = true }
 husky-token-protocol = { path = "../../protocols/husky-token-protocol", optional = true }
@@ -55,7 +55,7 @@ husky-fluffy-term.workspace = true
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 # lex
-husky-toml-token = { path = "../../lex/husky-toml-token" }
+husky-toml-token.workspace = true
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
 husky-toml-ast.workspace = true

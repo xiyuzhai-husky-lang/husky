@@ -11,7 +11,7 @@ salsa.workspace = true
 # fs
 husky-vfs.workspace = true
 # lex
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
+husky-text-protocol.workspace = true
 husky-text-span = { path = "../../lex/husky-text-span" }
 # kernel
 husky-coword.workspace = true

@@ -11,8 +11,8 @@ semver = "1.0.17"
 salsa.workspace = true
 vec-like.workspace = true
 # lex
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
-husky-toml-token = { path = "../../lex/husky-toml-token" }
+husky-text-protocol.workspace = true
+husky-toml-token.workspace = true
 # infer
 husky-corgi-config.workspace = true
 # kernel

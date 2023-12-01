@@ -28,7 +28,7 @@ husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 # kernel
 husky-coword.workspace = true
 # lex
-husky-token = { path = "../../lex/husky-token" }
+husky-token.workspace = true
 husky-declarative-term = { path = ".", features = ["test-utils"] }
 
 [features]

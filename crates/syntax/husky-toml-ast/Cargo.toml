@@ -18,7 +18,7 @@ husky-vfs.workspace = true
 # kernel
 husky-coword.workspace = true
 # lex
-husky-toml-token = { path = "../../lex/husky-toml-token" }
+husky-toml-token.workspace = true
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

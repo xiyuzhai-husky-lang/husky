@@ -49,8 +49,8 @@ husky-ethereal-term.workspace = true
 husky-fluffy-term.workspace = true
 # lex
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
-husky-toml-token = { path = "../../lex/husky-toml-token" }
+husky-token.workspace = true
+husky-toml-token.workspace = true
 # semantics
 husky-corgi-config.workspace = true
 husky-sema-expr.workspace = true

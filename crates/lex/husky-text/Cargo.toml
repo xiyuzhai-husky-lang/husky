@@ -17,7 +17,7 @@ husky-vfs.workspace = true
 # kernel
 husky-coword.workspace = true
 # protocols
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
+husky-text-protocol.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

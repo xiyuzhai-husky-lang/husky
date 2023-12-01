@@ -14,7 +14,7 @@ salsa.workspace = true
 husky-vfs.workspace = true
 # lex
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
+husky-token.workspace = true
 # kernel
 husky-coword.workspace = true
 husky-entity-path.workspace = true

@@ -24,7 +24,7 @@ husky-opr = { path = "../../kernel/husky-opr" }
 husky-entity-kind.workspace = true
 husky-task.workspace = true
 # lex
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
+husky-text-protocol.workspace = true
 # protocols
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "server"
@@ -32,7 +32,7 @@ husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 # runtime
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
-husky-val-repr = { path = "../../val/husky-val-repr" }
+husky-val-repr.workspace = true
 # syntax
 husky-ast.workspace = true
 husky-syn-expr.workspace = true
@@ -45,7 +45,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 # vm
-husky-vm = { path = "../../vm/husky-vm" }
+husky-vm.workspace = true
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }

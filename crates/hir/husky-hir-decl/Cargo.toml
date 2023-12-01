@@ -41,8 +41,8 @@ husky-manifest.workspace = true
 husky-corgi-config.workspace = true
 # lex
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
-husky-toml-token = { path = "../../lex/husky-toml-token" }
+husky-token.workspace = true
+husky-toml-token.workspace = true
 # kernel
 husky-term-prelude.workspace = true
 husky-declarative-term.workspace = true

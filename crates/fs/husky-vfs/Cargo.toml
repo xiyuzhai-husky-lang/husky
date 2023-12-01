@@ -30,7 +30,7 @@ enum-class.workspace = true
 # fs
 husky-fs-specs = { path = "../../fs/husky-fs-specs" }
 # lex
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
+husky-text-protocol.workspace = true
 # kernel
 husky-coword.workspace = true
 husky-platform = { path = "../../kernel/husky-platform" }

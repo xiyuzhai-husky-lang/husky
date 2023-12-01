@@ -15,7 +15,7 @@ husky-vfs.workspace = true
 husky-entity-path.workspace = true
 # syntax
 husky-ast.workspace = true
-husky-token = { path = "../../lex/husky-token" }
+husky-token.workspace = true
 
 [dev-dependencies]
 expect-test = "1.4.0"

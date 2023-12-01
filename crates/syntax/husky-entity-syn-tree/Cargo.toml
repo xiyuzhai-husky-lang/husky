@@ -21,9 +21,9 @@ maybe-result = { path = "../../abstractions/maybe-result" }
 # fs
 husky-vfs.workspace = true
 # lex
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
+husky-text-protocol.workspace = true
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
+husky-token.workspace = true
 # todo: make this optional and add feature tokra
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # kernel

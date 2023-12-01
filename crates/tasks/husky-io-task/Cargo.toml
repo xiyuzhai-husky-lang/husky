@@ -11,10 +11,10 @@ either.workspace = true
 # abstractions
 # comptime
 # kernel
-husky-val = { path = "../../val/husky-val" }
+husky-val.workspace = true
 husky-task.workspace = true
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # linktime
 husky-mono-linktime = { path = "../../linktime/husky-mono-linktime" }
 # vm
-husky-vm = { path = "../../vm/husky-vm" }
+husky-vm.workspace = true
