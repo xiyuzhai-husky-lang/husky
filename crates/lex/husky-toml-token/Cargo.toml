@@ -14,7 +14,7 @@ husky-vfs.workspace = true
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-text-span = { path = "../../lex/husky-text-span" }
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-coword.workspace = true
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
@@ -22,7 +22,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 expect-test = "1.4.0"
 salsa.workspace = true
 # kernel
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-entity-path.workspace = true
 husky-toml-token = { path = ".", features = ["test-utils"] }
 
 [features]

@@ -5,7 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-coword.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 husky-check-utils = { path = "../../utils/husky-check-utils" }

@@ -25,9 +25,9 @@ husky-vfs.workspace = true
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-token-data.workspace = true
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
+husky-coword.workspace = true
+husky-entity-kind.workspace = true
+husky-term-prelude.workspace = true
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
 # utils
@@ -45,7 +45,7 @@ indicatif = "0.17.2"
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-entity-path.workspace = true
 # utils
 husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils" }
 

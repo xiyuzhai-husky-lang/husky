@@ -18,15 +18,15 @@ maybe-result = { path = "../../abstractions/maybe-result" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
+husky-term-prelude.workspace = true
+husky-declarative-signature.workspace = true
+husky-ethereal-term.workspace = true
+husky-ethereal-signature.workspace = true
+husky-declarative-ty.workspace = true
+husky-entity-path.workspace = true
+husky-entity-kind.workspace = true
+husky-coword.workspace = true
+husky-fluffy-term.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
 # lex
 husky-token-data.workspace = true
@@ -35,9 +35,9 @@ husky-regional-token = { path = "../../lex/husky-regional-token" }
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
-husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
-husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
-husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
+husky-entity-syn-tree.workspace = true
+husky-syn-expr.workspace = true
+husky-syn-defn.workspace = true
 husky-syn-opr = { path = "../../syntax/husky-syn-opr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
@@ -45,20 +45,20 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 [dev-dependencies]
 # kernel
 # infer
-husky-manifest = { path = "../../semantics/husky-manifest" }
-husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
+husky-manifest.workspace = true
+husky-corgi-config.workspace = true
 # lex
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
-husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
-husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
-husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
-husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
-husky-corgi-config-ast = { path = "../../syntax/husky-corgi-config-ast" }
+husky-toml-ast.workspace = true
+husky-manifest-ast.workspace = true
+husky-entity-syn-tree.workspace = true
+husky-syn-decl.workspace = true
+husky-corgi-config-ast.workspace = true
 # kernel
-husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
+husky-declarative-term.workspace = true
 husky-sema-expr = { path = ".", features = ["test-utils"] }
 
 [features]

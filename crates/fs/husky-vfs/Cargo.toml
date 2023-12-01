@@ -32,7 +32,7 @@ husky-fs-specs = { path = "../../fs/husky-fs-specs" }
 # lex
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-coword.workspace = true
 husky-platform = { path = "../../kernel/husky-platform" }
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }

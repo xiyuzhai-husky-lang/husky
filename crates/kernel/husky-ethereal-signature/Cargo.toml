@@ -13,14 +13,14 @@ vec-like.workspace = true
 maybe-result = { path = "../../abstractions/maybe-result" }
 enum-class.workspace = true
 # kernel
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
+husky-ethereal-term.workspace = true
+husky-coword.workspace = true
+husky-entity-path.workspace = true
+husky-declarative-signature.workspace = true
+husky-term-prelude.workspace = true
+husky-entity-kind.workspace = true
 # syntax
-husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
+husky-entity-syn-tree.workspace = true
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

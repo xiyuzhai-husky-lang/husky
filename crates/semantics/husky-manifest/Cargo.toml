@@ -14,14 +14,14 @@ vec-like.workspace = true
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # infer
-husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
+husky-corgi-config.workspace = true
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-coword.workspace = true
 # fs
 husky-vfs.workspace = true
 # syntax
-husky-toml-ast = { path = "../../syntax/husky-toml-ast" }
-husky-manifest-ast = { path = "../../syntax/husky-manifest-ast" }
+husky-toml-ast.workspace = true
+husky-manifest-ast.workspace = true
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

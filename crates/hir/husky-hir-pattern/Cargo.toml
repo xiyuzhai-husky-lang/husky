@@ -13,14 +13,14 @@ enum-class.workspace = true
 idx-arena.workspace = true
 vec-like.workspace = true
 # semantics
-husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
+husky-sema-expr.workspace = true
 # kernel
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-term-prelude.workspace = true
+husky-entity-path.workspace = true
+husky-coword.workspace = true
 husky-opr = { path = "../../kernel/husky-opr" }
-husky-hir-ty = { path = "../../hir/husky-hir-ty" }
+husky-hir-ty.workspace = true
 # syntax
-husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
+husky-syn-expr.workspace = true
 
 [features]

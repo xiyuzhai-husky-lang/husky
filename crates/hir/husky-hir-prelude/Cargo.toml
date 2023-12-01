@@ -8,7 +8,7 @@ edition = "2021"
 ordered-float.workspace = true
 salsa.workspace = true
 # kernel
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
+husky-term-prelude.workspace = true
 
 [dev-dependencies]
 husky-hir-prelude = { path = ".", features = ["test-utils"] }

@@ -13,7 +13,7 @@ version-stamp = { path = "../../abstractions/version-stamp" }
 # fs
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # kernel
-husky-task = { path = "../../kernel/husky-task" }
+husky-task.workspace = true
 husky-vfs.workspace = true
 # linkage
 husky-linkage.workspace = true

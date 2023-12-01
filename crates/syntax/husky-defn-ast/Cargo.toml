@@ -11,4 +11,4 @@ idx-arena.workspace = true
 # lex
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # syntax
-husky-ast = { path = "../../syntax/husky-ast" }
+husky-ast.workspace = true

@@ -27,18 +27,18 @@ husky-token = { path = "../../lex/husky-token" }
 # todo: make this optional and add feature tokra
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
+husky-coword.workspace = true
+husky-entity-path.workspace = true
+husky-entity-kind.workspace = true
 husky-scope = { path = "../../kernel/husky-scope" }
 # syntax
-husky-ast = { path = "../../syntax/husky-ast" }
+husky-ast.workspace = true
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-scope-expr = { path = "../../syntax/husky-scope-expr" }
 husky-decl-ast = { path = "../../syntax/husky-decl-ast" }
 husky-defn-ast = { path = "../../syntax/husky-defn-ast" }
 # infer
-husky-manifest = { path = "../../semantics/husky-manifest" }
+husky-manifest.workspace = true
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

@@ -9,7 +9,7 @@ edition = "2021"
 husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
 # kernel
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
-husky-task = { path = "../../kernel/husky-task" }
+husky-task.workspace = true
 # linkage
 husky-trivial-linkage-impl = { path = "../../linkage/husky-trivial-linkage-impl" }
 # linktime

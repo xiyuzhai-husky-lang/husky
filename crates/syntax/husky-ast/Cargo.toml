@@ -25,9 +25,9 @@ husky-vfs.workspace = true
 husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 # kernel
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
+husky-entity-path.workspace = true
+husky-coword.workspace = true
+husky-entity-kind.workspace = true
 husky-scope = { path = "../../kernel/husky-scope" }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
@@ -40,7 +40,7 @@ expect-test = "1.4.0"
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
+husky-term-prelude.workspace = true
 # lex
 husky-token = { path = "../../lex/husky-token", features = ["test-utils"] }
 # utils

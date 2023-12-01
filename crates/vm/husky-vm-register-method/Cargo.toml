@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 serde_json.workspace = true
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
+husky-ethereal-term.workspace = true
+husky-ethereal-signature.workspace = true
 husky-vm-binding = { path = "../husky-vm-binding" }
 husky-any = { path = "../husky-any" }
