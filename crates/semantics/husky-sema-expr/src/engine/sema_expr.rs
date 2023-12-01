@@ -489,7 +489,7 @@ impl<'a> SemaExprEngine<'a> {
                                         assert_eq!(ty_arguments.len(), 1);
                                         ty_arguments[0]
                                     }
-                                    Left(PreludeTypePath::Arr(_)) => {
+                                    Left(PreludeTypePath::Container(_)) => {
                                         assert_eq!(ty_arguments.len(), 1);
                                         ty_arguments[0]
                                     }

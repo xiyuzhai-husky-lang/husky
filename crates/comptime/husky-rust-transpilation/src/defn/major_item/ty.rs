@@ -69,7 +69,7 @@ impl TranspileToRust<HirEagerExprRegion> for PropsStructFieldHirDecl {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.keyword(RustKeyword::Pub);
         self.ident().transpile_to_rust(builder);
-        builder.opr(RustOpr::Colon);
+        builder.opr(RustPunctuation::Colon);
         self.ty().transpile_to_rust(builder)
     }
 }

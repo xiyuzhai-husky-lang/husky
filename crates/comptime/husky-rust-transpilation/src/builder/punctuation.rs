@@ -1,6 +1,6 @@
 use super::*;
 
-pub enum RustOpr {
+pub enum RustPunctuation {
     Bra(RustBracket),
     Ket(RustBracket),
     Assign,
@@ -19,6 +19,7 @@ pub enum RustOpr {
     Add,
     PatternOr,
     Not,
+    SemicolonInArray,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -59,26 +60,27 @@ impl RustBracket {
 }
 
 impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
-    pub(crate) fn opr(&mut self, opr: RustOpr) {
+    pub(crate) fn opr(&mut self, opr: RustPunctuation) {
         let s = match opr {
-            RustOpr::Bra(bracket) => bracket.bra_code(),
-            RustOpr::Ket(bracket) => bracket.ket_code(),
-            RustOpr::Assign => " = ",
-            RustOpr::Colon => ": ",
-            RustOpr::Dot => ".",
-            RustOpr::ColonColon => "::",
-            RustOpr::LightArrow => " -> ",
-            RustOpr::HeavyArrow => " => ",
-            RustOpr::DotDot => "..",
-            RustOpr::DotDotEq => "..=",
-            RustOpr::AddAssign => " += ",
-            RustOpr::Less => " < ",
-            RustOpr::Leq => " <= ",
-            RustOpr::Greater => "> ",
-            RustOpr::Geq => " >= ",
-            RustOpr::Add => " + ",
-            RustOpr::PatternOr => " | ",
-            RustOpr::Not => "!",
+            RustPunctuation::Bra(bracket) => bracket.bra_code(),
+            RustPunctuation::Ket(bracket) => bracket.ket_code(),
+            RustPunctuation::Assign => " = ",
+            RustPunctuation::Colon => ": ",
+            RustPunctuation::Dot => ".",
+            RustPunctuation::ColonColon => "::",
+            RustPunctuation::LightArrow => " -> ",
+            RustPunctuation::HeavyArrow => " => ",
+            RustPunctuation::DotDot => "..",
+            RustPunctuation::DotDotEq => "..=",
+            RustPunctuation::AddAssign => " += ",
+            RustPunctuation::Less => " < ",
+            RustPunctuation::Leq => " <= ",
+            RustPunctuation::Greater => "> ",
+            RustPunctuation::Geq => " >= ",
+            RustPunctuation::Add => " + ",
+            RustPunctuation::PatternOr => " | ",
+            RustPunctuation::Not => "!",
+            RustPunctuation::SemicolonInArray => "; ",
         };
         self.write_str(s)
     }

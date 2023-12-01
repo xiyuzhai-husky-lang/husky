@@ -63,7 +63,7 @@ fn prelude_ethereal_owner_ty_index_signature(
         PreludeTypePath::Module => todo!(),
         PreludeTypePath::Trait => todo!(),
         PreludeTypePath::List => todo!(),
-        PreludeTypePath::Arr(_) => {
+        PreludeTypePath::Container(_) => {
             if owner_ty_arguments.len() != 1 {
                 todo!()
             }

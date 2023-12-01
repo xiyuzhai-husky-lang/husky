@@ -9,6 +9,7 @@ toml.workspace = true
 cargo-manifest.workspace = true
 # abstractions
 salsa.workspace = true
+either.workspace = true
 enum-class.workspace = true
 is = { path = "../../abstractions/is" }
 # fs

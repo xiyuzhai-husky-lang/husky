@@ -159,7 +159,7 @@ impl<'a> SemaExprEngine<'a> {
                     PreludeTypePath::Module => todo!(),
                     PreludeTypePath::Trait => todo!(),
                     PreludeTypePath::List => todo!(),
-                    PreludeTypePath::Arr(_) => todo!(),
+                    PreludeTypePath::Container(_) => todo!(),
                     PreludeTypePath::StringLiteral => todo!(),
                     PreludeTypePath::Str => todo!(),
                     PreludeTypePath::Option => todo!(),

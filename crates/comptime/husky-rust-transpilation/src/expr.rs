@@ -65,7 +65,7 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::Binary { lopd, opr, ropd } => match opr {
             HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
                 (RustPrecedenceRange::Geq(RustPrecedence::Suffix), lopd).transpile_to_rust(builder);
-                builder.opr(RustOpr::Dot);
+                builder.opr(RustPunctuation::Dot);
                 builder.rem_eulid();
                 builder.bracketed_list_with(RustBracket::Par, |builder| {
                     any_precedence(ropd).transpile_to_rust(builder)
@@ -73,7 +73,7 @@ fn transpile_hir_eager_expr_to_rust(
             }
             HirBinaryOpr::Closed(BinaryClosedOpr::Power) => {
                 (RustPrecedenceRange::Geq(RustPrecedence::Suffix), lopd).transpile_to_rust(builder);
-                builder.opr(RustOpr::Dot);
+                builder.opr(RustPunctuation::Dot);
                 builder.pow();
                 builder.bracketed_list_with(RustBracket::Par, |builder| {
                     any_precedence(ropd).transpile_to_rust(builder)
@@ -142,7 +142,7 @@ fn transpile_hir_eager_expr_to_rust(
             ident,
         } => {
             geq(owner_hir_expr_idx).transpile_to_rust(builder);
-            builder.opr(RustOpr::Dot);
+            builder.opr(RustPunctuation::Dot);
             ident.transpile_to_rust(builder)
         }
         HirEagerExprData::MemoizedField {
@@ -151,7 +151,7 @@ fn transpile_hir_eager_expr_to_rust(
             ..
         } => {
             geq(owner_hir_expr_idx).transpile_to_rust(builder);
-            builder.opr(RustOpr::Dot);
+            builder.opr(RustPunctuation::Dot);
             ident.transpile_to_rust(builder);
             builder.bracketed(RustBracket::Par, |_| ())
         }
@@ -163,7 +163,7 @@ fn transpile_hir_eager_expr_to_rust(
             ref item_groups,
         } => {
             geq(self_argument).transpile_to_rust(builder);
-            builder.opr(RustOpr::Dot);
+            builder.opr(RustPunctuation::Dot);
             ident.transpile_to_rust(builder);
             builder.bracketed_comma_list(RustBracket::Par, item_groups)
         }

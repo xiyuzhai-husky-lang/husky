@@ -8,7 +8,7 @@ pub enum PreludeTypePath {
     // stack representable numbers
     Num(PreludeNumTypePath),
     Indirection(PreludeIndirectionTypePath),
-    Arr(PreludeArrTypePath),
+    Container(PreludeContainerTypePath),
     // RawBits
     Nat,
     Lifetime,
@@ -43,7 +43,7 @@ pub enum PreludeIndirectionTypePath {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
-pub enum PreludeArrTypePath {
+pub enum PreludeContainerTypePath {
     Vec,
     Array,
     Array2d,
@@ -151,10 +151,10 @@ pub(crate) fn prelude_ty_path(db: &::salsa::Db, path: TypePath) -> Option<Prelud
         path if path == menu.ref_mut_ty_path() => PreludeIndirectionTypePath::RefMut.into(),
         path if path == menu.leash_ty_path() => PreludeIndirectionTypePath::Leash.into(),
         path if path == menu.at_ty_path() => PreludeIndirectionTypePath::At.into(),
-        path if path == menu.vec_ty_path() => PreludeArrTypePath::Vec.into(),
-        path if path == menu.slice_ty_path() => PreludeArrTypePath::Slice.into(),
+        path if path == menu.vec_ty_path() => PreludeContainerTypePath::Vec.into(),
+        path if path == menu.slice_ty_path() => PreludeContainerTypePath::Slice.into(),
         path if path == menu.cyclic_slice_leashed_ty_path() => {
-            PreludeArrTypePath::CyclicSlice.into()
+            PreludeContainerTypePath::CyclicSlice.into()
         }
         path if path == menu.string_literal_ty_path() => PreludeTypePath::StringLiteral.into(),
         path if path == menu.str_ty_path() => PreludeTypePath::Str.into(),

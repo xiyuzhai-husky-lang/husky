@@ -50,7 +50,7 @@ impl TranspileToRust for TraitForTypeAssociatedTypeHirDefn {
             builder.on_fresh_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Type);
                 self.path(db).ident(db).transpile_to_rust(builder);
-                builder.opr(RustOpr::Assign);
+                builder.opr(RustPunctuation::Assign);
                 hir_decl.ty(db).transpile_to_rust(builder)
             })
         })
