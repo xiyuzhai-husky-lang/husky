@@ -11,8 +11,8 @@ indexmap = "1.8.1"
 colored = "2.0.0"
 # abstractions
 cyclic-slice = { path = "../../abstractions/cyclic-slice" }
-vec-like = { path = "../../abstractions/vec-like" }
-enum-class = { path = "../../abstractions/enum-class" }
+vec-like.workspace = true
+enum-class.workspace = true
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }

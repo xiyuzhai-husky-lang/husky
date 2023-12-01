@@ -8,9 +8,9 @@ edition = "2021"
 itertools = "0.11.0"
 lsp-types.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # lex
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-token-data = { path = "../../lex/husky-token-data", features = [

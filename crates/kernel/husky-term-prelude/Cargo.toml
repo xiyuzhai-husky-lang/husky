@@ -7,10 +7,10 @@ edition = "2021"
 [dependencies]
 ordered-float.workspace = true
 thiserror.workspace = true
-salsa = { path = "../../abstractions/salsa" }
-enum-class = { path = "../../abstractions/enum-class" }
+salsa.workspace = true
+enum-class.workspace = true
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 husky-coword = { path = "../../kernel/husky-coword" }
 
 [dev-dependencies]

@@ -23,12 +23,9 @@ tracing = "0.1"
 itertools = "^0.11.0"
 lsp-server = "0.7.0"
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-vec-like = { path = "../../abstractions/vec-like" }
+salsa.workspace = true
+vec-like.workspace = true
 # comptime
-# husky-layout = { path = "../../comptime/husky-layout" }
-# husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
-# husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["lsp_support"] }
 # ide
@@ -49,7 +46,7 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # protocols

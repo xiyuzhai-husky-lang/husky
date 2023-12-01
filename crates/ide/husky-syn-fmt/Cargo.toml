@@ -5,7 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 
 [dev-dependencies]
 husky-syn-fmt = { path = ".", features = ["test-utils"] }

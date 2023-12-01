@@ -8,9 +8,9 @@ serde.workspace = true
 serde_json.workspace = true
 lsp-types.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # infer
 husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
 # kernel
@@ -19,7 +19,7 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # syntax

@@ -10,16 +10,16 @@ dashmap.workspace = true
 either.workspace = true
 serde.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # comptime
 husky-rust-transpilation = { path = "../../comptime/husky-rust-transpilation" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # kernel
 husky-task = { path = "../../kernel/husky-task" }
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # linkage
-husky-linkage = { path = "../../linkage/husky-linkage" }
+husky-linkage.workspace = true
 # linktime
 husky-mono-linktime = { path = "../../linktime/husky-mono-linktime" }
 # protocols

@@ -8,10 +8,10 @@ edition = "2021"
 smallvec.workspace = true
 thiserror.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-vec-like = { path = "../../abstractions/vec-like" }
+salsa.workspace = true
+vec-like.workspace = true
 maybe-result = { path = "../../abstractions/maybe-result" }
-enum-class = { path = "../../abstractions/enum-class" }
+enum-class.workspace = true
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-coword = { path = "../../kernel/husky-coword" }

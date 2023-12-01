@@ -15,15 +15,15 @@ serde.workspace = true
 serde_json.workspace = true
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
 # abstractions
-parsec = { path = "../../abstractions/parsec" }
-salsa = { path = "../../abstractions/salsa" }
-vec-like = { path = "../../abstractions/vec-like" }
-enum-class = { path = "../../abstractions/enum-class" }
+parsec.workspace = true
+salsa.workspace = true
+vec-like.workspace = true
+enum-class.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # lex
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-kind = { path = "../../kernel/husky-entity-kind" }

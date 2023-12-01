@@ -9,7 +9,7 @@ path = "src/bin/main.rs"
 
 [dependencies]
 clap.workspace = true
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 lsp-types.workspace = true
 relative-path = "1.7.2"
 # abstractions

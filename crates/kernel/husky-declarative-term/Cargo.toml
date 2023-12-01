@@ -9,11 +9,11 @@ thiserror.workspace = true
 ordered-float.workspace = true
 smallvec.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-vec-like = { path = "../../abstractions/vec-like" }
-enum-class = { path = "../../abstractions/enum-class" }
+salsa.workspace = true
+vec-like.workspace = true
+enum-class.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }

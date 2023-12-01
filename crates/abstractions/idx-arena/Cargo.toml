@@ -10,7 +10,7 @@ doctest = false
 
 [dependencies]
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

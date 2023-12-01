@@ -4,18 +4,18 @@ version = "0.0.0"
 edition = "2021"
 
 [dependencies]
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 # abstractions
-vec-like = { path = "../../abstractions/vec-like" }
+vec-like.workspace = true
 serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
 # comptime
 husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
 # devtime
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }

@@ -11,9 +11,9 @@ rustc-hash.workspace = true
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
 serde.workspace = true
 # abstraction
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 # protocols

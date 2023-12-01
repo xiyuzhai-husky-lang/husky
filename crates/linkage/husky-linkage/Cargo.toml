@@ -8,12 +8,12 @@ edition = "2021"
 smallvec.workspace = true
 fxhash.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-vec-like = { path = "../../abstractions/vec-like" }
-enum-class = { path = "../../abstractions/enum-class" }
+salsa.workspace = true
+vec-like.workspace = true
+enum-class.workspace = true
 version-stamp = { path = "../../abstractions/version-stamp" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # hir
 husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
 husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
@@ -48,7 +48,7 @@ husky-declarative-signature = { path = "../../kernel/husky-declarative-signature
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # semantics

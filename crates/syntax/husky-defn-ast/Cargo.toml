@@ -6,8 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-idx-arena = { path = "../../abstractions/idx-arena" }
+salsa.workspace = true
+idx-arena.workspace = true
 # lex
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # syntax

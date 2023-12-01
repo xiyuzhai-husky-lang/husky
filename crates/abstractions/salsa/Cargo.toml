@@ -22,7 +22,7 @@ either.workspace = true
 salsa-macros = { path = "../../abstractions/salsa-macros" }
 snapshot = { path = "../../abstractions/snapshot" }
 enum-index = { path = "../../abstractions/enum-index" }
-vec-like = { path = "../../abstractions/vec-like" }
+vec-like.workspace = true
 maybe-result = { path = "../../abstractions/maybe-result" }
 husky-salsa-log-utils = { path = "../../utils/husky-salsa-log-utils" }
 

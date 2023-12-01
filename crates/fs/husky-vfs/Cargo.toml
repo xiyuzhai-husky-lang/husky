@@ -23,10 +23,10 @@ serde_json = { version = "1.0.48", features = [
 ], optional = true }
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
 # abstractions
-vec-like = { path = "../../abstractions/vec-like" }
-salsa = { path = "../../abstractions/salsa" }
+vec-like.workspace = true
+salsa.workspace = true
 with-db = { path = "../../abstractions/with-db" }
-enum-class = { path = "../../abstractions/enum-class" }
+enum-class.workspace = true
 # fs
 husky-fs-specs = { path = "../../fs/husky-fs-specs" }
 # lex

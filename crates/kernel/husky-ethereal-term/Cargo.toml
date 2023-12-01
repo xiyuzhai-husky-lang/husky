@@ -12,12 +12,12 @@ thiserror.workspace = true
 ordered-float.workspace = true
 smallvec.workspace = true
 # abstractions
-salsa = { path = "../../abstractions/salsa" }
-vec-like = { path = "../../abstractions/vec-like" }
-enum-class = { path = "../../abstractions/enum-class" }
+salsa.workspace = true
+vec-like.workspace = true
+enum-class.workspace = true
 maybe-result = { path = "../../abstractions/maybe-result" }
 # fs
-husky-vfs = { path = "../../fs/husky-vfs" }
+husky-vfs.workspace = true
 # infer
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 # kernel
@@ -28,7 +28,7 @@ husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-scope = { path = "../../kernel/husky-scope" }
 # lex
-husky-token-data = { path = "../../lex/husky-token-data" }
+husky-token-data.workspace = true
 # syntax
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }

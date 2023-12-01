@@ -10,7 +10,7 @@ rust-version = "1.56"
 doctest = false
 
 [dependencies]
-salsa = { path = "../../abstractions/salsa" }
+salsa.workspace = true
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 # comptime
