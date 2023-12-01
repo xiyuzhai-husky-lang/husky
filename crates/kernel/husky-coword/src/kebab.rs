@@ -80,7 +80,11 @@ pub fn is_char_valid_kebab_nonfirst_char(c: char) -> bool {
 }
 
 impl salsa::DebugWithDb for Kebab {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         f.write_fmt(format_args!("`{}`", self.data(db)))
     }
 }

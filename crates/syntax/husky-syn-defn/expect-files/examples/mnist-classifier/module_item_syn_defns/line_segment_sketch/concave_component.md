@@ -2161,31 +2161,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `norm`,
-                                    item_kind: MemoizedField,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
             ),
         ),
         Some(
@@ -2307,31 +2283,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `norm`,
-                                                                                            item_kind: MemoizedField,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2426,31 +2378,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `norm`,
-                                                                                item_kind: MemoizedField,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`, `MemoizedField`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2548,31 +2476,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `rel_norm`,
-                                    item_kind: MemoizedField,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
             ),
         ),
         Some(
@@ -2694,31 +2598,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `rel_norm`,
-                                                                                            item_kind: MemoizedField,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2813,31 +2693,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `rel_norm`,
-                                                                                item_kind: MemoizedField,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`, `MemoizedField`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -2990,31 +2846,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `hausdorff_norm`,
-                                    item_kind: MemoizedField,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
             ),
         ),
         Some(
@@ -3136,31 +2968,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `hausdorff_norm`,
-                                                                                            item_kind: MemoizedField,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3255,31 +3063,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `hausdorff_norm`,
-                                                                                item_kind: MemoizedField,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`, `MemoizedField`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -4366,31 +4150,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `angle_change`,
-                                    item_kind: MemoizedField,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
             ),
         ),
         Some(
@@ -4512,31 +4272,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `angle_change`,
-                                                                                            item_kind: MemoizedField,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -4631,31 +4367,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `angle_change`,
-                                                                                item_kind: MemoizedField,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`, `MemoizedField`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -5474,31 +5186,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `bounding_box`,
-                                    item_kind: MemoizedField,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
             ),
         ),
         Some(
@@ -5620,31 +5308,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `bounding_box`,
-                                                                                            item_kind: MemoizedField,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -5739,31 +5403,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `bounding_box`,
-                                                                                item_kind: MemoizedField,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`, `MemoizedField`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -7258,31 +6898,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `relative_bounding_box`,
-                                    item_kind: MemoizedField,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
             ),
         ),
         Some(
@@ -7404,31 +7020,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `relative_bounding_box`,
-                                                                                            item_kind: MemoizedField,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -7523,31 +7115,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `relative_bounding_box`,
-                                                                                item_kind: MemoizedField,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`, `MemoizedField`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -7699,31 +7267,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `line_segment`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
             ),
         ),
         Some(
@@ -7845,31 +7389,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `line_segment`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -7964,31 +7484,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `line_segment`,
-                                                                                item_kind: MethodFn,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`, `MethodFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -8271,31 +7767,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `start`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
             ),
         ),
         Some(
@@ -8417,31 +7889,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `start`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -8536,31 +7984,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `start`,
-                                                                                item_kind: MethodFn,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`, `MethodFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -8717,31 +8141,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `end`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
             ),
         ),
         Some(
@@ -8863,31 +8263,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `end`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -8982,31 +8358,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `end`,
-                                                                                item_kind: MethodFn,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -9163,31 +8515,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `displacement`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
             ),
         ),
         Some(
@@ -9309,31 +8637,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `displacement`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -9428,31 +8732,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `displacement`,
-                                                                                item_kind: MethodFn,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -9578,31 +8858,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `start_tangent`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
             ),
         ),
         Some(
@@ -9724,31 +8980,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `start_tangent`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -9843,31 +9075,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `start_tangent`,
-                                                                                item_kind: MethodFn,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`, `MethodFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -10012,31 +9220,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `end_tangent`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
             ),
         ),
         Some(
@@ -10158,31 +9342,7 @@
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `end_tangent`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -10277,31 +9437,7 @@
                                                 AssociatedItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypeItemPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::AssociatedItem(
-                                                                        AssociatedItemPathData::TypeItem(
-                                                                            TypeItemPathData {
-                                                                                impl_block: TypeImplBlockPath(
-                                                                                    ItemPathId {
-                                                                                        data: ItemPathData::ImplBlock(
-                                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                                TypeImplBlockPathData {
-                                                                                                    module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                    disambiguator: 0,
-                                                                                                },
-                                                                                            ),
-                                                                                        ),
-                                                                                    },
-                                                                                ),
-                                                                                ident: `end_tangent`,
-                                                                                item_kind: MethodFn,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
+                                                            path: TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`, `MethodFn`),
                                                             disambiguator: 0,
                                                         },
                                                     },

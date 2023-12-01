@@ -1729,31 +1729,7 @@
                                             self_argument: 9,
                                             ident: `last_bits`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::raw_bits`,
-                                                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `last_bits`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -3312,31 +3288,7 @@
                                             self_argument: 1,
                                             ident: `ilen`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `ilen`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -3733,60 +3685,12 @@
                                         },
                                         HirEagerExprData::AssociatedFn {
                                             associated_item_path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist`,
-                                                                                        ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `new_zeros`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
                                             ),
                                         },
                                         HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist`,
-                                                                                        ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `new_zeros`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
                                             ),
                                             function_hir_eager_expr_idx: 2,
                                             instantiation: HirInstantiation {
@@ -4017,31 +3921,7 @@
                                             self_argument: 51,
                                             ident: `ctz`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::raw_bits`,
-                                                                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `ctz`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -4488,31 +4368,7 @@
                                             self_argument: 137,
                                             ident: `last`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `last`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -4587,31 +4443,7 @@
                                         ),
                                         HirEagerExprData::AssociatedFn {
                                             associated_item_path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `from_i_shift28`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
                                             ),
                                         },
                                         HirEagerExprData::Variable(
@@ -4622,31 +4454,7 @@
                                         ),
                                         HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `from_i_shift28`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
                                             ),
                                             function_hir_eager_expr_idx: 145,
                                             instantiation: HirInstantiation {
@@ -4666,31 +4474,7 @@
                                             self_argument: 144,
                                             ident: `push`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `push`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -4834,31 +4618,7 @@
                                             self_argument: 170,
                                             ident: `last`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `last`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -4902,31 +4662,7 @@
                                         },
                                         HirEagerExprData::AssociatedFn {
                                             associated_item_path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `from_i_shift28`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
                                             ),
                                         },
                                         HirEagerExprData::Variable(
@@ -4937,31 +4673,7 @@
                                         ),
                                         HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `from_i_shift28`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
                                             ),
                                             function_hir_eager_expr_idx: 173,
                                             instantiation: HirInstantiation {
@@ -5096,31 +4808,7 @@
                                             self_argument: 200,
                                             ident: `last`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `last`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::last`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -5164,31 +4852,7 @@
                                         },
                                         HirEagerExprData::AssociatedFn {
                                             associated_item_path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `from_i_shift28`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
                                             ),
                                         },
                                         HirEagerExprData::Variable(
@@ -5199,31 +4863,7 @@
                                         ),
                                         HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `from_i_shift28`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
                                             ),
                                             function_hir_eager_expr_idx: 203,
                                             instantiation: HirInstantiation {
@@ -5283,31 +4923,7 @@
                                         ),
                                         HirEagerExprData::AssociatedFn {
                                             associated_item_path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `from_i_shift28`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
                                             ),
                                         },
                                         HirEagerExprData::Variable(
@@ -5318,31 +4934,7 @@
                                         ),
                                         HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `from_i_shift28`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
                                             ),
                                             function_hir_eager_expr_idx: 217,
                                             instantiation: HirInstantiation {
@@ -5362,31 +4954,7 @@
                                             self_argument: 216,
                                             ident: `push`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `push`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -5767,31 +5335,7 @@
                                             self_argument: 299,
                                             ident: `pop`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `pop`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::pop`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -5863,31 +5407,7 @@
                                             self_argument: 301,
                                             ident: `push`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `push`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::push`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -7263,57 +6783,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `mnist_classifier::raw_contour`,
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `line_segment_sketch`,
-                                        item_kind: MemoizedField,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
                     hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `line_segment_sketch`,
-                                            item_kind: MemoizedField,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -7324,31 +6796,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `line_segment_sketch`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
                                     ),
                                 ),
                             ),
@@ -7388,31 +6836,7 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TypeItem(
-                                                            TypeItemPathData {
-                                                                impl_block: TypeImplBlockPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::ImplBlock(
-                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                TypeImplBlockPathData {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ident: `line_segment_sketch`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`, `MemoizedField`),
                                         ),
                                     ),
                                 ),
@@ -7420,31 +6844,7 @@
                                     data: [
                                         HirEagerExprData::AssociatedFn {
                                             associated_item_path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `new`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
                                             ),
                                         },
                                         HirEagerExprData::Variable(
@@ -7459,31 +6859,7 @@
                                         ),
                                         HirEagerExprData::AssociatedFunctionFnCall {
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `new`,
-                                                                    item_kind: AssociatedFunctionFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`, `AssociatedFunctionFn`),
                                             ),
                                             function_hir_eager_expr_idx: 1,
                                             instantiation: HirInstantiation {
@@ -7546,57 +6922,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `mnist_classifier::raw_contour`,
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `bounding_box`,
-                                        item_kind: MemoizedField,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                     hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `bounding_box`,
-                                            item_kind: MemoizedField,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -7607,31 +6935,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `bounding_box`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                                     ),
                                 ),
                             ),
@@ -7671,31 +6975,7 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TypeItem(
-                                                            TypeItemPathData {
-                                                                impl_block: TypeImplBlockPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::ImplBlock(
-                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                TypeImplBlockPathData {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ident: `bounding_box`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                                         ),
                                     ),
                                 ),
@@ -7760,31 +7040,7 @@
                                             self_argument: 14,
                                             ident: `ilen`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `ilen`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -7847,31 +7103,7 @@
                                             self_argument: 21,
                                             ident: `min`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `min`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -7907,31 +7139,7 @@
                                             self_argument: 27,
                                             ident: `max`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `max`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -7967,31 +7175,7 @@
                                             self_argument: 33,
                                             ident: `min`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `min`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -8027,31 +7211,7 @@
                                             self_argument: 39,
                                             ident: `max`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `max`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -8395,57 +7555,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `mnist_classifier::raw_contour`,
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `relative_bounding_box`,
-                                        item_kind: MemoizedField,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                     hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `relative_bounding_box`,
-                                            item_kind: MemoizedField,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -8456,31 +7568,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `relative_bounding_box`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                                     ),
                                 ),
                             ),
@@ -8520,31 +7608,7 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TypeItem(
-                                                            TypeItemPathData {
-                                                                impl_block: TypeImplBlockPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::ImplBlock(
-                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                TypeImplBlockPathData {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ident: `relative_bounding_box`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`, `MemoizedField`),
                                         ),
                                     ),
                                 ),
@@ -8561,31 +7625,7 @@
                                             owner_hir_expr_idx: 2,
                                             ident: `raw_contours`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::connected_component`,
-                                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `raw_contours`,
-                                                                    item_kind: MemoizedField,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`, `MemoizedField`),
                                             ),
                                         },
                                         HirEagerExprData::Literal(
@@ -8605,31 +7645,7 @@
                                             owner_hir_expr_idx: 5,
                                             ident: `bounding_box`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::raw_contour`,
-                                                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `bounding_box`,
-                                                                    item_kind: MemoizedField,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                                             ),
                                         },
                                         HirEagerExprData::Variable(
@@ -8639,62 +7655,14 @@
                                             owner_hir_expr_idx: 7,
                                             ident: `bounding_box`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::raw_contour`,
-                                                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `bounding_box`,
-                                                                    item_kind: MemoizedField,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::bounding_box`, `MemoizedField`),
                                             ),
                                         },
                                         HirEagerExprData::MethodFnCall {
                                             self_argument: 6,
                                             ident: `relative_bounding_box`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `relative_bounding_box`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -8755,57 +7723,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `mnist_classifier::raw_contour`,
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `contour_len`,
-                                        item_kind: MemoizedField,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
                     hir_decl: TypeMemoizedFieldHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `contour_len`,
-                                            item_kind: MemoizedField,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -8816,31 +7736,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `contour_len`,
-                                                            item_kind: MemoizedField,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
                                     ),
                                 ),
                             ),
@@ -8880,31 +7776,7 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TypeItem(
-                                                            TypeItemPathData {
-                                                                impl_block: TypeImplBlockPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::ImplBlock(
-                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                TypeImplBlockPathData {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ident: `contour_len`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::contour_len`, `MemoizedField`),
                                         ),
                                     ),
                                 ),
@@ -8933,31 +7805,7 @@
                                             self_argument: 4,
                                             ident: `ilen`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `ilen`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -9059,31 +7907,7 @@
                                             self_argument: 21,
                                             ident: `abs`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `abs`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -9118,31 +7942,7 @@
                                             self_argument: 27,
                                             ident: `abs`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `abs`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -9184,31 +7984,7 @@
                                             self_argument: 34,
                                             ident: `ilen`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `ilen`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -9304,31 +8080,7 @@
                                             self_argument: 48,
                                             ident: `abs`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `abs`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -9363,31 +8115,7 @@
                                             self_argument: 54,
                                             ident: `abs`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `abs`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -9623,57 +8351,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `mnist_classifier::raw_contour`,
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `displacement`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `displacement`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -9710,31 +8390,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `mnist_classifier::raw_contour`,
-                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `displacement`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -9807,31 +8463,7 @@
                                 path: RegionPath::Defn(
                                     ItemPath::AssociatedItem(
                                         AssociatedItemPath::TypeItem(
-                                            TypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TypeItem(
-                                                            TypeItemPathData {
-                                                                impl_block: TypeImplBlockPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::ImplBlock(
-                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                TypeImplBlockPathData {
-                                                                                    module_path: `mnist_classifier::raw_contour`,
-                                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ident: `displacement`,
-                                                                item_kind: MethodFn,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+                                            TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                                         ),
                                     ),
                                 ),
@@ -9848,31 +8480,7 @@
                                             self_argument: 2,
                                             ident: `ilen`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `ilen`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -9964,31 +8572,7 @@
                                             self_argument: 16,
                                             ident: `to`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `to`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],

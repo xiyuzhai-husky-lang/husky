@@ -140,7 +140,11 @@ impl salsa::AsId for File {
     }
 }
 impl ::salsa::DebugWithDb for File {
-    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &::salsa::Db) -> ::std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut ::std::fmt::Formatter<'_>,
+        _db: &::salsa::Db,
+    ) -> ::std::fmt::Result {
         #[allow(unused_imports)]
         use salsa::debug::helper::Fallback;
         let mut debug_struct = &mut f.debug_struct("HuskyFile");

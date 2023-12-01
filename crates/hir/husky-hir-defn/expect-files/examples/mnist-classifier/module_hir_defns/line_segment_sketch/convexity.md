@@ -125,31 +125,7 @@
                                             self_argument: 2,
                                             ident: `ilen`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::vec`,
-                                                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `ilen`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::vec::Vec(0)::ilen`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -209,31 +185,7 @@
                                             self_argument: 9,
                                             ident: `displacement`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `displacement`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -285,31 +237,7 @@
                                             self_argument: 18,
                                             ident: `displacement`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::line_segment_sketch`,
-                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `displacement`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -329,31 +257,7 @@
                                             self_argument: 20,
                                             ident: `rotation_direction_to`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `rotation_direction_to`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -442,31 +346,7 @@
                                             self_argument: 37,
                                             ident: `start`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::slice`,
-                                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `start`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -503,31 +383,7 @@
                                             self_argument: 39,
                                             ident: `end`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::slice`,
-                                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `end`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -571,31 +427,7 @@
                                             self_argument: 43,
                                             ident: `start`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::slice`,
-                                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `start`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -632,31 +464,7 @@
                                             self_argument: 42,
                                             ident: `displacement`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::raw_contour`,
-                                                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `displacement`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -689,31 +497,7 @@
                                             self_argument: 49,
                                             ident: `cross`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `cross`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -731,31 +515,7 @@
                                             self_argument: 48,
                                             ident: `max`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `max`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -822,31 +582,7 @@
                                             self_argument: 63,
                                             ident: `start`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::slice`,
-                                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `start`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -883,31 +619,7 @@
                                             self_argument: 65,
                                             ident: `end`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::slice`,
-                                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `end`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::slice::CyclicSlice(0)::end`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -951,31 +663,7 @@
                                             self_argument: 69,
                                             ident: `start`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::slice`,
-                                                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `start`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::slice::CyclicSlice(0)::start`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
@@ -1012,31 +700,7 @@
                                             self_argument: 68,
                                             ident: `displacement`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::raw_contour`,
-                                                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `displacement`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::raw_contour::RawContour(0)::displacement`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -1069,31 +733,7 @@
                                             self_argument: 75,
                                             ident: `cross`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::geom2d`,
-                                                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `cross`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -1111,31 +751,7 @@
                                             self_argument: 74,
                                             ident: `max`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `core::num`,
-                                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `max`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],

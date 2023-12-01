@@ -498,7 +498,11 @@ fn term_size_works() {
 }
 
 impl salsa::DebugWithDb for EtherealTerm {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         f.write_fmt(format_args!("EtherealTerm(`{}`)", self.display_with(db,)))
     }
 }

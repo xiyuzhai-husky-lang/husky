@@ -245,31 +245,7 @@
                                             self_argument: 1,
                                             ident: `displacement`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `displacement`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -494,31 +470,7 @@
                                             self_argument: 1,
                                             ident: `displacement`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `displacement`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -556,31 +508,7 @@
                                             self_argument: 7,
                                             ident: `end`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `end`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],
@@ -785,31 +713,7 @@
                                             self_argument: 1,
                                             ident: `displacement`,
                                             path: AssociatedItemPath::TypeItem(
-                                                TypeItemPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::AssociatedItem(
-                                                            AssociatedItemPathData::TypeItem(
-                                                                TypeItemPathData {
-                                                                    impl_block: TypeImplBlockPath(
-                                                                        ItemPathId {
-                                                                            data: ItemPathData::ImplBlock(
-                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                    TypeImplBlockPathData {
-                                                                                        module_path: `mnist_classifier::line_segment_sketch::concave_component`,
-                                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                        disambiguator: 0,
-                                                                                    },
-                                                                                ),
-                                                                            ),
-                                                                        },
-                                                                    ),
-                                                                    ident: `displacement`,
-                                                                    item_kind: MethodFn,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
+                                                TypeItemPath(`(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`, `MethodFn`),
                                             ),
                                             instantiation: HirInstantiation {
                                                 symbol_map: [],

@@ -79,7 +79,7 @@ pub trait DebugWithDb {
     ///     - for [#\[salsa::input\]](salsa_macros::input) no fields
     ///     - for [#\[salsa::tracked\]](salsa_macros::tracked) only fields with `#[id]` attribute
     ///     - for [#\[salsa::interned\]](salsa_macros::interned) any field
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result;
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result;
 }
 
 pub struct DebugWith<'me> {
@@ -105,42 +105,42 @@ impl<T: ?Sized> std::ops::Deref for BoxRef<'_, T> {
 
 impl fmt::Debug for DebugWith<'_> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        DebugWithDb::fmt(&*self.value, f, self.db)
+        DebugWithDb::debug_with_db_fmt(&*self.value, f, self.db)
     }
 }
 
 impl DebugWithDb for () {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         f.write_str("()")
     }
 }
 
 impl DebugWithDb for u8 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
 
 impl DebugWithDb for u16 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
 
 impl DebugWithDb for u32 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
 
 impl DebugWithDb for u64 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
 
 impl DebugWithDb for usize {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(self, f)
     }
 }
@@ -149,8 +149,8 @@ impl<T: ?Sized> DebugWithDb for &T
 where
     T: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
-        T::fmt(self, f, db)
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+        T::debug_with_db_fmt(self, f, db)
     }
 }
 
@@ -158,8 +158,8 @@ impl<T: ?Sized> DebugWithDb for Box<T>
 where
     T: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
-        T::fmt(self, f, db)
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+        T::debug_with_db_fmt(self, f, db)
     }
 }
 
@@ -167,8 +167,8 @@ impl<T> DebugWithDb for Rc<T>
 where
     T: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
-        T::fmt(self, f, db)
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+        T::debug_with_db_fmt(self, f, db)
     }
 }
 
@@ -176,8 +176,8 @@ impl<T: ?Sized> DebugWithDb for Arc<T>
 where
     T: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
-        T::fmt(self, f, db)
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+        T::debug_with_db_fmt(self, f, db)
     }
 }
 
@@ -185,7 +185,7 @@ impl<T> DebugWithDb for [T]
 where
     T: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         let elements = self.iter().map(|e| e.debug_with(db));
         f.debug_list().entries(elements).finish()
     }
@@ -195,7 +195,7 @@ impl<T> DebugWithDb for Vec<T>
 where
     T: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         let elements = self.iter().map(|e| e.debug_with(db));
         f.debug_list().entries(elements).finish()
     }
@@ -205,7 +205,7 @@ impl<T: Array> DebugWithDb for SmallVec<T>
 where
     <T as Array>::Item: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         let elements = self.iter().map(|e| e.debug_with(db));
         f.debug_list().entries(elements).finish()
     }
@@ -215,7 +215,7 @@ impl<T> DebugWithDb for Option<T>
 where
     T: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         let me = self.as_ref().map(|v| v.debug_with(db));
         fmt::Debug::fmt(&me, f)
     }
@@ -226,7 +226,7 @@ where
     T: DebugWithDb,
     E: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         match self {
             Ok(t) => f.debug_tuple("Ok").field(&t.debug_with(db)).finish(),
             Err(e) => f.debug_tuple("Err").field(&e.debug_with(db)).finish(),
@@ -260,7 +260,7 @@ where
     T: DebugWithDb,
     E: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         match self {
             JustOk(t) => f.debug_tuple("JustOk").field(&t.debug_with(db)).finish(),
             JustErr(e) => f.debug_tuple("JustErr").field(&e.debug_with(db)).finish(),
@@ -274,7 +274,7 @@ where
     L: DebugWithDb,
     R: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         match self {
             Left(l) => f.debug_tuple("Left").field(&l.debug_with(db)).finish(),
             Right(r) => f.debug_tuple("Right").field(&r.debug_with(db)).finish(),
@@ -283,7 +283,7 @@ where
 }
 
 impl DebugWithDb for Infallible {
-    fn fmt(&self, _f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, _f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         unreachable!()
     }
 }
@@ -293,7 +293,7 @@ where
     K: DebugWithDb,
     V: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         let elements = self
             .iter()
             .map(|(k, v)| (k.debug_with(db), v.debug_with(db)));
@@ -305,7 +305,7 @@ impl<K> DebugWithDb for VecSet<K>
 where
     K: PartialEq + Eq + DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         let elements = self.data().iter().map(|v| v.debug_with(db));
         f.debug_list().entries(elements).finish()
     }
@@ -316,7 +316,7 @@ where
     K: PartialEq + Eq + DebugWithDb,
     [K; N]: Array<Item = K>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         let elements = self.data().iter().map(|v| v.debug_with(db));
         f.debug_list().entries(elements).finish()
     }
@@ -327,7 +327,7 @@ where
     K: PartialEq + Eq,
     V: AsVecMapEntry<K = K> + DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         let elements = self.data().iter().map(|v| v.debug_with(db));
         f.debug_list().entries(elements).finish()
     }
@@ -339,20 +339,20 @@ where
     V: AsVecMapEntry<K = K> + DebugWithDb,
     [V; N]: Array<Item = V>,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         let elements = self.data().iter().map(|v| v.debug_with(db));
         f.debug_list().entries(elements).finish()
     }
 }
 
 impl DebugWithDb for RelativePathBuf {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(&self, f)
     }
 }
 
 impl DebugWithDb for RelativePath {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, _db: &Db) -> fmt::Result {
         <Self as std::fmt::Debug>::fmt(&self, f)
     }
 }
@@ -361,7 +361,7 @@ impl<Entry> DebugWithDb for InsertEntryRepeatError<Entry>
 where
     Entry: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         f.debug_struct("EntryRepeatError::Insert")
             .field("old", &self.old)
             .field("new", &self.new.debug_with(db))
@@ -374,7 +374,7 @@ where
     A: DebugWithDb,
     B: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         f.debug_tuple("")
             .field(&self.0.debug_with(db))
             .field(&self.1.debug_with(db))
@@ -388,7 +388,7 @@ where
     B: DebugWithDb,
     C: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         f.debug_tuple("")
             .field(&self.0.debug_with(db))
             .field(&self.1.debug_with(db))
@@ -401,7 +401,7 @@ impl<V, S> DebugWithDb for HashSet<V, S>
 where
     V: DebugWithDb,
 {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
+    fn debug_with_db_fmt(&self, f: &mut fmt::Formatter<'_>, db: &Db) -> fmt::Result {
         let elements = self.iter().map(|e| e.debug_with(db));
         f.debug_list().entries(elements).finish()
     }

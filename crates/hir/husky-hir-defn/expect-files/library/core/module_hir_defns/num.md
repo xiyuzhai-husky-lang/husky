@@ -690,57 +690,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::i8(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -758,31 +710,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::i8(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -824,57 +752,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::i8(0)::max`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `max`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::i8(0)::max`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -902,31 +782,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::i8`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `max`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::i8(0)::max`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -1286,57 +1142,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1354,31 +1162,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::i16(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -1420,57 +1204,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `max`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1498,31 +1234,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::i16`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `max`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::i16(0)::max`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -1882,57 +1594,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::i32(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1950,31 +1614,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::i32(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -2016,57 +1656,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `max`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -2094,31 +1686,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `max`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::i32(0)::max`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -2177,57 +1745,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `min`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `min`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -2255,31 +1775,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::i32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `min`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::i32(0)::min`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -2639,57 +2135,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i64`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -2707,31 +2155,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::i64`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::i64(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -3074,57 +2498,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::i128`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::i128`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -3142,31 +2518,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::i128`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::i128(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -3509,57 +2861,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::isize`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::isize`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -3577,31 +2881,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::isize`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::isize(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -3944,57 +3224,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::u8`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::u8`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -4012,31 +3244,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::u8`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::u8(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -4379,57 +3587,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::u16`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::u16`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -4447,31 +3607,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::u16`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::u16(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -4814,57 +3950,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::u32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::u32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -4882,31 +3970,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::u32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::u32(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -5249,57 +4313,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::u64`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::u64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -5317,31 +4333,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::u64`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::u64(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -5684,57 +4676,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::u128`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::u128`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -5752,31 +4696,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::u128`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::u128(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -6119,57 +5039,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::usize`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::usize`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -6187,31 +5059,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::usize`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::usize(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -6554,57 +5402,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -6622,31 +5422,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::f32(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -6688,57 +5464,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `sqrt`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `sqrt`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -6756,31 +5484,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `sqrt`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::f32(0)::sqrt`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -6822,57 +5526,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `max`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `max`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -6900,31 +5556,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `max`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::f32(0)::max`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -6983,57 +5615,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `min`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `min`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -7061,31 +5645,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `min`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::f32(0)::min`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -7144,57 +5704,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `sgnx`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `sgnx`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -7212,31 +5724,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `sgnx`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::f32(0)::sgnx`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -7278,57 +5766,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `cos`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `cos`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::f32(0)::cos`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -7346,31 +5786,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `cos`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::f32(0)::cos`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -7412,57 +5828,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `sin`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `sin`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::f32(0)::sin`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -7480,31 +5848,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `sin`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::f32(0)::sin`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -7546,57 +5890,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `acos`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `acos`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -7614,31 +5910,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `acos`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::f32(0)::acos`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -7981,57 +6253,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `abs`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `abs`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::f64(0)::abs`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -8049,31 +6273,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `abs`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::f64(0)::abs`, `MethodFn`),
                                     ),
                                 ),
                             ),
@@ -8115,57 +6315,9 @@
         AssociatedItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodFnHirDefn {
-                    path: TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::num`,
-                                                            ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `acos`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodFn`),
                     hir_decl: TypeMethodFnHirDecl {
-                        path: TypeItemPath(
-                            ItemPathId {
-                                data: ItemPathData::AssociatedItem(
-                                    AssociatedItemPathData::TypeItem(
-                                        TypeItemPathData {
-                                            impl_block: TypeImplBlockPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::ImplBlock(
-                                                        ImplBlockPathData::TypeImplBlock(
-                                                            TypeImplBlockPathData {
-                                                                module_path: `core::num`,
-                                                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                                disambiguator: 0,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
-                                            ident: `acos`,
-                                            item_kind: MethodFn,
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
+                        path: TypeItemPath(`(core::num::f64(0)::acos`, `MethodFn`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -8183,31 +6335,7 @@
                             path: RegionPath::Decl(
                                 ItemPath::AssociatedItem(
                                     AssociatedItemPath::TypeItem(
-                                        TypeItemPath(
-                                            ItemPathId {
-                                                data: ItemPathData::AssociatedItem(
-                                                    AssociatedItemPathData::TypeItem(
-                                                        TypeItemPathData {
-                                                            impl_block: TypeImplBlockPath(
-                                                                ItemPathId {
-                                                                    data: ItemPathData::ImplBlock(
-                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                            TypeImplBlockPathData {
-                                                                                module_path: `core::num`,
-                                                                                ty_path: TypePath(`core::num::f64`, `Extern`),
-                                                                                disambiguator: 0,
-                                                                            },
-                                                                        ),
-                                                                    ),
-                                                                },
-                                                            ),
-                                                            ident: `acos`,
-                                                            item_kind: MethodFn,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
+                                        TypeItemPath(`(core::num::f64(0)::acos`, `MethodFn`),
                                     ),
                                 ),
                             ),

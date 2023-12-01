@@ -1,6 +1,7 @@
 use super::*;
 use husky_hir_ty::HirConstant;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum JavelinConstant {
     Unit(()),

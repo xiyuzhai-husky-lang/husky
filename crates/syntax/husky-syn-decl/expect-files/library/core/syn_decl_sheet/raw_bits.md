@@ -227,62 +227,14 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::raw_bits`,
-                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `last_bits`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `core::raw_bits`,
-                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `last_bits`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -419,31 +371,7 @@ SynDeclSheet {
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `core::raw_bits`,
-                                                                                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `last_bits`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::last_bits`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -624,62 +552,14 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::raw_bits`,
-                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `ctz`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `core::raw_bits`,
-                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `ctz`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -801,31 +681,7 @@ SynDeclSheet {
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `core::raw_bits`,
-                                                                                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `ctz`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::ctz`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -918,62 +774,14 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::raw_bits`,
-                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `co`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `core::raw_bits`,
-                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `co`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -1095,31 +903,7 @@ SynDeclSheet {
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `core::raw_bits`,
-                                                                                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `co`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::co`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1212,62 +996,14 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::raw_bits`,
-                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `span`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `core::raw_bits`,
-                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `span`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -1389,31 +1125,7 @@ SynDeclSheet {
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `core::raw_bits`,
-                                                                                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `span`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::span`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1506,62 +1218,14 @@ SynDeclSheet {
         (
             ItemPath::AssociatedItem(
                 AssociatedItemPath::TypeItem(
-                    TypeItemPath(
-                        ItemPathId {
-                            data: ItemPathData::AssociatedItem(
-                                AssociatedItemPathData::TypeItem(
-                                    TypeItemPathData {
-                                        impl_block: TypeImplBlockPath(
-                                            ItemPathId {
-                                                data: ItemPathData::ImplBlock(
-                                                    ImplBlockPathData::TypeImplBlock(
-                                                        TypeImplBlockPathData {
-                                                            module_path: `core::raw_bits`,
-                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                            disambiguator: 0,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                        ident: `right_mass`,
-                                        item_kind: MethodFn,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
+                    TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
                 ),
             ),
             SynDecl::AssociatedItem(
                 AssociatedItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodFnSynDecl {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `core::raw_bits`,
-                                                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `right_mass`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -1683,31 +1347,7 @@ SynDeclSheet {
                                                             AssociatedItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::AssociatedItem(
-                                                                                    AssociatedItemPathData::TypeItem(
-                                                                                        TypeItemPathData {
-                                                                                            impl_block: TypeImplBlockPath(
-                                                                                                ItemPathId {
-                                                                                                    data: ItemPathData::ImplBlock(
-                                                                                                        ImplBlockPathData::TypeImplBlock(
-                                                                                                            TypeImplBlockPathData {
-                                                                                                                module_path: `core::raw_bits`,
-                                                                                                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                                                                                                disambiguator: 0,
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                },
-                                                                                            ),
-                                                                                            ident: `right_mass`,
-                                                                                            item_kind: MethodFn,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
+                                                                        path: TypeItemPath(`(core::raw_bits::r32(0)::right_mass`, `MethodFn`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

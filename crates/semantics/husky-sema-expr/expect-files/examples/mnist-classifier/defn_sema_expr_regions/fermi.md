@@ -4221,31 +4221,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TypeItem(
-                                                            TypeItemPathData {
-                                                                impl_block: TypeImplBlockPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::ImplBlock(
-                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                TypeImplBlockPathData {
-                                                                                    module_path: `mnist_classifier::fermi`,
-                                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ident: `norm`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+                                            path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4372,31 +4348,7 @@
                                                     AssociatedItemSynNodePathData::TypeItem(
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypeItemPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::AssociatedItem(
-                                                                            AssociatedItemPathData::TypeItem(
-                                                                                TypeItemPathData {
-                                                                                    impl_block: TypeImplBlockPath(
-                                                                                        ItemPathId {
-                                                                                            data: ItemPathData::ImplBlock(
-                                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                                    TypeImplBlockPathData {
-                                                                                                        module_path: `mnist_classifier::fermi`,
-                                                                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                                                        disambiguator: 0,
-                                                                                                    },
-                                                                                                ),
-                                                                                            ),
-                                                                                        },
-                                                                                    ),
-                                                                                    ident: `norm`,
-                                                                                    item_kind: MemoizedField,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                                                 disambiguator: 0,
                                                             },
                                                         },
@@ -4491,31 +4443,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TypeItem(
-                                                                    TypeItemPathData {
-                                                                        impl_block: TypeImplBlockPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::ImplBlock(
-                                                                                    ImplBlockPathData::TypeImplBlock(
-                                                                                        TypeImplBlockPathData {
-                                                                                            module_path: `mnist_classifier::fermi`,
-                                                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                                            disambiguator: 0,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
-                                                                        ident: `norm`,
-                                                                        item_kind: MemoizedField,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
+                                                    path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::norm`, `MemoizedField`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -7016,31 +6944,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TypeItem(
-                                                            TypeItemPathData {
-                                                                impl_block: TypeImplBlockPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::ImplBlock(
-                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                TypeImplBlockPathData {
-                                                                                    module_path: `mnist_classifier::fermi`,
-                                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ident: `rel_norm`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+                                            path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -7167,31 +7071,7 @@
                                                     AssociatedItemSynNodePathData::TypeItem(
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypeItemPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::AssociatedItem(
-                                                                            AssociatedItemPathData::TypeItem(
-                                                                                TypeItemPathData {
-                                                                                    impl_block: TypeImplBlockPath(
-                                                                                        ItemPathId {
-                                                                                            data: ItemPathData::ImplBlock(
-                                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                                    TypeImplBlockPathData {
-                                                                                                        module_path: `mnist_classifier::fermi`,
-                                                                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                                                        disambiguator: 0,
-                                                                                                    },
-                                                                                                ),
-                                                                                            ),
-                                                                                        },
-                                                                                    ),
-                                                                                    ident: `rel_norm`,
-                                                                                    item_kind: MemoizedField,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                                                                 disambiguator: 0,
                                                             },
                                                         },
@@ -7286,31 +7166,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TypeItem(
-                                                                    TypeItemPathData {
-                                                                        impl_block: TypeImplBlockPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::ImplBlock(
-                                                                                    ImplBlockPathData::TypeImplBlock(
-                                                                                        TypeImplBlockPathData {
-                                                                                            module_path: `mnist_classifier::fermi`,
-                                                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                                            disambiguator: 0,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
-                                                                        ident: `rel_norm`,
-                                                                        item_kind: MemoizedField,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
+                                                    path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`, `MemoizedField`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -9811,31 +9667,7 @@
                                 AssociatedItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypeItemPath(
-                                                ItemPathId {
-                                                    data: ItemPathData::AssociatedItem(
-                                                        AssociatedItemPathData::TypeItem(
-                                                            TypeItemPathData {
-                                                                impl_block: TypeImplBlockPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::ImplBlock(
-                                                                            ImplBlockPathData::TypeImplBlock(
-                                                                                TypeImplBlockPathData {
-                                                                                    module_path: `mnist_classifier::fermi`,
-                                                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                                    disambiguator: 0,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
-                                                                ident: `angle_change_norm`,
-                                                                item_kind: MemoizedField,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                            ),
+                                            path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -9962,31 +9794,7 @@
                                                     AssociatedItemSynNodePathData::TypeItem(
                                                         TypeItemSynNodePathData {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                path: TypeItemPath(
-                                                                    ItemPathId {
-                                                                        data: ItemPathData::AssociatedItem(
-                                                                            AssociatedItemPathData::TypeItem(
-                                                                                TypeItemPathData {
-                                                                                    impl_block: TypeImplBlockPath(
-                                                                                        ItemPathId {
-                                                                                            data: ItemPathData::ImplBlock(
-                                                                                                ImplBlockPathData::TypeImplBlock(
-                                                                                                    TypeImplBlockPathData {
-                                                                                                        module_path: `mnist_classifier::fermi`,
-                                                                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                                                        disambiguator: 0,
-                                                                                                    },
-                                                                                                ),
-                                                                                            ),
-                                                                                        },
-                                                                                    ),
-                                                                                    ident: `angle_change_norm`,
-                                                                                    item_kind: MemoizedField,
-                                                                                },
-                                                                            ),
-                                                                        ),
-                                                                    },
-                                                                ),
+                                                                path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                                                                 disambiguator: 0,
                                                             },
                                                         },
@@ -10081,31 +9889,7 @@
                                         AssociatedItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypeItemPath(
-                                                        ItemPathId {
-                                                            data: ItemPathData::AssociatedItem(
-                                                                AssociatedItemPathData::TypeItem(
-                                                                    TypeItemPathData {
-                                                                        impl_block: TypeImplBlockPath(
-                                                                            ItemPathId {
-                                                                                data: ItemPathData::ImplBlock(
-                                                                                    ImplBlockPathData::TypeImplBlock(
-                                                                                        TypeImplBlockPathData {
-                                                                                            module_path: `mnist_classifier::fermi`,
-                                                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                                                            disambiguator: 0,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
-                                                                            },
-                                                                        ),
-                                                                        ident: `angle_change_norm`,
-                                                                        item_kind: MemoizedField,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                    ),
+                                                    path: TypeItemPath(`(mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`, `MemoizedField`),
                                                     disambiguator: 0,
                                                 },
                                             },

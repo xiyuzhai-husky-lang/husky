@@ -7,6 +7,7 @@ use super::*;
 use crate::instantiation::JavelinInstantiation;
 use husky_hir_ty::HirTemplateArgument;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum JavelinTemplateArgument {
     Vacant,

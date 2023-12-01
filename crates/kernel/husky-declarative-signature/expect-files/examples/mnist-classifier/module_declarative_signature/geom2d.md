@@ -231,31 +231,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `from_i_shift28`,
-                                    item_kind: AssociatedFunctionFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
             ),
         ),
         Ok(
@@ -263,31 +239,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `from_i_shift28`,
-                                                item_kind: AssociatedFunctionFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::from_i_shift28`, `AssociatedFunctionFn`),
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
@@ -318,31 +270,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `vector`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
             ),
         ),
         Ok(
@@ -350,31 +278,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `vector`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::vector`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -402,31 +306,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `to`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
             ),
         ),
         Ok(
@@ -434,31 +314,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `to`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::to`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -493,31 +349,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `norm`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
             ),
         ),
         Ok(
@@ -525,31 +357,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `norm`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::norm`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -577,31 +385,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `dist`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
             ),
         ),
         Ok(
@@ -609,31 +393,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `dist`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Point2d(0)::dist`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -699,31 +459,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `point`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
             ),
         ),
         Ok(
@@ -731,31 +467,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `point`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::point`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -783,31 +495,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `to`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
             ),
         ),
         Ok(
@@ -815,31 +503,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `to`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::to`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -874,31 +538,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `norm`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
             ),
         ),
         Ok(
@@ -906,31 +546,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `norm`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::norm`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -958,31 +574,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `dot`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
             ),
         ),
         Ok(
@@ -990,31 +582,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `dot`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::dot`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1049,31 +617,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `cross`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
             ),
         ),
         Ok(
@@ -1081,31 +625,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `cross`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::cross`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1140,31 +660,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `angle`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
             ),
         ),
         Ok(
@@ -1172,31 +668,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `angle`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1231,31 +703,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `rotation_direction_to`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
             ),
         ),
         Ok(
@@ -1263,31 +711,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `rotation_direction_to`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1322,31 +746,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `angle_to`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
             ),
         ),
         Ok(
@@ -1354,31 +754,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `angle_to`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::Vector2d(0)::angle_to`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1450,31 +826,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `relative_range`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
             ),
         ),
         Ok(
@@ -1482,31 +834,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `relative_range`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_range`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1541,31 +869,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `relative_point`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
             ),
         ),
         Ok(
@@ -1573,31 +877,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `relative_point`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::ClosedRange(0)::relative_point`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1663,31 +943,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `relative_bounding_box`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
             ),
         ),
         Ok(
@@ -1695,31 +951,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `relative_bounding_box`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1754,31 +986,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `relative_point`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
             ),
         ),
         Ok(
@@ -1786,31 +994,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `relative_point`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::relative_point`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1845,31 +1029,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `xmin`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
             ),
         ),
         Ok(
@@ -1877,31 +1037,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `xmin`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmin`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -1929,31 +1065,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `xmax`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
             ),
         ),
         Ok(
@@ -1961,31 +1073,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `xmax`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::xmax`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2013,31 +1101,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `ymin`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
             ),
         ),
         Ok(
@@ -2045,31 +1109,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `ymin`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymin`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2097,31 +1137,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `ymax`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
             ),
         ),
         Ok(
@@ -2129,31 +1145,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `ymax`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::BoundingBox(0)::ymax`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2212,31 +1204,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `xmin`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
             ),
         ),
         Ok(
@@ -2244,31 +1212,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `xmin`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2296,31 +1240,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `xmax`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
             ),
         ),
         Ok(
@@ -2328,31 +1248,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `xmax`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2380,31 +1276,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `ymin`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
             ),
         ),
         Ok(
@@ -2412,31 +1284,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `ymin`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
@@ -2464,31 +1312,7 @@
     (
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
-                TypeItemPath(
-                    ItemPathId {
-                        data: ItemPathData::AssociatedItem(
-                            AssociatedItemPathData::TypeItem(
-                                TypeItemPathData {
-                                    impl_block: TypeImplBlockPath(
-                                        ItemPathId {
-                                            data: ItemPathData::ImplBlock(
-                                                ImplBlockPathData::TypeImplBlock(
-                                                    TypeImplBlockPathData {
-                                                        module_path: `mnist_classifier::geom2d`,
-                                                        ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                    ident: `ymax`,
-                                    item_kind: MethodFn,
-                                },
-                            ),
-                        ),
-                    },
-                ),
+                TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
             ),
         ),
         Ok(
@@ -2496,31 +1320,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TypeItem(
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
-                            path: TypeItemPath(
-                                ItemPathId {
-                                    data: ItemPathData::AssociatedItem(
-                                        AssociatedItemPathData::TypeItem(
-                                            TypeItemPathData {
-                                                impl_block: TypeImplBlockPath(
-                                                    ItemPathId {
-                                                        data: ItemPathData::ImplBlock(
-                                                            ImplBlockPathData::TypeImplBlock(
-                                                                TypeImplBlockPathData {
-                                                                    module_path: `mnist_classifier::geom2d`,
-                                                                    ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                                ident: `ymax`,
-                                                item_kind: MethodFn,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
+                            path: TypeItemPath(`(mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`, `MethodFn`),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],

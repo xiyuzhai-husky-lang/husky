@@ -83,31 +83,7 @@
 //     javelin: Javelin {
 //         data: JavelinData::PathLeading {
 //             path: JavelinPath::TypeItem(
-//                 TypeItemPath(
-//                     ItemPathId {
-//                         data: ItemPathData::AssociatedItem(
-//                             AssociatedItemPathData::TypeItem(
-//                                 TypeItemPathData {
-//                                     impl_block: TypeImplBlockPath(
-//                                         ItemPathId {
-//                                             data: ItemPathData::ImplBlock(
-//                                                 ImplBlockPathData::TypeImplBlock(
-//                                                     TypeImplBlockPathData {
-//                                                         module_path: `mnist`,
-//                                                         ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
-//                                                         disambiguator: 0,
-//                                                     },
-//                                                 ),
-//                                             ),
-//                                         },
-//                                     ),
-//                                     ident: `new_zeros`,
-//                                     item_kind: AssociatedFunctionFn,
-//                                 },
-//                             ),
-//                         ),
-//                     },
-//                 ),
+//                 TypeItemPath(`(mnist::BinaryImage28(0)::new_zeros`, `AssociatedFunctionFn`),
 //             ),
 //             instantiation: JavelinInstantiation {
 //                 symbol_resolutions: [],
@@ -194,31 +170,7 @@
 //     javelin: Javelin {
 //         data: JavelinData::PathLeading {
 //             path: JavelinPath::TypeItem(
-//                 TypeItemPath(
-//                     ItemPathId {
-//                         data: ItemPathData::AssociatedItem(
-//                             AssociatedItemPathData::TypeItem(
-//                                 TypeItemPathData {
-//                                     impl_block: TypeImplBlockPath(
-//                                         ItemPathId {
-//                                             data: ItemPathData::ImplBlock(
-//                                                 ImplBlockPathData::TypeImplBlock(
-//                                                     TypeImplBlockPathData {
-//                                                         module_path: `mnist`,
-//                                                         ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
-//                                                         disambiguator: 0,
-//                                                     },
-//                                                 ),
-//                                             ),
-//                                         },
-//                                     ),
-//                                     ident: `new_zeros`,
-//                                     item_kind: AssociatedFunctionFn,
-//                                 },
-//                             ),
-//                         ),
-//                     },
-//                 ),
+//                 TypeItemPath(`(mnist::BinaryGrid28(0)::new_zeros`, `AssociatedFunctionFn`),
 //             ),
 //             instantiation: JavelinInstantiation {
 //                 symbol_resolutions: [],

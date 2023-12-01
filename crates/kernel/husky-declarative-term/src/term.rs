@@ -85,7 +85,11 @@ pub enum DeclarativeTerm {
 }
 
 impl salsa::DebugWithDb for DeclarativeTerm {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
         use salsa::DisplayWithDb;
         f.write_fmt(format_args!("DeclarativeTerm(`{}`)", self.display_with(db)))
     }

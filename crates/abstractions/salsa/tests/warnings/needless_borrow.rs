@@ -5,7 +5,11 @@ struct Jar(TokenTree);
 enum Token {}
 
 impl salsa::DebugWithDb for Token {
-    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>, _db: &::salsa::Db) -> std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &::salsa::Db,
+    ) -> std::fmt::Result {
         unreachable!()
     }
 }

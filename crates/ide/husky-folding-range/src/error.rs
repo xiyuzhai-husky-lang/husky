@@ -33,7 +33,11 @@ impl From<&FoldingRangeError> for FoldingRangeError {
 pub type FoldingRangeResult<T> = Result<T, FoldingRangeError>;
 
 impl salsa::DebugWithDb for FoldingRangeError {
-    fn fmt(&self, _f: &mut std::fmt::Formatter<'_>, _db: &::salsa::Db) -> std::fmt::Result {
+    fn debug_with_db_fmt(
+        &self,
+        _f: &mut std::fmt::Formatter<'_>,
+        _db: &::salsa::Db,
+    ) -> std::fmt::Result {
         todo!()
     }
 }

@@ -5,6 +5,7 @@ use husky_hir_ty::{
 };
 use vec_like::SmallVecPairMap;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct JavelinInstantiation {
     symbol_resolutions: SmallVecPairMap<HirComptimeSymbol, JavelinTermSymbolResolution, 4>,
