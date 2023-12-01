@@ -1,7 +1,7 @@
 use crate::{
     defn::module_defn_rust_transpilation,
     linkage::package_linkages_transpilation,
-    manifest::package_rust_manifest,
+    manifest::{linktime_target_rust_workspace_manifest, package_rust_package_manifest},
     package::{
         rust_transpilation_packages, RustTranspilationLibraryPackage,
         RustTranspilationLocalPackage, RustTranspilationPackage, RustTranspilationRegistryPackage,
@@ -20,6 +20,11 @@ pub trait TranspileToFsFull: Is<LinktimeTargetPath> {
 
 impl TranspileToFsFull for LinktimeTargetPath {
     fn transpile_to_fs_full(self, db: &::salsa::Db) -> IOResult<()> {
+        husky_io_utils::diff_write(
+            self.rust_workspace_manifest_path(db),
+            linktime_target_rust_workspace_manifest(db, self),
+            true,
+        );
         for dep in rust_transpilation_packages(db, self) {
             dep.transpile_to_fs(db)?
         }
@@ -68,7 +73,7 @@ fn transpile_package_to_fs(
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
         &cargo_toml_path,
-        package_rust_manifest(db, package_path),
+        package_rust_package_manifest(db, package_path),
         true,
     );
     husky_io_utils::diff_write(

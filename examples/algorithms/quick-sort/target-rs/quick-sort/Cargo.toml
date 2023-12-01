@@ -3,9 +3,6 @@ name = "quick-sort"
 edition = "2021"
 version = "0.1.0"
 
-[workspace]
-members = []
-
 [lib]
 plugin = false
 proc-macro = false

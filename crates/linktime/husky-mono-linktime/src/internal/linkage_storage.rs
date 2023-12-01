@@ -11,7 +11,7 @@ impl MonoLinkageStorage {
             Ok(()) => (),
             Err(_) => todo!(),
         };
-        compile_workspace(target_path.rust_manifest_path(db));
+        compile_workspace(target_path.rust_workspace_manifest_path(db));
         Self {}
     }
 }

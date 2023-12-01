@@ -6,9 +6,10 @@ pub fn compile_workspace(manifest_path: &std::path::Path) {
     let config = cargo::Config::default().expect("what the hell");
     p!(manifest_path);
     let workspace = Workspace::new(manifest_path, &config).expect("what the hell");
-    let options =
+    let mut compile_opts =
         cargo::ops::CompileOptions::new(&config, CompileMode::Build).expect("what the hell");
-    match cargo::ops::compile(&workspace, &options) {
+    compile_opts.spec = cargo::ops::Packages::Default;
+    match cargo::ops::compile(&workspace, &compile_opts) {
         Ok(compilation) => {
             p!(compilation
                 .cdylibs
@@ -17,6 +18,9 @@ pub fn compile_workspace(manifest_path: &std::path::Path) {
                 .collect::<Vec<_>>());
             todo!()
         }
-        Err(_) => todo!(),
+        Err(error) => {
+            p!(error);
+            todo!()
+        }
     }
 }
