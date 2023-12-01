@@ -36,6 +36,7 @@ opt-level = 0
 lto = false
 
 [workspace.dependencies]
+cargo = "0.75.1"
 cargo-manifest = "0.12.1"
 atomic_enum = "0.2.0"
 axum = { version = "0.6.20" }
@@ -131,6 +132,8 @@ husky-syn-expr = { path = "crates/syntax/husky-syn-expr" }
 husky-syn-decl = { path = "crates/syntax/husky-syn-decl" }
 husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-entity-syn-tree = { path = "crates/syntax/husky-entity-syn-tree" }
+# utls
+husky-cargo-utils = { path = "crates/utils/husky-cargo-utils" }
 # val
 husky-val = { path = "crates/val/husky-val" }
 husky-val-repr = { path = "crates/val/husky-val-repr" }

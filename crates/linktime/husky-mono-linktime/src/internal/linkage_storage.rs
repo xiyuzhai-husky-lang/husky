@@ -6,7 +6,11 @@ pub struct MonoLinkageStorage {}
 
 impl MonoLinkageStorage {
     pub(super) fn generate(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
-        let _ = target_path.transpile_to_fs_full(db);
+        match target_path.transpile_to_fs_full(db) {
+            Ok(()) => (),
+            Err(_) => todo!(),
+        };
+        target_path.rust_manifest_path(db);
         Self {}
     }
 }
