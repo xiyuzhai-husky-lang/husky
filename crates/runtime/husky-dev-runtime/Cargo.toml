@@ -17,17 +17,17 @@ husky-dev-comptime = { path = "../../comptime/husky-dev-comptime" }
 # fs
 husky-vfs.workspace = true
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
-husky-task = { path = "../../kernel/husky-task" }
+husky-coword.workspace = true
+husky-ethereal-term.workspace = true
+husky-ethereal-signature.workspace = true
+husky-entity-kind.workspace = true
+husky-task.workspace = true
 # lex
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 husky-token = { path = "../../lex/husky-token" }
 # syntax
-husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
-husky-ast = { path = "../../syntax/husky-ast" }
+husky-entity-syn-tree.workspace = true
+husky-ast.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

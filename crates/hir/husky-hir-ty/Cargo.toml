@@ -14,12 +14,12 @@ maybe-result = { path = "../../abstractions/maybe-result" }
 # fs
 husky-vfs.workspace = true
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
+husky-coword.workspace = true
+husky-entity-path.workspace = true
+husky-term-prelude.workspace = true
+husky-ethereal-term.workspace = true
+husky-ethereal-signature.workspace = true
+husky-fluffy-term.workspace = true
 husky-scope = { path = "../../kernel/husky-scope" }
 husky-hir-prelude = { path = "../../hir/husky-hir-prelude" }
 # utils

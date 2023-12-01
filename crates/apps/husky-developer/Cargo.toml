@@ -18,7 +18,7 @@ salsa.workspace = true
 # devtime
 husky-devtime = { path = "../../devtime/husky-devtime" }
 # kernel
-husky-task = { path = "../../kernel/husky-task" }
+husky-task.workspace = true
 # protocols
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
     "server"

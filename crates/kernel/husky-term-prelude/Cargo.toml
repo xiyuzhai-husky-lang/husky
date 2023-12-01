@@ -9,9 +9,9 @@ ordered-float.workspace = true
 thiserror.workspace = true
 salsa.workspace = true
 enum-class.workspace = true
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-entity-path.workspace = true
 husky-vfs.workspace = true
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-coword.workspace = true
 
 [dev-dependencies]
 husky-term-prelude = { path = ".", features = ["test-utils"] }

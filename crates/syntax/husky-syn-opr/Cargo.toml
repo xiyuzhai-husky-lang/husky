@@ -10,7 +10,7 @@ enum-class.workspace = true
 # lex
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-coword.workspace = true
 husky-opr = { path = "../../kernel/husky-opr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

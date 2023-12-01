@@ -15,7 +15,7 @@ salsa.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-coword.workspace = true
 # protocols
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # utils

@@ -13,7 +13,7 @@ egui = { workspace = true, optional = true }
 ui = { path = "../../abstractions/ui" }
 notify = { path = "../../abstractions/notify" }
 # kernel
-husky-task = { path = "../../kernel/husky-task" }
+husky-task.workspace = true
 # gui
 husky-gui = { path = "../../gui/husky-gui" }
 # protocols

@@ -12,7 +12,7 @@ either.workspace = true
 # comptime
 # kernel
 husky-val = { path = "../../val/husky-val" }
-husky-task = { path = "../../kernel/husky-task" }
+husky-task.workspace = true
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # linktime
 husky-mono-linktime = { path = "../../linktime/husky-mono-linktime" }

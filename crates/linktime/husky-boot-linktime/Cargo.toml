@@ -11,7 +11,7 @@ smallvec.workspace = true
 salsa.workspace = true
 version-stamp = { path = "../../abstractions/version-stamp" }
 # kernel
-husky-task = { path = "../../kernel/husky-task" }
+husky-task.workspace = true
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 husky-vfs.workspace = true
 husky-linkage.workspace = true

@@ -20,11 +20,11 @@ relative-path = "1.7.2"
 # ide
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-ethereal-term.workspace = true
+husky-ethereal-signature.workspace = true
+husky-coword.workspace = true
 # syntax
-husky-ast = { path = "../../syntax/husky-ast" }
+husky-ast.workspace = true
 # utils
 husky-path-utils = { path = "../../utils/husky-path-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

@@ -16,10 +16,10 @@ husky-vfs.workspace = true
 husky-token-data.workspace = true
 husky-token = { path = "../../lex/husky-token" }
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
+husky-coword.workspace = true
+husky-entity-path.workspace = true
+husky-entity-kind.workspace = true
+husky-term-prelude.workspace = true
 husky-opr = { path = "../../kernel/husky-opr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

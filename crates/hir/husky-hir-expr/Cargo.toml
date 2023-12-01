@@ -12,18 +12,18 @@ syn = { version = "2.0.0", optional = true }
 salsa.workspace = true
 enum-class.workspace = true
 # kernel
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
+husky-entity-path.workspace = true
+husky-fluffy-term.workspace = true
 # protocols
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
+husky-entity-kind.workspace = true
 # syntax
-husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
-husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
+husky-syn-expr.workspace = true
+husky-syn-defn.workspace = true
 # semantics
-husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
+husky-sema-expr.workspace = true
 # comptime
-husky-hir-eager-expr = { path = "../../hir/husky-hir-eager-expr" }
-husky-hir-lazy-expr = { path = "../../hir/husky-hir-lazy-expr" }
+husky-hir-eager-expr.workspace = true
+husky-hir-lazy-expr.workspace = true
 
 [dev-dependencies]
 husky-hir-expr = { path = ".", features = ["test-utils"] }

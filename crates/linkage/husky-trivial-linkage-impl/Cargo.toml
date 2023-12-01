@@ -8,4 +8,4 @@ edition = "2021"
 # kernel
 husky-regular-value = { path = "../../kernel/husky-regular-value" }
 # task
-husky-task = { path = "../../kernel/husky-task" }
+husky-task.workspace = true

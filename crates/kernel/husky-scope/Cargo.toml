@@ -16,5 +16,5 @@ husky-regional-token = { path = "../../lex/husky-regional-token" }
 
 [dev-dependencies]
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-coword.workspace = true
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }

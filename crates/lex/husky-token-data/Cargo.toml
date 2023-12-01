@@ -22,9 +22,9 @@ husky-vfs.workspace = true
 # lex
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
+husky-coword.workspace = true
+husky-entity-kind.workspace = true
+husky-term-prelude.workspace = true
 husky-opr = { path = "../../kernel/husky-opr" }
 # protocols
 husky-token-protocol = { path = "../../protocols/husky-token-protocol", optional = true }

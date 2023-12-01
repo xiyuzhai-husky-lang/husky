@@ -17,12 +17,12 @@ husky-trace = { path = "../../devtime/husky-trace" }
 # fs
 husky-vfs.workspace = true
 # kernel
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-ethereal-term.workspace = true
+husky-ethereal-signature.workspace = true
+husky-coword.workspace = true
 husky-opr = { path = "../../kernel/husky-opr" }
-husky-entity-kind = { path = "../../kernel/husky-entity-kind" }
-husky-task = { path = "../../kernel/husky-task" }
+husky-entity-kind.workspace = true
+husky-task.workspace = true
 # lex
 husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
 # protocols
@@ -34,10 +34,10 @@ husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
 husky-val-repr = { path = "../../val/husky-val-repr" }
 # syntax
-husky-ast = { path = "../../syntax/husky-ast" }
-husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
-husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
-husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
+husky-ast.workspace = true
+husky-syn-expr.workspace = true
+husky-syn-decl.workspace = true
+husky-syn-defn.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }

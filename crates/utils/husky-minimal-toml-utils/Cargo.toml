@@ -9,6 +9,6 @@ thiserror.workspace = true
 # abstractions
 salsa.workspace = true
 # kernel
-husky-coword = { path = "../../kernel/husky-coword" }
+husky-coword.workspace = true
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

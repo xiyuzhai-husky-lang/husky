@@ -14,24 +14,24 @@ enum-class.workspace = true
 idx-arena.workspace = true
 vec-like.workspace = true
 # kernel
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
+husky-term-prelude.workspace = true
+husky-entity-path.workspace = true
+husky-coword.workspace = true
+husky-ethereal-term.workspace = true
+husky-fluffy-term.workspace = true
 husky-expr = { path = "../../kernel/husky-expr" }
 # hir
-husky-hir-ty = { path = "../../hir/husky-hir-ty" }
+husky-hir-ty.workspace = true
 husky-hir-opr = { path = "../../hir/husky-hir-opr" }
 # lex
 husky-token-data.workspace = true
 # semantics
 husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
-husky-sema-expr = { path = "../../semantics/husky-sema-expr" }
+husky-sema-expr.workspace = true
 # syntax
 # todo: remove this?
-husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
-husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
+husky-syn-expr.workspace = true
+husky-syn-defn.workspace = true
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
