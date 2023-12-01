@@ -2,14 +2,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 508,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -22,14 +16,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 519,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist::BinaryImage28`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -42,14 +30,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 520,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`mnist::BinaryGrid28`, `Struct`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -62,13 +44,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 528,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -82,13 +79,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 529,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist`,
+                                                            ty_path: TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `new_zeros`,
+                                        item_kind: AssociatedFunctionFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -102,13 +117,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 530,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryImage28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `Output`,
+                                        item_kind: AssociatedType,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -122,13 +152,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 531,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -142,13 +187,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 532,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `mnist`,
+                                                            ty_path: TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `new_zeros`,
+                                        item_kind: AssociatedFunctionFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -162,13 +225,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 533,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `mnist`,
+                                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`mnist::BinaryGrid28`, `Struct`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `Output`,
+                                        item_kind: AssociatedType,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {

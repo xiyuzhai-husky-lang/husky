@@ -2,14 +2,8 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 240,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -21,14 +15,8 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: Fugitive(
-                    FugitivePath(
-                        ItemPathId(
-                            Id {
-                                value: 241,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::Fugitive(
+                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `FunctionFn`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],

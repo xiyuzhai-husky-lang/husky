@@ -2,14 +2,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 21,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::basic::bool`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -22,14 +16,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 22,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::basic::never`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -42,14 +30,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 23,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::basic::unit`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -62,14 +44,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 24,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::basic::Trait`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -82,14 +58,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 25,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::basic::Module`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -102,14 +72,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 26,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::basic::Lifetime`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -122,14 +86,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 27,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::basic::Place`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -142,13 +100,26 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 130,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::clone`,
+                                                trai_path: TraitPath(`core::clone::Clone`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `clone`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -162,14 +133,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 34,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::logic::Prop`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -182,14 +147,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 45,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::i8`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -202,14 +161,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 46,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::i16`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -222,14 +175,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 47,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::i32`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -242,14 +189,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 48,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::i64`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -262,14 +203,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 49,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::i128`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -282,14 +217,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 50,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::isize`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -302,14 +231,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 51,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::u8`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -322,14 +245,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 52,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::u16`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -342,14 +259,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 53,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::u32`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -362,14 +273,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 54,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::u64`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -382,14 +287,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 55,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::u128`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -402,14 +301,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 56,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::usize`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -422,14 +315,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 57,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::f32`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -442,14 +329,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 58,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::num::f64`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -462,13 +343,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 131,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -482,13 +381,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 132,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `max`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -502,13 +419,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 133,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i8`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -522,13 +454,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 134,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -542,13 +492,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 135,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `max`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -562,13 +530,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 136,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i16`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -582,13 +565,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 137,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -602,13 +603,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 138,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `max`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -622,13 +641,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 139,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `min`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -642,13 +679,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 140,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -662,13 +714,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 141,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -682,13 +752,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 142,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -702,13 +787,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 143,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -722,13 +825,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 144,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::i128`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -742,13 +860,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 145,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -762,13 +898,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 146,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::isize`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -782,13 +933,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 147,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -802,13 +971,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 148,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u8`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -822,13 +1006,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 149,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -842,13 +1044,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 150,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u16`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -862,13 +1079,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 151,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -882,13 +1117,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 152,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -902,13 +1152,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 153,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -922,13 +1190,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 154,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -942,13 +1225,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 155,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -962,13 +1263,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 156,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::u128`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -982,13 +1298,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 157,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1002,13 +1336,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 158,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::usize`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1022,13 +1371,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 159,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1042,13 +1409,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 160,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `sqrt`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1062,13 +1447,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 161,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `max`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1082,13 +1485,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 162,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `min`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1102,13 +1523,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 163,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `sgnx`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1122,13 +1561,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 164,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `cos`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1142,13 +1599,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 165,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `sin`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1162,13 +1637,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 166,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `acos`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1182,13 +1675,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 167,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::f32`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1202,13 +1710,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 168,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `abs`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1222,13 +1748,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 169,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::num`,
+                                                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `acos`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1242,13 +1786,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 170,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::num`,
+                                                trai_path: TraitPath(`core::ops::Add`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::num::f64`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `add`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1262,14 +1821,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 82,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::raw_bits::r32`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1282,13 +1835,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 171,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::raw_bits`,
+                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `last_bits`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1302,13 +1873,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 172,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::raw_bits`,
+                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `ctz`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1322,13 +1911,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 173,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::raw_bits`,
+                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `co`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1342,13 +1949,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 174,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::raw_bits`,
+                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `span`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1362,13 +1987,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 175,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::raw_bits`,
+                                                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `right_mass`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1382,13 +2025,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 176,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::result`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::result::Result`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `Continue`,
+                                        item_kind: AssociatedType,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1402,13 +2060,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 177,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::result`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::result::Result`, `Enum`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `branch`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1422,13 +2095,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 178,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `ilen`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1442,13 +2133,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 179,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `push`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1462,13 +2171,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 180,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `first`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1482,13 +2209,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 181,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `last`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1502,13 +2247,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 182,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `pop`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1522,13 +2285,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 183,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `collect_leashes`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1542,13 +2323,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 184,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `cyclic_slice_leashed`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1562,13 +2361,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 185,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::vec`,
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `pop_with_largest_opt_f32`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1582,13 +2399,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 186,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `len`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1602,13 +2437,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 187,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `swap`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1622,13 +2475,28 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 188,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::slice`,
+                                                trai_path: TraitPath(`core::ops::IntIndex`),
+                                                ty_sketch: TypeSketch::Path(
+                                                    TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `Output`,
+                                        item_kind: AssociatedType,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1642,13 +2510,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 189,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `ilen`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1662,13 +2548,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 190,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `start`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1682,13 +2586,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 191,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `end`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1702,13 +2624,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 192,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `first`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1722,13 +2662,31 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeItem(
+                path: JavelinPath::TypeItem(
                     TypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 193,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TypeItem(
+                                    TypeItemPathData {
+                                        impl_block: TypeImplBlockPath(
+                                            ItemPathId {
+                                                data: ItemPathData::ImplBlock(
+                                                    ImplBlockPathData::TypeImplBlock(
+                                                        TypeImplBlockPathData {
+                                                            module_path: `core::slice`,
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                        ident: `last`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {
@@ -1742,14 +2700,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 89,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::str::str`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1762,14 +2714,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 90,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::str::StringLiteral`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1782,14 +2728,8 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TypeConstructor(
-                    TypePath(
-                        ItemPathId(
-                            Id {
-                                value: 92,
-                            },
-                        ),
-                    ),
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`core::visual::Html`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [],
@@ -1802,13 +2742,26 @@
     Linkage {
         javelin: Javelin {
             data: JavelinData::PathLeading {
-                path: TraitForTypeItem(
+                path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
-                        ItemPathId(
-                            Id {
-                                value: 194,
-                            },
-                        ),
+                        ItemPathId {
+                            data: ItemPathData::AssociatedItem(
+                                AssociatedItemPathData::TraitForTypeItem(
+                                    TraitForTypeItemPathData {
+                                        impl_block: TraitForTypeImplBlock {
+                                            data: TraitForTypeImplBlockPathData {
+                                                module_path: `core::visual`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_sketch: TypeSketch::DeriveAny,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                        ident: `visualize`,
+                                        item_kind: MethodFn,
+                                    },
+                                ),
+                            ),
+                        },
                     ),
                 ),
                 instantiation: JavelinInstantiation {

@@ -164,11 +164,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 230,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `core::slice`,
+                                                                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `len`,
+                                                                            item_kind: MethodFn,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -225,11 +243,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 231,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `core::slice`,
+                                                                                                ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `swap`,
+                                                                            item_kind: MethodFn,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -558,11 +594,26 @@ Ok(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 232,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                        TraitForTypeItemPathData {
+                                                                            impl_block: TraitForTypeImplBlock {
+                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                    module_path: `core::slice`,
+                                                                                    trai_path: TraitPath(`core::ops::IntIndex`),
+                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                        TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                                    ),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            },
+                                                                            ident: `Output`,
+                                                                            item_kind: AssociatedType,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -682,11 +733,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 233,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `core::slice`,
+                                                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `ilen`,
+                                                                            item_kind: MethodFn,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -743,11 +812,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 234,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `core::slice`,
+                                                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `start`,
+                                                                            item_kind: MethodFn,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -804,11 +891,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 235,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `core::slice`,
+                                                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `end`,
+                                                                            item_kind: MethodFn,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -865,11 +970,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 236,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `core::slice`,
+                                                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `first`,
+                                                                            item_kind: MethodFn,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -945,11 +1068,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 237,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `core::slice`,
+                                                                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `last`,
+                                                                            item_kind: MethodFn,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },

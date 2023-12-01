@@ -386,11 +386,26 @@ Ok(
                                                 TraitForTypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 499,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                        TraitForTypeItemPathData {
+                                                                            impl_block: TraitForTypeImplBlock {
+                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                    module_path: `mnist_classifier::raw_contour`,
+                                                                                    trai_path: TraitPath(`core::visual::Visualize`),
+                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                    ),
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            },
+                                                                            ident: `visualize`,
+                                                                            item_kind: MethodFn,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -513,11 +528,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 437,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `mnist_classifier::raw_contour`,
+                                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `line_segment_sketch`,
+                                                                            item_kind: MemoizedField,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -624,11 +657,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 438,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `mnist_classifier::raw_contour`,
+                                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `bounding_box`,
+                                                                            item_kind: MemoizedField,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -1484,11 +1535,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 439,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `mnist_classifier::raw_contour`,
+                                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `relative_bounding_box`,
+                                                                            item_kind: MemoizedField,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -1622,11 +1691,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 440,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `mnist_classifier::raw_contour`,
+                                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `contour_len`,
+                                                                            item_kind: MemoizedField,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },
@@ -2314,11 +2401,29 @@ Ok(
                                                 TypeItemSynNodePathData {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath(
-                                                            ItemPathId(
-                                                                Id {
-                                                                    value: 441,
-                                                                },
-                                                            ),
+                                                            ItemPathId {
+                                                                data: ItemPathData::AssociatedItem(
+                                                                    AssociatedItemPathData::TypeItem(
+                                                                        TypeItemPathData {
+                                                                            impl_block: TypeImplBlockPath(
+                                                                                ItemPathId {
+                                                                                    data: ItemPathData::ImplBlock(
+                                                                                        ImplBlockPathData::TypeImplBlock(
+                                                                                            TypeImplBlockPathData {
+                                                                                                module_path: `mnist_classifier::raw_contour`,
+                                                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                                                disambiguator: 0,
+                                                                                            },
+                                                                                        ),
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ident: `displacement`,
+                                                                            item_kind: MethodFn,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            },
                                                         ),
                                                         disambiguator: 0,
                                                     },

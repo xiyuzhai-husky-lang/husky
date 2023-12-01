@@ -1,10 +1,12 @@
 use super::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
 pub struct TraitItemPath(ItemPathId);
 
+#[salsa::debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TraitItemPathData {
     pub(crate) trai_path: TraitPath,

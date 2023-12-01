@@ -76,11 +76,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 192,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `ilen`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -90,11 +108,29 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 192,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::vec`,
+                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `ilen`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
@@ -134,11 +170,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 193,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `push`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -148,11 +202,29 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 193,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::vec`,
+                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `push`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
@@ -209,11 +281,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 194,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `first`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -223,11 +313,29 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 194,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::vec`,
+                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `first`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
@@ -277,11 +385,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 195,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `last`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -291,11 +417,29 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 195,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::vec`,
+                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `last`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
@@ -345,11 +489,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 196,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `pop`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -359,11 +521,29 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 196,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::vec`,
+                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `pop`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
@@ -413,11 +593,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 197,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `collect_leashes`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -427,11 +625,29 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 197,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::vec`,
+                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `collect_leashes`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
@@ -471,11 +687,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 198,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `cyclic_slice_leashed`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -485,11 +719,29 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 198,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::vec`,
+                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `cyclic_slice_leashed`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
@@ -542,11 +794,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 199,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `core::vec`,
+                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `pop_with_largest_opt_f32`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -556,11 +826,29 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 199,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `core::vec`,
+                                                                    ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `pop_with_largest_opt_f32`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {

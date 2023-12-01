@@ -26,11 +26,24 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 130,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::clone`,
+                                            trai_path: TraitPath(`core::clone::Clone`),
+                                            ty_sketch: TypeSketch::DeriveAny,
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `clone`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),

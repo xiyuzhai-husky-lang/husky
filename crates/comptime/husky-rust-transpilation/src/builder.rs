@@ -85,8 +85,11 @@ impl<'a> RustTranspilationBuilderBase<'a> {
     }
 
     pub(crate) fn comment(&mut self, s: &str) {
-        self.result += "// ";
-        self.result += s
+        for line in s.lines() {
+            self.fresh_line();
+            self.result += "// ";
+            self.result += line
+        }
     }
 
     fn write_indent(&mut self) {

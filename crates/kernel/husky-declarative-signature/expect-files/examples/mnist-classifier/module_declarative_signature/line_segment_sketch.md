@@ -384,11 +384,26 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 431,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `mnist_classifier::line_segment_sketch`,
+                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -450,11 +465,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 432,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `new`,
+                                    item_kind: AssociatedFunctionFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -464,11 +497,29 @@
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 432,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `new`,
+                                                item_kind: AssociatedFunctionFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                             template_parameters: DeclarativeTemplateParameterTemplates {
@@ -507,11 +558,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 433,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `displacement`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -521,11 +590,29 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 433,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `displacement`,
+                                                item_kind: MethodFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
@@ -586,11 +673,26 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 434,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `mnist_classifier::line_segment_sketch`,
+                                            trai_path: TraitPath(`core::visual::Visualize`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `visualize`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -652,11 +754,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 435,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `concave_components`,
+                                    item_kind: MemoizedField,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -666,11 +786,29 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 435,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `concave_components`,
+                                                item_kind: MemoizedField,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
@@ -689,11 +827,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 436,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `bounding_box`,
+                                    item_kind: MemoizedField,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -703,11 +859,29 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 436,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `bounding_box`,
+                                                item_kind: MemoizedField,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
                                 template_parameters: DeclarativeTemplateParameterTemplates {
@@ -726,11 +900,29 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 437,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TypeItem(
+                                TypeItemPathData {
+                                    impl_block: TypeImplBlockPath(
+                                        ItemPathId {
+                                            data: ItemPathData::ImplBlock(
+                                                ImplBlockPathData::TypeImplBlock(
+                                                    TypeImplBlockPathData {
+                                                        module_path: `mnist_classifier::line_segment_sketch`,
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    ident: `new`,
+                                    item_kind: AssociatedFunctionFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -740,11 +932,29 @@
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
                             path: TypeItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 437,
-                                    },
-                                ),
+                                ItemPathId {
+                                    data: ItemPathData::AssociatedItem(
+                                        AssociatedItemPathData::TypeItem(
+                                            TypeItemPathData {
+                                                impl_block: TypeImplBlockPath(
+                                                    ItemPathId {
+                                                        data: ItemPathData::ImplBlock(
+                                                            ImplBlockPathData::TypeImplBlock(
+                                                                TypeImplBlockPathData {
+                                                                    module_path: `mnist_classifier::line_segment_sketch`,
+                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                                ident: `new`,
+                                                item_kind: AssociatedFunctionFn,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                             template_parameters: DeclarativeTemplateParameterTemplates {

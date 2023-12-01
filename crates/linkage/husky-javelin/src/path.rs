@@ -3,8 +3,9 @@ use husky_entity_path::*;
 use husky_entity_syn_tree::helpers::paths::module_item_paths;
 use husky_hir_defn::HirDefn;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::debug_with_db]
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum JavelinPath {
     Fugitive(FugitivePath),
     TypeItem(TypeItemPath),

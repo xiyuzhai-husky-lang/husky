@@ -28,11 +28,26 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 176,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::result`,
+                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::result::Result`, `Enum`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `Continue`,
+                                    item_kind: AssociatedType,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -42,11 +57,26 @@
         ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 177,
-                        },
-                    ),
+                    ItemPathId {
+                        data: ItemPathData::AssociatedItem(
+                            AssociatedItemPathData::TraitForTypeItem(
+                                TraitForTypeItemPathData {
+                                    impl_block: TraitForTypeImplBlock {
+                                        data: TraitForTypeImplBlockPathData {
+                                            module_path: `core::result`,
+                                            trai_path: TraitPath(`core::ops::Unveil`),
+                                            ty_sketch: TypeSketch::Path(
+                                                TypePath(`core::result::Result`, `Enum`),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                    ident: `branch`,
+                                    item_kind: MethodFn,
+                                },
+                            ),
+                        ),
+                    },
                 ),
             ),
         ),
@@ -466,11 +496,26 @@
                                                                 TraitForTypeItemSynNodePathData {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TraitForTypeItemPath(
-                                                                            ItemPathId(
-                                                                                Id {
-                                                                                    value: 177,
-                                                                                },
-                                                                            ),
+                                                                            ItemPathId {
+                                                                                data: ItemPathData::AssociatedItem(
+                                                                                    AssociatedItemPathData::TraitForTypeItem(
+                                                                                        TraitForTypeItemPathData {
+                                                                                            impl_block: TraitForTypeImplBlock {
+                                                                                                data: TraitForTypeImplBlockPathData {
+                                                                                                    module_path: `core::result`,
+                                                                                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                                    ty_sketch: TypeSketch::Path(
+                                                                                                        TypePath(`core::result::Result`, `Enum`),
+                                                                                                    ),
+                                                                                                    disambiguator: 0,
+                                                                                                },
+                                                                                            },
+                                                                                            ident: `branch`,
+                                                                                            item_kind: MethodFn,
+                                                                                        },
+                                                                                    ),
+                                                                                ),
+                                                                            },
                                                                         ),
                                                                         disambiguator: 0,
                                                                     },
@@ -777,11 +822,26 @@
                                                     TraitForTypeItemSynNodePathData {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 177,
-                                                                    },
-                                                                ),
+                                                                ItemPathId {
+                                                                    data: ItemPathData::AssociatedItem(
+                                                                        AssociatedItemPathData::TraitForTypeItem(
+                                                                            TraitForTypeItemPathData {
+                                                                                impl_block: TraitForTypeImplBlock {
+                                                                                    data: TraitForTypeImplBlockPathData {
+                                                                                        module_path: `core::result`,
+                                                                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                                                                        ty_sketch: TypeSketch::Path(
+                                                                                            TypePath(`core::result::Result`, `Enum`),
+                                                                                        ),
+                                                                                        disambiguator: 0,
+                                                                                    },
+                                                                                },
+                                                                                ident: `branch`,
+                                                                                item_kind: MethodFn,
+                                                                            },
+                                                                        ),
+                                                                    ),
+                                                                },
                                                             ),
                                                             disambiguator: 0,
                                                         },

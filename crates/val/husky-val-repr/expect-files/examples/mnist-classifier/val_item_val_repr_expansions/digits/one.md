@@ -185,14 +185,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 335,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -291,14 +285,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 262,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -339,14 +327,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 262,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -514,14 +496,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 335,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -1254,14 +1230,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 262,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -1378,14 +1348,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 262,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `FunctionFn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -1496,14 +1460,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 335,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -2325,14 +2283,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 335,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -2736,14 +2688,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 335,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -3904,14 +3850,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 335,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -4204,14 +4144,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 335,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -4795,14 +4729,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 335,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
@@ -5711,14 +5639,8 @@
                             Linkage {
                                 javelin: Javelin {
                                     data: JavelinData::PathLeading {
-                                        path: Fugitive(
-                                            FugitivePath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 335,
-                                                    },
-                                                ),
-                                            ),
+                                        path: JavelinPath::Fugitive(
+                                            FugitivePath(`malamute::narrow_down`, `FunctionGn`),
                                         ),
                                         instantiation: JavelinInstantiation {
                                             symbol_resolutions: [],
