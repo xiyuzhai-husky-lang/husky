@@ -23,8 +23,8 @@ husky-ethereal-signature.workspace = true
 husky-entity-kind.workspace = true
 husky-task.workspace = true
 # lex
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
-husky-token = { path = "../../lex/husky-token" }
+husky-text-protocol.workspace = true
+husky-token.workspace = true
 # syntax
 husky-entity-syn-tree.workspace = true
 husky-ast.workspace = true
@@ -39,9 +39,9 @@ sync-utils = { path = "../../utils/husky-sync-utils" }
 # husky-dev-linkage-table = { path = "../../comptime/husky-dev-linkage-table" }
 # husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
 # vm
-husky-vm = { path = "../../vm/husky-vm" }
+husky-vm.workspace = true
 # runtime
-husky-val-repr = { path = "../../val/husky-val-repr" }
+husky-val-repr.workspace = true
 husky-instruction = { path = "../../comptime/husky-instruction" }
 
 [dev-dependencies]

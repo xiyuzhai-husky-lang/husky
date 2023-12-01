@@ -29,9 +29,9 @@ husky-entity-syn-tree.workspace = true
 
 [dev-dependencies]
 # abstractions
-salsa = { path = "../../abstractions/salsa", features = ["test-utils"] }
+salsa.workspace = true
 #fs
-husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
+husky-vfs.workspace = true
 # hir
 husky-hir-ty.workspace = true
 husky-hir-decl.workspace = true
@@ -46,13 +46,13 @@ husky-ethereal-term.workspace = true
 husky-fluffy-term.workspace = true
 # lex
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
-husky-toml-token = { path = "../../lex/husky-toml-token" }
+husky-token.workspace = true
+husky-toml-token.workspace = true
 # semantics
 husky-corgi-config.workspace = true
 husky-sema-expr.workspace = true
 # syntax
-husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
+husky-ast.workspace = true
 husky-toml-ast.workspace = true
 husky-manifest-ast.workspace = true
 husky-syn-decl.workspace = true
@@ -61,4 +61,3 @@ husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
 
 [features]
-test-utils = ["salsa/test-utils"]

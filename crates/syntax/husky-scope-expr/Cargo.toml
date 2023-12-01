@@ -16,6 +16,6 @@ husky-vfs.workspace = true
 husky-scope = { path = "../../kernel/husky-scope" }
 # lex
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
+husky-token.workspace = true
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }

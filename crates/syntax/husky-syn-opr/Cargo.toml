@@ -8,7 +8,7 @@ edition = "2021"
 # abstractions
 enum-class.workspace = true
 # lex
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
+husky-text-protocol.workspace = true
 # kernel
 husky-coword.workspace = true
 husky-opr = { path = "../../kernel/husky-opr" }

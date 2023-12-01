@@ -94,6 +94,8 @@ husky-hir-lazy-expr = { path = "crates/hir/husky-hir-lazy-expr" }
 husky-hir-expr = { path = "crates/hir/husky-hir-expr" }
 husky-hir-decl = { path = "crates/hir/husky-hir-decl" }
 husky-hir-defn = { path = "crates/hir/husky-hir-defn" }
+# ide
+husky-token-info = { path = "crates/ide/husky-token-info" }
 # kernel
 husky-coword = { path = "crates/kernel/husky-coword" }
 husky-declarative-term = { path = "crates/kernel/husky-declarative-term" }
@@ -108,9 +110,14 @@ husky-task = { path = "crates/kernel/husky-task" }
 husky-term-prelude = { path = "crates/kernel/husky-term-prelude" }
 # lex
 husky-token-data = { path = "crates/lex/husky-token-data" }
+husky-token = { path = "crates/lex/husky-token" }
+husky-toml-token = { path = "crates/lex/husky-toml-token" }
+husky-text = { path = "crates/lex/husky-text" }
 # linkage
 husky-javelin = { path = "crates/linkage/husky-javelin" }
 husky-linkage = { path = "crates/linkage/husky-linkage" }
+# protocols
+husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 # semantics
 husky-manifest = { path = "crates/semantics/husky-manifest" }
 husky-sema-expr = { path = "crates/semantics/husky-sema-expr" }
@@ -124,3 +131,8 @@ husky-syn-expr = { path = "crates/syntax/husky-syn-expr" }
 husky-syn-decl = { path = "crates/syntax/husky-syn-decl" }
 husky-syn-defn = { path = "crates/syntax/husky-syn-defn" }
 husky-entity-syn-tree = { path = "crates/syntax/husky-entity-syn-tree" }
+# val
+husky-val = { path = "crates/val/husky-val" }
+husky-val-repr = { path = "crates/val/husky-val-repr" }
+# vm
+husky-vm = { path = "crates/vm/husky-vm" }

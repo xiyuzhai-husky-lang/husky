@@ -31,7 +31,7 @@ husky-task.workspace = true
 # linkage
 husky-linkage.workspace = true
 # val
-husky-val = { path = "../../val/husky-val" }
+husky-val.workspace = true
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
@@ -53,8 +53,8 @@ husky-declarative-signature.workspace = true
 husky-fluffy-term.workspace = true
 # lex
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
-husky-toml-token = { path = "../../lex/husky-toml-token" }
+husky-token.workspace = true
+husky-toml-token.workspace = true
 # linkage
 husky-javelin.workspace = true
 # semantics
@@ -71,7 +71,7 @@ husky-corgi-config-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
 # val
-husky-val = { path = "../../val/husky-val" }
+husky-val.workspace = true
 husky-val-repr = { path = "../../val/husky-val-repr", features = [
     "test-utils"
 ] }

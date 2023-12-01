@@ -50,8 +50,8 @@ husky-declarative-signature.workspace = true
 husky-fluffy-term.workspace = true
 # lex
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
-husky-toml-token = { path = "../../lex/husky-toml-token" }
+husky-token.workspace = true
+husky-toml-token.workspace = true
 # linkage
 husky-javelin.workspace = true
 # semantics

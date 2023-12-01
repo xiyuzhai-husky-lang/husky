@@ -26,6 +26,6 @@ husky-mono-linktime = { path = "../../linktime/husky-mono-linktime" }
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
 husky-visual-protocol = { path = "../../protocols/husky-visual-protocol" }
 # val
-husky-val = { path = "../../val/husky-val" }
+husky-val.workspace = true
 # vm
-husky-vm = { path = "../../vm/husky-vm" }
+husky-vm.workspace = true

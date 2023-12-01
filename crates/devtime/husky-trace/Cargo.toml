@@ -30,14 +30,14 @@ husky-ethereal-signature.workspace = true
 husky-coword.workspace = true
 husky-entity-kind.workspace = true
 # lex
-husky-text = { path = "../../lex/husky-text" }
-husky-token = { path = "../../lex/husky-token" }
+husky-text.workspace = true
+husky-token.workspace = true
 husky-regional-token = { path = "../../lex/husky-regional-token" }
 # protocols
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
+husky-text-protocol.workspace = true
 husky-trace-protocol = { path = "../../protocols/husky-trace-protocol" }
 # val
-husky-val-repr = { path = "../../val/husky-val-repr" }
+husky-val-repr.workspace = true
 # syntax
 husky-ast.workspace = true
 husky-syn-expr.workspace = true
@@ -65,8 +65,8 @@ husky-declarative-signature.workspace = true
 husky-fluffy-term.workspace = true
 # lex
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
-husky-toml-token = { path = "../../lex/husky-toml-token" }
+husky-token.workspace = true
+husky-toml-token.workspace = true
 # linkage
 husky-javelin.workspace = true
 husky-linkage.workspace = true

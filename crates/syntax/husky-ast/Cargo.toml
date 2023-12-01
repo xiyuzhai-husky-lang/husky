@@ -23,7 +23,7 @@ parsec.workspace = true
 husky-vfs.workspace = true
 # lex
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
+husky-token.workspace = true
 # kernel
 husky-entity-path.workspace = true
 husky-coword.workspace = true

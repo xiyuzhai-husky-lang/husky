@@ -22,7 +22,7 @@ husky-hir-expr.workspace = true
 husky-hir-decl.workspace = true
 husky-hir-defn.workspace = true
 # ide
-husky-token-info = { path = "../../ide/husky-token-info" }
+husky-token-info.workspace = true
 # kernel
 husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
@@ -36,14 +36,14 @@ husky-coword.workspace = true
 husky-task.workspace = true
 # lex
 husky-token-data.workspace = true
-husky-token = { path = "../../lex/husky-token" }
-husky-toml-token = { path = "../../lex/husky-toml-token" }
-husky-text = { path = "../../lex/husky-text" }
+husky-token.workspace = true
+husky-toml-token.workspace = true
+husky-text.workspace = true
 # linkage
 husky-javelin.workspace = true
 husky-linkage.workspace = true
 # protocols
-husky-text-protocol = { path = "../../protocols/husky-text-protocol" }
+husky-text-protocol.workspace = true
 # semantics
 husky-manifest.workspace = true
 husky-sema-expr.workspace = true
@@ -58,7 +58,7 @@ husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
 husky-entity-syn-tree.workspace = true
 # val
-husky-val = { path = "../../val/husky-val" }
-husky-val-repr = { path = "../../val/husky-val-repr" }
+husky-val.workspace = true
+husky-val-repr.workspace = true
 # vm
-husky-vm = { path = "../../vm/husky-vm" }
+husky-vm.workspace = true
