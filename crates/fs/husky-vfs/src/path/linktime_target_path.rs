@@ -23,8 +23,8 @@ impl LinktimeTargetPath {
         linktime_target_rust_dir(db, self)
     }
 
-    pub fn rust_manifest_path<'a>(self, db: &'a ::salsa::Db) -> &'a std::path::Path {
-        linktime_target_rust_manifest_path(db, self)
+    pub fn rust_workspace_manifest_path<'a>(self, db: &'a ::salsa::Db) -> &'a std::path::Path {
+        linktime_target_rust_workspace_manifest_path(db, self)
     }
 }
 
@@ -45,7 +45,7 @@ fn linktime_target_rust_dir(
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
-fn linktime_target_rust_manifest_path(
+fn linktime_target_rust_workspace_manifest_path(
     db: &::salsa::Db,
     target_path: LinktimeTargetPath,
 ) -> std::path::PathBuf {

@@ -1,4 +1,5 @@
-use cargo_manifest::{Edition, Manifest, MaybeInherited, Package, Product, Workspace};
+use cargo_manifest::{Edition, Manifest, MaybeInherited, Package, Product, Resolver, Workspace};
+use husky_vfs::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
 
 use crate::*;
 
@@ -8,7 +9,56 @@ pub(crate) struct RustManifest(Manifest);
 impl Eq for RustManifest {}
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
-pub(crate) fn package_rust_manifest(db: &::salsa::Db, package_path: PackagePath) -> String {
+pub(crate) fn linktime_target_rust_workspace_manifest(
+    db: &::salsa::Db,
+    linktime_target_path: LinktimeTargetPath,
+) -> String {
+    toml::to_string(&Manifest::<toml::Value> {
+        package: None,
+        cargo_features: None,
+        workspace: Some(Workspace {
+            members: linktime_target_rust_workspace_members(db, linktime_target_path).clone(),
+            default_members: None,
+            exclude: None,
+            resolver: Some(Resolver::V2),
+            dependencies: None,
+            package: None,
+        }),
+        // ad hoc
+        dependencies: None,
+        // ad hoc
+        dev_dependencies: None,
+        build_dependencies: None,
+        target: None,
+        features: None,
+        bin: None,
+        bench: None,
+        test: None,
+        example: None,
+        patch: None,
+        lib: None,
+        profile: None,
+        badges: None,
+    })
+    .unwrap()
+}
+
+#[deprecated(note = "ad hoc")]
+#[salsa::tracked(jar = RustTranspilationJar, return_ref)]
+pub(crate) fn linktime_target_rust_workspace_members(
+    db: &::salsa::Db,
+    linktime_target_path: LinktimeTargetPath,
+) -> Vec<String> {
+    match linktime_target_path.data(db) {
+        LinktimeTargetPathData::Package(package_path) => {
+            vec![package_path.name(db).data(db).to_string()]
+        }
+        LinktimeTargetPathData::Workspace(_) => todo!(),
+    }
+}
+
+#[salsa::tracked(jar = RustTranspilationJar, return_ref)]
+pub(crate) fn package_rust_package_manifest(db: &::salsa::Db, package_path: PackagePath) -> String {
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
             name: package_path.name(db).data(db).to_owned(),
@@ -40,17 +90,8 @@ pub(crate) fn package_rust_manifest(db: &::salsa::Db, package_path: PackagePath)
             resolver: None,
         }),
         cargo_features: None,
-        workspace: Some(Workspace {
-            members: vec![],
-            default_members: None,
-            exclude: None,
-            resolver: None,
-            dependencies: None,
-            package: None,
-        }),
-        // ad hoc
+        workspace: None,
         dependencies: None,
-        // ad hoc
         dev_dependencies: None,
         build_dependencies: None,
         target: None,
