@@ -24,7 +24,7 @@ impl LinktimeTargetPath {
     }
 
     pub fn rust_manifest_path<'a>(self, db: &'a ::salsa::Db) -> &'a std::path::Path {
-        linktime_target_rust_dir(db, self)
+        linktime_target_rust_manifest_path(db, self)
     }
 }
 
@@ -37,14 +37,15 @@ fn linktime_target_rust_dir(
         LinktimeTargetPathData::Package(package_path) => package_path
             .dir(db)
             .expect("todo: should guarantee ok")
-            .data(db)
+            .abs_path(db)
+            .expect("todo: should guarantee ok")
             .join("target-rs"),
         LinktimeTargetPathData::Workspace(_) => todo!(),
     }
 }
 
 #[salsa::tracked(jar = VfsJar, return_ref)]
-fn linktime_target_manifest_path(
+fn linktime_target_rust_manifest_path(
     db: &::salsa::Db,
     target_path: LinktimeTargetPath,
 ) -> std::path::PathBuf {
@@ -52,7 +53,8 @@ fn linktime_target_manifest_path(
         LinktimeTargetPathData::Package(package_path) => package_path
             .dir(db)
             .expect("todo: should guarantee ok")
-            .data(db)
+            .abs_path(db)
+            .expect("todo: should guarantee ok")
             .join("target-rs/Cargo.toml"),
         LinktimeTargetPathData::Workspace(_) => todo!(),
     }

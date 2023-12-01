@@ -6,7 +6,7 @@ use std::path::{Path, PathBuf};
 #[salsa::interned(db = VfsDb, jar = VfsJar)]
 pub struct VirtualPath {
     #[return_ref]
-    _data: RelPathBuf,
+    _data: VirtualPathBuf,
 }
 
 impl VirtualPath {
@@ -16,7 +16,11 @@ impl VirtualPath {
     }
 
     pub fn abs_path(self, db: &::salsa::Db) -> VfsResult<PathBuf> {
-        std::path::absolute(db.vfs_cache().current_dir().join(&self.data(db))).map_err(|_e| todo!())
+        db.vfs_cache()
+            .current_dir()
+            .join(&self.data(db))
+            .canonicalize()
+            .map_err(|_e| todo!())
     }
 
     pub fn file(self, db: &::salsa::Db) -> VfsResult<File> {
@@ -37,12 +41,12 @@ impl VirtualPath {
 impl VirtualPath {
     // todo: room for optimization when path is owned
     pub fn try_new(db: &::salsa::Db, path: impl AsRef<Path>) -> VfsResult<Self> {
-        Ok(Self::new(db, RelPathBuf::try_new(db, path.as_ref())?))
+        Ok(Self::new(db, VirtualPathBuf::try_new(db, path.as_ref())?))
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct RelPathBuf(PathBuf);
+pub struct VirtualPathBuf(PathBuf);
 
 #[test]
 fn test_absolute_path_debug() {
@@ -50,7 +54,7 @@ fn test_absolute_path_debug() {
     // let abs_path = VirtualPath::new(path);
 }
 
-impl RelPathBuf {
+impl VirtualPathBuf {
     pub fn try_new(db: &::salsa::Db, path: &Path) -> VfsResult<Self> {
         let diff = |path: &Path| -> VfsResult<_> {
             pathdiff::diff_paths(path, db.vfs_cache().current_dir()).ok_or(VfsError::FailToDiff)
@@ -65,7 +69,7 @@ impl RelPathBuf {
                 })?,
             )
         }?;
-        Ok(RelPathBuf(diff_path))
+        Ok(VirtualPathBuf(diff_path))
     }
 
     pub fn path(&self) -> &Path {
@@ -73,7 +77,7 @@ impl RelPathBuf {
     }
 }
 
-impl std::ops::Deref for RelPathBuf {
+impl std::ops::Deref for VirtualPathBuf {
     type Target = Path;
 
     fn deref(&self) -> &Self::Target {

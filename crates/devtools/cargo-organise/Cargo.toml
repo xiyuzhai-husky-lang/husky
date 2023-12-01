@@ -13,6 +13,5 @@ path = "src/bin/cargo-organise.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 regex = "1"
-toml = "0.5.9"
-toml_edit = "0.15.0"
-cargo-udeps = { git = "https://github.com/husky-lang-org/cargo-udeps" }
+toml.workspace = true
+toml_edit.workspace = true

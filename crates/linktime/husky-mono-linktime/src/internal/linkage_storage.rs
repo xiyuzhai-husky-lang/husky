@@ -1,4 +1,5 @@
 use super::*;
+use husky_cargo_utils::compile_workspace;
 use husky_rust_transpilation::{db::RustTranspilationJar, transpile::TranspileToFsFull};
 use husky_vfs::PackagePath;
 
@@ -10,7 +11,7 @@ impl MonoLinkageStorage {
             Ok(()) => (),
             Err(_) => todo!(),
         };
-        target_path.rust_manifest_path(db);
+        compile_workspace(target_path.rust_manifest_path(db));
         Self {}
     }
 }

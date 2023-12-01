@@ -3,7 +3,7 @@ ValkyrieJavelinPantheon {
         toolchain: Toolchain {
             data: ToolchainData::Local {
                 library_path: VirtualPath {
-                    _data: RelPathBuf(
+                    _data: VirtualPathBuf(
                         "../../../library",
                     ),
                 },
