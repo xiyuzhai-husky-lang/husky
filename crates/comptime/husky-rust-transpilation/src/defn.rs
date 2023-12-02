@@ -94,9 +94,12 @@ impl TranspileToRust<HirEagerExprRegion> for HirTemplateParameter {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         // self.symbol().transpile_to_rust(builder)
         match self.data() {
-            HirTemplateParameterData::Type { ident, traits: _ } => {
-                ident.transpile_to_rust(builder)
-                // todo: traits
+            HirTemplateParameterData::Type { ident, traits } => {
+                ident.transpile_to_rust(builder);
+                if traits.len() > 0 {
+                    builder.punctuation(RustPunctuation::Colon);
+                    builder.punctuated_list(traits, RustPunctuation::Add)
+                }
             }
             HirTemplateParameterData::Constant { ident, ty: _ } => {
                 use salsa::DebugWithDb;

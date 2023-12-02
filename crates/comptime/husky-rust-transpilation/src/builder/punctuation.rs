@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum RustPunctuation {
     Bra(RustBracket),
     Ket(RustBracket),
@@ -21,6 +22,7 @@ pub enum RustPunctuation {
     Not,
     SemicolonInArray,
     Ambersand,
+    CommaSpaced,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -83,6 +85,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustPunctuation::Not => "!",
             RustPunctuation::SemicolonInArray => "; ",
             RustPunctuation::Ambersand => "&",
+            RustPunctuation::CommaSpaced => ", ",
         };
         self.write_str(s)
     }

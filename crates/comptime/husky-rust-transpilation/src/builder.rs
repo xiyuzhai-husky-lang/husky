@@ -231,16 +231,24 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         items: impl IntoIterator<Item = A>,
     ) {
         self.write_str(bracket.bra_code());
+        self.punctuated_list(items, RustPunctuation::CommaSpaced);
+        self.write_str(bracket.ket_code());
+    }
+
+    pub(crate) fn punctuated_list<A: TranspileToRust<E>>(
+        &mut self,
+        items: impl IntoIterator<Item = A>,
+        punctuation: RustPunctuation,
+    ) {
         let mut start = true;
         for item in items {
             if start {
                 start = false
             } else {
-                self.write_str(", ")
+                self.punctuation(punctuation)
             }
             item.transpile_to_rust(self)
         }
-        self.write_str(bracket.ket_code());
     }
 
     pub(crate) fn bracketed_multiline_comma_list<A: TranspileToRust<E>>(

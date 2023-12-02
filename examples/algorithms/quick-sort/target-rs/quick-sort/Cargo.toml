@@ -7,4 +7,4 @@ version = "0.1.0"
 plugin = false
 proc-macro = false
 required-features = []
-crate-type = ["dylib"]
+crate-type = ["cdylib"]
