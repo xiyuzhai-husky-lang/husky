@@ -40,6 +40,7 @@ impl From<SymbolModifier> for TermContract {
         match modifier {
             SymbolModifier::None => TermContract::None,
             SymbolModifier::Mut => TermContract::Move,
+            SymbolModifier::Ref => TermContract::Borrow,
             SymbolModifier::RefMut => TermContract::BorrowMut,
             SymbolModifier::Const => TermContract::Const,
             SymbolModifier::Ambersand(_) => todo!(),

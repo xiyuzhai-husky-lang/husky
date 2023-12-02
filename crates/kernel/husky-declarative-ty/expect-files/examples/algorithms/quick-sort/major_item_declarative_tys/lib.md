@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`(independent v0: Type) -> fn((core::slice::Slice v0) -> core::basic::unit`),
+            DeclarativeTerm(`(independent v0: Type) -> independent core::basic::Lifetime -> fn((core::slice::Slice v0) -> core::basic::unit`),
         ),
     ),
     (
@@ -16,7 +16,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`(independent v0: Type) -> fn((core::slice::Slice v0, core::num::isize, core::num::isize) -> core::basic::unit`),
+            DeclarativeTerm(`(independent v0: Type) -> independent core::basic::Lifetime -> fn((core::slice::Slice v0, core::num::isize, core::num::isize) -> core::basic::unit`),
         ),
     ),
     (
@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`(independent v0: Type) -> fn((core::slice::Slice v0, core::num::isize, core::num::isize) -> core::num::isize`),
+            DeclarativeTerm(`(independent v0: Type) -> independent core::basic::Lifetime -> fn((core::slice::Slice v0, core::num::isize, core::num::isize) -> core::num::isize`),
         ),
     ),
     (

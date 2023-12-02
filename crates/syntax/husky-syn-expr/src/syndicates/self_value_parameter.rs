@@ -27,7 +27,8 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfValueParame
         let ephem_symbol_modifier_token_group = ctx.try_parse_option()?;
         if let Some(ephem_symbol_modifier_token_group) = ephem_symbol_modifier_token_group {
             match ephem_symbol_modifier_token_group {
-                EphemSymbolModifierRegionalTokens::RefMut(_, None, _)
+                EphemSymbolModifierRegionalTokens::Ref(_)
+                | EphemSymbolModifierRegionalTokens::RefMut(_, _)
                 | EphemSymbolModifierRegionalTokens::Ambersand(_, None)
                 | EphemSymbolModifierRegionalTokens::AmbersandMut(_, None, _) => {
                     ctx.context.set_has_self_lifetime()

@@ -264,13 +264,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `quick_sort_aux`,
                     token_idx: TokenIdx(
-                        42,
+                        43,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        43,
+                        44,
                     ),
                     drained: false,
                 },
@@ -308,13 +308,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `partition`,
                     token_idx: TokenIdx(
-                        103,
+                        105,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        104,
+                        106,
                     ),
                     drained: false,
                 },
@@ -358,13 +358,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `quick_sort_works_for_integers`,
                     token_idx: TokenIdx(
-                        228,
+                        231,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        229,
+                        232,
                     ),
                     drained: false,
                 },
@@ -408,13 +408,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `quick_sort_works_for_strs`,
                     token_idx: TokenIdx(
-                        265,
+                        268,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        266,
+                        269,
                     ),
                     drained: false,
                 },

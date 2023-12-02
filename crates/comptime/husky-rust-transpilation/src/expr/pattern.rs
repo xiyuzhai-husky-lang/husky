@@ -14,6 +14,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerPatternExprIdx {
                     match symbol_modifier {
                         SymbolModifier::None => (),
                         SymbolModifier::Mut => builder.keyword(RustKeyword::Mut),
+                        SymbolModifier::Ref => todo!(),
                         SymbolModifier::RefMut => todo!(),
                         SymbolModifier::Const => todo!(),
                         SymbolModifier::Ambersand(_) => todo!(),

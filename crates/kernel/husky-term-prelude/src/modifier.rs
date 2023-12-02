@@ -4,6 +4,7 @@ use husky_coword::Label;
 pub enum SymbolModifier {
     None,
     Mut,
+    Ref,
     RefMut,
     Const,
     Ambersand(Option<Label>),

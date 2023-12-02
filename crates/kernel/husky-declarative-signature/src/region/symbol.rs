@@ -95,7 +95,10 @@ impl SymbolDeclarativeTermRegion {
     ) {
         let symbol = match modifier {
             SymbolModifier::Const => todo!(),
-            SymbolModifier::None | SymbolModifier::Mut | SymbolModifier::RefMut => None,
+            SymbolModifier::None
+            | SymbolModifier::Mut
+            | SymbolModifier::Ref
+            | SymbolModifier::RefMut => None,
             SymbolModifier::Ambersand(_) => todo!(),
             SymbolModifier::AmbersandMut(_) => todo!(),
             SymbolModifier::Le => todo!(),
