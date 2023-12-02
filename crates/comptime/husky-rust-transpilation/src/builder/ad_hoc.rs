@@ -39,4 +39,28 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
     pub(crate) fn use_all_in_super(&mut self) {
         self.on_fresh_semicolon_line(|builder| builder.write_str("use super::*"))
     }
+
+    pub(crate) fn r8(&mut self) {
+        self.write_str("r8")
+    }
+
+    pub(crate) fn r16(&mut self) {
+        self.write_str("u16")
+    }
+
+    pub(crate) fn r32(&mut self) {
+        self.write_str("u32")
+    }
+
+    pub(crate) fn r64(&mut self) {
+        self.write_str("u64")
+    }
+
+    pub(crate) fn r128(&mut self) {
+        self.write_str("u128")
+    }
+
+    pub(crate) fn rsize(&mut self) {
+        self.write_str("usize")
+    }
 }

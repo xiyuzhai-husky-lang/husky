@@ -6,6 +6,7 @@ mod expr;
 mod linkage;
 mod manifest;
 mod package;
+mod path;
 #[cfg(test)]
 mod tests;
 pub mod transpile;
