@@ -46,6 +46,7 @@ pub enum FluffyTermData<'a> {
 }
 
 impl<'a> FluffyTermData<'a> {
+    // todo: change to using show_aux
     #[inline(never)]
     pub fn show(&self, db: &::salsa::Db, terms: &FluffyTerms) -> String {
         use salsa::DisplayWithDb;
@@ -75,7 +76,16 @@ impl<'a> FluffyTermData<'a> {
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
-            } => todo!(),
+            } => {
+                if parameter_variable.is_some() {
+                    todo!()
+                }
+                format!(
+                    "{} -> {}",
+                    parameter_ty.show(db, terms),
+                    return_ty.show(db, terms)
+                )
+            }
             FluffyTermData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType => "_i".to_string(),
                 HoleKind::UnspecifiedFloatType => "_f".to_string(),
@@ -87,7 +97,24 @@ impl<'a> FluffyTermData<'a> {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
-            } => todo!(),
+            } => match ritchie_kind {
+                RitchieKind::Type(ritchi_ty_kind) => match ritchi_ty_kind {
+                    RitchieTypeKind::Fn => {
+                        for param in parameter_contracted_tys.iter() {
+                            match param {
+                                FluffyTermRitchieParameter::Regular(param) => {
+                                    p!(param.ty().show(db, terms))
+                                }
+                                FluffyTermRitchieParameter::Variadic(_) => todo!(),
+                                FluffyTermRitchieParameter::Keyed(_) => todo!(),
+                            }
+                        }
+                        format!("fn(...) -> {}", return_ty.show(db, terms))
+                    }
+                    RitchieTypeKind::Gn => todo!(),
+                },
+                RitchieKind::Trait(_) => todo!(),
+            },
             FluffyTermData::Symbol { term, ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
             FluffyTermData::TypeVariant { path } => todo!(),

@@ -292,6 +292,6 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
     }
 
     fn range(&self, ctx: &RegionDiagnosticsContext) -> TextRange {
-        ctx.expr_text_range(self.0.expr_idx())
+        ctx.expr_text_range(self.0.syn_expr_idx())
     }
 }
