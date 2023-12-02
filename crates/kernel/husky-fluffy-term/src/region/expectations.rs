@@ -42,21 +42,21 @@ impl Expectations {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ExpectationSource {
-    expr_idx: SynExprIdx,
+    syn_expr_idx: SynExprIdx,
     kind: ExpectationSourceKind,
 }
 
 impl ExpectationSource {
-    pub fn new_expr(expr_idx: SynExprIdx) -> Self {
+    pub fn new_expr(syn_expr_idx: SynExprIdx) -> Self {
         Self {
-            expr_idx,
+            syn_expr_idx,
             kind: ExpectationSourceKind::Expr,
         }
     }
 
     pub(crate) fn child_src(self, idx: FluffyTermExpectationIdx) -> Self {
         Self {
-            expr_idx: self.expr_idx,
+            syn_expr_idx: self.syn_expr_idx,
             kind: ExpectationSourceKind::Expectation(idx),
         }
     }
@@ -69,8 +69,8 @@ pub enum ExpectationSourceKind {
 }
 
 impl ExpectationSource {
-    pub fn expr_idx(self) -> SynExprIdx {
-        self.expr_idx
+    pub fn syn_expr_idx(self) -> SynExprIdx {
+        self.syn_expr_idx
     }
 }
 

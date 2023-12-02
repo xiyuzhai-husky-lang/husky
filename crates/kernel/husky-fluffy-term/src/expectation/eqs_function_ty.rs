@@ -176,7 +176,7 @@ impl ExpectEqsFunctionType {
                     );
                     self.resolve_aux(db, state, terms, expectee, template_parameter_substitutions)
                 }
-                None => todo!(), // self.resolve(db, terms, idx, return_ty),
+                None => self.resolve_aux(db, state, terms, return_ty, smallvec![]), // ad hoc
             },
         }
     }
@@ -196,15 +196,27 @@ impl ExpectEqsFunctionType {
                 refined_ty_path: refined_path,
                 ty_arguments: arguments,
                 ..
-            } => todo!(),
+            } => state.set_err(
+                OriginalFluffyTermExpectationError::ExpectedFunctionType,
+                smallvec![],
+            ),
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable: parameter_symbol,
+                parameter_variable,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
-            } => todo!(),
+            } => self.resolve_curry(
+                db,
+                state,
+                terms,
+                curry_kind,
+                variance,
+                parameter_variable,
+                parameter_ty,
+                return_ty,
+            ),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie {
