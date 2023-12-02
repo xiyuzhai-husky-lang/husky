@@ -3,7 +3,6 @@ mod hir_ty;
 pub(crate) mod keyword;
 mod literal;
 mod macro_name;
-mod path;
 mod punctuation;
 
 pub(crate) use self::keyword::*;

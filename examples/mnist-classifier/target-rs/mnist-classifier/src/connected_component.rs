@@ -21,7 +21,7 @@ pub struct ConnectedComponent {
     pub mask: BinaryImage28,
 } 
 
-pub fn horizontal_extend(a: r32, x: r32) -> r32 {
+pub fn horizontal_extend(a: u32, x: u32) -> u32 {
     let mut y = a | (x | x << 1 | x >> 1);
     let mut z = a | (y | y << 1 | y >> 1);
     while z != y {

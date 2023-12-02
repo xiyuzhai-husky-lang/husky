@@ -1,9 +1,13 @@
 use super::*;
-use husky_entity_path::{AssociatedItemPath, PatternPath, TraitPath, TypeVariantPath};
+use either::*;
+use husky_entity_path::{
+    AssociatedItemPath, PatternPath, PreludeIntTypePath, PreludeNumTypePath, PreludeTypePath,
+    PrincipalEntityPath, TraitPath, TypePath, TypeVariantPath,
+};
 
 impl<E> TranspileToRust<E> for AssociatedItemPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
-        let db = builder.db;
+        let db = builder.db();
         match self {
             AssociatedItemPath::TypeItem(path) => {
                 path.impl_block(db).ty_path(db).transpile_to_rust(builder)
@@ -20,7 +24,7 @@ impl<E> TranspileToRust<E> for AssociatedItemPath {
 
 impl<E> TranspileToRust<E> for TypeVariantPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
-        let db = builder.db;
+        let db = builder.db();
         self.parent_ty_path(db).transpile_to_rust(builder);
         builder.punctuation(RustPunctuation::ColonColon);
         self.ident(db).transpile_to_rust(builder)
@@ -29,7 +33,7 @@ impl<E> TranspileToRust<E> for TypeVariantPath {
 
 impl<E> TranspileToRust<E> for PrincipalEntityPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
-        let db = builder.db;
+        let db = builder.db();
         match self {
             PrincipalEntityPath::Module(path) => path.ident(db).transpile_to_rust(builder),
             PrincipalEntityPath::MajorItem(path) => path.ident(db).transpile_to_rust(builder),
@@ -50,7 +54,26 @@ impl<E> TranspileToRust<E> for PrincipalEntityPath {
 impl<E> TranspileToRust<E> for TypePath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
-        self.ident(db).transpile_to_rust(builder)
+        match self.refine(db) {
+            Left(PreludeTypePath::Num(PreludeNumTypePath::Int(
+                path @ (PreludeIntTypePath::R8
+                | PreludeIntTypePath::R16
+                | PreludeIntTypePath::R32
+                | PreludeIntTypePath::R64
+                | PreludeIntTypePath::R128
+                | PreludeIntTypePath::RSize),
+            ))) => match path {
+                PreludeIntTypePath::R8 => builder.r8(),
+                PreludeIntTypePath::R16 => builder.r16(),
+                PreludeIntTypePath::R32 => builder.r32(),
+                PreludeIntTypePath::R64 => builder.r64(),
+                PreludeIntTypePath::R128 => builder.r128(),
+                PreludeIntTypePath::RSize => builder.rsize(),
+                _ => unreachable!(),
+            },
+            Left(PreludeTypePath::StringLiteral) => todo!(),
+            _ => self.ident(db).transpile_to_rust(builder),
+        }
     }
 }
 
