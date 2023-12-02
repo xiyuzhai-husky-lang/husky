@@ -21,7 +21,7 @@ pub struct ItemPathMenu {
     // core::ops::BitOr	The bitwise OR operator |.
     bit_or_trai_path: TraitPath,
     // core::ops::BitOrAssign	The bitwise OR assignment operator |=.
-    core_ops_bit_or_assign_trai_path: TraitPath,
+    bit_or_assign_trai_path: TraitPath,
     // core::ops::BitXor	The bitwise XOR operator ^.
     bit_xor_trai_path: TraitPath,
     // core::ops::BitXorAssign	The bitwise XOR assignment operator ^=.
@@ -44,6 +44,7 @@ pub struct ItemPathMenu {
     clone_trai_path: TraitPath,
     copy_trai_path: TraitPath,
     default_trai_path: TraitPath,
+    visualize_trai_path: TraitPath,
     option_ty_path: TypePath,
     result_ty_path: TypePath,
     slice_ty_path: TypePath,
@@ -416,7 +417,7 @@ impl ItemPathMenu {
             MajorItemConnection::Connected,
             db,
         );
-        let core_ops_bit_or_assign_trai_path = TraitPath::new(
+        let bit_or_assign_trai_path = TraitPath::new(
             core_ops,
             Ident::from_ref(db, "BitOrAssign").unwrap(),
             MajorItemConnection::Connected,
@@ -500,6 +501,12 @@ impl ItemPathMenu {
             MajorItemConnection::Connected,
             db,
         );
+        let visualize_trai_path = TraitPath::new(
+            core_visual,
+            Ident::from_ref(db, "Visualize").unwrap(),
+            MajorItemConnection::Connected,
+            db,
+        );
         Self {
             unit_ty_path,
             never_ty_path,
@@ -545,7 +552,7 @@ impl ItemPathMenu {
             bit_and_trai_path,
             bit_and_assign_trai_path,
             bit_or_trai_path,
-            core_ops_bit_or_assign_trai_path,
+            bit_or_assign_trai_path,
             bit_xor_trai_path,
             bit_xor_assign_trai_path,
             div_trai_path,
@@ -559,6 +566,7 @@ impl ItemPathMenu {
             clone_trai_path,
             copy_trai_path,
             default_trai_path,
+            visualize_trai_path,
             result_ty_path,
         }
     }
@@ -739,8 +747,8 @@ impl ItemPathMenu {
         self.bit_or_trai_path
     }
 
-    pub fn core_ops_bit_or_assign_trai_path(&self) -> TraitPath {
-        self.core_ops_bit_or_assign_trai_path
+    pub fn bit_or_assign_trai_path(&self) -> TraitPath {
+        self.bit_or_assign_trai_path
     }
 
     pub fn bit_xor_trai_path(&self) -> TraitPath {
@@ -795,6 +803,10 @@ impl ItemPathMenu {
         self.default_trai_path
     }
 
+    pub fn visualize_trai_path(&self) -> TraitPath {
+        self.visualize_trai_path
+    }
+
     pub fn html_ty_path(&self) -> TypePath {
         self.html_ty_path
     }
@@ -824,7 +836,7 @@ fn menu_works() {
         "core::ops::BitOr"
     );
     assert_eq!(
-        item_path_menu.core_ops_bit_or_assign_trai_path().show(db),
+        item_path_menu.bit_or_assign_trai_path().show(db),
         "core::ops::BitOrAssign"
     );
     assert_eq!(
