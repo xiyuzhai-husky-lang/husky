@@ -130,7 +130,7 @@ fn item_path_declarative_ty_works() {
         item_path_declarative_ty(
             db,
             TypePathDisambiguation::OntologyConstructor,
-            item_path_menu.core_ops_bit_or_assign_trai_path().into(),
+            item_path_menu.bit_or_assign_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );

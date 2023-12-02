@@ -101,7 +101,7 @@ impl TermMenu0 {
             ),
             core_ops_bit_or: EtherealTerm::EntityPath(item_path_menu.bit_or_trai_path().into()),
             core_ops_bit_or_assign: EtherealTerm::EntityPath(
-                item_path_menu.core_ops_bit_or_assign_trai_path().into(),
+                item_path_menu.bit_or_assign_trai_path().into(),
             ),
             core_ops_bit_xor: EtherealTerm::EntityPath(item_path_menu.bit_xor_trai_path().into()),
             core_ops_bit_xor_assign: EtherealTerm::EntityPath(

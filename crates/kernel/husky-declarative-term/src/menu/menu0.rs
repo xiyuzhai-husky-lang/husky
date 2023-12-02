@@ -90,7 +90,7 @@ impl DeclarativeTermMenu0 {
             ),
             core_ops_bit_or: DeclarativeTerm::EntityPath(item_path_menu.bit_or_trai_path().into()),
             core_ops_bit_or_assign: DeclarativeTerm::EntityPath(
-                item_path_menu.core_ops_bit_or_assign_trai_path().into(),
+                item_path_menu.bit_or_assign_trai_path().into(),
             ),
             core_ops_bit_xor: DeclarativeTerm::EntityPath(
                 item_path_menu.bit_xor_trai_path().into(),
