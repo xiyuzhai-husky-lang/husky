@@ -441,10 +441,10 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [],
             ),
             errors: [],
@@ -458,10 +458,10 @@ EntitySynTreeCrateBundle {
                 [],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [],
             ),
             errors: [],
@@ -475,10 +475,10 @@ EntitySynTreeCrateBundle {
                 [],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [],
             ),
             errors: [],
@@ -492,10 +492,10 @@ EntitySynTreeCrateBundle {
                 [],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [],
             ),
             errors: [],
@@ -509,10 +509,10 @@ EntitySynTreeCrateBundle {
                 [],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [],
             ),
             errors: [],
@@ -526,10 +526,10 @@ EntitySynTreeCrateBundle {
                 [],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [],
             ),
             errors: [],

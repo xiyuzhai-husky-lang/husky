@@ -1,12 +1,12 @@
-use crate::*
+// use crate::*
 
-pub extern Prop;
+// pub extern Prop;
 
-pub structure LogicAnd<P: Prop, Q: Prop> {
-    left: P,
-    right: Q,
-}
+// pub structure LogicAnd<P: Prop, Q: Prop> {
+//     left: P,
+//     right: Q,
+// }
 
-pub inductive LogicOr<P: Prop, Q: Prop>
-| Left(P)
-| Right(Q)
+// pub inductive LogicOr<P: Prop, Q: Prop>
+// | Left(P)
+// | Right(Q)

@@ -145,7 +145,12 @@ impl TraitForTypeImplBlockSynDecl {
             .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
+            .map(|list| {
+                list.syn_template_parameter_obelisks()
+                    .iter()
+                    .map(Clone::clone)
+                    .collect()
+            })
             .unwrap_or_default();
         let trai_expr = syn_node_decl.trai_expr(db);
         let self_ty_decl = syn_node_decl.self_ty_decl(db);

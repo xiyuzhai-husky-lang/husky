@@ -294,8 +294,6 @@ impl<'a> DeclarativeTermEngine<'a> {
                 | SynExprRootKind::Snippet
                 | SynExprRootKind::ValExpr
                 | SynExprRootKind::EvalExpr => continue,
-                // ad hoc
-                SynExprRootKind::Traits => (),
             }
             self.cache_new_expr_term(expr_root.syn_expr_idx())
         }

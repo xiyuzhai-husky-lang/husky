@@ -1,7 +1,10 @@
 use crate::*;
+use husky_fluffy_term::FluffyTermBase;
 use husky_hir_ty::trai::HirTrait;
 
-use husky_syn_expr::{TemplateParameterSyndicateData, TemplateSynParameterData};
+use husky_syn_expr::{
+    trais::TraitsSyndicate, TemplateParameterSyndicateVariant, TemplateSynParameterData,
+};
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -14,10 +17,20 @@ pub struct HirTemplateParameter {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db]
 pub enum HirTemplateParameterData {
-    Type { ident: Ident, traits: Vec<HirTrait> },
-    Constant { ident: Ident, ty: HirType },
-    Lifetime { label: Label },
-    Place { label: Label },
+    Type {
+        ident: Ident,
+        traits: SmallVec<[HirTrait; 4]>,
+    },
+    Constant {
+        ident: Ident,
+        ty: HirType,
+    },
+    Lifetime {
+        label: Label,
+    },
+    Place {
+        label: Label,
+    },
 }
 
 impl HirTemplateParameter {
@@ -31,26 +44,42 @@ impl HirTemplateParameter {
         };
         let db = builder.db();
         let symbol = HirComptimeSymbol::from_ethereal(symbol, db)?;
-        let data = match syndicate.data() {
-            TemplateParameterSyndicateData::Type {
+        let data = match *syndicate.variant() {
+            TemplateParameterSyndicateVariant::Type {
                 ident_token,
-                traits,
+                ref traits,
             } => HirTemplateParameterData::Type {
                 ident: ident_token.ident(),
-                traits: match traits {
-                    Some(_) =>
-                    /* ad hoc */
-                    {
-                        vec![]
-                    }
-                    None => vec![],
+                traits: match *traits {
+                    Some(TraitsSyndicate {
+                        ref trait_syn_expr_idxs,
+                        ..
+                    }) => trait_syn_expr_idxs
+                        .iter()
+                        .map(|&trai_syn_expr_idx| {
+                            let sema_expr_region_data = &builder.sema_expr_region_data();
+                            let terms = sema_expr_region_data.fluffy_term_region().terms();
+                            let trai_term = match sema_expr_region_data
+                                .syn_root_expr_term(trai_syn_expr_idx)
+                                .expect("some")
+                                .expect("ok")
+                                .base_resolved_inner(terms)
+                            {
+                                FluffyTermBase::Ethereal(trai_term) => trai_term,
+                                FluffyTermBase::Solid(_) => todo!(),
+                                FluffyTermBase::Hollow(_) => todo!(),
+                                FluffyTermBase::Place => todo!(),
+                            };
+                            HirTrait::from_ethereal(trai_term, db)
+                        })
+                        .collect(),
+                    None => smallvec![],
                 },
             },
-            &TemplateParameterSyndicateData::Constant {
-                const_token: _,
+            TemplateParameterSyndicateVariant::Constant {
                 ident_token,
-                colon_token: _,
                 ty_expr,
+                ..
             } => {
                 let ident = ident_token.ident();
                 if ident.data(db) == "label" {
@@ -61,12 +90,12 @@ impl HirTemplateParameter {
                     ty: builder.hir_ty(ty_expr),
                 }
             }
-            TemplateParameterSyndicateData::Lifetime { label_token } => {
+            TemplateParameterSyndicateVariant::Lifetime { label_token } => {
                 HirTemplateParameterData::Lifetime {
                     label: label_token.label(),
                 }
             }
-            TemplateParameterSyndicateData::Place { label_token } => {
+            TemplateParameterSyndicateVariant::Place { label_token } => {
                 HirTemplateParameterData::Place {
                     label: label_token.label(),
                 }

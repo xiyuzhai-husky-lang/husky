@@ -5,7 +5,29 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 487,
+                            value: 482,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 347,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 485,
                         },
                     ),
                 ),
@@ -27,7 +49,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 490,
+                            value: 488,
                         },
                     ),
                 ),
@@ -45,11 +67,11 @@
     ),
     (
         MajorItem(
-            Type(
-                TypePath(
+            Fugitive(
+                FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 493,
+                            value: 492,
                         },
                     ),
                 ),
@@ -66,12 +88,12 @@
         ),
     ),
     (
-        MajorItem(
-            Fugitive(
-                FugitivePath(
+        ImplBlock(
+            TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 497,
+                            value: 493,
                         },
                     ),
                 ),
@@ -88,12 +110,12 @@
         ),
     ),
     (
-        ImplBlock(
-            TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(
+        AssociatedItem(
+            TraitForTypeItem(
+                TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 498,
+                            value: 495,
                         },
                     ),
                 ),
@@ -110,12 +132,12 @@
         ),
     ),
     (
-        AssociatedItem(
-            TraitForTypeItem(
-                TraitForTypeItemPath(
+        ImplBlock(
+            TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 500,
+                            value: 494,
                         },
                     ),
                 ),
@@ -132,12 +154,12 @@
         ),
     ),
     (
-        ImplBlock(
-            TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(
+        AssociatedItem(
+            TraitForTypeItem(
+                TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 499,
+                            value: 496,
                         },
                     ),
                 ),
@@ -148,28 +170,6 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 354,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssociatedItem(
-            TraitForTypeItem(
-                TraitForTypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 501,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 355,
                     },
                 ),
             ),

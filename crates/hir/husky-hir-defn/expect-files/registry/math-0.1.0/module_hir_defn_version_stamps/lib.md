@@ -5,7 +5,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 502,
+                        value: 497,
                     },
                 ),
             ),
@@ -20,7 +20,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 503,
+                        value: 498,
                     },
                 ),
             ),
@@ -35,7 +35,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 504,
+                        value: 499,
                     },
                 ),
             ),
@@ -50,7 +50,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 505,
+                        value: 500,
                     },
                 ),
             ),
@@ -65,7 +65,7 @@
             SubmoduleItemPath(
                 ItemPathId(
                     Id {
-                        value: 506,
+                        value: 501,
                     },
                 ),
             ),

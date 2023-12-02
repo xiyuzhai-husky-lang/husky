@@ -77,7 +77,12 @@ impl TraitForTypeAssociatedTypeSynDecl {
             .generics(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
+            .map(|list| {
+                list.syn_template_parameter_obelisks()
+                    .iter()
+                    .map(Clone::clone)
+                    .collect()
+            })
             .unwrap_or_default();
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
         let ty_term_expr_idx = syn_node_decl.ty_term_expr_idx(db);

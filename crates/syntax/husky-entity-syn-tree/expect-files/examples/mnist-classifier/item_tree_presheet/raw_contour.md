@@ -688,9 +688,9 @@ EntitySynTreePresheet {
             },
         ],
     },
-    use_one_trackers: OnceUseRules(
+    use_one_rules: UseOneRules(
         [
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 191,
                 use_expr_idx: 3,
                 visibility: Scope::PubUnder(
@@ -709,9 +709,9 @@ EntitySynTreePresheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Unresolved,
+                state: UseOneRuleState::Unresolved,
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 192,
                 use_expr_idx: 6,
                 visibility: Scope::PubUnder(
@@ -730,9 +730,9 @@ EntitySynTreePresheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Unresolved,
+                state: UseOneRuleState::Unresolved,
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 193,
                 use_expr_idx: 9,
                 visibility: Scope::PubUnder(
@@ -751,9 +751,9 @@ EntitySynTreePresheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Unresolved,
+                state: UseOneRuleState::Unresolved,
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 194,
                 use_expr_idx: 11,
                 visibility: Scope::PubUnder(
@@ -772,11 +772,11 @@ EntitySynTreePresheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Unresolved,
+                state: UseOneRuleState::Unresolved,
             },
         ],
     ),
-    use_all_trackers: UseAllModuleSymbolsRules(
+    use_all_rules: UseAllRules(
         [],
     ),
     use_expr_arena: Arena {

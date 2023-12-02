@@ -91,7 +91,12 @@ impl TypeMethodFnSynDecl {
             .template_parameters(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
+            .map(|list| {
+                list.syn_template_parameter_obelisks()
+                    .iter()
+                    .map(Clone::clone)
+                    .collect()
+            })
             .unwrap_or_default();
         let parenate_parameters = syn_node_decl.parenate_parameters(db).as_ref()?;
         let self_value_parameter = *parenate_parameters.self_value_parameter();

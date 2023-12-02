@@ -4,7 +4,7 @@ use vec_like::VecMapGetEntry;
 /// it's separated because it has to be updated indefinitely
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
-pub struct UseAllModuleSymbolsRule {
+pub struct UseAllRule {
     /// parent is of type `RelativeModulePath`
     ///
     /// because we would like to handle the two cases separately:
@@ -19,7 +19,7 @@ pub struct UseAllModuleSymbolsRule {
     progress: Result<usize, ()>,
 }
 
-impl UseAllModuleSymbolsRule {
+impl UseAllRule {
     pub(crate) fn new(
         db: &::salsa::Db,
         sheet: &EntityTreePresheetMut,
@@ -46,18 +46,14 @@ impl UseAllModuleSymbolsRule {
         self.progress
     }
 
-    pub(crate) fn is_unresolved(&self, ctx: &EntityTreeSymbolContext) -> bool {
+    pub(crate) fn is_actionable(&self, ctx: &EntityTreeSymbolContext) -> bool {
         let Ok(progress) = self.progress else {
             return false;
         };
-        if self.is_same_crate {
-            progress
-                < ctx.presheets()[self.parent_module_path]
-                    .module_specific_symbols()
-                    .len()
-        } else {
-            progress == 0
-        }
+        progress
+            < self
+                .parent_module_specific_symbols(ctx.db(), ctx.presheets())
+                .len()
     }
 
     pub(crate) fn parent_module_specific_symbols<'a>(
@@ -100,42 +96,42 @@ impl UseAllModuleSymbolsRule {
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
-pub(crate) struct UseAllModuleSymbolsRules(Vec<UseAllModuleSymbolsRule>);
+pub(crate) struct UseAllRules(Vec<UseAllRule>);
 
 #[derive(Debug, Default, PartialEq, Eq, Clone, Copy)]
 pub(crate) struct UseAllModuleSymbolsRuleIdx(usize);
 
-impl UseAllModuleSymbolsRules {
+impl UseAllRules {
     pub(crate) fn indexed_iter(
         &self,
-    ) -> impl Iterator<Item = (UseAllModuleSymbolsRuleIdx, &UseAllModuleSymbolsRule)> {
+    ) -> impl Iterator<Item = (UseAllModuleSymbolsRuleIdx, &UseAllRule)> {
         self.0
             .iter()
             .enumerate()
             .map(|(i, rule)| (UseAllModuleSymbolsRuleIdx(i), rule))
     }
 
-    pub(super) fn push(&mut self, new_rule: UseAllModuleSymbolsRule) {
+    pub(super) fn push(&mut self, new_rule: UseAllRule) {
         self.0.push(new_rule)
     }
 }
 
-impl std::ops::Index<UseAllModuleSymbolsRuleIdx> for UseAllModuleSymbolsRules {
-    type Output = UseAllModuleSymbolsRule;
+impl std::ops::Index<UseAllModuleSymbolsRuleIdx> for UseAllRules {
+    type Output = UseAllRule;
 
     fn index(&self, index: UseAllModuleSymbolsRuleIdx) -> &Self::Output {
         &self.0[index.0]
     }
 }
 
-impl std::ops::IndexMut<UseAllModuleSymbolsRuleIdx> for UseAllModuleSymbolsRules {
+impl std::ops::IndexMut<UseAllModuleSymbolsRuleIdx> for UseAllRules {
     fn index_mut(&mut self, index: UseAllModuleSymbolsRuleIdx) -> &mut Self::Output {
         &mut self.0[index.0]
     }
 }
 
 impl<'a> std::ops::Index<UseAllModuleSymbolsRuleIdx> for EntityTreePresheetMut<'a> {
-    type Output = UseAllModuleSymbolsRule;
+    type Output = UseAllRule;
 
     fn index(&self, index: UseAllModuleSymbolsRuleIdx) -> &Self::Output {
         &self.all_module_items_use_rules[index]

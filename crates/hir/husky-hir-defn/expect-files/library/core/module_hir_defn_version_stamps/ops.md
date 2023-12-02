@@ -5,7 +5,29 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 59,
+                            value: 54,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 106,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
+                            value: 55,
                         },
                     ),
                 ),
@@ -27,7 +49,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 60,
+                            value: 56,
                         },
                     ),
                 ),
@@ -49,7 +71,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 61,
+                            value: 57,
                         },
                     ),
                 ),
@@ -71,7 +93,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 62,
+                            value: 58,
                         },
                     ),
                 ),
@@ -93,7 +115,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 63,
+                            value: 59,
                         },
                     ),
                 ),
@@ -115,7 +137,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 64,
+                            value: 60,
                         },
                     ),
                 ),
@@ -137,7 +159,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 65,
+                            value: 61,
                         },
                     ),
                 ),
@@ -159,7 +181,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 66,
+                            value: 62,
                         },
                     ),
                 ),
@@ -181,7 +203,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 67,
+                            value: 63,
                         },
                     ),
                 ),
@@ -203,7 +225,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 68,
+                            value: 64,
                         },
                     ),
                 ),
@@ -225,7 +247,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 69,
+                            value: 65,
                         },
                     ),
                 ),
@@ -247,7 +269,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 70,
+                            value: 66,
                         },
                     ),
                 ),
@@ -269,7 +291,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 71,
+                            value: 67,
                         },
                     ),
                 ),
@@ -291,7 +313,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 72,
+                            value: 68,
                         },
                     ),
                 ),
@@ -313,7 +335,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 73,
+                            value: 69,
                         },
                     ),
                 ),
@@ -335,7 +357,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 74,
+                            value: 70,
                         },
                     ),
                 ),
@@ -353,11 +375,11 @@
     ),
     (
         MajorItem(
-            Trait(
-                TraitPath(
+            Type(
+                TypePath(
                     ItemPathId(
                         Id {
-                            value: 75,
+                            value: 71,
                         },
                     ),
                 ),
@@ -368,28 +390,6 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 123,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        MajorItem(
-            Type(
-                TypePath(
-                    ItemPathId(
-                        Id {
-                            value: 76,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 124,
                     },
                 ),
             ),

@@ -233,12 +233,6 @@ impl<'a> SemaExprEngine<'a> {
                 | SynExprRootKind::LetStmtInitialValue
                 | SynExprRootKind::EvalExpr => continue,
                 SynExprRootKind::Snippet => todo!(),
-                SynExprRootKind::Traits =>
-                /* ad hoc */
-                {
-                    continue
-                }
-                // todo!(),
                 SynExprRootKind::ValExpr => todo!(),
             };
             self.sema_expr_roots

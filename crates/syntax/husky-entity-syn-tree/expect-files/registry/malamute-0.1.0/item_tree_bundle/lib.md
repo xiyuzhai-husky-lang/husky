@@ -422,10 +422,10 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [],
             ),
             errors: [],

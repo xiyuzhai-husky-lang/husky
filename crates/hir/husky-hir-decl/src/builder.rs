@@ -133,4 +133,8 @@ impl<'a> HirDeclBuilder<'a> {
     pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
         self.syn_expr_region_data
     }
+
+    pub(crate) fn sema_expr_region_data(&self) -> &'a SemaExprRegionData {
+        self.sema_expr_region_data
+    }
 }

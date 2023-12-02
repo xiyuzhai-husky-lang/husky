@@ -68,7 +68,12 @@ impl TraitSynDecl {
             .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
+            .map(|list| {
+                list.syn_template_parameter_obelisks()
+                    .iter()
+                    .map(Clone::clone)
+                    .collect()
+            })
             .unwrap_or_default();
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(TraitSynDecl::new(

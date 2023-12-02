@@ -3,7 +3,7 @@ use husky_entity_kind::EntityKind;
 
 use husky_entity_path::{EntityPath, PrincipalEntityPath};
 
-use husky_entity_syn_tree::{OnceUseRuleIdx, OnceUseRuleState, UseExprIdx};
+use husky_entity_syn_tree::{UseExprIdx, UseOneRuleIdx, UseOneRuleState};
 use husky_sema_expr::SemaExprIdx;
 use husky_syn_expr::{
     CurrentSynSymbolIdx, CurrentSynSymbolKind, InheritedSynSymbolIdx, InheritedSynSymbolKind,
@@ -75,8 +75,8 @@ pub enum TokenInfoData {
     UseExprStar,
     UseExpr {
         use_expr_idx: UseExprIdx,
-        rule_idx: OnceUseRuleIdx,
-        state: OnceUseRuleState,
+        rule_idx: UseOneRuleIdx,
+        state: UseOneRuleState,
     },
     HtmlFunctionIdent,
     HtmlPropertyIdent,
@@ -125,18 +125,18 @@ impl TokenInfoData {
             | TokenInfoData::VecFunctorBoxPrefix
             | TokenInfoData::ArrayFunctorBoxPrefix => TokenClass::TypeEntity,
             TokenInfoData::UseExpr { state, .. } => match state {
-                OnceUseRuleState::Resolved {
+                UseOneRuleState::Resolved {
                     original_symbol: Some(original_symbol),
                 } => original_symbol
                     .principal_entity_path(db)
                     .item_kind(db)
                     .class()
                     .into(),
-                OnceUseRuleState::Resolved {
+                UseOneRuleState::Resolved {
                     original_symbol: None,
                 } => todo!(),
-                OnceUseRuleState::Unresolved => todo!(),
-                OnceUseRuleState::Erroneous => TokenClass::Error,
+                UseOneRuleState::Unresolved => todo!(),
+                UseOneRuleState::Erroneous => TokenClass::Error,
             },
             TokenInfoData::UseExprStar => TokenClass::Punctuation,
             TokenInfoData::HtmlFunctionIdent => TokenClass::HtmlFunctionIdent,

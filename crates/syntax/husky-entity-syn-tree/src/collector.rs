@@ -3,6 +3,7 @@ mod action;
 
 use crate::*;
 
+use husky_print_utils::p;
 use husky_token::TokenDb;
 use vec_like::{VecMap, VecPairMap};
 
@@ -50,6 +51,7 @@ impl<'a> EntityTreeCollector<'a> {
                 panic!();
             }
             let actions = self.collect_possible_actions();
+            let db = self.db;
             if actions.len() == 0 {
                 break;
             }
@@ -123,11 +125,11 @@ impl<'a> EntityTreeCollector<'a> {
                 path_name_token: name_token,
                 symbol,
             } => self.presheets[module_path].resolve_use_expr(db, rule_idx, name_token, symbol),
-            PresheetAction::UpdateUseAllFromModuleRule {
-                module_path,
+            PresheetAction::UpdateUseAllRule {
+                rule_module_path,
                 rule_idx,
             } => {
-                let rule = &self.presheets[module_path][rule_idx];
+                let rule = &self.presheets[rule_module_path][rule_idx];
                 let progress = rule
                     .progress()
                     .expect("should be okay otherwise there shouldn't be an action");
@@ -138,10 +140,11 @@ impl<'a> EntityTreeCollector<'a> {
                 // only need to process those starting from progress
                 let new_uses: Vec<EntitySymbolEntry> = parent_symbols[progress..]
                     .iter()
-                    .filter_map(|entry| entry.export_via_use_all(db, module_path, rule))
+                    .filter_map(|entry| entry.export_via_use_all(db, rule_module_path, rule))
                     .collect();
                 let progress = parent_symbols.len();
-                self.presheets[module_path].update_module_use_all_rule(rule_idx, new_uses, progress)
+                self.presheets[rule_module_path]
+                    .update_module_use_all_rule(rule_idx, new_uses, progress)
             }
             PresheetAction::UseAllTypeVariants {
                 module_path,

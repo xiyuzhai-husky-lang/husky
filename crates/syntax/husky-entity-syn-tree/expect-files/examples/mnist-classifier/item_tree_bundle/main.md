@@ -1757,9 +1757,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 18,
                         use_expr_idx: 3,
                         visibility: Scope::PubUnder(
@@ -1778,7 +1778,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier`,
@@ -1786,7 +1786,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 19,
                         use_expr_idx: 6,
                         visibility: Scope::PubUnder(
@@ -1805,7 +1805,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier`,
@@ -1813,7 +1813,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 20,
                         use_expr_idx: 9,
                         visibility: Scope::PubUnder(
@@ -1832,7 +1832,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier`,
@@ -1840,7 +1840,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 21,
                         use_expr_idx: 12,
                         visibility: Scope::PubUnder(
@@ -1859,7 +1859,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier`,
@@ -1867,7 +1867,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 22,
                         use_expr_idx: 15,
                         visibility: Scope::PubUnder(
@@ -1886,7 +1886,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier`,
@@ -1894,7 +1894,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 23,
                         use_expr_idx: 18,
                         visibility: Scope::PubUnder(
@@ -1913,7 +1913,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier`,
@@ -1921,7 +1921,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 24,
                         use_expr_idx: 20,
                         visibility: Scope::PubUnder(
@@ -1941,7 +1941,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::PackageDependency {
                                     item_path: PrincipalEntityPath::Module(
@@ -1951,7 +1951,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 25,
                         use_expr_idx: 22,
                         visibility: Scope::PubUnder(
@@ -1971,7 +1971,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::PackageDependency {
                                     item_path: PrincipalEntityPath::Module(
@@ -1981,7 +1981,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 18,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -2005,7 +2005,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -2023,7 +2023,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 19,
                         use_expr_idx: 5,
                         visibility: Scope::PubUnder(
@@ -2047,7 +2047,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -2065,7 +2065,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 20,
                         use_expr_idx: 8,
                         visibility: Scope::PubUnder(
@@ -2089,7 +2089,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -2107,7 +2107,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 21,
                         use_expr_idx: 11,
                         visibility: Scope::PubUnder(
@@ -2131,7 +2131,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -2149,7 +2149,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 22,
                         use_expr_idx: 14,
                         visibility: Scope::PubUnder(
@@ -2173,7 +2173,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -2191,7 +2191,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 23,
                         use_expr_idx: 17,
                         visibility: Scope::PubUnder(
@@ -2215,7 +2215,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -2235,9 +2235,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `malamute`,
                         is_same_crate: false,
                         ast_idx: 24,
@@ -2249,7 +2249,7 @@ EntitySynTreeCrateBundle {
                             4,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist`,
                         is_same_crate: false,
                         ast_idx: 25,
@@ -2261,7 +2261,7 @@ EntitySynTreeCrateBundle {
                             4,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::major`,
                         is_same_crate: true,
                         ast_idx: 18,
@@ -2273,7 +2273,7 @@ EntitySynTreeCrateBundle {
                             52,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 19,
@@ -2285,7 +2285,7 @@ EntitySynTreeCrateBundle {
                             64,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::fermi`,
                         is_same_crate: true,
                         ast_idx: 20,
@@ -2297,7 +2297,7 @@ EntitySynTreeCrateBundle {
                             47,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::raw_contour`,
                         is_same_crate: true,
                         ast_idx: 21,
@@ -2309,7 +2309,7 @@ EntitySynTreeCrateBundle {
                             71,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch`,
                         is_same_crate: true,
                         ast_idx: 22,
@@ -2321,7 +2321,7 @@ EntitySynTreeCrateBundle {
                             22,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::connected_component`,
                         is_same_crate: true,
                         ast_idx: 23,
@@ -4715,7 +4715,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 294,
+                                                        value: 289,
                                                     },
                                                 ),
                                             ),
@@ -4735,7 +4735,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 294,
+                                                            value: 289,
                                                         },
                                                     ),
                                                 ),
@@ -4760,9 +4760,9 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 119,
                         use_expr_idx: 3,
                         visibility: Scope::PubUnder(
@@ -4781,7 +4781,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -4789,7 +4789,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 120,
                         use_expr_idx: 5,
                         visibility: Scope::PubUnder(
@@ -4808,7 +4808,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -4816,7 +4816,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 119,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -4840,7 +4840,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -4860,9 +4860,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier`,
                         is_same_crate: true,
                         ast_idx: 120,
@@ -4874,7 +4874,7 @@ EntitySynTreeCrateBundle {
                             45,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::raw_contour`,
                         is_same_crate: true,
                         ast_idx: 119,
@@ -8022,7 +8022,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 296,
+                                                        value: 291,
                                                     },
                                                 ),
                                             ),
@@ -8042,7 +8042,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 296,
+                                                            value: 291,
                                                         },
                                                     ),
                                                 ),
@@ -8067,9 +8067,9 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 191,
                         use_expr_idx: 3,
                         visibility: Scope::PubUnder(
@@ -8088,7 +8088,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -8096,7 +8096,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 192,
                         use_expr_idx: 6,
                         visibility: Scope::PubUnder(
@@ -8115,7 +8115,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -8123,7 +8123,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 193,
                         use_expr_idx: 9,
                         visibility: Scope::PubUnder(
@@ -8142,7 +8142,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -8150,7 +8150,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 194,
                         use_expr_idx: 11,
                         visibility: Scope::PubUnder(
@@ -8169,7 +8169,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -8177,7 +8177,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 191,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -8201,7 +8201,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -8219,7 +8219,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 192,
                         use_expr_idx: 5,
                         visibility: Scope::PubUnder(
@@ -8243,7 +8243,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -8261,7 +8261,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 193,
                         use_expr_idx: 8,
                         visibility: Scope::PubUnder(
@@ -8285,7 +8285,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -8305,9 +8305,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier`,
                         is_same_crate: true,
                         ast_idx: 194,
@@ -8319,7 +8319,7 @@ EntitySynTreeCrateBundle {
                             45,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::geom2d`,
                         is_same_crate: true,
                         ast_idx: 191,
@@ -8331,7 +8331,7 @@ EntitySynTreeCrateBundle {
                             6,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::connected_component`,
                         is_same_crate: true,
                         ast_idx: 192,
@@ -8343,7 +8343,7 @@ EntitySynTreeCrateBundle {
                             53,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch`,
                         is_same_crate: true,
                         ast_idx: 193,
@@ -8758,7 +8758,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 297,
+                                                        value: 292,
                                                     },
                                                 ),
                                             ),
@@ -8778,7 +8778,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 297,
+                                                            value: 292,
                                                         },
                                                     ),
                                                 ),
@@ -8812,7 +8812,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 298,
+                                                        value: 293,
                                                     },
                                                 ),
                                             ),
@@ -8832,7 +8832,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 298,
+                                                            value: 293,
                                                         },
                                                     ),
                                                 ),
@@ -8866,7 +8866,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 299,
+                                                        value: 294,
                                                     },
                                                 ),
                                             ),
@@ -8886,7 +8886,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 299,
+                                                            value: 294,
                                                         },
                                                     ),
                                                 ),
@@ -8920,7 +8920,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 300,
+                                                        value: 295,
                                                     },
                                                 ),
                                             ),
@@ -8940,7 +8940,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 300,
+                                                            value: 295,
                                                         },
                                                     ),
                                                 ),
@@ -8974,7 +8974,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 301,
+                                                        value: 296,
                                                     },
                                                 ),
                                             ),
@@ -8994,7 +8994,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 301,
+                                                            value: 296,
                                                         },
                                                     ),
                                                 ),
@@ -9019,10 +9019,10 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [],
             ),
             errors: [],
@@ -10226,7 +10226,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 303,
+                                                        value: 298,
                                                     },
                                                 ),
                                             ),
@@ -10246,7 +10246,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 303,
+                                                            value: 298,
                                                         },
                                                     ),
                                                 ),
@@ -10350,7 +10350,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 305,
+                                                        value: 300,
                                                     },
                                                 ),
                                             ),
@@ -10370,7 +10370,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 305,
+                                                            value: 300,
                                                         },
                                                     ),
                                                 ),
@@ -10395,9 +10395,9 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 164,
                         use_expr_idx: 2,
                         visibility: Scope::Pub,
@@ -10415,7 +10415,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -10433,7 +10433,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 165,
                         use_expr_idx: 4,
                         visibility: Scope::Pub,
@@ -10451,7 +10451,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -10469,7 +10469,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 166,
                         use_expr_idx: 6,
                         visibility: Scope::Pub,
@@ -10487,7 +10487,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -10505,7 +10505,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 167,
                         use_expr_idx: 9,
                         visibility: Scope::PubUnder(
@@ -10524,7 +10524,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -10532,7 +10532,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 168,
                         use_expr_idx: 12,
                         visibility: Scope::PubUnder(
@@ -10551,7 +10551,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -10559,7 +10559,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 169,
                         use_expr_idx: 14,
                         visibility: Scope::PubUnder(
@@ -10579,7 +10579,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -10597,7 +10597,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 167,
                         use_expr_idx: 8,
                         visibility: Scope::PubUnder(
@@ -10621,7 +10621,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -10639,7 +10639,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 168,
                         use_expr_idx: 11,
                         visibility: Scope::PubUnder(
@@ -10663,7 +10663,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -10681,7 +10681,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 168,
                         use_expr_idx: 10,
                         visibility: Scope::PubUnder(
@@ -10700,7 +10700,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::raw_contour`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Type(
@@ -10712,9 +10712,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         is_same_crate: true,
                         ast_idx: 164,
@@ -10724,7 +10724,7 @@ EntitySynTreeCrateBundle {
                             77,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                         is_same_crate: true,
                         ast_idx: 165,
@@ -10734,7 +10734,7 @@ EntitySynTreeCrateBundle {
                             23,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                         is_same_crate: true,
                         ast_idx: 166,
@@ -10744,7 +10744,7 @@ EntitySynTreeCrateBundle {
                             7,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                         is_same_crate: true,
                         ast_idx: 169,
@@ -10756,7 +10756,7 @@ EntitySynTreeCrateBundle {
                             7,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::geom2d`,
                         is_same_crate: true,
                         ast_idx: 167,
@@ -13746,7 +13746,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 307,
+                                                        value: 302,
                                                     },
                                                 ),
                                             ),
@@ -13766,7 +13766,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 307,
+                                                            value: 302,
                                                         },
                                                     ),
                                                 ),
@@ -13791,9 +13791,9 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 70,
                         use_expr_idx: 3,
                         visibility: Scope::PubUnder(
@@ -13812,7 +13812,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -13820,7 +13820,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 71,
                         use_expr_idx: 7,
                         visibility: Scope::PubUnder(
@@ -13839,7 +13839,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -13847,7 +13847,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 72,
                         use_expr_idx: 11,
                         visibility: Scope::PubUnder(
@@ -13866,7 +13866,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -13874,7 +13874,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 73,
                         use_expr_idx: 14,
                         visibility: Scope::PubUnder(
@@ -13893,7 +13893,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -13901,7 +13901,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 74,
                         use_expr_idx: 16,
                         visibility: Scope::PubUnder(
@@ -13920,7 +13920,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -13928,7 +13928,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 70,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -13952,7 +13952,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -13970,7 +13970,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 71,
                         use_expr_idx: 6,
                         visibility: Scope::PubUnder(
@@ -13994,7 +13994,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -14012,7 +14012,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 72,
                         use_expr_idx: 10,
                         visibility: Scope::PubUnder(
@@ -14036,7 +14036,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -14054,7 +14054,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 73,
                         use_expr_idx: 13,
                         visibility: Scope::PubUnder(
@@ -14078,7 +14078,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -14096,7 +14096,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 71,
                         use_expr_idx: 5,
                         visibility: Scope::PubUnder(
@@ -14120,7 +14120,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -14138,7 +14138,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 72,
                         use_expr_idx: 9,
                         visibility: Scope::PubUnder(
@@ -14162,7 +14162,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::line_segment_sketch`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -14182,9 +14182,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier`,
                         is_same_crate: true,
                         ast_idx: 74,
@@ -14196,7 +14196,7 @@ EntitySynTreeCrateBundle {
                             45,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch`,
                         is_same_crate: true,
                         ast_idx: 70,
@@ -14208,7 +14208,7 @@ EntitySynTreeCrateBundle {
                             22,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::geom2d`,
                         is_same_crate: true,
                         ast_idx: 73,
@@ -14220,7 +14220,7 @@ EntitySynTreeCrateBundle {
                             6,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                         is_same_crate: true,
                         ast_idx: 71,
@@ -14232,7 +14232,7 @@ EntitySynTreeCrateBundle {
                             7,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch::convexity`,
                         is_same_crate: true,
                         ast_idx: 72,
@@ -15121,9 +15121,9 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 3,
                         use_expr_idx: 3,
                         visibility: Scope::PubUnder(
@@ -15142,7 +15142,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -15150,7 +15150,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 3,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -15174,7 +15174,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -15194,9 +15194,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch`,
                         is_same_crate: true,
                         ast_idx: 3,
@@ -16214,9 +16214,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 20,
                         use_expr_idx: 3,
                         visibility: Scope::PubUnder(
@@ -16235,7 +16235,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -16243,7 +16243,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 21,
                         use_expr_idx: 6,
                         visibility: Scope::PubUnder(
@@ -16262,7 +16262,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -16270,7 +16270,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 22,
                         use_expr_idx: 9,
                         visibility: Scope::PubUnder(
@@ -16289,7 +16289,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -16297,7 +16297,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 20,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -16321,7 +16321,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -16339,7 +16339,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 21,
                         use_expr_idx: 5,
                         visibility: Scope::PubUnder(
@@ -16363,7 +16363,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -16381,7 +16381,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 22,
                         use_expr_idx: 8,
                         visibility: Scope::PubUnder(
@@ -16405,7 +16405,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -16425,9 +16425,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::line_segment_sketch`,
                         is_same_crate: true,
                         ast_idx: 20,
@@ -16439,7 +16439,7 @@ EntitySynTreeCrateBundle {
                             22,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::raw_contour`,
                         is_same_crate: true,
                         ast_idx: 21,
@@ -16451,7 +16451,7 @@ EntitySynTreeCrateBundle {
                             71,
                         ),
                     },
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::geom2d`,
                         is_same_crate: true,
                         ast_idx: 22,
@@ -16701,7 +16701,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 309,
+                                                        value: 304,
                                                     },
                                                 ),
                                             ),
@@ -16721,7 +16721,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 309,
+                                                            value: 304,
                                                         },
                                                     ),
                                                 ),
@@ -16746,9 +16746,9 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 16,
                         use_expr_idx: 3,
                         visibility: Scope::PubUnder(
@@ -16767,7 +16767,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -16775,7 +16775,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 16,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -16799,7 +16799,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -16819,9 +16819,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::geom2d`,
                         is_same_crate: true,
                         ast_idx: 16,
@@ -18819,7 +18819,7 @@ EntitySynTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 310,
+                                                        value: 305,
                                                     },
                                                 ),
                                             ),
@@ -18839,7 +18839,7 @@ EntitySynTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 310,
+                                                            value: 305,
                                                         },
                                                     ),
                                                 ),
@@ -18864,9 +18864,9 @@ EntitySynTreeCrateBundle {
                     ),
                 ),
             ],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 22,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -18885,7 +18885,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -18895,9 +18895,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier`,
                         is_same_crate: true,
                         ast_idx: 22,
@@ -21802,9 +21802,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 11,
                         use_expr_idx: 2,
                         visibility: Scope::Pub,
@@ -21822,7 +21822,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -21840,7 +21840,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 12,
                         use_expr_idx: 5,
                         visibility: Scope::Pub,
@@ -21857,7 +21857,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier::digits`,
@@ -21865,7 +21865,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 13,
                         use_expr_idx: 8,
                         visibility: Scope::Pub,
@@ -21882,7 +21882,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier::digits`,
@@ -21890,7 +21890,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 14,
                         use_expr_idx: 11,
                         visibility: Scope::Pub,
@@ -21907,7 +21907,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier::digits`,
@@ -21915,7 +21915,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 15,
                         use_expr_idx: 14,
                         visibility: Scope::Pub,
@@ -21932,7 +21932,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier::digits`,
@@ -21940,7 +21940,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 16,
                         use_expr_idx: 17,
                         visibility: Scope::Pub,
@@ -21957,7 +21957,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier::digits`,
@@ -21965,7 +21965,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 17,
                         use_expr_idx: 20,
                         visibility: Scope::Pub,
@@ -21982,7 +21982,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier::digits`,
@@ -21990,7 +21990,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 18,
                         use_expr_idx: 23,
                         visibility: Scope::Pub,
@@ -22007,7 +22007,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier::digits`,
@@ -22015,7 +22015,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 19,
                         use_expr_idx: 26,
                         visibility: Scope::Pub,
@@ -22032,7 +22032,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SelfModule {
                                     module_path: `mnist_classifier::digits`,
@@ -22040,7 +22040,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 20,
                         use_expr_idx: 28,
                         visibility: Scope::PubUnder(
@@ -22059,7 +22059,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -22067,7 +22067,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 11,
                         use_expr_idx: 1,
                         visibility: Scope::Pub,
@@ -22084,7 +22084,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits::one`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Fugitive(
@@ -22094,7 +22094,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 12,
                         use_expr_idx: 4,
                         visibility: Scope::Pub,
@@ -22116,7 +22116,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -22134,7 +22134,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 13,
                         use_expr_idx: 7,
                         visibility: Scope::Pub,
@@ -22156,7 +22156,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -22174,7 +22174,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 14,
                         use_expr_idx: 10,
                         visibility: Scope::Pub,
@@ -22196,7 +22196,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -22214,7 +22214,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 15,
                         use_expr_idx: 13,
                         visibility: Scope::Pub,
@@ -22236,7 +22236,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -22254,7 +22254,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 16,
                         use_expr_idx: 16,
                         visibility: Scope::Pub,
@@ -22276,7 +22276,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -22294,7 +22294,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 17,
                         use_expr_idx: 19,
                         visibility: Scope::Pub,
@@ -22316,7 +22316,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -22334,7 +22334,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 18,
                         use_expr_idx: 22,
                         visibility: Scope::Pub,
@@ -22356,7 +22356,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -22374,7 +22374,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 19,
                         use_expr_idx: 25,
                         visibility: Scope::Pub,
@@ -22396,7 +22396,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -22414,7 +22414,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 12,
                         use_expr_idx: 3,
                         visibility: Scope::Pub,
@@ -22431,7 +22431,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits::six`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Fugitive(
@@ -22441,7 +22441,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 13,
                         use_expr_idx: 6,
                         visibility: Scope::Pub,
@@ -22458,7 +22458,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits::zero`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Fugitive(
@@ -22468,7 +22468,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 14,
                         use_expr_idx: 9,
                         visibility: Scope::Pub,
@@ -22485,7 +22485,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits::two`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Fugitive(
@@ -22495,7 +22495,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 15,
                         use_expr_idx: 12,
                         visibility: Scope::Pub,
@@ -22512,7 +22512,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits::three`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Fugitive(
@@ -22522,7 +22522,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 16,
                         use_expr_idx: 15,
                         visibility: Scope::Pub,
@@ -22539,7 +22539,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits::five`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Fugitive(
@@ -22549,7 +22549,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 17,
                         use_expr_idx: 18,
                         visibility: Scope::Pub,
@@ -22566,7 +22566,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits::seven`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Fugitive(
@@ -22576,7 +22576,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 18,
                         use_expr_idx: 21,
                         visibility: Scope::Pub,
@@ -22593,7 +22593,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits::eight`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Fugitive(
@@ -22603,7 +22603,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                     },
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 19,
                         use_expr_idx: 24,
                         visibility: Scope::Pub,
@@ -22620,7 +22620,7 @@ EntitySynTreeCrateBundle {
                                 `mnist_classifier::digits::nine`,
                             ),
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Fugitive(
@@ -22632,9 +22632,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier`,
                         is_same_crate: true,
                         ast_idx: 20,
@@ -25974,9 +25974,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 26,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -25995,7 +25995,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::zero`,
@@ -26006,9 +26006,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 26,
@@ -29492,9 +29492,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 62,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -29513,7 +29513,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::one`,
@@ -29524,9 +29524,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 62,
@@ -33016,9 +33016,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 50,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -33037,7 +33037,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::six`,
@@ -33048,9 +33048,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 50,
@@ -36540,9 +36540,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 28,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -36561,7 +36561,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::three`,
@@ -36572,9 +36572,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 28,
@@ -40214,9 +40214,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 38,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -40235,7 +40235,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::four`,
@@ -40246,9 +40246,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 38,
@@ -43438,9 +43438,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 2,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -43459,7 +43459,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::five`,
@@ -43470,9 +43470,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 2,
@@ -47037,9 +47037,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 39,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -47058,7 +47058,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::seven`,
@@ -47069,9 +47069,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 39,
@@ -50411,9 +50411,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 18,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -50432,7 +50432,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::eight`,
@@ -50443,9 +50443,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 18,
@@ -53935,9 +53935,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 36,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -53956,7 +53956,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::nine`,
@@ -53967,9 +53967,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 36,
@@ -57459,9 +57459,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 50,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -57480,7 +57480,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::two`,
@@ -57491,9 +57491,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier::digits`,
                         is_same_crate: true,
                         ast_idx: 50,
@@ -59832,9 +59832,9 @@ EntitySynTreeCrateBundle {
                 ],
             ),
             impl_block_syn_node_table: [],
-            once_use_rules: OnceUseRules(
+            once_use_rules: UseOneRules(
                 [
-                    OnceUseRule {
+                    UseOneRule {
                         ast_idx: 19,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
@@ -59853,7 +59853,7 @@ EntitySynTreeCrateBundle {
                             ),
                         },
                         parent: None,
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `mnist_classifier`,
@@ -59863,9 +59863,9 @@ EntitySynTreeCrateBundle {
                     },
                 ],
             ),
-            use_all_rules: UseAllModuleSymbolsRules(
+            use_all_rules: UseAllRules(
                 [
-                    UseAllModuleSymbolsRule {
+                    UseAllRule {
                         parent_module_path: `mnist_classifier`,
                         is_same_crate: true,
                         ast_idx: 19,

@@ -4,76 +4,12 @@ EntitySynTreeSheet {
         entries: [],
     },
     item_symbol_table: EntitySymbolTable(
-        [
-            EntitySymbolEntry {
-                ident: `Prop`,
-                visibility: Scope::Pub,
-                symbol: EntitySymbol::Use(
-                    UseSymbol {
-                        original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
-                                TypePath(`core::logic::Prop`, `Extern`),
-                            ),
-                        },
-                        path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::logic::Prop`, `Extern`),
-                            ),
-                        ),
-                        visibility: Scope::Pub,
-                        ast_idx: 1,
-                        use_expr_idx: 1,
-                    },
-                ),
-            },
-            EntitySymbolEntry {
-                ident: `LogicAnd`,
-                visibility: Scope::Pub,
-                symbol: EntitySymbol::Use(
-                    UseSymbol {
-                        original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
-                                TypePath(`core::logic::LogicAnd`, `Structure`),
-                            ),
-                        },
-                        path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::logic::LogicAnd`, `Structure`),
-                            ),
-                        ),
-                        visibility: Scope::Pub,
-                        ast_idx: 1,
-                        use_expr_idx: 1,
-                    },
-                ),
-            },
-            EntitySymbolEntry {
-                ident: `LogicOr`,
-                visibility: Scope::Pub,
-                symbol: EntitySymbol::Use(
-                    UseSymbol {
-                        original_symbol: EntitySymbol::MajorItem {
-                            module_item_path: MajorItemPath::Type(
-                                TypePath(`core::logic::LogicOr`, `Inductive`),
-                            ),
-                        },
-                        path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::logic::LogicOr`, `Inductive`),
-                            ),
-                        ),
-                        visibility: Scope::Pub,
-                        ast_idx: 1,
-                        use_expr_idx: 1,
-                    },
-                ),
-            },
-        ],
+        [],
     ),
     impl_block_syn_node_table: [],
-    once_use_rules: OnceUseRules(
+    once_use_rules: UseOneRules(
         [
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 1,
                 use_expr_idx: 3,
                 visibility: Scope::Pub,
@@ -91,7 +27,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::UniversalPrelude {
                             item_path: PrincipalEntityPath::Module(
@@ -101,7 +37,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 1,
                 use_expr_idx: 2,
                 visibility: Scope::Pub,
@@ -123,7 +59,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::PackageDependency {
                             item_path: PrincipalEntityPath::Module(
@@ -135,16 +71,16 @@ EntitySynTreeSheet {
             },
         ],
     ),
-    use_all_rules: UseAllModuleSymbolsRules(
+    use_all_rules: UseAllRules(
         [
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::logic`,
                 is_same_crate: false,
                 ast_idx: 1,
                 use_expr_idx: 1,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    0,
                 ),
             },
         ],

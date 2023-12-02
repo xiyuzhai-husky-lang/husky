@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use super::*;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
@@ -31,7 +33,11 @@ pub fn ty_instance_constructor_path_declarative_ty(
             Err(OriginalDeclarativeTypeError::InductiveTypeHasNoConstructor)?
         }
         TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
-        TypeDeclarativeSignatureTemplate::Extern(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Extern(_) => {
+            use salsa::DebugWithDb;
+            p!(path.debug(db));
+            todo!()
+        }
         TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
     }
 }

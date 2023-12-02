@@ -16,11 +16,17 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 115,
+                                            value: 106,
                                         },
                                     ),
                                 ),
-                                traits: [],
+                                traits: [
+                                    HirTrait(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
+                                ],
                             },
                         },
                     ],
@@ -33,7 +39,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 214,
+                                        value: 209,
                                     },
                                 ),
                             ),
@@ -87,11 +93,17 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 115,
+                                            value: 106,
                                         },
                                     ),
                                 ),
-                                traits: [],
+                                traits: [
+                                    HirTrait(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
+                                ],
                             },
                         },
                     ],
@@ -119,11 +131,17 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 115,
+                                            value: 106,
                                         },
                                     ),
                                 ),
-                                traits: [],
+                                traits: [
+                                    HirTrait(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
+                                ],
                             },
                         },
                     ],
@@ -136,7 +154,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 215,
+                                        value: 210,
                                     },
                                 ),
                             ),

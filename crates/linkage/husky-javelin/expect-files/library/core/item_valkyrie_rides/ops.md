@@ -16,7 +16,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -48,7 +48,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -80,7 +80,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -112,7 +112,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -144,7 +144,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -176,7 +176,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -208,7 +208,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -240,7 +240,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -272,7 +272,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -304,7 +304,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -312,6 +312,94 @@
                             },
                         },
                     ],
+                ),
+            ),
+            rides: VecSet {
+                data: [],
+            },
+        },
+    ),
+    Some(
+        ValkyrieRides {
+            hir_template_parameters: Some(
+                HirTemplateParameters(
+                    [],
+                ),
+            ),
+            rides: VecSet {
+                data: [],
+            },
+        },
+    ),
+    Some(
+        ValkyrieRides {
+            hir_template_parameters: Some(
+                HirTemplateParameters(
+                    [
+                        HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            data: Type {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 74,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
+                        },
+                    ],
+                ),
+            ),
+            rides: VecSet {
+                data: [],
+            },
+        },
+    ),
+    Some(
+        ValkyrieRides {
+            hir_template_parameters: Some(
+                HirTemplateParameters(
+                    [
+                        HirTemplateParameter {
+                            symbol: Type(
+                                Type {
+                                    attrs: HirSymbolAttrs,
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                            data: Type {
+                                ident: Ident(
+                                    Coword(
+                                        Id {
+                                            value: 74,
+                                        },
+                                    ),
+                                ),
+                                traits: [],
+                            },
+                        },
+                    ],
+                ),
+            ),
+            rides: VecSet {
+                data: [],
+            },
+        },
+    ),
+    Some(
+        ValkyrieRides {
+            hir_template_parameters: Some(
+                HirTemplateParameters(
+                    [],
                 ),
             ),
             rides: VecSet {
@@ -348,7 +436,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -380,63 +468,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 83,
-                                        },
-                                    ),
-                                ),
-                                traits: [],
-                            },
-                        },
-                    ],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 83,
+                                            value: 106,
                                         },
                                     ),
                                 ),
@@ -468,39 +500,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 115,
-                                        },
-                                    ),
-                                ),
-                                traits: [],
-                            },
-                        },
-                    ],
-                ),
-            ),
-            rides: VecSet {
-                data: [],
-            },
-        },
-    ),
-    Some(
-        ValkyrieRides {
-            hir_template_parameters: Some(
-                HirTemplateParameters(
-                    [
-                        HirTemplateParameter {
-                            symbol: Type(
-                                Type {
-                                    attrs: HirSymbolAttrs,
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            data: Type {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 119,
+                                            value: 110,
                                         },
                                     ),
                                 ),
@@ -519,7 +519,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 120,
+                                            value: 111,
                                         },
                                     ),
                                 ),

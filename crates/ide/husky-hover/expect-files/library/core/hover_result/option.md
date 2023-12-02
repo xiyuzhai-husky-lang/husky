@@ -39,7 +39,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            2,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 2,\n            rule_idx: OnceUseRuleIdx(\n                0,\n            ),\n            state: OnceUseRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::CrateRoot {\n                        root_module_path: `core`,\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                            value: "Other\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Pronoun(\n        Crate,\n    ),\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            2,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 2,\n            rule_idx: UseOneRuleIdx(\n                0,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::CrateRoot {\n                        root_module_path: `core`,\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
                         },
                     ),
                     range: Some(
@@ -189,7 +189,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 6;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Option`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            4,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 4,\n            rule_idx: OnceUseRuleIdx(\n                1,\n            ),\n            state: OnceUseRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::MajorItem {\n                        module_item_path: MajorItemPath::Type(\n                            TypePath(`core::option::Option`, `Enum`),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                            value: "\ntoken_idx = 6;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Option`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            4,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 4,\n            rule_idx: UseOneRuleIdx(\n                1,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::MajorItem {\n                        module_item_path: MajorItemPath::Type(\n                            TypePath(`core::option::Option`, `Enum`),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
                         },
                     ),
                     range: Some(

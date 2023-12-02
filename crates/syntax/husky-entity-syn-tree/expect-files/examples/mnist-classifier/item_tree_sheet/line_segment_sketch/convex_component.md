@@ -871,9 +871,9 @@ EntitySynTreeSheet {
             ),
         ),
     ],
-    once_use_rules: OnceUseRules(
+    once_use_rules: UseOneRules(
         [
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 3,
                 use_expr_idx: 3,
                 visibility: Scope::PubUnder(
@@ -892,7 +892,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `mnist_classifier`,
@@ -900,7 +900,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 3,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
@@ -924,7 +924,7 @@ EntitySynTreeSheet {
                         `mnist_classifier`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -944,9 +944,9 @@ EntitySynTreeSheet {
             },
         ],
     ),
-    use_all_rules: UseAllModuleSymbolsRules(
+    use_all_rules: UseAllRules(
         [
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `mnist_classifier::line_segment_sketch`,
                 is_same_crate: true,
                 ast_idx: 3,

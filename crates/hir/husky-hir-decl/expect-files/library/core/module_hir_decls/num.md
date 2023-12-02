@@ -4,6 +4,17 @@
             Extern(
                 ExternTypeHirDecl(
                     Id {
+                        value: 13,
+                    },
+                ),
+            ),
+        ),
+    ),
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
+            Extern(
+                ExternTypeHirDecl(
+                    Id {
                         value: 14,
                     },
                 ),
@@ -137,17 +148,6 @@
                 ExternTypeHirDecl(
                     Id {
                         value: 26,
-                    },
-                ),
-            ),
-        ),
-    ),
-    HirDecl::MajorItem(
-        MajorItemHirDecl::Type(
-            Extern(
-                ExternTypeHirDecl(
-                    Id {
-                        value: 27,
                     },
                 ),
             ),

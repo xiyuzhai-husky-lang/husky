@@ -69,7 +69,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 2;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `core`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            3,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 3,\n            rule_idx: OnceUseRuleIdx(\n                0,\n            ),\n            state: OnceUseRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::UniversalPrelude {\n                        item_path: PrincipalEntityPath::Module(\n                            `core`,\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                            value: "\ntoken_idx = 2;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `core`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            3,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 3,\n            rule_idx: UseOneRuleIdx(\n                0,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::UniversalPrelude {\n                        item_path: PrincipalEntityPath::Module(\n                            `core`,\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
                         },
                     ),
                     range: Some(
@@ -129,7 +129,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 4;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `logic`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            2,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 2,\n            rule_idx: OnceUseRuleIdx(\n                1,\n            ),\n            state: OnceUseRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::PackageDependency {\n                        item_path: PrincipalEntityPath::Module(\n                            `core::logic`,\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                            value: "\ntoken_idx = 4;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `logic`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            2,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 2,\n            rule_idx: UseOneRuleIdx(\n                1,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::PackageDependency {\n                        item_path: PrincipalEntityPath::Module(\n                            `core::logic`,\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
                         },
                     ),
                     range: Some(

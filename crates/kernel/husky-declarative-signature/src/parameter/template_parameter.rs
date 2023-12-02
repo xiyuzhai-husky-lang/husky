@@ -22,8 +22,8 @@ impl DeclarativeTemplateParameter {
                     VarianceRegionalToken::Contravariant(_) => Variance::Contravariant,
                     VarianceRegionalToken::Invariant(_) => Variance::Invariant,
                 });
-        match parameter_decl_pattern.data() {
-            TemplateParameterSyndicateData::Type { .. } => {
+        match parameter_decl_pattern.variant() {
+            TemplateParameterSyndicateVariant::Type { .. } => {
                 DeclarativeTemplateParameter {
                     symbol: region
                         .current_syn_symbol_signature(symbol)
@@ -35,7 +35,7 @@ impl DeclarativeTemplateParameter {
                     annotated_variance,
                 }
             }
-            TemplateParameterSyndicateData::Constant { .. } => DeclarativeTemplateParameter {
+            TemplateParameterSyndicateVariant::Constant { .. } => DeclarativeTemplateParameter {
                 symbol: region
                     .current_syn_symbol_signature(symbol)
                     .expect("not none")
@@ -44,7 +44,7 @@ impl DeclarativeTemplateParameter {
                 annotated_traits: vec![],
                 annotated_variance,
             },
-            TemplateParameterSyndicateData::Lifetime { .. } => {
+            TemplateParameterSyndicateVariant::Lifetime { .. } => {
                 DeclarativeTemplateParameter {
                     symbol: region
                         .current_syn_symbol_signature(symbol)
@@ -56,7 +56,7 @@ impl DeclarativeTemplateParameter {
                     annotated_variance,
                 }
             }
-            TemplateParameterSyndicateData::Place { .. } => {
+            TemplateParameterSyndicateVariant::Place { .. } => {
                 DeclarativeTemplateParameter {
                     symbol: region
                         .current_syn_symbol_signature(symbol)

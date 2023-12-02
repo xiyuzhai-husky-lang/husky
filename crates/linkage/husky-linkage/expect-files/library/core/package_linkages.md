@@ -134,20 +134,6 @@
         javelin: Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeConstructor(
-                    TypePath(`core::logic::Prop`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        data: LinkageData::PathLeading,
-    },
-    Linkage {
-        javelin: Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
                     TypePath(`core::num::i8`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {
