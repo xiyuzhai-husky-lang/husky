@@ -1,7 +1,7 @@
-mod connection;
-mod fugitive;
-mod trai;
-mod ty;
+pub mod connection;
+pub mod fugitive;
+pub mod trai;
+pub mod ty;
 mod utils;
 
 pub use self::connection::*;

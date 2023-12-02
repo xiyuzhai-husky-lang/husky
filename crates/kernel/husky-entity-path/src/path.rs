@@ -1,9 +1,9 @@
-mod associated_item;
-mod attr;
-mod impl_block;
-mod major_item;
-mod submodule;
-mod ty_variant;
+pub mod associated_item;
+pub mod attr;
+pub mod impl_block;
+pub mod major_item;
+pub mod submodule;
+pub mod ty_variant;
 
 use enum_class::Room32;
 use salsa::Db;
