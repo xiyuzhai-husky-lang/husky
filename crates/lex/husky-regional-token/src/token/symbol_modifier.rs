@@ -78,9 +78,12 @@ where
                 | ModifierKeyword::Invariant => Ok(None),
                 ModifierKeyword::Ref => {
                     let ref_regional_token = RefRegionalToken { regional_token_idx };
-                    if let Some(_) = token_stream.try_parse_option::<MutRegionalToken>()? {
-                        Ok(Some(EphemSymbolModifierRegionalTokens::Ref(
+                    if let Some(mut_regional_token) =
+                        token_stream.try_parse_option::<MutRegionalToken>()?
+                    {
+                        Ok(Some(EphemSymbolModifierRegionalTokens::RefMut(
                             ref_regional_token,
+                            mut_regional_token,
                         )))
                     } else {
                         Ok(Some(EphemSymbolModifierRegionalTokens::Ref(

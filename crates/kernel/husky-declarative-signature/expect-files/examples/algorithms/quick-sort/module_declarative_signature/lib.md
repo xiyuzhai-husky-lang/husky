@@ -21,22 +21,13 @@
                                         ),
                                         annotated_traits: [],
                                     },
-                                    DeclarativeTemplateParameter {
-                                        annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                        annotated_traits: [],
-                                    },
                                 ],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: Borrow,
+                                            contract: BorrowMut,
                                             ty: DeclarativeTerm(`core::slice::Slice t`),
                                         },
                                     ),
@@ -71,22 +62,13 @@
                                         ),
                                         annotated_traits: [],
                                     },
-                                    DeclarativeTemplateParameter {
-                                        annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                        annotated_traits: [],
-                                    },
                                 ],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: Borrow,
+                                            contract: BorrowMut,
                                             ty: DeclarativeTerm(`core::slice::Slice t`),
                                         },
                                     ),
@@ -133,22 +115,13 @@
                                         ),
                                         annotated_traits: [],
                                     },
-                                    DeclarativeTemplateParameter {
-                                        annotated_variance: None,
-                                        symbol: DeclarativeTermSymbol(
-                                            Id {
-                                                value: 1,
-                                            },
-                                        ),
-                                        annotated_traits: [],
-                                    },
                                 ],
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: Borrow,
+                                            contract: BorrowMut,
                                             ty: DeclarativeTerm(`core::slice::Slice t`),
                                         },
                                     ),

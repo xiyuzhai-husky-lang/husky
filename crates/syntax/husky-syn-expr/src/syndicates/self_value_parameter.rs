@@ -25,11 +25,12 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfValueParame
         ctx: &mut SynDeclExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let ephem_symbol_modifier_token_group = ctx.try_parse_option()?;
+        let Some(self_value_token) = ctx.try_parse_option::<SelfValueRegionalToken>()? else {
+            return Ok(None);
+        };
         if let Some(ephem_symbol_modifier_token_group) = ephem_symbol_modifier_token_group {
             match ephem_symbol_modifier_token_group {
-                EphemSymbolModifierRegionalTokens::Ref(_)
-                | EphemSymbolModifierRegionalTokens::RefMut(_, _)
-                | EphemSymbolModifierRegionalTokens::Ambersand(_, None)
+                EphemSymbolModifierRegionalTokens::Ambersand(_, None)
                 | EphemSymbolModifierRegionalTokens::AmbersandMut(_, None, _) => {
                     ctx.context.set_has_self_lifetime()
                 }
@@ -37,13 +38,9 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for SelfValueParame
                 _ => (),
             }
         }
-        if let Some(self_value_token) = ctx.try_parse_option::<SelfValueRegionalToken>()? {
-            Ok(Some(Self {
-                ephem_symbol_modifier_token_group,
-                self_value_token,
-            }))
-        } else {
-            Ok(None)
-        }
+        Ok(Some(Self {
+            ephem_symbol_modifier_token_group,
+            self_value_token,
+        }))
     }
 }
