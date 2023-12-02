@@ -4,6 +4,7 @@ use super::*;
 #[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub struct SynPatternExprRegion {
     pattern_expr_arena: SynPatternExprArena,
+    /// the contract of pattern expressions are computed when they are created
     pattern_expr_contracts: SynPatternExprOrderedMap<TermContract>,
     pattern_symbol_arena: SynPatternSymbolArena,
     pattern_symbol_maps: SynPatternExprOrderedMap<IdentPairMap<SynPatternSymbolIdx>>,

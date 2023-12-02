@@ -451,7 +451,7 @@ AstSheet {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 488,
+                                            value: 489,
                                         },
                                     ),
                                 ),
@@ -539,7 +539,7 @@ AstSheet {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 489,
+                                            value: 490,
                                         },
                                     ),
                                 ),

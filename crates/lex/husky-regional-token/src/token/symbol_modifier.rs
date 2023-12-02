@@ -4,11 +4,8 @@ use husky_term_prelude::{SymbolModifier, TermContract};
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EphemSymbolModifierRegionalTokens {
     Mut(MutRegionalToken),
-    RefMut(
-        RefRegionalToken,
-        Option<LifetimeLabelRegionalToken>,
-        MutRegionalToken,
-    ),
+    Ref(RefRegionalToken),
+    RefMut(RefRegionalToken, MutRegionalToken),
     Ambersand(AmbersandRegionalToken, Option<LifetimeLabelRegionalToken>),
     AmbersandMut(
         AmbersandRegionalToken,
@@ -25,6 +22,7 @@ impl Into<SymbolModifier> for EphemSymbolModifierRegionalTokens {
     fn into(self) -> SymbolModifier {
         match self {
             EphemSymbolModifierRegionalTokens::Mut(_) => SymbolModifier::Mut,
+            EphemSymbolModifierRegionalTokens::Ref(_) => SymbolModifier::Ref,
             EphemSymbolModifierRegionalTokens::RefMut(..) => SymbolModifier::RefMut,
             EphemSymbolModifierRegionalTokens::Ambersand(_, lifetime_token) => {
                 SymbolModifier::Ambersand(lifetime_token.map(|t| t.label()))
@@ -39,11 +37,13 @@ impl Into<SymbolModifier> for EphemSymbolModifierRegionalTokens {
     }
 }
 
+// we try to keep as similar to `Rust` as possible
 impl Into<TermContract> for EphemSymbolModifierRegionalTokens {
     #[inline(always)]
     fn into(self) -> TermContract {
         match self {
             EphemSymbolModifierRegionalTokens::Mut(_) => TermContract::Move,
+            EphemSymbolModifierRegionalTokens::Ref(_) => TermContract::Borrow,
             EphemSymbolModifierRegionalTokens::RefMut(..) => TermContract::BorrowMut,
             EphemSymbolModifierRegionalTokens::Ambersand(_, _) => TermContract::Borrow,
             EphemSymbolModifierRegionalTokens::AmbersandMut(_, _, _) => TermContract::BorrowMut,
@@ -76,7 +76,18 @@ where
                 ModifierKeyword::Covariant
                 | ModifierKeyword::Contravariant
                 | ModifierKeyword::Invariant => Ok(None),
-                ModifierKeyword::Ref => todo!(),
+                ModifierKeyword::Ref => {
+                    let ref_regional_token = RefRegionalToken { regional_token_idx };
+                    if let Some(_) = token_stream.try_parse_option::<MutRegionalToken>()? {
+                        Ok(Some(EphemSymbolModifierRegionalTokens::Ref(
+                            ref_regional_token,
+                        )))
+                    } else {
+                        Ok(Some(EphemSymbolModifierRegionalTokens::Ref(
+                            ref_regional_token,
+                        )))
+                    }
+                }
                 ModifierKeyword::Le => todo!(),
             },
             TokenData::Punctuation(Punctuation::AMBERSAND) => {

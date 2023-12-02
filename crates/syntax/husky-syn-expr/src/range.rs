@@ -193,12 +193,13 @@ impl<'a> SynExprRangeCalculator<'a> {
                         ident_token.regional_token_idx(),
                     )
                 }
-                Some(EphemSymbolModifierRegionalTokens::RefMut(ref_token, ..)) => {
-                    RegionalTokenIdxRange::new_closed(
-                        ref_token.regional_token_idx(),
-                        ident_token.regional_token_idx(),
-                    )
-                }
+                Some(
+                    EphemSymbolModifierRegionalTokens::Ref(ref_token)
+                    | EphemSymbolModifierRegionalTokens::RefMut(ref_token, ..),
+                ) => RegionalTokenIdxRange::new_closed(
+                    ref_token.regional_token_idx(),
+                    ident_token.regional_token_idx(),
+                ),
                 Some(_) => todo!(),
                 None => RegionalTokenIdxRange::new_single(ident_token.regional_token_idx()),
             },
