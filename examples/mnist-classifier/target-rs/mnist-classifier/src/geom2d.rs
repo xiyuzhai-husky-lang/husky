@@ -32,14 +32,14 @@ pub struct RelativeBoundingBox {
 
 impl Point2d {
     pub fn from_i_shift28(i: i32, shift: i32) -> Point2d {
-        Point2d::__constructor(29 - shift as f32, 29 - i as f32)
+        Point2d::__constructor((29 - shift) as f32, (29 - i) as f32)
     }
 
     pub fn vector(self) -> Vector2d {
         Vector2d::__constructor(self.x, self.y)
     }
 
-    pub fn to(self, other: Point2d) -> Vector2d {
+    pub fn to(self, other: &Point2d) -> Vector2d {
         Vector2d::__constructor(other.x - self.x, other.y - self.y)
     }
 
@@ -47,7 +47,7 @@ impl Point2d {
         (self.x * self.x + self.y * self.y).sqrt()
     }
 
-    pub fn dist(self, other: Point2d) -> f32 {
+    pub fn dist(self, other: &Point2d) -> f32 {
         self.to(other).norm()
     }
 }
@@ -57,7 +57,7 @@ impl Vector2d {
         Point2d::__constructor(self.x, self.y)
     }
 
-    pub fn to(self, other: Vector2d) -> Vector2d {
+    pub fn to(self, other: &Vector2d) -> Vector2d {
         Vector2d::__constructor(other.x - self.x, other.y - self.y)
     }
 
@@ -65,11 +65,11 @@ impl Vector2d {
         (self.x * self.x + self.y * self.y).sqrt()
     }
 
-    pub fn dot(self, other: Vector2d) -> f32 {
+    pub fn dot(self, other: &Vector2d) -> f32 {
         self.x * other.x + self.y * other.y
     }
 
-    pub fn cross(self, other: Vector2d) -> f32 {
+    pub fn cross(self, other: &Vector2d) -> f32 {
         self.x * other.y - self.y * other.x
     }
 
@@ -82,15 +82,15 @@ impl Vector2d {
                 -180
             }
         } else {
-            (self.y.sgnx() as f32) * cos_value.acos() * 180 / 3.1415925
+            self.y.sgnx() as f32 * cos_value.acos() * 180 / 3.1415925
         }
     }
 
-    pub fn rotation_direction_to(self, other: Vector2d) -> i32 {
+    pub fn rotation_direction_to(self, other: &Vector2d) -> i32 {
         self.cross(other).sgnx()
     }
 
-    pub fn angle_to(self, other: Vector2d, is_branch_cut_positive: bool) -> f32 {
+    pub fn angle_to(self, other: &Vector2d, is_branch_cut_positive: bool) -> f32 {
         let self_norm = self.norm();
         assert!(self_norm > 0);
         let other_norm = other.norm();
@@ -103,14 +103,14 @@ impl Vector2d {
                 -180
             }
         } else {
-            let arc_angle = (self.rotation_direction_to(other) as f32) * cos_value.acos();
+            let arc_angle = self.rotation_direction_to(other) as f32 * cos_value.acos();
             arc_angle * 180 / 3.1415925
         }
     }
 }
 
 impl ClosedRange {
-    pub fn relative_range(self, other: ClosedRange) -> ClosedRange {
+    pub fn relative_range(self, other: &ClosedRange) -> ClosedRange {
         assert!(self.max > self.min);
         let span = self.max - self.min;
         let rel_min = (other.min - self.min) / span;
@@ -125,11 +125,11 @@ impl ClosedRange {
 }
 
 impl BoundingBox {
-    pub fn relative_bounding_box(self, other: BoundingBox) -> RelativeBoundingBox {
+    pub fn relative_bounding_box(self, other: &BoundingBox) -> RelativeBoundingBox {
         RelativeBoundingBox::__constructor(self.xrange.relative_range(other.xrange), self.yrange.relative_range(other.yrange))
     }
 
-    pub fn relative_point(self, point: Point2d) -> RelativePoint2d {
+    pub fn relative_point(self, point: &Point2d) -> RelativePoint2d {
         RelativePoint2d::__constructor(self.xrange.relative_point(point.x), self.yrange.relative_point(point.x))
     }
 
