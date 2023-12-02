@@ -3,11 +3,8 @@ name = "mnist-classifier"
 edition = "2021"
 version = "0.1.0"
 
-[workspace]
-members = []
-
 [lib]
 plugin = false
 proc-macro = false
 required-features = []
-crate-type = ["dylib"]
+crate-type = ["cdylib"]

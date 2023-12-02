@@ -31,7 +31,7 @@ pub fn horizontal_extend(a: r32, x: r32) -> r32 {
     return y;
 }
 
-pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> {
+pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent> {
     let mut result: Vec<ConnectedComponent> = vec![];
     let mut unsearched = img.clone();
     for j in 0..30 {

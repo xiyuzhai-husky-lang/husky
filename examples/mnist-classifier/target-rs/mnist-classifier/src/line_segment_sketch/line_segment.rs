@@ -10,7 +10,7 @@ impl LineSegment {
         self.start.to(self.end)
     }
 
-    pub fn dist_to_point(self, pt: Point2d) -> f32 {
+    pub fn dist_to_point(self, pt: &Point2d) -> f32 {
         let ab = self.displacement();
         let ap = self.start.to(pt);
         if ab.dot(ap) < 0 {
