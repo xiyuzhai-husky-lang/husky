@@ -174,12 +174,6 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
     line_segments
 }
 
-impl Visualize for LineSegmentStroke {
-    fn visualize(self) -> Html {
-        
-    }
-}
-
 impl LineSegmentStroke {
     pub fn new(ct: Leash<RawContour>, from: i32, to: i32) -> LineSegmentStroke {
         assert!(from <= to);
@@ -188,12 +182,6 @@ impl LineSegmentStroke {
 
     pub fn displacement(self) -> Vector2d {
         self.start.to(self.end)
-    }
-}
-
-impl Visualize for LineSegmentSketch {
-    fn visualize(self) -> Html {
-        self.strokes.visualize()
     }
 }
 

@@ -79,12 +79,6 @@ pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent>
     return result;
 }
 
-impl Visualize for ConnectedComponent {
-    fn visualize(self) -> Html {
-        self.mask.visualize()
-    }
-}
-
 impl ConnectedComponent {
     pub fn raw_contours(self) -> Vec<RawContour> {
         find_raw_contours(self)
