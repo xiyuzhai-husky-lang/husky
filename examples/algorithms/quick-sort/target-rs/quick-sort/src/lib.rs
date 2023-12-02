@@ -1,6 +1,6 @@
 pub fn quick_sort<T>(ref mut arr: &mut [T]) {
     let len = arr.len();
-    quick_sort_aux(arr, 0, len - 1 as isize)
+    quick_sort_aux(arr, 0, (len - 1) as isize)
 }
 
 pub fn quick_sort_aux<T>(ref mut arr: &mut [T], low: isize, high: isize) {
