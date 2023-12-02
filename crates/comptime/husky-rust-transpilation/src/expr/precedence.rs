@@ -8,7 +8,8 @@ use super::*;
 pub(crate) enum RustPrecedence {
     Atom = 255,
     Suffix = 240,
-    Prefix = 210,
+    Prefix = 220,
+    As = 210,
     Power = 200,
     Multiplicative = 160,
     Additive = 150,
@@ -20,7 +21,6 @@ pub(crate) enum RustPrecedence {
     BitOr = 100,
     And = 90,
     Or = 80,
-    As = 70,
     Is = 60,
     Be = 40,
     /// means `->`

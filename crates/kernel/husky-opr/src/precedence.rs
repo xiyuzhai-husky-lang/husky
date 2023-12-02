@@ -1,7 +1,8 @@
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub enum Precedence {
     ScopeResolution = 230,
-    Prefix = 210,
+    Prefix = 220,
+    As = 210,
     Power = 200,
     Multiplicative = 160,
     Additive = 150,
@@ -13,7 +14,6 @@ pub enum Precedence {
     BitOr = 100,
     And = 90,
     Or = 80,
-    As = 70,
     Is = 60,
     Application = 50,
     Be = 40,
