@@ -113,7 +113,7 @@ pub(crate) fn package_rust_package_manifest(db: &::salsa::Db, package_path: Pack
             harness: true,
             edition: None,
             required_features: vec![],
-            crate_type: Some(vec!["dylib".into()]),
+            crate_type: Some(vec!["cdylib".into()]),
         }),
         profile: None,
         badges: None,

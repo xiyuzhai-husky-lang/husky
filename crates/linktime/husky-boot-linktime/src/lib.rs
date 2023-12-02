@@ -8,7 +8,6 @@ use husky_vfs::linktime_target_path::LinktimeTargetPath;
 use std::{collections::HashMap, marker::PhantomData};
 
 // this will transpile everything compilable to Rust
-// then use rustc to obtain a single dylib
 pub struct BootLinkTime<LinkageImpl>
 where
     LinkageImpl: IsLinkageImpl,
