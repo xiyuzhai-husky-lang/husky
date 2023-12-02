@@ -2,20 +2,10 @@ use husky_sema_expr::{SemaCaseBranch, SemaElifBranch, SemaElseBranch, SemaIfBran
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerIfBranch {
     pub condition: HirEagerCondition,
     pub stmts: HirEagerStmtIdxRange,
-}
-
-impl HirEagerIfBranch {
-    pub fn condition(&self) -> HirEagerCondition {
-        self.condition
-    }
-
-    pub fn stmts(&self) -> HirEagerStmtIdxRange {
-        self.stmts
-    }
 }
 
 impl ToHirEager for SemaIfBranch {
@@ -23,26 +13,16 @@ impl ToHirEager for SemaIfBranch {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerIfBranch {
-            condition: HirEagerCondition(self.condition().to_hir_eager(builder)),
+            condition: self.condition.to_hir_eager(builder),
             stmts: self.stmts().to_hir_eager(builder),
         }
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerElifBranch {
     pub condition: HirEagerCondition,
     pub stmts: HirEagerStmtIdxRange,
-}
-
-impl HirEagerElifBranch {
-    pub fn condition(&self) -> HirEagerCondition {
-        self.condition
-    }
-
-    pub fn stmts(&self) -> HirEagerStmtIdxRange {
-        self.stmts
-    }
 }
 
 impl ToHirEager for SemaElifBranch {
@@ -50,7 +30,7 @@ impl ToHirEager for SemaElifBranch {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerElifBranch {
-            condition: HirEagerCondition(self.condition().to_hir_eager(builder)),
+            condition: self.condition.to_hir_eager(builder),
             stmts: self.stmts().to_hir_eager(builder),
         }
     }
@@ -59,12 +39,6 @@ impl ToHirEager for SemaElifBranch {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerElseBranch {
     pub stmts: HirEagerStmtIdxRange,
-}
-
-impl HirEagerElseBranch {
-    pub fn stmts(&self) -> HirEagerStmtIdxRange {
-        self.stmts
-    }
 }
 
 impl ToHirEager for SemaElseBranch {

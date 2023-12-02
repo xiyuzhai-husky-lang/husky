@@ -5,7 +5,7 @@ pub use self::branch_stmt::*;
 pub use self::loop_stmt::*;
 
 use crate::*;
-use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
+use husky_sema_expr::{SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
@@ -80,23 +80,14 @@ impl ToHirEager for SemaStmtIdx {
                 pattern: builder.new_let_variables_pattern(let_pattern_sema_obelisk),
                 initial_value: initial_value.to_hir_eager(builder),
             },
-            SemaStmtData::Return {
-                return_token: _,
-                result,
-            } => HirEagerStmtData::Return {
+            SemaStmtData::Return { result, .. } => HirEagerStmtData::Return {
                 result: result.to_hir_eager(builder),
             },
-            SemaStmtData::Require {
-                require_token: _,
-                condition,
-            } => HirEagerStmtData::Require {
-                condition: HirEagerCondition(condition.to_hir_eager(builder)),
+            SemaStmtData::Require { condition, .. } => HirEagerStmtData::Require {
+                condition: condition.to_hir_eager(builder),
             },
-            SemaStmtData::Assert {
-                assert_token: _,
-                condition,
-            } => HirEagerStmtData::Assert {
-                condition: HirEagerCondition(condition.to_hir_eager(builder)),
+            SemaStmtData::Assert { condition, .. } => HirEagerStmtData::Assert {
+                condition: condition.to_hir_eager(builder),
             },
             SemaStmtData::Break { break_token: _ } => HirEagerStmtData::Break,
             SemaStmtData::Eval {
@@ -134,13 +125,13 @@ impl ToHirEager for SemaStmtIdx {
             SemaStmtData::While {
                 condition, block, ..
             } => HirEagerStmtData::While {
-                condition: HirEagerCondition(condition.to_hir_eager(builder)),
+                condition: condition.to_hir_eager(builder),
                 stmts: block.to_hir_eager(builder),
             },
             SemaStmtData::DoWhile {
                 condition, block, ..
             } => HirEagerStmtData::DoWhile {
-                condition: HirEagerCondition(condition.to_hir_eager(builder)),
+                condition: condition.to_hir_eager(builder),
                 block: block.to_hir_eager(builder),
             },
             SemaStmtData::IfElse {
@@ -183,12 +174,32 @@ impl ToHirEager for SemaStmtIdxRange {
     }
 }
 
-// todo: add field for coversion
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct HirEagerCondition(HirEagerExprIdx);
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum HirEagerCondition {
+    Be {
+        src: HirEagerExprIdx,
+        target: HirEagerBeVariablesPattern,
+    },
+    Other(HirEagerExprIdx),
+}
 
-impl HirEagerCondition {
-    pub fn hir_eager_expr_idx(self) -> HirEagerExprIdx {
-        self.0
+impl ToHirEager for SemaCondition {
+    // ad hoc
+    type Output = HirEagerCondition;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        match *self {
+            SemaCondition::Be {
+                src,
+                be_regional_token_idx,
+                target,
+            } => HirEagerCondition::Be {
+                src: src.to_hir_eager(builder),
+                target: target.to_hir_eager(builder),
+            },
+            SemaCondition::Other(sema_expr_idx) => {
+                HirEagerCondition::Other(sema_expr_idx.to_hir_eager(builder))
+            }
+        }
     }
 }

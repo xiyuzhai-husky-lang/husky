@@ -417,7 +417,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             }
             SynStmtData::Require {
                 require_token,
-                ref condition,
+                condition,
             } => {
                 let start = require_token.regional_token_idx();
                 let end = self[condition].end();

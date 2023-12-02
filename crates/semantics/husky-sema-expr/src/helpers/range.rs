@@ -521,18 +521,18 @@ impl<'a> SemaExprRangeCalculator<'a> {
             }
             SemaStmtData::Require {
                 require_token,
-                ref condition,
+                condition,
             } => {
                 let start = require_token.regional_token_idx();
-                let end = self[condition].end();
+                let end = self.calc_condition_end(*condition);
                 RegionalTokenIdxRange::new(start, end)
             }
-            SemaStmtData::Assert {
+            &SemaStmtData::Assert {
                 assert_token,
-                ref condition,
+                condition,
             } => {
                 let start = assert_token.regional_token_idx();
-                let end = self[condition].end();
+                let end = self.calc_condition_end(condition);
                 RegionalTokenIdxRange::new(start, end)
             }
             SemaStmtData::Break { break_token } => {
@@ -624,6 +624,15 @@ impl<'a> SemaExprRangeCalculator<'a> {
                 // ad hoc
                 RegionalTokenIdxRange::new_single(match_token.regional_token_idx())
             }
+        }
+    }
+
+    fn calc_condition_end(&self, condition: SemaCondition) -> RegionalTokenIdxRangeEnd {
+        match condition {
+            SemaCondition::Be { target, .. } => {
+                self[target.syn_pattern_root().syn_pattern_expr_idx()].end()
+            }
+            SemaCondition::Other(condition) => self[condition].end(),
         }
     }
 }

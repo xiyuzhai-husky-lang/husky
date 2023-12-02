@@ -637,7 +637,7 @@
                                             discarded: false,
                                         },
                                         While {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 35,
                                             ),
                                             stmts: ArenaIdxRange(
@@ -646,7 +646,7 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: HirEagerCondition(
+                                                condition: Other(
                                                     42,
                                                 ),
                                                 stmts: ArenaIdxRange(
@@ -701,7 +701,7 @@
                                             initial_value: 6,
                                         },
                                         While {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 16,
                                             ),
                                             stmts: ArenaIdxRange(
@@ -716,7 +716,7 @@
                                             initial_value: 19,
                                         },
                                         While {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 24,
                                             ),
                                             stmts: ArenaIdxRange(
@@ -1864,7 +1864,7 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: HirEagerCondition(
+                                                condition: Other(
                                                     28,
                                                 ),
                                                 stmts: ArenaIdxRange(

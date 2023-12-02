@@ -115,7 +115,7 @@
                     body_with_hir_expr_region: Some(
                         (
                             Eager(
-                                29,
+                                23,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -424,13 +424,13 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 18,
                                             ),
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: HirEagerCondition(
+                                                condition: Other(
                                                     5,
                                                 ),
                                                 stmts: ArenaIdxRange(

@@ -176,7 +176,7 @@
                     body_with_hir_expr_region: Some(
                         (
                             Lazy(
-                                126,
+                                121,
                             ),
                             Lazy(
                                 HirLazyExprRegion(
@@ -362,7 +362,7 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 6,
                                             ),
                                         },
@@ -760,7 +760,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 15,
                                             ),
                                         },
@@ -773,7 +773,7 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: HirEagerCondition(
+                                                condition: Other(
                                                     7,
                                                 ),
                                                 stmts: ArenaIdxRange(
@@ -784,7 +784,7 @@
                                             else_branch: None,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 20,
                                             ),
                                         },
@@ -796,7 +796,7 @@
                                             initial_value: 26,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 30,
                                             ),
                                         },

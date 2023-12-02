@@ -7,9 +7,9 @@ use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
     helpers::control_flow::{HasControlFlow, HirLazyExprRegionControlFlowChart},
     variable::HirLazyVariableMap,
-    HirLazyCallListItemGroup, HirLazyExprData, HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion,
-    HirLazyExprRegionData, HirLazyPatternExpr, HirLazyStmt, HirLazyStmtIdx, HirLazyStmtIdxRange,
-    HirLazyStmtMap,
+    HirLazyCallListItemGroup, HirLazyCondition, HirLazyExprData, HirLazyExprIdx, HirLazyExprMap,
+    HirLazyExprRegion, HirLazyExprRegionData, HirLazyPatternExpr, HirLazyStmt, HirLazyStmtIdx,
+    HirLazyStmtIdxRange, HirLazyStmtMap,
 };
 
 use husky_linkage::linkage::Linkage;
@@ -193,16 +193,16 @@ impl<'a> ValReprExpansionBuilder<'a> {
                     self.build_expr(val_domain_repr_guard, result)
                 )],
             ),
-            HirLazyStmt::Require { condition } => (
+            HirLazyStmt::Require { ref condition } => (
                 ValOpn::Require,
                 smallvec![ValArgumentRepr::Ordinary(
-                    self.build_expr(val_domain_repr_guard, condition)
+                    self.build_condition(val_domain_repr_guard, condition)
                 )],
             ),
-            HirLazyStmt::Assert { condition } => (
+            HirLazyStmt::Assert { ref condition } => (
                 ValOpn::Assert,
                 smallvec![ValArgumentRepr::Ordinary(
-                    self.build_expr(val_domain_repr_guard, condition)
+                    self.build_condition(val_domain_repr_guard, condition)
                 )],
             ),
             HirLazyStmt::Eval {
@@ -229,22 +229,22 @@ impl<'a> ValReprExpansionBuilder<'a> {
                 let mut val_domain_repr_guard = val_domain_repr_guard.clone();
                 let mut branches: SmallVec<[ValArgumentRepr; 4]> = smallvec![];
                 let if_condition =
-                    self.build_expr(&mut val_domain_repr_guard, if_branch.condition());
+                    self.build_condition(&mut val_domain_repr_guard, &if_branch.condition);
                 branches.push(ValArgumentRepr::Branch {
                     condition: Some(if_condition),
                     stmts: self.build_stmts(
                         val_domain_repr_guard.under_condition(if_condition),
-                        if_branch.stmts(),
+                        if_branch.stmts,
                     ),
                 });
                 for elif_branch in elif_branches {
                     let elif_condition =
-                        self.build_expr(&mut val_domain_repr_guard, elif_branch.condition());
+                        self.build_condition(&mut val_domain_repr_guard, &elif_branch.condition);
                     branches.push(ValArgumentRepr::Branch {
                         condition: Some(elif_condition),
                         stmts: self.build_stmts(
                             val_domain_repr_guard.under_condition(elif_condition),
-                            elif_branch.stmts(),
+                            elif_branch.stmts,
                         ),
                     });
                 }
@@ -261,6 +261,14 @@ impl<'a> ValReprExpansionBuilder<'a> {
         let val_repr = val_domain_repr_guard.new_stmt_val_repr(opn, arguments);
         self.hir_lazy_stmt_val_repr_map.insert_new(stmt, val_repr);
         Some(val_repr)
+    }
+
+    fn build_condition(
+        &mut self,
+        val_domain_repr_guard: &mut ValDomainReprGuard<'a>,
+        condition: &HirLazyCondition,
+    ) -> ValRepr {
+        todo!()
     }
 
     fn build_expr(

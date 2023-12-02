@@ -249,7 +249,7 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 7,
                                             ),
                                         },
@@ -342,7 +342,7 @@
                     body_with_hir_expr_region: Some(
                         (
                             Lazy(
-                                93,
+                                89,
                             ),
                             Lazy(
                                 HirLazyExprRegion(

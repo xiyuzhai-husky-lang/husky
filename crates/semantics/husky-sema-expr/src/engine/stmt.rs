@@ -95,7 +95,7 @@ impl<'a> SemaExprEngine<'a> {
                 require_token,
                 condition,
             } => {
-                let condition = self.build_sema_expr(condition, ExpectConditionType);
+                let condition = self.build_sema_condition(condition);
                 (
                     Ok(SemaStmtData::Require {
                         require_token,
@@ -108,7 +108,7 @@ impl<'a> SemaExprEngine<'a> {
                 assert_token,
                 condition,
             } => {
-                let condition = self.build_sema_expr(condition, ExpectConditionType);
+                let condition = self.build_sema_condition(condition);
                 (
                     Ok(SemaStmtData::Assert {
                         assert_token,
@@ -223,7 +223,7 @@ impl<'a> SemaExprEngine<'a> {
                 ref eol_colon,
             } => {
                 let condition = match condition {
-                    Ok(condition) => self.build_sema_expr(*condition, ExpectConditionType),
+                    Ok(condition) => self.build_sema_condition(*condition),
                     Err(_) => todo!(),
                 };
                 let &Ok(eol_colon) = eol_colon else { todo!() };
@@ -247,7 +247,7 @@ impl<'a> SemaExprEngine<'a> {
                 ref eol_colon,
             } => {
                 let condition = match condition {
-                    Ok(condition) => self.build_sema_expr(*condition, ExpectConditionType),
+                    Ok(condition) => self.build_sema_condition(*condition),
                     Err(_) => todo!(),
                 };
                 let &Ok(eol_colon) = eol_colon else { todo!() };
@@ -286,6 +286,22 @@ impl<'a> SemaExprEngine<'a> {
                 case_branches,
                 stmt_ty_expectation,
             ),
+        }
+    }
+
+    pub(crate) fn build_sema_condition(&mut self, syn_expr_idx: SynExprIdx) -> SemaCondition {
+        let sema_expr_idx = self.build_sema_expr(syn_expr_idx, ExpectConditionType);
+        match *sema_expr_idx.data(self.sema_expr_arena.arena_ref()) {
+            SemaExprData::Be {
+                src,
+                be_regional_token_idx,
+                target,
+            } => SemaCondition::Be {
+                src,
+                be_regional_token_idx,
+                target,
+            },
+            _ => SemaCondition::Other(sema_expr_idx),
         }
     }
 }

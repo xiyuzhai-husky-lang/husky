@@ -234,6 +234,13 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
         self.hir_lazy_expr_control_flow_chart[hir_lazy_expr_idx]
     }
 
+    fn condition_has_control_flow(&self, condition: &HirLazyCondition) -> HasControlFlow {
+        match *condition {
+            HirLazyCondition::Be { src, .. } => self.hir_lazy_expr_control_flow_chart[src],
+            HirLazyCondition::Other(condition) => self.hir_lazy_expr_control_flow_chart[condition],
+        }
+    }
+
     fn infer_new_stmts(&mut self, stmts: HirLazyStmtIdxRange) -> HasControlFlow {
         for stmt in stmts {
             self.infer_new_stmt(stmt)?
@@ -257,8 +264,8 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
                 initial_value,
             } => self.expr_has_control_flow(initial_value),
             HirLazyStmt::Return { result: _ } => HasControlFlow::True,
-            HirLazyStmt::Require { condition: _ } => HasControlFlow::True,
-            HirLazyStmt::Assert { condition } => self.expr_has_control_flow(condition),
+            HirLazyStmt::Require { .. } => HasControlFlow::True,
+            HirLazyStmt::Assert { ref condition } => self.condition_has_control_flow(condition),
             HirLazyStmt::Eval { expr_idx, .. } => self.expr_has_control_flow(expr_idx),
             HirLazyStmt::IfElse {
                 ref if_branch,

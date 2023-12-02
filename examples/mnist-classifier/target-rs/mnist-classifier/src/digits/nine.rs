@@ -9,23 +9,23 @@ pub fn nine_match_refine() -> FermiMatchResult {
 }
 
 pub fn is_nine() -> OneVsAll<MnistLabel> {
-    require!(matches!);
-    require!(matches!);
+    require!(let none = is_zero());
+    require!(let none = is_six());
     let eff_holes = major_connected_component().eff_holes();
-    require!(matches!);
+    require!(let none = eff_holes.matches[1]);
     let down_match = nine_match().matches[0];
-    require!(matches!);
+    require!(let some = down_match);
     let down_match_dp_y = down_match.unwrap().displacement().y;
     let higher_excess = major_connected_component().upper_mass() - major_connected_component().lower_mass();
     require!(higher_excess > 7);
-    if matches! {
+    if let none = eff_holes.matches[0] {
         require!(major_concave_components().ilen() >= 2);
         let nine_match_refine_result = nine_match_refine().matches[0];
-        require!(matches!);
+        require!(let some = nine_match_refine_result);
         require!(nine_match_refine().norm() < 1);
         let higher_excess = major_connected_component().upper_mass() - major_connected_component().lower_mass();
         let upper_arc = nine_match_refine().matches[0];
-        require!(matches!);
+        require!(let some = upper_arc);
         require!(upper_arc.unwrap().displacement().y > 0);
         require!(upper_arc.unwrap().angle_change() < -110);
         require!(nine_match_refine().norm() < 9);

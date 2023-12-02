@@ -1,7 +1,9 @@
+pub mod condition;
 mod if_else_stmt;
 mod loop_stmt;
 mod match_stmt;
 
+pub use self::condition::*;
 pub use self::if_else_stmt::*;
 pub use self::loop_stmt::*;
 pub use self::match_stmt::*;
@@ -177,11 +179,7 @@ impl<'a> SynStmtContext<'a> {
                 },
                 BasicStmtKeywordRegionalToken::Require(require_token) => SynStmtData::Require {
                     require_token,
-                    condition: parser.parse_expr_expected2(
-                        Some(ExprEnvironment::Condition(block_end)),
-                        SynExprRootKind::Condition,
-                        OriginalSynExprError::ExpectedCondition,
-                    ),
+                    condition: parser.parse_condition(block_end),
                 },
                 BasicStmtKeywordRegionalToken::Assert(assert_token) => SynStmtData::Assert {
                     assert_token,
@@ -287,11 +285,7 @@ impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
                 },
                 BasicStmtKeywordRegionalToken::Require(require_token) => SynStmtData::Require {
                     require_token,
-                    condition: self.parse_expr_expected2(
-                        Some(ExprEnvironment::Condition(block_end)),
-                        SynExprRootKind::Condition,
-                        OriginalSynExprError::ExpectedCondition,
-                    ),
+                    condition: self.parse_condition(block_end),
                 },
                 BasicStmtKeywordRegionalToken::Assert(assert_token) => SynStmtData::Assert {
                     assert_token,
