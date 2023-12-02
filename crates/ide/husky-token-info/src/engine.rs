@@ -59,7 +59,7 @@ impl<'a> TokenInfoEngine<'a> {
         }
     }
 
-    fn visit_once_use_rule(&mut self, rule: &OnceUseRule, rule_idx: OnceUseRuleIdx) {
+    fn visit_once_use_rule(&mut self, rule: &UseOneRule, rule_idx: UseOneRuleIdx) {
         let use_expr_idx = rule.use_expr_idx();
         let use_expr = &self.item_tree_presheet[use_expr_idx];
         match use_expr {

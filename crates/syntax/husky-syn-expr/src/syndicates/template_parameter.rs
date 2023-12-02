@@ -1,14 +1,16 @@
 use husky_regional_token::IdentRegionalToken;
 use parsec::HasStreamState;
 
+use crate::syndicates::trais::TraitsSyndicate;
+
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct TemplateSynParameterData {
     annotated_variance_token: Option<VarianceRegionalToken>,
     symbol: CurrentSynSymbolIdx,
-    data: TemplateParameterSyndicateData,
+    variant: TemplateParameterSyndicateVariant,
 }
 
 impl TemplateSynParameterData {
@@ -16,8 +18,8 @@ impl TemplateSynParameterData {
         self.symbol
     }
 
-    pub fn data(&self) -> &TemplateParameterSyndicateData {
-        &self.data
+    pub fn variant(&self) -> &TemplateParameterSyndicateVariant {
+        &self.variant
     }
 
     pub fn annotated_variance_token(&self) -> Option<VarianceRegionalToken> {
@@ -25,12 +27,12 @@ impl TemplateSynParameterData {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
-pub enum TemplateParameterSyndicateData {
+pub enum TemplateParameterSyndicateVariant {
     Type {
         ident_token: IdentRegionalToken,
-        traits: Option<(ColonRegionalToken, SynExprIdx)>,
+        traits: Option<TraitsSyndicate>,
     },
     Constant {
         const_token: ConstRegionalToken,
@@ -76,22 +78,9 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
                 // todo: maybe we don't need to put it there, it's redundant
                 annotated_variance_token,
                 symbol: symbols.start(),
-                data: TemplateParameterSyndicateData::Type {
+                variant: TemplateParameterSyndicateVariant::Type {
                     ident_token,
-                    traits: if let Some(colon) = ctx.try_parse_option::<ColonRegionalToken>()? {
-                        Some((
-                            colon,
-                            ctx.parse_expr_expected2(
-                                Some(ExprEnvironment::WithinBracketedParameterList(
-                                    SynBracket::TurboFish,
-                                )),
-                                SynExprRootKind::Traits,
-                                OriginalSynExprError::ExpectedTraits,
-                            ),
-                        ))
-                    } else {
-                        None
-                    },
+                    traits: ctx.try_parse_option::<TraitsSyndicate>()?,
                 },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<LifetimeLabelRegionalToken>()? {
@@ -113,7 +102,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
             Ok(Some(TemplateSynParameterData {
                 annotated_variance_token,
                 symbol: symbols.start(),
-                data: TemplateParameterSyndicateData::Lifetime { label_token },
+                variant: TemplateParameterSyndicateVariant::Lifetime { label_token },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<PlaceLabelRegionalToken>()? {
             let access_start = ctx.save_state().next_regional_token_idx();
@@ -136,7 +125,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
             Ok(Some(TemplateSynParameterData {
                 annotated_variance_token,
                 symbol,
-                data: TemplateParameterSyndicateData::Place { label_token },
+                variant: TemplateParameterSyndicateVariant::Place { label_token },
             }))
         } else if let Some(const_token) = ctx.try_parse_option::<ConstRegionalToken>()? {
             let ident_token: IdentRegionalToken =
@@ -172,7 +161,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
             Ok(Some(TemplateSynParameterData {
                 annotated_variance_token,
                 symbol,
-                data: TemplateParameterSyndicateData::Constant {
+                variant: TemplateParameterSyndicateVariant::Constant {
                     const_token,
                     ident_token,
                     colon_token,

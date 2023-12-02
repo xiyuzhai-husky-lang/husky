@@ -2,12 +2,12 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TraitSyndicate {
-    expr: SynExprIdx,
+    syn_expr_idx: SynExprIdx,
 }
 
 impl TraitSyndicate {
-    pub fn expr(&self) -> SynExprIdx {
-        self.expr
+    pub fn syn_expr_idx(self) -> SynExprIdx {
+        self.syn_expr_idx
     }
 }
 
@@ -18,7 +18,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitSyndicate 
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(expr) = ctx.parse_expr_root(None, SynExprRootKind::Trait) {
-            Ok(Some(TraitSyndicate { expr }))
+            Ok(Some(TraitSyndicate { syn_expr_idx: expr }))
         } else {
             Ok(None)
         }

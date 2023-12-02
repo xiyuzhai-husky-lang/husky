@@ -347,7 +347,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 344,
+                                                value: 339,
                                             },
                                         ),
                                     ),
@@ -367,7 +367,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 344,
+                                                    value: 339,
                                                 },
                                             ),
                                         ),
@@ -541,7 +541,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 347,
+                                                value: 342,
                                             },
                                         ),
                                     ),
@@ -561,7 +561,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 347,
+                                                    value: 342,
                                                 },
                                             ),
                                         ),
@@ -656,10 +656,10 @@ EntitySynTreeSheet {
             ),
         ),
     ],
-    once_use_rules: OnceUseRules(
+    once_use_rules: UseOneRules(
         [],
     ),
-    use_all_rules: UseAllModuleSymbolsRules(
+    use_all_rules: UseAllRules(
         [],
     ),
     errors: [],

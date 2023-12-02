@@ -69,7 +69,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 6;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Result`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            4,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 4,\n            rule_idx: OnceUseRuleIdx(\n                1,\n            ),\n            state: OnceUseRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::MajorItem {\n                        module_item_path: MajorItemPath::Type(\n                            TypePath(`core::result::Result`, `Enum`),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                            value: "\ntoken_idx = 6;\n\ntoken_line_group_idx = 1\n\ntoken = TokenData::Ident(\n    `Result`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            4,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 4,\n            rule_idx: UseOneRuleIdx(\n                1,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::MajorItem {\n                        module_item_path: MajorItemPath::Type(\n                            TypePath(`core::result::Result`, `Enum`),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
                         },
                     ),
                     range: Some(

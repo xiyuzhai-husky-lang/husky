@@ -1197,7 +1197,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 303,
+                                                value: 298,
                                             },
                                         ),
                                     ),
@@ -1217,7 +1217,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 303,
+                                                    value: 298,
                                                 },
                                             ),
                                         ),
@@ -1321,7 +1321,7 @@ EntitySynTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 305,
+                                                value: 300,
                                             },
                                         ),
                                     ),
@@ -1341,7 +1341,7 @@ EntitySynTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 305,
+                                                    value: 300,
                                                 },
                                             ),
                                         ),
@@ -1366,9 +1366,9 @@ EntitySynTreeSheet {
             ),
         ),
     ],
-    once_use_rules: OnceUseRules(
+    once_use_rules: UseOneRules(
         [
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 164,
                 use_expr_idx: 2,
                 visibility: Scope::Pub,
@@ -1386,7 +1386,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1404,7 +1404,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 165,
                 use_expr_idx: 4,
                 visibility: Scope::Pub,
@@ -1422,7 +1422,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1440,7 +1440,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 166,
                 use_expr_idx: 6,
                 visibility: Scope::Pub,
@@ -1458,7 +1458,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1476,7 +1476,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 167,
                 use_expr_idx: 9,
                 visibility: Scope::PubUnder(
@@ -1495,7 +1495,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `mnist_classifier`,
@@ -1503,7 +1503,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 168,
                 use_expr_idx: 12,
                 visibility: Scope::PubUnder(
@@ -1522,7 +1522,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `mnist_classifier`,
@@ -1530,7 +1530,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 169,
                 use_expr_idx: 14,
                 visibility: Scope::PubUnder(
@@ -1550,7 +1550,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1568,7 +1568,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 167,
                 use_expr_idx: 8,
                 visibility: Scope::PubUnder(
@@ -1592,7 +1592,7 @@ EntitySynTreeSheet {
                         `mnist_classifier`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1610,7 +1610,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 168,
                 use_expr_idx: 11,
                 visibility: Scope::PubUnder(
@@ -1634,7 +1634,7 @@ EntitySynTreeSheet {
                         `mnist_classifier`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1652,7 +1652,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 168,
                 use_expr_idx: 10,
                 visibility: Scope::PubUnder(
@@ -1671,7 +1671,7 @@ EntitySynTreeSheet {
                         `mnist_classifier::raw_contour`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::MajorItem {
                             module_item_path: MajorItemPath::Type(
@@ -1683,9 +1683,9 @@ EntitySynTreeSheet {
             },
         ],
     ),
-    use_all_rules: UseAllModuleSymbolsRules(
+    use_all_rules: UseAllRules(
         [
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                 is_same_crate: true,
                 ast_idx: 164,
@@ -1695,7 +1695,7 @@ EntitySynTreeSheet {
                     77,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                 is_same_crate: true,
                 ast_idx: 165,
@@ -1705,7 +1705,7 @@ EntitySynTreeSheet {
                     23,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                 is_same_crate: true,
                 ast_idx: 166,
@@ -1715,7 +1715,7 @@ EntitySynTreeSheet {
                     7,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                 is_same_crate: true,
                 ast_idx: 169,
@@ -1727,7 +1727,7 @@ EntitySynTreeSheet {
                     7,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `mnist_classifier::geom2d`,
                 is_same_crate: true,
                 ast_idx: 167,

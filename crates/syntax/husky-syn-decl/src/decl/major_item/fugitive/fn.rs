@@ -87,7 +87,12 @@ impl FunctionFnFugitiveSynDecl {
             .template_parameter_obelisk_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.syn_template_parameter_obelisks().to_smallvec())
+            .map(|list| {
+                list.syn_template_parameter_obelisks()
+                    .iter()
+                    .map(Clone::clone)
+                    .collect()
+            })
             .unwrap_or_default();
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_obelisk_list(db).as_ref()?;

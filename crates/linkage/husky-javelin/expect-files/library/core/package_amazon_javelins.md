@@ -126,19 +126,6 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavelinPath::TypeConstructor(
-                    TypePath(`core::logic::Prop`, `Extern`),
-                ),
-                instantiation: JavelinInstantiation {
-                    symbol_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavelinPath::TypeConstructor(
                     TypePath(`core::num::i8`, `Extern`),
                 ),
                 instantiation: JavelinInstantiation {

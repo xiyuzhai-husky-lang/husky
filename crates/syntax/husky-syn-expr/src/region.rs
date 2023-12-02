@@ -1,5 +1,7 @@
 use crate::*;
+use husky_opr::BinaryClosedOpr;
 use husky_vfs::Toolchain;
+use smallvec::smallvec;
 use vec_like::VecPairMap;
 
 #[salsa::tracked(db = SynExprDb, jar = SynExprJar)]
@@ -13,7 +15,7 @@ pub struct SynExprRegion {
 pub struct SynExprRegionData {
     parent: Option<SynExprRegion>,
     path: SynNodeRegionPath,
-    expr_arena: SynExprArena,
+    syn_expr_arena: SynExprArena,
     principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
     stmt_arena: SynStmtArena,
     pattern_expr_region: SynPatternExprRegion,
@@ -67,7 +69,7 @@ impl SynExprRegionData {
         Self {
             parent,
             path,
-            expr_arena,
+            syn_expr_arena: expr_arena,
             principal_item_path_expr_arena,
             stmt_arena,
             pattern_expr_region,
@@ -93,7 +95,7 @@ impl SynExprRegionData {
     }
 
     pub fn expr_arena(&self) -> &SynExprArena {
-        &self.expr_arena
+        &self.syn_expr_arena
     }
 
     pub fn principal_item_path_expr_arena(&self) -> &SynPrincipalEntityPathExprArena {
@@ -178,7 +180,7 @@ impl std::ops::Index<SynExprIdx> for SynExprRegionData {
     type Output = SynExprData;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
-        &self.expr_arena[index]
+        &self.syn_expr_arena[index]
     }
 }
 

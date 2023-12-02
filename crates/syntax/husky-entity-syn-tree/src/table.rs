@@ -104,7 +104,7 @@ impl EntitySymbolEntry {
     pub(crate) fn new_use_symbol_entry(
         db: &::salsa::Db,
         original_symbol: EntitySymbol,
-        rule: &mut OnceUseRule,
+        rule: &mut UseOneRule,
     ) -> Self {
         rule.mark_as_resolved(original_symbol);
         let visibility = rule.visibility();
@@ -125,7 +125,7 @@ impl EntitySymbolEntry {
 
     pub(crate) fn new_use_ty_variant_entry(
         db: &::salsa::Db,
-        parent_rule: &OnceUseRule,
+        parent_rule: &UseOneRule,
         ident: Ident,
         ty_variant_path: TypeVariantPath,
     ) -> Self {
@@ -149,7 +149,7 @@ impl EntitySymbolEntry {
         &self,
         db: &::salsa::Db,
         reference_module_path: ModulePath,
-        rule: &UseAllModuleSymbolsRule,
+        rule: &UseAllRule,
     ) -> Option<Self> {
         self.is_visible_from(db, reference_module_path.into())
             .then_some(EntitySymbolEntry {

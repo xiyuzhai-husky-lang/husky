@@ -138,7 +138,7 @@ where
     pub fn parse_expr_expected2(
         &mut self,
         env: Option<ExprEnvironment>,
-        expr_root_kind: SynExprRootKind,
+        expr_root_kind: impl Into<Option<SynExprRootKind>>,
         err: impl FnOnce(RegionalTokenStreamState) -> OriginalSynExprError,
     ) -> SynExprIdx {
         let state = self.save_state();
@@ -169,7 +169,9 @@ where
                     .alloc_expr(SynExprData::Err(err(state).into())),
             }
         };
-        self.context_mut().add_expr_root(expr_root_kind, expr_idx);
+        if let Some(expr_root_kind) = expr_root_kind.into() {
+            self.context_mut().add_expr_root(expr_root_kind, expr_idx);
+        }
         expr_idx
     }
 

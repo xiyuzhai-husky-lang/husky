@@ -2164,14 +2164,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 79,
+                                                                                value: 74,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 124,
+                                                                                value: 115,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2188,14 +2188,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 79,
+                                                                                value: 74,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 124,
+                                                                                value: 115,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2217,14 +2217,14 @@ EntitySynTreeSheet {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 79,
+                                                                        value: 74,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 124,
+                                                                        value: 115,
                                                                     },
                                                                 ),
                                                             ),
@@ -2246,14 +2246,14 @@ EntitySynTreeSheet {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 79,
+                                                                value: 74,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 124,
+                                                                value: 115,
                                                             },
                                                         ),
                                                     ),
@@ -2277,14 +2277,14 @@ EntitySynTreeSheet {
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 79,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 124,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),
@@ -2322,14 +2322,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 79,
+                                                                                value: 74,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 125,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2346,14 +2346,14 @@ EntitySynTreeSheet {
                                                                     parent_ty_path: TypePath(
                                                                         ItemPathId(
                                                                             Id {
-                                                                                value: 79,
+                                                                                value: 74,
                                                                             },
                                                                         ),
                                                                     ),
                                                                     ident: Ident(
                                                                         Coword(
                                                                             Id {
-                                                                                value: 125,
+                                                                                value: 116,
                                                                             },
                                                                         ),
                                                                     ),
@@ -2375,14 +2375,14 @@ EntitySynTreeSheet {
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 79,
+                                                                        value: 74,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 125,
+                                                                        value: 116,
                                                                     },
                                                                 ),
                                                             ),
@@ -2404,14 +2404,14 @@ EntitySynTreeSheet {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 79,
+                                                                value: 74,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 125,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -2435,14 +2435,14 @@ EntitySynTreeSheet {
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 79,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 125,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),
@@ -2900,9 +2900,9 @@ EntitySynTreeSheet {
             ),
         ),
     ],
-    once_use_rules: OnceUseRules(
+    once_use_rules: UseOneRules(
         [
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 3,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
@@ -2921,7 +2921,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -2931,9 +2931,9 @@ EntitySynTreeSheet {
             },
         ],
     ),
-    use_all_rules: UseAllModuleSymbolsRules(
+    use_all_rules: UseAllRules(
         [
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core`,
                 is_same_crate: true,
                 ast_idx: 3,

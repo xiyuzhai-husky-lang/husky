@@ -275,7 +275,7 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin(
                 Id {
-                    value: 233,
+                    value: 207,
                 },
             ),
         ): PackagePath(
@@ -307,6 +307,13 @@ ValkyrieJavelinPantheon {
         ),
     },
     package_valkyrie_javelins: [
+        ValkyrieJavelin(
+            Javelin(
+                Id {
+                    value: 207,
+                },
+            ),
+        ),
         ValkyrieJavelin(
             Javelin(
                 Id {
@@ -479,13 +486,6 @@ ValkyrieJavelinPantheon {
             Javelin(
                 Id {
                     value: 232,
-                },
-            ),
-        ),
-        ValkyrieJavelin(
-            Javelin(
-                Id {
-                    value: 233,
                 },
             ),
         ),

@@ -25,7 +25,7 @@ impl DeriveAttrDeclarativeSignatureTemplate {
             .map(|trai| {
                 Ok(DeriveAttrShardDeclarativeSignatureTemplate::new(
                     db,
-                    declarative_term_region.expr_term(trai.expr())?,
+                    declarative_term_region.expr_term(trai.syn_expr_idx())?,
                 ))
             })
             .collect::<DeclarativeTermResultBorrowed2<_>>()?;

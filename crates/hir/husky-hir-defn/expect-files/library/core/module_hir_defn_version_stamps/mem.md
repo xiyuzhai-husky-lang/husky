@@ -5,7 +5,29 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 41,
+                            value: 36,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 19,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 37,
                         },
                     ),
                 ),
@@ -27,7 +49,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 42,
+                            value: 38,
                         },
                     ),
                 ),
@@ -49,7 +71,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 43,
+                            value: 39,
                         },
                     ),
                 ),
@@ -66,12 +88,12 @@
         ),
     ),
     (
-        MajorItem(
-            Type(
-                TypePath(
+        ImplBlock(
+            TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 44,
+                            value: 89,
                         },
                     ),
                 ),
@@ -82,28 +104,6 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 23,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ImplBlock(
-            TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 94,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 24,
                     },
                 ),
             ),

@@ -69,7 +69,7 @@ pub struct SemaExprRegionData {
 
 impl SemaExprRegionData {
     pub fn syn_root_to_sema_expr_idx(&self, syn_expr_root: SynExprIdx) -> SemaExprIdx {
-        self.sema_expr_roots[syn_expr_root].1 .0
+        (self.sema_expr_roots[syn_expr_root].1).0
     }
 
     pub fn sema_expr_roots<'a>(
@@ -96,6 +96,14 @@ impl SemaExprRegionData {
                 .as_ref()
                 .copied(),
         )
+    }
+
+    /// make sure the syn_expr_root is indeed a syn expr root
+    pub fn syn_root_expr_term(
+        &self,
+        syn_expr_root: SynExprIdx,
+    ) -> Option<SemaExprTermResultRef<FluffyTerm>> {
+        self.sema_expr_term(self.syn_root_to_sema_expr_idx(syn_expr_root))
     }
 
     pub fn fluffy_term_region(&self) -> &FluffyTermRegion {

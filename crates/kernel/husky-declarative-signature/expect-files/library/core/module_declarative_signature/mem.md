@@ -18,7 +18,7 @@
                                         ),
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 9,
+                                                value: 7,
                                             },
                                         ),
                                         annotated_traits: [],
@@ -61,7 +61,7 @@
                                         ),
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 9,
+                                                value: 7,
                                             },
                                         ),
                                         annotated_traits: [],
@@ -72,7 +72,7 @@
                                         ),
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 10,
+                                                value: 8,
                                             },
                                         ),
                                         annotated_traits: [],
@@ -134,7 +134,7 @@
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 11,
+                                                value: 9,
                                             },
                                         ),
                                         annotated_traits: [],
@@ -143,7 +143,7 @@
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 7,
+                                                value: 10,
                                             },
                                         ),
                                         annotated_traits: [],
@@ -181,7 +181,7 @@
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
-                                            value: 7,
+                                            value: 10,
                                         },
                                     ),
                                     annotated_traits: [],

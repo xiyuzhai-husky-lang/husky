@@ -10,8 +10,8 @@ pub struct EntitySynTreeSheet {
     item_symbol_table: EntitySymbolTable,
     // todo: split this into ty impl block and trai for ty impl block
     impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
-    once_use_rules: OnceUseRules,
-    use_all_rules: UseAllModuleSymbolsRules,
+    once_use_rules: UseOneRules,
+    use_all_rules: UseAllRules,
     errors: Vec<EntitySynTreeError>,
 }
 
@@ -35,8 +35,8 @@ impl EntitySynTreeSheet {
         module_path: ModulePath,
         major_item_node_table: MajorEntityNodeTable,
         item_symbol_table: EntitySymbolTable,
-        once_use_rules: OnceUseRules,
-        use_all_rules: UseAllModuleSymbolsRules,
+        once_use_rules: UseOneRules,
+        use_all_rules: UseAllRules,
         errors: Vec<EntitySynTreeError>,
         impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     ) -> Self {
@@ -61,7 +61,7 @@ impl EntitySynTreeSheet {
 
     pub fn once_use_rule_indexed_iter<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (OnceUseRuleIdx, &'a OnceUseRule)> + 'a {
+    ) -> impl Iterator<Item = (UseOneRuleIdx, &'a UseOneRule)> + 'a {
         self.once_use_rules.indexed_iter()
     }
 
@@ -214,7 +214,6 @@ pub(crate) fn item_tree_sheet(db: &::salsa::Db, module_path: ModulePath) -> &Ent
     item_tree_bundle
         .get_sheet(module_path)
         .expect("module should be guaranteed to be valid!!")
-    // .ok_or_else(|| DerivedEntityTreeError::InvalidModulePath(module_path).into())
 }
 
 #[test]

@@ -629,14 +629,14 @@ EntitySynTreeSheet {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 79,
+                                                                value: 74,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 124,
+                                                                value: 115,
                                                             },
                                                         ),
                                                     ),
@@ -653,14 +653,14 @@ EntitySynTreeSheet {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 79,
+                                                                value: 74,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 124,
+                                                                value: 115,
                                                             },
                                                         ),
                                                     ),
@@ -682,14 +682,14 @@ EntitySynTreeSheet {
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 79,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 124,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),
@@ -719,14 +719,14 @@ EntitySynTreeSheet {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 79,
+                                                                value: 74,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 125,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -743,14 +743,14 @@ EntitySynTreeSheet {
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 79,
+                                                                value: 74,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 125,
+                                                                value: 116,
                                                             },
                                                         ),
                                                     ),
@@ -772,14 +772,14 @@ EntitySynTreeSheet {
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 79,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 125,
+                                                        value: 116,
                                                     },
                                                 ),
                                             ),
@@ -944,9 +944,9 @@ EntitySynTreeSheet {
         ],
     ),
     impl_block_syn_node_table: [],
-    once_use_rules: OnceUseRules(
+    once_use_rules: UseOneRules(
         [
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 1,
                 use_expr_idx: 3,
                 visibility: Scope::Pub,
@@ -963,7 +963,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -971,7 +971,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 2,
                 use_expr_idx: 6,
                 visibility: Scope::Pub,
@@ -988,7 +988,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -996,7 +996,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 3,
                 use_expr_idx: 9,
                 visibility: Scope::Pub,
@@ -1013,7 +1013,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -1021,7 +1021,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 4,
                 use_expr_idx: 12,
                 visibility: Scope::Pub,
@@ -1038,7 +1038,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -1046,7 +1046,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 5,
                 use_expr_idx: 15,
                 visibility: Scope::Pub,
@@ -1063,7 +1063,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -1071,7 +1071,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 6,
                 use_expr_idx: 18,
                 visibility: Scope::Pub,
@@ -1088,7 +1088,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -1096,7 +1096,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 7,
                 use_expr_idx: 21,
                 visibility: Scope::Pub,
@@ -1113,7 +1113,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -1121,7 +1121,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 8,
                 use_expr_idx: 24,
                 visibility: Scope::Pub,
@@ -1138,7 +1138,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -1146,7 +1146,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 9,
                 use_expr_idx: 27,
                 visibility: Scope::Pub,
@@ -1163,7 +1163,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -1171,7 +1171,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 10,
                 use_expr_idx: 30,
                 visibility: Scope::Pub,
@@ -1188,7 +1188,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -1196,7 +1196,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 11,
                 use_expr_idx: 33,
                 visibility: Scope::Pub,
@@ -1213,7 +1213,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::CrateRoot {
                             root_module_path: `core`,
@@ -1221,7 +1221,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 1,
                 use_expr_idx: 2,
                 visibility: Scope::Pub,
@@ -1243,7 +1243,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1261,7 +1261,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 2,
                 use_expr_idx: 5,
                 visibility: Scope::Pub,
@@ -1283,7 +1283,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1301,7 +1301,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 3,
                 use_expr_idx: 8,
                 visibility: Scope::Pub,
@@ -1323,7 +1323,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1341,7 +1341,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 4,
                 use_expr_idx: 11,
                 visibility: Scope::Pub,
@@ -1363,7 +1363,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1381,7 +1381,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 5,
                 use_expr_idx: 14,
                 visibility: Scope::Pub,
@@ -1403,7 +1403,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1421,7 +1421,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 6,
                 use_expr_idx: 17,
                 visibility: Scope::Pub,
@@ -1443,7 +1443,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1461,7 +1461,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 7,
                 use_expr_idx: 20,
                 visibility: Scope::Pub,
@@ -1483,7 +1483,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1501,7 +1501,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 8,
                 use_expr_idx: 23,
                 visibility: Scope::Pub,
@@ -1523,7 +1523,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1541,7 +1541,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 9,
                 use_expr_idx: 26,
                 visibility: Scope::Pub,
@@ -1563,7 +1563,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1581,7 +1581,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 10,
                 use_expr_idx: 29,
                 visibility: Scope::Pub,
@@ -1603,7 +1603,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1621,7 +1621,7 @@ EntitySynTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 11,
                 use_expr_idx: 32,
                 visibility: Scope::Pub,
@@ -1643,7 +1643,7 @@ EntitySynTreeSheet {
                         `core`,
                     ),
                 ),
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_item_path: SubmoduleItemPath(
@@ -1663,9 +1663,9 @@ EntitySynTreeSheet {
             },
         ],
     ),
-    use_all_rules: UseAllModuleSymbolsRules(
+    use_all_rules: UseAllRules(
         [
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::basic`,
                 is_same_crate: true,
                 ast_idx: 1,
@@ -1675,7 +1675,7 @@ EntitySynTreeSheet {
                     64,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::num`,
                 is_same_crate: true,
                 ast_idx: 2,
@@ -1685,7 +1685,7 @@ EntitySynTreeSheet {
                     72,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::raw_bits`,
                 is_same_crate: true,
                 ast_idx: 3,
@@ -1695,7 +1695,7 @@ EntitySynTreeSheet {
                     58,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::fmt`,
                 is_same_crate: true,
                 ast_idx: 4,
@@ -1705,7 +1705,7 @@ EntitySynTreeSheet {
                     58,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::visual`,
                 is_same_crate: true,
                 ast_idx: 5,
@@ -1715,7 +1715,7 @@ EntitySynTreeSheet {
                     59,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::marker`,
                 is_same_crate: true,
                 ast_idx: 6,
@@ -1725,7 +1725,7 @@ EntitySynTreeSheet {
                     59,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::clone`,
                 is_same_crate: true,
                 ast_idx: 7,
@@ -1735,7 +1735,7 @@ EntitySynTreeSheet {
                     58,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::option`,
                 is_same_crate: true,
                 ast_idx: 8,
@@ -1745,7 +1745,7 @@ EntitySynTreeSheet {
                     60,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::cmp`,
                 is_same_crate: true,
                 ast_idx: 9,
@@ -1755,7 +1755,7 @@ EntitySynTreeSheet {
                     61,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::slice`,
                 is_same_crate: true,
                 ast_idx: 10,
@@ -1765,7 +1765,7 @@ EntitySynTreeSheet {
                     59,
                 ),
             },
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `core::vec`,
                 is_same_crate: true,
                 ast_idx: 11,

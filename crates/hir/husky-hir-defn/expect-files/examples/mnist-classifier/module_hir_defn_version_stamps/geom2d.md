@@ -5,7 +5,29 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 271,
+                            value: 266,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 242,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 267,
                         },
                     ),
                 ),
@@ -27,7 +49,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 272,
+                            value: 268,
                         },
                     ),
                 ),
@@ -49,7 +71,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 273,
+                            value: 269,
                         },
                     ),
                 ),
@@ -71,7 +93,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 274,
+                            value: 270,
                         },
                     ),
                 ),
@@ -93,7 +115,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 275,
+                            value: 271,
                         },
                     ),
                 ),
@@ -110,12 +132,12 @@
         ),
     ),
     (
-        MajorItem(
-            Type(
-                TypePath(
+        ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 276,
+                            value: 389,
                         },
                     ),
                 ),
@@ -132,12 +154,12 @@
         ),
     ),
     (
-        ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
+        AssociatedItem(
+            TypeItem(
+                TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 394,
+                            value: 458,
                         },
                     ),
                 ),
@@ -159,7 +181,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 463,
+                            value: 459,
                         },
                     ),
                 ),
@@ -181,7 +203,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 464,
+                            value: 460,
                         },
                     ),
                 ),
@@ -203,7 +225,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 465,
+                            value: 461,
                         },
                     ),
                 ),
@@ -225,7 +247,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 466,
+                            value: 462,
                         },
                     ),
                 ),
@@ -242,12 +264,12 @@
         ),
     ),
     (
-        AssociatedItem(
-            TypeItem(
-                TypeItemPath(
+        ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 467,
+                            value: 390,
                         },
                     ),
                 ),
@@ -264,12 +286,12 @@
         ),
     ),
     (
-        ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
+        AssociatedItem(
+            TypeItem(
+                TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 395,
+                            value: 432,
                         },
                     ),
                 ),
@@ -291,7 +313,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 437,
+                            value: 433,
                         },
                     ),
                 ),
@@ -313,7 +335,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 438,
+                            value: 434,
                         },
                     ),
                 ),
@@ -335,7 +357,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 439,
+                            value: 435,
                         },
                     ),
                 ),
@@ -357,7 +379,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 440,
+                            value: 436,
                         },
                     ),
                 ),
@@ -379,7 +401,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 441,
+                            value: 437,
                         },
                     ),
                 ),
@@ -401,7 +423,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 442,
+                            value: 438,
                         },
                     ),
                 ),
@@ -423,7 +445,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 443,
+                            value: 439,
                         },
                     ),
                 ),
@@ -440,12 +462,12 @@
         ),
     ),
     (
-        AssociatedItem(
-            TypeItem(
-                TypeItemPath(
+        ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 444,
+                            value: 391,
                         },
                     ),
                 ),
@@ -462,12 +484,12 @@
         ),
     ),
     (
-        ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
+        AssociatedItem(
+            TypeItem(
+                TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 396,
+                            value: 467,
                         },
                     ),
                 ),
@@ -489,7 +511,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 472,
+                            value: 468,
                         },
                     ),
                 ),
@@ -506,12 +528,12 @@
         ),
     ),
     (
-        AssociatedItem(
-            TypeItem(
-                TypeItemPath(
+        ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 473,
+                            value: 392,
                         },
                     ),
                 ),
@@ -528,12 +550,12 @@
         ),
     ),
     (
-        ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
+        AssociatedItem(
+            TypeItem(
+                TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 397,
+                            value: 443,
                         },
                     ),
                 ),
@@ -555,7 +577,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 448,
+                            value: 444,
                         },
                     ),
                 ),
@@ -577,7 +599,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 449,
+                            value: 445,
                         },
                     ),
                 ),
@@ -599,7 +621,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 450,
+                            value: 446,
                         },
                     ),
                 ),
@@ -621,7 +643,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 451,
+                            value: 447,
                         },
                     ),
                 ),
@@ -643,7 +665,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 452,
+                            value: 448,
                         },
                     ),
                 ),
@@ -660,12 +682,12 @@
         ),
     ),
     (
-        AssociatedItem(
-            TypeItem(
-                TypeItemPath(
+        ImplBlock(
+            TypeImplBlock(
+                TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 453,
+                            value: 393,
                         },
                     ),
                 ),
@@ -682,12 +704,12 @@
         ),
     ),
     (
-        ImplBlock(
-            TypeImplBlock(
-                TypeImplBlockPath(
+        AssociatedItem(
+            TypeItem(
+                TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 398,
+                            value: 454,
                         },
                     ),
                 ),
@@ -709,7 +731,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 459,
+                            value: 455,
                         },
                     ),
                 ),
@@ -731,7 +753,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 460,
+                            value: 456,
                         },
                     ),
                 ),
@@ -753,7 +775,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 461,
+                            value: 457,
                         },
                     ),
                 ),
@@ -764,28 +786,6 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 277,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssociatedItem(
-            TypeItem(
-                TypeItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 462,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 278,
                     },
                 ),
             ),

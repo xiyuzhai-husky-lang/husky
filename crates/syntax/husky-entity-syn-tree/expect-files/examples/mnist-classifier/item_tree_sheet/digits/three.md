@@ -3472,9 +3472,9 @@ EntitySynTreeSheet {
         ],
     ),
     impl_block_syn_node_table: [],
-    once_use_rules: OnceUseRules(
+    once_use_rules: UseOneRules(
         [
-            OnceUseRule {
+            UseOneRule {
                 ast_idx: 28,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
@@ -3493,7 +3493,7 @@ EntitySynTreeSheet {
                     ),
                 },
                 parent: None,
-                state: OnceUseRuleState::Resolved {
+                state: UseOneRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::SuperModule {
                             current_module_path: `mnist_classifier::digits::three`,
@@ -3504,9 +3504,9 @@ EntitySynTreeSheet {
             },
         ],
     ),
-    use_all_rules: UseAllModuleSymbolsRules(
+    use_all_rules: UseAllRules(
         [
-            UseAllModuleSymbolsRule {
+            UseAllRule {
                 parent_module_path: `mnist_classifier::digits`,
                 is_same_crate: true,
                 ast_idx: 28,
