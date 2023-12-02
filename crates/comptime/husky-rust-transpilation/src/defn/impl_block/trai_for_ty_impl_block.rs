@@ -1,4 +1,6 @@
 use super::*;
+use either::*;
+use husky_entity_path::PreludeTraitPath;
 use husky_entity_syn_tree::HasAssociatedItemPaths;
 use husky_hir_decl::TraitForTypeImplBlockHirDecl;
 
@@ -6,6 +8,12 @@ impl TranspileToRust for TraitForTypeImplBlockHirDefn {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl();
+        let path = hir_decl.path(db);
+        match path.trai_path(db).refine(db) {
+            // skipping visualize, will be replaced by cfg to achieve the same skipping
+            Left(PreludeTraitPath::VISUALIZE) => return,
+            _ => (),
+        }
         hir_decl.transpile_to_rust(builder);
         builder.curly_block(|builder| {
             for &(_, trai_for_ty_item_path) in hir_decl.path(db).associated_item_paths(db) {
