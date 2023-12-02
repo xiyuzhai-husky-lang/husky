@@ -90,7 +90,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `quick_sort_aux`,
                                     token_idx: TokenIdx(
-                                        42,
+                                        43,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -154,7 +154,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `partition`,
                                     token_idx: TokenIdx(
-                                        103,
+                                        105,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -218,7 +218,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `quick_sort_works_for_integers`,
                                     token_idx: TokenIdx(
-                                        228,
+                                        231,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {
@@ -282,7 +282,7 @@ EntitySynTreeCrateBundle {
                                 ident_token: IdentToken {
                                     ident: `quick_sort_works_for_strs`,
                                     token_idx: TokenIdx(
-                                        265,
+                                        268,
                                     ),
                                 },
                                 block: DefnBlock::Fugitive {

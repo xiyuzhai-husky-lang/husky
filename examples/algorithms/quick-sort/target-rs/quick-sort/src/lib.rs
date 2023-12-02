@@ -1,9 +1,9 @@
-pub fn quick_sort<T>(mut arr: [T]) {
+pub fn quick_sort<T>(ref mut arr: &mut [T]) {
     let len = arr.len();
     quick_sort_aux(arr, 0, len - 1 as isize)
 }
 
-pub fn quick_sort_aux<T>(mut arr: [T], low: isize, high: isize) {
+pub fn quick_sort_aux<T>(ref mut arr: &mut [T], low: isize, high: isize) {
     if low < high {
         let p = partition(arr, low, high);
         quick_sort_aux(arr, low, p - 1);
@@ -11,7 +11,7 @@ pub fn quick_sort_aux<T>(mut arr: [T], low: isize, high: isize) {
     }
 }
 
-pub fn partition<T>(mut arr: [T], low: isize, high: isize) -> isize {
+pub fn partition<T>(ref mut arr: &mut [T], low: isize, high: isize) -> isize {
     let pivot = high as usize;
     let mut store_index = low - 1;
     let mut last_index = high;

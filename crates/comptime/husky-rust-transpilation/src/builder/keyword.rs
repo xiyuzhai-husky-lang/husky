@@ -21,6 +21,7 @@ pub enum RustKeyword {
     In,
     Loop,
     Mut,
+    Ref,
 }
 
 impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
@@ -46,6 +47,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustKeyword::Enum => "enum ",
             RustKeyword::In => " in ",
             RustKeyword::Mut => "mut ",
+            RustKeyword::Ref => "ref ",
         };
         self.write_str(s)
     }

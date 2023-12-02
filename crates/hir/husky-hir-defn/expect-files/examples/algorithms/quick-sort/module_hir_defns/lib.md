@@ -33,7 +33,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: Move,
+                                    contract: BorrowMut,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::slice::Slice`, `Extern`),
@@ -77,7 +77,7 @@
                                 data: [
                                     Ident {
                                         symbol_modifier: Some(
-                                            Mut,
+                                            RefMut,
                                         ),
                                         ident: Ident(
                                             Coword(
@@ -354,7 +354,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: Move,
+                                    contract: BorrowMut,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::slice::Slice`, `Extern`),
@@ -418,7 +418,7 @@
                                 data: [
                                     Ident {
                                         symbol_modifier: Some(
-                                            Mut,
+                                            RefMut,
                                         ),
                                         ident: Ident(
                                             Coword(
@@ -798,7 +798,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
-                                    contract: Move,
+                                    contract: BorrowMut,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::slice::Slice`, `Extern`),
@@ -862,7 +862,7 @@
                                 data: [
                                     Ident {
                                         symbol_modifier: Some(
-                                            Mut,
+                                            RefMut,
                                         ),
                                         ident: Ident(
                                             Coword(
