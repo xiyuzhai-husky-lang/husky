@@ -1,7 +1,9 @@
+mod condition;
 mod if_else_stmt;
 mod loop_stmt;
 mod match_stmt;
 
+pub use self::condition::*;
 pub use self::if_else_stmt::*;
 pub use self::loop_stmt::*;
 pub use self::match_stmt::*;
@@ -31,11 +33,11 @@ pub enum SemaStmtData {
     },
     Require {
         require_token: RequireRegionalToken,
-        condition: SemaExprIdx,
+        condition: SemaCondition,
     },
     Assert {
         assert_token: AssertRegionalToken,
-        condition: SemaExprIdx,
+        condition: SemaCondition,
     },
     Break {
         break_token: BreakRegionalToken,
@@ -66,14 +68,14 @@ pub enum SemaStmtData {
     },
     While {
         while_token: WhileRegionalToken,
-        condition: SemaExprIdx,
+        condition: SemaCondition,
         eol_colon: EolRegionalToken,
         block: SemaStmtIdxRange,
     },
     DoWhile {
         do_token: DoRegionalToken,
         while_token: WhileRegionalToken,
-        condition: SemaExprIdx,
+        condition: SemaCondition,
         eol_colon: EolRegionalToken,
         block: SemaStmtIdxRange,
     },

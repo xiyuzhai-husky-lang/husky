@@ -6,17 +6,13 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaIfBranch {
-    if_token: IfRegionalToken,
-    condition: SemaExprIdx,
-    eol_colon_token: EolColonRegionalToken,
-    stmts: SemaStmtIdxRange,
+    pub if_token: IfRegionalToken,
+    pub condition: SemaCondition,
+    pub eol_colon_token: EolColonRegionalToken,
+    pub stmts: SemaStmtIdxRange,
 }
 
 impl SemaIfBranch {
-    pub fn condition(&self) -> SemaExprIdx {
-        self.condition
-    }
-
     pub fn eol_colon_token(&self) -> EolColonRegionalToken {
         self.eol_colon_token
     }
@@ -38,8 +34,7 @@ impl<'a> SemaExprEngine<'a> {
     ) -> SynExprResultRef<'a, SemaIfBranch> {
         Ok(SemaIfBranch {
             if_token: syn_if_branch.if_token,
-            condition: self
-                .build_sema_expr(*syn_if_branch.condition.as_ref()?, ExpectConditionType),
+            condition: self.build_sema_condition(*syn_if_branch.condition.as_ref()?),
             eol_colon_token: *syn_if_branch.eol_colon.as_ref()?,
             stmts: self.build_sema_branch(syn_if_branch.stmts, merger),
         })
@@ -48,17 +43,13 @@ impl<'a> SemaExprEngine<'a> {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaElifBranch {
-    elif_token: ElifRegionalToken,
-    condition: SemaExprIdx,
-    eol_colon_token: EolColonRegionalToken,
-    stmts: SemaStmtIdxRange,
+    pub elif_token: ElifRegionalToken,
+    pub condition: SemaCondition,
+    pub eol_colon_token: EolColonRegionalToken,
+    pub stmts: SemaStmtIdxRange,
 }
 
 impl SemaElifBranch {
-    pub fn condition(&self) -> SemaExprIdx {
-        self.condition
-    }
-
     pub fn eol_colon_token(&self) -> EolColonRegionalToken {
         self.eol_colon_token
     }
@@ -80,8 +71,7 @@ impl<'a> SemaExprEngine<'a> {
     ) -> SynExprResultRef<'a, SemaElifBranch> {
         Ok(SemaElifBranch {
             elif_token: syn_elif_branch.elif_token,
-            condition: self
-                .build_sema_expr(*syn_elif_branch.condition.as_ref()?, ExpectConditionType),
+            condition: self.build_sema_condition(*syn_elif_branch.condition.as_ref()?),
             eol_colon_token: *syn_elif_branch.eol_colon.as_ref()?,
             stmts: self.build_sema_branch(syn_elif_branch.stmts, merger),
         })

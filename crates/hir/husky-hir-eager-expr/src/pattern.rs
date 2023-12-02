@@ -6,9 +6,9 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct HirEagerLetVariablesPattern {
-    pattern_expr_idx: HirEagerPatternExprIdx,
+    pub pattern_expr_idx: HirEagerPatternExprIdx,
     // variables: CurrentHirEagerSymbolIdxRange,
-    ty: Option<HirType>,
+    pub ty: Option<HirType>,
 }
 
 impl HirEagerLetVariablesPattern {
@@ -28,7 +28,6 @@ impl<'a> HirEagerExprBuilder<'a> {
     ) -> HirEagerLetVariablesPattern {
         HirEagerLetVariablesPattern {
             pattern_expr_idx: self.new_pattern_expr(let_pattern_sema_obelisk.syn_pattern_root()),
-            // variables: todo!(),
             ty: let_pattern_sema_obelisk
                 .ty_sema_expr_idx()
                 .map(|ty_sema_expr_idx| {
@@ -39,12 +38,16 @@ impl<'a> HirEagerExprBuilder<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct HirEagerBeVariablesPattern {}
+pub struct HirEagerBeVariablesPattern {
+    pub pattern_expr_idx: HirEagerPatternExprIdx,
+}
 
 impl ToHirEager for BePatternSynSyndicate {
     type Output = HirEagerBeVariablesPattern;
 
-    fn to_hir_eager(&self, _builder: &mut HirEagerExprBuilder) -> Self::Output {
-        HirEagerBeVariablesPattern {}
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        HirEagerBeVariablesPattern {
+            pattern_expr_idx: builder.new_pattern_expr(self.syn_pattern_root()),
+        }
     }
 }

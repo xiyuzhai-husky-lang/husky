@@ -115,7 +115,7 @@
                     body_with_hir_expr_region: Some(
                         (
                             Eager(
-                                66,
+                                64,
                             ),
                             Eager(
                                 HirEagerExprRegion(
@@ -382,7 +382,7 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 6,
                                             ),
                                         },
@@ -689,7 +689,7 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 6,
                                             ),
                                         },
@@ -996,7 +996,7 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 6,
                                             ),
                                         },

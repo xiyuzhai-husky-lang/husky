@@ -115,7 +115,7 @@
                     body_with_hir_expr_region: Some(
                         (
                             Lazy(
-                                249,
+                                246,
                             ),
                             Lazy(
                                 HirLazyExprRegion(
@@ -301,7 +301,7 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 6,
                                             ),
                                         },
@@ -545,7 +545,7 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 6,
                                             ),
                                         },
@@ -810,12 +810,12 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 6,
                                             ),
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 10,
                                             ),
                                         },

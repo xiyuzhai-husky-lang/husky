@@ -1,22 +1,11 @@
 use husky_sema_expr::{SemaElifBranch, SemaElseBranch, SemaIfBranch};
 
-
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyIfBranch {
-    pub condition: HirLazyExprIdx,
+    pub condition: HirLazyCondition,
     pub stmts: HirLazyStmtIdxRange,
-}
-
-impl HirLazyIfBranch {
-    pub fn condition(&self) -> HirLazyExprIdx {
-        self.condition
-    }
-
-    pub fn stmts(&self) -> HirLazyStmtIdxRange {
-        self.stmts
-    }
 }
 
 impl ToHirLazy for SemaIfBranch {
@@ -24,7 +13,7 @@ impl ToHirLazy for SemaIfBranch {
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         HirLazyIfBranch {
-            condition: self.condition().to_hir_lazy(builder),
+            condition: self.condition.to_hir_lazy(builder),
             stmts: self.stmts().to_hir_lazy(builder),
         }
     }
@@ -32,18 +21,8 @@ impl ToHirLazy for SemaIfBranch {
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyElifBranch {
-    pub condition: HirLazyExprIdx,
+    pub condition: HirLazyCondition,
     pub stmts: HirLazyStmtIdxRange,
-}
-
-impl HirLazyElifBranch {
-    pub fn condition(&self) -> HirLazyExprIdx {
-        self.condition
-    }
-
-    pub fn stmts(&self) -> HirLazyStmtIdxRange {
-        self.stmts
-    }
 }
 
 impl ToHirLazy for SemaElifBranch {
@@ -51,7 +30,7 @@ impl ToHirLazy for SemaElifBranch {
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         HirLazyElifBranch {
-            condition: self.condition().to_hir_lazy(builder),
+            condition: self.condition.to_hir_lazy(builder),
             stmts: self.stmts().to_hir_lazy(builder),
         }
     }

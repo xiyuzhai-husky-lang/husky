@@ -1,6 +1,6 @@
 mod branch_stmt;
 
-use husky_sema_expr::{SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
+use husky_sema_expr::{SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 
 use idx_arena::ArenaRef;
 
@@ -19,10 +19,10 @@ pub enum HirLazyStmt {
         result: HirLazyExprIdx,
     },
     Require {
-        condition: HirLazyExprIdx,
+        condition: HirLazyCondition,
     },
     Assert {
-        condition: HirLazyExprIdx,
+        condition: HirLazyCondition,
     },
     Eval {
         expr_idx: HirLazyExprIdx,
@@ -122,5 +122,35 @@ impl ToHirLazy for SemaStmtIdxRange {
             }
         }
         builder.alloc_stmts(sema_stmt_indices, hir_lazy_stmts)
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub enum HirLazyCondition {
+    Be {
+        src: HirLazyExprIdx,
+        target: HirLazyBeVariablesPattern,
+    },
+    Other(HirLazyExprIdx),
+}
+
+impl ToHirLazy for SemaCondition {
+    // ad hoc
+    type Output = HirLazyCondition;
+
+    fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
+        match *self {
+            SemaCondition::Be {
+                src,
+                be_regional_token_idx,
+                target,
+            } => HirLazyCondition::Be {
+                src: src.to_hir_lazy(builder),
+                target: target.to_hir_lazy(builder),
+            },
+            SemaCondition::Other(sema_expr_idx) => {
+                HirLazyCondition::Other(sema_expr_idx.to_hir_lazy(builder))
+            }
+        }
     }
 }

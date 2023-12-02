@@ -5562,7 +5562,7 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: HirEagerCondition(
+                                                condition: Other(
                                                     136,
                                                 ),
                                                 stmts: ArenaIdxRange(
@@ -5571,7 +5571,7 @@
                                             },
                                             elif_branches: [
                                                 HirEagerElifBranch {
-                                                    condition: HirEagerCondition(
+                                                    condition: Other(
                                                         169,
                                                     ),
                                                     stmts: ArenaIdxRange(
@@ -5579,7 +5579,7 @@
                                                     ),
                                                 },
                                                 HirEagerElifBranch {
-                                                    condition: HirEagerCondition(
+                                                    condition: Other(
                                                         199,
                                                     ),
                                                     stmts: ArenaIdxRange(
@@ -5663,7 +5663,7 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: HirEagerCondition(
+                                                condition: Other(
                                                     114,
                                                 ),
                                                 stmts: ArenaIdxRange(
@@ -5708,7 +5708,7 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: HirEagerCondition(
+                                                condition: Other(
                                                     284,
                                                 ),
                                                 stmts: ArenaIdxRange(
@@ -5836,7 +5836,7 @@
                                             initial_value: 79,
                                         },
                                         DoWhile {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 91,
                                             ),
                                             block: ArenaIdxRange(
@@ -5845,7 +5845,7 @@
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
-                                                condition: HirEagerCondition(
+                                                condition: Other(
                                                     298,
                                                 ),
                                                 stmts: ArenaIdxRange(
@@ -5860,7 +5860,7 @@
                                             discarded: false,
                                         },
                                         While {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 46,
                                             ),
                                             stmts: ArenaIdxRange(

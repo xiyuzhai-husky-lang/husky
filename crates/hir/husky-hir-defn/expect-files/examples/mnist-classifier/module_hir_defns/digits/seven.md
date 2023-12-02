@@ -235,7 +235,7 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 6,
                                             ),
                                         },
@@ -574,12 +574,12 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 6,
                                             ),
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 11,
                                             ),
                                         },
@@ -896,12 +896,12 @@
                                             initial_value: 2,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 6,
                                             ),
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 11,
                                             ),
                                         },
@@ -913,7 +913,7 @@
                                             initial_value: 15,
                                         },
                                         Require {
-                                            condition: HirEagerCondition(
+                                            condition: Other(
                                                 18,
                                             ),
                                         },
@@ -1039,7 +1039,7 @@
                     body_with_hir_expr_region: Some(
                         (
                             Eager(
-                                61,
+                                57,
                             ),
                             Eager(
                                 HirEagerExprRegion(
