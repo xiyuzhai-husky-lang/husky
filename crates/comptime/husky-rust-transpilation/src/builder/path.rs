@@ -13,7 +13,7 @@ impl<E> TranspileToRust<E> for AssociatedItemPath {
                 todo!()
             }
         }
-        builder.opr(RustPunctuation::ColonColon);
+        builder.punctuation(RustPunctuation::ColonColon);
         self.ident(db).transpile_to_rust(builder)
     }
 }
@@ -22,7 +22,7 @@ impl<E> TranspileToRust<E> for TypeVariantPath {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db;
         self.parent_ty_path(db).transpile_to_rust(builder);
-        builder.opr(RustPunctuation::ColonColon);
+        builder.punctuation(RustPunctuation::ColonColon);
         self.ident(db).transpile_to_rust(builder)
     }
 }
@@ -38,7 +38,7 @@ impl<E> TranspileToRust<E> for PrincipalEntityPath {
                     Some(PreludeTypePath::Option | PreludeTypePath::Result) => (),
                     _ => {
                         path.parent_ty_path(db).ident(db).transpile_to_rust(builder);
-                        builder.opr(RustPunctuation::ColonColon);
+                        builder.punctuation(RustPunctuation::ColonColon);
                     }
                 }
                 path.ident(db).transpile_to_rust(builder)

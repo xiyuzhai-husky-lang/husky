@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{path_leading::HirTypePathLeading, *};
 use husky_vfs::Toolchain;
 use smallvec::smallvec;
 

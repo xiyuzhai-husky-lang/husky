@@ -1,19 +1,19 @@
 use super::*;
 
 impl SynPatternExpr {
-    pub(super) fn contract(&self) -> Contract {
+    pub(super) fn contract(&self) -> TermContract {
         match self {
-            SynPatternExpr::Literal { .. } => Contract::None,
+            SynPatternExpr::Literal { .. } => TermContract::None,
             SynPatternExpr::Ident {
                 symbol_modifier_tokens,
                 ..
-            } => Contract::new(*symbol_modifier_tokens),
+            } => TermContract::new(*symbol_modifier_tokens),
             // ad hoc
-            SynPatternExpr::TypeVariantUnit { .. } => Contract::None,
+            SynPatternExpr::TypeVariantUnit { .. } => TermContract::None,
             SynPatternExpr::Tuple { name, fields } => todo!(),
             SynPatternExpr::Props { name, fields } => todo!(),
             // ad hoc
-            SynPatternExpr::OneOf { options } => Contract::None,
+            SynPatternExpr::OneOf { options } => TermContract::None,
             SynPatternExpr::Binding {
                 ident_token,
                 asperand_token,

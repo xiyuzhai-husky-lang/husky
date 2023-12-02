@@ -33,6 +33,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
+                                    contract: Move,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::slice::Slice`, `Extern`),
@@ -353,6 +354,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
+                                    contract: Move,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::slice::Slice`, `Extern`),
@@ -372,6 +374,7 @@
                                 },
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 2,
+                                    contract: None,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::isize`, `Extern`),
@@ -381,6 +384,7 @@
                                 },
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 3,
+                                    contract: None,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::isize`, `Extern`),
@@ -794,6 +798,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
+                                    contract: Move,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::slice::Slice`, `Extern`),
@@ -813,6 +818,7 @@
                                 },
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 2,
+                                    contract: None,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::isize`, `Extern`),
@@ -822,6 +828,7 @@
                                 },
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 3,
+                                    contract: None,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::isize`, `Extern`),

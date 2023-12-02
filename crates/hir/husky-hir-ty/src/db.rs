@@ -1,5 +1,6 @@
 use crate::{
     menu::{hir_ty_menu, HirTypeMenu},
+    path_leading::HirTypePathLeading,
     trai::HirTrait,
     *,
 };
@@ -25,6 +26,7 @@ pub struct HirTypeJar(
     crate::ty::ritchie::hir_ty_from_ethereal_term_ritchie,
     hir_ty_from_ethereal_term_application,
     crate::ty::ritchie::HirRitchieType,
+    crate::ty::path_leading::hir_ty_path_leading_is_copyable_obviously,
     HirTrait,
     crate::trai::hir_trai_from_ethereal_term_application,
     crate::menu::hir_ty_menu,

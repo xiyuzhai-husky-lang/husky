@@ -368,7 +368,8 @@ impl<'a> SemaExprEngine<'a> {
                 for item in parameter_ty_items.clone() {
                     match self.infer_expr_term(item.sema_expr_idx()) {
                         Some(ty_term) => params.push(
-                            FluffyTermRitchieRegularParameter::new(Contract::None, ty_term).into(),
+                            FluffyTermRitchieRegularParameter::new(TermContract::None, ty_term)
+                                .into(),
                         ),
                         None => todo!("err"),
                     }

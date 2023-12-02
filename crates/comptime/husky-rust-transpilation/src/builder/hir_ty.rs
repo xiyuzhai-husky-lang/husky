@@ -16,7 +16,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirType {
                         debug_assert_eq!(template_arguments.len(), 2);
                         builder.bracketed(RustBracket::Box, |builder| {
                             template_arguments[0].transpile_to_rust(builder);
-                            builder.opr(RustPunctuation::SemicolonInArray);
+                            builder.punctuation(RustPunctuation::SemicolonInArray);
                             template_arguments[1].transpile_to_rust(builder);
                         })
                     }
@@ -50,7 +50,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirRitchieType {
             RitchieTypeKind::Gn => builder.word("gn"),
         }
         builder.bracketed_comma_list(RustBracket::Par, self.parameters(db).iter());
-        builder.opr(RustPunctuation::LightArrow);
+        builder.punctuation(RustPunctuation::LightArrow);
         self.return_ty(db).transpile_to_rust(builder)
     }
 }

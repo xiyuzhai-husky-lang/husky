@@ -1,4 +1,4 @@
-use crate::{ritchie::HirRitchieType, *};
+use crate::{path_leading::HirTypePathLeading, ritchie::HirRitchieType, *};
 use husky_ethereal_term::{EtherealTerm, EtherealTermSymbolIndexInner};
 use husky_fluffy_term::{FluffyTerm, FluffyTermBase, FluffyTerms};
 use husky_term_prelude::TermEntityPath;

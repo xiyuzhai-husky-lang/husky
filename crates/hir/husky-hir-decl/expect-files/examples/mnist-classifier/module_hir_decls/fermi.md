@@ -22,6 +22,7 @@
                         [
                             HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
+                                contract: None,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
@@ -49,6 +50,7 @@
                             },
                             HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 2,
+                                contract: None,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::vec::Vec`, `Extern`),

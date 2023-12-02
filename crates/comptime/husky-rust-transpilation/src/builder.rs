@@ -329,8 +329,8 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
     /// otherwise it will transcribe a `->` and the type
     pub(crate) fn return_ty(&mut self, return_ty: HirType) {
         let db = self.db;
-        if !return_ty.is_equal_to_unit_obviously(db) {
-            self.opr(RustPunctuation::LightArrow);
+        if !return_ty.is_core_basic_unit_obviously(db) {
+            self.punctuation(RustPunctuation::LightArrow);
             return_ty.transpile_to_rust(self)
         }
     }

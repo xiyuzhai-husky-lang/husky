@@ -5,7 +5,7 @@ use husky_ethereal_term::{
 };
 use husky_term_prelude::TermEntityPath;
 
-#[salsa::interned(db = HirTypeDb, jar = HirTypeJar)]
+#[salsa::interned(jar = HirTypeJar)]
 pub struct HirTrait {
     pub trai_path: TraitPath,
     /// phantom arguments are ignored

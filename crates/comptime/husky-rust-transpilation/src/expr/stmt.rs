@@ -13,7 +13,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             } => builder.on_fresh_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Let);
                 pattern.transpile_to_rust(builder);
-                builder.opr(RustPunctuation::Assign);
+                builder.punctuation(RustPunctuation::Assign);
                 any_precedence(initial_value).transpile_to_rust(builder)
             }),
             HirEagerStmtData::Return { result } => builder.on_fresh_semicolon_line(|builder| {
@@ -72,7 +72,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                                     initial_bound,
                                                 )
                                                     .transpile_to_rust(builder);
-                                                builder.opr(RustPunctuation::Add);
+                                                builder.punctuation(RustPunctuation::Add);
                                                 builder.one()
                                             })
                                         }
@@ -88,7 +88,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                     }
                                 }
                             }
-                            builder.opr(match range.final_boundary.kind {
+                            builder.punctuation(match range.final_boundary.kind {
                                 LoopBoundaryKind::UpperOpen => RustPunctuation::DotDot,
                                 LoopBoundaryKind::UpperClosed => RustPunctuation::DotDotEq,
                                 LoopBoundaryKind::LowerOpen => unreachable!(),
@@ -115,7 +115,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                                         final_bound,
                                                     )
                                                         .transpile_to_rust(builder);
-                                                    builder.opr(RustPunctuation::Add);
+                                                    builder.punctuation(RustPunctuation::Add);
                                                     builder.one()
                                                 })
                                             }
@@ -131,7 +131,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                         }
                                     }
                                 }
-                                builder.opr(match range.initial_boundary.kind {
+                                builder.punctuation(match range.initial_boundary.kind {
                                     LoopBoundaryKind::UpperOpen => RustPunctuation::DotDot,
                                     LoopBoundaryKind::UpperClosed => RustPunctuation::DotDotEq,
                                     LoopBoundaryKind::LowerOpen => unreachable!(),
@@ -155,10 +155,10 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 builder.keyword(RustKeyword::While);
                 particulars.forext_loop_var_ident.transpile_to_rust(builder);
                 match particulars.boundary_kind {
-                    LoopBoundaryKind::UpperOpen => builder.opr(RustPunctuation::Less),
-                    LoopBoundaryKind::UpperClosed => builder.opr(RustPunctuation::Leq),
-                    LoopBoundaryKind::LowerOpen => builder.opr(RustPunctuation::Greater),
-                    LoopBoundaryKind::LowerClosed => builder.opr(RustPunctuation::Geq),
+                    LoopBoundaryKind::UpperOpen => builder.punctuation(RustPunctuation::Less),
+                    LoopBoundaryKind::UpperClosed => builder.punctuation(RustPunctuation::Leq),
+                    LoopBoundaryKind::LowerOpen => builder.punctuation(RustPunctuation::Greater),
+                    LoopBoundaryKind::LowerClosed => builder.punctuation(RustPunctuation::Geq),
                 }
                 (
                     RustPrecedenceRange::Greater(RustPrecedence::OrdComparison),
@@ -196,7 +196,7 @@ impl TranspileToRust<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                         builder.on_fresh_line(|builder| block.transpile_to_rust(builder));
                         builder.on_fresh_line(|builder| {
                             builder.keyword(RustKeyword::If);
-                            builder.opr(RustPunctuation::Not);
+                            builder.punctuation(RustPunctuation::Not);
                             (RustPrecedenceRange::Geq(RustPrecedence::Prefix), condition)
                                 .transpile_to_rust(builder);
                             builder.curly_block(|builder| {
@@ -244,7 +244,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerLetVariablesPattern {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.pattern_expr_idx().transpile_to_rust(builder);
         if let Some(ty) = self.ty() {
-            builder.opr(RustPunctuation::Colon);
+            builder.punctuation(RustPunctuation::Colon);
             ty.transpile_to_rust(builder)
         }
     }
@@ -277,7 +277,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerElseBranch {
 impl TranspileToRust<HirEagerExprRegion> for HirEagerCaseBranch {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         self.pattern.transpile_to_rust(builder);
-        builder.opr(RustPunctuation::HeavyArrow);
+        builder.punctuation(RustPunctuation::HeavyArrow);
         self.stmts.transpile_to_rust(builder)
     }
 }
