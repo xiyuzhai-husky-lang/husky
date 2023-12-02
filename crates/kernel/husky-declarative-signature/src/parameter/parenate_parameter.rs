@@ -18,7 +18,7 @@ impl std::ops::Deref for DeclarativeParenateParameters {
 impl DeclarativeParenateParameters {
     pub(crate) fn from_decl(
         parameters: &[ParenateSynParameterData],
-        expr_region_data: &SynExprRegionData,
+        syn_expr_region_data: &SynExprRegionData,
         signature_region: &DeclarativeTermRegion,
     ) -> DeclarativeSignatureResult<Self> {
         Ok(Self {
@@ -33,7 +33,7 @@ impl DeclarativeParenateParameters {
                             colon,
                             ty,
                         } => DeclarativeRitchieRegularParameter::new(
-                            expr_region_data
+                            syn_expr_region_data
                                 .pattern_contract(syn_pattern_root.syn_pattern_expr_idx()),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
@@ -47,7 +47,7 @@ impl DeclarativeParenateParameters {
                             ty,
                             ..
                         } => DeclarativeRitchieVariadicParameter::new(
-                            Contract::new(*symbol_modifier_keyword_group),
+                            TermContract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
                                     i.try_into().unwrap(),
@@ -63,7 +63,7 @@ impl DeclarativeParenateParameters {
                             ..
                         } => DeclarativeRitchieKeyedParameter::new(
                             ident_token.ident(),
-                            Contract::new(*symbol_modifier_keyword_group),
+                            TermContract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
                                     i.try_into().unwrap(),

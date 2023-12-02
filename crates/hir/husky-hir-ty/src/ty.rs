@@ -1,6 +1,7 @@
+pub mod path_leading;
 pub mod ritchie;
 
-use self::ritchie::HirRitchieType;
+use self::{path_leading::HirTypePathLeading, ritchie::HirRitchieType};
 use crate::*;
 use husky_ethereal_signature::HasEtherealSignatureTemplate;
 use husky_ethereal_term::{
@@ -21,18 +22,10 @@ pub enum HirType {
     Ritchie(HirRitchieType),
 }
 
-#[salsa::interned(db = HirTypeDb, jar = HirTypeJar)]
-pub struct HirTypePathLeading {
-    pub ty_path: TypePath,
-    /// phantom arguments are ignored
-    #[return_ref]
-    pub template_arguments: HirTemplateArguments,
-}
-
-#[salsa::interned(db = HirTypeDb, jar = HirTypeJar)]
+#[salsa::interned(jar = HirTypeJar)]
 pub struct HirTypeTypeAssociatedType {}
 
-#[salsa::interned(db = HirTypeDb, jar = HirTypeJar)]
+#[salsa::interned(jar = HirTypeJar)]
 pub struct HirTypeTraitAssociatedType {}
 
 impl HirType {
@@ -67,10 +60,20 @@ impl HirType {
         }
     }
 
-    pub fn is_equal_to_unit_obviously(self, db: &::salsa::Db) -> bool {
+    pub fn is_core_basic_unit_obviously(self, db: &::salsa::Db) -> bool {
         match self.prelude_ty_path(db) {
             Some(PreludeTypePath::UNIT) => true,
             _ => false,
+        }
+    }
+
+    pub fn is_copyable_obviously(self, db: &::salsa::Db) -> bool {
+        match self {
+            HirType::PathLeading(slf) => slf.is_copyable_obviously(db),
+            HirType::Symbol(slf) => false, // ad hoc: todo check traits
+            HirType::TypeAssociatedType(slf) => false, // ad hoc: todo check traits
+            HirType::TraitAssociatedType(slf) => false, // ad hoc: todo check traits
+            HirType::Ritchie(slf) => true,
         }
     }
 }

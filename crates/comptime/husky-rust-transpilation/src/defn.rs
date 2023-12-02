@@ -8,7 +8,7 @@ mod ty_variant;
 use crate::*;
 use husky_entity_syn_tree::helpers::paths::{module_item_paths, module_submodule_item_paths};
 use husky_hir_decl::parameter::{
-    parenate::eager::{HirEagerParenateParameter, HirEagerParenateParameters},
+    parenate::eager::{HirEagerContract, HirEagerParenateParameter, HirEagerParenateParameters},
     self_value::eager::HirEagerSelfValueParameter,
     template::{HirTemplateParameter, HirTemplateParameterData, HirTemplateParameters},
 };
@@ -126,13 +126,30 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerSelfValueParameter {
 
 impl TranspileToRust<HirEagerExprRegion> for HirEagerParenateParameter {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
+        let db = builder.db();
         match self {
             HirEagerParenateParameter::Ordinary {
                 pattern_expr_idx,
+                contract,
                 ty,
             } => {
                 pattern_expr_idx.transpile_to_rust(builder);
-                builder.opr(RustPunctuation::Colon);
+                builder.punctuation(RustPunctuation::Colon);
+                match contract {
+                    HirEagerContract::None => match ty.is_copyable_obviously(db) {
+                        true => (),
+                        false => builder.punctuation(RustPunctuation::Ambersand),
+                    },
+                    HirEagerContract::Move => (),
+                    HirEagerContract::Borrow => builder.punctuation(RustPunctuation::Ambersand),
+                    HirEagerContract::BorrowMut => {
+                        builder.punctuation(RustPunctuation::Ambersand);
+                        builder.keyword(RustKeyword::Mut)
+                    }
+                    HirEagerContract::Const => todo!(),
+                    HirEagerContract::Leash => todo!(),
+                    HirEagerContract::At => todo!(),
+                }
                 ty.transpile_to_rust(builder)
             }
             HirEagerParenateParameter::Keyed => todo!(),

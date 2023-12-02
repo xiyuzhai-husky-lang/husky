@@ -4,7 +4,7 @@ use super::*;
 #[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub struct SynPatternExprRegion {
     pattern_expr_arena: SynPatternExprArena,
-    pattern_expr_contracts: SynPatternExprOrderedMap<Contract>,
+    pattern_expr_contracts: SynPatternExprOrderedMap<TermContract>,
     pattern_symbol_arena: SynPatternSymbolArena,
     pattern_symbol_maps: SynPatternExprOrderedMap<IdentPairMap<SynPatternSymbolIdx>>,
     pattern_symbol_modifiers: SynPatternSymbolOrderedMap<SymbolModifier>,
@@ -110,7 +110,7 @@ impl std::ops::Index<&SynPatternSymbolIdx> for SynPatternExprRegion {
 }
 
 impl SynExprRegionData {
-    pub fn pattern_contract(&self, pattern_expr_idx: SynPatternExprIdx) -> Contract {
+    pub fn pattern_contract(&self, pattern_expr_idx: SynPatternExprIdx) -> TermContract {
         self.pattern_expr_region()
             .pattern_contract(pattern_expr_idx)
     }
@@ -125,7 +125,7 @@ impl SynExprRegionData {
 }
 
 impl SynPatternExprRegion {
-    fn pattern_contract(&self, pattern_expr_idx: SynPatternExprIdx) -> Contract {
+    fn pattern_contract(&self, pattern_expr_idx: SynPatternExprIdx) -> TermContract {
         self.pattern_expr_contracts[pattern_expr_idx]
     }
 

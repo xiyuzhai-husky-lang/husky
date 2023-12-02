@@ -33,7 +33,7 @@ impl TranspileToRust<HirEagerExprRegion> for HirEagerPatternExprIdx {
                     if start {
                         start = false
                     } else {
-                        builder.opr(RustPunctuation::PatternOr)
+                        builder.punctuation(RustPunctuation::PatternOr)
                     }
                     option.transpile_to_rust(builder)
                 }

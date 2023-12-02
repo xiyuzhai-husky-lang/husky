@@ -68,7 +68,10 @@ impl<'a> SemaExprEngine<'a> {
                     } => todo!(),
                     FluffyBaseTypeData::Symbol { term } => todo!(),
                 };
-                self.build_sema_expr(ropd, ExpectCoersion::new(Contract::Move, ropd_ty_expected))
+                self.build_sema_expr(
+                    ropd,
+                    ExpectCoersion::new(TermContract::Move, ropd_ty_expected),
+                )
             }
             None => self.build_sema_expr(ropd, ExpectAnyDerived),
         };

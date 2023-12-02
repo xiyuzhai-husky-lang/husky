@@ -20,6 +20,7 @@ pub enum RustPunctuation {
     PatternOr,
     Not,
     SemicolonInArray,
+    Ambersand,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -60,8 +61,8 @@ impl RustBracket {
 }
 
 impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
-    pub(crate) fn opr(&mut self, opr: RustPunctuation) {
-        let s = match opr {
+    pub(crate) fn punctuation(&mut self, punctuation: RustPunctuation) {
+        let s = match punctuation {
             RustPunctuation::Bra(bracket) => bracket.bra_code(),
             RustPunctuation::Ket(bracket) => bracket.ket_code(),
             RustPunctuation::Assign => " = ",
@@ -81,6 +82,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustPunctuation::PatternOr => " | ",
             RustPunctuation::Not => "!",
             RustPunctuation::SemicolonInArray => "; ",
+            RustPunctuation::Ambersand => "&",
         };
         self.write_str(s)
     }

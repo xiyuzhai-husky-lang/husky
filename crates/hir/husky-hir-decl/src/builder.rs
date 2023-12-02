@@ -9,12 +9,13 @@ use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, HirType};
 use husky_sema_expr::{SemaExprDb, SemaExprRegionData};
 use husky_syn_expr::{
     CurrentSynSymbolIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
-    SynExprRegion, SynPatternExprRoot,
+    SynExprRegion, SynExprRegionData, SynPatternExprRoot,
 };
 
 pub(crate) struct HirDeclBuilder<'a> {
     db: &'a ::salsa::Db,
     hir_ty_menu: &'a HirTypeMenu,
+    syn_expr_region_data: &'a SynExprRegionData,
     sema_expr_region_data: &'a SemaExprRegionData,
     hir_expr_region: HirExprRegion,
     hir_expr_source_map: HirExprSourceMap,
@@ -27,9 +28,11 @@ impl<'a> HirDeclBuilder<'a> {
         let (hir_expr_region, hir_expr_source_map) =
             hir_expr_region_with_source_map(syn_expr_region, db);
         let sema_expr_region = db.sema_expr_region(syn_expr_region);
+        let syn_expr_region = sema_expr_region.syn_expr_region(db);
         Self {
             db,
             hir_ty_menu,
+            syn_expr_region_data: syn_expr_region.data(db),
             sema_expr_region_data: sema_expr_region.data(db),
             hir_expr_region,
             hir_expr_source_map,
@@ -125,5 +128,9 @@ impl<'a> HirDeclBuilder<'a> {
         source_map
             .data(db)
             .syn_pattern_root_to_sema_expr_idx(syn_pattern_root)
+    }
+
+    pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
+        self.syn_expr_region_data
     }
 }

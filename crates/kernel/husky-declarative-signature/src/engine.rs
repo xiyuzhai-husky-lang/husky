@@ -590,7 +590,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                         // todo: support variadic, and keyed??
                         Ok(DeclarativeRitchieRegularParameter::new(
                             // todo: handle &mut !!
-                            Contract::None,
+                            TermContract::None,
                             self.infer_new_expr_term(parameter_ty_item.syn_expr_idx())?,
                         )
                         .into())

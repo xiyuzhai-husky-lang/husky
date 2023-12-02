@@ -287,6 +287,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
+                                    contract: None,
                                     ty: HirType::Symbol(
                                         Type {
                                             attrs: HirSymbolAttrs,
@@ -772,6 +773,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
+                                    contract: None,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -781,6 +783,7 @@
                                 },
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 2,
+                                    contract: None,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -919,6 +922,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
+                                    contract: None,
                                     ty: HirType::Ritchie(
                                         HirRitchieType {
                                             ritchie_ty_kind: Fn,

@@ -24,6 +24,7 @@ husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
 husky-ethereal-signature.workspace = true
 husky-fluffy-term.workspace = true
+husky-term-prelude.workspace = true
 # semantics
 husky-sema-expr.workspace = true
 # syntax
@@ -44,7 +45,6 @@ husky-token-data.workspace = true
 husky-token.workspace = true
 husky-toml-token.workspace = true
 # kernel
-husky-term-prelude.workspace = true
 husky-declarative-term.workspace = true
 husky-declarative-ty.workspace = true
 husky-declarative-signature.workspace = true

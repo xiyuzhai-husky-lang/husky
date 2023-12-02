@@ -579,6 +579,7 @@
                             [
                                 HirEagerParenateParameter::Ordinary {
                                     pattern_expr_idx: 1,
+                                    contract: None,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
                                             ty_path: TypePath(`core::result::Result`, `Enum`),

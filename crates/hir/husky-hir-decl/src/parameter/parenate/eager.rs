@@ -1,10 +1,38 @@
+use husky_term_prelude::TermContract;
+
 use super::*;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum HirEagerContract {
+    None,
+    Move,
+    Borrow,
+    BorrowMut,
+    Const,
+    Leash,
+    At,
+}
+
+impl HirEagerContract {
+    fn from_term(contract: TermContract) -> Self {
+        match contract {
+            TermContract::None => HirEagerContract::None,
+            TermContract::Move => HirEagerContract::Move,
+            TermContract::Borrow => HirEagerContract::Borrow,
+            TermContract::BorrowMut => HirEagerContract::BorrowMut,
+            TermContract::Const => HirEagerContract::Const,
+            TermContract::Leash => HirEagerContract::Leash,
+            TermContract::At => HirEagerContract::At,
+        }
+    }
+}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db]
 pub enum HirEagerParenateParameter {
     Ordinary {
         pattern_expr_idx: HirEagerPatternExprIdx,
+        contract: HirEagerContract,
         ty: HirType,
     },
     Keyed,
@@ -23,6 +51,11 @@ impl HirEagerParenateParameter {
                 ..
             } => HirEagerParenateParameter::Ordinary {
                 pattern_expr_idx: builder.hir_eager_pattern_expr_idx(syn_pattern_root),
+                contract: HirEagerContract::from_term(
+                    builder
+                        .syn_expr_region_data()
+                        .pattern_contract(syn_pattern_root.syn_pattern_expr_idx()),
+                ),
                 ty: builder.hir_ty(ty),
             },
             ParenateSynParameterData::Variadic {

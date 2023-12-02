@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum Contract {
+pub enum TermContract {
     None,
     Move,
     Borrow,
@@ -11,37 +11,37 @@ pub enum Contract {
     At,
 }
 
-impl Contract {
+impl TermContract {
     pub fn new<TG>(ephem_symbol_modifier_token_group: Option<TG>) -> Self
     where
-        TG: Into<Contract>,
+        TG: Into<TermContract>,
     {
         match ephem_symbol_modifier_token_group {
             Some(t) => t.into(),
-            None => Contract::None,
+            None => TermContract::None,
         }
     }
 
     pub fn as_str(self) -> &'static str {
         match self {
-            Contract::None => "",
-            Contract::Move => "move ",
-            Contract::Borrow => "borrow",
-            Contract::BorrowMut => "borrow mut",
-            Contract::Const => "const",
-            Contract::Leash => todo!(),
-            Contract::At => "@",
+            TermContract::None => "",
+            TermContract::Move => "move ",
+            TermContract::Borrow => "borrow",
+            TermContract::BorrowMut => "borrow mut",
+            TermContract::Const => "const",
+            TermContract::Leash => todo!(),
+            TermContract::At => "@",
         }
     }
 }
 
-impl From<SymbolModifier> for Contract {
+impl From<SymbolModifier> for TermContract {
     fn from(modifier: SymbolModifier) -> Self {
         match modifier {
-            SymbolModifier::None => Contract::None,
-            SymbolModifier::Mut => Contract::Move,
-            SymbolModifier::RefMut => Contract::BorrowMut,
-            SymbolModifier::Const => Contract::Const,
+            SymbolModifier::None => TermContract::None,
+            SymbolModifier::Mut => TermContract::Move,
+            SymbolModifier::RefMut => TermContract::BorrowMut,
+            SymbolModifier::Const => TermContract::Const,
             SymbolModifier::Ambersand(_) => todo!(),
             SymbolModifier::AmbersandMut(_) => todo!(),
             SymbolModifier::Le => todo!(),

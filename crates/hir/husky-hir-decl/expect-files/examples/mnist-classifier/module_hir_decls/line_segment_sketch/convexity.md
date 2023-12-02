@@ -11,6 +11,7 @@
                         [
                             HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 1,
+                                contract: None,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -20,6 +21,7 @@
                             },
                             HirEagerParenateParameter::Ordinary {
                                 pattern_expr_idx: 2,
+                                contract: None,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
                                         ty_path: TypePath(`core::num::i32`, `Extern`),
