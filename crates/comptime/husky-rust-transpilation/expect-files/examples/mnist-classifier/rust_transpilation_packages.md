@@ -126,11 +126,11 @@
             name: `malamute`,
             data: PackagePathSource::Registry {
                 registry_path: RegistryPath(
-                    VirtualPath(
-                        Id {
-                            value: 11,
-                        },
-                    ),
+                    VirtualPath {
+                        _data: VirtualPathBuf(
+                            "../../../.corgi/../registry",
+                        ),
+                    },
                 ),
                 version: Version {
                     major: 0,
@@ -178,11 +178,11 @@
             name: `malamute`,
             data: PackagePathSource::Registry {
                 registry_path: RegistryPath(
-                    VirtualPath(
-                        Id {
-                            value: 11,
-                        },
-                    ),
+                    VirtualPath {
+                        _data: VirtualPathBuf(
+                            "../../../.corgi/../registry",
+                        ),
+                    },
                 ),
                 version: Version {
                     major: 0,
@@ -230,11 +230,11 @@
             name: `mnist`,
             data: PackagePathSource::Registry {
                 registry_path: RegistryPath(
-                    VirtualPath(
-                        Id {
-                            value: 11,
-                        },
-                    ),
+                    VirtualPath {
+                        _data: VirtualPathBuf(
+                            "../../../.corgi/../registry",
+                        ),
+                    },
                 ),
                 version: Version {
                     major: 0,
@@ -282,11 +282,11 @@
             name: `mnist`,
             data: PackagePathSource::Registry {
                 registry_path: RegistryPath(
-                    VirtualPath(
-                        Id {
-                            value: 11,
-                        },
-                    ),
+                    VirtualPath {
+                        _data: VirtualPathBuf(
+                            "../../../.corgi/../registry",
+                        ),
+                    },
                 ),
                 version: Version {
                     major: 0,
