@@ -22,8 +22,8 @@ impl TranspileToFsFull for LinktimeTargetPath {
             linktime_target_rust_workspace_manifest(db, self),
             true,
         );
-        for dep in rust_transpilation_packages(db, self) {
-            dep.transpile_to_fs(db)?
+        for package in rust_transpilation_packages(db, self) {
+            package.transpile_to_fs(db)?
         }
         Ok(())
     }

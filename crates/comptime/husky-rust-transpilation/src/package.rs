@@ -7,8 +7,8 @@ use husky_vfs::{
 
 use crate::*;
 
+#[salsa::debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::debug_with_db(db = RustTranspilationDb, jar = RustTranspilationJar)]
 pub(crate) struct RustTranspilationPackage {
     pub(crate) target_path: LinktimeTargetPath,
     pub(crate) package_path: PackagePath,
@@ -65,4 +65,15 @@ pub(crate) fn rust_transpilation_packages(
         }
         LinktimeTargetPathData::Workspace(_) => todo!(),
     }
+}
+
+#[test]
+fn rust_transpilation_packages_works() {
+    DB::default().ast_expect_test_debug_with_db(
+        |db, package_path: PackagePath| {
+            let linktime_target_path = LinktimeTargetPath::new_package(package_path, db);
+            rust_transpilation_packages(db, linktime_target_path)
+        },
+        &AstTestConfig::new("rust_transpilation_packages"),
+    )
 }
