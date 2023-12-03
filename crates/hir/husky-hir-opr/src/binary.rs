@@ -10,6 +10,7 @@ pub enum HirBinaryOpr {
     AssignShift(BinaryShiftOpr),
     Comparison(BinaryComparisonOpr),
     ShortCircuitLogic(BinaryShortcuitLogicOpr),
+    #[deprecated]
     As, // as
 }
 

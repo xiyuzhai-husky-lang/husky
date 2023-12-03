@@ -80,7 +80,7 @@ pub fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Direction
 }
 
 pub fn get_angle_change(inward: &Direction, outward: &Direction) -> i32 {
-    let raw_angle_change = ((outward as i32 - inward as i32) as r32).last_bits(2);
+    let raw_angle_change = ((outward as i32 - inward as i32) as u32).last_bits(2);
     match raw_angle_change{
         0 | 1 | 2 => {
             raw_angle_change as i32
