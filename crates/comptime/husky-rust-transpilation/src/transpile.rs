@@ -31,24 +31,24 @@ impl TranspileToFsFull for LinktimeTargetPath {
 
 impl RustTranspilationPackage {
     pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
-        let rust_dir = self.target_path.rust_dir(db);
+        let workspace_dir = self.target_path.rust_workspace_dir(db);
         match self.kind {
             package::RustTranspilationPackageKind::Source => {
-                transpile_package_source_to_fs(rust_dir, self.package_path, db)
+                transpile_package_source_to_fs(workspace_dir, self.package_path, db)
             }
             package::RustTranspilationPackageKind::Linkages => {
-                transpile_package_linkages_to_fs(rust_dir, self.package_path, db)
+                transpile_package_linkages_to_fs(workspace_dir, self.package_path, db)
             }
         }
     }
 }
 
 fn transpile_package_source_to_fs(
-    rust_dir: &std::path::Path,
+    rust_workspace_dir: &std::path::Path,
     package_path: PackagePath,
     db: &::salsa::Db,
 ) -> IOResult<()> {
-    let package_dir = rust_dir.join(package_path.name(db).data(db));
+    let package_dir = rust_workspace_dir.join(package_path.name(db).data(db));
     let src_dir = package_dir.join("src");
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
@@ -69,11 +69,12 @@ fn transpile_package_source_to_fs(
 }
 
 fn transpile_package_linkages_to_fs(
-    rust_dir: &std::path::Path,
+    rust_workspace_dir: &std::path::Path,
     package_path: PackagePath,
     db: &::salsa::Db,
 ) -> IOResult<()> {
-    let package_dir = rust_dir.join(format!("{}-linkages", package_path.name(db).data(db)));
+    let package_dir =
+        rust_workspace_dir.join(format!("{}-linkages", package_path.name(db).data(db)));
     let src_dir = package_dir.join("src");
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
