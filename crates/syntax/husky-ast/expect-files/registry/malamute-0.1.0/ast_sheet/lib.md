@@ -117,18 +117,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        45,
+                        47,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `Yes`,
                     token_idx: TokenIdx(
-                        46,
+                        48,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        47,
+                        49,
                     ),
                     drained: true,
                 },
@@ -161,18 +161,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        47,
+                        49,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `No`,
                     token_idx: TokenIdx(
-                        48,
+                        50,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        49,
+                        51,
                     ),
                     drained: true,
                 },
@@ -241,18 +241,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        99,
+                        101,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `ConfidentYes`,
                     token_idx: TokenIdx(
-                        100,
+                        102,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        101,
+                        103,
                     ),
                     drained: true,
                 },
@@ -285,18 +285,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        101,
+                        103,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `ConfidentNo`,
                     token_idx: TokenIdx(
-                        102,
+                        104,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        103,
+                        105,
                     ),
                     drained: true,
                 },
@@ -329,18 +329,18 @@ AstSheet {
                 ),
                 vertical_token: VerticalToken(
                     TokenIdx(
-                        103,
+                        105,
                     ),
                 ),
                 ident_token: IdentToken {
                     ident: `Unconfident`,
                     token_idx: TokenIdx(
-                        104,
+                        106,
                     ),
                 },
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        105,
+                        107,
                     ),
                     drained: true,
                 },
@@ -367,13 +367,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `Output`,
                     token_idx: TokenIdx(
-                        130,
+                        134,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        131,
+                        135,
                     ),
                     drained: false,
                 },
@@ -568,7 +568,7 @@ AstSheet {
                     variant: Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                134,
+                                138,
                             ),
                         },
                     },
@@ -582,13 +582,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `narrow_down`,
                     token_idx: TokenIdx(
-                        136,
+                        140,
                     ),
                 },
                 is_generic: true,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        137,
+                        141,
                     ),
                     drained: false,
                 },

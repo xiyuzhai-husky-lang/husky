@@ -206,7 +206,7 @@ EntitySynTreePresheet {
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                136,
+                                140,
                             ),
                         },
                         block: DefnBlock::Fugitive {

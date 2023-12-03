@@ -4,20 +4,20 @@ pub enum Class<Label>
 | Unknown
 
 #derive(Debug, Clone, Copy)
-pub enum OneVsAll<Label, #phantom const label: Label>
+pub enum OneVsAll<#phantom Label, #phantom const label: Label>
 | Yes
 | No
 
-impl<Label, #phantom const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
+impl<Label, const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
     type Output = ()
 
 #derive(Debug, Clone, Copy)
-pub enum OneVsAllResult<Label, #phantom const label: Label>
+pub enum OneVsAllResult<#phantom Label, #phantom const label: Label>
 | ConfidentYes
 | ConfidentNo
 | Unconfident
 
-impl<Label, #phantom const label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
+impl<#phantom Label, #phantom const label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
     type Output = ()
 
 pub gn narrow_down<Label, #phantom const label: Label>(
