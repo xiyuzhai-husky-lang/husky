@@ -42,7 +42,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
     pub(crate) fn new(db: &'a ::salsa::Db, result: Option<&'static str>) -> Self {
         Self {
             db,
-            result: Default::default(),
+            result: result.unwrap_or_default().to_string(),
             current_indent: 0,
             is_list_start: None,
             spaced: true,

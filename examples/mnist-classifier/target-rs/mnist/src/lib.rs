@@ -1,3 +1,5 @@
+use husky_core::*;
+
 pub enum MnistLabel {
     Zero,
     One,

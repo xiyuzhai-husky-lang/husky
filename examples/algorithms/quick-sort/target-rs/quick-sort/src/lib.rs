@@ -1,3 +1,5 @@
+use husky_core::*;
+
 pub fn quick_sort<T: Ord>(ref mut arr: &mut [T]) {
     let len = arr.len();
     quick_sort_aux(arr, 0, (len - 1) as isize)
