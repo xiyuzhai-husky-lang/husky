@@ -1,3 +1,5 @@
 [package]
 name = "husky-core"
 version = "0.0.0"
+
+[workspace]
