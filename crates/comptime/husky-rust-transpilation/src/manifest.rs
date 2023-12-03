@@ -58,10 +58,67 @@ pub(crate) fn linktime_target_rust_workspace_members(
 }
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
-pub(crate) fn package_rust_package_manifest(db: &::salsa::Db, package_path: PackagePath) -> String {
+pub(crate) fn package_source_rust_package_manifest(
+    db: &::salsa::Db,
+    package_path: PackagePath,
+) -> String {
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
             name: package_path.name(db).data(db).to_owned(),
+            edition: Some(MaybeInherited::Local(Edition::E2021)),
+            version: MaybeInherited::Local("0.1.0".to_string()),
+            build: None,
+            workspace: None,
+            authors: None,
+            links: None,
+            description: None,
+            homepage: None,
+            documentation: None,
+            readme: None,
+            keywords: None,
+            categories: None,
+            license: None,
+            license_file: None,
+            repository: None,
+            metadata: None,
+            rust_version: None,
+            exclude: None,
+            include: None,
+            default_run: None,
+            autobins: true,
+            autoexamples: true,
+            autotests: true,
+            autobenches: true,
+            publish: None,
+            resolver: None,
+        }),
+        cargo_features: None,
+        workspace: None,
+        dependencies: None,
+        dev_dependencies: None,
+        build_dependencies: None,
+        target: None,
+        features: None,
+        bin: None,
+        bench: None,
+        test: None,
+        example: None,
+        patch: None,
+        lib: None,
+        profile: None,
+        badges: None,
+    })
+    .unwrap()
+}
+
+#[salsa::tracked(jar = RustTranspilationJar, return_ref)]
+pub(crate) fn package_linkages_rust_package_manifest(
+    db: &::salsa::Db,
+    package_path: PackagePath,
+) -> String {
+    toml::to_string(&Manifest {
+        package: Some(Package::<toml::Value> {
+            name: format!("{}-linkages", package_path.name(db).data(db)),
             edition: Some(MaybeInherited::Local(Edition::E2021)),
             version: MaybeInherited::Local("0.1.0".to_string()),
             build: None,

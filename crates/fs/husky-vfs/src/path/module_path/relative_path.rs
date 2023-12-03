@@ -12,7 +12,7 @@ fn module_relative_path(db: &::salsa::Db, module_path: ModulePath) -> RelativePa
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => match crate_path.crate_kind(db) {
             CrateKind::Lib => RelativePathBuf::from_path("lib.rs").unwrap(),
-            CrateKind::Main => RelativePathBuf::from_path("main.rs").unwrap(),
+            CrateKind::Main => RelativePathBuf::from_path("lib.rs").unwrap(), // this is intentional
             CrateKind::Bin(_) => todo!(),
             CrateKind::IntegratedTest(_) => todo!(),
             CrateKind::Example => todo!(),
