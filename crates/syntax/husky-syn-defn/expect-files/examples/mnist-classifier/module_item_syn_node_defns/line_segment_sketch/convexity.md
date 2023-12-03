@@ -47,7 +47,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -309,7 +309,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::InheritedSynSymbol {
                                     ident: `line_segment_sketch`,

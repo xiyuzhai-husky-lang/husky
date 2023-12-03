@@ -21,7 +21,7 @@ pub struct LineSegmentSketch {
     pub strokes: Vec<LineSegmentStroke>,
 } 
 
-pub fn go_right(u: Vector2d, r: f32) -> Vector2d {
+pub fn go_right(u: &Vector2d, r: f32) -> Vector2d {
     let L = (u.x * u.x + u.y * u.y).sqrt();
     assert!(L > r);
     let dr = r * L / (L * L - r * r).sqrt();
@@ -30,7 +30,7 @@ pub fn go_right(u: Vector2d, r: f32) -> Vector2d {
     Vector2d::__constructor(u.x + dx, u.y + dy)
 }
 
-pub fn go_left(u: Vector2d, r: f32) -> Vector2d {
+pub fn go_left(u: &Vector2d, r: f32) -> Vector2d {
     let L = (u.x * u.x + u.y * u.y).sqrt();
     assert!(L > r);
     let dr = r * L / (L * L - r * r).sqrt();
@@ -174,12 +174,6 @@ pub fn find_line_segments(ct: Leash<RawContour>, r: f32) -> Vec<LineSegmentStrok
     line_segments
 }
 
-impl Visualize for LineSegmentStroke {
-    fn visualize(self) -> Html {
-        
-    }
-}
-
 impl LineSegmentStroke {
     pub fn new(ct: Leash<RawContour>, from: i32, to: i32) -> LineSegmentStroke {
         assert!(from <= to);
@@ -188,12 +182,6 @@ impl LineSegmentStroke {
 
     pub fn displacement(self) -> Vector2d {
         self.start.to(self.end)
-    }
-}
-
-impl Visualize for LineSegmentSketch {
-    fn visualize(self) -> Html {
-        self.strokes.visualize()
     }
 }
 

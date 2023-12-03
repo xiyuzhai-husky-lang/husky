@@ -9,10 +9,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 2,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             0,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -32,10 +32,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 5,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             1,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -53,10 +53,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 4,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             2,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -84,10 +84,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 3,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             3,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::MajorItem {
                                     module_item_path: MajorItemPath::Trait(

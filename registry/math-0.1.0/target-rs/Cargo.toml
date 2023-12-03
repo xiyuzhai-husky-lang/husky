@@ -1,0 +1,9 @@
+[workspace]
+members = ["math", "math/linkages"]
+resolver = "2"
+
+[workspace.dependencies.math]
+path = "math"
+
+[workspace.dependencies.math-linkages]
+path = "math/linkages"

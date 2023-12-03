@@ -49,7 +49,7 @@ SynNodeDeclSheet {
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                data: TemplateParameterSyndicateData::Type {
+                                                variant: TemplateParameterSyndicateVariant::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -62,7 +62,7 @@ SynNodeDeclSheet {
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 2,
-                                                data: TemplateParameterSyndicateData::Type {
+                                                variant: TemplateParameterSyndicateVariant::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `E`,
                                                         regional_token_idx: RegionalTokenIdx(
@@ -114,7 +114,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -282,7 +282,7 @@ SynNodeDeclSheet {
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
-                                            data: TemplateParameterSyndicateData::Type {
+                                            variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `T1`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -295,7 +295,7 @@ SynNodeDeclSheet {
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 2,
-                                            data: TemplateParameterSyndicateData::Type {
+                                            variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `T2`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -308,7 +308,7 @@ SynNodeDeclSheet {
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 3,
-                                            data: TemplateParameterSyndicateData::Type {
+                                            variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E1`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -321,7 +321,7 @@ SynNodeDeclSheet {
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 4,
-                                            data: TemplateParameterSyndicateData::Type {
+                                            variant: TemplateParameterSyndicateVariant::Type {
                                                 ident_token: IdentRegionalToken {
                                                     ident: `E2`,
                                                     regional_token_idx: RegionalTokenIdx(
@@ -361,7 +361,7 @@ SynNodeDeclSheet {
                             ),
                         ),
                         trai_expr: TraitSyndicate {
-                            expr: 7,
+                            syn_expr_idx: 7,
                         },
                         for_token: ConnectionForRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
@@ -411,7 +411,7 @@ SynNodeDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [
                                         SynExprData::PrincipalEntityPath {
                                             path_expr_idx: 3,
@@ -904,7 +904,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 3,
@@ -1313,7 +1313,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::InheritedSynSymbol {
                                                 ident: `E2`,
@@ -1595,7 +1595,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 3,
@@ -2004,7 +2004,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 2,

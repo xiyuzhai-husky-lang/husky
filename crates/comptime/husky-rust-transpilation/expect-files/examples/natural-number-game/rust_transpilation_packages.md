@@ -191,6 +191,6 @@
                 },
             },
         },
-        kind: Source,
+        kind: Linkages,
     },
 ]

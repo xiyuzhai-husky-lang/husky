@@ -21,7 +21,7 @@ pub struct ConnectedComponent {
     pub mask: BinaryImage28,
 } 
 
-pub fn horizontal_extend(a: r32, x: r32) -> r32 {
+pub fn horizontal_extend(a: u32, x: u32) -> u32 {
     let mut y = a | (x | x << 1 | x >> 1);
     let mut z = a | (y | y << 1 | y >> 1);
     while z != y {
@@ -31,7 +31,7 @@ pub fn horizontal_extend(a: r32, x: r32) -> r32 {
     return y;
 }
 
-pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> {
+pub fn find_connected_components(img: &BinaryImage28) -> Vec<ConnectedComponent> {
     let mut result: Vec<ConnectedComponent> = vec![];
     let mut unsearched = img.clone();
     for j in 0..30 {
@@ -77,12 +77,6 @@ pub fn find_connected_components(img: BinaryImage28) -> Vec<ConnectedComponent> 
         }
     }
     return result;
-}
-
-impl Visualize for ConnectedComponent {
-    fn visualize(self) -> Html {
-        self.mask.visualize()
-    }
 }
 
 impl ConnectedComponent {

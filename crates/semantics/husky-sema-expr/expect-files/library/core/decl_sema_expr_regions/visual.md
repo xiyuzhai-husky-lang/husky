@@ -43,7 +43,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [],
                 },
                 principal_item_path_expr_arena: Arena {
@@ -92,7 +92,7 @@
                         TraitSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 83,
+                                    value: 80,
                                 },
                             ),
                         ),
@@ -208,7 +208,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [],
                 },
                 principal_item_path_expr_arena: Arena {
@@ -257,7 +257,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 84,
+                                    value: 81,
                                 },
                             ),
                         ),
@@ -324,7 +324,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 92,
+                                    value: 87,
                                 },
                             ),
                         ),
@@ -385,7 +385,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::PrincipalEntityPath {
                             path_expr_idx: 1,
@@ -466,7 +466,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 125,
+                                    value: 122,
                                 },
                             ),
                         ),
@@ -485,7 +485,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 91,
+                                                        value: 86,
                                                     },
                                                 ),
                                             ),
@@ -552,7 +552,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 91,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -601,7 +601,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -710,7 +710,7 @@
                                     ),
                                 ),
                             ),
-                            expr_arena: Arena {
+                            syn_expr_arena: Arena {
                                 data: [
                                     SynExprData::PrincipalEntityPath {
                                         path_expr_idx: 1,
@@ -824,7 +824,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::PrincipalEntityPath {
                             path_expr_idx: 1,
@@ -905,7 +905,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 220,
+                                    value: 217,
                                 },
                             ),
                         ),
@@ -924,7 +924,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 92,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -987,7 +987,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 92,
+                                                    value: 87,
                                                 },
                                             ),
                                         ),
@@ -1040,7 +1040,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {

@@ -89,7 +89,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -351,7 +351,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::InheritedSynSymbol {
                                     ident: `j`,
@@ -573,7 +573,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -835,7 +835,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::InheritedSynSymbol {
                                     ident: `row`,
@@ -1028,7 +1028,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -1290,7 +1290,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::InheritedSynSymbol {
                                     ident: `j`,
@@ -1512,7 +1512,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -1853,7 +1853,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
@@ -1994,14 +1994,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -2023,14 +2023,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -2057,14 +2057,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -2096,14 +2096,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -2125,14 +2125,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -2154,14 +2154,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -2198,14 +2198,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -2227,14 +2227,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -2333,14 +2333,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -2390,14 +2390,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -2447,14 +2447,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -2504,14 +2504,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -2561,14 +2561,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -2618,14 +2618,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -2675,14 +2675,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -2732,14 +2732,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -4126,7 +4126,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -4388,7 +4388,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::InheritedSynSymbol {
                                     ident: `outward`,
@@ -5141,7 +5141,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -5561,7 +5561,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
@@ -5702,14 +5702,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -5731,14 +5731,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -5775,14 +5775,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -5804,14 +5804,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -5843,14 +5843,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -5872,14 +5872,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -5906,14 +5906,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -5950,14 +5950,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -5989,14 +5989,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -6018,14 +6018,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -6067,14 +6067,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -6096,14 +6096,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -6202,14 +6202,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -6259,14 +6259,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -6316,14 +6316,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -6373,14 +6373,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -6430,14 +6430,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -6487,14 +6487,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -6544,14 +6544,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -6601,14 +6601,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -6658,14 +6658,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -6715,14 +6715,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -6772,14 +6772,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -6829,14 +6829,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -6886,14 +6886,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -6943,14 +6943,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -7000,14 +7000,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -7057,14 +7057,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -8250,14 +8250,14 @@
                                                         parent_ty_path: TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 237,
                                                                 },
                                                             ),
                                                         ),
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 310,
+                                                                    value: 302,
                                                                 },
                                                             ),
                                                         ),
@@ -8275,14 +8275,14 @@
                                                         parent_ty_path: TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 237,
                                                                 },
                                                             ),
                                                         ),
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 309,
+                                                                    value: 300,
                                                                 },
                                                             ),
                                                         ),
@@ -8406,14 +8406,14 @@
                                                         parent_ty_path: TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 237,
                                                                 },
                                                             ),
                                                         ),
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 48,
+                                                                    value: 301,
                                                                 },
                                                             ),
                                                         ),
@@ -8431,14 +8431,14 @@
                                                         parent_ty_path: TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 237,
                                                                 },
                                                             ),
                                                         ),
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 49,
+                                                                    value: 303,
                                                                 },
                                                             ),
                                                         ),
@@ -9225,7 +9225,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::List {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
@@ -9421,7 +9421,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::InheritedSynSymbol {
                                     ident: `points`,
@@ -10156,7 +10156,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -10359,7 +10359,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::List {
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -14029,14 +14029,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 309,
+                                                                        value: 300,
                                                                     },
                                                                 ),
                                                             ),
@@ -14086,14 +14086,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 310,
+                                                                        value: 302,
                                                                     },
                                                                 ),
                                                             ),
@@ -14143,14 +14143,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 48,
+                                                                        value: 301,
                                                                     },
                                                                 ),
                                                             ),
@@ -14200,14 +14200,14 @@
                                                             parent_ty_path: TypePath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 242,
+                                                                        value: 237,
                                                                     },
                                                                 ),
                                                             ),
                                                             ident: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 49,
+                                                                        value: 303,
                                                                     },
                                                                 ),
                                                             ),
@@ -15878,14 +15878,14 @@
                                                         parent_ty_path: TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 237,
                                                                 },
                                                             ),
                                                         ),
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 309,
+                                                                    value: 300,
                                                                 },
                                                             ),
                                                         ),
@@ -15903,14 +15903,14 @@
                                                         parent_ty_path: TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 237,
                                                                 },
                                                             ),
                                                         ),
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 310,
+                                                                    value: 302,
                                                                 },
                                                             ),
                                                         ),
@@ -15928,14 +15928,14 @@
                                                         parent_ty_path: TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 237,
                                                                 },
                                                             ),
                                                         ),
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 48,
+                                                                    value: 301,
                                                                 },
                                                             ),
                                                         ),
@@ -15953,14 +15953,14 @@
                                                         parent_ty_path: TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 237,
                                                                 },
                                                             ),
                                                         ),
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 49,
+                                                                    value: 303,
                                                                 },
                                                             ),
                                                         ),
@@ -17275,7 +17275,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -17420,7 +17420,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -17536,7 +17536,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::SelfValue(
                                     RegionalTokenIdx(
@@ -17571,7 +17571,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 262,
+                                                            value: 253,
                                                         },
                                                     ),
                                                 ),
@@ -17683,7 +17683,7 @@
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 378,
+                                                value: 373,
                                             },
                                         ),
                                     ),
@@ -17738,7 +17738,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 378,
+                                                                                            value: 373,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -17750,7 +17750,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -17845,7 +17845,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -17940,7 +17940,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::AssociatedItem {
                                     parent_expr_idx: 1,
@@ -18125,7 +18125,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 378,
+                                                                                            value: 373,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -18137,7 +18137,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -18232,7 +18232,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -18327,7 +18327,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::SelfValue(
                                     RegionalTokenIdx(
@@ -19775,7 +19775,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 378,
+                                                                                            value: 373,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -19787,7 +19787,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -19882,7 +19882,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -19977,7 +19977,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::SelfValue(
                                     RegionalTokenIdx(
@@ -20194,7 +20194,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 378,
+                                                                                            value: 373,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -20206,7 +20206,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -20301,7 +20301,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -20396,7 +20396,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::Literal(
                                     RegionalTokenIdx(
@@ -21731,7 +21731,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 378,
+                                                                                            value: 373,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -21743,7 +21743,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -21838,7 +21838,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -22100,7 +22100,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::SelfValue(
                                     RegionalTokenIdx(

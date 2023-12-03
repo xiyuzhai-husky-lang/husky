@@ -1,0 +1,15 @@
+[workspace]
+members = ["natural-number-game", "natural-number-game/linkages", "mnist", "mnist/linkages"]
+resolver = "2"
+
+[workspace.dependencies.mnist]
+path = "mnist"
+
+[workspace.dependencies.mnist-linkages]
+path = "mnist/linkages"
+
+[workspace.dependencies.natural-number-game]
+path = "natural-number-game"
+
+[workspace.dependencies.natural-number-game-linkages]
+path = "natural-number-game/linkages"

@@ -9,10 +9,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 2,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             0,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::SuperModule {
                                     current_module_path: `mnist_classifier::digits::three`,
@@ -305,14 +305,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 387,
+                                                        value: 382,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 488,
+                                                        value: 481,
                                                     },
                                                 ),
                                             ),
@@ -332,14 +332,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 387,
+                                                        value: 382,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 488,
+                                                        value: 481,
                                                     },
                                                 ),
                                             ),
@@ -1032,14 +1032,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 377,
+                                                        value: 372,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 450,
+                                                        value: 443,
                                                     },
                                                 ),
                                             ),
@@ -1059,14 +1059,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 377,
+                                                        value: 372,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 450,
+                                                        value: 443,
                                                     },
                                                 ),
                                             ),
@@ -1274,14 +1274,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 79,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 124,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),
@@ -1301,14 +1301,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 79,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 124,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),
@@ -1577,14 +1577,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 79,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 124,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),
@@ -1604,14 +1604,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 79,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 124,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),
@@ -1880,14 +1880,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 79,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 124,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),
@@ -1907,14 +1907,14 @@ Ok(
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 79,
+                                                        value: 74,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 124,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),

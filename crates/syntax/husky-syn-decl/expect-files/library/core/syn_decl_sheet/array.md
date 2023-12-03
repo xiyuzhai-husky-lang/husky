@@ -15,7 +15,7 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterSyndicateData::Constant {
+                                    variant: TemplateParameterSyndicateVariant::Constant {
                                         const_token: ConstRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 5,
@@ -46,7 +46,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                     symbol: 2,
-                                    data: TemplateParameterSyndicateData::Type {
+                                    variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -80,7 +80,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,

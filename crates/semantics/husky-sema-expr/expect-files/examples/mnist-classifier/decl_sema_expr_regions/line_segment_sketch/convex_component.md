@@ -43,7 +43,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::PrincipalEntityPath {
                             path_expr_idx: 1,
@@ -209,7 +209,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 220,
+                                                value: 211,
                                             },
                                         ),
                                     ),
@@ -229,7 +229,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 399,
+                                                value: 392,
                                             },
                                         ),
                                     ),
@@ -282,7 +282,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 276,
+                                    value: 273,
                                 },
                             ),
                         ),
@@ -301,7 +301,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 282,
+                                                        value: 277,
                                                     },
                                                 ),
                                             ),
@@ -361,7 +361,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 88,
+                                                        value: 83,
                                                     },
                                                 ),
                                             ),
@@ -421,7 +421,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 281,
+                                                        value: 276,
                                                     },
                                                 ),
                                             ),
@@ -491,7 +491,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 220,
+                                            value: 211,
                                         },
                                     ),
                                 ),
@@ -513,7 +513,7 @@
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 399,
+                                            value: 392,
                                         },
                                     ),
                                 ),
@@ -545,7 +545,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 282,
+                                                    value: 277,
                                                 },
                                             ),
                                         ),
@@ -566,7 +566,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 86,
+                                            value: 82,
                                         },
                                     ),
                                 ),
@@ -587,7 +587,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 88,
+                                                    value: 83,
                                                 },
                                             ),
                                         ),
@@ -608,7 +608,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 56,
+                                            value: 52,
                                         },
                                     ),
                                 ),
@@ -629,7 +629,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 281,
+                                                    value: 276,
                                                 },
                                             ),
                                         ),
@@ -650,7 +650,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 89,
+                                            value: 85,
                                         },
                                     ),
                                 ),
@@ -673,7 +673,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 86,
+                                                    value: 82,
                                                 },
                                             ),
                                         ),
@@ -689,7 +689,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 89,
+                                                    value: 85,
                                                 },
                                             ),
                                         ),
@@ -746,7 +746,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -775,7 +775,7 @@
                                 meta: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
-                                        expr_idx: 2,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -821,7 +821,7 @@
                                 meta: ExpectationState {
                                     idx: 3,
                                     src: ExpectationSource {
-                                        expr_idx: 3,
+                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -848,7 +848,7 @@
                                 meta: ExpectationState {
                                     idx: 4,
                                     src: ExpectationSource {
-                                        expr_idx: 4,
+                                        syn_expr_idx: 4,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -934,7 +934,7 @@
                                 meta: ExpectationState {
                                     idx: 5,
                                     src: ExpectationSource {
-                                        expr_idx: 5,
+                                        syn_expr_idx: 5,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -963,7 +963,7 @@
                                 meta: ExpectationState {
                                     idx: 6,
                                     src: ExpectationSource {
-                                        expr_idx: 6,
+                                        syn_expr_idx: 6,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1001,7 +1001,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 290,
+                                    value: 285,
                                 },
                             ),
                         ),
@@ -1066,7 +1066,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::PrincipalEntityPath {
                             path_expr_idx: 1,
@@ -1176,7 +1176,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 374,
+                                    value: 371,
                                 },
                             ),
                         ),
@@ -1195,7 +1195,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 91,
+                                                        value: 86,
                                                     },
                                                 ),
                                             ),
@@ -1232,7 +1232,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 290,
+                                                        value: 285,
                                                     },
                                                 ),
                                             ),
@@ -1304,7 +1304,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 91,
+                                                    value: 86,
                                                 },
                                             ),
                                         ),
@@ -1327,7 +1327,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 290,
+                                                    value: 285,
                                                 },
                                             ),
                                         ),
@@ -1376,7 +1376,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1409,7 +1409,7 @@
                                 meta: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
-                                        expr_idx: 2,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1447,7 +1447,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 290,
+                                    value: 285,
                                 },
                             ),
                         ),
@@ -1530,7 +1530,7 @@
                                     ),
                                 ),
                             ),
-                            expr_arena: Arena {
+                            syn_expr_arena: Arena {
                                 data: [
                                     SynExprData::PrincipalEntityPath {
                                         path_expr_idx: 1,
@@ -1675,7 +1675,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::PrincipalEntityPath {
                             path_expr_idx: 1,
@@ -1756,7 +1756,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 439,
+                                    value: 436,
                                 },
                             ),
                         ),
@@ -1775,7 +1775,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 92,
+                                                        value: 87,
                                                     },
                                                 ),
                                             ),
@@ -1838,7 +1838,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 92,
+                                                    value: 87,
                                                 },
                                             ),
                                         ),
@@ -1891,7 +1891,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1929,7 +1929,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 290,
+                                    value: 285,
                                 },
                             ),
                         ),

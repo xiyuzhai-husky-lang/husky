@@ -1,0 +1,4 @@
+[package]
+name = "natural-number-game"
+edition = "2021"
+version = "0.1.0"

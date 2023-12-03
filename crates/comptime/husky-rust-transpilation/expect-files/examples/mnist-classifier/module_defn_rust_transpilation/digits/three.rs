@@ -10,9 +10,9 @@ pub fn is_three() -> OneVsAll<MnistLabel> {
     let downarc = three_fermi_match().matches[0];
     let uparc = three_fermi_match().matches[1];
     let back = three_fermi_match().matches[2];
-    require!(matches!);
+    require!(let some = downarc);
     require!(downarc.unwrap().norm() > 3);
-    require!(matches!);
+    require!(let some = uparc);
     let de = downarc.unwrap().end_tangent().angle(true);
     require!(de > 0 || de < -100);
     let downarc_enpoint = downarc.unwrap().end();
