@@ -155,6 +155,14 @@ TokenSheetData {
                 PunctuationMapped::LaOrLt,
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `phantom`,
+        ),
         TokenData::Ident(
             `Label`,
         ),
@@ -221,14 +229,6 @@ TokenSheetData {
             Punctuation(
                 PunctuationMapped::Comma,
             ),
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Pound,
-            ),
-        ),
-        TokenData::Ident(
-            `phantom`,
         ),
         TokenData::Keyword(
             Keyword::Const,
@@ -381,6 +381,14 @@ TokenSheetData {
                 PunctuationMapped::LaOrLt,
             ),
         ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `phantom`,
+        ),
         TokenData::Ident(
             `Label`,
         ),
@@ -447,6 +455,14 @@ TokenSheetData {
             Punctuation(
                 PunctuationMapped::LaOrLt,
             ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Pound,
+            ),
+        ),
+        TokenData::Ident(
+            `phantom`,
         ),
         TokenData::Ident(
             `Label`,
@@ -744,17 +760,17 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                45,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
                 47,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
                 49,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                51,
             ),
         ),
         TokenGroupStart(
@@ -774,11 +790,6 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                99,
-            ),
-        ),
-        TokenGroupStart(
-            TokenIdx(
                 101,
             ),
         ),
@@ -794,12 +805,17 @@ TokenSheetData {
         ),
         TokenGroupStart(
             TokenIdx(
-                129,
+                107,
             ),
         ),
         TokenGroupStart(
             TokenIdx(
-                134,
+                133,
+            ),
+        ),
+        TokenGroupStart(
+            TokenIdx(
+                138,
             ),
         ),
     ],

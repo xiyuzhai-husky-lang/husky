@@ -46,7 +46,7 @@ impl TupleStructTypeHirDecl {
 impl TupleFieldHirDecl {
     fn from_syn(field: &TupleFieldSyndicate, builder: &HirDeclBuilder) -> Self {
         Self {
-            ty: builder.hir_ty(field.ty()),
+            ty: builder.hir_ty(field.ty()).unwrap(),
         }
     }
 

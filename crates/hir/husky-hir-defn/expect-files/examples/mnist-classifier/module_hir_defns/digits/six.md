@@ -131,16 +131,7 @@
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                template_arguments: [
-                                    HirTemplateArgument::Type(
-                                        HirType::PathLeading(
-                                            HirTypePathLeading {
-                                                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                template_arguments: [],
-                                            },
-                                        ),
-                                    ),
-                                ],
+                                template_arguments: [],
                             },
                         ),
                         hir_eager_expr_region: HirEagerExprRegion {

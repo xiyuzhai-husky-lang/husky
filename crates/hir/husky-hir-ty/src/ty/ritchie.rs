@@ -29,7 +29,7 @@ fn hir_ty_from_ethereal_term_ritchie(
             .ritchie_ty_kind()
             .expect("should be type"),
         HirRitchieParameters::from_ethereal(term_ritchie.parameter_contracted_tys(db), db),
-        HirType::from_ethereal(term_ritchie.return_ty(db), db),
+        HirType::from_ethereal(term_ritchie.return_ty(db), db).unwrap(),
     )
 }
 
@@ -80,7 +80,7 @@ impl HirRitchieParameter {
     pub fn from_ethereal_regular(param: EtherealRitchieRegularParameter, db: &::salsa::Db) -> Self {
         HirRitchieRegularParameter {
             contract: param.contract(),
-            ty: HirType::from_ethereal(param.ty(), db),
+            ty: HirType::from_ethereal(param.ty(), db).unwrap(),
         }
         .into()
     }

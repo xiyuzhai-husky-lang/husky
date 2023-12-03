@@ -8,7 +8,7 @@ pub fn nine_match_refine() -> FermiMatchResult {
     fermi_match(major_concave_components(), vec![big_cc])
 }
 
-pub fn is_nine() -> OneVsAll<MnistLabel> {
+pub fn is_nine() -> OneVsAll {
     require!(let none = is_zero());
     require!(let none = is_six());
     let eff_holes = major_connected_component().eff_holes();

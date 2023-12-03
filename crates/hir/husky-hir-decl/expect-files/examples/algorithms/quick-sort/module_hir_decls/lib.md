@@ -101,7 +101,7 @@
                                             `T`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
                                             Type {
                                                 attrs: HirSymbolAttrs,
                                                 variance: None,
@@ -272,7 +272,7 @@
                                             `T`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
                                             Type {
                                                 attrs: HirSymbolAttrs,
                                                 variance: None,
@@ -455,7 +455,7 @@
                                             `T`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirComptimeSymbol::Type(
+                                        hir_comptime_symbol: HirTemplateSymbol::Type(
                                             Type {
                                                 attrs: HirSymbolAttrs,
                                                 variance: None,

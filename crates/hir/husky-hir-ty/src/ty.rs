@@ -8,7 +8,9 @@ use husky_ethereal_term::{
     EtherealTerm, EtherealTermApplication, EtherealTermRitchie, EtherealTermSymbolIndexInner,
     TermFunctionReduced,
 };
+use husky_print_utils::p;
 use husky_term_prelude::TermEntityPath;
+use salsa::DebugWithDb;
 
 /// this is much simpler than that in Term, right?
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -29,23 +31,25 @@ pub struct HirTypeTypeAssociatedType {}
 pub struct HirTypeTraitAssociatedType {}
 
 impl HirType {
-    pub fn from_ethereal(term: EtherealTerm, db: &::salsa::Db) -> Self {
+    pub fn from_ethereal(term: EtherealTerm, db: &::salsa::Db) -> Option<Self> {
         match term {
-            EtherealTerm::Symbol(symbol) => HirTypeSymbol::from_ethereal(symbol, db).into(),
+            EtherealTerm::Symbol(symbol) => {
+                HirTypeSymbol::from_ethereal(symbol, db).map(Into::into)
+            }
             EtherealTerm::EntityPath(path) => match path {
                 TermEntityPath::Fugitive(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
                 TermEntityPath::TypeOntology(ty_path) => {
-                    HirTypePathLeading::new(db, ty_path, smallvec![]).into()
+                    Some(HirTypePathLeading::new(db, ty_path, smallvec![]).into())
                 }
                 TermEntityPath::TypeInstance(_) => todo!(),
                 TermEntityPath::TypeVariant(_) => todo!(),
             },
             EtherealTerm::Ritchie(term_ritchie) => {
-                HirRitchieType::from_ethereal(term_ritchie, db).into()
+                Some(HirRitchieType::from_ethereal(term_ritchie, db).into())
             }
             EtherealTerm::Application(term_application) => {
-                hir_ty_from_ethereal_term_application(db, term_application)
+                Some(hir_ty_from_ethereal_term_application(db, term_application))
             }
             EtherealTerm::Subitem(_) => todo!(),
             EtherealTerm::AsTraitSubitem(_) => todo!(),

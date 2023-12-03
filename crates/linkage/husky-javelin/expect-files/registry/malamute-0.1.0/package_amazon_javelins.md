@@ -2,6 +2,32 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`malamute::OneVsAll`, `Enum`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavelinPath::TypeConstructor(
+                    TypePath(`malamute::OneVsAllResult`, `Enum`),
+                ),
+                instantiation: JavelinInstantiation {
+                    symbol_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
                 path: JavelinPath::TraitForTypeItem(
                     TraitForTypeItemPath(
                         ItemPathId {

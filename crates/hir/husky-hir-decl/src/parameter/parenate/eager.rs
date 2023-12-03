@@ -56,7 +56,7 @@ impl HirEagerParenateParameter {
                         .syn_expr_region_data()
                         .pattern_contract(syn_pattern_root.syn_pattern_expr_idx()),
                 ),
-                ty: builder.hir_ty(ty),
+                ty: builder.hir_ty(ty).unwrap(),
             },
             ParenateSynParameterData::Variadic {
                 dot_dot_dot_token: _,

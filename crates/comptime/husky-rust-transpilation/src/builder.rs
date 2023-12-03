@@ -23,7 +23,7 @@ use husky_hir_eager_expr::{
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyExprRegion, HirLazyStmtArena};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    trai::HirTrait, HirComptimeSymbol, HirConstant, HirTemplateArgument, HirType, HirTypeSymbol,
+    trai::HirTrait, HirConstant, HirTemplateArgument, HirTemplateSymbol, HirType, HirTypeSymbol,
 };
 use husky_print_utils::p;
 use husky_term_prelude::TermLiteral;
@@ -309,7 +309,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
         self.extension.stmt_arena(self.db)
     }
 
-    fn hir_comptime_symbol(&mut self, symbol: impl Into<HirComptimeSymbol>) {
+    fn hir_comptime_symbol(&mut self, symbol: impl Into<HirTemplateSymbol>) {
         let hir_comptime_symbol = symbol.into();
         let Some(symbol_name) = self
             .extension
@@ -420,10 +420,10 @@ impl<E> TranspileToRust<E> for Label {
     }
 }
 
-impl<E> TranspileToRust<E> for HirComptimeSymbol {
+impl<E> TranspileToRust<E> for HirTemplateSymbol {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
-            HirComptimeSymbol::Type(symbol) => match symbol {
+            HirTemplateSymbol::Type(symbol) => match symbol {
                 HirTypeSymbol::Type {
                     attrs: _,
                     variance: _,
@@ -438,9 +438,9 @@ impl<E> TranspileToRust<E> for HirComptimeSymbol {
                 HirTypeSymbol::SelfLifetime => todo!(),
                 HirTypeSymbol::SelfPlace => todo!(),
             },
-            HirComptimeSymbol::Const(_) => todo!(),
-            HirComptimeSymbol::Lifetime(_) => todo!(),
-            HirComptimeSymbol::Place(_) => todo!(),
+            HirTemplateSymbol::Const(_) => todo!(),
+            HirTemplateSymbol::Lifetime(_) => todo!(),
+            HirTemplateSymbol::Place(_) => todo!(),
         }
     }
 }

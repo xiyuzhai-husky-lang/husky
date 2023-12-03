@@ -224,6 +224,8 @@ Ok(
                 },
             ),
             None,
+            None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
@@ -236,7 +238,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        5,
+                                        7,
                                     ),
                                 },
                             },
@@ -261,7 +263,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        10,
+                                        12,
                                     ),
                                 },
                             },
@@ -285,7 +287,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        5,
+                                        7,
                                     ),
                                 },
                             },
@@ -324,8 +326,6 @@ Ok(
             ),
             None,
             None,
-            None,
-            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
@@ -338,7 +338,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        8,
+                                        6,
                                     ),
                                 },
                             },
@@ -479,7 +479,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        8,
+                                        6,
                                     ),
                                 },
                             },
@@ -702,6 +702,89 @@ Ok(
                 },
             ),
             None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        1,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `Label`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        2,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 2,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
+                                ident_token: IdentRegionalToken {
+                                    ident: `label`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        12,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_syn_symbol_idx: 1,
+                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `Label`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        7,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
@@ -764,85 +847,6 @@ Ok(
                                     ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
                                         5,
-                                    ),
-                                },
-                            },
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                ident_token: IdentRegionalToken {
-                                    ident: `Label`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        3,
-                                    ),
-                                },
-                            },
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
-                        2,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
-                                ident_token: IdentRegionalToken {
-                                    ident: `label`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        8,
-                                    ),
-                                },
-                            },
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
-                                ident_token: IdentRegionalToken {
-                                    ident: `Label`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        3,
                                     ),
                                 },
                             },
@@ -936,7 +940,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        3,
+                                        5,
                                     ),
                                 },
                             },
@@ -959,7 +963,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        8,
+                                        10,
                                     ),
                                 },
                             },
@@ -1002,7 +1006,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        3,
+                                        5,
                                     ),
                                 },
                             },
@@ -1025,7 +1029,7 @@ Ok(
                                 ident_token: IdentRegionalToken {
                                     ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        8,
+                                        10,
                                     ),
                                 },
                             },

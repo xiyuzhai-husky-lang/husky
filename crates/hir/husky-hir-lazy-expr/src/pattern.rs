@@ -37,7 +37,7 @@ impl<'a> HirLazyExprBuilder<'a> {
             ty: let_variables_pattern
                 .ty_sema_expr_idx()
                 .map(|ty_sema_expr_idx| {
-                    HirType::from_ethereal(self.expr_term(ty_sema_expr_idx), self.db())
+                    HirType::from_ethereal(self.expr_term(ty_sema_expr_idx), self.db()).unwrap()
                 }),
         }
     }

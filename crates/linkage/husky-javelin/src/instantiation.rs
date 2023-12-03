@@ -1,14 +1,14 @@
 use crate::{template_argument::JavelinTemplateArgument, *};
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolResolution},
-    HirComptimeSymbol,
+    HirTemplateSymbol,
 };
 use vec_like::SmallVecPairMap;
 
 #[salsa::debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct JavelinInstantiation {
-    symbol_resolutions: SmallVecPairMap<HirComptimeSymbol, JavelinTermSymbolResolution, 4>,
+    symbol_resolutions: SmallVecPairMap<HirTemplateSymbol, JavelinTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 impl JavelinInstantiation {

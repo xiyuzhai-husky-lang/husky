@@ -2,7 +2,7 @@ use super::*;
 use husky_coword::Ident;
 use husky_ethereal_term::EtherealTerm;
 use husky_fluffy_term::FluffyTermBase;
-use husky_hir_ty::HirComptimeSymbol;
+use husky_hir_ty::HirTemplateSymbol;
 use husky_sema_expr::SemaExprRegionData;
 use husky_syn_expr::{
     CurrentSynSymbolData, CurrentSynSymbolKind, CurrentTemplateParameterSynSymbolVariant,
@@ -20,7 +20,7 @@ pub struct HirEagerComptimeSymbolRegionData {
 pub struct HirEagerComptimeSymbolEntry {
     name: HirEagerComptimeSymbolName,
     data: HirEagerComptimeSymbolData,
-    hir_comptime_symbol: HirComptimeSymbol,
+    hir_comptime_symbol: HirTemplateSymbol,
 }
 
 pub type HirEagerComptimeSymbolArena = Arena<HirEagerComptimeSymbolEntry>;
@@ -49,7 +49,7 @@ impl HirEagerComptimeSymbolEntry {
         &self.data
     }
 
-    pub fn symbol(&self) -> HirComptimeSymbol {
+    pub fn symbol(&self) -> HirTemplateSymbol {
         self.hir_comptime_symbol
     }
 }
@@ -72,7 +72,7 @@ impl HirEagerComptimeSymbolRegionData {
             match term {
                 EtherealTerm::Symbol(term_symbol) => {
                     let Some(hir_comptime_symbol) =
-                        HirComptimeSymbol::from_ethereal(term_symbol, db)
+                        HirTemplateSymbol::from_ethereal(term_symbol, db)
                     else {
                         continue;
                     };
@@ -99,7 +99,7 @@ impl HirEagerComptimeSymbolRegionData {
             match term {
                 EtherealTerm::Symbol(term_symbol) => {
                     let Some(hir_comptime_symbol) =
-                        HirComptimeSymbol::from_ethereal(term_symbol, db)
+                        HirTemplateSymbol::from_ethereal(term_symbol, db)
                     else {
                         continue;
                     };
@@ -171,7 +171,7 @@ impl HirEagerComptimeSymbolRegionData {
 
     pub fn symbol_name(
         &self,
-        hir_comptime_symbol: HirComptimeSymbol,
+        hir_comptime_symbol: HirTemplateSymbol,
     ) -> Option<HirEagerComptimeSymbolName> {
         self.arena.iter().find_map(|entry| {
             (entry.hir_comptime_symbol == hir_comptime_symbol).then_some(entry.name)

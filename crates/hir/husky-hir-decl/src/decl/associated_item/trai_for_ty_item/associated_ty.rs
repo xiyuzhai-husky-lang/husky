@@ -19,7 +19,7 @@ impl TraitForTypeAssociatedTypeHirDecl {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =
             HirTemplateParameters::from_syn(syn_decl.template_parameters(db), &builder);
-        let ty = builder.hir_ty(syn_decl.ty_term_expr_idx(db));
+        let ty = builder.hir_ty(syn_decl.ty_term_expr_idx(db)).unwrap();
         Self::new(db, path, template_parameters, ty, builder.finish().eager())
     }
 }

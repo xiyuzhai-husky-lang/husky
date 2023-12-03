@@ -1595,7 +1595,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfType,
                             ),
                             JavelinTermSymbolResolution::Explicit(
@@ -1627,7 +1627,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -1646,7 +1646,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfLifetime,
                             ),
                             JavelinTermSymbolResolution::SelfLifetime,
@@ -1669,7 +1669,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -1705,7 +1705,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -1724,7 +1724,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfPlace,
                             ),
                             JavelinTermSymbolResolution::SelfPlace,
@@ -1747,7 +1747,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -1766,7 +1766,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfLifetime,
                             ),
                             JavelinTermSymbolResolution::SelfLifetime,
@@ -1789,7 +1789,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -1808,7 +1808,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfLifetime,
                             ),
                             JavelinTermSymbolResolution::SelfLifetime,
@@ -1831,7 +1831,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -1850,7 +1850,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfLifetime,
                             ),
                             JavelinTermSymbolResolution::SelfLifetime,
@@ -1873,7 +1873,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -1909,7 +1909,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -1928,7 +1928,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfPlace,
                             ),
                             JavelinTermSymbolResolution::SelfPlace,
@@ -1951,7 +1951,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -1987,7 +1987,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2006,7 +2006,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfLifetime,
                             ),
                             JavelinTermSymbolResolution::SelfLifetime,
@@ -2029,7 +2029,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2065,7 +2065,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2084,7 +2084,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfLifetime,
                             ),
                             JavelinTermSymbolResolution::SelfLifetime,
@@ -2107,7 +2107,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2126,7 +2126,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfPlace,
                             ),
                             JavelinTermSymbolResolution::SelfPlace,
@@ -2149,7 +2149,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2204,7 +2204,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfType,
                             ),
                             JavelinTermSymbolResolution::Explicit(
@@ -2245,7 +2245,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2281,7 +2281,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2300,7 +2300,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfLifetime,
                             ),
                             JavelinTermSymbolResolution::SelfLifetime,
@@ -2342,7 +2342,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfType,
                             ),
                             JavelinTermSymbolResolution::Explicit(
@@ -2383,7 +2383,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2438,7 +2438,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfType,
                             ),
                             JavelinTermSymbolResolution::Explicit(
@@ -2470,7 +2470,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2506,7 +2506,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2542,7 +2542,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2575,7 +2575,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2603,7 +2603,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfLifetime,
                             ),
                             JavelinTermSymbolResolution::SelfLifetime,
@@ -2626,7 +2626,7 @@
                 instantiation: JavelinInstantiation {
                     symbol_resolutions: [
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 Type {
                                     attrs: HirSymbolAttrs,
                                     variance: None,
@@ -2663,7 +2663,7 @@
                             ),
                         ),
                         (
-                            HirComptimeSymbol::Type(
+                            HirTemplateSymbol::Type(
                                 SelfLifetime,
                             ),
                             JavelinTermSymbolResolution::SelfLifetime,

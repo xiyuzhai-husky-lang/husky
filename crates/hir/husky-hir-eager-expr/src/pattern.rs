@@ -1,4 +1,5 @@
 use husky_hir_ty::HirType;
+use husky_print_utils::p;
 use husky_sema_expr::LetPatternSemaSyndicate;
 use husky_syn_expr::BePatternSynSyndicate;
 
@@ -31,7 +32,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             ty: let_pattern_sema_obelisk
                 .ty_sema_expr_idx()
                 .map(|ty_sema_expr_idx| {
-                    HirType::from_ethereal(self.expr_term(ty_sema_expr_idx), self.db())
+                    HirType::from_ethereal(self.expr_term(ty_sema_expr_idx), self.db()).unwrap()
                 }),
         }
     }

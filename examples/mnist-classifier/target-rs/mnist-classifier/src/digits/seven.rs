@@ -30,7 +30,7 @@ pub fn leftdowncc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     ang
 }
 
-pub fn is_seven() -> OneVsAll<MnistLabel> {
+pub fn is_seven() -> OneVsAll {
     require!(let none = is_six());
     require!(let none = is_zero());
     require!(major_connected_component().max_hole_ilen() == 0);

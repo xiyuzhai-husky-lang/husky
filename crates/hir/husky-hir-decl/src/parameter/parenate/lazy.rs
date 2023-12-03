@@ -52,7 +52,7 @@ impl HirLazyParenateParameter {
                 ..
             } => HirLazyParenateParameter::Ordinary {
                 pattern_expr_idx: builder.hir_lazy_pattern_expr_idx(syn_pattern_root),
-                ty: builder.hir_ty(ty),
+                ty: builder.hir_ty(ty).unwrap(),
             },
             ParenateSynParameterData::Variadic {
                 ref variadic_variant,
@@ -60,13 +60,13 @@ impl HirLazyParenateParameter {
                 ..
             } => HirLazyParenateParameter::Variadic {
                 variant: variadic_variant.into(),
-                ty: builder.hir_ty(ty),
+                ty: builder.hir_ty(ty).unwrap(),
             },
             ParenateSynParameterData::Keyed {
                 ident_token, ty, ..
             } => HirLazyParenateParameter::Keyed {
                 ident: ident_token.ident(),
-                ty: builder.hir_ty(ty),
+                ty: builder.hir_ty(ty).unwrap(),
             },
         })
     }
