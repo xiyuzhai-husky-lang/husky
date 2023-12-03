@@ -3,7 +3,7 @@ members = ["quick-sort", "quick-sort/linkages"]
 resolver = "2"
 
 [workspace.dependencies.husky-core]
-path = "../../../../library"
+path = "../../../../library/core"
 
 [workspace.dependencies.quick-sort]
 path = "quick-sort"

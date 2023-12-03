@@ -94,6 +94,10 @@ impl PackagePath {
         self.name(db).ident(db)
     }
 
+    pub fn name_string(self, db: &::salsa::Db) -> String {
+        self.name(db).data(db).to_string()
+    }
+
     pub fn dir(self, db: &::salsa::Db) -> VfsResult<VirtualPath> {
         package_dir(db, self)
     }

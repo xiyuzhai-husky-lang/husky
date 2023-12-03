@@ -3,9 +3,10 @@ use crate::{
     *,
 };
 use cargo_manifest::{
-    Dependency, DependencyDetail, Edition, Manifest, MaybeInherited, Package, Product, Resolver,
-    Workspace,
+    Dependency, DependencyDetail, Edition, InheritedDependencyDetail, Manifest, MaybeInherited,
+    Package, Product, Resolver, True, Workspace,
 };
+use husky_manifest::HasPackageManifest;
 use husky_print_utils::p;
 use husky_vfs::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
 use pathdiff::diff_paths;
@@ -32,18 +33,15 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     let dependencies = [(
         "husky-core".to_string(),
         Dependency::Detailed(DependencyDetail {
-            version: None,
-            registry: None,
-            registry_index: None,
-            path: Some(library_diffpath.as_os_str().to_str().unwrap().to_string()),
-            git: None,
-            branch: None,
-            tag: None,
-            rev: None,
-            features: None,
-            optional: None,
-            default_features: None,
-            package: None,
+            path: Some(
+                library_diffpath
+                    .join("core")
+                    .as_os_str()
+                    .to_str()
+                    .unwrap()
+                    .to_string(),
+            ),
+            ..Default::default()
         }),
     )]
     .into_iter()
@@ -72,25 +70,11 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
         cargo_features: None,
         workspace: Some(Workspace {
             members,
-            default_members: None,
-            exclude: None,
             resolver: Some(Resolver::V2),
             dependencies: Some(dependencies),
-            package: None,
+            ..Default::default()
         }),
-        dependencies: None,
-        dev_dependencies: None,
-        build_dependencies: None,
-        target: None,
-        features: None,
-        bin: None,
-        bench: None,
-        test: None,
-        example: None,
-        patch: None,
-        lib: None,
-        profile: None,
-        badges: None,
+        ..Default::default()
     })
     .unwrap()
 }
@@ -100,6 +84,17 @@ pub(crate) fn package_source_rust_package_manifest(
     db: &::salsa::Db,
     package_path: PackagePath,
 ) -> String {
+    let dependencies = ["husky-core".to_string()]
+        .into_iter()
+        .chain(
+            package_path
+                .package_dependencies(db)
+                .unwrap()
+                .iter()
+                .map(|dep| dep.package_path().name_string(db)),
+        )
+        .map(|name| (name, INHERITED))
+        .collect();
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
             name: package_path.name(db).data(db).to_owned(),
@@ -130,21 +125,8 @@ pub(crate) fn package_source_rust_package_manifest(
             publish: None,
             resolver: None,
         }),
-        cargo_features: None,
-        workspace: None,
-        dependencies: None,
-        dev_dependencies: None,
-        build_dependencies: None,
-        target: None,
-        features: None,
-        bin: None,
-        bench: None,
-        test: None,
-        example: None,
-        patch: None,
-        lib: None,
-        profile: None,
-        badges: None,
+        dependencies: Some(dependencies),
+        ..Default::default()
     })
     .unwrap()
 }
@@ -154,6 +136,18 @@ pub(crate) fn package_linkages_rust_package_manifest(
     db: &::salsa::Db,
     package_path: PackagePath,
 ) -> String {
+    let dependencies = ["husky-core".to_string()]
+        .into_iter()
+        .chain(
+            package_path
+                .package_dependencies(db)
+                .unwrap()
+                .iter()
+                .map(|dep| dep.package_path().name_string(db)),
+        )
+        .chain([package_path.name_string(db)])
+        .map(|name| (name, INHERITED))
+        .collect();
     toml::to_string(&Manifest {
         package: Some(Package::<toml::Value> {
             name: format!("{}-linkages", package_path.name(db).data(db)),
@@ -184,18 +178,7 @@ pub(crate) fn package_linkages_rust_package_manifest(
             publish: None,
             resolver: None,
         }),
-        cargo_features: None,
-        workspace: None,
-        dependencies: None,
-        dev_dependencies: None,
-        build_dependencies: None,
-        target: None,
-        features: None,
-        bin: None,
-        bench: None,
-        test: None,
-        example: None,
-        patch: None,
+        dependencies: Some(dependencies),
         lib: Some(Product {
             path: None,
             name: None,
@@ -210,8 +193,13 @@ pub(crate) fn package_linkages_rust_package_manifest(
             required_features: vec![],
             crate_type: Some(vec!["cdylib".into()]),
         }),
-        profile: None,
-        badges: None,
+        ..Default::default()
     })
     .unwrap()
 }
+
+const INHERITED: Dependency = Dependency::Inherited(InheritedDependencyDetail {
+    workspace: True,
+    features: None,
+    optional: None,
+});

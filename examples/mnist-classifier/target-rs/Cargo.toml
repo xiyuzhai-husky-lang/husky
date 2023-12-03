@@ -3,7 +3,7 @@ members = ["mnist-classifier", "mnist-classifier/linkages", "malamute", "malamut
 resolver = "2"
 
 [workspace.dependencies.husky-core]
-path = "../../../library"
+path = "../../../library/core"
 
 [workspace.dependencies.malamute]
 path = "malamute"

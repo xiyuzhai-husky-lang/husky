@@ -3,7 +3,7 @@ members = ["math", "math/linkages"]
 resolver = "2"
 
 [workspace.dependencies.husky-core]
-path = "../../../library"
+path = "../../../library/core"
 
 [workspace.dependencies.math]
 path = "math"

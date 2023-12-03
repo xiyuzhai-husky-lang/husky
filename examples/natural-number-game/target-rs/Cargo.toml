@@ -3,7 +3,7 @@ members = ["natural-number-game", "natural-number-game/linkages", "mnist", "mnis
 resolver = "2"
 
 [workspace.dependencies.husky-core]
-path = "../../../library"
+path = "../../../library/core"
 
 [workspace.dependencies.mnist]
 path = "mnist"
