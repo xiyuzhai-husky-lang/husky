@@ -1,0 +1,10 @@
+[package]
+name = "quick-sort-linkages"
+edition = "2021"
+version = "0.1.0"
+
+[lib]
+plugin = false
+proc-macro = false
+required-features = []
+crate-type = ["cdylib"]

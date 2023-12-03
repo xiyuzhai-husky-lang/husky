@@ -1,7 +1,10 @@
 use crate::{
     defn::module_defn_rust_transpilation,
     linkage::package_linkages_transpilation,
-    manifest::{linktime_target_rust_workspace_manifest, package_source_rust_package_manifest},
+    manifest::{
+        linktime_target_rust_workspace_manifest, package_linkages_rust_package_manifest,
+        package_source_rust_package_manifest,
+    },
     package::{rust_transpilation_packages, RustTranspilationPackage},
     *,
 };
@@ -73,13 +76,14 @@ fn transpile_package_linkages_to_fs(
     package_path: PackagePath,
     db: &::salsa::Db,
 ) -> IOResult<()> {
-    let package_dir =
-        rust_workspace_dir.join(format!("{}-linkages", package_path.name(db).data(db)));
+    let package_dir = rust_workspace_dir
+        .join(package_path.name(db).data(db))
+        .join("linkages");
     let src_dir = package_dir.join("src");
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
         &cargo_toml_path,
-        package_source_rust_package_manifest(db, package_path),
+        package_linkages_rust_package_manifest(db, package_path),
         true,
     );
     husky_io_utils::diff_write(
