@@ -16,10 +16,11 @@ pub struct ModulePath {
 impl ModulePath {
     pub fn new(db: &::salsa::Db, data: ModulePathData) -> VfsResult<Self> {
         let slf = Self::new_inner(db, data);
-        let diff_path = module_virtual_path(db, slf)?;
-        db.file_from_virtual_path(diff_path)?
+        let virtual_path = module_virtual_path(db, slf)?;
+        virtual_path
+            .file(db)?
             .text(db)?
-            .ok_or(VfsError::FileNotExists(diff_path))?;
+            .ok_or(VfsError::FileNotExists(virtual_path))?;
         Ok(slf)
     }
 }
