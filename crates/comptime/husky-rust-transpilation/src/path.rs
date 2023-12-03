@@ -1,8 +1,8 @@
 use super::*;
 use either::*;
 use husky_entity_path::{
-    AssociatedItemPath, PatternPath, PreludeIntTypePath, PreludeNumTypePath, PreludeTypePath,
-    PrincipalEntityPath, TraitPath, TypePath, TypeVariantPath,
+    AssociatedItemPath, MajorItemPath, PatternPath, PreludeIntTypePath, PreludeNumTypePath,
+    PreludeTypePath, PrincipalEntityPath, TraitPath, TypePath, TypeVariantPath,
 };
 
 impl<E> TranspileToRust<E> for AssociatedItemPath {
@@ -36,7 +36,7 @@ impl<E> TranspileToRust<E> for PrincipalEntityPath {
         let db = builder.db();
         match self {
             PrincipalEntityPath::Module(path) => path.ident(db).transpile_to_rust(builder),
-            PrincipalEntityPath::MajorItem(path) => path.ident(db).transpile_to_rust(builder),
+            PrincipalEntityPath::MajorItem(path) => path.transpile_to_rust(builder),
             PrincipalEntityPath::TypeVariant(path) => {
                 match path.parent_ty_path(db).prelude_ty_path(db) {
                     Some(PreludeTypePath::Option | PreludeTypePath::Result) => (),
@@ -47,6 +47,16 @@ impl<E> TranspileToRust<E> for PrincipalEntityPath {
                 }
                 path.ident(db).transpile_to_rust(builder)
             }
+        }
+    }
+}
+
+impl<E> TranspileToRust<E> for MajorItemPath {
+    fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<E>) {
+        let db = builder.db();
+        match self {
+            MajorItemPath::Type(slf) => slf.transpile_to_rust(builder),
+            _ => self.ident(db).transpile_to_rust(builder),
         }
     }
 }
