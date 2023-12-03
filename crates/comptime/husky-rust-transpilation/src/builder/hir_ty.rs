@@ -15,9 +15,9 @@ impl TranspileToRust<HirEagerExprRegion> for HirType {
                     Left(PreludeTypePath::Container(PreludeContainerTypePath::Array)) => {
                         debug_assert_eq!(template_arguments.len(), 2);
                         builder.bracketed(RustBracket::Box, |builder| {
-                            template_arguments[0].transpile_to_rust(builder);
-                            builder.punctuation(RustPunctuation::SemicolonInArray);
                             template_arguments[1].transpile_to_rust(builder);
+                            builder.punctuation(RustPunctuation::SemicolonInArray);
+                            template_arguments[0].transpile_to_rust(builder);
                         })
                     }
                     Left(PreludeTypePath::Container(PreludeContainerTypePath::Slice)) => {

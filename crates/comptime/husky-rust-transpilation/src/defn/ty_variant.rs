@@ -19,7 +19,7 @@ impl TranspileToRust for EnumTupleVariantHirDecl {
         let db = builder.db();
         builder.eager_head(self.hir_eager_expr_region(db), |builder| {
             self.path(db).ident(db).transpile_to_rust(builder);
-            builder.bracketed_comma_list(RustBracket::Curl, self.fields(db))
+            builder.bracketed_comma_list(RustBracket::Par, self.fields(db))
         })
     }
 }
