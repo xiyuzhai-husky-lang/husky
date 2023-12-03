@@ -279,6 +279,7 @@ fn prelude_ty_path(db: &::salsa::Db, path: TypePath) -> Option<PreludeTypePath> 
         path if path == menu.leash_ty_path() => PreludeIndirectionTypePath::Leash.into(),
         path if path == menu.at_ty_path() => PreludeIndirectionTypePath::At.into(),
         path if path == menu.vec_ty_path() => PreludeContainerTypePath::Vec.into(),
+        path if path == menu.array_ty_path() => PreludeContainerTypePath::Array.into(),
         path if path == menu.slice_ty_path() => PreludeContainerTypePath::Slice.into(),
         path if path == menu.cyclic_slice_leashed_ty_path() => {
             PreludeContainerTypePath::CyclicSlice.into()

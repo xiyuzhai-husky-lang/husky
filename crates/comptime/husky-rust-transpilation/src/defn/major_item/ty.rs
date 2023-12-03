@@ -79,11 +79,13 @@ impl TranspileToRust for TupleStructHirDefn {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);
         builder.eager_head(hir_decl.hir_eager_expr_region(db), |builder| {
-            builder.keyword(RustKeyword::Pub);
-            builder.keyword(RustKeyword::Struct);
-            hir_decl.path(db).ident(db).transpile_to_rust(builder);
-            hir_decl.template_parameters(db).transpile_to_rust(builder);
-            builder.bracketed_comma_list(RustBracket::Curl, hir_decl.fields(db))
+            builder.on_fresh_semicolon_line(|builder| {
+                builder.keyword(RustKeyword::Pub);
+                builder.keyword(RustKeyword::Struct);
+                hir_decl.path(db).ident(db).transpile_to_rust(builder);
+                hir_decl.template_parameters(db).transpile_to_rust(builder);
+                builder.bracketed_comma_list(RustBracket::Par, hir_decl.fields(db))
+            })
         })
     }
 }

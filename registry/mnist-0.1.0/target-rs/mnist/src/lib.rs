@@ -13,9 +13,9 @@ pub enum MnistLabel {
     Nine,
 } 
 
-pub struct BinaryImage28{Array<30, u32>}
+pub struct BinaryImage28([u32; 30]);
 
-pub struct BinaryGrid28{Array<31, u32>}
+pub struct BinaryGrid28([u32; 31]);
 
 impl BinaryImage28 {
     

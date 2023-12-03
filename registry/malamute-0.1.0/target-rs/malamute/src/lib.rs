@@ -1,7 +1,7 @@
 use husky_core::*;
 
 pub enum Class<Label> {
-    Known{Label},
+    Known(Label),
     Unknown,
 } 
 
