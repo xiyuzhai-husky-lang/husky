@@ -55,7 +55,7 @@ pub(crate) fn rust_transpilation_packages(
                             RustTranspilationPackage {
                                 target_path,
                                 package_path: dep.package_path(),
-                                kind: RustTranspilationPackageKind::Source,
+                                kind: RustTranspilationPackageKind::Linkages,
                             },
                         ]
                     })
