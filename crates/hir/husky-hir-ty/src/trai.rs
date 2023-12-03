@@ -71,7 +71,7 @@ fn hir_trai_from_ethereal_term_application(
                     disambiguator,
                 } => todo!(),
                 EtherealTermSymbolIndexInner::Type { attrs, .. } => (!attrs.phantom())
-                    .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db))),
+                    .then(|| HirTemplateArgument::Type(HirType::from_ethereal(arg, db).unwrap())),
                 EtherealTermSymbolIndexInner::Prop { .. } => None,
                 EtherealTermSymbolIndexInner::ConstPathLeading { .. }
                 | EtherealTermSymbolIndexInner::ConstOther { .. } => todo!(),

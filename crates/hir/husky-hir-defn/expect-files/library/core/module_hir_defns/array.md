@@ -81,7 +81,7 @@
                                                 `L`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: HirComptimeSymbol::Const(
+                                            hir_comptime_symbol: HirTemplateSymbol::Const(
                                                 HirConstSymbol {
                                                     ty: HirType::PathLeading(
                                                         HirTypePathLeading {
@@ -108,7 +108,7 @@
                                                 `E`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            hir_comptime_symbol: HirTemplateSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: Some(

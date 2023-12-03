@@ -5,23 +5,23 @@ pub enum Class<Label> {
     Unknown,
 } 
 
-pub enum OneVsAll<Label> {
+pub enum OneVsAll {
     Yes,
     No,
 } 
 
-pub enum OneVsAllResult<Label> {
+pub enum OneVsAllResult {
     ConfidentYes,
     ConfidentNo,
     Unconfident,
 } 
 
-impl <Label>Unveil<OneVsAll<Label>> for Class<Label> {
+impl <Label, >Unveil<OneVsAll> for Class<Label> {
     
     type Output = ();
 }
 
-impl <Label>Unveil<OneVsAllResult<Label>> for OneVsAll<Label> {
+impl Unveil<OneVsAllResult> for OneVsAll {
     
     type Output = ();
 }

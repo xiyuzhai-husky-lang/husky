@@ -22,7 +22,7 @@ pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
     dp.x
 }
 
-pub fn is_two() -> OneVsAll<MnistLabel> {
+pub fn is_two() -> OneVsAll {
     require!(let none = is_zero());
     require!(let none = is_three());
     require!(let none = is_seven());

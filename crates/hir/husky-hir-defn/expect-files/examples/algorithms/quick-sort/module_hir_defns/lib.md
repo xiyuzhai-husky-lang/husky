@@ -103,7 +103,7 @@
                                                 `T`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            hir_comptime_symbol: HirTemplateSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -154,7 +154,7 @@
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
                                                     (
-                                                        HirComptimeSymbol::Type(
+                                                        HirTemplateSymbol::Type(
                                                             Type {
                                                                 attrs: HirSymbolAttrs,
                                                                 variance: None,
@@ -289,7 +289,7 @@
                                                     `T`,
                                                 ),
                                                 data: Inherited,
-                                                hir_comptime_symbol: HirComptimeSymbol::Type(
+                                                hir_comptime_symbol: HirTemplateSymbol::Type(
                                                     Type {
                                                         attrs: HirSymbolAttrs,
                                                         variance: None,
@@ -470,7 +470,7 @@
                                                 `T`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            hir_comptime_symbol: HirTemplateSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -727,7 +727,7 @@
                                                     `T`,
                                                 ),
                                                 data: Inherited,
-                                                hir_comptime_symbol: HirComptimeSymbol::Type(
+                                                hir_comptime_symbol: HirTemplateSymbol::Type(
                                                     Type {
                                                         attrs: HirSymbolAttrs,
                                                         variance: None,
@@ -920,7 +920,7 @@
                                                 `T`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: HirComptimeSymbol::Type(
+                                            hir_comptime_symbol: HirTemplateSymbol::Type(
                                                 Type {
                                                     attrs: HirSymbolAttrs,
                                                     variance: None,
@@ -1244,7 +1244,7 @@
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
                                                     (
-                                                        HirComptimeSymbol::Type(
+                                                        HirTemplateSymbol::Type(
                                                             Type {
                                                                 attrs: HirSymbolAttrs,
                                                                 variance: None,
@@ -1264,7 +1264,7 @@
                                                         ),
                                                     ),
                                                     (
-                                                        HirComptimeSymbol::Type(
+                                                        HirTemplateSymbol::Type(
                                                             SelfLifetime,
                                                         ),
                                                         HirTermSymbolResolution::SelfLifetime,
@@ -1325,7 +1325,7 @@
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
                                                     (
-                                                        HirComptimeSymbol::Type(
+                                                        HirTemplateSymbol::Type(
                                                             Type {
                                                                 attrs: HirSymbolAttrs,
                                                                 variance: None,
@@ -1345,7 +1345,7 @@
                                                         ),
                                                     ),
                                                     (
-                                                        HirComptimeSymbol::Type(
+                                                        HirTemplateSymbol::Type(
                                                             SelfLifetime,
                                                         ),
                                                         HirTermSymbolResolution::SelfLifetime,
@@ -1516,7 +1516,7 @@
                                                     `T`,
                                                 ),
                                                 data: Inherited,
-                                                hir_comptime_symbol: HirComptimeSymbol::Type(
+                                                hir_comptime_symbol: HirTemplateSymbol::Type(
                                                     Type {
                                                         attrs: HirSymbolAttrs,
                                                         variance: None,

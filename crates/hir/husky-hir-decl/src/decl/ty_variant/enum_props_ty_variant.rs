@@ -37,7 +37,7 @@ impl EnumPropsVariantField {
     fn from_syn(field: &PropsFieldSyndicate, builder: &HirDeclBuilder) -> Self {
         Self {
             ident: field.ident(),
-            ty: builder.hir_ty(field.ty_syn_expr_idx()),
+            ty: builder.hir_ty(field.ty_syn_expr_idx()).unwrap(),
         }
     }
 

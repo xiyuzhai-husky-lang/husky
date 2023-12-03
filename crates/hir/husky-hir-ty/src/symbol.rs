@@ -16,7 +16,7 @@ use husky_ethereal_term::{
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
-pub enum HirComptimeSymbol {
+pub enum HirTemplateSymbol {
     Type(HirTypeSymbol),
     Const(HirConstSymbol),
     Lifetime(HirLifetimeSymbol),
@@ -32,7 +32,7 @@ impl HirSymbolAttrs {
     }
 }
 
-impl HirComptimeSymbol {
+impl HirTemplateSymbol {
     pub fn from_ethereal(symbol: EtherealTermSymbol, db: &::salsa::Db) -> Option<Self> {
         hir_template_symbol_from_ethereal(db, symbol)
     }
@@ -42,7 +42,7 @@ impl HirComptimeSymbol {
 fn hir_template_symbol_from_ethereal(
     db: &::salsa::Db,
     symbol: EtherealTermSymbol,
-) -> Option<HirComptimeSymbol> {
+) -> Option<HirTemplateSymbol> {
     match symbol.index(db).inner() {
         EtherealTermSymbolIndexInner::ExplicitLifetime {
             attrs,
@@ -88,7 +88,7 @@ fn hir_template_symbol_from_ethereal(
         } => Some(
             HirConstSymbol::new(
                 db,
-                HirType::from_ethereal(symbol.ty(db), db),
+                HirType::from_ethereal(symbol.ty(db), db)?,
                 HirConstSymbolIndex::PathLeading {
                     attrs: HirSymbolAttrs::from_ethereal(attrs)?,
                     disambiguator,
@@ -103,7 +103,7 @@ fn hir_template_symbol_from_ethereal(
         } => Some(
             HirConstSymbol::new(
                 db,
-                HirType::from_ethereal(symbol.ty(db), db),
+                HirType::from_ethereal(symbol.ty(db), db)?,
                 HirConstSymbolIndex::Other {
                     attrs: HirSymbolAttrs::from_ethereal(attrs)?,
                     disambiguator,

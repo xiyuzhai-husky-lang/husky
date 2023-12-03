@@ -24,13 +24,13 @@ pub enum HirTemplateArgument {
     Place(HirPlaceSymbol),
 }
 
-impl From<HirComptimeSymbol> for HirTemplateArgument {
-    fn from(symbol: HirComptimeSymbol) -> Self {
+impl From<HirTemplateSymbol> for HirTemplateArgument {
+    fn from(symbol: HirTemplateSymbol) -> Self {
         match symbol {
-            HirComptimeSymbol::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
-            HirComptimeSymbol::Const(symbol) => HirTemplateArgument::Constant(symbol.into()),
-            HirComptimeSymbol::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol),
-            HirComptimeSymbol::Place(symbol) => HirTemplateArgument::Place(symbol),
+            HirTemplateSymbol::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
+            HirTemplateSymbol::Const(symbol) => HirTemplateArgument::Constant(symbol.into()),
+            HirTemplateSymbol::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol),
+            HirTemplateSymbol::Place(symbol) => HirTemplateArgument::Place(symbol),
         }
     }
 }
@@ -42,7 +42,7 @@ impl HirTemplateArgument {
     pub(crate) fn from_ethereal(argument: EtherealTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match argument {
             EtherealTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
-            EtherealTerm::Symbol(symbol) => HirComptimeSymbol::from_ethereal(symbol, db)?.into(),
+            EtherealTerm::Symbol(symbol) => HirTemplateSymbol::from_ethereal(symbol, db)?.into(),
             EtherealTerm::Variable(_) => todo!(),
             EtherealTerm::EntityPath(path) => match path {
                 TermEntityPath::Fugitive(path) => todo!(),

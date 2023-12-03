@@ -16,7 +16,7 @@ pub fn components_max_heights() -> FermiMatchResult {
     fermi_match(major_concave_components(), vec![cc_box_heights])
 }
 
-pub fn is_four() -> OneVsAll<MnistLabel> {
+pub fn is_four() -> OneVsAll {
     require!(let some = left_components().matches[0]);
     require!(let some = left_components().matches[1]);
     let eff_holes = major_connected_component().eff_holes();

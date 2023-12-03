@@ -361,7 +361,7 @@
                                             instantiation: HirInstantiation {
                                                 symbol_map: [
                                                     (
-                                                        HirComptimeSymbol::Type(
+                                                        HirTemplateSymbol::Type(
                                                             SelfType,
                                                         ),
                                                         HirTermSymbolResolution::Explicit(

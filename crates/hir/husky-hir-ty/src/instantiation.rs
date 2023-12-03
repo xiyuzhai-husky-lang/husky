@@ -9,12 +9,12 @@ use vec_like::SmallVecPairMap;
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::debug_with_db(db = HirTypeDb, jar = HirTypeJar)]
 pub struct HirInstantiation {
-    symbol_map: SmallVecPairMap<HirComptimeSymbol, HirTermSymbolResolution, 4>,
+    symbol_map: SmallVecPairMap<HirTemplateSymbol, HirTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
 impl std::ops::Deref for HirInstantiation {
-    type Target = [(HirComptimeSymbol, HirTermSymbolResolution)];
+    type Target = [(HirTemplateSymbol, HirTermSymbolResolution)];
 
     fn deref(&self) -> &Self::Target {
         &self.symbol_map
@@ -64,7 +64,7 @@ impl HirInstantiation {
                 .symbol_map()
                 .iter()
                 .filter_map(|&(symbol, resolution)| {
-                    match HirComptimeSymbol::from_ethereal(symbol, db) {
+                    match HirTemplateSymbol::from_ethereal(symbol, db) {
                         Some(symbol) => Some((
                             symbol,
                             match resolution {
@@ -94,7 +94,7 @@ impl HirInstantiation {
         }
     }
 
-    pub fn symbol_map(&self) -> &[(HirComptimeSymbol, HirTermSymbolResolution)] {
+    pub fn symbol_map(&self) -> &[(HirTemplateSymbol, HirTermSymbolResolution)] {
         self.symbol_map.as_ref()
     }
 

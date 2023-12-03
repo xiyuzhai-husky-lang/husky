@@ -1,5 +1,5 @@
 use super::*;
 
-pub fn is_five() -> OneVsAll<MnistLabel> {
+pub fn is_five() -> OneVsAll {
     OneVsAll::Yes
 }

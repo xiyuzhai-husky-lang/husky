@@ -91,7 +91,6 @@ impl TranspileToRust for HirDefn {
 
 impl TranspileToRust<HirEagerExprRegion> for HirTemplateParameter {
     fn transpile_to_rust(&self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
-        // self.symbol().transpile_to_rust(builder)
         match self.data() {
             HirTemplateParameterData::Type { ident, traits } => {
                 ident.transpile_to_rust(builder);
@@ -101,9 +100,11 @@ impl TranspileToRust<HirEagerExprRegion> for HirTemplateParameter {
                 }
             }
             HirTemplateParameterData::Constant { ident, ty: _ } => {
-                use salsa::DebugWithDb;
-                p!(ident.debug(builder.db()));
-                todo!()
+                // ad hoc
+                // we should skip #runtime constants
+                // use salsa::DebugWithDb;
+                // p!(ident.debug(builder.db()));
+                // todo!()
             }
             HirTemplateParameterData::Lifetime { label: _ } => todo!(),
             HirTemplateParameterData::Place { label: _ } => todo!(),

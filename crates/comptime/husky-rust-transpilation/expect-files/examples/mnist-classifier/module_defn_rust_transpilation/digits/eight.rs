@@ -4,7 +4,7 @@ pub fn upper_mouth_match() -> FermiMatchResult {
     fermi_match(major_concave_components(), vec![big_mouth])
 }
 
-pub fn is_eight() -> OneVsAll<MnistLabel> {
+pub fn is_eight() -> OneVsAll {
     require!(let none = is_one());
     require!(let none = is_six());
     require!(let none = is_zero());

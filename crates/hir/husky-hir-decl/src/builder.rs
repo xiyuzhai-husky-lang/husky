@@ -48,7 +48,7 @@ impl<'a> HirDeclBuilder<'a> {
         return_ty_syndicate: Option<ReturnTypeBeforeEqSyndicate>,
     ) -> HirType {
         return_ty_syndicate
-            .map(|syndicate| self.hir_ty(syndicate.syn_expr_idx()))
+            .map(|syndicate| self.hir_ty(syndicate.syn_expr_idx()).unwrap())
             .unwrap_or(self.hir_ty_menu.unit_ty().into())
     }
 
@@ -57,11 +57,11 @@ impl<'a> HirDeclBuilder<'a> {
         return_ty_syndicate: Option<ReturnTypeBeforeColonSyndicate>,
     ) -> HirType {
         return_ty_syndicate
-            .map(|syndicate| self.hir_ty(syndicate.syn_expr_idx()))
+            .map(|syndicate| self.hir_ty(syndicate.syn_expr_idx()).unwrap())
             .unwrap_or(self.hir_ty_menu.unit_ty().into())
     }
 
-    pub(crate) fn hir_ty(&self, syn_expr_idx: SynExprIdx) -> HirType {
+    pub(crate) fn hir_ty(&self, syn_expr_idx: SynExprIdx) -> Option<HirType> {
         let sema_expr_idx = self
             .sema_expr_region_data
             .syn_root_to_sema_expr_idx(syn_expr_idx);
