@@ -2,3 +2,12 @@
 name = "mnist-classifier"
 edition = "2021"
 version = "0.1.0"
+
+[dependencies.husky-core]
+workspace = true
+
+[dependencies.malamute]
+workspace = true
+
+[dependencies.mnist]
+workspace = true

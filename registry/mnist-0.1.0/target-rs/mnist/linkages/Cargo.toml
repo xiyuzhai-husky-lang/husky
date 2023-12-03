@@ -3,6 +3,12 @@ name = "mnist-linkages"
 edition = "2021"
 version = "0.1.0"
 
+[dependencies.husky-core]
+workspace = true
+
+[dependencies.mnist]
+workspace = true
+
 [lib]
 plugin = false
 proc-macro = false
