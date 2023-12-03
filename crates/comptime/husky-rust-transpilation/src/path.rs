@@ -81,6 +81,7 @@ impl<E> TranspileToRust<E> for TypePath {
                 PreludeIntTypePath::RSize => builder.rsize(),
                 _ => unreachable!(),
             },
+            Left(PreludeTypePath::UNIT) => builder.unit(),
             Left(PreludeTypePath::StringLiteral) => todo!(),
             _ => self.ident(db).transpile_to_rust(builder),
         }
