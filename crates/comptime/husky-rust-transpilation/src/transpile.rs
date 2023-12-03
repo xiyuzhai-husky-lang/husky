@@ -34,7 +34,7 @@ impl TranspileToFsFull for LinktimeTargetPath {
 
 impl RustTranspilationPackage {
     pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
-        let workspace_dir = self.target_path.rust_workspace_dir(db);
+        let workspace_dir = self.target_path.rust_workspace_abs_dir(db);
         match self.kind {
             package::RustTranspilationPackageKind::Source => {
                 transpile_package_source_to_fs(workspace_dir, self.package_path, db)

@@ -19,8 +19,16 @@ impl LinktimeTargetPath {
         Self::new_inner(db, LinktimeTargetPathData::Package(package_path))
     }
 
-    pub fn rust_workspace_dir<'a>(self, db: &'a ::salsa::Db) -> &'a std::path::Path {
-        linktime_target_rust_dir(db, self)
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
+        match self.data(db) {
+            LinktimeTargetPathData::Package(package_path) => package_path.toolchain(db),
+            LinktimeTargetPathData::Workspace(_) => todo!(),
+        }
+    }
+
+    /// returns absolute path
+    pub fn rust_workspace_abs_dir<'a>(self, db: &'a ::salsa::Db) -> &'a std::path::Path {
+        linktime_target_rust_abs_dir(db, self)
     }
 
     pub fn rust_workspace_manifest_path<'a>(self, db: &'a ::salsa::Db) -> &'a std::path::Path {
@@ -28,8 +36,9 @@ impl LinktimeTargetPath {
     }
 }
 
+/// returns absolute path
 #[salsa::tracked(jar = VfsJar, return_ref)]
-fn linktime_target_rust_dir(
+fn linktime_target_rust_abs_dir(
     db: &::salsa::Db,
     target_path: LinktimeTargetPath,
 ) -> std::path::PathBuf {

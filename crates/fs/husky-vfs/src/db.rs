@@ -318,7 +318,7 @@ pub struct VfsJar(
     VfsCache,
     crate::path::workspace_path::WorkspacePath,
     crate::linktime_target_path::LinktimeTargetPath,
-    crate::linktime_target_path::linktime_target_rust_dir,
+    crate::linktime_target_path::linktime_target_rust_abs_dir,
     crate::path::package_path::PackagePath,
     crate::path::crate_path::package_crate_paths,
     crate::path::module_path::relative_path::module_relative_path,

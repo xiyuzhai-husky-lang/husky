@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 toml.workspace = true
 cargo-manifest.workspace = true
+pathdiff.workspace = true
 # abstractions
 salsa.workspace = true
 either.workspace = true
