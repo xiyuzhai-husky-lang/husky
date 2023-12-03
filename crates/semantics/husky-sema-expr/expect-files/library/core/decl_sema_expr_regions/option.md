@@ -43,7 +43,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [],
                 },
                 principal_item_path_expr_arena: Arena {
@@ -121,7 +121,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 75,
+                                    value: 72,
                                 },
                             ),
                         ),
@@ -184,7 +184,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -218,7 +218,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 32,
+                            value: 28,
                         },
                     ),
                 ),

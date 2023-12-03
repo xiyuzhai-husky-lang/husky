@@ -22,7 +22,7 @@
                 submodule_item_path: SubmoduleItemPath(
                     ItemPathId(
                         Id {
-                            value: 215,
+                            value: 210,
                         },
                     ),
                 ),
@@ -52,7 +52,7 @@
                 submodule_item_path: SubmoduleItemPath(
                     ItemPathId(
                         Id {
-                            value: 216,
+                            value: 211,
                         },
                     ),
                 ),
@@ -66,7 +66,7 @@
                     val_item_path: FugitivePath(
                         ItemPathId(
                             Id {
-                                value: 217,
+                                value: 212,
                             },
                         ),
                     ),
@@ -83,7 +83,7 @@
                 val_item_path: FugitivePath(
                     ItemPathId(
                         Id {
-                            value: 217,
+                            value: 212,
                         },
                     ),
                 ),

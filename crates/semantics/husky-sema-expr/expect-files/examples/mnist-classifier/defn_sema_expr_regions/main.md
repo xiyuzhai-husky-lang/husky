@@ -46,7 +46,7 @@
                                     ),
                                 ),
                             ),
-                            expr_arena: Arena {
+                            syn_expr_arena: Arena {
                                 data: [
                                     SynExprData::PrincipalEntityPath {
                                         path_expr_idx: 1,
@@ -170,7 +170,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::PrincipalEntityPath {
                             path_expr_idx: 1,
@@ -336,14 +336,14 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 327,
+                                                                value: 322,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 241,
+                                                                value: 232,
                                                             },
                                                         ),
                                                     ),
@@ -537,14 +537,14 @@
                                                     parent_ty_path: TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 327,
+                                                                value: 322,
                                                             },
                                                         ),
                                                     ),
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 241,
+                                                                value: 232,
                                                             },
                                                         ),
                                                     ),
@@ -706,7 +706,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 209,
+                                    value: 206,
                                 },
                             ),
                         ),
@@ -725,7 +725,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 279,
+                                                        value: 274,
                                                     },
                                                 ),
                                             ),
@@ -789,7 +789,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 285,
+                                                        value: 280,
                                                     },
                                                 ),
                                             ),
@@ -853,7 +853,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 277,
+                                                        value: 272,
                                                     },
                                                 ),
                                             ),
@@ -917,7 +917,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 306,
+                                                        value: 301,
                                                     },
                                                 ),
                                             ),
@@ -981,7 +981,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 308,
+                                                        value: 303,
                                                     },
                                                 ),
                                             ),
@@ -1045,7 +1045,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 289,
+                                                        value: 284,
                                                     },
                                                 ),
                                             ),
@@ -1109,7 +1109,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 312,
+                                                        value: 307,
                                                     },
                                                 ),
                                             ),
@@ -1173,7 +1173,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 300,
+                                                        value: 295,
                                                     },
                                                 ),
                                             ),
@@ -1237,7 +1237,7 @@
                                             FugitivePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 319,
+                                                        value: 314,
                                                     },
                                                 ),
                                             ),
@@ -1300,7 +1300,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 329,
+                                                    value: 324,
                                                 },
                                             ),
                                         ),
@@ -1709,7 +1709,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1752,7 +1752,7 @@
                                 meta: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
-                                        expr_idx: 2,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1789,7 +1789,7 @@
                                 meta: ExpectationState {
                                     idx: 3,
                                     src: ExpectationSource {
-                                        expr_idx: 3,
+                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1832,7 +1832,7 @@
                                 meta: ExpectationState {
                                     idx: 4,
                                     src: ExpectationSource {
-                                        expr_idx: 4,
+                                        syn_expr_idx: 4,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1869,7 +1869,7 @@
                                 meta: ExpectationState {
                                     idx: 5,
                                     src: ExpectationSource {
-                                        expr_idx: 5,
+                                        syn_expr_idx: 5,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1912,7 +1912,7 @@
                                 meta: ExpectationState {
                                     idx: 6,
                                     src: ExpectationSource {
-                                        expr_idx: 6,
+                                        syn_expr_idx: 6,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1949,7 +1949,7 @@
                                 meta: ExpectationState {
                                     idx: 7,
                                     src: ExpectationSource {
-                                        expr_idx: 7,
+                                        syn_expr_idx: 7,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1992,7 +1992,7 @@
                                 meta: ExpectationState {
                                     idx: 8,
                                     src: ExpectationSource {
-                                        expr_idx: 8,
+                                        syn_expr_idx: 8,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2029,7 +2029,7 @@
                                 meta: ExpectationState {
                                     idx: 9,
                                     src: ExpectationSource {
-                                        expr_idx: 9,
+                                        syn_expr_idx: 9,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2072,7 +2072,7 @@
                                 meta: ExpectationState {
                                     idx: 10,
                                     src: ExpectationSource {
-                                        expr_idx: 10,
+                                        syn_expr_idx: 10,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2109,7 +2109,7 @@
                                 meta: ExpectationState {
                                     idx: 11,
                                     src: ExpectationSource {
-                                        expr_idx: 11,
+                                        syn_expr_idx: 11,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2152,7 +2152,7 @@
                                 meta: ExpectationState {
                                     idx: 12,
                                     src: ExpectationSource {
-                                        expr_idx: 12,
+                                        syn_expr_idx: 12,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2189,7 +2189,7 @@
                                 meta: ExpectationState {
                                     idx: 13,
                                     src: ExpectationSource {
-                                        expr_idx: 13,
+                                        syn_expr_idx: 13,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2232,7 +2232,7 @@
                                 meta: ExpectationState {
                                     idx: 14,
                                     src: ExpectationSource {
-                                        expr_idx: 14,
+                                        syn_expr_idx: 14,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2269,7 +2269,7 @@
                                 meta: ExpectationState {
                                     idx: 15,
                                     src: ExpectationSource {
-                                        expr_idx: 15,
+                                        syn_expr_idx: 15,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2312,7 +2312,7 @@
                                 meta: ExpectationState {
                                     idx: 16,
                                     src: ExpectationSource {
-                                        expr_idx: 16,
+                                        syn_expr_idx: 16,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2349,7 +2349,7 @@
                                 meta: ExpectationState {
                                     idx: 17,
                                     src: ExpectationSource {
-                                        expr_idx: 17,
+                                        syn_expr_idx: 17,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2392,7 +2392,7 @@
                                 meta: ExpectationState {
                                     idx: 18,
                                     src: ExpectationSource {
-                                        expr_idx: 18,
+                                        syn_expr_idx: 18,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2443,7 +2443,7 @@
                                 meta: ExpectationState {
                                     idx: 19,
                                     src: ExpectationSource {
-                                        expr_idx: 19,
+                                        syn_expr_idx: 19,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2490,7 +2490,7 @@
                                 meta: ExpectationState {
                                     idx: 20,
                                     src: ExpectationSource {
-                                        expr_idx: 20,
+                                        syn_expr_idx: 20,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {

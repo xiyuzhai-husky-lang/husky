@@ -12,19 +12,19 @@ pub enum Direction {
     Right,
 } 
 
-pub fn get_pixel_pair(row: r32, j: i32) -> r32 {
+pub fn get_pixel_pair(row: u32, j: i32) -> u32 {
     row >> j - 1 | 3
 }
 
-pub fn get_pixel_to_the_left(row: r32, j: i32) -> r32 {
+pub fn get_pixel_to_the_left(row: u32, j: i32) -> u32 {
     row >> j | 1
 }
 
-pub fn get_pixel_to_the_right(row: r32, j: i32) -> r32 {
+pub fn get_pixel_to_the_right(row: u32, j: i32) -> u32 {
     row >> j - 1 | 1
 }
 
-pub fn get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction {
+pub fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
     match pixel_pair_above{
@@ -79,8 +79,8 @@ pub fn get_inward_direction(row_above: r32, row_below: r32, j: i32) -> Direction
     }
 }
 
-pub fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
-    let raw_angle_change = ((outward as i32) - (inward as i32) as r32).last_bits(2);
+pub fn get_angle_change(inward: &Direction, outward: &Direction) -> i32 {
+    let raw_angle_change = ((outward as i32 - inward as i32) as r32).last_bits(2);
     match raw_angle_change{
         0 | 1 | 2 => {
             raw_angle_change as i32
@@ -94,7 +94,7 @@ pub fn get_angle_change(inward: Direction, outward: Direction) -> i32 {
     }
 }
 
-pub fn get_outward_direction(row_above: r32, row_below: r32, j: i32, inward_direction: Direction) -> Direction {
+pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_direction: &Direction) -> Direction {
     let pixel_pair_above = get_pixel_pair(row_above, j);
     let pixel_pair_below = get_pixel_pair(row_below, j);
     match pixel_pair_above{
@@ -187,7 +187,7 @@ pub struct StreakCache {
     pub prev2: i32,
 } 
 
-pub fn get_concave_middle_point(points: Vec<Point2d>) -> Point2d {
+pub fn get_concave_middle_point(points: &Vec<Point2d>) -> Point2d {
     let N = points.ilen();
     let p0 = points[N - 2];
     let p2 = points[N - 1];
@@ -283,12 +283,6 @@ pub fn find_raw_contours(cc: Leash<ConnectedComponent>) -> Vec<RawContour> {
         }
     }
     return result;
-}
-
-impl Visualize for RawContour {
-    fn visualize(self) -> Html {
-        
-    }
 }
 
 impl RawContour {

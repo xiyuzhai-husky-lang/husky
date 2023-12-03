@@ -43,7 +43,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::PrincipalEntityPath {
                             path_expr_idx: 1,
@@ -57,20 +57,20 @@
                         },
                         SynExprData::BoxColonList {
                             lbox_regional_token_idx: RegionalTokenIdx(
-                                13,
+                                14,
                             ),
                             colon_regional_token_idx: RegionalTokenIdx(
-                                14,
+                                15,
                             ),
                             items: [],
                             rbox_regional_token_idx: RegionalTokenIdx(
-                                15,
+                                16,
                             ),
                         },
                         SynExprData::CurrentSynSymbol {
                             ident: `T`,
                             regional_token_idx: RegionalTokenIdx(
-                                16,
+                                17,
                             ),
                             current_syn_symbol_idx: 1,
                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -117,10 +117,15 @@
                         data: [
                             SynPatternExpr::Ident {
                                 symbol_modifier_tokens: Some(
-                                    Mut(
-                                        MutRegionalToken {
+                                    RefMut(
+                                        RefRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 10,
+                                            ),
+                                        },
+                                        MutRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                11,
                                             ),
                                         },
                                     ),
@@ -128,7 +133,7 @@
                                 ident_token: IdentRegionalToken {
                                     ident: `arr`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        11,
+                                        12,
                                     ),
                                 },
                             },
@@ -136,7 +141,7 @@
                     },
                     pattern_expr_contracts: ArenaMap {
                         data: [
-                            Move,
+                            BorrowMut,
                         ],
                     },
                     pattern_symbol_arena: Arena {
@@ -156,7 +161,7 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            Mut,
+                            RefMut,
                         ],
                     },
                 },
@@ -188,9 +193,9 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: Mut,
+                                modifier: RefMut,
                                 access_start: RegionalTokenIdx(
-                                    12,
+                                    13,
                                 ),
                                 access_end: None,
                                 data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -230,7 +235,7 @@
                 ],
                 syn_expr_roots: [
                     SynExprRoot {
-                        kind: SynExprRootKind::Traits,
+                        kind: SynExprRootKind::Trait,
                         syn_expr_idx: 1,
                     },
                     SynExprRoot {
@@ -255,7 +260,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 227,
+                                    value: 224,
                                 },
                             ),
                         ),
@@ -267,16 +272,53 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Trait(
+                                            TraitPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 32,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: InstanceConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 24,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
                                 BoxColonList {
                                     lbox_regional_token_idx: RegionalTokenIdx(
-                                        13,
+                                        14,
                                     ),
                                     colon_regional_token_idx: RegionalTokenIdx(
-                                        14,
+                                        15,
                                     ),
                                     items: [],
                                     rbox_regional_token_idx: RegionalTokenIdx(
-                                        15,
+                                        16,
                                     ),
                                 },
                             ),
@@ -301,12 +343,12 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 115,
+                                                value: 106,
                                             },
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        16,
+                                        17,
                                     ),
                                     current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: TemplateParameter {
@@ -315,7 +357,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 115,
+                                                            value: 106,
                                                         },
                                                     ),
                                                 ),
@@ -346,10 +388,10 @@
                             data_result: Ok(
                                 FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
-                                        1,
+                                        2,
                                     ),
                                     argument_sema_expr_idx: SemaExprIdx(
-                                        2,
+                                        3,
                                     ),
                                 },
                             ),
@@ -378,10 +420,19 @@
             ),
             sema_expr_roots: [
                 (
+                    1,
+                    (
+                        SemaExprIdx(
+                            1,
+                        ),
+                        Trait,
+                    ),
+                ),
+                (
                     4,
                     (
                         SemaExprIdx(
-                            3,
+                            4,
                         ),
                         ExplicitParameterType,
                     ),
@@ -407,11 +458,11 @@
                             place: None,
                             base: Ethereal(
                                 EntityPath(
-                                    TypeOntology(
-                                        TypePath(
+                                    Trait(
+                                        TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 87,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -429,11 +480,15 @@
                         FluffyTerm {
                             place: None,
                             base: Ethereal(
-                                Symbol(
-                                    EtherealTermSymbol(
-                                        Id {
-                                            value: 5,
-                                        },
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 82,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -448,10 +503,29 @@
                         FluffyTerm {
                             place: None,
                             base: Ethereal(
+                                Symbol(
+                                    EtherealTermSymbol(
+                                        Id {
+                                            value: 8,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        4,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 45,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -490,7 +564,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 45,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -514,7 +588,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -541,15 +615,44 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
+                                expectation: AnyOriginal(
+                                    ExpectAnyOriginal,
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
                                 expectation: EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: Sort,
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 1,
+                                    idx: 2,
                                     src: ExpectationSource {
-                                        expr_idx: 2,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -633,9 +736,9 @@
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 2,
+                                    idx: 3,
                                     src: ExpectationSource {
-                                        expr_idx: 3,
+                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -662,9 +765,9 @@
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 3,
+                                    idx: 4,
                                     src: ExpectationSource {
-                                        expr_idx: 4,
+                                        syn_expr_idx: 4,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -743,7 +846,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::PrincipalEntityPath {
                             path_expr_idx: 1,
@@ -757,20 +860,20 @@
                         },
                         SynExprData::BoxColonList {
                             lbox_regional_token_idx: RegionalTokenIdx(
-                                12,
+                                13,
                             ),
                             colon_regional_token_idx: RegionalTokenIdx(
-                                13,
+                                14,
                             ),
                             items: [],
                             rbox_regional_token_idx: RegionalTokenIdx(
-                                14,
+                                15,
                             ),
                         },
                         SynExprData::CurrentSynSymbol {
                             ident: `T`,
                             regional_token_idx: RegionalTokenIdx(
-                                15,
+                                16,
                             ),
                             current_syn_symbol_idx: 1,
                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -832,7 +935,7 @@
                                 IdentRegionalToken {
                                     ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        19,
+                                        20,
                                     ),
                                 },
                             ),
@@ -847,7 +950,7 @@
                                 IdentRegionalToken {
                                     ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        23,
+                                        24,
                                     ),
                                 },
                             ),
@@ -867,10 +970,15 @@
                         data: [
                             SynPatternExpr::Ident {
                                 symbol_modifier_tokens: Some(
-                                    Mut(
-                                        MutRegionalToken {
+                                    RefMut(
+                                        RefRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 9,
+                                            ),
+                                        },
+                                        MutRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                10,
                                             ),
                                         },
                                     ),
@@ -878,7 +986,7 @@
                                 ident_token: IdentRegionalToken {
                                     ident: `arr`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        10,
+                                        11,
                                     ),
                                 },
                             },
@@ -887,7 +995,7 @@
                                 ident_token: IdentRegionalToken {
                                     ident: `low`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        17,
+                                        18,
                                     ),
                                 },
                             },
@@ -896,7 +1004,7 @@
                                 ident_token: IdentRegionalToken {
                                     ident: `high`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        21,
+                                        22,
                                     ),
                                 },
                             },
@@ -904,7 +1012,7 @@
                     },
                     pattern_expr_contracts: ArenaMap {
                         data: [
-                            Move,
+                            BorrowMut,
                             None,
                             None,
                         ],
@@ -944,7 +1052,7 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            Mut,
+                            RefMut,
                             None,
                             None,
                         ],
@@ -978,9 +1086,9 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: Mut,
+                                modifier: RefMut,
                                 access_start: RegionalTokenIdx(
-                                    11,
+                                    12,
                                 ),
                                 access_end: None,
                                 data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -991,7 +1099,7 @@
                             CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
-                                    18,
+                                    19,
                                 ),
                                 access_end: None,
                                 data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -1002,7 +1110,7 @@
                             CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
-                                    22,
+                                    23,
                                 ),
                                 access_end: None,
                                 data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -1072,7 +1180,7 @@
                 ],
                 syn_expr_roots: [
                     SynExprRoot {
-                        kind: SynExprRootKind::Traits,
+                        kind: SynExprRootKind::Trait,
                         syn_expr_idx: 1,
                     },
                     SynExprRoot {
@@ -1113,7 +1221,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 228,
+                                    value: 225,
                                 },
                             ),
                         ),
@@ -1125,16 +1233,53 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Trait(
+                                            TraitPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 32,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: InstanceConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 24,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
                                 BoxColonList {
                                     lbox_regional_token_idx: RegionalTokenIdx(
-                                        12,
+                                        13,
                                     ),
                                     colon_regional_token_idx: RegionalTokenIdx(
-                                        13,
+                                        14,
                                     ),
                                     items: [],
                                     rbox_regional_token_idx: RegionalTokenIdx(
-                                        14,
+                                        15,
                                     ),
                                 },
                             ),
@@ -1159,12 +1304,12 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 115,
+                                                value: 106,
                                             },
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        15,
+                                        16,
                                     ),
                                     current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: TemplateParameter {
@@ -1173,7 +1318,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 115,
+                                                            value: 106,
                                                         },
                                                     ),
                                                 ),
@@ -1204,10 +1349,10 @@
                             data_result: Ok(
                                 FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
-                                        1,
+                                        2,
                                     ),
                                     argument_sema_expr_idx: SemaExprIdx(
-                                        2,
+                                        3,
                                     ),
                                 },
                             ),
@@ -1235,7 +1380,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 50,
+                                                        value: 45,
                                                     },
                                                 ),
                                             ),
@@ -1268,7 +1413,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 50,
+                                                        value: 45,
                                                     },
                                                 ),
                                             ),
@@ -1302,16 +1447,16 @@
             ),
             sema_expr_roots: [
                 (
-                    4,
+                    1,
                     (
                         SemaExprIdx(
-                            3,
+                            1,
                         ),
-                        ExplicitParameterType,
+                        Trait,
                     ),
                 ),
                 (
-                    5,
+                    4,
                     (
                         SemaExprIdx(
                             4,
@@ -1320,10 +1465,19 @@
                     ),
                 ),
                 (
-                    6,
+                    5,
                     (
                         SemaExprIdx(
                             5,
+                        ),
+                        ExplicitParameterType,
+                    ),
+                ),
+                (
+                    6,
+                    (
+                        SemaExprIdx(
+                            6,
                         ),
                         ExplicitParameterType,
                     ),
@@ -1353,11 +1507,11 @@
                             place: None,
                             base: Ethereal(
                                 EntityPath(
-                                    TypeOntology(
-                                        TypePath(
+                                    Trait(
+                                        TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 87,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -1375,11 +1529,15 @@
                         FluffyTerm {
                             place: None,
                             base: Ethereal(
-                                Symbol(
-                                    EtherealTermSymbol(
-                                        Id {
-                                            value: 5,
-                                        },
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 82,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1394,10 +1552,10 @@
                         FluffyTerm {
                             place: None,
                             base: Ethereal(
-                                Application(
-                                    EtherealTermApplication(
+                                Symbol(
+                                    EtherealTermSymbol(
                                         Id {
-                                            value: 45,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -1413,15 +1571,11 @@
                         FluffyTerm {
                             place: None,
                             base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 50,
-                                                },
-                                            ),
-                                        ),
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 41,
+                                        },
                                     ),
                                 ),
                             ),
@@ -1441,7 +1595,30 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 50,
+                                                    value: 45,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        6,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 45,
                                                 },
                                             ),
                                         ),
@@ -1482,7 +1659,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 45,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -1500,7 +1677,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 50,
+                                                            value: 45,
                                                         },
                                                     ),
                                                 ),
@@ -1520,7 +1697,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 50,
+                                                            value: 45,
                                                         },
                                                     ),
                                                 ),
@@ -1546,7 +1723,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -1575,15 +1752,44 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
+                                expectation: AnyOriginal(
+                                    ExpectAnyOriginal,
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
                                 expectation: EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: Sort,
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 1,
+                                    idx: 2,
                                     src: ExpectationSource {
-                                        expr_idx: 2,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1667,9 +1873,9 @@
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 2,
+                                    idx: 3,
                                     src: ExpectationSource {
-                                        expr_idx: 3,
+                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1696,46 +1902,9 @@
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 3,
-                                    src: ExpectationSource {
-                                        expr_idx: 4,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
                                     idx: 4,
                                     src: ExpectationSource {
-                                        expr_idx: 5,
+                                        syn_expr_idx: 4,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1772,7 +1941,44 @@
                                 meta: ExpectationState {
                                     idx: 5,
                                     src: ExpectationSource {
-                                        expr_idx: 6,
+                                        syn_expr_idx: 5,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 6,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 6,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1851,7 +2057,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::PrincipalEntityPath {
                             path_expr_idx: 1,
@@ -1865,20 +2071,20 @@
                         },
                         SynExprData::BoxColonList {
                             lbox_regional_token_idx: RegionalTokenIdx(
-                                12,
+                                13,
                             ),
                             colon_regional_token_idx: RegionalTokenIdx(
-                                13,
+                                14,
                             ),
                             items: [],
                             rbox_regional_token_idx: RegionalTokenIdx(
-                                14,
+                                15,
                             ),
                         },
                         SynExprData::CurrentSynSymbol {
                             ident: `T`,
                             regional_token_idx: RegionalTokenIdx(
-                                15,
+                                16,
                             ),
                             current_syn_symbol_idx: 1,
                             current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -1950,7 +2156,7 @@
                                 IdentRegionalToken {
                                     ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        19,
+                                        20,
                                     ),
                                 },
                             ),
@@ -1965,7 +2171,7 @@
                                 IdentRegionalToken {
                                     ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        23,
+                                        24,
                                     ),
                                 },
                             ),
@@ -1980,7 +2186,7 @@
                                 IdentRegionalToken {
                                     ident: `isize`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        26,
+                                        27,
                                     ),
                                 },
                             ),
@@ -2000,10 +2206,15 @@
                         data: [
                             SynPatternExpr::Ident {
                                 symbol_modifier_tokens: Some(
-                                    Mut(
-                                        MutRegionalToken {
+                                    RefMut(
+                                        RefRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 9,
+                                            ),
+                                        },
+                                        MutRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                10,
                                             ),
                                         },
                                     ),
@@ -2011,7 +2222,7 @@
                                 ident_token: IdentRegionalToken {
                                     ident: `arr`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        10,
+                                        11,
                                     ),
                                 },
                             },
@@ -2020,7 +2231,7 @@
                                 ident_token: IdentRegionalToken {
                                     ident: `low`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        17,
+                                        18,
                                     ),
                                 },
                             },
@@ -2029,7 +2240,7 @@
                                 ident_token: IdentRegionalToken {
                                     ident: `high`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        21,
+                                        22,
                                     ),
                                 },
                             },
@@ -2037,7 +2248,7 @@
                     },
                     pattern_expr_contracts: ArenaMap {
                         data: [
-                            Move,
+                            BorrowMut,
                             None,
                             None,
                         ],
@@ -2077,7 +2288,7 @@
                     ],
                     pattern_symbol_modifiers: ArenaMap {
                         data: [
-                            Mut,
+                            RefMut,
                             None,
                             None,
                         ],
@@ -2111,9 +2322,9 @@
                                 },
                             },
                             CurrentSynSymbol {
-                                modifier: Mut,
+                                modifier: RefMut,
                                 access_start: RegionalTokenIdx(
-                                    11,
+                                    12,
                                 ),
                                 access_end: None,
                                 data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -2124,7 +2335,7 @@
                             CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
-                                    18,
+                                    19,
                                 ),
                                 access_end: None,
                                 data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -2135,7 +2346,7 @@
                             CurrentSynSymbol {
                                 modifier: None,
                                 access_start: RegionalTokenIdx(
-                                    22,
+                                    23,
                                 ),
                                 access_end: None,
                                 data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -2205,7 +2416,7 @@
                 ],
                 syn_expr_roots: [
                     SynExprRoot {
-                        kind: SynExprRootKind::Traits,
+                        kind: SynExprRootKind::Trait,
                         syn_expr_idx: 1,
                     },
                     SynExprRoot {
@@ -2250,7 +2461,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 229,
+                                    value: 226,
                                 },
                             ),
                         ),
@@ -2262,16 +2473,53 @@
                     data: [
                         SemaExprEntry {
                             data_result: Ok(
+                                PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    path: MajorItem(
+                                        Trait(
+                                            TraitPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 32,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                    ty_path_disambiguation: InstanceConstructor,
+                                },
+                            ),
+                            ty_result: Ok(
+                                FluffyTerm {
+                                    place: None,
+                                    base: Ethereal(
+                                        EntityPath(
+                                            TypeOntology(
+                                                TypePath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 24,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                        SemaExprEntry {
+                            data_result: Ok(
                                 BoxColonList {
                                     lbox_regional_token_idx: RegionalTokenIdx(
-                                        12,
+                                        13,
                                     ),
                                     colon_regional_token_idx: RegionalTokenIdx(
-                                        13,
+                                        14,
                                     ),
                                     items: [],
                                     rbox_regional_token_idx: RegionalTokenIdx(
-                                        14,
+                                        15,
                                     ),
                                 },
                             ),
@@ -2296,12 +2544,12 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 115,
+                                                value: 106,
                                             },
                                         ),
                                     ),
                                     regional_token_idx: RegionalTokenIdx(
-                                        15,
+                                        16,
                                     ),
                                     current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: TemplateParameter {
@@ -2310,7 +2558,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 115,
+                                                            value: 106,
                                                         },
                                                     ),
                                                 ),
@@ -2341,10 +2589,10 @@
                             data_result: Ok(
                                 FunctionApplication {
                                     function_sema_expr_idx: SemaExprIdx(
-                                        1,
+                                        2,
                                     ),
                                     argument_sema_expr_idx: SemaExprIdx(
-                                        2,
+                                        3,
                                     ),
                                 },
                             ),
@@ -2372,7 +2620,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 50,
+                                                        value: 45,
                                                     },
                                                 ),
                                             ),
@@ -2405,7 +2653,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 50,
+                                                        value: 45,
                                                     },
                                                 ),
                                             ),
@@ -2438,7 +2686,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 50,
+                                                        value: 45,
                                                     },
                                                 ),
                                             ),
@@ -2472,16 +2720,16 @@
             ),
             sema_expr_roots: [
                 (
-                    4,
+                    1,
                     (
                         SemaExprIdx(
-                            3,
+                            1,
                         ),
-                        ExplicitParameterType,
+                        Trait,
                     ),
                 ),
                 (
-                    5,
+                    4,
                     (
                         SemaExprIdx(
                             4,
@@ -2490,7 +2738,7 @@
                     ),
                 ),
                 (
-                    6,
+                    5,
                     (
                         SemaExprIdx(
                             5,
@@ -2499,10 +2747,19 @@
                     ),
                 ),
                 (
-                    7,
+                    6,
                     (
                         SemaExprIdx(
                             6,
+                        ),
+                        ExplicitParameterType,
+                    ),
+                ),
+                (
+                    7,
+                    (
+                        SemaExprIdx(
+                            7,
                         ),
                         ReturnType,
                     ),
@@ -2532,11 +2789,11 @@
                             place: None,
                             base: Ethereal(
                                 EntityPath(
-                                    TypeOntology(
-                                        TypePath(
+                                    Trait(
+                                        TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 87,
+                                                    value: 32,
                                                 },
                                             ),
                                         ),
@@ -2554,11 +2811,15 @@
                         FluffyTerm {
                             place: None,
                             base: Ethereal(
-                                Symbol(
-                                    EtherealTermSymbol(
-                                        Id {
-                                            value: 5,
-                                        },
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 82,
+                                                },
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -2573,10 +2834,10 @@
                         FluffyTerm {
                             place: None,
                             base: Ethereal(
-                                Application(
-                                    EtherealTermApplication(
+                                Symbol(
+                                    EtherealTermSymbol(
                                         Id {
-                                            value: 45,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -2592,15 +2853,11 @@
                         FluffyTerm {
                             place: None,
                             base: Ethereal(
-                                EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 50,
-                                                },
-                                            ),
-                                        ),
+                                Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 41,
+                                        },
                                     ),
                                 ),
                             ),
@@ -2620,7 +2877,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 50,
+                                                    value: 45,
                                                 },
                                             ),
                                         ),
@@ -2643,7 +2900,30 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 50,
+                                                    value: 45,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+                (
+                    SemaExprIdx(
+                        7,
+                    ),
+                    Ok(
+                        FluffyTerm {
+                            place: None,
+                            base: Ethereal(
+                                EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 45,
                                                 },
                                             ),
                                         ),
@@ -2684,7 +2964,7 @@
                                         Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 45,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -2702,7 +2982,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 50,
+                                                            value: 45,
                                                         },
                                                     ),
                                                 ),
@@ -2722,7 +3002,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 50,
+                                                            value: 45,
                                                         },
                                                     ),
                                                 ),
@@ -2748,7 +3028,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -2777,15 +3057,44 @@
                     arena: Arena {
                         data: [
                             FluffyTermExpectationEntry {
+                                expectation: AnyOriginal(
+                                    ExpectAnyOriginal,
+                                ),
+                                meta: ExpectationState {
+                                    idx: 1,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 1,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Intact,
+                                },
+                            },
+                            FluffyTermExpectationEntry {
                                 expectation: EqsFunctionType(
                                     ExpectEqsFunctionType {
                                         final_destination: Sort,
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 1,
+                                    idx: 2,
                                     src: ExpectationSource {
-                                        expr_idx: 2,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2869,9 +3178,9 @@
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 2,
+                                    idx: 3,
                                     src: ExpectationSource {
-                                        expr_idx: 3,
+                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2898,46 +3207,9 @@
                                     },
                                 ),
                                 meta: ExpectationState {
-                                    idx: 3,
-                                    src: ExpectationSource {
-                                        expr_idx: 4,
-                                        kind: Expr,
-                                    },
-                                    expectee: FluffyTerm {
-                                        place: None,
-                                        base: Ethereal(
-                                            Category(
-                                                TermCategory {
-                                                    universe: TermUniverse(
-                                                        1,
-                                                    ),
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    resolve_progress: Resolved(
-                                        Ok(
-                                            EqsSort(
-                                                TermUniverse(
-                                                    1,
-                                                ),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                            },
-                            FluffyTermExpectationEntry {
-                                expectation: EqsSort(
-                                    ExpectEqsCategory {
-                                        smallest_universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                meta: ExpectationState {
                                     idx: 4,
                                     src: ExpectationSource {
-                                        expr_idx: 5,
+                                        syn_expr_idx: 4,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2974,7 +3246,7 @@
                                 meta: ExpectationState {
                                     idx: 5,
                                     src: ExpectationSource {
-                                        expr_idx: 6,
+                                        syn_expr_idx: 5,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -3011,7 +3283,44 @@
                                 meta: ExpectationState {
                                     idx: 6,
                                     src: ExpectationSource {
-                                        expr_idx: 7,
+                                        syn_expr_idx: 6,
+                                        kind: Expr,
+                                    },
+                                    expectee: FluffyTerm {
+                                        place: None,
+                                        base: Ethereal(
+                                            Category(
+                                                TermCategory {
+                                                    universe: TermUniverse(
+                                                        1,
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                    resolve_progress: Resolved(
+                                        Ok(
+                                            EqsSort(
+                                                TermUniverse(
+                                                    1,
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                            FluffyTermExpectationEntry {
+                                expectation: EqsSort(
+                                    ExpectEqsCategory {
+                                        smallest_universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                meta: ExpectationState {
+                                    idx: 7,
+                                    src: ExpectationSource {
+                                        syn_expr_idx: 7,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -3090,7 +3399,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [],
                 },
                 principal_item_path_expr_arena: Arena {
@@ -3139,7 +3448,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 230,
+                                    value: 227,
                                 },
                             ),
                         ),
@@ -3247,7 +3556,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [],
                 },
                 principal_item_path_expr_arena: Arena {
@@ -3296,7 +3605,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 231,
+                                    value: 228,
                                 },
                             ),
                         ),

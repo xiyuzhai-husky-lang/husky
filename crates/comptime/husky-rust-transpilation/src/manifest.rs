@@ -1,7 +1,13 @@
-use cargo_manifest::{Edition, Manifest, MaybeInherited, Package, Product, Resolver, Workspace};
+use cargo_manifest::{
+    Dependency, DependencyDetail, Edition, Manifest, MaybeInherited, Package, Product, Resolver,
+    Workspace,
+};
 use husky_vfs::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
 
-use crate::*;
+use crate::{
+    package::{rust_transpilation_packages, RustTranspilationPackageKind},
+    *,
+};
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct RustManifest(Manifest);
@@ -13,20 +19,45 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     db: &::salsa::Db,
     linktime_target_path: LinktimeTargetPath,
 ) -> String {
+    let rust_transpilation_packages = rust_transpilation_packages(db, linktime_target_path);
+    let members = rust_transpilation_packages
+        .iter()
+        .map(|package| package.relative_path_in_workspace(db))
+        .collect();
+    let dependencies = rust_transpilation_packages
+        .iter()
+        .map(|package| {
+            (
+                package.name(db),
+                Dependency::Detailed(DependencyDetail {
+                    version: None,
+                    registry: None,
+                    registry_index: None,
+                    path: Some(package.relative_path_in_workspace(db)),
+                    git: None,
+                    branch: None,
+                    tag: None,
+                    rev: None,
+                    features: None,
+                    optional: None,
+                    default_features: None,
+                    package: None,
+                }),
+            )
+        })
+        .collect();
     toml::to_string(&Manifest::<toml::Value> {
         package: None,
         cargo_features: None,
         workspace: Some(Workspace {
-            members: linktime_target_rust_workspace_members(db, linktime_target_path).clone(),
+            members,
             default_members: None,
             exclude: None,
             resolver: Some(Resolver::V2),
-            dependencies: None,
+            dependencies: Some(dependencies),
             package: None,
         }),
-        // ad hoc
         dependencies: None,
-        // ad hoc
         dev_dependencies: None,
         build_dependencies: None,
         target: None,
@@ -43,19 +74,19 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     .unwrap()
 }
 
-#[deprecated(note = "ad hoc")]
-#[salsa::tracked(jar = RustTranspilationJar, return_ref)]
-pub(crate) fn linktime_target_rust_workspace_members(
-    db: &::salsa::Db,
-    linktime_target_path: LinktimeTargetPath,
-) -> Vec<String> {
-    match linktime_target_path.data(db) {
-        LinktimeTargetPathData::Package(package_path) => {
-            vec![package_path.name(db).data(db).to_string()]
-        }
-        LinktimeTargetPathData::Workspace(_) => todo!(),
-    }
-}
+// #[deprecated(note = "ad hoc")]
+// #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
+// pub(crate) fn linktime_target_rust_workspace_members(
+//     db: &::salsa::Db,
+//     linktime_target_path: LinktimeTargetPath,
+// ) -> Vec<String> {
+//     match linktime_target_path.data(db) {
+//         LinktimeTargetPathData::Package(package_path) => {
+//             vec![package_path.name(db).data(db).to_string()]
+//         }
+//         LinktimeTargetPathData::Workspace(_) => todo!(),
+//     }
+// }
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub(crate) fn package_source_rust_package_manifest(

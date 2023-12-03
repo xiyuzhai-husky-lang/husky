@@ -43,7 +43,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [],
                 },
                 principal_item_path_expr_arena: Arena {
@@ -92,7 +92,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 81,
+                                    value: 78,
                                 },
                             ),
                         ),
@@ -159,7 +159,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 89,
+                                    value: 84,
                                 },
                             ),
                         ),
@@ -212,7 +212,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [],
                 },
                 principal_item_path_expr_arena: Arena {
@@ -261,7 +261,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 82,
+                                    value: 79,
                                 },
                             ),
                         ),
@@ -328,7 +328,7 @@
                         TypePath(
                             ItemPathId(
                                 Id {
-                                    value: 90,
+                                    value: 85,
                                 },
                             ),
                         ),

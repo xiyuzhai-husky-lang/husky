@@ -27,12 +27,6 @@ pub fn find_concave_components(line_segment_sketch: Leash<LineSegmentSketch>) ->
     return concave_components;
 }
 
-impl Visualize for ConcaveComponent {
-    fn visualize(self) -> Html {
-        self.strokes.visualize()
-    }
-}
-
 impl ConcaveComponent {
     pub fn norm(self) -> f32 {
         self.hausdorff_norm()

@@ -84,7 +84,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -284,7 +284,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -586,7 +586,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -888,7 +888,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -1153,7 +1153,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -1190,14 +1190,14 @@ SynNodeDeclSheet {
                                                                         parent_ty_path: TypePath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 338,
+                                                                                    value: 333,
                                                                                 },
                                                                             ),
                                                                         ),
                                                                         ident: Ident(
                                                                             Coword(
                                                                                 Id {
-                                                                                    value: 528,
+                                                                                    value: 521,
                                                                                 },
                                                                             ),
                                                                         ),
@@ -1285,14 +1285,14 @@ SynNodeDeclSheet {
                                                                         parent_ty_path: TypePath(
                                                                             ItemPathId(
                                                                                 Id {
-                                                                                    value: 338,
+                                                                                    value: 333,
                                                                                 },
                                                                             ),
                                                                         ),
                                                                         ident: Ident(
                                                                             Coword(
                                                                                 Id {
-                                                                                    value: 528,
+                                                                                    value: 521,
                                                                                 },
                                                                             ),
                                                                         ),

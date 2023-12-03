@@ -43,7 +43,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [],
                 },
                 principal_item_path_expr_arena: Arena {
@@ -121,7 +121,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 456,
+                                    value: 453,
                                 },
                             ),
                         ),
@@ -184,7 +184,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -218,7 +218,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 100,
+                            value: 96,
                         },
                     ),
                 ),
@@ -269,7 +269,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::CurrentSynSymbol {
                             ident: `Label`,
@@ -411,7 +411,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 457,
+                                    value: 454,
                                 },
                             ),
                         ),
@@ -427,7 +427,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 538,
                                             },
                                         ),
                                     ),
@@ -441,7 +441,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 545,
+                                                            value: 538,
                                                         },
                                                     ),
                                                 ),
@@ -505,7 +505,7 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 5,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -544,7 +544,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -568,7 +568,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -618,7 +618,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -654,7 +654,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 102,
+                            value: 98,
                         },
                     ),
                 ),
@@ -705,7 +705,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::CurrentSynSymbol {
                             ident: `Label`,
@@ -847,7 +847,7 @@
                         TypeSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 458,
+                                    value: 455,
                                 },
                             ),
                         ),
@@ -863,7 +863,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 538,
                                             },
                                         ),
                                     ),
@@ -877,7 +877,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 545,
+                                                            value: 538,
                                                         },
                                                     ),
                                                 ),
@@ -941,7 +941,7 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 5,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -980,7 +980,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -1004,7 +1004,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -1054,7 +1054,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -1090,7 +1090,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 104,
+                            value: 100,
                         },
                     ),
                 ),
@@ -1141,7 +1141,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::CurrentSynSymbol {
                             ident: `Label`,
@@ -1510,7 +1510,7 @@
                         FugitiveSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 459,
+                                    value: 456,
                                 },
                             ),
                         ),
@@ -1526,7 +1526,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 538,
                                             },
                                         ),
                                     ),
@@ -1540,7 +1540,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 545,
+                                                            value: 538,
                                                         },
                                                     ),
                                                 ),
@@ -1576,7 +1576,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 57,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -1609,7 +1609,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 47,
+                                                        value: 42,
                                                     },
                                                 ),
                                             ),
@@ -1655,7 +1655,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 47,
+                                                            value: 42,
                                                         },
                                                     ),
                                                 ),
@@ -1674,7 +1674,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 483,
+                                                        value: 478,
                                                     },
                                                 ),
                                             ),
@@ -1704,7 +1704,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 538,
                                             },
                                         ),
                                     ),
@@ -1718,7 +1718,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 545,
+                                                            value: 538,
                                                         },
                                                     ),
                                                 ),
@@ -1777,7 +1777,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 548,
+                                                value: 541,
                                             },
                                         ),
                                     ),
@@ -1791,7 +1791,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 548,
+                                                            value: 541,
                                                         },
                                                     ),
                                                 ),
@@ -1810,7 +1810,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -1923,7 +1923,7 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 5,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -1944,7 +1944,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 57,
+                                                    value: 52,
                                                 },
                                             ),
                                         ),
@@ -1967,7 +1967,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 47,
+                                                    value: 42,
                                                 },
                                             ),
                                         ),
@@ -1988,7 +1988,7 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 5,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -2009,7 +2009,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 483,
+                                                    value: 478,
                                                 },
                                             ),
                                         ),
@@ -2030,7 +2030,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 103,
+                                            value: 99,
                                         },
                                     ),
                                 ),
@@ -2068,7 +2068,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 104,
+                                            value: 100,
                                         },
                                     ),
                                 ),
@@ -2124,7 +2124,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -2142,7 +2142,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 57,
+                                                            value: 52,
                                                         },
                                                     ),
                                                 ),
@@ -2162,7 +2162,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 47,
+                                                            value: 42,
                                                         },
                                                     ),
                                                 ),
@@ -2188,7 +2188,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -2253,7 +2253,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2290,7 +2290,7 @@
                                 meta: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
-                                        expr_idx: 2,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2327,7 +2327,7 @@
                                 meta: ExpectationState {
                                     idx: 3,
                                     src: ExpectationSource {
-                                        expr_idx: 3,
+                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2365,7 +2365,7 @@
                                                         TypePath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 47,
+                                                                    value: 42,
                                                                 },
                                                             ),
                                                         ),
@@ -2378,7 +2378,7 @@
                                 meta: ExpectationState {
                                     idx: 4,
                                     src: ExpectationSource {
-                                        expr_idx: 4,
+                                        syn_expr_idx: 4,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2389,7 +2389,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 47,
+                                                                value: 42,
                                                             },
                                                         ),
                                                     ),
@@ -2417,7 +2417,7 @@
                                 meta: ExpectationState {
                                     idx: 5,
                                     src: ExpectationSource {
-                                        expr_idx: 5,
+                                        syn_expr_idx: 5,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2516,7 +2516,7 @@
                                 meta: ExpectationState {
                                     idx: 6,
                                     src: ExpectationSource {
-                                        expr_idx: 6,
+                                        syn_expr_idx: 6,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2543,7 +2543,7 @@
                                 meta: ExpectationState {
                                     idx: 7,
                                     src: ExpectationSource {
-                                        expr_idx: 7,
+                                        syn_expr_idx: 7,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2584,7 +2584,7 @@
                                                                 Symbol(
                                                                     EtherealTermSymbol(
                                                                         Id {
-                                                                            value: 5,
+                                                                            value: 8,
                                                                         },
                                                                     ),
                                                                 ),
@@ -2618,7 +2618,7 @@
                                                 Symbol(
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 5,
+                                                            value: 8,
                                                         },
                                                     ),
                                                 ),
@@ -2629,7 +2629,7 @@
                                 meta: ExpectationState {
                                     idx: 8,
                                     src: ExpectationSource {
-                                        expr_idx: 8,
+                                        syn_expr_idx: 8,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2638,7 +2638,7 @@
                                             Symbol(
                                                 EtherealTermSymbol(
                                                     Id {
-                                                        value: 5,
+                                                        value: 8,
                                                     },
                                                 ),
                                             ),
@@ -2658,7 +2658,7 @@
                                 meta: ExpectationState {
                                     idx: 9,
                                     src: ExpectationSource {
-                                        expr_idx: 9,
+                                        syn_expr_idx: 9,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -2749,7 +2749,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::CurrentSynSymbol {
                             ident: `Label`,
@@ -3084,7 +3084,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 460,
+                                    value: 457,
                                 },
                             ),
                         ),
@@ -3100,7 +3100,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 538,
                                             },
                                         ),
                                     ),
@@ -3114,7 +3114,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 545,
+                                                            value: 538,
                                                         },
                                                     ),
                                                 ),
@@ -3150,7 +3150,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 75,
+                                                        value: 70,
                                                     },
                                                 ),
                                             ),
@@ -3183,7 +3183,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 480,
+                                                        value: 475,
                                                     },
                                                 ),
                                             ),
@@ -3239,7 +3239,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 538,
                                             },
                                         ),
                                     ),
@@ -3253,7 +3253,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 545,
+                                                            value: 538,
                                                         },
                                                     ),
                                                 ),
@@ -3312,7 +3312,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 548,
+                                                value: 541,
                                             },
                                         ),
                                     ),
@@ -3326,7 +3326,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 548,
+                                                            value: 541,
                                                         },
                                                     ),
                                                 ),
@@ -3345,7 +3345,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -3392,7 +3392,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 477,
+                                                        value: 472,
                                                     },
                                                 ),
                                             ),
@@ -3422,7 +3422,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 538,
                                             },
                                         ),
                                     ),
@@ -3436,7 +3436,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 545,
+                                                            value: 538,
                                                         },
                                                     ),
                                                 ),
@@ -3544,7 +3544,7 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 5,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -3565,7 +3565,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 75,
+                                                    value: 70,
                                                 },
                                             ),
                                         ),
@@ -3588,7 +3588,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 480,
+                                                    value: 475,
                                                 },
                                             ),
                                         ),
@@ -3609,7 +3609,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 105,
+                                            value: 101,
                                         },
                                     ),
                                 ),
@@ -3628,7 +3628,7 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 5,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -3647,7 +3647,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 107,
+                                            value: 103,
                                         },
                                     ),
                                 ),
@@ -3685,7 +3685,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 109,
+                                            value: 105,
                                         },
                                     ),
                                 ),
@@ -3706,7 +3706,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 477,
+                                                    value: 472,
                                                 },
                                             ),
                                         ),
@@ -3727,7 +3727,7 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 5,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -3746,7 +3746,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 100,
+                                            value: 96,
                                         },
                                     ),
                                 ),
@@ -3785,7 +3785,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -3809,7 +3809,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -3859,7 +3859,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -3894,7 +3894,7 @@
                                 meta: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
-                                        expr_idx: 2,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -3988,7 +3988,7 @@
                                 meta: ExpectationState {
                                     idx: 3,
                                     src: ExpectationSource {
-                                        expr_idx: 3,
+                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -4015,7 +4015,7 @@
                                 meta: ExpectationState {
                                     idx: 4,
                                     src: ExpectationSource {
-                                        expr_idx: 4,
+                                        syn_expr_idx: 4,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -4101,7 +4101,7 @@
                                 meta: ExpectationState {
                                     idx: 5,
                                     src: ExpectationSource {
-                                        expr_idx: 5,
+                                        syn_expr_idx: 5,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -4128,7 +4128,7 @@
                                 meta: ExpectationState {
                                     idx: 6,
                                     src: ExpectationSource {
-                                        expr_idx: 6,
+                                        syn_expr_idx: 6,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -4222,7 +4222,7 @@
                                 meta: ExpectationState {
                                     idx: 7,
                                     src: ExpectationSource {
-                                        expr_idx: 7,
+                                        syn_expr_idx: 7,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -4231,7 +4231,7 @@
                                             Symbol(
                                                 EtherealTermSymbol(
                                                     Id {
-                                                        value: 5,
+                                                        value: 8,
                                                     },
                                                 ),
                                             ),
@@ -4247,7 +4247,7 @@
                                 meta: ExpectationState {
                                     idx: 8,
                                     src: ExpectationSource {
-                                        expr_idx: 8,
+                                        syn_expr_idx: 8,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -4278,7 +4278,7 @@
                                 meta: ExpectationState {
                                     idx: 9,
                                     src: ExpectationSource {
-                                        expr_idx: 9,
+                                        syn_expr_idx: 9,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -4364,7 +4364,7 @@
                                 meta: ExpectationState {
                                     idx: 10,
                                     src: ExpectationSource {
-                                        expr_idx: 10,
+                                        syn_expr_idx: 10,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -4393,7 +4393,7 @@
                                 meta: ExpectationState {
                                     idx: 11,
                                     src: ExpectationSource {
-                                        expr_idx: 11,
+                                        syn_expr_idx: 11,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -4429,7 +4429,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 100,
+                            value: 96,
                         },
                     ),
                 ),
@@ -4510,7 +4510,7 @@
                                     ),
                                 ),
                             ),
-                            expr_arena: Arena {
+                            syn_expr_arena: Arena {
                                 data: [
                                     SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
@@ -4880,7 +4880,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::Unit {
                             lpar_regional_token_idx: RegionalTokenIdx(
@@ -4966,7 +4966,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 462,
+                                    value: 459,
                                 },
                             ),
                         ),
@@ -5079,7 +5079,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -5103,7 +5103,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -5156,7 +5156,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -5192,7 +5192,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 100,
+                            value: 96,
                         },
                     ),
                 ),
@@ -5255,7 +5255,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::CurrentSynSymbol {
                             ident: `Label`,
@@ -5611,7 +5611,7 @@
                         TraitForTypeImplBlockSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 461,
+                                    value: 458,
                                 },
                             ),
                         ),
@@ -5627,7 +5627,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 538,
                                             },
                                         ),
                                     ),
@@ -5641,7 +5641,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 545,
+                                                            value: 538,
                                                         },
                                                     ),
                                                 ),
@@ -5677,7 +5677,7 @@
                                             TraitPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 75,
+                                                        value: 70,
                                                     },
                                                 ),
                                             ),
@@ -5710,7 +5710,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 483,
+                                                        value: 478,
                                                     },
                                                 ),
                                             ),
@@ -5766,7 +5766,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 538,
                                             },
                                         ),
                                     ),
@@ -5780,7 +5780,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 545,
+                                                            value: 538,
                                                         },
                                                     ),
                                                 ),
@@ -5839,7 +5839,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 548,
+                                                value: 541,
                                             },
                                         ),
                                     ),
@@ -5853,7 +5853,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 548,
+                                                            value: 541,
                                                         },
                                                     ),
                                                 ),
@@ -5872,7 +5872,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -5919,7 +5919,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 480,
+                                                        value: 475,
                                                     },
                                                 ),
                                             ),
@@ -5949,7 +5949,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 545,
+                                                value: 538,
                                             },
                                         ),
                                     ),
@@ -5963,7 +5963,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 545,
+                                                            value: 538,
                                                         },
                                                     ),
                                                 ),
@@ -6022,7 +6022,7 @@
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 548,
+                                                value: 541,
                                             },
                                         ),
                                     ),
@@ -6036,7 +6036,7 @@
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 548,
+                                                            value: 541,
                                                         },
                                                     ),
                                                 ),
@@ -6055,7 +6055,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -6144,7 +6144,7 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 5,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -6165,7 +6165,7 @@
                                         TraitPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 75,
+                                                    value: 70,
                                                 },
                                             ),
                                         ),
@@ -6188,7 +6188,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 483,
+                                                    value: 478,
                                                 },
                                             ),
                                         ),
@@ -6209,7 +6209,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 110,
+                                            value: 106,
                                         },
                                     ),
                                 ),
@@ -6228,7 +6228,7 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 5,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -6247,7 +6247,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 112,
+                                            value: 108,
                                         },
                                     ),
                                 ),
@@ -6285,7 +6285,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 114,
+                                            value: 110,
                                         },
                                     ),
                                 ),
@@ -6304,7 +6304,7 @@
                                 Symbol(
                                     EtherealTermSymbol(
                                         Id {
-                                            value: 5,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -6325,7 +6325,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 480,
+                                                    value: 475,
                                                 },
                                             ),
                                         ),
@@ -6346,7 +6346,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 101,
+                                            value: 97,
                                         },
                                     ),
                                 ),
@@ -6384,7 +6384,7 @@
                                 Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 102,
+                                            value: 98,
                                         },
                                     ),
                                 ),
@@ -6423,7 +6423,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -6447,7 +6447,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -6497,7 +6497,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -6532,7 +6532,7 @@
                                 meta: ExpectationState {
                                     idx: 2,
                                     src: ExpectationSource {
-                                        expr_idx: 2,
+                                        syn_expr_idx: 2,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -6626,7 +6626,7 @@
                                 meta: ExpectationState {
                                     idx: 3,
                                     src: ExpectationSource {
-                                        expr_idx: 3,
+                                        syn_expr_idx: 3,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -6653,7 +6653,7 @@
                                 meta: ExpectationState {
                                     idx: 4,
                                     src: ExpectationSource {
-                                        expr_idx: 4,
+                                        syn_expr_idx: 4,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -6739,7 +6739,7 @@
                                 meta: ExpectationState {
                                     idx: 5,
                                     src: ExpectationSource {
-                                        expr_idx: 5,
+                                        syn_expr_idx: 5,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -6766,7 +6766,7 @@
                                 meta: ExpectationState {
                                     idx: 6,
                                     src: ExpectationSource {
-                                        expr_idx: 6,
+                                        syn_expr_idx: 6,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -6860,7 +6860,7 @@
                                 meta: ExpectationState {
                                     idx: 7,
                                     src: ExpectationSource {
-                                        expr_idx: 7,
+                                        syn_expr_idx: 7,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -6869,7 +6869,7 @@
                                             Symbol(
                                                 EtherealTermSymbol(
                                                     Id {
-                                                        value: 5,
+                                                        value: 8,
                                                     },
                                                 ),
                                             ),
@@ -6885,7 +6885,7 @@
                                 meta: ExpectationState {
                                     idx: 8,
                                     src: ExpectationSource {
-                                        expr_idx: 8,
+                                        syn_expr_idx: 8,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -6916,7 +6916,7 @@
                                 meta: ExpectationState {
                                     idx: 9,
                                     src: ExpectationSource {
-                                        expr_idx: 9,
+                                        syn_expr_idx: 9,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -7015,7 +7015,7 @@
                                 meta: ExpectationState {
                                     idx: 10,
                                     src: ExpectationSource {
-                                        expr_idx: 10,
+                                        syn_expr_idx: 10,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -7042,7 +7042,7 @@
                                 meta: ExpectationState {
                                     idx: 11,
                                     src: ExpectationSource {
-                                        expr_idx: 11,
+                                        syn_expr_idx: 11,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -7083,7 +7083,7 @@
                                                                 Symbol(
                                                                     EtherealTermSymbol(
                                                                         Id {
-                                                                            value: 5,
+                                                                            value: 8,
                                                                         },
                                                                     ),
                                                                 ),
@@ -7117,7 +7117,7 @@
                                                 Symbol(
                                                     EtherealTermSymbol(
                                                         Id {
-                                                            value: 5,
+                                                            value: 8,
                                                         },
                                                     ),
                                                 ),
@@ -7128,7 +7128,7 @@
                                 meta: ExpectationState {
                                     idx: 12,
                                     src: ExpectationSource {
-                                        expr_idx: 12,
+                                        syn_expr_idx: 12,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -7137,7 +7137,7 @@
                                             Symbol(
                                                 EtherealTermSymbol(
                                                     Id {
-                                                        value: 5,
+                                                        value: 8,
                                                     },
                                                 ),
                                             ),
@@ -7157,7 +7157,7 @@
                                 meta: ExpectationState {
                                     idx: 13,
                                     src: ExpectationSource {
-                                        expr_idx: 13,
+                                        syn_expr_idx: 13,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -7193,7 +7193,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 102,
+                            value: 98,
                         },
                     ),
                 ),
@@ -7274,7 +7274,7 @@
                                     ),
                                 ),
                             ),
-                            expr_arena: Arena {
+                            syn_expr_arena: Arena {
                                 data: [
                                     SynExprData::CurrentSynSymbol {
                                         ident: `Label`,
@@ -7665,7 +7665,7 @@
                         ),
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         SynExprData::Unit {
                             lpar_regional_token_idx: RegionalTokenIdx(
@@ -7751,7 +7751,7 @@
                         TraitForTypeItemSynNodePath(
                             ItemSynNodePathId(
                                 Id {
-                                    value: 463,
+                                    value: 460,
                                 },
                             ),
                         ),
@@ -7864,7 +7864,7 @@
                                         Symbol(
                                             EtherealTermSymbol(
                                                 Id {
-                                                    value: 5,
+                                                    value: 8,
                                                 },
                                             ),
                                         ),
@@ -7888,7 +7888,7 @@
                                     Symbol(
                                         EtherealTermSymbol(
                                             Id {
-                                                value: 5,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -7941,7 +7941,7 @@
                                 meta: ExpectationState {
                                     idx: 1,
                                     src: ExpectationSource {
-                                        expr_idx: 1,
+                                        syn_expr_idx: 1,
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
@@ -7977,7 +7977,7 @@
                 Application(
                     EtherealTermApplication(
                         Id {
-                            value: 102,
+                            value: 98,
                         },
                     ),
                 ),

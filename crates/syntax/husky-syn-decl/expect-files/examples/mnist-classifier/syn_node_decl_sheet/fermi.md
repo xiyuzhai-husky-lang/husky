@@ -59,7 +59,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 248,
+                                                            value: 239,
                                                         },
                                                     ),
                                                 ),
@@ -83,7 +83,7 @@ SynNodeDeclSheet {
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 434,
+                                                            value: 427,
                                                         },
                                                     ),
                                                 ),
@@ -148,7 +148,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -318,7 +318,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 248,
+                                                                    value: 239,
                                                                 },
                                                             ),
                                                         ),
@@ -338,7 +338,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 434,
+                                                                    value: 427,
                                                                 },
                                                             ),
                                                         ),
@@ -530,7 +530,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::List {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
@@ -903,7 +903,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 375,
+                                                    value: 370,
                                                 },
                                             ),
                                         ),
@@ -925,7 +925,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 375,
+                                                        value: 370,
                                                     },
                                                 ),
                                             ),
@@ -968,7 +968,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 375,
+                                                                            value: 370,
                                                                         },
                                                                     ),
                                                                 ),
@@ -980,7 +980,7 @@ SynNodeDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [
                                         SynExprData::PrincipalEntityPath {
                                             path_expr_idx: 1,
@@ -1136,7 +1136,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 370,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1148,7 +1148,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -1243,7 +1243,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -1400,7 +1400,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 370,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1412,7 +1412,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -1507,7 +1507,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -1664,7 +1664,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 375,
+                                                                                            value: 370,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1676,7 +1676,7 @@ SynNodeDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -1771,7 +1771,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,

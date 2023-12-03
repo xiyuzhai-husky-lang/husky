@@ -23,7 +23,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                     symbol: 1,
-                                    data: TemplateParameterSyndicateData::Lifetime {
+                                    variant: TemplateParameterSyndicateVariant::Lifetime {
                                         label_token: LifetimeLabelRegionalToken {
                                             label: `'a`,
                                             token_idx: RegionalTokenIdx(
@@ -43,7 +43,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                     symbol: 2,
-                                    data: TemplateParameterSyndicateData::Type {
+                                    variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -77,7 +77,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -219,7 +219,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                     symbol: 1,
-                                    data: TemplateParameterSyndicateData::Lifetime {
+                                    variant: TemplateParameterSyndicateVariant::Lifetime {
                                         label_token: LifetimeLabelRegionalToken {
                                             label: `'a`,
                                             token_idx: RegionalTokenIdx(
@@ -239,7 +239,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                     symbol: 2,
-                                    data: TemplateParameterSyndicateData::Type {
+                                    variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -273,7 +273,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -415,7 +415,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                     symbol: 1,
-                                    data: TemplateParameterSyndicateData::Type {
+                                    variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -449,7 +449,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -548,7 +548,7 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterSyndicateData::Place {
+                                    variant: TemplateParameterSyndicateVariant::Place {
                                         label_token: PlaceLabelRegionalToken {
                                             label: `'α`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -560,7 +560,7 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
-                                    data: TemplateParameterSyndicateData::Type {
+                                    variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -594,7 +594,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -729,7 +729,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `E`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -741,7 +741,7 @@ SynDeclSheet {
                             },
                         ],
                         trai_expr: TraitSyndicate {
-                            expr: 1,
+                            syn_expr_idx: 1,
                         },
                         self_ty_decl: PathLeadingExpr(
                             SelfTypeSyndicate {
@@ -777,7 +777,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [
                                         SynExprData::PrincipalEntityPath {
                                             path_expr_idx: 1,

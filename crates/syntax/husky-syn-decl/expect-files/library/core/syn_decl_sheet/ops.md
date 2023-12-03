@@ -14,7 +14,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -48,7 +48,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -137,7 +137,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -171,7 +171,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -260,7 +260,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -294,7 +294,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -383,7 +383,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -417,7 +417,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -506,7 +506,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -540,7 +540,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -629,7 +629,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -663,7 +663,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -752,7 +752,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -786,7 +786,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -875,7 +875,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -909,7 +909,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -998,7 +998,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1032,7 +1032,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -1121,7 +1121,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1155,7 +1155,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -1264,7 +1264,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -1324,7 +1324,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1358,7 +1358,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -1447,7 +1447,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1481,7 +1481,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -1590,7 +1590,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -1670,7 +1670,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -1730,7 +1730,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `Rhs`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1764,7 +1764,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -1853,7 +1853,7 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                data: TemplateParameterSyndicateData::Type {
+                                variant: TemplateParameterSyndicateVariant::Type {
                                     ident_token: IdentRegionalToken {
                                         ident: `T`,
                                         regional_token_idx: RegionalTokenIdx(
@@ -1887,7 +1887,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -1977,7 +1977,7 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterSyndicateData::Type {
+                                    variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `R`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -1990,7 +1990,7 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 2,
-                                    data: TemplateParameterSyndicateData::Type {
+                                    variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `C`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -2024,7 +2024,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {

@@ -21,6 +21,26 @@ pub enum RustTranspilationPackageKind {
     Linkages,
 }
 
+impl RustTranspilationPackage {
+    pub(crate) fn name(self, db: &::salsa::Db) -> String {
+        match self.kind {
+            RustTranspilationPackageKind::Source => self.package_path.name(db).data(db).to_string(),
+            RustTranspilationPackageKind::Linkages => {
+                format!("{}-linkages", self.package_path.name(db).data(db))
+            }
+        }
+    }
+
+    pub(crate) fn relative_path_in_workspace(self, db: &::salsa::Db) -> String {
+        match self.kind {
+            RustTranspilationPackageKind::Source => self.package_path.name(db).data(db).to_string(),
+            RustTranspilationPackageKind::Linkages => {
+                format!("{}/linkages", self.package_path.name(db).data(db))
+            }
+        }
+    }
+}
+
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub(crate) fn rust_transpilation_packages(
     db: &::salsa::Db,

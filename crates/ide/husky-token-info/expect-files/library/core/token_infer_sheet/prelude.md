@@ -10,10 +10,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 3,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             0,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -31,10 +31,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 2,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             11,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -65,10 +65,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 6,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             1,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -86,10 +86,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 5,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             12,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -120,10 +120,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 9,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             2,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -141,10 +141,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 8,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             13,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -175,10 +175,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 12,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             3,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -196,10 +196,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 11,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             14,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -230,10 +230,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 15,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             4,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -251,10 +251,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 14,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             15,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -285,10 +285,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 18,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             5,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -306,10 +306,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 17,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             16,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -340,10 +340,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 21,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             6,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -361,10 +361,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 20,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             17,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -395,10 +395,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 24,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             7,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -416,10 +416,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 23,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             18,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -450,10 +450,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 27,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             8,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -471,10 +471,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 26,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             19,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -505,10 +505,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 30,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             9,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -526,10 +526,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 29,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             20,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(
@@ -560,10 +560,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 33,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             10,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::CrateRoot {
                                     root_module_path: `core`,
@@ -581,10 +581,10 @@ Ok(
                     ),
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 32,
-                        rule_idx: OnceUseRuleIdx(
+                        rule_idx: UseOneRuleIdx(
                             21,
                         ),
-                        state: OnceUseRuleState::Resolved {
+                        state: UseOneRuleState::Resolved {
                             original_symbol: Some(
                                 EntitySymbol::Submodule {
                                     submodule_item_path: SubmoduleItemPath(

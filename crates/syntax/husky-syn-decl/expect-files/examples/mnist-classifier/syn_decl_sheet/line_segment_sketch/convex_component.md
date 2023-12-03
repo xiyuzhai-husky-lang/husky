@@ -73,7 +73,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -239,7 +239,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 220,
+                                                                    value: 211,
                                                                 },
                                                             ),
                                                         ),
@@ -259,7 +259,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 399,
+                                                                    value: 392,
                                                                 },
                                                             ),
                                                         ),
@@ -340,7 +340,7 @@ SynDeclSheet {
                         },
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
-                            expr: 1,
+                            syn_expr_idx: 1,
                         },
                         self_ty_decl: PathLeadingExpr(
                             SelfTypeSyndicate {
@@ -376,7 +376,7 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                expr_arena: Arena {
+                                syn_expr_arena: Arena {
                                     data: [
                                         SynExprData::PrincipalEntityPath {
                                             path_expr_idx: 1,
@@ -576,7 +576,7 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -721,7 +721,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,

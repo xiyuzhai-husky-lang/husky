@@ -31,7 +31,7 @@
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 391,
+                                                value: 386,
                                             },
                                         ),
                                     ),
@@ -86,7 +86,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 391,
+                                                                                            value: 386,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -98,7 +98,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -193,7 +193,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -288,7 +288,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::SelfValue(
                                     RegionalTokenIdx(
@@ -456,7 +456,7 @@
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 391,
+                                                                                            value: 386,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -468,7 +468,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                expr_arena: Arena {
+                                                syn_expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 1,
@@ -563,7 +563,7 @@
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -746,7 +746,7 @@
                                 ),
                             ),
                         ),
-                        expr_arena: Arena {
+                        syn_expr_arena: Arena {
                             data: [
                                 SynExprData::SelfValue(
                                     RegionalTokenIdx(

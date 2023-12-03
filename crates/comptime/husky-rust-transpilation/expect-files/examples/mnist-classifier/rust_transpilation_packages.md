@@ -191,7 +191,7 @@
                 },
             },
         },
-        kind: Source,
+        kind: Linkages,
     },
     RustTranspilationPackage {
         target_path: LinktimeTargetPath {
@@ -295,6 +295,6 @@
                 },
             },
         },
-        kind: Source,
+        kind: Linkages,
     },
 ]

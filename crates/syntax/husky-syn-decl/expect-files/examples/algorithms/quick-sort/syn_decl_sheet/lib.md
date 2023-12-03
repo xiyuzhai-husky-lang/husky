@@ -15,7 +15,7 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterSyndicateData::Type {
+                                    variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `T`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -23,14 +23,17 @@ SynDeclSheet {
                                             ),
                                         },
                                         traits: Some(
-                                            (
-                                                ColonRegionalToken(
+                                            TraitsSyndicate {
+                                                colon_regional_token: ColonRegionalToken(
                                                     RegionalTokenIdx(
                                                         6,
                                                     ),
                                                 ),
-                                                1,
-                                            ),
+                                                traits_syn_expr_idx: 1,
+                                                trait_syn_expr_idxs: [
+                                                    1,
+                                                ],
+                                            },
                                         ),
                                     },
                                 },
@@ -45,7 +48,7 @@ SynDeclSheet {
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
-                                            12,
+                                            13,
                                         ),
                                     ),
                                     ty: 4,
@@ -75,7 +78,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -89,20 +92,20 @@ SynDeclSheet {
                                             },
                                             SynExprData::BoxColonList {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
-                                                    13,
+                                                    14,
                                                 ),
                                                 colon_regional_token_idx: RegionalTokenIdx(
-                                                    14,
+                                                    15,
                                                 ),
                                                 items: [],
                                                 rbox_regional_token_idx: RegionalTokenIdx(
-                                                    15,
+                                                    16,
                                                 ),
                                             },
                                             SynExprData::CurrentSynSymbol {
                                                 ident: `T`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    16,
+                                                    17,
                                                 ),
                                                 current_syn_symbol_idx: 1,
                                                 current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -149,10 +152,15 @@ SynDeclSheet {
                                             data: [
                                                 SynPatternExpr::Ident {
                                                     symbol_modifier_tokens: Some(
-                                                        Mut(
-                                                            MutRegionalToken {
+                                                        RefMut(
+                                                            RefRegionalToken {
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     10,
+                                                                ),
+                                                            },
+                                                            MutRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    11,
                                                                 ),
                                                             },
                                                         ),
@@ -160,7 +168,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `arr`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            11,
+                                                            12,
                                                         ),
                                                     },
                                                 },
@@ -168,7 +176,7 @@ SynDeclSheet {
                                         },
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
-                                                Move,
+                                                BorrowMut,
                                             ],
                                         },
                                         pattern_symbol_arena: Arena {
@@ -188,7 +196,7 @@ SynDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                Mut,
+                                                RefMut,
                                             ],
                                         },
                                     },
@@ -220,9 +228,9 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: Mut,
+                                                    modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
-                                                        12,
+                                                        13,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -262,7 +270,7 @@ SynDeclSheet {
                                     ],
                                     syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: SynExprRootKind::Traits,
+                                            kind: SynExprRootKind::Trait,
                                             syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
@@ -300,7 +308,7 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterSyndicateData::Type {
+                                    variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `T`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -308,14 +316,17 @@ SynDeclSheet {
                                             ),
                                         },
                                         traits: Some(
-                                            (
-                                                ColonRegionalToken(
+                                            TraitsSyndicate {
+                                                colon_regional_token: ColonRegionalToken(
                                                     RegionalTokenIdx(
                                                         5,
                                                     ),
                                                 ),
-                                                1,
-                                            ),
+                                                traits_syn_expr_idx: 1,
+                                                trait_syn_expr_idxs: [
+                                                    1,
+                                                ],
+                                            },
                                         ),
                                     },
                                 },
@@ -330,7 +341,7 @@ SynDeclSheet {
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
-                                            11,
+                                            12,
                                         ),
                                     ),
                                     ty: 4,
@@ -344,7 +355,7 @@ SynDeclSheet {
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
-                                            18,
+                                            19,
                                         ),
                                     ),
                                     ty: 5,
@@ -358,7 +369,7 @@ SynDeclSheet {
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
-                                            22,
+                                            23,
                                         ),
                                     ),
                                     ty: 6,
@@ -388,7 +399,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -402,20 +413,20 @@ SynDeclSheet {
                                             },
                                             SynExprData::BoxColonList {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
-                                                    12,
+                                                    13,
                                                 ),
                                                 colon_regional_token_idx: RegionalTokenIdx(
-                                                    13,
+                                                    14,
                                                 ),
                                                 items: [],
                                                 rbox_regional_token_idx: RegionalTokenIdx(
-                                                    14,
+                                                    15,
                                                 ),
                                             },
                                             SynExprData::CurrentSynSymbol {
                                                 ident: `T`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    15,
+                                                    16,
                                                 ),
                                                 current_syn_symbol_idx: 1,
                                                 current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -477,7 +488,7 @@ SynDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `isize`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            19,
+                                                            20,
                                                         ),
                                                     },
                                                 ),
@@ -492,7 +503,7 @@ SynDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `isize`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            23,
+                                                            24,
                                                         ),
                                                     },
                                                 ),
@@ -512,10 +523,15 @@ SynDeclSheet {
                                             data: [
                                                 SynPatternExpr::Ident {
                                                     symbol_modifier_tokens: Some(
-                                                        Mut(
-                                                            MutRegionalToken {
+                                                        RefMut(
+                                                            RefRegionalToken {
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     9,
+                                                                ),
+                                                            },
+                                                            MutRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    10,
                                                                 ),
                                                             },
                                                         ),
@@ -523,7 +539,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `arr`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            10,
+                                                            11,
                                                         ),
                                                     },
                                                 },
@@ -532,7 +548,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `low`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            17,
+                                                            18,
                                                         ),
                                                     },
                                                 },
@@ -541,7 +557,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `high`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            21,
+                                                            22,
                                                         ),
                                                     },
                                                 },
@@ -549,7 +565,7 @@ SynDeclSheet {
                                         },
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
-                                                Move,
+                                                BorrowMut,
                                                 None,
                                                 None,
                                             ],
@@ -589,7 +605,7 @@ SynDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                Mut,
+                                                RefMut,
                                                 None,
                                                 None,
                                             ],
@@ -623,9 +639,9 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: Mut,
+                                                    modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
-                                                        11,
+                                                        12,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -636,7 +652,7 @@ SynDeclSheet {
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
-                                                        18,
+                                                        19,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -647,7 +663,7 @@ SynDeclSheet {
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
-                                                        22,
+                                                        23,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -717,7 +733,7 @@ SynDeclSheet {
                                     ],
                                     syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: SynExprRootKind::Traits,
+                                            kind: SynExprRootKind::Trait,
                                             syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
@@ -771,7 +787,7 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    data: TemplateParameterSyndicateData::Type {
+                                    variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `T`,
                                             regional_token_idx: RegionalTokenIdx(
@@ -779,14 +795,17 @@ SynDeclSheet {
                                             ),
                                         },
                                         traits: Some(
-                                            (
-                                                ColonRegionalToken(
+                                            TraitsSyndicate {
+                                                colon_regional_token: ColonRegionalToken(
                                                     RegionalTokenIdx(
                                                         5,
                                                     ),
                                                 ),
-                                                1,
-                                            ),
+                                                traits_syn_expr_idx: 1,
+                                                trait_syn_expr_idxs: [
+                                                    1,
+                                                ],
+                                            },
                                         ),
                                     },
                                 },
@@ -801,7 +820,7 @@ SynDeclSheet {
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
-                                            11,
+                                            12,
                                         ),
                                     ),
                                     ty: 4,
@@ -815,7 +834,7 @@ SynDeclSheet {
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
-                                            18,
+                                            19,
                                         ),
                                     ),
                                     ty: 5,
@@ -829,7 +848,7 @@ SynDeclSheet {
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
-                                            22,
+                                            23,
                                         ),
                                     ),
                                     ty: 6,
@@ -863,7 +882,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
@@ -877,20 +896,20 @@ SynDeclSheet {
                                             },
                                             SynExprData::BoxColonList {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
-                                                    12,
+                                                    13,
                                                 ),
                                                 colon_regional_token_idx: RegionalTokenIdx(
-                                                    13,
+                                                    14,
                                                 ),
                                                 items: [],
                                                 rbox_regional_token_idx: RegionalTokenIdx(
-                                                    14,
+                                                    15,
                                                 ),
                                             },
                                             SynExprData::CurrentSynSymbol {
                                                 ident: `T`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    15,
+                                                    16,
                                                 ),
                                                 current_syn_symbol_idx: 1,
                                                 current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
@@ -962,7 +981,7 @@ SynDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `isize`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            19,
+                                                            20,
                                                         ),
                                                     },
                                                 ),
@@ -977,7 +996,7 @@ SynDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `isize`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            23,
+                                                            24,
                                                         ),
                                                     },
                                                 ),
@@ -992,7 +1011,7 @@ SynDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `isize`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            26,
+                                                            27,
                                                         ),
                                                     },
                                                 ),
@@ -1012,10 +1031,15 @@ SynDeclSheet {
                                             data: [
                                                 SynPatternExpr::Ident {
                                                     symbol_modifier_tokens: Some(
-                                                        Mut(
-                                                            MutRegionalToken {
+                                                        RefMut(
+                                                            RefRegionalToken {
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     9,
+                                                                ),
+                                                            },
+                                                            MutRegionalToken {
+                                                                regional_token_idx: RegionalTokenIdx(
+                                                                    10,
                                                                 ),
                                                             },
                                                         ),
@@ -1023,7 +1047,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `arr`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            10,
+                                                            11,
                                                         ),
                                                     },
                                                 },
@@ -1032,7 +1056,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `low`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            17,
+                                                            18,
                                                         ),
                                                     },
                                                 },
@@ -1041,7 +1065,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `high`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            21,
+                                                            22,
                                                         ),
                                                     },
                                                 },
@@ -1049,7 +1073,7 @@ SynDeclSheet {
                                         },
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
-                                                Move,
+                                                BorrowMut,
                                                 None,
                                                 None,
                                             ],
@@ -1089,7 +1113,7 @@ SynDeclSheet {
                                         ],
                                         pattern_symbol_modifiers: ArenaMap {
                                             data: [
-                                                Mut,
+                                                RefMut,
                                                 None,
                                                 None,
                                             ],
@@ -1123,9 +1147,9 @@ SynDeclSheet {
                                                     },
                                                 },
                                                 CurrentSynSymbol {
-                                                    modifier: Mut,
+                                                    modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
-                                                        11,
+                                                        12,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -1136,7 +1160,7 @@ SynDeclSheet {
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
-                                                        18,
+                                                        19,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -1147,7 +1171,7 @@ SynDeclSheet {
                                                 CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: RegionalTokenIdx(
-                                                        22,
+                                                        23,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentSynSymbolData::ParenateRegularParameter {
@@ -1217,7 +1241,7 @@ SynDeclSheet {
                                     ],
                                     syn_expr_roots: [
                                         SynExprRoot {
-                                            kind: SynExprRootKind::Traits,
+                                            kind: SynExprRootKind::Trait,
                                             syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
@@ -1297,7 +1321,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -1381,7 +1405,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    expr_arena: Arena {
+                                    syn_expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {

@@ -23,15 +23,15 @@ pub fn down_cc_pattern(cc: Leash<ConcaveComponent>) -> Option<f32> {
 }
 
 pub fn is_two() -> OneVsAll<MnistLabel> {
-    require!(matches!);
-    require!(matches!);
-    require!(matches!);
-    require!(matches!);
-    require!(matches!);
-    require!(matches!);
+    require!(let none = is_zero());
+    require!(let none = is_three());
+    require!(let none = is_seven());
+    require!(let none = is_one());
+    require!(let none = is_nine());
+    require!(let none = is_six());
     let cc_num = major_concave_components().ilen();
     let eff_holes = major_connected_component().eff_holes();
-    require!(matches!);
+    require!(let none = eff_holes.matches[1]);
     let left_cc = two_match().matches[0];
     let right_cc = two_match().matches[1];
     let down_cc = two_match().matches[2];
@@ -39,8 +39,8 @@ pub fn is_two() -> OneVsAll<MnistLabel> {
     let lower_excess = major_connected_component().lower_mass() - major_connected_component().upper_mass();
     require!(lower_excess > 10);
     if cc_num == 2 {
-        require!(matches!);
-        require!(matches!);
+        require!(let some = left_cc);
+        require!(let some = right_cc);
         let a = right_cc.unwrap().angle_change();
         require!(a > -180);
         let end_tan = left_cc.unwrap().end_tangent().angle(true);
@@ -55,9 +55,9 @@ pub fn is_two() -> OneVsAll<MnistLabel> {
         require!(left_mid_y >= right_mid_y);
     }
     if cc_num == 3 {
-        require!(matches!);
-        require!(matches!);
-        require!(matches!);
+        require!(let some = left_cc);
+        require!(let some = right_cc);
+        require!(let some = down_cc);
         require!(down_cc.unwrap().relative_bounding_box().ymin() < 0.4);
         let a = down_cc.unwrap().angle_change();
     }

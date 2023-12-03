@@ -1,3 +1,21 @@
 [workspace]
-members = ["mnist-classifier"]
+members = ["mnist-classifier", "mnist-classifier/linkages", "malamute", "malamute/linkages", "mnist", "mnist/linkages"]
 resolver = "2"
+
+[workspace.dependencies.malamute]
+path = "malamute"
+
+[workspace.dependencies.malamute-linkages]
+path = "malamute/linkages"
+
+[workspace.dependencies.mnist]
+path = "mnist"
+
+[workspace.dependencies.mnist-classifier]
+path = "mnist-classifier"
+
+[workspace.dependencies.mnist-classifier-linkages]
+path = "mnist-classifier/linkages"
+
+[workspace.dependencies.mnist-linkages]
+path = "mnist/linkages"

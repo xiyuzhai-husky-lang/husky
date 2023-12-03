@@ -1,0 +1,9 @@
+[workspace]
+members = ["mnist", "mnist/linkages"]
+resolver = "2"
+
+[workspace.dependencies.mnist]
+path = "mnist"
+
+[workspace.dependencies.mnist-linkages]
+path = "mnist/linkages"

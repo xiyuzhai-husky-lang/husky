@@ -1,0 +1,9 @@
+[workspace]
+members = ["malamute", "malamute/linkages"]
+resolver = "2"
+
+[workspace.dependencies.malamute]
+path = "malamute"
+
+[workspace.dependencies.malamute-linkages]
+path = "malamute/linkages"

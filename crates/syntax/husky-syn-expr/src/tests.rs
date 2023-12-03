@@ -61,7 +61,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Literal(
                             RegionalTokenIdx(
@@ -138,7 +138,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Literal(
                             RegionalTokenIdx(
@@ -222,7 +222,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Literal(
                             RegionalTokenIdx(
@@ -299,7 +299,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Literal(
                             RegionalTokenIdx(
@@ -376,7 +376,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Err(
                             Derived(
@@ -450,7 +450,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Literal(
                             RegionalTokenIdx(
@@ -547,7 +547,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         List {
                             lbox_regional_token_idx: RegionalTokenIdx(
@@ -643,7 +643,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Literal(
                             RegionalTokenIdx(
@@ -754,7 +754,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Err(
                             Original(
@@ -933,7 +933,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Err(
                             Original(
@@ -1034,7 +1034,7 @@ fn parse_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Err(
                             Original(
@@ -1148,7 +1148,7 @@ fn parse_application_expr_works() {
                         },
                     ),
                 ),
-                expr_arena: Arena {
+                syn_expr_arena: Arena {
                     data: [
                         Literal(
                             RegionalTokenIdx(

@@ -1,3 +1,9 @@
 [workspace]
-members = ["quick-sort"]
+members = ["quick-sort", "quick-sort/linkages"]
 resolver = "2"
+
+[workspace.dependencies.quick-sort]
+path = "quick-sort"
+
+[workspace.dependencies.quick-sort-linkages]
+path = "quick-sort/linkages"

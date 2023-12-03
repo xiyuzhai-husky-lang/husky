@@ -79,6 +79,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
@@ -98,27 +99,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::BoxColon,
@@ -129,6 +110,26 @@ Ok(
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
                             2,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -369,6 +370,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
@@ -388,27 +390,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::BoxColon,
@@ -419,6 +401,26 @@ Ok(
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
                             2,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -908,6 +910,7 @@ Ok(
             None,
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
@@ -927,27 +930,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::BoxColon,
@@ -958,6 +941,26 @@ Ok(
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
                             2,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
