@@ -1,13 +1,14 @@
-use cargo_manifest::{
-    Dependency, DependencyDetail, Edition, Manifest, MaybeInherited, Package, Product, Resolver,
-    Workspace,
-};
-use husky_vfs::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
-
 use crate::{
     package::{rust_transpilation_packages, RustTranspilationPackageKind},
     *,
 };
+use cargo_manifest::{
+    Dependency, DependencyDetail, Edition, Manifest, MaybeInherited, Package, Product, Resolver,
+    Workspace,
+};
+use husky_print_utils::p;
+use husky_vfs::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
+use pathdiff::diff_paths;
 
 #[derive(Debug, PartialEq)]
 pub(crate) struct RustManifest(Manifest);
@@ -24,28 +25,48 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
         .iter()
         .map(|package| package.relative_path_in_workspace(db))
         .collect();
-    let dependencies = rust_transpilation_packages
-        .iter()
-        .map(|package| {
-            (
-                package.name(db),
-                Dependency::Detailed(DependencyDetail {
-                    version: None,
-                    registry: None,
-                    registry_index: None,
-                    path: Some(package.relative_path_in_workspace(db)),
-                    git: None,
-                    branch: None,
-                    tag: None,
-                    rev: None,
-                    features: None,
-                    optional: None,
-                    default_features: None,
-                    package: None,
-                }),
-            )
-        })
-        .collect();
+    let toolchain = linktime_target_path.toolchain(db);
+    let rust_workspace_abs_dir = linktime_target_path.rust_workspace_abs_dir(db);
+    let library_abs_path = toolchain.library_abs_path(db);
+    let diffpath = diff_paths(&library_abs_path, &rust_workspace_abs_dir).unwrap();
+    let dependencies = [(
+        "husky-core".to_string(),
+        Dependency::Detailed(DependencyDetail {
+            version: None,
+            registry: None,
+            registry_index: None,
+            path: Some(diffpath.as_os_str().to_str().unwrap().to_string()),
+            git: None,
+            branch: None,
+            tag: None,
+            rev: None,
+            features: None,
+            optional: None,
+            default_features: None,
+            package: None,
+        }),
+    )]
+    .into_iter()
+    .chain(rust_transpilation_packages.iter().map(|package| {
+        (
+            package.name(db),
+            Dependency::Detailed(DependencyDetail {
+                version: None,
+                registry: None,
+                registry_index: None,
+                path: Some(package.relative_path_in_workspace(db)),
+                git: None,
+                branch: None,
+                tag: None,
+                rev: None,
+                features: None,
+                optional: None,
+                default_features: None,
+                package: None,
+            }),
+        )
+    }))
+    .collect();
     toml::to_string(&Manifest::<toml::Value> {
         package: None,
         cargo_features: None,
@@ -73,20 +94,6 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     })
     .unwrap()
 }
-
-// #[deprecated(note = "ad hoc")]
-// #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
-// pub(crate) fn linktime_target_rust_workspace_members(
-//     db: &::salsa::Db,
-//     linktime_target_path: LinktimeTargetPath,
-// ) -> Vec<String> {
-//     match linktime_target_path.data(db) {
-//         LinktimeTargetPathData::Package(package_path) => {
-//             vec![package_path.name(db).data(db).to_string()]
-//         }
-//         LinktimeTargetPathData::Workspace(_) => todo!(),
-//     }
-// }
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
 pub(crate) fn package_source_rust_package_manifest(

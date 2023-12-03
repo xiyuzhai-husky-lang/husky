@@ -2,6 +2,9 @@
 members = ["malamute", "malamute/linkages"]
 resolver = "2"
 
+[workspace.dependencies.husky-core]
+path = "../../../library"
+
 [workspace.dependencies.malamute]
 path = "malamute"
 

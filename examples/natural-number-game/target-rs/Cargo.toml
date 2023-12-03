@@ -2,6 +2,9 @@
 members = ["natural-number-game", "natural-number-game/linkages", "mnist", "mnist/linkages"]
 resolver = "2"
 
+[workspace.dependencies.husky-core]
+path = "../../../library"
+
 [workspace.dependencies.mnist]
 path = "mnist"
 
