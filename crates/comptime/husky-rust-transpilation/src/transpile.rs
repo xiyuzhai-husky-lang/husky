@@ -1,11 +1,8 @@
 use crate::{
     defn::module_defn_rust_transpilation,
     linkage::package_linkages_transpilation,
-    manifest::{linktime_target_rust_workspace_manifest, package_rust_package_manifest},
-    package::{
-        rust_transpilation_packages, RustTranspilationLibraryPackage,
-        RustTranspilationLocalPackage, RustTranspilationPackage, RustTranspilationRegistryPackage,
-    },
+    manifest::{linktime_target_rust_workspace_manifest, package_source_rust_package_manifest},
+    package::{rust_transpilation_packages, RustTranspilationPackage},
     *,
 };
 use husky_entity_syn_tree::helpers::paths::crate_module_paths;
@@ -34,36 +31,19 @@ impl TranspileToFsFull for LinktimeTargetPath {
 
 impl RustTranspilationPackage {
     pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
-        match self {
-            RustTranspilationPackage::Library(slf) => slf.transpile_to_fs(db),
-            RustTranspilationPackage::Registry(slf) => slf.transpile_to_fs(db),
-            RustTranspilationPackage::Local(slf) => slf.transpile_to_fs(db),
+        let rust_dir = self.target_path.rust_dir(db);
+        match self.kind {
+            package::RustTranspilationPackageKind::Source => {
+                transpile_package_source_to_fs(rust_dir, self.package_path, db)
+            }
+            package::RustTranspilationPackageKind::Linkages => {
+                transpile_package_linkages_to_fs(rust_dir, self.package_path, db)
+            }
         }
     }
 }
 
-impl RustTranspilationLibraryPackage {
-    pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
-        // ad hoc
-        Ok(())
-    }
-}
-
-impl RustTranspilationRegistryPackage {
-    pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
-        // ad hoc
-        Ok(())
-    }
-}
-
-impl RustTranspilationLocalPackage {
-    pub(crate) fn transpile_to_fs(&self, db: &::salsa::Db) -> IOResult<()> {
-        let rust_dir = self.target_path().rust_dir(db);
-        transpile_package_to_fs(rust_dir, self.package_path(), db)
-    }
-}
-
-fn transpile_package_to_fs(
+fn transpile_package_source_to_fs(
     rust_dir: &std::path::Path,
     package_path: PackagePath,
     db: &::salsa::Db,
@@ -73,12 +53,7 @@ fn transpile_package_to_fs(
     let cargo_toml_path = package_dir.join("Cargo.toml");
     husky_io_utils::diff_write(
         &cargo_toml_path,
-        package_rust_package_manifest(db, package_path),
-        true,
-    );
-    husky_io_utils::diff_write(
-        &src_dir.join("__linkages.rs"),
-        package_linkages_transpilation(db, package_path),
+        package_source_rust_package_manifest(db, package_path),
         true,
     );
     for &crate_path in package_path.crate_paths(db) {
@@ -90,5 +65,26 @@ fn transpile_package_to_fs(
             );
         }
     }
+    Ok(())
+}
+
+fn transpile_package_linkages_to_fs(
+    rust_dir: &std::path::Path,
+    package_path: PackagePath,
+    db: &::salsa::Db,
+) -> IOResult<()> {
+    let package_dir = rust_dir.join(format!("{}-linkages", package_path.name(db).data(db)));
+    let src_dir = package_dir.join("src");
+    let cargo_toml_path = package_dir.join("Cargo.toml");
+    husky_io_utils::diff_write(
+        &cargo_toml_path,
+        package_source_rust_package_manifest(db, package_path),
+        true,
+    );
+    husky_io_utils::diff_write(
+        &src_dir.join("lib.rs"),
+        package_linkages_transpilation(db, package_path),
+        true,
+    );
     Ok(())
 }

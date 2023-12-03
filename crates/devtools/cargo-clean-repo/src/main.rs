@@ -1,4 +1,6 @@
-use husky_path_utils::{clear_directory, collect_rust_package_dirs, find_paths};
+use husky_path_utils::{
+    clear_directory, collect_rust_package_dirs, find_dirs_ending_with, find_paths, Path,
+};
 use husky_print_utils::p;
 use std::path::PathBuf;
 
@@ -10,10 +12,17 @@ fn main() {
     assert!(PathBuf::from("husky-toolchain.toml").exists());
     assert!(PathBuf::from(".corgi/config.toml").exists());
     // remove_folder_in_tests("try/try");
-    clean_expect_files();
+    // clean_expect_files();
     // clean_library_adversarials();
     // clean_tests()
     // restructure()
+    clean_target_rs()
+}
+
+fn clean_target_rs() {
+    for dir in find_dirs_ending_with(Path::new("."), "target-rs") {
+        clear_directory(&dir).unwrap()
+    }
 }
 
 fn clean_expect_files() {

@@ -40,9 +40,27 @@ pub fn path_has_extension(path: &Path, extension: &str) -> bool {
     path.extension().map(|s| s.to_string_lossy()) == Some(extension.into())
 }
 
+/// find every paths
 pub fn find_paths(dir: &Path) -> Vec<PathBuf> {
     let mut paths: Vec<PathBuf> = vec![];
     find_paths_aux(dir, &mut paths, &|_path| true);
+    paths
+}
+
+/// find every dirs
+pub fn find_dirs(dir: &Path) -> Vec<PathBuf> {
+    let mut paths: Vec<PathBuf> = vec![];
+    find_paths_aux(dir, &mut paths, &|path| path.exists() && path.is_dir());
+    paths
+}
+
+/// find every dirs with name
+pub fn find_dirs_ending_with(dir: &Path, child: impl AsRef<Path>) -> Vec<PathBuf> {
+    let mut paths: Vec<PathBuf> = vec![];
+    let child = child.as_ref();
+    find_paths_aux(dir, &mut paths, &|path| {
+        path.exists() && path.is_dir() && path.ends_with(child)
+    });
     paths
 }
 

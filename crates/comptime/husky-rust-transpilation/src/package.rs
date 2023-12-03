@@ -7,63 +7,18 @@ use husky_vfs::{
 
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::debug_with_db(db = RustTranspilationDb, jar = RustTranspilationJar)]
-pub(crate) enum RustTranspilationPackage {
-    Library(RustTranspilationLibraryPackage),
-    Registry(RustTranspilationRegistryPackage),
-    Local(RustTranspilationLocalPackage),
+pub(crate) struct RustTranspilationPackage {
+    pub(crate) target_path: LinktimeTargetPath,
+    pub(crate) package_path: PackagePath,
+    pub(crate) kind: RustTranspilationPackageKind,
 }
 
-impl RustTranspilationPackage {
-    fn new(package_path: PackagePath, target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
-        match package_path.data(db) {
-            PackagePathSource::Library => {
-                RustTranspilationPackage::Library(RustTranspilationLibraryPackage { package_path })
-            }
-            PackagePathSource::Registry { .. } => {
-                RustTranspilationPackage::Registry(RustTranspilationRegistryPackage {
-                    package_path,
-                })
-            }
-            PackagePathSource::Local { .. } => {
-                RustTranspilationPackage::Local(RustTranspilationLocalPackage {
-                    target_path,
-                    package_path,
-                })
-            }
-            PackagePathSource::Git { .. } => todo!(),
-        }
-    }
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db(db = RustTranspilationDb, jar = RustTranspilationJar)]
-pub(crate) struct RustTranspilationLibraryPackage {
-    package_path: PackagePath,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db(db = RustTranspilationDb, jar = RustTranspilationJar)]
-pub(crate) struct RustTranspilationRegistryPackage {
-    package_path: PackagePath,
-}
-
-#[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::debug_with_db(db = RustTranspilationDb, jar = RustTranspilationJar)]
-pub(crate) struct RustTranspilationLocalPackage {
-    target_path: LinktimeTargetPath,
-    package_path: PackagePath,
-}
-
-impl RustTranspilationLocalPackage {
-    pub(crate) fn target_path(&self) -> LinktimeTargetPath {
-        self.target_path
-    }
-
-    pub(crate) fn package_path(&self) -> PackagePath {
-        self.package_path
-    }
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum RustTranspilationPackageKind {
+    Source,
+    Linkages,
 }
 
 #[salsa::tracked(jar = RustTranspilationJar, return_ref)]
@@ -73,13 +28,38 @@ pub(crate) fn rust_transpilation_packages(
 ) -> Vec<RustTranspilationPackage> {
     match target_path.data(db) {
         LinktimeTargetPathData::Package(package_path) => {
-            let mut packages = vec![RustTranspilationPackage::new(package_path, target_path, db)];
+            let mut packages = vec![
+                RustTranspilationPackage {
+                    target_path,
+                    package_path,
+                    kind: RustTranspilationPackageKind::Source,
+                },
+                RustTranspilationPackage {
+                    target_path,
+                    package_path,
+                    kind: RustTranspilationPackageKind::Linkages,
+                },
+            ];
             packages.extend(
                 package_path
                     .package_dependencies(db)
                     .expect("no error at this stage")
                     .iter()
-                    .map(|dep| RustTranspilationPackage::new(dep.package_path(), target_path, db)),
+                    .map(|dep| {
+                        [
+                            RustTranspilationPackage {
+                                target_path,
+                                package_path,
+                                kind: RustTranspilationPackageKind::Source,
+                            },
+                            RustTranspilationPackage {
+                                target_path,
+                                package_path,
+                                kind: RustTranspilationPackageKind::Source,
+                            },
+                        ]
+                    })
+                    .flatten(),
             );
             packages
         }

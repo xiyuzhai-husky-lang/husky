@@ -25,8 +25,7 @@ pub(crate) fn module_defn_rust_transpilation(db: &::salsa::Db, module_path: Modu
         match module_path.data(db) {
             ModulePathData::Root(_) => Some(
                 r#"\
-#[cfg(feature = "__linkages")]
-mod __linkages;
+use husky_core::*;
 "#,
             ),
             ModulePathData::Child { .. } => None,
