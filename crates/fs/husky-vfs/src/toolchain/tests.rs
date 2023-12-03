@@ -11,7 +11,7 @@ fn toolchain_debug_works() {
         Toolchain {
             data: ToolchainData::Local {
                 library_path: VirtualPath {
-                    _data: RelPathBuf(
+                    _data: VirtualPathBuf(
                         "../../../library",
                     ),
                 },

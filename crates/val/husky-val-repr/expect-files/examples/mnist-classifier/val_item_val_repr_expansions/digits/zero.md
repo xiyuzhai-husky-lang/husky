@@ -82,20 +82,6 @@
                     },
                     ValRepr {
                         val_domain_repr: Omni,
-                        opn: ValOpn::Be,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
@@ -395,26 +381,6 @@
                                 ValRepr(
                                     Id {
                                         value: 366,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 367,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Be,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 367,
                                     },
                                 ),
                             ),
@@ -758,14 +724,14 @@
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 328,
+                                                        value: 323,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 450,
+                                                        value: 443,
                                                     },
                                                 ),
                                             ),
@@ -1110,7 +1076,7 @@
                                 Ident(
                                     Coword(
                                         Id {
-                                            value: 453,
+                                            value: 446,
                                         },
                                     ),
                                 ),
@@ -1380,26 +1346,6 @@
                         caching_class: Stmt,
                     },
                     ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 404,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Be,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 404,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
                         val_domain_repr: Omni,
                         opn: ValOpn::ValItem(
                             FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -1507,26 +1453,6 @@
                                 ValRepr(
                                     Id {
                                         value: 409,
-                                    },
-                                ),
-                            ),
-                        ],
-                        caching_class: Stmt,
-                    },
-                    ValRepr {
-                        val_domain_repr: StmtNotReturned(
-                            ValRepr(
-                                Id {
-                                    value: 410,
-                                },
-                            ),
-                        ),
-                        opn: ValOpn::Be,
-                        arguments: [
-                            Ordinary(
-                                ValRepr(
-                                    Id {
-                                        value: 410,
                                     },
                                 ),
                             ),
@@ -2311,14 +2237,14 @@
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 328,
+                                                        value: 323,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 450,
+                                                        value: 443,
                                                     },
                                                 ),
                                             ),
@@ -2770,14 +2696,14 @@
                                             parent_ty_path: TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 328,
+                                                        value: 323,
                                                     },
                                                 ),
                                             ),
                                             ident: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 450,
+                                                        value: 443,
                                                     },
                                                 ),
                                             ),
