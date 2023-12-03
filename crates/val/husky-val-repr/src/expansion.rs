@@ -268,7 +268,20 @@ impl<'a> ValReprExpansionBuilder<'a> {
         val_domain_repr_guard: &mut ValDomainReprGuard<'a>,
         condition: &HirLazyCondition,
     ) -> ValRepr {
-        todo!()
+        match *condition {
+            HirLazyCondition::Be { src, ref target } => {
+                let opn = ValOpn::Be;
+                let arguments = smallvec![ValArgumentRepr::Ordinary(
+                    self.build_expr(val_domain_repr_guard, src)
+                )];
+                val_domain_repr_guard.new_expr_val_repr(
+                    opn,
+                    arguments,
+                    self.hir_lazy_expr_control_flow_region[src],
+                )
+            }
+            HirLazyCondition::Other(condition) => self.build_expr(val_domain_repr_guard, condition),
+        }
     }
 
     fn build_expr(
