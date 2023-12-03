@@ -28,14 +28,14 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     let toolchain = linktime_target_path.toolchain(db);
     let rust_workspace_abs_dir = linktime_target_path.rust_workspace_abs_dir(db);
     let library_abs_path = toolchain.library_abs_path(db);
-    let diffpath = diff_paths(&library_abs_path, &rust_workspace_abs_dir).unwrap();
+    let library_diffpath = diff_paths(&library_abs_path, &rust_workspace_abs_dir).unwrap();
     let dependencies = [(
         "husky-core".to_string(),
         Dependency::Detailed(DependencyDetail {
             version: None,
             registry: None,
             registry_index: None,
-            path: Some(diffpath.as_os_str().to_str().unwrap().to_string()),
+            path: Some(library_diffpath.as_os_str().to_str().unwrap().to_string()),
             git: None,
             branch: None,
             tag: None,
