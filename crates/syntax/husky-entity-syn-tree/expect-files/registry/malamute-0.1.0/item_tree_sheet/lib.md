@@ -206,7 +206,7 @@ EntitySynTreeSheet {
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                136,
+                                140,
                             ),
                         },
                         block: DefnBlock::Fugitive {
@@ -327,7 +327,7 @@ EntitySynTreeSheet {
                     ast_idx: 14,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            49,
+                            51,
                         ),
                     },
                     trai_expr: 3,
@@ -397,12 +397,12 @@ EntitySynTreeSheet {
                     ast_idx: 17,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            105,
+                            107,
                         ),
                     },
                     trai_expr: 7,
                     for_token: TokenIdx(
-                        124,
+                        128,
                     ),
                     ty_sketch_expr: Path(
                         8,
