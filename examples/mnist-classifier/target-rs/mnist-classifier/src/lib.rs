@@ -1,3 +1,5 @@
+use husky_core::*;
+
 pub mod connected_component;
 pub mod raw_contour;
 pub mod geom2d;

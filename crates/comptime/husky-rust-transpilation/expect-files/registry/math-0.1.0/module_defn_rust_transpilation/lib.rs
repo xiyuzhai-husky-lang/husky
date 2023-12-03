@@ -1,3 +1,5 @@
+use husky_core::*;
+
 pub mod algebra;
 pub mod algebraic_geometry;
 pub mod algebraic_topology;

@@ -24,8 +24,8 @@ pub(crate) fn module_defn_rust_transpilation(db: &::salsa::Db, module_path: Modu
         db,
         match module_path.data(db) {
             ModulePathData::Root(_) => Some(
-                r#"\
-use husky_core::*;
+                r#"use husky_core::*;
+
 "#,
             ),
             ModulePathData::Child { .. } => None,
