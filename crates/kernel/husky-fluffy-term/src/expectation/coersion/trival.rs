@@ -12,10 +12,10 @@ impl ExpectCoersion {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
-        resolve_aux(
+        try_finalize_coersion(
             state.expectee(),
             self.ty_expected,
-            |_, _| Some(Coersion::Trivial(PlaceCoersion::Todo)),
+            PlaceCoersion::Todo,
             db,
             terms,
             state,

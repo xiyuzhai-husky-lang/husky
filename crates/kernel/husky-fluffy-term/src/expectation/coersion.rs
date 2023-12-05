@@ -12,6 +12,7 @@ use self::trival::PlaceCoersion;
 
 use super::*;
 
+#[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Coersion {
     Trivial(PlaceCoersion),
@@ -164,17 +165,17 @@ impl ExpectFluffyTerm for ExpectCoersion {
 }
 
 // common auxiliary
-fn resolve_aux(
+fn try_finalize_coersion(
     src: FluffyTerm,
     dst: FluffyTerm,
-    coersion: impl Fn(Option<FluffyPlace>, Option<FluffyPlace>) -> Option<Coersion>,
+    coersion: impl Into<Coersion>,
     db: &::salsa::Db,
     terms: &FluffyTerms,
     state: &mut ExpectationState,
 ) -> AltOption<FluffyTermEffect> {
     let src_base_ty_data = src.base_ty_data_inner(db, terms);
     let dst_base_ty_data = dst.base_ty_data_inner(db, terms);
-    let coersion = coersion(src.place(), dst.place())?;
+    let coersion = coersion.into();
     if src_base_ty_data == dst_base_ty_data {
         return state.set_ok(coersion, smallvec![]);
     }
