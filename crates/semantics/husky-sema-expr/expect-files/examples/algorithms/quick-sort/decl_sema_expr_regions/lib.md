@@ -1013,8 +1013,8 @@
                     pattern_expr_contracts: ArenaMap {
                         data: [
                             BorrowMut,
-                            None,
-                            None,
+                            Pure,
+                            Pure,
                         ],
                     },
                     pattern_symbol_arena: Arena {
@@ -2249,8 +2249,8 @@
                     pattern_expr_contracts: ArenaMap {
                         data: [
                             BorrowMut,
-                            None,
-                            None,
+                            Pure,
+                            Pure,
                         ],
                     },
                     pattern_symbol_arena: Arena {

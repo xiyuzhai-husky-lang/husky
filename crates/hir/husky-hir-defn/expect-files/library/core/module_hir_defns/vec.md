@@ -930,7 +930,7 @@
                                                 data: [
                                                     HirRitchieParameter::Regular(
                                                         HirRitchieRegularParameter {
-                                                            contract: None,
+                                                            contract: Pure,
                                                             ty: HirType::Symbol(
                                                                 Type {
                                                                     attrs: HirSymbolAttrs,

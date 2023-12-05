@@ -51,7 +51,7 @@ impl<'a> FluffyTermData<'a> {
     pub fn show(&self, db: &::salsa::Db, terms: &FluffyTerms) -> String {
         use salsa::DisplayWithDb;
         match self {
-            FluffyTermData::Literal(_) => todo!(),
+            FluffyTermData::Literal(lit) => format!("{}", lit.display(db)),
             FluffyTermData::TypeOntology {
                 ty_path,
                 refined_ty_path,

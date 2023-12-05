@@ -35,7 +35,7 @@ impl TypeMethodFnDeclarativeSignatureTemplate {
             Some(self_value_parameter) => {
                 TermContract::new(self_value_parameter.ephem_symbol_modifier_token_group())
             }
-            None => TermContract::None,
+            None => TermContract::Pure,
         };
         let self_value_parameter = DeclarativeRitchieRegularParameter::new(contract, self_ty);
         let declarative_term_menu = db

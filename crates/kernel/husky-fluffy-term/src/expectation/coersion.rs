@@ -3,19 +3,19 @@
 mod deref;
 mod holed;
 mod never;
-mod place_to_prelude_indirection;
+mod reref;
 mod trival;
 mod wrap_in_some;
 
 use self::deref::DerefCoersion;
-use self::trival::PlaceCoersion;
+use self::trival::TrivialCoersion;
 
 use super::*;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Coersion {
-    Trivial(PlaceCoersion),
+    Trivial(TrivialCoersion),
     Never,
     Other,
     WrapInSome,
@@ -64,7 +64,7 @@ impl ExpectCoersion {
             _ => ty,
         };
         Self {
-            contract: TermContract::None,
+            contract: TermContract::Pure,
             ty_expected: ty,
         }
     }
@@ -72,7 +72,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_pure_unit(engine: &impl FluffyTermEngine) -> Self {
         Self {
-            contract: TermContract::None,
+            contract: TermContract::Pure,
             ty_expected: engine.term_menu().unit_ty_ontology().into(),
         }
     }
@@ -80,7 +80,7 @@ impl ExpectCoersion {
     #[inline(always)]
     pub fn new_pure_bool(engine: &impl FluffyTermEngine) -> Self {
         Self {
-            contract: TermContract::None,
+            contract: TermContract::Pure,
             ty_expected: engine.term_menu().bool_ty_ontology().into(),
         }
     }
@@ -148,7 +148,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
         self.resolve_never(db, terms, state)?;
         self.resolve_wrap_in_some(db, terms, state)?;
         self.resolve_deref(db, terms, state)?;
-        self.resolve_place_to_prelude_indirection(db, terms, state)?;
+        self.resolve_reref(db, terms, state)?;
         match state.resolve_progress() {
             ExpectationProgress::Intact => state.set_err(
                 OriginalFluffyTermExpectationError::ExpectedCoersion {
@@ -164,70 +164,94 @@ impl ExpectFluffyTerm for ExpectCoersion {
     }
 }
 
-// common auxiliary
-fn try_finalize_coersion(
-    src: FluffyTerm,
-    dst: FluffyTerm,
-    coersion: impl Into<Coersion>,
-    db: &::salsa::Db,
-    terms: &FluffyTerms,
-    state: &mut ExpectationState,
-) -> AltOption<FluffyTermEffect> {
-    let src_base_ty_data = src.base_ty_data_inner(db, terms);
-    let dst_base_ty_data = dst.base_ty_data_inner(db, terms);
-    let coersion = coersion.into();
-    if src_base_ty_data == dst_base_ty_data {
-        return state.set_ok(coersion, smallvec![]);
+impl ExpectCoersion {
+    fn try_finalize_coersion(
+        &self,
+        src: FluffyTerm,
+        dst: FluffyTerm,
+        coersion: impl Into<Coersion>,
+        net_place_after_coersion: FluffyPlace,
+        db: &::salsa::Db,
+        terms: &FluffyTerms,
+        state: &mut ExpectationState,
+    ) -> AltOption<FluffyTermEffect> {
+        Self::try_finalize_coersion_aux(
+            src,
+            dst,
+            net_place_after_coersion
+                .bind(self.contract)
+                .map(|()| coersion.into())
+                .map_err(Into::into),
+            db,
+            terms,
+            state,
+        )
     }
-    match src_base_ty_data {
-        FluffyBaseTypeData::TypeOntology {
-            ty_path: src_ty_path,
-            ty_arguments: src_ty_arguments,
-            ..
-        } => match dst_base_ty_data {
+
+    fn try_finalize_coersion_aux(
+        src: FluffyTerm,
+        dst: FluffyTerm,
+        coersion_result: FluffyTermExpectationResult<Coersion>,
+        db: &::salsa::Db,
+        terms: &FluffyTerms,
+        state: &mut ExpectationState,
+    ) -> AltOption<FluffyTermEffect> {
+        let src_base_ty_data = src.base_ty_data_inner(db, terms);
+        let dst_base_ty_data = dst.base_ty_data_inner(db, terms);
+        let coersion = coersion_result.into();
+        if src_base_ty_data == dst_base_ty_data {
+            return state.set_result(coersion, smallvec![]);
+        }
+        match src_base_ty_data {
             FluffyBaseTypeData::TypeOntology {
-                ty_path: dst_ty_path,
-                refined_ty_path,
-                ty_arguments: dst_ty_arguments,
-                ty_ethereal_term,
-            } if dst_ty_path == src_ty_path => {
-                if dst_ty_arguments.len() != src_ty_arguments.len() {
-                    // p!(state.expectee().debug(db), self.ty_expected().debug(db));
-                    todo!()
-                }
-                let mut actions = smallvec![];
-                for (src_argument_ty, dst_argument_ty) in std::iter::zip(
-                    src_ty_arguments.iter().copied(),
-                    dst_ty_arguments.iter().copied(),
-                ) {
-                    if src_argument_ty != dst_argument_ty {
-                        // todo: check variance
-                        actions.push(FluffyTermResolveAction::AddExpectation {
-                            src: state.child_src(),
-                            expectee: src_argument_ty,
-                            expectation: ExpectSubtype::new(dst_argument_ty).into(),
-                        })
+                ty_path: src_ty_path,
+                ty_arguments: src_ty_arguments,
+                ..
+            } => match dst_base_ty_data {
+                FluffyBaseTypeData::TypeOntology {
+                    ty_path: dst_ty_path,
+                    refined_ty_path,
+                    ty_arguments: dst_ty_arguments,
+                    ty_ethereal_term,
+                } if dst_ty_path == src_ty_path => {
+                    if dst_ty_arguments.len() != src_ty_arguments.len() {
+                        // p!(state.expectee().debug(db), self.ty_expected().debug(db));
+                        todo!()
                     }
+                    let mut actions = smallvec![];
+                    for (src_argument_ty, dst_argument_ty) in std::iter::zip(
+                        src_ty_arguments.iter().copied(),
+                        dst_ty_arguments.iter().copied(),
+                    ) {
+                        if src_argument_ty != dst_argument_ty {
+                            // todo: check variance
+                            actions.push(FluffyTermResolveAction::AddExpectation {
+                                src: state.child_src(),
+                                expectee: src_argument_ty,
+                                expectation: ExpectSubtype::new(dst_argument_ty).into(),
+                            })
+                        }
+                    }
+                    state.set_result(coersion, actions)
                 }
-                state.set_ok(coersion, actions)
-            }
-            _ => AltNone,
-        },
-        FluffyBaseTypeData::Curry {
-            curry_kind,
-            variance,
-            parameter_variable,
-            parameter_ty,
-            return_ty,
-            ty_ethereal_term,
-        } => todo!(),
-        FluffyBaseTypeData::Hole(_, _) => AltNone,
-        FluffyBaseTypeData::Category(_) => todo!(),
-        FluffyBaseTypeData::Ritchie {
-            ritchie_kind,
-            parameter_contracted_tys,
-            return_ty,
-        } => todo!(),
-        FluffyBaseTypeData::Symbol { term } => todo!(),
+                _ => AltNone,
+            },
+            FluffyBaseTypeData::Curry {
+                curry_kind,
+                variance,
+                parameter_variable,
+                parameter_ty,
+                return_ty,
+                ty_ethereal_term,
+            } => todo!(),
+            FluffyBaseTypeData::Hole(_, _) => AltNone,
+            FluffyBaseTypeData::Category(_) => todo!(),
+            FluffyBaseTypeData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => todo!(),
+            FluffyBaseTypeData::Symbol { term } => todo!(),
+        }
     }
 }

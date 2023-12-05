@@ -346,7 +346,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -625,7 +627,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -644,7 +648,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),
@@ -1000,7 +1004,9 @@
                             ),
                             ty_result: Ok(
                                 FluffyTerm {
-                                    place: None,
+                                    place: Some(
+                                        Const,
+                                    ),
                                     base: Ethereal(
                                         EntityPath(
                                             TypeOntology(
@@ -1279,7 +1285,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FluffyTerm {
-                                        place: None,
+                                        place: Some(
+                                            Const,
+                                        ),
                                         base: Ethereal(
                                             EntityPath(
                                                 TypeOntology(
@@ -1298,7 +1306,7 @@
                                         Ok(
                                             ImplicitlyConvertible(
                                                 Trivial(
-                                                    Todo,
+                                                    TrivialCoersion,
                                                 ),
                                             ),
                                         ),

@@ -73,14 +73,14 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [
                                     DeclarativeRitchieParameter::Regular(
                                         DeclarativeRitchieRegularParameter {
-                                            contract: None,
+                                            contract: Pure,
                                             ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
@@ -116,7 +116,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -152,7 +152,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -188,7 +188,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {
@@ -224,7 +224,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {

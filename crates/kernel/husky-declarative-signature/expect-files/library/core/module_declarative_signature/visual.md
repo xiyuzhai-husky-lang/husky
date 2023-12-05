@@ -134,7 +134,7 @@
                                 data: [],
                             },
                             self_value_parameter: DeclarativeRitchieRegularParameter {
-                                contract: None,
+                                contract: Pure,
                                 ty: DeclarativeTerm(`t`),
                             },
                             parenate_parameters: DeclarativeParenateParameters {

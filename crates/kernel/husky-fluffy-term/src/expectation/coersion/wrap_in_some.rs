@@ -8,7 +8,6 @@ impl ExpectCoersion {
         state: &mut ExpectationState,
     ) -> AltOption<FluffyTermEffect> {
         let expected_base_ty_data = self.ty_expected.base_ty_data_inner(db, terms);
-        // todo: check contract
         match expected_base_ty_data {
             FluffyBaseTypeData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::Option),
@@ -16,11 +15,11 @@ impl ExpectCoersion {
                 ..
             } => {
                 debug_assert_eq!(expected_ty_arguments.len(), 1);
-                // todo: check expected_ty_argument_place
-                try_finalize_coersion(
+                self.try_finalize_coersion(
                     state.expectee(),
                     expected_ty_arguments[0],
                     Coersion::WrapInSome,
+                    FluffyPlace::Transient,
                     db,
                     terms,
                     state,

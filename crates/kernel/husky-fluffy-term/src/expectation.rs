@@ -205,6 +205,12 @@ pub enum FluffyTermExpectationError {
 
 pub type FluffyTermExpectationResult<T> = Result<T, FluffyTermExpectationError>;
 
+impl From<FluffyPlaceError> for FluffyTermExpectationError {
+    fn from(e: FluffyPlaceError) -> Self {
+        FluffyTermExpectationError::Original(e.into())
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub enum OriginalFluffyTermExpectationError {
@@ -235,6 +241,8 @@ pub enum OriginalFluffyTermExpectationError {
         contract: TermContract,
         expected: FluffyTerm,
     },
+    #[error("place")]
+    Place(#[from] FluffyPlaceError),
     #[error("todo")]
     Todo,
 }

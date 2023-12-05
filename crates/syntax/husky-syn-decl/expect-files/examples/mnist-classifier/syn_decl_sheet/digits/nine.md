@@ -623,7 +623,7 @@ SynDeclSheet {
                                         },
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                         pattern_symbol_arena: Arena {
@@ -860,7 +860,7 @@ SynDeclSheet {
                                         },
                                         pattern_expr_contracts: ArenaMap {
                                             data: [
-                                                None,
+                                                Pure,
                                             ],
                                         },
                                         pattern_symbol_arena: Arena {
